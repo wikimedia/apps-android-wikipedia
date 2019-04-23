@@ -2,6 +2,7 @@
 <!-- Authors:
 * Juan Cuartas
 * KuboF
+* Luis Miguel Obando
 * Macofe
 * Marcellus
 * Ochilov
@@ -480,6 +481,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideale unu linio, inter du kaj dek du vortoj</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ekredakti</string>
   <string name="description_edit_tutorial_promise">Ekante, mi promesas ne misuzi ĉi tiun eblon</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vi liberigis la \"Traduki priskriban\" taskon</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Vi liberigis \"Aldoni priskribojn\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Vi liberigis \"Traduki priskribojn\"</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="onboarding_skip">Preterlasi</string>

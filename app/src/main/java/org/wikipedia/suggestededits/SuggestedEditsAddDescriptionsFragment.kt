@@ -14,6 +14,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.ViewPager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -21,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_add_title_descriptions.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -52,8 +55,12 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-
-            return if (source == EDIT_FEED_TITLE_DESC) titleFromPageName(f?.title, f?.addedDescription) else f?.targetPageTitle
+            return if (source == EDIT_FEED_TITLE_DESC) {
+                titleFromPageName(f?.title, f?.addedDescription)
+            } else {
+                f?.targetPageTitle?.description = f?.addedDescription
+                f?.targetPageTitle
+            }
         }
 
     private val topChild: SuggestedEditsAddDescriptionsItemFragment?
@@ -175,7 +182,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, true, topChild!!.sourceDescription, langFromCode, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.sourceSummary, topChild!!.targetSummary, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
@@ -221,7 +228,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
+                && source == EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
     }
 
     private fun updateFromLanguageSpinner() {
@@ -273,7 +280,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         }
     }
 
-    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): androidx.fragment.app.FragmentStatePagerAdapter(activity.supportFragmentManager) {
+    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): FragmentStatePagerAdapter(activity.supportFragmentManager) {
 
         override fun getCount(): Int {
             return Integer.MAX_VALUE
@@ -286,7 +293,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         }
     }
 
-    private inner class ViewPagerListener : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
+    private inner class ViewPagerListener : ViewPager.OnPageChangeListener {
         private var prevPosition: Int = 0
         private var nextPageSelectedAutomatic: Boolean = false
 

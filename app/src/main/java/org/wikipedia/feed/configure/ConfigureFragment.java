@@ -168,7 +168,12 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         List<String> appLanguages = WikipediaApp.getInstance().language().getAppLanguageCodes();
         Iterator<FeedContentType> i = orderedContentTypes.iterator();
         while (i.hasNext()) {
-            List<String> supportedLanguages = i.next().getLangCodesSupported();
+            FeedContentType feedContentType = i.next();
+            if (!feedContentType.showInConfig()) {
+                i.remove();
+                continue;
+            }
+            List<String> supportedLanguages = feedContentType.getLangCodesSupported();
             if (supportedLanguages.isEmpty()) {
                 continue;
             }

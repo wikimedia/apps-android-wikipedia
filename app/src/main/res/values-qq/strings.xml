@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Amire80
 * Anders Feder
 * Bencemac
@@ -210,7 +211,6 @@
   <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
-  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.\n{{Identical|Translator}}</string>
@@ -583,6 +583,7 @@
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
   <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
+  <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
   <string name="feed_configure_onboarding_action">Button label for onboarding card that introduces the customization of the Explore feed.</string>
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
@@ -624,12 +625,12 @@
   <string name="suggested_edits_translated_by_you">A label shows that the current article description was translated by the user.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate descriptions“ task has been unlocked. \"Translate descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits task translation title}}.</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Message text of the dialog shown to user that the “Add descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_dialog_no">Negative action button text for the dialog action that goes to the suggested edits screen.</string>
   <string name="suggested_edits_unlock_dialog_yes">Positive action button text for the dialog action that goes to the suggested edits screen</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Title text of the notification bar shown to user that the “Add descriptions“ task has been unlocked.</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Title text of the notification bar shown to user that the “Translate descriptions“ task has been unlocked.</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Title text of the notification bar shown to user that the “Add descriptions“ task has been unlocked. \"Add descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits add descriptions}}.</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Title text of the notification bar shown to user that the “Translate descriptions“ task has been unlocked. \"Translate descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits task translation title}}.</string>
   <string name="suggested_edits_unlock_notification_text">Short text of the notification bar shown to user that the subject of this notification</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Short text\n\nLong text of the notification bar shown to user that the detail of this notification</string>
@@ -655,6 +656,7 @@
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
@@ -735,4 +737,5 @@
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
+  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
 </resources>

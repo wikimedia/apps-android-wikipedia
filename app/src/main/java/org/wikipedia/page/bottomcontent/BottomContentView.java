@@ -32,7 +32,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -60,6 +59,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.InvokeSource.READ_MORE_BOOKMARK_BUTTON;
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -450,12 +450,12 @@ public class BottomContentView extends LinearLayoutOverWebView
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(pageInList -> {
                         if (!pageInList) {
-                            parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                            parentFragment.addToReadingList(pageTitle, READ_MORE_BOOKMARK_BUTTON);
                         } else {
                             new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
                                 @Override
                                 public void onAddRequest(@Nullable ReadingListPage page) {
-                                    parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
+                                    parentFragment.addToReadingList(pageTitle, READ_MORE_BOOKMARK_BUTTON);
                                 }
 
                                 @Override

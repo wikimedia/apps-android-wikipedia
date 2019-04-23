@@ -45,6 +45,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
+
 public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements ItemTouchHelperSwipeAdapter.SwipeableView, OnThisDayActionsDialog.Callback {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
@@ -92,9 +94,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     @Override
     public void onAddPageToList(@NonNull HistoryEntry entry) {
-        bottomSheetPresenter.show(((AppCompatActivity)getContext()).getSupportFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.ON_THIS_DAY_ACTIVITY));
+        bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
+                AddToReadingListDialog.newInstance(entry.getTitle(), ON_THIS_DAY_ACTIVITY));
     }
 
     @Override
