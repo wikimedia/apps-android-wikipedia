@@ -4,13 +4,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.database.column.Column;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-
-import androidx.annotation.NonNull;
 
 public final class DbUtil {
     public static String namesCsv(Column<?>... cols) {

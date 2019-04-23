@@ -2,14 +2,14 @@ package org.wikipedia.analytics;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 public class SuggestedPagesFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppArticleSuggestions";

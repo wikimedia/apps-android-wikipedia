@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.LinearLayout;
 
-import org.wikipedia.util.DimenUtil;
-
 import androidx.annotation.NonNull;
+
+import org.wikipedia.util.DimenUtil;
 
 public class LinearLayoutOverWebView extends LinearLayout {
     private ObservableWebView webView;

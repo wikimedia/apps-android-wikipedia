@@ -3,10 +3,10 @@ package org.wikipedia.readinglist;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.readinglist.database.ReadingList;
-
-import androidx.annotation.NonNull;
 
 public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragment> {
     protected static final String EXTRA_READING_LIST_ID = "readingListId";

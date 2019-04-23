@@ -6,11 +6,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+
+import org.wikipedia.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

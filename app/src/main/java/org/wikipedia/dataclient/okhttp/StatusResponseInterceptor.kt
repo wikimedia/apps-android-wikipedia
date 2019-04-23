@@ -1,14 +1,12 @@
 package org.wikipedia.dataclient.okhttp
 
 import androidx.annotation.NonNull
-import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil
-import org.wikipedia.settings.RbSwitch
-
-import java.io.IOException
-
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.Response
+import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil
+import org.wikipedia.settings.RbSwitch
+import java.io.IOException
 
 class StatusResponseInterceptor(private val cb: RbSwitch) : Interceptor {
 

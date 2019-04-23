@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import org.wikipedia.R;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.views.ViewAnimations;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.showSoftKeyboard;

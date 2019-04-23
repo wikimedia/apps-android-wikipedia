@@ -1,9 +1,9 @@
 package org.wikipedia.json;
 
-import com.google.gson.Gson;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.gson.Gson;
 
 public final class GsonMarshaller {
     public static String marshal(@Nullable Object object) {

@@ -8,6 +8,12 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.media.FaceDetector;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.palette.graphics.Palette;
+
 import com.facebook.imagepipeline.request.BasePostprocessor;
 
 import org.wikipedia.R;
@@ -17,12 +23,6 @@ import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
 import java.lang.ref.WeakReference;
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.palette.graphics.Palette;
 
 public class FacePostprocessor extends BasePostprocessor {
     private static final int BITMAP_COPY_WIDTH = 200;

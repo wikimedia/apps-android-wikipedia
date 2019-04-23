@@ -1,10 +1,10 @@
 package org.wikipedia.search;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-
-import androidx.annotation.Nullable;
 
 public class PrefixSearchResponse extends MwQueryResponse {
     @SuppressWarnings("unused") @SerializedName("searchinfo") private SearchInfo searchInfo;

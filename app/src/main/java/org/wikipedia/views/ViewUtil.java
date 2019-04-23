@@ -15,6 +15,10 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -22,10 +26,6 @@ import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.view.ActionMode;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 

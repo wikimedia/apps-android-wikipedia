@@ -5,12 +5,13 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
-import org.wikipedia.R;
-import org.wikipedia.util.DeviceUtil;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.ActionProvider;
+
+import org.wikipedia.R;
+import org.wikipedia.util.DeviceUtil;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

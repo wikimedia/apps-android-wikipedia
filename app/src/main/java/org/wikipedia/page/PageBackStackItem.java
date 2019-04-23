@@ -1,9 +1,9 @@
 package org.wikipedia.page;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.model.BaseModel;
-
-import androidx.annotation.NonNull;
 
 public class PageBackStackItem extends BaseModel {
     @NonNull private PageTitle title;

@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Base64;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
@@ -21,8 +23,6 @@ import org.wikipedia.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import androidx.annotation.NonNull;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;
