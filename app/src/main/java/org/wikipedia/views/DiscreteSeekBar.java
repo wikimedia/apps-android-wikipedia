@@ -8,12 +8,12 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 
-import org.wikipedia.R;
-
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+
+import org.wikipedia.R;
 
 @SuppressLint("AppCompatCustomView")
 public class DiscreteSeekBar extends SeekBar {

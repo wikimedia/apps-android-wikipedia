@@ -1,12 +1,12 @@
 package org.wikipedia.crash;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /** Wrapper around {@link Exception} used to send a JSON payload via {@link CrashReporter}. */
 public class RemoteLogException extends Exception {

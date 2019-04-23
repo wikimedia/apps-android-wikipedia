@@ -1,12 +1,12 @@
 package org.wikipedia.theme;
 
-import org.wikipedia.R;
-import org.wikipedia.model.EnumCode;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
+
+import org.wikipedia.R;
+import org.wikipedia.model.EnumCode;
 
 public enum Theme implements EnumCode {
     LIGHT(0, "light", R.style.ThemeLight, R.string.color_theme_light, "pagelib_theme_light"),

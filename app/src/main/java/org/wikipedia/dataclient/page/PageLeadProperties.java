@@ -2,13 +2,13 @@ package org.wikipedia.dataclient.page;
 
 import android.location.Location;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Section;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * The main properties of a page

@@ -1,11 +1,11 @@
 package org.wikipedia.espresso.search;
 
+import androidx.annotation.NonNull;
+import androidx.test.espresso.ViewInteraction;
+
 import org.wikipedia.R;
 import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.espresso.util.ViewTools;
-
-import androidx.annotation.NonNull;
-import androidx.test.espresso.ViewInteraction;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;

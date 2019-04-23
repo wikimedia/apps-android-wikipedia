@@ -2,11 +2,11 @@ package org.wikipedia.page;
 
 import android.location.Location;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public final class GeoUnmarshaller {
     static final String LATITUDE = "latitude";

@@ -6,14 +6,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.util.AnimationUtil;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
     protected static final String EXTRA_NEWS_ITEM = "item";

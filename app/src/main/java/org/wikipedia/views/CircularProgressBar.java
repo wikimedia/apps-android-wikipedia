@@ -8,13 +8,13 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import org.wikipedia.R;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ResourceUtil;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 
 public class CircularProgressBar extends View {
 

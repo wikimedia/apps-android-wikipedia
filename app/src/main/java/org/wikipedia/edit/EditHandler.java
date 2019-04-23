@@ -5,6 +5,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
+
 import org.json.JSONObject;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -18,10 +22,6 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.PopupMenu;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;

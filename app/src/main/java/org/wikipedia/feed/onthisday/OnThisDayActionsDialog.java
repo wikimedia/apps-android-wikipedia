@@ -5,14 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.util.ResourceUtil;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class OnThisDayActionsDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {

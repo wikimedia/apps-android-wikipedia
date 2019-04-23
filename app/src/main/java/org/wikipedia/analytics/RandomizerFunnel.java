@@ -1,11 +1,11 @@
 package org.wikipedia.analytics;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-
-import androidx.annotation.NonNull;
 
 public class RandomizerFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppRandomizer";

@@ -9,14 +9,15 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-import org.wikipedia.views.FaceAndColorDetectImageView;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+
+import org.wikipedia.R;
+import org.wikipedia.views.FaceAndColorDetectImageView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

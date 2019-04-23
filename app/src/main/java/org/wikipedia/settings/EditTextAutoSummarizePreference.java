@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 
-import org.wikipedia.R;
-
 import androidx.preference.EditTextPreference;
+
+import org.wikipedia.R;
 
 public class EditTextAutoSummarizePreference extends EditTextPreference {
     protected static final int DEFAULT_STYLE_ATTR = R.attr.editTextAutoSummarizePreferenceStyle;
