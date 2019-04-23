@@ -1,13 +1,13 @@
 package org.wikipedia.dataclient.mwapi;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.model.BaseModel;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * Gson POJO for a MediaWiki API error.

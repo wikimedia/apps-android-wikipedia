@@ -1,12 +1,12 @@
 package org.wikipedia.dataclient.restbase;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class RbRelatedPages {
     @SuppressWarnings("unused") @Nullable private List<RbPageSummary> pages;

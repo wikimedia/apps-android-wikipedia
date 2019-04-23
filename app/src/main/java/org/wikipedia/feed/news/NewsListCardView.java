@@ -2,6 +2,9 @@ package org.wikipedia.feed.news;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
@@ -11,9 +14,6 @@ import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {

@@ -1,5 +1,8 @@
 package org.wikipedia.readinglist.database;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
@@ -7,9 +10,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 
 import java.io.Serializable;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class ReadingListPage implements Serializable {
     public static final int STATUS_QUEUE_FOR_SAVE = 0;

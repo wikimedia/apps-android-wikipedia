@@ -3,10 +3,10 @@ package org.wikipedia.feed.onthisday;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.dataclient.WikiSite;
-
-import androidx.annotation.NonNull;
 
 public class OnThisDayActivity extends SingleFragmentActivity<OnThisDayFragment> {
     public static final String AGE = "age";

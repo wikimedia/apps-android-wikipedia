@@ -3,9 +3,9 @@ package org.wikipedia.descriptions;
 import android.content.Context;
 import android.content.Intent;
 
-import org.wikipedia.activity.SingleFragmentActivityTransparent;
-
 import androidx.annotation.NonNull;
+
+import org.wikipedia.activity.SingleFragmentActivityTransparent;
 
 public class DescriptionEditSuccessActivity
         extends SingleFragmentActivityTransparent<DescriptionEditSuccessFragment>

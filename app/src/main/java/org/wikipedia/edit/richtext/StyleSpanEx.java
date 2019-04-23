@@ -4,13 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.style.StyleSpan;
 
+import androidx.annotation.NonNull;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
-
-import androidx.annotation.NonNull;
 
 public class StyleSpanEx extends StyleSpan implements SpanExtents {
     public static final Parcelable.Creator<StyleSpanEx> CREATOR = new Parcelable.Creator<StyleSpanEx>() {

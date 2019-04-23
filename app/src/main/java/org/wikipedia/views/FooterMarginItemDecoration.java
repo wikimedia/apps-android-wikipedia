@@ -4,11 +4,11 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 
-import org.wikipedia.util.DimenUtil;
-
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.wikipedia.util.DimenUtil;
 
 public class FooterMarginItemDecoration extends MarginItemDecoration {
     public FooterMarginItemDecoration(int topDp, int bottomDp) {

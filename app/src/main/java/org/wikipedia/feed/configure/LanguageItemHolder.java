@@ -5,12 +5,12 @@ import android.graphics.PorterDuff;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
-
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 
 public class LanguageItemHolder extends DefaultViewHolder<View> {
     private Context context;

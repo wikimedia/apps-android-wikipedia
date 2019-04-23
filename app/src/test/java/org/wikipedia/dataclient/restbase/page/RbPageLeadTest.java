@@ -1,11 +1,12 @@
 package org.wikipedia.dataclient.restbase.page;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
 
-import androidx.annotation.NonNull;
 import io.reactivex.observers.TestObserver;
 import okhttp3.CacheControl;
 import retrofit2.Response;

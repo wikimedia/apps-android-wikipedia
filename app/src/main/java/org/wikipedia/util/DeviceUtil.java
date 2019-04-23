@@ -14,14 +14,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 
 public final class DeviceUtil {
 

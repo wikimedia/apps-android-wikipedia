@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.onboarding.OnboardingFragment;
 import org.wikipedia.util.ResourceUtil;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class DescriptionEditTutorialActivity
         extends SingleFragmentActivity<DescriptionEditTutorialFragment>

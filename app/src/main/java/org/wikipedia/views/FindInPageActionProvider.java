@@ -9,12 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
+
 import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ResourceUtil;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

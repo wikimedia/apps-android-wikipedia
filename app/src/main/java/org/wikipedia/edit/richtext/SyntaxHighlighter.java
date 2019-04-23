@@ -10,6 +10,9 @@ import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.util.log.L;
 
@@ -18,8 +21,6 @@ import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.Callable;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;

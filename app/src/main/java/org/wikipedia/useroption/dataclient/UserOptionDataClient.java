@@ -2,6 +2,9 @@ package org.wikipedia.useroption.dataclient;
 
 import android.annotation.SuppressLint;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -9,8 +12,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.UserInfo;
 import org.wikipedia.util.log.L;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 

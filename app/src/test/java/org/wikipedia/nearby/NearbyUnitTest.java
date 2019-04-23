@@ -2,6 +2,9 @@ package org.wikipedia.nearby;
 
 import android.location.Location;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,9 +16,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

@@ -6,6 +6,12 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.MenuRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.core.view.ViewCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -14,11 +20,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 
 import java.util.List;
 
-import androidx.annotation.MenuRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.core.view.ViewCompat;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
