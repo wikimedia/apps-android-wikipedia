@@ -125,6 +125,7 @@
     <string name="preference_title_logout">Log out</string>
     <string name="toast_logout_complete">Logged out</string>
     <string name="logout_prompt">Are you sure you want to log out?</string>
+    <string name="logout_dialog_cancel_button_text">Cancel</string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
@@ -476,6 +477,13 @@
     </plurals>
     <string name="reading_list_toast_last_sync">Reading lists synced successfully</string>
     <string name="reading_list_menu_last_sync">Last sync: %s</string>
+    <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+    <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+    <string name="reading_list_remove_from_list_dialog_cancel_button_text">Cancel</string>
+    <string name="reading_list_delete_dialog_cancel_button_text">Cancel</string>
+    <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
+    <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
+    <string name="reading_list_split_dialog_ok_button_text">OK</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
@@ -596,7 +604,11 @@
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
     <string name="feed_configure_onboarding_action">Customize</string>
+    <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+    <string name="customize_lang_selection_dialog_cancel_button_text">Cancel</string>
     <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Explore feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
+    <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+    <string name="feed_lang_selection_dialog_cancel_button_text">Cancel</string>
     <!-- /The Feed -->
 
     <!-- Description editing -->
@@ -689,6 +701,7 @@
     <string name="description_edit_revert_reason1"><![CDATA[your contribution didn\'t follow one of the <a href="%1$s">guidelines</a>.]]></string>
     <string name="description_edit_revert_reason2">your contribution looked like an experiment or vandalism.</string>
     <string name="description_edit_revert_history"><![CDATA[If you are interested, see the <a href="%1$s">edit history</a>.]]></string>
+    <string name="description_edit_login_cancel_button_text">Cancel</string>
     <!-- /Description editing revert help -->
 
     <!-- Offline -->
@@ -761,7 +774,18 @@
     <string name="dialog_of_remove_chinese_variants_from_app_lang_text">You currently have both Traditional and Simplified Chinese variants set in your app languages. Update your app languages settings?</string>
     <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Edit languages</string>
     <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No thanks</string>
+    <string name="remove_language_dialog_cancel_button_text">Cancel</string>
+    <string name="remove_language_dialog_ok_button_text">OK</string>
+    <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
     <!-- /MultiLingual -->
+
+    <!-- Editing -->
+    <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+    <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+    <string name="edit_conflict_dialog_ok_button_text">OK</string>
+    <string name="reverted_edit_dialog_ok_button_text">OK</string>
+    <string name="account_editing_blocked_dialog_cancel_button_text">Cancel</string>
+    <!-- /Editing -->
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
@@ -776,4 +800,8 @@
     <string name="main_drawer_close">Close</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
+    <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+    <string name="text_input_dialog_ok_button_text">OK</string>
+    <string name="text_input_dialog_cancel_button_text">Cancel</string>
+    <string name="custom_date_picker_dialog_cancel_button_text">Cancel</string>
 </resources>
