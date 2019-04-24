@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.test.MockRetrofitTest;
 
+import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
 public class CreateAccountInfoClientTest extends MockRetrofitTest {
@@ -13,7 +14,7 @@ public class CreateAccountInfoClientTest extends MockRetrofitTest {
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("create_account_info.json");
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
-        getApiService().getAuthManagerInfo().subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(response -> {
@@ -25,19 +26,23 @@ public class CreateAccountInfoClientTest extends MockRetrofitTest {
                 });
     }
 
-    @Test public void testRequestResponse404() throws Throwable {
+    @Test public void testRequestResponse404() {
         enqueue404();
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
-        getApiService().getAuthManagerInfo().subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("┏━┓ ︵  /(^.^/)");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
-        getApiService().getAuthManagerInfo().subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(MalformedJsonException.class);
+    }
+
+    private Observable<MwQueryResponse> getObservable() {
+        return getApiService().getAuthManagerInfo();
     }
 }

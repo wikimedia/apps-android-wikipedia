@@ -12,11 +12,11 @@ public class SearchResultsRedirectProcessingTest {
 
     private MwQueryResult result;
 
-    @Before public void setUp() throws Throwable {
+    @Before public void setUp() {
         result = GsonUtil.getDefaultGson().fromJson(queryJson, MwQueryResult.class);
     }
 
-    @Test public void testRedirectHandling() throws Throwable {
+    @Test public void testRedirectHandling() {
         assertThat(result.pages().size(), is(2));
         assertThat(result.pages().get(0).title(), is("Narthecium#Foo"));
         assertThat(result.pages().get(0).redirectFrom(), is("Abama"));
@@ -24,7 +24,7 @@ public class SearchResultsRedirectProcessingTest {
         assertThat(result.pages().get(1).redirectFrom(), is("Abamax"));
     }
 
-    @Test public void testConvertTitleHandling() throws Throwable {
+    @Test public void testConvertTitleHandling() {
         assertThat(result.pages().size(), is(2));
         assertThat(result.pages().get(0).title(), is("Narthecium#Foo"));
         assertThat(result.pages().get(0).convertedFrom(), is("NotNarthecium"));

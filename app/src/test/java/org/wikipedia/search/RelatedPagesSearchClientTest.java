@@ -9,6 +9,7 @@ import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
 public class RelatedPagesSearchClientTest extends MockRetrofitTest {
@@ -20,9 +21,7 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
         enqueueFromFile(RAW_JSON_FILE);
 
         TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
-        getRestService().getRelatedPages("foo")
-                .map(RbRelatedPages::getPages)
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(result -> result.size() == 5
@@ -52,14 +51,12 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
         enqueueFromFile("api_error.json");
 
         TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
-        getRestService().getRelatedPages("foo")
-                .map(RbRelatedPages::getPages)
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() throws Throwable {
+    @Test public void testRequestResponseFailure() {
         enqueue404();
 
         TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
@@ -70,14 +67,15 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
-
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
-        getRestService().getRelatedPages("foo")
-                .map(RbRelatedPages::getPages)
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(MalformedJsonException.class);
+    }
+
+    private Observable<List<RbPageSummary>> getObservable() {
+        return getRestService().getRelatedPages("foo").map(RbRelatedPages::getPages);
     }
 }
