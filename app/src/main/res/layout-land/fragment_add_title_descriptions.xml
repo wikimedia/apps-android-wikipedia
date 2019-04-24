@@ -2,6 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/suggestions_background_color"
     android:id="@+id/addTitleDescriptionsCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="1px"
-            android:background="?attr/main_toolbar_color"
             android:elevation="4dp"
             android:gravity="center_vertical"
             app:layout_constraintTop_toTopOf="parent"

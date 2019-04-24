@@ -395,7 +395,7 @@
     </style>
 
     <style name="LanguageSpinnerItemTextAppearance">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:singleLine">true</item>
         <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:fontFamily">sans-serif-medium</item>

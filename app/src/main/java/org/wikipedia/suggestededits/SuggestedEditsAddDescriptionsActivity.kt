@@ -13,6 +13,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DialogTitleWithImage
 
 class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEditsAddDescriptionsFragment>() {
@@ -23,6 +24,7 @@ class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEd
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
             R.string.suggested_edits_add_descriptions else R.string.suggested_edits_translate_descriptions)
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this,R.attr.green_highlight_color))
     }
 
     override fun createFragment(): SuggestedEditsAddDescriptionsFragment {

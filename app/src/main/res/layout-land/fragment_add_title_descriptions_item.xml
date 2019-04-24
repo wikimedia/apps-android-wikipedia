@@ -18,7 +18,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="?attr/paper_color"
+        app:cardBackgroundColor="?attr/button_background_color"
         app:cardUseCompatPadding="true">
 
         <ProgressBar
