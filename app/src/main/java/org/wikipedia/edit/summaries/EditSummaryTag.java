@@ -5,14 +5,14 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.widget.LinearLayout.LayoutParams;
 
-import org.wikipedia.R;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ResourceUtil;
-
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.res.ResourcesCompat;
+
+import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 
 public class EditSummaryTag extends AppCompatTextView {
     public static final int MARGIN = 4;

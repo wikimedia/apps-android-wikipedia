@@ -1,13 +1,13 @@
 package org.wikipedia.dataclient.restbase.page;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.page.Section;
 
 import java.util.Collections;
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * Gson POJO for loading remaining page content.

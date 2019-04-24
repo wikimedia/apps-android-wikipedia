@@ -1,5 +1,7 @@
 package org.wikipedia.feed.announcement;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.RestService;
@@ -13,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
 import retrofit2.Call;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -74,7 +75,7 @@ public class AnnouncementClientTest extends MockWebServerTest {
         verify(cb).error(any(Throwable.class));
     }
 
-    @Test public void testFundraisingParams() throws Throwable {
+    @Test public void testFundraisingParams() {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_FUNDRAISING_ANDROID);
         assertThat(announcement.hasAction(), is(true));
         assertThat(announcement.hasFooterCaption(), is(true));
@@ -103,7 +104,7 @@ public class AnnouncementClientTest extends MockWebServerTest {
         assertThat(AnnouncementClient.shouldShow(announcementIOS, "US", dateDuring), is(false));
     }
 
-    @Test public void testShouldShowForInvalidDates() throws Throwable {
+    @Test public void testShouldShowForInvalidDates() {
         assertThat(announcementList.items().get(ANNOUNCEMENT_INVALID_DATES), is(nullValue()));
         assertThat(announcementList.items().get(ANNOUNCEMENT_NO_DATES), is(nullValue()));
     }

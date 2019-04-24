@@ -1,5 +1,7 @@
 package org.wikipedia.test;
 
+import androidx.annotation.NonNull;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -7,7 +9,6 @@ import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 
-import androidx.annotation.NonNull;
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import okhttp3.mockwebserver.MockResponse;
@@ -41,6 +42,10 @@ public abstract class MockWebServerTest {
     protected void enqueue404() {
         final int code = 404;
         server.enqueue(new MockResponse().setResponseCode(code).setBody("Not Found"));
+    }
+
+    protected void enqueueMalformed() {
+        server.enqueue("(╯°□°）╯︵ ┻━┻");
     }
 
     protected void enqueueEmptyJson() {

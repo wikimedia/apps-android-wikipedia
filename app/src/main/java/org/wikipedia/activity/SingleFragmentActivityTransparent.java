@@ -2,12 +2,12 @@ package org.wikipedia.activity;
 
 import android.os.Bundle;
 
-import org.wikipedia.R;
-import org.wikipedia.theme.Theme;
-
 import androidx.annotation.IdRes;
 import androidx.annotation.LayoutRes;
 import androidx.fragment.app.Fragment;
+
+import org.wikipedia.R;
+import org.wikipedia.theme.Theme;
 
 /**
  * Boilerplate for a FragmentActivity containing a single stack of

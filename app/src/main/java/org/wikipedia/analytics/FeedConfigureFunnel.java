@@ -1,5 +1,7 @@
 package org.wikipedia.analytics;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -10,8 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import androidx.annotation.NonNull;
 
 public class FeedConfigureFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFeedConfigure";

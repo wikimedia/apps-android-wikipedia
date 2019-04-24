@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import org.wikipedia.util.DimenUtil;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+
+import org.wikipedia.util.DimenUtil;
 
 public class PageScrollerView extends AppCompatImageView {
     public interface Callback {

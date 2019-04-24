@@ -17,6 +17,12 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -54,11 +60,6 @@ import org.wikipedia.views.WikiTextKeyboardView;
 
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -406,7 +407,7 @@ public class EditSectionActivity extends BaseActivity {
             builder.setTitle(R.string.user_blocked_from_editing_title);
             if (AccountUtil.isLoggedIn()) {
                 builder.setMessage(R.string.user_logged_in_blocked_from_editing);
-                builder.setPositiveButton(android.R.string.ok, (dialog, i) -> dialog.dismiss());
+                builder.setPositiveButton(R.string.account_editing_blocked_dialog_ok_button_text, (dialog, i) -> dialog.dismiss());
             } else {
                 builder.setMessage(R.string.user_anon_blocked_from_editing);
                 builder.setPositiveButton(R.string.nav_item_login, (dialog, i) -> {
@@ -415,14 +416,14 @@ public class EditSectionActivity extends BaseActivity {
                             LoginFunnel.SOURCE_BLOCKED);
                     startActivity(loginIntent);
                 });
-                builder.setNegativeButton(android.R.string.cancel, (dialog, i) -> dialog.dismiss());
+                builder.setNegativeButton(R.string.account_editing_blocked_dialog_cancel_button_text, (dialog, i) -> dialog.dismiss());
             }
             builder.show();
         } else if ("editconflict".equals(code)) {
             new AlertDialog.Builder(EditSectionActivity.this)
                     .setTitle(R.string.edit_conflict_title)
                     .setMessage(R.string.edit_conflict_message)
-                    .setPositiveButton(android.R.string.ok, null)
+                    .setPositiveButton(R.string.edit_conflict_dialog_ok_button_text, null)
                     .show();
             resetToStart();
         } else {

@@ -14,6 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.json.JSONArray;
@@ -35,8 +37,6 @@ import org.wikipedia.views.PageScrollerView;
 import org.wikipedia.views.SwipeableListView;
 
 import java.util.ArrayList;
-
-import androidx.annotation.NonNull;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;

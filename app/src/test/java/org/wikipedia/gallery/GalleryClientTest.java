@@ -88,15 +88,15 @@ public class GalleryClientTest extends MockRetrofitTest {
                 });
     }
 
-    @Test public void testRequestResponseFailure() throws Throwable {
+    @Test public void testRequestResponseFailure() {
         enqueue404();
         TestObserver<Gallery> observer = new TestObserver<>();
         getObservable().subscribe(observer);
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<Gallery> observer = new TestObserver<>();
         getObservable().subscribe(observer);
         observer.assertError(MalformedJsonException.class);

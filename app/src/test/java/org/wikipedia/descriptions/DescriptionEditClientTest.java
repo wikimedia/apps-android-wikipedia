@@ -1,5 +1,7 @@
 package org.wikipedia.descriptions;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
@@ -15,7 +17,6 @@ import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.Collections;
 
-import androidx.annotation.NonNull;
 import io.reactivex.observers.TestObserver;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -72,8 +73,8 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
 
         TestObserver<MwPostResponse> observer = new TestObserver<>();
         request(observer);

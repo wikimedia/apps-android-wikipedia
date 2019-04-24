@@ -7,6 +7,10 @@ import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.os.LocaleListCompat;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.StringUtil;
 
@@ -15,10 +19,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.os.LocaleListCompat;
 
 public final class LanguageUtil {
     private static final String HONG_KONG_COUNTRY_CODE = "HK";

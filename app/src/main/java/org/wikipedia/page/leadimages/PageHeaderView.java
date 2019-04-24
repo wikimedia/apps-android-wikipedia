@@ -10,6 +10,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -17,10 +22,6 @@ import org.wikipedia.views.LinearLayoutOverWebView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

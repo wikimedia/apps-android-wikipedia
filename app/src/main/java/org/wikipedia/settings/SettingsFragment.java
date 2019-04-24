@@ -5,6 +5,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.preference.SwitchPreferenceCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
@@ -12,7 +14,6 @@ import org.wikipedia.events.ReadingListsEnabledStatusEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 
-import androidx.preference.SwitchPreferenceCompat;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 

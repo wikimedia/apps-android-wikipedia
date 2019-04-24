@@ -7,6 +7,13 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.FeedContentType;
@@ -14,12 +21,6 @@ import org.wikipedia.feed.FeedContentType;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
@@ -104,7 +105,7 @@ public class ConfigureItemView extends FrameLayout {
         new AlertDialog.Builder(getContext())
                 .setView(view)
                 .setTitle(contentType.titleId())
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                .setPositiveButton(R.string.customize_lang_selection_dialog_ok_button_text, (dialog, which) -> {
                     contentType.getLangCodesDisabled().clear();
                     contentType.getLangCodesDisabled().addAll(tempDisabledList);
                     adapter.notifyDataSetChanged();
@@ -120,7 +121,7 @@ public class ConfigureItemView extends FrameLayout {
                     }
                     onSwitch.setChecked(atLeastOneEnabled);
                 })
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(R.string.customize_lang_selection_dialog_cancel_button_text, null)
                 .create()
                 .show();
     }

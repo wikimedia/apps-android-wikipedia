@@ -8,14 +8,14 @@ import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.widget.TextView;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
 
 public final class RichTextUtil {
     @NonNull public static Spannable setSpans(@NonNull Spannable spannable,

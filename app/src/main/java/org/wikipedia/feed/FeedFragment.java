@@ -10,6 +10,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.BackPressedHandler;
@@ -52,15 +62,6 @@ import org.wikipedia.util.UriUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -585,12 +586,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             new AlertDialog.Builder(requireContext())
                     .setView(view)
                     .setTitle(contentType.titleId())
-                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    .setPositiveButton(R.string.feed_lang_selection_dialog_ok_button_text, (dialog, which) -> {
                         contentType.getLangCodesDisabled().clear();
                         contentType.getLangCodesDisabled().addAll(tempDisabledList);
                         refresh();
                     })
-                    .setNegativeButton(android.R.string.cancel, null)
+                    .setNegativeButton(R.string.feed_lang_selection_dialog_cancel_button_text, null)
                     .create()
                     .show();
         }

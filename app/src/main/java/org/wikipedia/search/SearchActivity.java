@@ -3,13 +3,13 @@ package org.wikipedia.search;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.IntentFunnel;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.WIDGET;

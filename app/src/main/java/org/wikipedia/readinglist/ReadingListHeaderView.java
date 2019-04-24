@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.facebook.drawee.drawable.ScalingUtils;
 
 import org.wikipedia.R;
@@ -20,8 +23,6 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;

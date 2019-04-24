@@ -6,14 +6,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.wikipedia.R;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+
+import org.wikipedia.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

@@ -1,10 +1,10 @@
 package org.wikipedia.descriptions;
 
-import org.wikipedia.R;
-import org.wikipedia.onboarding.OnboardingFragment;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import org.wikipedia.R;
+import org.wikipedia.onboarding.OnboardingFragment;
 
 public class DescriptionEditTutorialFragment extends OnboardingFragment {
 

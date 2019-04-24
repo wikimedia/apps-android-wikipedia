@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.is;
 public class FunnelTest {
 
     @Test
-    public void testUserWithinSamplingGroup() throws Exception {
+    public void testUserWithinSamplingGroup() {
         assertThat(Funnel.isUserInSamplingGroup("25a609da-35e9-4902-94c6-c343f7eb3784", Funnel.SAMPLE_LOG_ALL), is(true));
         assertThat(Funnel.isUserInSamplingGroup("15f3f81b-d30a-4485-8dca-37d07aea146e", Funnel.SAMPLE_LOG_10), is(true));
         assertThat(Funnel.isUserInSamplingGroup("10ccfe00-2d6a-4e22-8e4c-09215201db88", Funnel.SAMPLE_LOG_100), is(true));
@@ -16,7 +16,7 @@ public class FunnelTest {
     }
 
     @Test
-    public void testUserOutsideSamplingGroup() throws Exception {
+    public void testUserOutsideSamplingGroup() {
         // Not divisible by 10
         assertThat(Funnel.isUserInSamplingGroup("15f3f81b-d30a-4485-8dca-37d07aea146f", Funnel.SAMPLE_LOG_10), is(false));
         // Divisible by 10, but not 100
@@ -32,7 +32,7 @@ public class FunnelTest {
     }
 
     @Test
-    public void testMalformedSamplingGroup() throws Exception {
+    public void testMalformedSamplingGroup() {
         assertThat(Funnel.isUserInSamplingGroup("foo", Funnel.SAMPLE_LOG_ALL), is(false));
         assertThat(Funnel.isUserInSamplingGroup("", Funnel.SAMPLE_LOG_ALL), is(false));
         assertThat(Funnel.isUserInSamplingGroup(null, Funnel.SAMPLE_LOG_ALL), is(false));
