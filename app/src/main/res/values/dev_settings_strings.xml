@@ -40,4 +40,6 @@
     <string name="preferences_developer_suggested_edits_add_description_notification">Show add description notification</string>
     <string name="preferences_developer_suggested_edits_translate_description_dialog">Show translate description dialog</string>
     <string name="preferences_developer_suggested_edits_translate_description_notification">Show translate description notification</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
 </resources>

@@ -587,12 +587,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             new AlertDialog.Builder(requireContext())
                     .setView(view)
                     .setTitle(contentType.titleId())
-                    .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    .setPositiveButton(R.string.feed_lang_selection_dialog_ok_button_text, (dialog, which) -> {
                         contentType.getLangCodesDisabled().clear();
                         contentType.getLangCodesDisabled().addAll(tempDisabledList);
                         refresh();
                     })
-                    .setNegativeButton(android.R.string.cancel, null)
+                    .setNegativeButton(R.string.feed_lang_selection_dialog_cancel_button_text, null)
                     .create()
                     .show();
         }

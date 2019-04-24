@@ -44,6 +44,10 @@ public abstract class MockWebServerTest {
         server.enqueue(new MockResponse().setResponseCode(code).setBody("Not Found"));
     }
 
+    protected void enqueueMalformed() {
+        server.enqueue("(╯°□°）╯︵ ┻━┻");
+    }
+
     protected void enqueueEmptyJson() {
         server.enqueue(new MockResponse().setBody("{}"));
     }

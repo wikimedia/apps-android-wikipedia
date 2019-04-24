@@ -114,7 +114,7 @@ public class EditClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("(-(-_(-_-)_-)-)");
+        enqueueMalformed();
 
         EditClient.Callback cb = mock(EditClient.Callback.class);
         Call<Edit> call = request(cb, false);
