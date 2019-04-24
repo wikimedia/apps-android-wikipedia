@@ -12,6 +12,7 @@ import org.wikipedia.test.MockRetrofitTest;
 import java.util.Collections;
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.functions.Function;
 import io.reactivex.observers.TestObserver;
 
@@ -22,9 +23,7 @@ public class NearbyClientTest extends MockRetrofitTest {
         enqueueFromFile("nearby.json");
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        getApiService().nearbySearch("0|0", 1)
-                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(nearbyPages -> nearbyPages.get(0).getTitle().getDisplayText().equals("Bean Hollow State Beach")
@@ -49,9 +48,7 @@ public class NearbyClientTest extends MockRetrofitTest {
         enqueueFromFile("nearby_missing_coords.json");
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        getApiService().nearbySearch("0|0", 1)
-                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(List::isEmpty);
@@ -61,9 +58,7 @@ public class NearbyClientTest extends MockRetrofitTest {
         enqueueFromFile("nearby_missing_lat.json");
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        getApiService().nearbySearch("0|0", 1)
-                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(List::isEmpty);
@@ -73,9 +68,7 @@ public class NearbyClientTest extends MockRetrofitTest {
         enqueueFromFile("nearby_missing_lon.json");
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        getApiService().nearbySearch("0|0", 1)
-                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(List::isEmpty);
@@ -85,32 +78,31 @@ public class NearbyClientTest extends MockRetrofitTest {
         enqueueFromFile("api_error.json");
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        getApiService().nearbySearch("0|0", 1)
-                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(MwException.class);
     }
 
-    @Test public void testRequestResponseFailure() throws Throwable {
+    @Test public void testRequestResponseFailure() {
         enqueue404();
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        getApiService().nearbySearch("0|0", 1)
-                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("(✿ ♥‿♥)");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<List<NearbyPage>> observer = new TestObserver<>();
 
-        getApiService().nearbySearch("0|0", 1)
-                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")))
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(MalformedJsonException.class);
+    }
+
+    private Observable<List<NearbyPage>> getObservable() {
+        return getApiService().nearbySearch("0|0", 1)
+                .map(response -> response.query().nearbyPages(WikiSite.forLanguageCode("en")));
     }
 }

@@ -20,14 +20,14 @@ import static org.junit.Assert.assertThat;
     private ArrayList<PageTitle> titles;
     private static final int TOTAL = 120;
 
-    @Before public void setUp() throws Throwable {
+    @Before public void setUp() {
         titles = new ArrayList<>();
         for (int i = 0; i < TOTAL; i++) {
             titles.add(new PageTitle("foo", WikiSite.forLanguageCode("test")));
         }
     }
 
-    @Test @SuppressWarnings("checkstyle:magicnumber") public void testMwApiBatches() throws Throwable {
+    @Test @SuppressWarnings("checkstyle:magicnumber") public void testMwApiBatches() {
         final TestLatch latch = new TestLatch();
 
         BatchUtil.makeBatches(titles, new BatchUtil.Handler<Integer>() {

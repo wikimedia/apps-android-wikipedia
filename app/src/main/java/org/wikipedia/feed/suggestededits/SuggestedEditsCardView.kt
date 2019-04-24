@@ -58,6 +58,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         if (isTranslation) {
+            sourceDescription = StringUtils.capitalize(sourceSummary!!.description)
             viewArticleSubtitleContainer.visibility = View.VISIBLE
             viewArticleSubtitleAddedBy.visibility = View.GONE
             viewArticleSubtitleEdit.visibility = View.GONE
