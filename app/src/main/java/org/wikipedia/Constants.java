@@ -75,9 +75,9 @@ public final class Constants {
         FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC,
         SUGGESTED_EDITS_ONBOARDING,
         ONBOARDING_DIALOG,
-        APP_SHORTCUTS,
         FEED,
-        NOTIFICATION
+        NOTIFICATION,
+        APP_SHORTCUTS
     }
 
     private Constants() { }
