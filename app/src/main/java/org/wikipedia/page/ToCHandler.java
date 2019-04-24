@@ -74,6 +74,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private boolean rtl;
     private boolean scrollerShown;
     private boolean tocShown;
+    private boolean showOnboading;
     private int currentItemSelected;
 
     private Runnable hideScrollerRunnable = new Runnable() {
@@ -134,6 +135,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
+        showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage && !Prefs.showActionFeedIndicator();
         tocList.setRtl(rtl);
         setConditionalLayoutDirection(tocContainer, wiki.languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
@@ -142,10 +144,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
                 page.getPageProperties().getPageId(), adapter.getCount());
-
-        if (Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage && !Prefs.showActionFeedIndicator()) {
-            showTocOnboarding();
-        }
     }
 
     void scrollToSection(String sectionAnchor) {
@@ -196,7 +194,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             scrollerView.setTranslationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN));
             scrollerView.setVisibility(View.VISIBLE);
             setScrollerPosition();
-            showScrollerThenHide();
+            if (showOnboading) {
+                showTocOnboarding();
+            } else {
+                showScrollerThenHide();
+            }
         } else {
             tocContainer.setVisibility(View.GONE);
             scrollerView.setVisibility(View.GONE);
@@ -237,7 +239,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections = new ArrayList<>();
         private final SparseIntArray sectionYOffsets = new SparseIntArray();
-        private  String pageTitle;
+        private String pageTitle;
         private int highlightedSection;
 
         void setPage(@NonNull Page page) {
@@ -334,6 +336,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                         public void onTargetClick(TapTargetView view) {
                             super.onTargetClick(view);
                             show();
+                        }
+
+                        @Override
+                        public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                            hide();
                         }
                     });
         } catch (Exception e) {
