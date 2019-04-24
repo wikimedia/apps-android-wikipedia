@@ -24,7 +24,7 @@ public class MostReadItemCardTest {
         content = GsonUnmarshaller.unmarshal(MostReadArticles.class, json);
     }
 
-    @Test public void testTitleNormalization() throws Throwable {
+    @Test public void testTitleNormalization() {
         List<MostReadItemCard> mostReadItemCards = MostReadListCard.toItems(content.articles(), TEST);
         for (MostReadItemCard mostReadItemCard : mostReadItemCards) {
             assertThat(mostReadItemCard.title(), not(containsString("_")));
