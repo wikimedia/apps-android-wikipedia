@@ -86,7 +86,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         }
     };
 
-    public ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
+    ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
@@ -139,7 +139,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         tocList.setRtl(rtl);
         setConditionalLayoutDirection(tocContainer, wiki.languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
-        params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
+        params.gravity = rtl ? Gravity.START : Gravity.END;
         tocContainer.setLayoutParams(params);
 
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
@@ -258,16 +258,16 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             notifyDataSetChanged();
         }
 
-        public void setHighlightedSection(int id) {
+        void setHighlightedSection(int id) {
             highlightedSection = id;
             notifyDataSetChanged();
         }
 
-        public int getYOffset(int id) {
+        int getYOffset(int id) {
             return sectionYOffsets.get(id, 0);
         }
 
-        public void setYOffset(int id, int yOffset) {
+        void setYOffset(int id, int yOffset) {
             sectionYOffsets.put(id, yOffset);
         }
 
@@ -350,7 +350,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     private void setScrollerPosition() {
-        scrollerViewParams.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
+        scrollerViewParams.gravity = rtl ? Gravity.START : Gravity.END;
         scrollerViewParams.leftMargin = rtl ? DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN) : 0;
         scrollerViewParams.rightMargin = rtl ? 0 : DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN);
         int toolbarHeight = DimenUtil.getToolbarHeightPx(fragment.requireContext());
