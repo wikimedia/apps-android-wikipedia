@@ -47,7 +47,7 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() throws Throwable {
+    @Test public void testRequestResponseFailure() {
         enqueue404();
         TestObserver<ImageLicense> observer = new TestObserver<>();
 
@@ -58,8 +58,8 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<ImageLicense> observer = new TestObserver<>();
 
         getApiService().getImageExtMetadata(PAGE_TITLE_MARK_SELBY.getPrefixedText())

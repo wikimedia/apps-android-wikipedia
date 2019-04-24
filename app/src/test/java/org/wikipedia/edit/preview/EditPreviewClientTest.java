@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.test.MockRetrofitTest;
 
+import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
 public class EditPreviewClientTest extends MockRetrofitTest {
@@ -16,8 +17,7 @@ public class EditPreviewClientTest extends MockRetrofitTest {
         enqueueFromFile("edit_preview.json");
         TestObserver<EditPreview> observer = new TestObserver<>();
 
-        getApiService().postEditPreview("User:Mhollo/sandbox", "wikitext of change")
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(response -> response.result().equals(expected));
@@ -27,19 +27,21 @@ public class EditPreviewClientTest extends MockRetrofitTest {
         enqueueFromFile("api_error.json");
         TestObserver<EditPreview> observer = new TestObserver<>();
 
-        getApiService().postEditPreview("User:Mhollo/sandbox", "wikitext of change")
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(MwException.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("(-(-_(-_-)_-)-)");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<EditPreview> observer = new TestObserver<>();
 
-        getApiService().postEditPreview("User:Mhollo/sandbox", "wikitext of change")
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(MalformedJsonException.class);
+    }
+
+    private Observable<EditPreview> getObservable() {
+        return getApiService().postEditPreview("User:Mhollo/sandbox", "wikitext of change");
     }
 }
