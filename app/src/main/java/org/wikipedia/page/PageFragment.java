@@ -318,6 +318,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
+        tocHandler.log();
         shareHandler.dispose();
         bottomContentView.dispose();
         disposables.clear();
