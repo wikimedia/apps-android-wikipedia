@@ -88,7 +88,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         }
     };
 
-    ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
+    public ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
@@ -141,7 +141,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         tocList.setRtl(rtl);
         setConditionalLayoutDirection(tocContainer, wiki.languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
-        params.gravity = rtl ? Gravity.START : Gravity.END;
+        params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
         tocContainer.setLayoutParams(params);
 
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
@@ -241,7 +241,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections = new ArrayList<>();
         private final SparseIntArray sectionYOffsets = new SparseIntArray();
-        private String pageTitle;
+        private  String pageTitle;
         private int highlightedSection;
 
         void setPage(@NonNull Page page) {
@@ -260,16 +260,16 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             notifyDataSetChanged();
         }
 
-        void setHighlightedSection(int id) {
+        public void setHighlightedSection(int id) {
             highlightedSection = id;
             notifyDataSetChanged();
         }
 
-        int getYOffset(int id) {
+        public int getYOffset(int id) {
             return sectionYOffsets.get(id, 0);
         }
 
-        void setYOffset(int id, int yOffset) {
+        public void setYOffset(int id, int yOffset) {
             sectionYOffsets.put(id, yOffset);
         }
 
@@ -364,7 +364,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     private void setScrollerPosition() {
-        scrollerViewParams.gravity = rtl ? Gravity.START : Gravity.END;
+        scrollerViewParams.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
         scrollerViewParams.leftMargin = rtl ? DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN) : 0;
         scrollerViewParams.rightMargin = rtl ? 0 : DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN);
         int toolbarHeight = DimenUtil.getToolbarHeightPx(fragment.requireContext());
