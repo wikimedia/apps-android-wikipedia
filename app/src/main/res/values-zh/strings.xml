@@ -581,6 +581,7 @@
   <string name="feed_item_type_featured_image">来自维基共享资源的每日特色图片</string>
   <string name="feed_item_type_main_page">包含每日特色内容的维基百科首页</string>
   <string name="feed_item_type_randomizer">生成随机条目以阅读</string>
+  <string name="feed_item_type_suggested_edits">向维基百科添砖加瓦的建议</string>
   <string name="feed_empty_message">在您的探索订阅源中没有任何东西</string>
   <string name="feed_configure_onboarding_action">自定义</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;自定义您的浏览订阅源&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您现在可以选择在您的订阅源上显示什么，并可以排序您感兴趣的内容类型。</string>
@@ -640,6 +641,7 @@
     <item quantity="one">in-app contribution</item>
     <item quantity="other">in-app contributions</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">建议编辑</string>
   <string name="suggested_edits_tutorial_message">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>

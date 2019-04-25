@@ -565,7 +565,7 @@
   <string name="description_edit_read">ဖတ်ရန်</string>
   <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
   <string name="description_edit_add_description_v2">ဖော်ပြချက်ထည့်သွင်းပါ</string>
-  <string name="description_edit_translate_description" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
+  <string name="description_edit_translate_description">ခေါင်းစဉ်ဖော်ပြချက်ကို ဘာသာပြန်ရန်</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့ပါ</string>
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>
@@ -587,6 +587,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
   <string name="suggested_edits_add_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="suggested_edits_translate_descriptions">ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_review_description">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_my_contributions">ပံ့ပိုးထားမှုများ</string>

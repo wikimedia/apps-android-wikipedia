@@ -637,7 +637,7 @@
     <item quantity="one">1 придонес</item>
     <item quantity="other">%d придонеси</item>
   </plurals>
-  <string name="suggested_edits">Предложени уредувања</string>
+  <string name="suggested_edits_feed_card_title">Предложени уредувања</string>
   <string name="suggested_edits_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
