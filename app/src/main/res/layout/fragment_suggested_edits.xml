@@ -10,7 +10,7 @@
     <org.wikipedia.onboarding.OnboardingPageView
         app:centeredImage="@drawable/ic_editor_onboarding"
         app:imageSize="207dp"
-        app:primaryText="@string/suggested_edits_tasks_activity_title"
+        app:primaryText="@string/suggested_edits_activity_title"
         app:secondaryText="@string/suggested_edits_tutorial_message"
         app:tertiaryText="@string/description_edit_tutorial_promise"
         android:layout_width="match_parent"
