@@ -73,6 +73,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING;
+import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
@@ -517,7 +518,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             } else {
                 ActivityOptionsCompat options = ActivityOptionsCompat.
                         makeSceneTransitionAnimation(requireActivity(), view, ViewCompat.getTransitionName(view));
-                startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_FEED), options.toBundle());
+                startActivity(RandomActivity.newIntent(requireActivity(), FEED), options.toBundle());
             }
         }
 
