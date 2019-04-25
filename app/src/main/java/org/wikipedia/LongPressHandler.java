@@ -81,7 +81,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+        if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
             clickPositionX = motionEvent.getX();
             clickPositionY = motionEvent.getY();
         }
