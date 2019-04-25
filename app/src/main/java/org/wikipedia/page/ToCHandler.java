@@ -139,7 +139,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
-        showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage && !Prefs.showActionFeedIndicator();
+        showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;
         tocList.setRtl(rtl);
         setConditionalLayoutDirection(tocContainer, wiki.languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
