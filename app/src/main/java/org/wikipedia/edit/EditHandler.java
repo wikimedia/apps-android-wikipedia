@@ -67,7 +67,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 .setMessage(AccountUtil.isLoggedIn()
                         ? R.string.page_protected_can_not_edit
                         : R.string.page_protected_can_not_edit_anon)
-                .setPositiveButton(android.R.string.ok, null)
+                .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
                 .show();
         funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }

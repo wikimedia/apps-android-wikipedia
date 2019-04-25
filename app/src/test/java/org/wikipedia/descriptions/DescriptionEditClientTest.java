@@ -72,8 +72,8 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
 
         TestObserver<MwPostResponse> observer = new TestObserver<>();
         request(observer);

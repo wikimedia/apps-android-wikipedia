@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -128,18 +127,7 @@ public final class FeedbackUtil {
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
         actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
-        adjustLayoutParamsIfRequired(snackbar, activity);
         return snackbar;
-    }
-
-    private static void adjustLayoutParamsIfRequired(Snackbar snackbar, Activity activity) {
-        if (activity instanceof PageActivity) {
-            // TODO: move getLayoutParams() out of this logic if there has more special cases
-            CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) snackbar.getView().getLayoutParams();
-            int tabLayoutHeight = ((PageActivity) activity).getTabLayout().getHeight();
-            params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + tabLayoutHeight);
-            snackbar.getView().setLayoutParams(params);
-        }
     }
 
     private static void showToolbarButtonToast(View view) {

@@ -614,7 +614,7 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"설명 추가\" 작업의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">꾸준히 기여해 주셔서 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 문서 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">나중에</string>
+  <string name="suggested_edits_unlock_dialog_no">나중에</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_title">\"번역 추가\"의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">\"설명 번역하기\"의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_menu_info">정보</string>
