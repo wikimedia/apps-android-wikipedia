@@ -245,7 +245,6 @@
                     android:id="@+id/read_more_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:longClickable="true"
                     android:divider="?attr/list_separator_drawable_bottom_content" />
 
             </LinearLayout>
