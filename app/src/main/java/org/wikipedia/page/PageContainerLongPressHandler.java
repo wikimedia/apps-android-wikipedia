@@ -11,8 +11,8 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
-public class PageContainerLongPressHandler implements LongPressHandler.ContextMenuListener,
-        LongPressHandler.WebViewContextMenuListener{
+public class PageContainerLongPressHandler implements LongPressHandler.DialogMenuListener,
+        LongPressHandler.WebViewDialogMenuListener{
     @NonNull
     private final PageFragment fragment;
 

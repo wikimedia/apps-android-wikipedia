@@ -10,4 +10,12 @@
         <item>@string/expand_refs</item>
         <item>@string/description_edit_add_description</item>
     </array>
+
+    <array name="long_press_handler_array">
+        <item>@string/menu_long_press_open_page</item>
+        <item>@string/menu_long_press_open_in_new_tab</item>
+        <item>@string/menu_long_press_add_to_list</item>
+        <item>@string/menu_long_press_share_page</item>
+        <item>@string/menu_long_press_copy_page</item>
+    </array>
 </resources>

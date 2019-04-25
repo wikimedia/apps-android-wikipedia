@@ -413,7 +413,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.ListViewContextMenuListener {
+            implements org.wikipedia.LongPressHandler.ListViewDialogMenuListener {
         private int lastPositionRequested;
 
         @Override

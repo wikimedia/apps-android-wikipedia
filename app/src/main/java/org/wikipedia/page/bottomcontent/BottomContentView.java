@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
-import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
+import org.wikipedia.LongPressHandler.ListViewDialogMenuListener;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
@@ -129,11 +129,11 @@ public class BottomContentView extends LinearLayoutOverWebView
         pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         if (parentFragment.callback() != null) {
-            ListViewContextMenuListener contextMenuListener
+            ListViewDialogMenuListener dialogMenuListener
                     = new LongPressHandler(parentFragment);
 
             new org.wikipedia.LongPressHandler(readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
-                    contextMenuListener);
+                    dialogMenuListener);
         }
 
         addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
@@ -350,7 +350,7 @@ public class BottomContentView extends LinearLayoutOverWebView
     }
 
     private class LongPressHandler extends PageContainerLongPressHandler
-            implements ListViewContextMenuListener {
+            implements ListViewDialogMenuListener {
         private int lastPosition;
         LongPressHandler(@NonNull PageFragment fragment) {
             super(fragment);
