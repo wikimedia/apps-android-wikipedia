@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.getkeepsafe.taptargetview.TapTargetView;
 
@@ -49,6 +50,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final float SCROLLER_BUTTON_SIZE = 44f;
     private static final float SCROLLER_BUTTON_PEEK_MARGIN = -18f;
     private static final float SCROLLER_BUTTON_HIDE_MARGIN = 48f;
+    private static final float SCROLLER_BUTTON_ONBOARDING_MARGIN = 22f;
     private static final float SCROLLER_BUTTON_REVEAL_MARGIN = -30f;
     private static final int SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS = 2000;
 
@@ -75,6 +77,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private boolean rtl;
     private boolean scrollerShown;
     private boolean tocShown;
+    private boolean showOnboading;
     private int currentItemSelected;
 
     private Runnable hideScrollerRunnable = new Runnable() {
@@ -136,6 +139,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
+        showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage && !Prefs.showActionFeedIndicator();
         tocList.setRtl(rtl);
         setConditionalLayoutDirection(tocContainer, wiki.languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
@@ -144,10 +148,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
                 page.getPageProperties().getPageId(), adapter.getCount());
-
-        if (Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage && !Prefs.showActionFeedIndicator()) {
-            showTocOnboarding();
-        }
     }
 
     void scrollToSection(String sectionAnchor) {
@@ -198,7 +198,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             scrollerView.setTranslationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN));
             scrollerView.setVisibility(View.VISIBLE);
             setScrollerPosition();
-            showScrollerThenHide();
+            if (showOnboading) {
+                showTocOnboarding();
+            } else {
+                showScrollerThenHide();
+            }
         } else {
             tocContainer.setVisibility(View.GONE);
             scrollerView.setVisibility(View.GONE);
@@ -330,14 +334,31 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private void showTocOnboarding() {
         try {
             showScroller();
-            FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.tool_tip_toc_title,
-                    R.string.tool_tip_toc_text, new TapTargetView.Listener() {
-                        @Override
-                        public void onTargetClick(TapTargetView view) {
-                            super.onTargetClick(view);
-                            show();
-                        }
-                    });
+            showCompleteScroller(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.tool_tip_toc_title,
+                            R.string.tool_tip_toc_text, new TapTargetView.Listener() {
+
+                                boolean targetClicked;
+
+                                @Override
+                                public void onTargetClick(TapTargetView view) {
+                                    super.onTargetClick(view);
+                                    targetClicked = true;
+                                    show();
+                                }
+
+                                @Override
+                                public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                                    if (!targetClicked) {
+                                        hide();
+                                    }
+                                }
+                            });
+                }
+            });
         } catch (Exception e) {
             L.w("ToC onboarding failed", e);
         }
@@ -432,6 +453,15 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
         funnel.logClose();
+    }
+
+    private void showCompleteScroller(@Nullable AnimatorListenerAdapter listenerAdapter) {
+        if (scrollerView.getVisibility() != View.VISIBLE) {
+            return;
+        }
+        scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? SCROLLER_BUTTON_ONBOARDING_MARGIN : -SCROLLER_BUTTON_ONBOARDING_MARGIN))
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(listenerAdapter);
     }
 
     private void showScrollerThenHide() {
