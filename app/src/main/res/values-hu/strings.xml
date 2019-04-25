@@ -391,6 +391,7 @@
   <string name="reading_list_description_hint">Leírás (opcionális)</string>
   <string name="reading_list_item_deleted">%s eltávolítva a listáról</string>
   <string name="reading_list_items_deleted">%d szócikk eltávolítva a listáról</string>
+  <string name="reading_lists_item_deleted">%s eltávolítva a listákról</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
   <string name="saved_list_empty_title">Még nincsenek olvasólisták</string>
@@ -584,6 +585,7 @@
   <string name="description_edit_add_description">Adj meg egy címleírást</string>
   <string name="description_edit_add_description_v2">Leírás hozzáadása</string>
   <string name="description_edit_edit_description">Leírás szerkesztése</string>
+  <string name="add_translation">%s fordítás hozzáadása</string>
   <string name="description_edit_cancel_hint">Mégse</string>
   <string name="description_edit_help_title">Segítség: címleírások</string>
   <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
@@ -627,6 +629,7 @@
   <string name="suggested_edits_task_multilingual_description">A fordítási feladatok akkor érhetőek el, ha több mint egy Wikipédia nyelven olvasol és írsz.</string>
   <string name="suggested_edits_task_translation_title">Leírások fordítása</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
   <string name="suggested_edits_task_multilingual_negative">Nem nekem való</string>
   <string name="suggested_edits_task_multilingual_positive">Nyelvek hozzáadása</string>
   <string name="suggested_edits_task_translate_caption_title">Képaláírások fordítása</string>

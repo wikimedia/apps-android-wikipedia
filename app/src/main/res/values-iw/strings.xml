@@ -647,7 +647,7 @@
     <item quantity="one">תרומה אחת</item>
     <item quantity="other">%d תרומות</item>
   </plurals>
-  <string name="suggested_edits">עריכות מוצעות</string>
+  <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>

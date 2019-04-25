@@ -680,7 +680,7 @@
     <item quantity="one">одна правка</item>
     <item quantity="other">%d правки</item>
   </plurals>
-  <string name="suggested_edits">Предложено отредактировать</string>
+  <string name="suggested_edits_feed_card_title">Предложено отредактировать</string>
   <string name="suggested_edits_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>

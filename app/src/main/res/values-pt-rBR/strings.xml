@@ -590,6 +590,7 @@
   <string name="feed_item_type_featured_image">Imagem em destaque na Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Página principal da Wikipedia com conteúdo destacado diariamente</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
+  <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed de Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize seu feed de Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora você pode escolher o que mostrar em seu feed, e também priorizar seus tipos de conteúdo favoritos.</string>
@@ -662,6 +663,7 @@
     <item quantity="one">contribuição no aplicativo</item>
     <item quantity="other">%d contribuições no aplicativo</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Edições sugeridas</string>
   <string name="suggested_edits_tutorial_message">Bem-vindo ao novo lar para edição rápida no aplicativo da Wikipedia. Suas contribuições são muito apreciadas. Edição feliz!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
