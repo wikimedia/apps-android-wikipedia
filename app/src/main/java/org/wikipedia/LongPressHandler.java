@@ -15,6 +15,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.fragment.app.Fragment;
 
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.dataclient.WikiSite;
@@ -26,19 +27,20 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;
 
 public class LongPressHandler implements View.OnCreateContextMenuListener,
-        View.OnTouchListener, MenuItem.OnMenuItemClickListener {
+        View.OnTouchListener, PopupMenu.OnMenuItemClickListener {
     private final OverflowMenuListener overflowMenuListener;
     private final int historySource;
     @Nullable
     private final String referrer;
-
+    private Fragment fragment;
     private PageTitle title;
     private HistoryEntry entry;
     private float clickPositionX;
     private float clickPositionY;
 
-    private LongPressHandler(@NonNull View view, int historySource, @Nullable String referrer,
+    private LongPressHandler(@NonNull Fragment fragment, @NonNull View view, int historySource, @Nullable String referrer,
                             @NonNull OverflowMenuListener listener) {
+        this.fragment = fragment;
         this.historySource = historySource;
         this.overflowMenuListener = listener;
         this.referrer = referrer;
@@ -46,9 +48,9 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         view.setOnTouchListener(this);
     }
 
-    public LongPressHandler(@NonNull View view, int historySource,
+    public LongPressHandler(@NonNull Fragment fragment, @NonNull View view, int historySource,
                             @NonNull OverflowMenuListener listener) {
-        this(view, historySource, null, listener);
+        this(fragment, view, historySource, null, listener);
     }
 
     @Override
@@ -89,7 +91,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
     }
 
     private void showPopupMenu(@NonNull View view, @Nullable AdapterView.AdapterContextMenuInfo info) {
-        if (title != null && !title.isSpecial()) {
+        if (title != null && !title.isSpecial() && fragment.isAdded()) {
             hideSoftKeyboard(view);
             entry = new HistoryEntry(title, historySource);
             entry.setReferrer(referrer);

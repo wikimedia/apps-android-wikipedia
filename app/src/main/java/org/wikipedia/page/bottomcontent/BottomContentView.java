@@ -131,7 +131,7 @@ public class BottomContentView extends LinearLayoutOverWebView
             org.wikipedia.LongPressHandler.ListViewOverflowMenuListener overflowMenuListener
                     = new LongPressHandler(parentFragment);
 
-            new org.wikipedia.LongPressHandler(readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
+            new org.wikipedia.LongPressHandler(parentFragment, readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
                     overflowMenuListener);
         }
 
