@@ -8,11 +8,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.database.column.Column;
 import org.wikipedia.util.ArrayUtils;
 import org.wikipedia.util.log.L;
-
-import androidx.annotation.NonNull;
 
 public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;

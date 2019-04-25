@@ -1,11 +1,11 @@
 package org.wikipedia.page;
 
+import androidx.annotation.NonNull;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.json.GsonUtil;
-
-import androidx.annotation.NonNull;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.wikipedia.WikipediaApp;
-
-import androidx.annotation.NonNull;
 
 /**
  * Descendant of BottomSheetDialog that prevents the background from being dimmed.

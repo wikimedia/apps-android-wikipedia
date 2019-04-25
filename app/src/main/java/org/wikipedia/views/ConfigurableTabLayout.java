@@ -3,16 +3,12 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageView;
-
-import org.wikipedia.R;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import static androidx.core.content.ContextCompat.getColor;
-import static androidx.core.graphics.drawable.DrawableCompat.setTint;
+import org.wikipedia.R;
 
 public class ConfigurableTabLayout extends ConstraintLayout {
     @ColorRes private static final int TAB_ENABLED_COLOR = android.R.color.white;
@@ -60,8 +56,6 @@ public class ConfigurableTabLayout extends ConstraintLayout {
 
     private void setEnabled(@NonNull View tab, boolean enabled) {
         tab.setTag(enabled ? null : new DisabledTag());
-        // noinspection ConstantConditions
-        setTint(((ImageView) tab).getDrawable(), getColor(getContext(), enabled ? TAB_ENABLED_COLOR : TAB_DISABLED_COLOR));
     }
 
     private class DisabledTag {

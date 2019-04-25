@@ -19,6 +19,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -52,7 +60,6 @@ import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
@@ -78,13 +85,6 @@ import org.wikipedia.views.WikiPageErrorView;
 import java.util.Date;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -297,14 +297,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorView = rootView.findViewById(R.id.page_error);
 
         bottomContentView = rootView.findViewById(R.id.page_bottom_view);
-
-        PageActionToolbarHideHandler pageActionToolbarHideHandler
-                = new PageActionToolbarHideHandler(tabLayout, null);
-        pageActionToolbarHideHandler.setScrollView(webView);
-
-        PageActionToolbarHideHandler snackbarHideHandler =
-                new PageActionToolbarHideHandler(rootView.findViewById(R.id.fragment_page_coordinator), null);
-        snackbarHideHandler.setScrollView(webView);
 
         return rootView;
     }
@@ -994,7 +986,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         .setMessage(R.string.description_edit_anon_limit)
                         .setPositiveButton(R.string.page_editing_login, (DialogInterface dialogInterface, int i) ->
                                 startActivity(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_EDIT)))
-                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNegativeButton(R.string.description_edit_login_cancel_button_text, null)
                         .show();
             } else {
                 startDescriptionEditActivity(text);

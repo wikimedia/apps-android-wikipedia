@@ -1,9 +1,10 @@
 package org.wikipedia.dataclient.retrofit;
 
-import java.io.IOException;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.io.IOException;
+
 import retrofit2.Response;
 
 /**

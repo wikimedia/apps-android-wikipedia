@@ -1,10 +1,10 @@
 package org.wikipedia.analytics;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
-
-import androidx.annotation.NonNull;
 
 
 public class LinkPreviewFunnel extends TimedFunnel {

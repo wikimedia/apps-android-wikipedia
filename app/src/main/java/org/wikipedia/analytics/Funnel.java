@@ -1,5 +1,9 @@
 package org.wikipedia.analytics;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONException;
@@ -12,10 +16,6 @@ import org.wikipedia.util.log.L;
 
 import java.util.Date;
 import java.util.UUID;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 
 /** Schemas for this abstract funnel are expected to have appInstallID and sessionToken fields. When
  * these fields are not present or differently named, preprocess* or get*Field should be overridden. */

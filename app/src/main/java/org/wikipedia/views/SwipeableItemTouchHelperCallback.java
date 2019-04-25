@@ -5,16 +5,16 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import org.wikipedia.R;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ResourceUtil;
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 
 public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private static final float SWIPE_ICON_PADDING_DP = 16f;

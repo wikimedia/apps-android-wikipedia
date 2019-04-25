@@ -6,12 +6,12 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
-import org.wikipedia.util.ResourceUtil;
-
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.wikipedia.util.ResourceUtil;
 
 // todo: replace with DividerItemDecoration once it supports headers and footers
 public class DrawableItemDecoration extends RecyclerView.ItemDecoration {

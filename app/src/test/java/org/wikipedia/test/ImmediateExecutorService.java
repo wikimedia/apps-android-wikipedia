@@ -1,10 +1,10 @@
 package org.wikipedia.test;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import androidx.annotation.NonNull;
 
 public final class ImmediateExecutorService extends AbstractExecutorService {
     @Override public void shutdown() {
@@ -23,8 +23,7 @@ public final class ImmediateExecutorService extends AbstractExecutorService {
         throw new UnsupportedOperationException();
     }
 
-    @Override public boolean awaitTermination(long l, @NonNull TimeUnit timeUnit)
-            throws InterruptedException {
+    @Override public boolean awaitTermination(long l, @NonNull TimeUnit timeUnit) {
         throw new UnsupportedOperationException();
     }
 

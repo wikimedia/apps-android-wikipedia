@@ -1,9 +1,9 @@
 package org.wikipedia.dataclient.page;
 
-import org.wikipedia.page.Namespace;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.page.Namespace;
 
 /**
  * Represents a summary of a page, useful for page previews.

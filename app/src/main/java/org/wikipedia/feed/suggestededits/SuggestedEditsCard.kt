@@ -27,7 +27,7 @@ class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
     }
 
     override fun title(): String {
-        return WikipediaApp.getInstance().getString(R.string.suggested_edits)
+        return WikipediaApp.getInstance().getString(R.string.suggested_edits_feed_card_title)
     }
 
     override fun subtitle(): String {

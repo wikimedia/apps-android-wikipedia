@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,8 +52,6 @@ import org.wikipedia.views.PageItemView;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -251,7 +252,8 @@ public class BottomContentView extends LinearLayoutOverWebView
         // pad the bottom of the webview, to make room for ourselves
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingBottom", (int)(getHeight() / DimenUtil.getDensityScalar()));
+            payload.put("paddingBottom",
+                    (int)((getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

@@ -1,11 +1,11 @@
 package org.wikipedia.dataclient.restbase;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.json.annotations.Required;
 
 import java.util.Map;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class RbDefinition {
     @Required @NonNull private Map<String, Usage[]> usagesByLang;

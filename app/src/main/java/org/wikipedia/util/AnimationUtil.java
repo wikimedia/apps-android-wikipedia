@@ -3,11 +3,11 @@ package org.wikipedia.util;
 import android.app.Activity;
 import android.view.View;
 
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.DraweeTransition;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
+
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.DraweeTransition;
 
 public final class AnimationUtil {
 

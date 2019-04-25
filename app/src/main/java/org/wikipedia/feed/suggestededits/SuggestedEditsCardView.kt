@@ -33,16 +33,20 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     var addedDescription: String? = null
 
     init {
-        View.inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
+        inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
     }
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
+
         prepareViews()
-        this.isTranslation = card.isTranslation
+
+        isTranslation = card.isTranslation
         sourceSummary = card.sourceSummary
         targetSummary = card.targetSummary
+
         setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceSummary!!.lang), this)
+
         header(card)
         updateContents()
     }
@@ -54,6 +58,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         if (isTranslation) {
+            sourceDescription = StringUtils.capitalize(sourceSummary!!.description)
             viewArticleSubtitleContainer.visibility = View.VISIBLE
             viewArticleSubtitleAddedBy.visibility = View.GONE
             viewArticleSubtitleEdit.visibility = View.GONE

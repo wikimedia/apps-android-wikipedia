@@ -3,6 +3,12 @@ package org.wikipedia.settings;
 import android.content.Context;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.TwoStatePreference;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
@@ -23,11 +29,6 @@ import org.wikipedia.views.DialogTitleWithImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.TwoStatePreference;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -182,11 +183,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                                 PageTitle title = new PageTitle(summary.getNormalizedTitle(), WikipediaApp.getInstance().getWikiSite());
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
-                                            .setNegativeButton(android.R.string.cancel, null)
+                                            .setNegativeButton(R.string.cancel, null)
                                             .show(),
                                     throwable -> new AlertDialog.Builder(getActivity())
                                             .setMessage(throwable.getMessage())
-                                            .setPositiveButton(android.R.string.ok, null)
+                                            .setPositiveButton(R.string.ok, null)
                                             .show());
                     return true;
                 });
@@ -204,11 +205,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                                 PageTitle title = new PageTitle(pair.getSecond().getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
-                                            .setNegativeButton(android.R.string.cancel, null)
+                                            .setNegativeButton(R.string.cancel, null)
                                             .show(),
                                     throwable -> new AlertDialog.Builder(getActivity())
                                             .setMessage(throwable.getMessage())
-                                            .setPositiveButton(android.R.string.ok, null)
+                                            .setPositiveButton(R.string.ok, null)
                                             .show());
                     return true;
                 });

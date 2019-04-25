@@ -1,5 +1,8 @@
 package org.wikipedia.json;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.ParameterizedRobolectricTestRunner;
@@ -7,9 +10,6 @@ import org.robolectric.ParameterizedRobolectricTestRunner.Parameters;
 import org.wikipedia.page.Namespace;
 
 import java.util.Arrays;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -33,7 +33,7 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
         assertThat(result, is(namespace));
     }
 
-    @Test public void testReadOldData() throws Throwable {
+    @Test public void testReadOldData() {
         // Prior to 3210ce44, we marshaled Namespace as the name string of the enum, instead of
         // the code number, and when we switched to using the code number, we didn't introduce
         // backwards-compatible checks for the old-style strings that may still be present in
@@ -54,17 +54,17 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
             }
         },
         SPECIAL() {
-            @Nullable @Override Namespace val() {
+            @NonNull @Override Namespace val() {
                 return Namespace.SPECIAL;
             }
         },
         MAIN() {
-            @Nullable @Override Namespace val() {
+            @NonNull @Override Namespace val() {
                 return Namespace.MAIN;
             }
         },
         TALK() {
-            @Nullable @Override Namespace val() {
+            @NonNull @Override Namespace val() {
                 return Namespace.TALK;
             }
         };

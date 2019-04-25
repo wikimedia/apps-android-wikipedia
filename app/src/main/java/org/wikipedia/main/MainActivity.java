@@ -5,6 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -28,15 +38,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.WikiDrawerLayout;
 
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.view.ActionMode;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -246,7 +247,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (AccountUtil.isLoggedIn()) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setMessage(R.string.logout_prompt)
-                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);

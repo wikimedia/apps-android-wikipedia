@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.BuildConfig;
 import org.wikipedia.settings.Prefs;
-
-import androidx.annotation.NonNull;
 
 public final class ReleaseUtil {
     private static final int RELEASE_PROD = 0;

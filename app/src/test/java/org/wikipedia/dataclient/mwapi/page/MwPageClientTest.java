@@ -1,12 +1,13 @@
 package org.wikipedia.dataclient.mwapi.page;
 
+import androidx.annotation.NonNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.page.BasePageClientTest;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 
-import androidx.annotation.NonNull;
 import io.reactivex.observers.TestObserver;
 import retrofit2.Response;
 
@@ -18,7 +19,7 @@ public class MwPageClientTest extends BasePageClientTest {
         subject = new MwPageClient();
     }
 
-    @Test public void testLeadThumbnailWidth() throws Throwable {
+    @Test public void testLeadThumbnailWidth() {
 
         TestObserver<Response<PageLead>> observer = new TestObserver<>();
         subject.lead(wikiSite(), null, null, null, "test", 10).subscribe(observer);
