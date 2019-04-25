@@ -132,6 +132,7 @@
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
   <string name="logout_prompt">Jste si jisti, že se chcete odhlásit?</string>
+  <string name="logout_dialog_cancel_button_text">Zrušit</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -471,6 +472,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Seznamy k přečtení byly úspěšně synchronizovány</string>
   <string name="reading_list_menu_last_sync">Poslední synchronizace: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Zrušit</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Zrušit</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Zrušit</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Zrušit</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_reverted_title">Zrušená úprava</string>
   <string name="notification_channel_description">Stav stahování</string>
@@ -584,7 +592,11 @@
   <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
   <string name="feed_empty_message">Nic není ve Vašem kanále Objevit</string>
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Zrušit</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_text_hint_per_language">popis v jazyce %s</string>
   <string name="description_edit_save">Zveřejnit</string>
@@ -663,6 +675,7 @@
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">váš příspěvek vypadal jako experiment nebo vandalismus.</string>
   <string name="description_edit_revert_history">Více informací se můžete dozvědět v &lt;a href=\"%1$s\"&gt;historii editací této stránky&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Zrušit</string>
   <string name="offline_read_permission_rationale">Povolení k přístupu do úložného prostoru vašeho zařízení je požadováno, abyste mohli používat offline prohlížení.</string>
   <string name="offline_read_final_rationale">Povolení k přístupu do úložného prostoru vašeho zařízení je požadováno, abyste mohli používat Offline Knihovnu</string>
   <string name="size_gb">%.2f GB</string>
@@ -725,6 +738,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">V současné době máte ve svých jazycích aplikaci nastavenou jak Tradiční, tak Zjednodušenou čínštinu. Chcete aktualizovat nastavení jazyků aplikace?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Upravit jazyky</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ne, děkuji</string>
+  <string name="remove_language_dialog_cancel_button_text">Zrušit</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Zrušit</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>
@@ -737,4 +758,8 @@
   <string name="main_drawer_close">Zavřít</string>
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit/zaregistrovat se do Wikipedie</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Zrušit</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Zrušit</string>
 </resources>

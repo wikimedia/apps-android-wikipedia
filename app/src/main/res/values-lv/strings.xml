@@ -75,6 +75,7 @@
   <string name="reset_password_button">Saglabāt un ieiet</string>
   <string name="preference_title_logout">Iziet</string>
   <string name="toast_logout_complete">Jūs esat izgājis</string>
+  <string name="logout_dialog_cancel_button_text">Atcelt</string>
   <string name="delete_selected_items">Dzēst izvēlētos vienumus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPĒDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Lietotājvārds</string>
@@ -198,6 +199,10 @@
   <string name="default_reading_list_name">Saglabāts</string>
   <string name="reading_lists_menu_create_list">Izveidot jaunu sarakstu</string>
   <string name="reading_lists_menu_sort_by">Kārtot pēc</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Atcelt</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Atcelt</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Atcelt</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Atcelt</string>
   <string name="user_option_sync_label">Izvēles</string>
   <string name="notification_reverted_title">Atcelts labojums</string>
   <string name="notification_syncing_resume_button">Turpināt</string>
@@ -230,6 +235,8 @@
   <string name="feed_configure_menu_select_all">Rādīt visus</string>
   <string name="feed_configure_menu_deselect_all">Paslēpt visus</string>
   <string name="feed_configure_onboarding_action">Pielāgot</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Atcelt</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Atcelt</string>
   <string name="description_edit_text_hint" fuzzy="true">Uzraksti aprakstu!</string>
   <string name="description_edit_save">Publicēt</string>
   <string name="description_edit_add_description" fuzzy="true">Pievieno īsu aprakstu!</string>
@@ -247,6 +254,7 @@
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Varbūt vēlāk</string>
   <string name="suggested_edits_task_add_description_title">Pievienot aprakstus</string>
   <string name="suggested_edits_feed_card_title">Ieteiktie labojumi</string>
+  <string name="description_edit_login_cancel_button_text">Atcelt</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_got_it">Sapratu</string>
@@ -267,4 +275,8 @@
   <string name="more_language_options">vairāk</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Labot valodas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nē, paldies</string>
+  <string name="remove_language_dialog_cancel_button_text">Atcelt</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Atcelt</string>
+  <string name="text_input_dialog_cancel_button_text">Atcelt</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Atcelt</string>
 </resources>

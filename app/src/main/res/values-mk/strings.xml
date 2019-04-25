@@ -118,6 +118,7 @@
   <string name="preference_title_logout">Одјава</string>
   <string name="toast_logout_complete">Одјавени сте</string>
   <string name="logout_prompt">Сигурно сакате да се одјавите?</string>
+  <string name="logout_dialog_cancel_button_text">Откажи</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="history_offline_articles_toast">Некои статии во историјата може да се недостапни вонмрежно.</string>
@@ -457,6 +458,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Списоците за читање се успешно усогласени</string>
   <string name="reading_list_menu_last_sync">Последно усогласување: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Откажи</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Откажи</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Откажи</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Откажи</string>
+  <string name="reading_list_split_dialog_ok_button_text">ОК</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_description">Напредок на подигањето</string>
@@ -567,7 +575,11 @@
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_text_hint_per_language">Опис на %s</string>
   <string name="description_edit_save">Објави</string>
@@ -645,6 +657,7 @@
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Откажи</string>
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
   <string name="offline_read_final_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да ја користите Вонмрежната библиотека.</string>
   <string name="size_gb">%.2f ГБ</string>
@@ -706,6 +719,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Тековно имате и традиционален и упростен кинески во јазиците на прилогот. Да ги изменам јазичните поставки?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Измени јазици</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодарам</string>
+  <string name="remove_language_dialog_cancel_button_text">Откажи</string>
+  <string name="remove_language_dialog_ok_button_text">ОК</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">ОК</string>
+  <string name="protected_page_warning_dialog_ok_button_text">ОК</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">ОК</string>
+  <string name="edit_conflict_dialog_ok_button_text">ОК</string>
+  <string name="reverted_edit_dialog_ok_button_text">ОК</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Откажи</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
   <string name="wikitext_link">Врска</string>
@@ -718,4 +739,8 @@
   <string name="main_drawer_close">Затвори</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
+  <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
+  <string name="text_input_dialog_ok_button_text">ОК</string>
+  <string name="text_input_dialog_cancel_button_text">Откажи</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Откажи</string>
 </resources>

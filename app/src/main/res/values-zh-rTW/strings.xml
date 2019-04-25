@@ -131,6 +131,7 @@
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
   <string name="logout_prompt">您確定要登出嗎？</string>
+  <string name="logout_dialog_cancel_button_text">取消</string>
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="history_offline_articles_toast">一些在歷史紀錄裡的條目可能無法在離線時閱覽。</string>
@@ -470,6 +471,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">成功同步閱讀清單</string>
   <string name="reading_list_menu_last_sync">上一次同步：%s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">確認</string>
+  <string name="reading_list_delete_dialog_ok_button_text">確認</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">取消</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">取消</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
+  <string name="reading_list_split_dialog_ok_button_text">確認</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_reverted_title">回退的編輯</string>
   <string name="notification_channel_description">下載進度</string>
@@ -580,7 +588,11 @@
   <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
   <string name="feed_empty_message">您的探索摘要內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">確認</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索摘要&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的摘要內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">確認</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="description_edit_text_hint">標題描述</string>
   <string name="description_edit_text_hint_per_language">%s描述</string>
   <string name="description_edit_save">發佈</string>
@@ -658,6 +670,7 @@
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質、或是有心破壞的。</string>
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
+  <string name="description_edit_login_cancel_button_text">取消</string>
   <string name="offline_read_permission_rationale">需要可存取在您裝置上儲存庫的權限才能離線瀏覽。</string>
   <string name="offline_read_final_rationale">需要可存取在您裝置上儲存庫的權限才能使用離線圖書館。</string>
   <string name="size_gb">%.2f GB</string>
@@ -719,6 +732,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">在您的應用程式語言裡，目前有繁體與簡體的中文異體設定。要更新您的應用程式語言設定嗎？</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">編輯語言</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，謝謝</string>
+  <string name="remove_language_dialog_cancel_button_text">取消</string>
+  <string name="remove_language_dialog_ok_button_text">確認</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">確認</string>
+  <string name="protected_page_warning_dialog_ok_button_text">確認</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">確認</string>
+  <string name="edit_conflict_dialog_ok_button_text">確認</string>
+  <string name="reverted_edit_dialog_ok_button_text">確認</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
   <string name="wikitext_link">連結</string>
@@ -731,4 +752,8 @@
   <string name="main_drawer_close">關閉</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
+  <string name="custom_date_picker_dialog_ok_button_text">確認</string>
+  <string name="text_input_dialog_ok_button_text">確認</string>
+  <string name="text_input_dialog_cancel_button_text">取消</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
 </resources>
