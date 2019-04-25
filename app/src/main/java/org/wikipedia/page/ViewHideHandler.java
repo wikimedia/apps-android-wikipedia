@@ -22,6 +22,7 @@ public abstract class ViewHideHandler
         this.hideableView = hideableView;
         this.anchoredView = anchoredView;
         this.gravity = gravity;
+
     }
 
     /**
@@ -55,13 +56,9 @@ public abstract class ViewHideHandler
         if (webView == null) {
             return;
         }
+
         onScrolled(oldScrollY, scrollY);
 
-        if (gravity == Gravity.TOP && scrollY <= webView.getHeight()) {
-            // For the first screenful, ensure it's always shown
-            ensureDisplayed();
-            return;
-        }
         int animMargin = 0;
         int scrollDelta = scrollY - oldScrollY;
         if (!isHumanScroll) {

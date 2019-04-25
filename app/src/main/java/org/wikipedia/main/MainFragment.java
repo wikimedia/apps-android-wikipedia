@@ -71,6 +71,7 @@ import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 
@@ -215,7 +216,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void handleIntent(Intent intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_SHORTCUT));
+            startActivity(RandomActivity.newIntent(requireActivity(), APP_SHORTCUTS));
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)

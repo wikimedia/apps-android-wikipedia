@@ -37,6 +37,7 @@
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="search_hint_search_history">Zoekgeschiedenis</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
+  <string name="search_hint_search_my_lists_and_articles">Doorzoek mijn lijsten en artikelen</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
@@ -400,6 +401,7 @@
   <string name="reading_list_description_hint">Beschrijving (optioneel)</string>
   <string name="reading_list_item_deleted">%s verwijderd uit lijst</string>
   <string name="reading_list_items_deleted">%d pagina\'s uit lijst verwijderd</string>
+  <string name="reading_lists_item_deleted">%s verwijderd uit lijsten</string>
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
   <string name="reading_list_deleted">%s verwijderd</string>
   <string name="saved_list_empty_title">Nog geen opgeslagen pagina\'s</string>
@@ -592,8 +594,9 @@
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
   <string name="description_edit_add_description_v2">Beschrijving toevoegen</string>
-  <string name="description_edit_translate_description" fuzzy="true">Vertaal titelbeschrijvingen</string>
+  <string name="description_edit_translate_description">Vertaal titelbeschrijving</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
+  <string name="add_translation">Vertaling %s toevoegen</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
   <string name="description_edit_help_title">Hulp: titelbeschrijvingen</string>
   <string name="description_edit_help_about_wikidata">Over Wikidata</string>
@@ -614,6 +617,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
   <string name="suggested_edits_add_descriptions">Beschrijvingen toevoegen</string>
+  <string name="suggested_edits_review_description">Review Beschrijving</string>
   <string name="suggested_edits_add_description_button">Beschrijving toevoegen</string>
   <string name="suggested_edits_my_contributions">Mijn bijdragen</string>
   <string name="suggested_edits_added_by_you">Toegevoegd door u:</string>

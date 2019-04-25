@@ -642,7 +642,7 @@
     <item quantity="one">Ein Beitrag</item>
     <item quantity="other">%d Beiträge</item>
   </plurals>
-  <string name="suggested_edits">Vorgeschlagene Bearbeitungen</string>
+  <string name="suggested_edits_feed_card_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>

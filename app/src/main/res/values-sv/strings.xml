@@ -262,7 +262,7 @@
   <string name="preference_summary_show_images">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om ditt dataabonnemang är begränsat.</string>
   <string name="preference_title_download_only_over_wifi">Ladda endast ned via Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Bekräfta nedladdning via mobildata?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Du har aktiverat \"Ladda endast ned via Wi-Fi\" i inställningarna. Vill du använda din mobildata för endast denna nedladdning?</string>
+  <string name="dialog_text_download_only_over_wifi">Du har aktiverat \"Ladda endast ned via Wi-Fi\" i inställningarna. Vill du använda din mobildata för endast denna nedladdning?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Tillåt</string>
   <string name="read_more_section">Läs mer</string>
   <string name="about_article_section">Om denna artikel</string>
@@ -574,6 +574,7 @@
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
+  <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
   <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
   <string name="feed_configure_onboarding_action">Anpassa</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
@@ -607,22 +608,23 @@
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
   <string name="suggested_edits_add_descriptions">Lägg till beskrivningar</string>
+  <string name="suggested_edits_translate_descriptions">Översätt beskrivningar</string>
   <string name="suggested_edits_review_description">Granska beskrivning</string>
   <string name="suggested_edits_add_description_button">Lägg till beskrivning</string>
   <string name="suggested_edits_my_contributions">Mina bidrag</string>
   <string name="suggested_edits_added_by_you">Lades till av dig:</string>
   <string name="suggested_edits_translated_by_you">Översattes av dig:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Du låste upp uppgiften \"Lägg till beskrivningar\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Grattis till ditt tredje bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Du låste upp uppgiften \"Översätt beskrivningar\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Grattis till ditt 50:e bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Du låste upp uppgiften \"Lägg till beskrivningar\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tack för alla dina bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Du låste upp uppgiften \"Översätt beskrivningar\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Grattis till dina åtskilliga bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_unlock_dialog_no">Kanske senare</string>
   <string name="suggested_edits_unlock_dialog_yes">Ja, nu kör vi</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Du låste upp \"Lägg till beskrivningar\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du låste upp \"Översätt beskrivningar\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Du låste upp \"Lägg till beskrivningar\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Du låste upp \"Översätt beskrivningar\"</string>
   <string name="suggested_edits_unlock_notification_text">Föreslagna redigeringar</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Föreslagna redigeringar\n\nGrattis till ditt tredje bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Föreslagna redigeringar\n\nGrattis till ditt 50:e bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Förslag på redigeringar\n\nTack för alla dina bidrag. Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Förslag på redigeringar\n\nGrattis till dina åtskilliga bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_unlock_notification_button">Ja, nu kör vi</string>
   <string name="suggested_edits_license_notice">Genom att lägg till titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
@@ -645,6 +647,7 @@
     <item quantity="one">1 bidrag</item>
     <item quantity="other">%d bidrag</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Förslag på redigeringar</string>
   <string name="suggested_edits_tutorial_message">Välkommen till den nya startsidan för att snabbredigera i Wikipedia-appen. Dina bidrag uppskattas. Ha det så roligt!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>

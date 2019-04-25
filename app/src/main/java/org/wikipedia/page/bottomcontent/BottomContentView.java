@@ -252,7 +252,8 @@ public class BottomContentView extends LinearLayoutOverWebView
         // pad the bottom of the webview, to make room for ourselves
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingBottom", (int)(getHeight() / DimenUtil.getDensityScalar()));
+            payload.put("paddingBottom",
+                    (int)((getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
