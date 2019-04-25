@@ -25,7 +25,8 @@ import static org.wikipedia.Constants.InvokeSource.CONTEXT_MENU;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;
 
-public class LongPressHandler implements View.OnCreateContextMenuListener, View.OnTouchListener {
+public class LongPressHandler implements View.OnCreateContextMenuListener,
+        View.OnTouchListener, MenuItem.OnMenuItemClickListener {
     private final OverflowMenuListener overflowMenuListener;
     private final int historySource;
     @Nullable
@@ -104,33 +105,31 @@ public class LongPressHandler implements View.OnCreateContextMenuListener, View.
                 popupMenu = new PopupMenu(view.getContext(), info.targetView, Gravity.END, 0, R.style.PagePopupMenu);
             }
             popupMenu.getMenuInflater().inflate(R.menu.menu_page_long_press, popupMenu.getMenu());
-            popupMenu.setOnMenuItemClickListener(new OverflowMenuClickListener());
+            popupMenu.setOnMenuItemClickListener(this);
             popupMenu.show();
         }
     }
 
-    private class OverflowMenuClickListener implements PopupMenu.OnMenuItemClickListener {
-        @Override
-        public boolean onMenuItemClick(MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.menu_long_press_open_page:
-                    overflowMenuListener.onOpenLink(title, entry);
-                    return true;
-                case R.id.menu_long_press_open_in_new_tab:
-                    overflowMenuListener.onOpenInNewTab(title, entry);
-                    return true;
-                case R.id.menu_long_press_copy_page:
-                    overflowMenuListener.onCopyLink(title);
-                    return true;
-                case R.id.menu_long_press_share_page:
-                    overflowMenuListener.onShareLink(title);
-                    return true;
-                case R.id.menu_long_press_add_to_list:
-                    overflowMenuListener.onAddToList(title, CONTEXT_MENU);
-                    return true;
-                default:
-                    return false;
-            }
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_long_press_open_page:
+                overflowMenuListener.onOpenLink(title, entry);
+                return true;
+            case R.id.menu_long_press_open_in_new_tab:
+                overflowMenuListener.onOpenInNewTab(title, entry);
+                return true;
+            case R.id.menu_long_press_copy_page:
+                overflowMenuListener.onCopyLink(title);
+                return true;
+            case R.id.menu_long_press_share_page:
+                overflowMenuListener.onShareLink(title);
+                return true;
+            case R.id.menu_long_press_add_to_list:
+                overflowMenuListener.onAddToList(title, CONTEXT_MENU);
+                return true;
+            default:
+            return false;
         }
     }
 
