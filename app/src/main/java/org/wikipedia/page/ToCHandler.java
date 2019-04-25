@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
@@ -85,7 +86,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         }
     };
 
-    public ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
+    ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
@@ -131,6 +132,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 WikipediaApp.getInstance().getWikiSite(), 0, 0);
     }
 
+    @SuppressLint("RtlHardcoded")
     void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
@@ -237,7 +239,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections = new ArrayList<>();
         private final SparseIntArray sectionYOffsets = new SparseIntArray();
-        private  String pageTitle;
+        private String pageTitle;
         private int highlightedSection;
 
         void setPage(@NonNull Page page) {
@@ -256,16 +258,16 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             notifyDataSetChanged();
         }
 
-        public void setHighlightedSection(int id) {
+        void setHighlightedSection(int id) {
             highlightedSection = id;
             notifyDataSetChanged();
         }
 
-        public int getYOffset(int id) {
+        int getYOffset(int id) {
             return sectionYOffsets.get(id, 0);
         }
 
-        public void setYOffset(int id, int yOffset) {
+        void setYOffset(int id, int yOffset) {
             sectionYOffsets.put(id, yOffset);
         }
 
@@ -342,6 +344,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         Prefs.setTocTutorialEnabled(false);
     }
 
+    @SuppressLint("RtlHardcoded")
     private void setScrollerPosition() {
         scrollerViewParams.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
         scrollerViewParams.leftMargin = rtl ? DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN) : 0;
