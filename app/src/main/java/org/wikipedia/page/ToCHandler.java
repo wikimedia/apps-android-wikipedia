@@ -102,7 +102,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         tocList.setOnItemClickListener((parent, view, position, id) -> {
             Section section = adapter.getItem(position);
             scrollToSection(section);
-            funnel.logClick(position, StringUtil.fromHtml(section.getHeading()).toString());
+            funnel.logClick();
             hide();
         });
         tocList.setListener(this::hide);
@@ -146,8 +146,15 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
         tocContainer.setLayoutParams(params);
 
+        log();
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
                 page.getPageProperties().getPageId(), adapter.getCount());
+    }
+
+    void log() {
+        if (funnel != null) {
+            funnel.log();
+        }
     }
 
     void scrollToSection(String sectionAnchor) {
@@ -388,7 +395,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         tocList.setEnabled(true);
         currentItemSelected = -1;
         onScrollerMoved(0f, false);
-        funnel.logScrollStart();
+        funnel.scrollStart();
         if (semiFade) {
             return;
         }
@@ -407,7 +414,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 });
         tocList.setEnabled(false);
         tocShown = false;
-        funnel.logScrollStop();
+        funnel.scrollStop();
     }
 
     private void bringOutScroller() {
@@ -441,7 +448,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
         scrollerShown = true;
-        funnel.logOpen();
+        funnel.peek();
     }
 
     private void hideScroller() {
@@ -452,7 +459,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN))
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
-        funnel.logClose();
+        funnel.hide();
     }
 
     private void showCompleteScroller(@Nullable AnimatorListenerAdapter listenerAdapter) {
