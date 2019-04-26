@@ -99,14 +99,14 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
                 android:layout_marginBottom="32dp"
-                app:tint="?attr/material_theme_de_emphasised_color"
-                app:srcCompat="@drawable/ic_replay_black_24dp"
-                app:layout_constraintBottom_toTopOf="@+id/nextButton"
+                app:tint="?attr/colorAccent"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:layout_constraintBottom_toTopOf="@+id/addDescriptionButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/nextButton"
+                android:id="@+id/addDescriptionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -121,6 +121,23 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/nextButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="4dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:layout_marginStart="32dp"
+                android:scaleX="-1"
+                app:tint="?attr/colorAccent"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:layout_constraintStart_toEndOf="@+id/addDescriptionButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

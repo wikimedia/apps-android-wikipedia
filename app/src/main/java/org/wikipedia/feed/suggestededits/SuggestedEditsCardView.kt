@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.Uri
 import android.text.TextUtils
 import android.view.View
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.view.*
