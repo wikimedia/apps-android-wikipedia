@@ -60,7 +60,6 @@ import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
@@ -299,14 +298,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         bottomContentView = rootView.findViewById(R.id.page_bottom_view);
 
-        PageActionToolbarHideHandler pageActionToolbarHideHandler
-                = new PageActionToolbarHideHandler(tabLayout, null);
-        pageActionToolbarHideHandler.setScrollView(webView);
-
-        PageActionToolbarHideHandler snackbarHideHandler =
-                new PageActionToolbarHideHandler(rootView.findViewById(R.id.fragment_page_coordinator), null);
-        snackbarHideHandler.setScrollView(webView);
-
         return rootView;
     }
 
@@ -318,6 +309,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
+        tocHandler.log();
         shareHandler.dispose();
         bottomContentView.dispose();
         disposables.clear();

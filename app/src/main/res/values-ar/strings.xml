@@ -657,7 +657,7 @@
     <item quantity="one">مساهمة</item>
     <item quantity="other">%d مساهمات</item>
   </plurals>
-  <string name="suggested_edits">التعديلات المقترحة</string>
+  <string name="suggested_edits_feed_card_title">التعديلات المقترحة</string>
   <string name="suggested_edits_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
