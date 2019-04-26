@@ -536,8 +536,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         }
         if (selectedTabPosition == -1) {
-            // open the page anyway, in a new tab
-            openInNewForegroundTabFromMenu(title, entry);
+            loadPage(title, entry, true);
             return;
         }
         if (selectedTabPosition == app.getTabList().size() - 1) {
