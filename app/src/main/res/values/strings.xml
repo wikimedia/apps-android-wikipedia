@@ -650,7 +650,7 @@
     <!-- /Description editing tutorial -->
 
     <!-- Suggested edits -->
-    <string name="suggested_edits_activity_title">Suggested edits</string>
+    <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_add_descriptions">Add descriptions</string>
     <string name="suggested_edits_translate_descriptions">Translate descriptions</string>
     <string name="suggested_edits_review_description">Review description</string>

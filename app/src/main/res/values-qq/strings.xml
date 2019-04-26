@@ -617,7 +617,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
-  <string name="suggested_edits_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
+  <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
   <string name="suggested_edits_add_descriptions">Title of screen where the user chooses articles that are missing descriptions to be added.</string>
   <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing descriptions to be translated.</string>
   <string name="suggested_edits_review_description">Title of the review title description page.</string>

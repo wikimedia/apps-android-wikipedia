@@ -160,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
-            android:text="@string/suggested_edits_activity_title" />
+            android:text="@string/suggested_edits_tasks_activity_title" />
     </LinearLayout>
 
     <View

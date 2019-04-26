@@ -255,7 +255,7 @@
         <activity
             android:name=".suggestededits.SuggestedEditsTasksActivity"
             android:launchMode="singleTask"
-            android:label="@string/suggested_edits_activity_title"
+            android:label="@string/suggested_edits_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
