@@ -120,7 +120,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         headerView!!.setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
-                .setImageCircleColor(ResourceUtil.getThemedAttributeId(context, R.attr.material_theme_de_emphasised_color))
+                .setImageCircleColor(R.color.base30)
                 .setLangCode(if (isTranslation) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
