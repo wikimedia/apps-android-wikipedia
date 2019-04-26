@@ -370,9 +370,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         shareHandler = new ShareHandler(this, bridge);
 
         if (callback() != null) {
-            LongPressHandler.WebViewOverflowMenuListener overflowMenuListener
-                    = new PageContainerLongPressHandler(this);
-            new LongPressHandler(this, webView, HistoryEntry.SOURCE_INTERNAL_LINK, overflowMenuListener);
+            new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
         pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab());
