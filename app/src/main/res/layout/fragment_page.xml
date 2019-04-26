@@ -45,7 +45,8 @@
                 android:id="@+id/fragment_page_coordinator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom" />
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/bottom_toolbar_height" />
 
             <LinearLayout
                 android:layout_width="match_parent"
