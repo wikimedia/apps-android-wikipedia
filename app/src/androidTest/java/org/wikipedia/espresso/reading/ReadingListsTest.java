@@ -5,6 +5,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import androidx.test.espresso.DataInteraction;
+import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.GrantPermissionRule;
+import androidx.test.runner.AndroidJUnit4;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,12 +24,6 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.PrefsIoUtil;
-
-import androidx.test.espresso.DataInteraction;
-import androidx.test.espresso.contrib.RecyclerViewActions;
-import androidx.test.rule.ActivityTestRule;
-import androidx.test.rule.GrantPermissionRule;
-import androidx.test.runner.AndroidJUnit4;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
@@ -107,13 +107,13 @@ public final class ReadingListsTest {
     private void captureMyListsTabWithUserCreatedLists(String mode) {
         onView(withId(R.id.menu_search_lists)).perform(click());
 
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("obama"));
+        onView(withId(R.id.search_src_text)).perform(typeText("obama"));
         waitFor(WAIT_FOR_1000);
 
         ScreenshotTools.snap("ReadingListSearchWithResults" + mode);
         waitFor(WAIT_FOR_1000);
 
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("oooo"));
+        onView(withId(R.id.search_src_text)).perform(typeText("oooo"));
         ScreenshotTools.snap("ReadingListSearchWithNoResults" + mode);
 
         pressBack();
@@ -126,12 +126,12 @@ public final class ReadingListsTest {
         pressBack();
         waitFor(WAIT_FOR_1000);
         onView(withId(R.id.menu_search_lists)).perform(click());
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("my"));
+        onView(withId(R.id.search_src_text)).perform(typeText("my"));
         waitFor(WAIT_FOR_1000);
         ScreenshotTools.snap("ReadingListsSearchWithResults" + mode);
         waitFor(WAIT_FOR_1000);
 
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("ooo"));
+        onView(withId(R.id.search_src_text)).perform(typeText("ooo"));
         ScreenshotTools.snap("ReadingListsSearchWithNoResults" + mode);
         waitFor(WAIT_FOR_1000);
 

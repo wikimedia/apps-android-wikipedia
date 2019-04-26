@@ -62,7 +62,7 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() throws Throwable {
+    @Test public void testRequestResponseFailure() {
         enqueue404();
         TestObserver<SearchResults> observer = new TestObserver<>();
         getObservable().subscribe(observer);
@@ -70,8 +70,8 @@ public class FullTextSearchClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<SearchResults> observer = new TestObserver<>();
         getObservable().subscribe(observer);
 

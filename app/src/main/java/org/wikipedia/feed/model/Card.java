@@ -2,10 +2,10 @@ package org.wikipedia.feed.model;
 
 import android.net.Uri;
 
-import org.wikipedia.model.BaseModel;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.model.BaseModel;
 
 public abstract class Card extends BaseModel {
     @NonNull public String title() {

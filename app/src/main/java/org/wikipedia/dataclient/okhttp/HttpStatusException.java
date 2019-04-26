@@ -1,13 +1,14 @@
 package org.wikipedia.dataclient.okhttp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import okhttp3.Response;
 
 public class HttpStatusException extends IOException {

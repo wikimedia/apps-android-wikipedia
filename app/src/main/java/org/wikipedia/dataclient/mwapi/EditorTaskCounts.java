@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient.mwapi;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
@@ -9,8 +11,6 @@ import org.wikipedia.json.GsonUtil;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-import androidx.annotation.Nullable;
 
 @SuppressWarnings("unused")
 public class EditorTaskCounts {

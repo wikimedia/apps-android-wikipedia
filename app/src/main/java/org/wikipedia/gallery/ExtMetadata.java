@@ -1,9 +1,9 @@
 package org.wikipedia.gallery;
 
-import com.google.gson.annotations.SerializedName;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.gson.annotations.SerializedName;
 
 public class ExtMetadata {
     @SuppressWarnings("unused") @SerializedName("DateTime") @Nullable private Values dateTime;

@@ -3,12 +3,11 @@ package org.wikipedia.random;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.test.MockRetrofitTest;
 
-import static junit.framework.Assert.assertTrue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import io.reactivex.Observable;
+import io.reactivex.observers.TestObserver;
 
 public class RandomSummaryClientTest extends MockRetrofitTest {
 
@@ -16,23 +15,32 @@ public class RandomSummaryClientTest extends MockRetrofitTest {
     public void testRequestEligible() throws Throwable {
         enqueueFromFile("rb_page_summary_valid.json");
 
-        getRestService().getRandomSummary().subscribe(summary -> {
-            assertThat(summary.getDisplayTitle(), is("Fermat's Last Theorem"));
-            assertThat(summary.getDescription(), is("theorem in number theory"));
-        }, throwable -> assertTrue(false));
+        TestObserver<RbPageSummary> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
+
+        observer.assertComplete().assertNoErrors()
+                .assertValue(summary -> summary != null
+                        && summary.getDisplayTitle().equals("Fermat's Last Theorem")
+                        && summary.getDescription().equals("theorem in number theory"));
     }
 
-    @Test public void testRequestMalformed() throws Throwable {
-        enqueueFromFile("rb_page_summary_malformed.json");
+    @Test public void testRequestMalformed() {
+        enqueueMalformed();
 
-        getRestService().getMedia("foo").subscribe(gallery -> assertTrue(false),
-                throwable -> assertTrue(throwable instanceof MalformedJsonException));
+        TestObserver<RbPageSummary> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
+        observer.assertError(MalformedJsonException.class);
     }
 
-    @Test public void testRequestFailure() throws Throwable {
+    @Test public void testRequestFailure() {
         enqueue404();
 
-        getRestService().getMedia("foo").subscribe(gallery -> assertTrue(false),
-                throwable -> assertTrue(throwable instanceof HttpStatusException));
+        TestObserver<RbPageSummary> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
+        observer.assertError(Exception.class);
+    }
+
+    private Observable<RbPageSummary> getObservable() {
+        return getRestService().getRandomSummary();
     }
 }

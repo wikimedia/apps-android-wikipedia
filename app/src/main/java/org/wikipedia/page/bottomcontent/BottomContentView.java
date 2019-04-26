@@ -15,11 +15,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
-import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
@@ -49,8 +51,6 @@ import org.wikipedia.views.PageItemView;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -128,11 +128,11 @@ public class BottomContentView extends LinearLayoutOverWebView
         pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         if (parentFragment.callback() != null) {
-            ListViewContextMenuListener contextMenuListener
+            org.wikipedia.LongPressHandler.ListViewOverflowMenuListener overflowMenuListener
                     = new LongPressHandler(parentFragment);
 
             new org.wikipedia.LongPressHandler(readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
-                    contextMenuListener);
+                    overflowMenuListener);
         }
 
         addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
@@ -251,7 +251,8 @@ public class BottomContentView extends LinearLayoutOverWebView
         // pad the bottom of the webview, to make room for ourselves
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingBottom", (int)(getHeight() / DimenUtil.getDensityScalar()));
+            payload.put("paddingBottom",
+                    (int)((getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -349,7 +350,7 @@ public class BottomContentView extends LinearLayoutOverWebView
     }
 
     private class LongPressHandler extends PageContainerLongPressHandler
-            implements ListViewContextMenuListener {
+            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
         private int lastPosition;
         LongPressHandler(@NonNull PageFragment fragment) {
             super(fragment);

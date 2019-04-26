@@ -12,6 +12,13 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.MenuItem;
 
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.Constants;
@@ -38,12 +45,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.log.L;
 
-import androidx.annotation.ColorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -239,7 +240,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             } else if (event instanceof SplitLargeListsEvent) {
                 new AlertDialog.Builder(BaseActivity.this)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.getMaxPagesPerReadingList()))
-                        .setPositiveButton(android.R.string.ok, null)
+                        .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show();
             } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
                 ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);

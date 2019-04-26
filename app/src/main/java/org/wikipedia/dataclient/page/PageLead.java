@@ -2,11 +2,11 @@ package org.wikipedia.dataclient.page;
 
 import android.location.Location;
 
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageTitle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageTitle;
 
 /**
  * Gson POJI for loading the first stage of page content.

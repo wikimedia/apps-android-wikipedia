@@ -4,13 +4,13 @@ import android.content.Context;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedCardView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class DayHeaderCardView extends FrameLayout implements FeedCardView<Card> {
     private Card card;

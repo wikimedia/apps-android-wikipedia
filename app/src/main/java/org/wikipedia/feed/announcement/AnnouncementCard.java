@@ -2,11 +2,11 @@ package org.wikipedia.feed.announcement;
 
 import android.net.Uri;
 
-import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.model.CardType;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.CardType;
 
 public class AnnouncementCard extends Card {
     @NonNull private final Announcement announcement;

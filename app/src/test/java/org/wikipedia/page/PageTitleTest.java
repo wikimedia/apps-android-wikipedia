@@ -13,7 +13,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class) public class PageTitleTest {
-    @Test public void testEquals() throws Throwable {
+    @Test public void testEquals() {
         assertThat(new PageTitle(null, "India", WikiSite.forLanguageCode("en")).equals(new PageTitle(null, "India", WikiSite.forLanguageCode("en"))), is(true));
         assertThat(new PageTitle("Talk", "India",  WikiSite.forLanguageCode("en")).equals(new PageTitle("Talk", "India", WikiSite.forLanguageCode("en"))), is(true));
 
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
         assertThat(new PageTitle("Talk", "India",  WikiSite.forLanguageCode("ta")).equals("Something else"), is(false));
     }
 
-    @Test public void testPrefixedText() throws Throwable {
+    @Test public void testPrefixedText() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
         assertThat(new PageTitle(null, "Test  title",  enwiki).getPrefixedText(), is("Test__title"));
@@ -31,7 +31,7 @@ import static org.mockito.Mockito.when;
         assertThat(new PageTitle(null, "Test title",  enwiki).getText(), is("Test_title"));
     }
 
-    @Test public void testFromInternalLink() throws Throwable {
+    @Test public void testFromInternalLink() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
         assertThat(enwiki.titleForInternalLink("/wiki/India").getPrefixedText(), is("India"));
@@ -50,7 +50,7 @@ import static org.mockito.Mockito.when;
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India#History").getFragment(), is("History"));
     }
 
-    @Test public void testCanonicalURL() throws Throwable {
+    @Test public void testCanonicalURL() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
         assertThat(enwiki.titleForInternalLink("/wiki/India").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India"));
@@ -58,14 +58,14 @@ import static org.mockito.Mockito.when;
         assertThat(enwiki.titleForInternalLink("/wiki/India's Gate").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India%27s_Gate"));
     }
 
-    @Test public void testWikiSite() throws Throwable {
+    @Test public void testWikiSite() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
         assertThat(new PageTitle(null, "Test", enwiki).getWikiSite(), is(enwiki));
         assertThat(WikiSite.forLanguageCode("en"), is(enwiki));
     }
 
-    @Test public void testParsing() throws Throwable {
+    @Test public void testParsing() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
         assertThat(new PageTitle("Hello", enwiki).getDisplayText(), is("Hello"));
@@ -75,26 +75,26 @@ import static org.mockito.Mockito.when;
         assertThat(new PageTitle("Wikipedia_talk:Hello world", enwiki).getDisplayText(), is("Wikipedia talk:Hello world"));
     }
 
-    @Test public void testSpecial() throws Throwable {
+    @Test public void testSpecial() {
         assertThat(new PageTitle("Special:Version", WikiSite.forLanguageCode("en")).isSpecial(), is(true));
         assertThat(new PageTitle("特別:Version", WikiSite.forLanguageCode("ja")).isSpecial(), is(true));
         assertThat(new PageTitle("Special:Version", WikiSite.forLanguageCode("ja")).isSpecial(), is(true));
         assertThat(new PageTitle("特別:Version", WikiSite.forLanguageCode("en")).isSpecial(), is(false));
     }
 
-    @Test public void testFile() throws Throwable {
+    @Test public void testFile() {
         assertThat(new PageTitle("File:SomethingSomething", WikiSite.forLanguageCode("en")).isFilePage(), is(true));
         assertThat(new PageTitle("ファイル:Version", WikiSite.forLanguageCode("ja")).isFilePage(), is(true));
         assertThat(new PageTitle("File:SomethingSomething", WikiSite.forLanguageCode("ja")).isFilePage(), is(true));
         assertThat(new PageTitle("ファイル:Version", WikiSite.forLanguageCode("en")).isFilePage(), is(false));
     }
 
-    @Test public void testMainPage() throws Throwable {
+    @Test public void testMainPage() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
         assertThat(new PageTitle("", enwiki), is(new PageTitle(MainPageNameData.valueFor("en"), enwiki)));
     }
 
-    @Test public void testIsMainPageNoTitleNoProps() throws Throwable {
+    @Test public void testIsMainPageNoTitleNoProps() {
         final String text = null;
         WikiSite wiki = WikiSite.forLanguageCode("test");
         final String thumbUrl = null;
@@ -105,7 +105,7 @@ import static org.mockito.Mockito.when;
         assertThat(subject.isMainPage(), is(true));
     }
 
-    @Test public void testIsMainPageTitleNoProps() throws Throwable {
+    @Test public void testIsMainPageTitleNoProps() {
         String text = "text";
         WikiSite wiki = WikiSite.forLanguageCode("test");
         final String thumbUrl = null;
@@ -116,7 +116,7 @@ import static org.mockito.Mockito.when;
         assertThat(subject.isMainPage(), is(false));
     }
 
-    @Test public void testIsMainPageProps() throws Throwable {
+    @Test public void testIsMainPageProps() {
         String text = "text";
         WikiSite wiki = WikiSite.forLanguageCode("test");
         final String thumbUrl = null;

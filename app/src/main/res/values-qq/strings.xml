@@ -211,6 +211,7 @@
   <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
+  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.\n{{Identical|Translator}}</string>
@@ -637,7 +638,7 @@
   <string name="suggested_edits_unlock_notification_button">Action button text for the dialog action that goes to the suggested edits screen</string>
   <string name="suggested_edits_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
-  <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking editor tasks.</string>
+  <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
   <string name="suggested_edits_task_add_description_title">Title description task heading.</string>
   <string name="suggested_edits_task_add_description_description">Title description task explanation given to user.</string>
   <string name="suggested_edits_task_image_caption_title">Image caption tasks heading.</string>
@@ -737,5 +738,29 @@
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
-  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="reading_list_split_dialog_ok_button_text">Positive action button text in warning pop-up dialog for spliting large reading lists.</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for protected editing of a page.</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for accounts for which editing is blocked.</string>
+  <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.</string>
+  <string name="edit_conflict_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for editing conflict.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for feed card language selection.</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for card language selection in customization screen.</string>
+  <string name="reverted_edit_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for reverted edit.</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">Positive action button text in pop-up dialog for removing article from list.</string>
+  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.</string>
+  <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Positive action button text in pop-up dialog for deleting a list.</string>
+  <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Negative action button text in warning pop-up dialog for accounts for which editing is blocked.</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for card language selection in customization screen.</string>
+  <string name="logout_dialog_cancel_button_text">Negative action button text in pop-up dialog for loging out.</string>
+  <string name="description_edit_login_cancel_button_text">Negative action button text in pop-up dialog for loging in for editing.</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing article from a list.</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Negative action button text in pop-up dialog for removing article from offline storage.</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Negative action button text in pop-up dialog for downloading content on mobile data connection.</string>
+  <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Negative action button text in pop-up dialog for deleting a list.</string>
 </resources>

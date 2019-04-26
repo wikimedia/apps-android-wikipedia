@@ -1,5 +1,7 @@
 package org.wikipedia.edit;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
@@ -11,7 +13,6 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockWebServerTest;
 
-import androidx.annotation.NonNull;
 import retrofit2.Call;
 
 import static org.mockito.Matchers.any;
@@ -113,7 +114,7 @@ public class EditClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("(-(-_(-_-)_-)-)");
+        enqueueMalformed();
 
         EditClient.Callback cb = mock(EditClient.Callback.class);
         Call<Edit> call = request(cb, false);

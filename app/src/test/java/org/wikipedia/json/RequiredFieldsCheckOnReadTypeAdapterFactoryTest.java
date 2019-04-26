@@ -2,6 +2,9 @@ package org.wikipedia.json;
 
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
@@ -11,9 +14,6 @@ import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;

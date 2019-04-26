@@ -10,13 +10,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.login.LoginActivity;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class WikimediaAuthenticator extends AbstractAccountAuthenticator {
     private static final String[] SYNC_AUTHORITIES = {BuildConfig.READING_LISTS_AUTHORITY};

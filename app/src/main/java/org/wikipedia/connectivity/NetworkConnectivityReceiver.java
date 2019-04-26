@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import androidx.annotation.Nullable;
+import androidx.core.net.ConnectivityManagerCompat;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NetworkConnectEvent;
 
 import java.util.concurrent.TimeUnit;
-
-import androidx.annotation.Nullable;
-import androidx.core.net.ConnectivityManagerCompat;
 
 public class NetworkConnectivityReceiver extends BroadcastReceiver {
     private static long ONLINE_CHECK_THRESHOLD_MILLIS = TimeUnit.MINUTES.toMillis(1);

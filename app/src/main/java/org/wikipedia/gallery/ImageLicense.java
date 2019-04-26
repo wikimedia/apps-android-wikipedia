@@ -1,14 +1,14 @@
 package org.wikipedia.gallery;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.R;
 
 import java.io.Serializable;
 import java.util.Locale;
-
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 

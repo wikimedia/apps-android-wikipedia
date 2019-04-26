@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 
-import org.wikipedia.R;
-import org.wikipedia.util.log.L;
-
 import androidx.annotation.AttrRes;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.wikipedia.R;
+import org.wikipedia.util.log.L;
 
 /** {@link RecyclerView} that invokes a callback when the number of columns should be updated. */
 public class AutoFitRecyclerView extends RecyclerView {

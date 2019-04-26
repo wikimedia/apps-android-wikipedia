@@ -2,6 +2,9 @@ package org.wikipedia.dataclient;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+import androidx.collection.LruCache;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
@@ -9,8 +12,6 @@ import org.wikipedia.settings.Prefs;
 
 import java.io.IOException;
 
-import androidx.annotation.NonNull;
-import androidx.collection.LruCache;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

@@ -24,6 +24,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
+import androidx.preference.PreferenceManager;
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -70,13 +78,6 @@ import org.wikipedia.wiktionary.WiktionaryDialog;
 import java.util.HashSet;
 import java.util.Set;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
-import androidx.preference.PreferenceManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -789,7 +790,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         new AlertDialog.Builder(this)
                 .setTitle(R.string.notification_reverted_title)
                 .setView(new DescriptionEditRevertHelpView(this, qNumber))
-                .setPositiveButton(android.R.string.ok, null)
+                .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
                 .create()
                 .show();
     }

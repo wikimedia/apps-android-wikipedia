@@ -7,11 +7,11 @@ import android.location.Location;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import org.wikipedia.R;
-import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.wikipedia.R;
+import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller;
 
 public final class GeoUtil {
 

@@ -11,6 +11,11 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.LruCache;
+import androidx.fragment.app.Fragment;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
@@ -31,14 +36,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.LruCache;
-import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemClick;
 import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -119,14 +119,6 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-    }
-
-    @OnItemClick(R.id.search_results_list) void onItemClick(ListView view, int position) {
-        Callback callback = callback();
-        if (callback != null) {
-            PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-            callback.navigateToTitle(item, false, position);
-        }
     }
 
     @OnClick(R.id.search_suggestion) void onSuggestionClick(View view) {
@@ -412,7 +404,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.ListViewContextMenuListener {
+            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
         private int lastPositionRequested;
 
         @Override
@@ -523,6 +515,16 @@ public class SearchResultsFragment extends Fragment {
                     doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinuation(), false);
                 }
             }
+
+            convertView.setOnClickListener((view) -> {
+                Callback callback = callback();
+                if (callback != null) {
+                    PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
+                    callback.navigateToTitle(item, false, position);
+                }
+            });
+
+            convertView.setOnLongClickListener(view -> false);
 
             return convertView;
         }
