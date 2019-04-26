@@ -104,7 +104,7 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH,
+        new LongPressHandler(this, searchResultsList, HistoryEntry.SOURCE_SEARCH,
                 new SearchResultsFragmentLongPressHandler());
     }
 
@@ -413,7 +413,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.ListViewContextMenuListener {
+            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
         private int lastPositionRequested;
 
         @Override
