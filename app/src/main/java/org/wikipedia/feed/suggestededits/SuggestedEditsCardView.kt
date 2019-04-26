@@ -7,7 +7,7 @@ import android.text.TextUtils
 import android.view.View
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
-import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.view.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -33,7 +33,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     var addedDescription: String? = null
 
     init {
-        inflate(getContext(), R.layout.fragment_add_title_descriptions_item, this)
+        inflate(getContext(), R.layout.fragment_suggested_edits_add_descriptions_item, this)
     }
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
