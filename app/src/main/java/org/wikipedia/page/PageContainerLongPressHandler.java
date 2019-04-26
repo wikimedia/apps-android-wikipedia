@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
@@ -49,6 +50,12 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
     @Override
     public WikiSite getWikiSite() {
         return fragment.getTitleOriginal().getWikiSite();
+    }
+
+    @Nullable
+    @Override
+    public String getReferrer() {
+        return fragment.getTitle() != null ? fragment.getTitle().getCanonicalUri() : null;
     }
 
     private void copyLink(String url) {
