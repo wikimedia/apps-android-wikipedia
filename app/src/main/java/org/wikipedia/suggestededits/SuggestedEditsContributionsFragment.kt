@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_my_contributions.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_contributions.*
 import kotlinx.android.synthetic.main.item_my_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -33,7 +33,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
     private lateinit var editorTaskCounts: EditorTaskCounts
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_my_contributions, container, false)
+        return inflater.inflate(R.layout.fragment_suggested_edits_contributions, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
