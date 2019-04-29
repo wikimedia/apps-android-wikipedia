@@ -614,7 +614,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Grazas pola súa contribución constanteǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Quizais máis tarde</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title">Tarefas de editor</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tarefas de editor</string>
   <string name="suggested_edits_task_add_description_title">Engadir descricións</string>
   <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
   <string name="suggested_edits_task_image_caption_title">Engadir pés ás imaxes</string>

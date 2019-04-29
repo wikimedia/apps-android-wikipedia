@@ -129,6 +129,7 @@
   <string name="preference_title_logout">প্রস্থান</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
   <string name="logout_prompt">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
+  <string name="logout_dialog_cancel_button_text">বাতিল</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
   <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
   <string name="history_offline_articles_toast">অফলাইন থাকাকালীন ইতিহাসের কিছু নিবন্ধ অপ্রদর্শিত হতে পারে।</string>
@@ -420,6 +421,13 @@
     <item quantity="one">এই নিবন্ধটি আর অফলাইনে উপলব্ধ হবে না।</item>
     <item quantity="other">এই নিবন্ধগুলি আর অফলাইনে উপলব্ধ হবে না।</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">বাতিল</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">বাতিল</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">বাতিল</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">বাতিল</string>
+  <string name="reading_list_split_dialog_ok_button_text">ঠিক আছে</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_reverted_title">সম্পাদনা বাতিল হয়েছে</string>
   <string name="notification_channel_description">ডাউনলোডের অগ্রগতি</string>
@@ -502,7 +510,11 @@
   <string name="feed_item_type_main_page">দৈনিক নির্বাচিত বিষয়বস্তুসহ উইকিপিডিয়ার প্রধান পাতা</string>
   <string name="feed_item_type_randomizer">পড়ার জন্য অনির্ধারিত প্রবন্ধ বের করুন</string>
   <string name="feed_configure_onboarding_action">পছন্দকরণ</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;আপনার অন্বেষণ ফিড স্বনির্ধারণ করুন&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;আপনি এখন আপনার ফিডে কি প্রদর্শন করাতে চান তা চয়ন করতে পারেন, এবং আপনার পছন্দসই বিষয়বস্তুর ধরনকে অগ্রাধিকার দিতে পারবেন।</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
@@ -540,6 +552,7 @@
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
   <string name="description_edit_revert_history">আপনি যদি আগ্রহী হন তাহলে, &lt;a href=\"%1$s\"&gt;সম্পাদনা ইতিহাস&lt;/a&gt; দেখুন।</string>
+  <string name="description_edit_login_cancel_button_text">বাতিল</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <plurals name="offline_compilation_download_time_remaining">
@@ -589,6 +602,14 @@
   <string name="add_wikipedia_languages_text">উইকিপিডিয়ার ভাষা যোগ করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ভাষা সম্পাদনা করুন</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">না ধন্যবাদ</string>
+  <string name="remove_language_dialog_cancel_button_text">বাতিল</string>
+  <string name="remove_language_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="protected_page_warning_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="edit_conflict_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="reverted_edit_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">বাতিল</string>
   <string name="wikitext_bold">গাঢ়</string>
   <string name="wikitext_italic">বাঁকা</string>
   <string name="wikitext_template">টেমপ্লেট</string>
@@ -596,4 +617,8 @@
   <string name="main_drawer_close">বন্ধ করুন</string>
   <string name="main_drawer_help">সাহায্য</string>
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
+  <string name="custom_date_picker_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="text_input_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="text_input_dialog_cancel_button_text">বাতিল</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">বাতিল</string>
 </resources>
