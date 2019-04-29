@@ -574,7 +574,7 @@
   <string name="suggested_edits_review_description">Быһаарыылары тургутуу</string>
   <string name="suggested_edits_add_description_button">Быһааран суруй</string>
   <string name="suggested_edits_my_contributions">Бэйэм суруйуум</string>
-  <string name="suggested_edits_tasks_activity_title">Сорудахтар</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Сорудахтар</string>
   <string name="suggested_edits_task_add_description_title">Кылгас быһаарыы эбии</string>
   <string name="suggested_edits_task_add_description_description">Кылгас быһаарыылары суруйууга кыттарга</string>
   <string name="suggested_edits_task_image_caption_title">Ойуу суруга</string>

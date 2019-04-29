@@ -640,7 +640,7 @@
   <string name="suggested_edits_unlock_notification_button">Ja, nu kör vi</string>
   <string name="suggested_edits_license_notice">Genom att lägg till titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
-  <string name="suggested_edits_tasks_activity_title">Uppgifter för redigerare</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Uppgifter för redigerare</string>
   <string name="suggested_edits_task_add_description_title">Lägg till beskrivningar</string>
   <string name="suggested_edits_task_add_description_description">Bidra på artiklar utan beskrivningar</string>
   <string name="suggested_edits_task_image_caption_title">Bildtexter</string>

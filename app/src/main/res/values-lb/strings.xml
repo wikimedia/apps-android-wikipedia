@@ -105,6 +105,7 @@
   <string name="reset_password_button">Späicheren an aloggen</string>
   <string name="preference_title_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
+  <string name="logout_dialog_cancel_button_text">Ofbriechen</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
   <string name="history_empty_message">Markéiert dat wat Dir hei gelies hutt.</string>
   <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>
@@ -388,6 +389,8 @@
   </plurals>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Ofbriechen</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
@@ -523,6 +526,7 @@
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Ofbriechen</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <plurals name="offline_compilation_download_time_remaining">
@@ -574,6 +578,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
   <string name="remove_language_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>
@@ -584,4 +589,5 @@
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
 </resources>

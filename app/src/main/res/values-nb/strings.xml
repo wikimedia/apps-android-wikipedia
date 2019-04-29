@@ -641,7 +641,7 @@
   <string name="suggested_edits_unlock_notification_button">Ja, la meg se på den</string>
   <string name="suggested_edits_license_notice">Ved å legge til en beskrivelse, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Redigeringsoppgaver i appen</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
   <string name="suggested_edits_task_add_description_title">Legg til tittelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
   <string name="suggested_edits_task_image_caption_title">Bildetekster</string>

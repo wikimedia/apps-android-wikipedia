@@ -14,6 +14,7 @@
 * Simon Shek
 * SupaplexTW
 * Wehwei
+* Willy1018
 * Wwycheuk
 * 漢黑玉
 * 烈羽
@@ -643,7 +644,7 @@
   <string name="suggested_edits_unlock_notification_button">好，讓我們開始吧</string>
   <string name="suggested_edits_license_notice">透過添加標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出我的個人貢獻。</string>
   <string name="suggested_edits_menu_info">資訊</string>
-  <string name="suggested_edits_tasks_activity_title">編者任務</string>
+  <string name="suggested_edits_tasks_activity_title">建議編輯</string>
   <string name="suggested_edits_task_add_description_title">增加描述</string>
   <string name="suggested_edits_task_add_description_description">不帶描述來貢獻條目</string>
   <string name="suggested_edits_task_image_caption_title">圖片說明</string>

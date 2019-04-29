@@ -655,7 +655,7 @@
   <string name="suggested_edits_unlock_notification_button">Oui, allons-y</string>
   <string name="suggested_edits_license_notice">En ajoutant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Tâches d’éditeur</string>
+  <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
   <string name="suggested_edits_task_add_description_title">Ajouter les descriptions</string>
   <string name="suggested_edits_task_add_description_description">Contribuer aux articles sans description</string>
   <string name="suggested_edits_task_image_caption_title">Légender les images</string>
