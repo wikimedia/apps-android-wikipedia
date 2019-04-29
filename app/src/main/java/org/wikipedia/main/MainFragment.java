@@ -54,7 +54,6 @@ import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
-import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -73,7 +72,9 @@ import butterknife.Unbinder;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
+import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, FloatingQueueView.Callback,
@@ -158,7 +159,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchActivity(SearchInvokeSource.VOICE, searchQuery);
+            openSearchActivity(VOICE, searchQuery);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
@@ -230,7 +231,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSearchRequested() {
-        openSearchActivity(SearchInvokeSource.FEED_BAR, null);
+        openSearchActivity(FEED_BAR, null);
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -443,8 +444,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    private void openSearchActivity(@NonNull SearchInvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(requireActivity(), source.code(), query);
+    private void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+        Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
         startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
     }
 
