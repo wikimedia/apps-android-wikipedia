@@ -19,4 +19,6 @@ public class StyleHandler {
     public static String setBodyBottomPadding(float topMargin) {
         return buildJavaScriptString("document.body.style.paddingBottom", topMargin + "px");
     }
+
+    private StyleHandler() {}
 }

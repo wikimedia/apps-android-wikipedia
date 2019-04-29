@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import org.wikipedia.Constants;
 import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.html.StyleHandler;
