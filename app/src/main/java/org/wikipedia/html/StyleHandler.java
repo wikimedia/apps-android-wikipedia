@@ -20,5 +20,5 @@ public class StyleHandler {
         return buildJavaScriptString("document.body.style.paddingBottom", topMargin + "px");
     }
 
-    private StyleHandler() {}
+    private StyleHandler() { }
 }
