@@ -368,7 +368,7 @@ public class PageFragmentLoadState {
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        webView.evaluateJavascript(StyleHandler.setupContentDivTopMargin(
+        webView.evaluateJavascript(StyleHandler.setContentDivTopMargin(
                 DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.activity_vertical_margin))), null);
 
         sendLeadSectionPayload(page);

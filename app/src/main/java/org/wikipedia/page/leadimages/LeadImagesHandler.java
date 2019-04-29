@@ -134,7 +134,7 @@ public class LeadImagesHandler {
     }
 
     private void setWebViewPaddingTop() {
-        webView.evaluateJavascript(StyleHandler.setupBodyTopPadding(isMainPage()
+        webView.evaluateJavascript(StyleHandler.setBodyTopPadding(isMainPage()
                 ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
                 : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar())), null);
     }

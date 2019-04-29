@@ -245,7 +245,7 @@ public class BottomContentView extends LinearLayoutOverWebView
 
     private void padWebView() {
         // pad the bottom of the webview, to make room for ourselves
-        webView.evaluateJavascript(StyleHandler.setupBodyBottomPadding(
+        webView.evaluateJavascript(StyleHandler.setBodyBottomPadding(
                 (getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()), null);
         webViewPadded = true;
         // ^ sending the padding event will guarantee a ContentHeightChanged event to be triggered,
