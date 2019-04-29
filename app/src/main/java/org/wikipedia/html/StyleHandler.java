@@ -2,7 +2,7 @@ package org.wikipedia.html;
 
 import androidx.annotation.NonNull;
 
-public class StyleHandler {
+public final class StyleHandler {
 
     private static String buildJavaScriptString(@NonNull String script, @NonNull String value) {
         return script + " = '" + value + "'";
