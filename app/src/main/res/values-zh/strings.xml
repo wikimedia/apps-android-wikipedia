@@ -622,7 +622,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">编辑标题描述功能已解锁！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">我们注意到您喜欢编辑标题描述，同时也常阅读多种语言版本的维基百科词条。欢迎查看此列表并帮助我们翻译更多的标题描述。</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">以后再说</string>
-  <string name="suggested_edits_tasks_activity_title">编者任务</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">编者任务</string>
   <string name="suggested_edits_task_add_description_title">添加标题描述</string>
   <string name="suggested_edits_task_add_description_description">跳过概述并直接编辑文章</string>
   <string name="suggested_edits_task_image_caption_title">图片描述</string>

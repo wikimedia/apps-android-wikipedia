@@ -635,7 +635,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">\nHemos notado que te gusta editar descripciones de título y que lees Wikipedia en varios idiomas. ¡Comprueba esta lista de tareas que te da acceso a traducir más descripciones de título!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">\n\nQuizá más tarde</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title">Tareas de editor de la aplicación</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tareas de editor de la aplicación</string>
   <string name="suggested_edits_task_add_description_title">Añadir descripciones</string>
   <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
   <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>

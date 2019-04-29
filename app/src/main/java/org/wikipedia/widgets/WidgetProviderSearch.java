@@ -9,8 +9,9 @@ import android.widget.RemoteViews;
 
 import org.wikipedia.R;
 import org.wikipedia.search.SearchActivity;
-import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.util.log.L;
+
+import static org.wikipedia.Constants.InvokeSource.WIDGET;
 
 public class WidgetProviderSearch extends AppWidgetProvider {
     @Override
@@ -23,7 +24,7 @@ public class WidgetProviderSearch extends AppWidgetProvider {
 
             // Create a PendingIntent to act as the onClickListener
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
-                    SearchActivity.newIntent(context, SearchInvokeSource.WIDGET.code(), null),
+                    SearchActivity.newIntent(context, WIDGET, null),
                     PendingIntent.FLAG_UPDATE_CURRENT);
 
             // If we want to update the widget itself from the click event, then do something like this:

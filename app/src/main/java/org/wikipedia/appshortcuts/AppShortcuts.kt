@@ -9,10 +9,10 @@ import android.graphics.drawable.Icon
 import android.net.Uri
 import android.os.Build
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS
 import org.wikipedia.R
 import org.wikipedia.main.MainActivity
 import org.wikipedia.search.SearchActivity
-import org.wikipedia.search.SearchInvokeSource
 import java.util.*
 
 class AppShortcuts {
@@ -56,7 +56,7 @@ class AppShortcuts {
                     .setShortLabel(app.getString(R.string.app_shortcuts_search))
                     .setLongLabel(app.getString(R.string.app_shortcuts_search))
                     .setIcon(Icon.createWithResource(app, R.drawable.appshortcut_ic_search))
-                    .setIntent(SearchActivity.newIntent(app, SearchInvokeSource.APP_SHORTCUTS.code(), null).setAction(ACTION_APP_SHORTCUT))
+                    .setIntent(SearchActivity.newIntent(app, APP_SHORTCUTS, null).setAction(ACTION_APP_SHORTCUT))
                     .build()
         }
     }

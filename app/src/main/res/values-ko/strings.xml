@@ -135,6 +135,7 @@
   <string name="preference_title_logout">로그아웃</string>
   <string name="toast_logout_complete">로그아웃됨</string>
   <string name="logout_prompt">로그아웃하시겠습니까?</string>
+  <string name="logout_dialog_cancel_button_text">취소</string>
   <string name="history_empty_title">최근에 본 글이 없습니다</string>
   <string name="history_empty_message">당신이 읽고 계신 문서를 여기에서 추적하세요.</string>
   <string name="history_offline_articles_toast">오프라인 상태에서는 역사에서 일부 문서를 보지 못할 수 있습니다.</string>
@@ -471,6 +472,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">읽기 목록 동기화 성공</string>
   <string name="reading_list_menu_last_sync">마지막 동기시간: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">확인</string>
+  <string name="reading_list_delete_dialog_ok_button_text">확인</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">취소</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">취소</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">취소</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">취소</string>
+  <string name="reading_list_split_dialog_ok_button_text">확인</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
   <string name="notification_channel_description">다운로드 진척도</string>
@@ -574,7 +582,11 @@
   <string name="feed_item_type_randomizer">읽어볼 임의 문서를 만듭니다</string>
   <string name="feed_empty_message">탐색 피드에서 할 일이 없습니다</string>
   <string name="feed_configure_onboarding_action">사용자 지정</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">확인</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">취소</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;당신의 둘러보기 피드를 맞춤 관리하세요&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;이제 당신의 피드에 무엇을 표시할지 선택할 수 있고, 당신이 어떤 종류의 컨텐츠를 좋아하는지 우선순위를 매길 수 있습니다.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">확인</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
   <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_text_hint_per_language">%s 설명</string>
   <string name="description_edit_save">게시</string>
@@ -638,6 +650,7 @@
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
   <string name="description_edit_revert_reason2">당신의 기여는 실험적이거나 문서 훼손처럼 보입니다.</string>
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
+  <string name="description_edit_login_cancel_button_text">취소</string>
   <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
   <string name="offline_read_final_rationale">오프라인 라이브러리를 사용하려면 장치에서 저장소의 접근 권한이 필요합니다.</string>
   <string name="size_gb">%.2f GB</string>
@@ -694,6 +707,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">현재 앱 언어에서 정체 중국어와 간체 중국어가 설정되어 있습니다. 앱 언어 설정을 업데이트하시겠습니까?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">언어 편집</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">괜찮습니다</string>
+  <string name="remove_language_dialog_cancel_button_text">취소</string>
+  <string name="remove_language_dialog_ok_button_text">확인</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">확인</string>
+  <string name="protected_page_warning_dialog_ok_button_text">확인</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">확인</string>
+  <string name="edit_conflict_dialog_ok_button_text">확인</string>
+  <string name="reverted_edit_dialog_ok_button_text">확인</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">취소</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
   <string name="wikitext_link">링크</string>
@@ -706,4 +727,8 @@
   <string name="main_drawer_close">닫기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
+  <string name="custom_date_picker_dialog_ok_button_text">확인</string>
+  <string name="text_input_dialog_ok_button_text">확인</string>
+  <string name="text_input_dialog_cancel_button_text">취소</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">취소</string>
 </resources>

@@ -132,6 +132,7 @@
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Sessão terminada</string>
   <string name="logout_prompt">Tem a certeza de que pretende sair?</string>
+  <string name="logout_dialog_cancel_button_text">Cancelar</string>
   <string name="history_empty_title">Não há artigos vistos recentemente</string>
   <string name="history_empty_message">Registo do que esteve a ler</string>
   <string name="history_offline_articles_toast">Alguns artigos do historial podem não ser consultáveis enquanto estiver off-line.</string>
@@ -471,6 +472,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">As listas de leitura foram sincronizadas</string>
   <string name="reading_list_menu_last_sync">Última sincronização: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Cancelar</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Cancelar</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Cancelar</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancelar</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_reverted_title">Edição desfeita</string>
   <string name="notification_channel_description">Progresso da transferência</string>
@@ -581,7 +589,11 @@
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_text_hint_per_language">Descrição em %s</string>
   <string name="description_edit_save">Publicar</string>
@@ -632,7 +644,7 @@
   <string name="suggested_edits_unlock_notification_button">Sim, continuar</string>
   <string name="suggested_edits_license_notice">Ao adicionar a descrição do título, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informação</string>
-  <string name="suggested_edits_tasks_activity_title">Tarefas de edição</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tarefas de edição</string>
   <string name="suggested_edits_task_add_description_title">Adicionar descrições</string>
   <string name="suggested_edits_task_add_description_description">Contribuir para os artigos a que falta a descrição</string>
   <string name="suggested_edits_task_image_caption_title">Legendar imagens</string>
@@ -659,6 +671,7 @@
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">a sua contribuição parece ser uma experiência ou vandalismo.</string>
   <string name="description_edit_revert_history">Se tiver interesse, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Cancelar</string>
   <string name="offline_read_permission_rationale">É necessário ter permissão de acesso ao armazenamento do seu dispositivo para a navegação sem acesso à Internet.</string>
   <string name="offline_read_final_rationale">É necessário ter permissão de acesso ao armazenamento do seu dispositivo para usar a biblioteca sem acesso à Internet.</string>
   <string name="size_gb">%.2f GB</string>
@@ -716,6 +729,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Neste momento tem as variantes tradicional e simplificado do chinês definidas nas suas línguas da aplicação. Atualizar as definições das suas línguas da aplicação?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar línguas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Não, obrigado</string>
+  <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Hiperligação</string>
@@ -728,4 +749,8 @@
   <string name="main_drawer_close">Fechar</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar ou registar-se na Wikipédia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Cancelar</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Cancelar</string>
 </resources>

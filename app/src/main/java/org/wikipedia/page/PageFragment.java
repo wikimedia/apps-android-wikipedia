@@ -370,9 +370,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         shareHandler = new ShareHandler(this, bridge);
 
         if (callback() != null) {
-            LongPressHandler.WebViewContextMenuListener contextMenuListener
-                    = new PageContainerLongPressHandler(this);
-            new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
+            new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
         pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab());
@@ -536,8 +534,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         }
         if (selectedTabPosition == -1) {
-            // open the page anyway, in a new tab
-            openInNewForegroundTabFromMenu(title, entry);
+            loadPage(title, entry, true);
             return;
         }
         if (selectedTabPosition == app.getTabList().size() - 1) {

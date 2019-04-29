@@ -615,7 +615,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">記事の説明の翻訳が開始できるようになりました！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">複数言語でウィキペディアを読み書きでき、記事の説明の編集を続けておられるようです。もっと記事の説明を翻訳できるように、こちらのタスクリストをご用意しました。ぜひ目を通すしてくださるようお願いします！</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">あとで検討するかもしれません</string>
-  <string name="suggested_edits_tasks_activity_title">編集者のタスク</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">編集者のタスク</string>
   <string name="suggested_edits_task_add_description_title">説明を追加</string>
   <string name="suggested_edits_task_add_description_description">記事の説明が未記入の記事を担当する</string>
   <string name="suggested_edits_task_image_caption_title">画像のキャプション</string>
