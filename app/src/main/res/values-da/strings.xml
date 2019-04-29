@@ -129,6 +129,7 @@
   <string name="reset_password_button">Gem og logind</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
+  <string name="logout_dialog_cancel_button_text">Annullér</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
   <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
   <string name="history_offline_articles_toast">Nogle artikler i historikken kan måske ikke vises når offline.</string>
@@ -466,6 +467,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Læselisterne blev synkroniseret</string>
   <string name="reading_list_menu_last_sync">Sidste synkronosering: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Annullér</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Annullér</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Annullér</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Annullér</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Indstillinger</string>
   <string name="notification_reverted_title">Omgjorde redigering</string>
   <string name="notification_channel_description">Status på overførsel</string>
@@ -573,7 +581,11 @@
   <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
   <string name="feed_empty_message">Der er intet i dit Udforsk-feed</string>
   <string name="feed_configure_onboarding_action">Tilpas</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_article">Artikel</string>
@@ -615,6 +627,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du låste op for “Oversæt beskrivelser“</string>
   <string name="suggested_edits_unlock_notification_text">Foreslåede redigeringer</string>
   <string name="suggested_edits_unlock_notification_button">Ja, lad os komme igang</string>
+  <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_task_add_description_title">Tilføj beskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
   <string name="suggested_edits_task_image_caption_title">Billedtekstning</string>
@@ -632,6 +645,7 @@
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">dit bidrag så ud som et eksperiment eller vandalisme.</string>
   <string name="description_edit_revert_history">Er du interesseret, så se &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Annullér</string>
   <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
   <string name="offline_read_final_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at bruge lokalt bibliotek.</string>
   <string name="size_gb">%.2f GB</string>
@@ -693,6 +707,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du har både traditionel og forenklet kinesisk blandt dine sprog i appen. Vil du opdatere sprogindstillingerne?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger sprog</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nej tak</string>
+  <string name="remove_language_dialog_cancel_button_text">Annullér</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>
@@ -702,4 +724,8 @@
   <string name="main_drawer_close">Luk</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Annullér</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Annullér</string>
 </resources>
