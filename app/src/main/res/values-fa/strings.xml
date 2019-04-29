@@ -590,7 +590,7 @@
   <string name="suggested_edits_unlock_dialog_no">شاید بعداً</string>
   <string name="suggested_edits_unlock_notification_text">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_menu_info">اطلاعات</string>
-  <string name="suggested_edits_tasks_activity_title">وظایف ویرایشگر</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">وظایف ویرایشگر</string>
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات</string>
   <string name="suggested_edits_task_add_description_description">مشارکت در مقالات بدون توضیحات</string>
   <string name="suggested_edits_task_image_caption_title">زیر نویس تصویر</string>
