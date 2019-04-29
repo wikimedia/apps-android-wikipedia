@@ -29,6 +29,7 @@ import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.html.StyleHandler;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
@@ -367,7 +368,8 @@ public class PageFragmentLoadState {
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        bridge.sendMessage("setMargins", marginPayload());
+        webView.evaluateJavascript(StyleHandler.setupContentDivTopMargin(
+                DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.activity_vertical_margin))), null);
 
         sendLeadSectionPayload(page);
 
@@ -380,15 +382,6 @@ public class PageFragmentLoadState {
         refreshView.setRefreshing(false);
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-    }
-
-    private JSONObject marginPayload() {
-        try {
-            return new JSONObject()
-                    .put("marginTop", DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.activity_vertical_margin)));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
         }
     }
 

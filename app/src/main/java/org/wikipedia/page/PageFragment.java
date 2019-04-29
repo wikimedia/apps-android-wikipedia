@@ -363,9 +363,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 requireActivity().getWindow().getDecorView().findViewById(R.id.page_scroller_button), bridge);
 
         // TODO: initialize View references in onCreateView().
-        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
+        leadImagesHandler = new LeadImagesHandler(this, webView, pageHeaderView);
 
-        bottomContentView.setup(this, bridge, webView);
+        bottomContentView.setup(this, webView);
 
         shareHandler = new ShareHandler(this, bridge);
 

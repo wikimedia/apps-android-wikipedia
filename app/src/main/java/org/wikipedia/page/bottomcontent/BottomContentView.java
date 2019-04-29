@@ -19,16 +19,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
-import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.html.StyleHandler;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
@@ -93,7 +91,6 @@ public class BottomContentView extends LinearLayoutOverWebView
     private SuggestedPagesFunnel funnel;
     private ReadMoreAdapter readMoreAdapter = new ReadMoreAdapter();
     private List<RbPageSummary> readMoreItems;
-    private CommunicationBridge bridge;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     public BottomContentView(Context context) {
@@ -116,10 +113,9 @@ public class BottomContentView extends LinearLayoutOverWebView
         ButterKnife.bind(this);
     }
 
-    public void setup(PageFragment parentFragment, CommunicationBridge bridge, ObservableWebView webview) {
+    public void setup(PageFragment parentFragment, ObservableWebView webview) {
         this.parentFragment = parentFragment;
         this.webView = webview;
-        this.bridge = bridge;
         setWebView(webview);
 
         webview.addOnScrollChangeListener(this);
@@ -249,14 +245,8 @@ public class BottomContentView extends LinearLayoutOverWebView
 
     private void padWebView() {
         // pad the bottom of the webview, to make room for ourselves
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("paddingBottom",
-                    (int)((getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setPaddingBottom", payload);
+        webView.evaluateJavascript(StyleHandler.setupBodyBottomPadding(
+                (getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()), null);
         webViewPadded = true;
         // ^ sending the padding event will guarantee a ContentHeightChanged event to be triggered,
         // which will update our margin based on the scroll offset, so we don't need to do it here.

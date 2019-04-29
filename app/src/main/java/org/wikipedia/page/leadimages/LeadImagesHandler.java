@@ -9,13 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.Constants;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.gallery.GalleryActivity;
+import org.wikipedia.html.StyleHandler;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
@@ -39,21 +38,19 @@ public class LeadImagesHandler {
     }
 
     @NonNull private final PageFragment parentFragment;
-    @NonNull private final CommunicationBridge bridge;
-
     @NonNull private final PageHeaderView pageHeaderView;
+    @NonNull private final ObservableWebView webView;
 
     private int displayHeightDp;
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
-                             @NonNull CommunicationBridge bridge,
                              @NonNull ObservableWebView webView,
                              @NonNull PageHeaderView pageHeaderView) {
         this.parentFragment = parentFragment;
         this.pageHeaderView = pageHeaderView;
         this.pageHeaderView.setWebView(webView);
 
-        this.bridge = bridge;
+        this.webView = webView;
         webView.addOnScrollChangeListener(pageHeaderView);
 
         initDisplayDimensions();
@@ -137,15 +134,9 @@ public class LeadImagesHandler {
     }
 
     private void setWebViewPaddingTop() {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("paddingTop", isMainPage()
-                    ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
-                    : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar()));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setPaddingTop", payload);
+        webView.evaluateJavascript(StyleHandler.setupBodyTopPadding(isMainPage()
+                ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
+                : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar())), null);
     }
 
     /**
