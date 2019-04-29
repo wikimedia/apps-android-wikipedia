@@ -467,6 +467,6 @@
         <item name="android:layout_height">@dimen/bottom_toolbar_icon_size</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="android:padding">@dimen/bottom_toolbar_item_padding</item>
-        <item name="android:tint">?attr/material_theme_secondary_color</item>
+        <item name="tint">?attr/material_theme_secondary_color</item>
     </style>
 </resources>
