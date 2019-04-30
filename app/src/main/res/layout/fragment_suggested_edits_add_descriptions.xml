@@ -87,47 +87,63 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/backButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="4dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="16dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
-                android:layout_marginEnd="32dp"
+                android:layout_marginEnd="8dp"
                 app:tint="?attr/colorAccent"
                 app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
                 app:layout_constraintEnd_toStartOf="@+id/addDescriptionButton"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <LinearLayout
                 android:id="@+id/addDescriptionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="194dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:contentDescription="@string/view_next_random_article"
-                app:backgroundTint="?attr/paper_color"
-                app:borderWidth="0dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:background="@drawable/button_shape_gray"
+                android:backgroundTint="?attr/colorAccent"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:elevation="4dp"
-                app:srcCompat="@drawable/animated_dice"
-                app:tint="?attr/colorAccent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                    app:tint="@color/base100" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:text="@string/suggested_edits_add_description_button"
+                    android:textColor="?attr/paper_color" />
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/nextButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="4dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="16dp"
                 android:focusable="true"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@null"
-                android:layout_marginStart="32dp"
+                android:contentDescription="@string/view_next_random_article"
+                android:layout_marginStart="8dp"
                 android:scaleX="-1"
                 app:tint="?attr/colorAccent"
                 app:srcCompat="@drawable/ic_arrow_back_themed_24dp"

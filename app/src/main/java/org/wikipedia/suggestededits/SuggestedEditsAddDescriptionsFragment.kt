@@ -117,6 +117,8 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
             nextPage()
         }
 
+        addDescriptionButton.setOnClickListener { onSelectPage() }
+
         arrow.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
             val prevFromLang = languageList[wikiFromLanguageSpinner.selectedItemPosition]
