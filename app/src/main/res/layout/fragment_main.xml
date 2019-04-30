@@ -12,24 +12,18 @@
         android:orientation="vertical"
         android:layout_marginTop="?attr/actionBarSize">
 
-        <FrameLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/fragment_main_coordinator"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:id="@+id/fragment_main_coordinator"
+            <org.wikipedia.readinglist.NoSwipeViewPager
+                android:id="@+id/fragment_main_view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"/>
 
-                <org.wikipedia.readinglist.NoSwipeViewPager
-                    android:id="@+id/fragment_main_view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        </FrameLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <org.wikipedia.navtab.NavTabLayout
             android:id="@+id/fragment_main_nav_tab_layout"
