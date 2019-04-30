@@ -596,7 +596,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Lain kalilah</string>
-  <string name="suggested_edits_tasks_activity_title">Tugas editor aplikasi</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
   <string name="suggested_edits_task_image_caption_title">Keterangan imej</string>

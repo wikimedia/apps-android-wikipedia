@@ -616,7 +616,7 @@
   <string name="suggested_edits_unlock_notification_button">Já, í gang með þetta</string>
   <string name="suggested_edits_license_notice">Með því að breyta lýsingu á þessum titli, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_menu_info">Upplýsingar</string>
-  <string name="suggested_edits_tasks_activity_title">Verkefni fyrir ritstýringu</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Verkefni fyrir ritstýringu</string>
   <string name="suggested_edits_task_add_description_title">Bæta við lýsingum</string>
   <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
   <string name="suggested_edits_task_image_caption_title">Setja myndatexta</string>

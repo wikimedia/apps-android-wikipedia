@@ -131,6 +131,7 @@
   <string name="preference_title_logout">Finalitza la sessió</string>
   <string name="toast_logout_complete">Sessió finalitzada</string>
   <string name="logout_prompt">Segur que voleu finalitzar la vostra sessió?</string>
+  <string name="logout_dialog_cancel_button_text">Cancel·la</string>
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="history_offline_articles_toast">Alguns articles de l\'historial potser no són visibles quan s\'és fora de línia.</string>
@@ -468,6 +469,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Les llistes de lectura s’han sincronitzat correctament</string>
   <string name="reading_list_menu_last_sync">Darrera sincronització: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">D’acord</string>
+  <string name="reading_list_delete_dialog_ok_button_text">D’acord</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_split_dialog_ok_button_text">D’acord</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_reverted_title">Modificació revertida</string>
   <string name="notification_channel_description">Progrés de la baixada</string>
@@ -577,7 +585,11 @@
   <string name="feed_item_type_randomizer">Genera articles a l\'atzar per llegir</string>
   <string name="feed_empty_message">No hi ha res al canal Explora</string>
   <string name="feed_configure_onboarding_action">Personalitza</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">D’acord</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalitza el teu canal Explora&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ara pots escollir quin contingut veus al teu canal i configurar-lo al teu gust.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">D’acord</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_text_hint_per_language">Descripció en %s</string>
   <string name="description_edit_save">Publica</string>
@@ -628,7 +640,7 @@
   <string name="suggested_edits_unlock_notification_button">Sí, som-hi</string>
   <string name="suggested_edits_license_notice">En afegir la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
-  <string name="suggested_edits_tasks_activity_title">Tasques d\'editor</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tasques d\'editor</string>
   <string name="suggested_edits_task_add_description_title">Afegeix descripcions</string>
   <string name="suggested_edits_task_add_description_description">Contribuïu a articles sense descripcions</string>
   <string name="suggested_edits_task_image_caption_title">Afegeix llegendes a les imatges</string>
@@ -654,6 +666,7 @@
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Cancel·la</string>
   <string name="offline_read_permission_rationale">Cal permís per accedir a l\'emmagatzematge del vostre dispositiu per a navegar fora de línia.</string>
   <string name="offline_read_final_rationale">Cal permís per accedir a l\'emmagatzemament del vostre dispositiu per utilitzar la Biblioteca fora de línia.</string>
   <string name="size_gb">%.2f GB</string>
@@ -715,6 +728,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ara teniu les variants tradicional i simplificada del xinès a les llengües de l\'aplicació? Voleu actualitzar la configuració de llengües de l\'aplicació?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica les llengües</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gràcies</string>
+  <string name="remove_language_dialog_cancel_button_text">Cancel·la</string>
+  <string name="remove_language_dialog_ok_button_text">D’acord</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">D’acord</string>
+  <string name="protected_page_warning_dialog_ok_button_text">D’acord</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">D’acord</string>
+  <string name="edit_conflict_dialog_ok_button_text">D’acord</string>
+  <string name="reverted_edit_dialog_ok_button_text">D’acord</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Cancel·la</string>
   <string name="wikitext_bold">Negreta</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enllaç</string>
@@ -727,4 +748,8 @@
   <string name="main_drawer_close">Tanca</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">D’acord</string>
+  <string name="text_input_dialog_ok_button_text">D’acord</string>
+  <string name="text_input_dialog_cancel_button_text">Cancel·la</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Cancel·la</string>
 </resources>

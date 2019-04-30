@@ -77,7 +77,13 @@ public final class Constants {
         ONBOARDING_DIALOG,
         FEED,
         NOTIFICATION,
-        APP_SHORTCUTS
+        APP_SHORTCUTS,
+        TOOLBAR,
+        WIDGET,
+        INTENT_SHARE,
+        INTENT_PROCESS_TEXT,
+        FEED_BAR,
+        VOICE
     }
 
     private Constants() { }
