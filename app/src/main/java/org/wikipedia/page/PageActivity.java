@@ -114,8 +114,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
-    @BindView(R.id.page_toolbar_button_tabs_container) View tabsButtonContainer;
-    @BindView(R.id.page_toolbar_button_show_tabs) TabCountsView tabsButton;
+    @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
     @Nullable private Unbinder unbinder;
 
@@ -176,7 +175,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButtonContainer, overflowButton);
+        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
@@ -207,7 +206,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         openSearchActivity(TOOLBAR, null);
     }
 
-    @OnClick(R.id.page_toolbar_button_tabs_container)
+    @OnClick(R.id.page_toolbar_button_tabs)
     public void onShowTabsButtonClicked() {
         TabActivity.captureFirstTabBitmap(pageFragment.getContainerView());
         startActivityForResult(TabActivity.newIntent(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);

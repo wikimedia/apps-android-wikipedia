@@ -44,27 +44,12 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     app:srcCompat="@drawable/ic_search_themed_24dp"
                     app:tint="?attr/page_toolbar_icon_color"/>
-                <FrameLayout
-                    android:id="@+id/page_toolbar_button_tabs_container"
+                <org.wikipedia.views.TabCountsView
+                    android:id="@+id/page_toolbar_button_tabs"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/menu_page_show_tabs">
-                    <org.wikipedia.views.TabCountsView
-                        android:id="@+id/page_toolbar_button_show_tabs"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:textSize="12sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:textColor="?attr/material_theme_secondary_color"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textAlignment="center"
-                        android:background="?attr/page_tab_counts_shape_border"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
-                        tools:text="3"/>
-                </FrameLayout>
+                </org.wikipedia.views.TabCountsView>
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/page_toolbar_button_show_overflow_menu"
                     android:layout_width="wrap_content"

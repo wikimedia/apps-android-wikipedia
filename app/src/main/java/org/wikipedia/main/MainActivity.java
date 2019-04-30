@@ -3,6 +3,8 @@ package org.wikipedia.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.LayoutRes;
@@ -27,6 +29,7 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
+import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
@@ -36,6 +39,7 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
 import butterknife.BindView;
@@ -116,6 +120,35 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         setUpHomeMenuIcon();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
+        TabCountsView tabCountsView = new TabCountsView(this);
+        tabCountsView.setOnClickListener(v -> startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS));
+        tabCountsView.setTabCount(WikipediaApp.getInstance().getTabCount());
+        tabsItem.setActionView(tabCountsView);
+        tabsItem.expandActionView();
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_tabs:
+                startActivityForResult(TabActivity.newIntent(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @LayoutRes
     @Override
     protected int getLayout() {
@@ -158,14 +191,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         if (!controlNavTabInFragment) {
             getFragment().setBottomNavVisible(false);
         }
-        getFragment().getFloatingQueueView().hide();
     }
 
     @Override
     public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         getFragment().setBottomNavVisible(true);
-        getFragment().getFloatingQueueView().show();
     }
 
     @Override
@@ -204,14 +235,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             return;
         }
         super.onBackPressed();
-    }
-
-    public boolean isFloatingQueueEnabled() {
-        return getFragment().getFloatingQueueView().getVisibility() == VISIBLE;
-    }
-
-    public View getFloatingQueueImageView() {
-        return getFragment().getFloatingQueueView().getImageView();
     }
 
     public void closeMainDrawer() {
