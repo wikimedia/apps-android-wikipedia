@@ -14,6 +14,7 @@ import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.gallery.Gallery;
+import org.wikipedia.page.references.References;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
 
 import java.util.Map;
@@ -131,6 +132,8 @@ public interface RestService {
     @GET("feed/availability")
     @NonNull Observable<FeedAvailability> getFeedAvailability();
 
+    @GET("page/references/{title}")
+    @NonNull Observable<References> getReferences(@Path("title") String title);
 
     // ------- Reading lists -------
 

@@ -30,6 +30,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
@@ -46,6 +48,7 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -63,6 +66,7 @@ import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
+import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
@@ -82,8 +86,10 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiPageErrorView;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -153,6 +159,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
+    private Map<String, References.Reference> referencesMap;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -378,6 +385,16 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
         }
+
+        disposables.add(ServiceFactory.getRest(app.getWikiSite()).getReferences(getTitle().getConvertedText())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(references -> {
+                    L.d("References endpoint output " + references.getReferencesMap().size());
+                    referencesMap = references.getReferencesMap();
+                }, caught -> {
+                   L.d("References endpoint error " + caught);
+                }));
     }
 
     public void reloadFromBackstack() {
@@ -906,16 +923,28 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         };
         bridge.addListener("linkClicked", linkHandler);
 
-        bridge.addListener("referenceClicked", new ReferenceHandler() {
-            @Override
-            protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
-
-                if (!isAdded()) {
-                    L.d("Detached from activity, so stopping reference click.");
-                    return;
+        bridge.addListener("referenceClicked", (String messageType, JSONObject messagePayload) -> {
+            try {
+                int selectedIndex = messagePayload.getInt("selectedIndex");
+                JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
+                List<String> adjacentLinkTexts = new ArrayList<>();
+                List<References.Reference> adjacentReferencesList = new ArrayList<>();
+                for (int i = 0; i < referencesGroup.length(); i++) {
+                    JSONObject reference = (JSONObject) referencesGroup.get(i);
+                    String getReferenceText = StringUtils.defaultString(reference.optString("text"));
+                    adjacentLinkTexts.add(getReferenceText);
+                    L.d("referenceClicked getReferenceText " + getReferenceText);
+                    L.d("referenceClicked referencesMap check " + referencesMap.get(getReferenceText));
+                    adjacentReferencesList.add(referencesMap.get(getReferenceText));
                 }
 
-                showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferences, linkHandler));
+                L.d("referenceClicked adjacentLinkTexts " + adjacentLinkTexts.size());
+                L.d("referenceClicked adjacentReferencesList " + adjacentReferencesList.size());
+                L.d("referenceClicked adjacentReferencesList 1 " + adjacentReferencesList.get(0));
+
+                // showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentLinkTexts, adjacentReferencesList, linkHandler));
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
             }
         });
         bridge.addListener("imageClicked", (String messageType, JSONObject messagePayload) -> {
