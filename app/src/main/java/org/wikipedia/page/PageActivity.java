@@ -239,7 +239,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                goToMainTab(NavTab.EXPLORE.code());
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
