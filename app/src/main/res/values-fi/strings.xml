@@ -134,6 +134,7 @@
   <string name="preference_title_logout">Kirjaudu ulos</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
   <string name="logout_prompt">Haluatko varmasti kirjautua ulos?</string>
+  <string name="logout_dialog_cancel_button_text">Peruuta</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemisistasi.</string>
   <string name="history_offline_articles_toast">Jotkut artikkelit historiassa eivät ehkä ole nähtävissä offline-tilassa.</string>
@@ -472,6 +473,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Lukulistat synkronoitu onnistuneesti</string>
   <string name="reading_list_menu_last_sync">Viimeksi synkronoitu: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Peruuta</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Peruuta</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Peruuta</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Peruuta</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
   <string name="notification_channel_description">Latauksen edistyminen</string>
@@ -579,7 +587,11 @@
   <string name="feed_item_type_randomizer">Tuota satunnaisia ​​artikkeleita luettavaksi</string>
   <string name="feed_empty_message">Tutki-syötteessäsi ei ole mitään</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="description_edit_text_hint">Otsikon kuvaus</string>
   <string name="description_edit_text_hint_per_language">Kuvaus kielellä %s</string>
   <string name="description_edit_save">Julkaise</string>
@@ -643,6 +655,7 @@
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
   <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Peruuta</string>
   <string name="offline_read_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan selaamiseen ilman verkkoyhteyttä.</string>
   <string name="offline_read_final_rationale">Käyttöoikeus laitteesi muistiin vaaditaan Offline-kirjaston käyttämiseen.</string>
   <string name="size_gb">%.2f Gt</string>
@@ -704,6 +717,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Sinulla on tällä hetkellä valittuna sekä perinteisen että yksinkertaistetun kiinan muotoja. Haluatko päivittää kieliasetuksiasi?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Muokkaa kieliä</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ei kiitos</string>
+  <string name="remove_language_dialog_cancel_button_text">Peruuta</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Peruuta</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>
@@ -716,4 +737,8 @@
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Peruuta</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Peruuta</string>
 </resources>

@@ -144,6 +144,7 @@
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
   <string name="logout_prompt">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+  <string name="logout_dialog_cancel_button_text">Annuler</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l\'historique peuvent ne pas être consultables en mode déconnecté.</string>
@@ -483,6 +484,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Listes de lecture bien synchronisées</string>
   <string name="reading_list_menu_last_sync">Dernière synchronisation : %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Annuler</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Annuler</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Annuler</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Annuler</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_reverted_title">Modification annulée</string>
   <string name="notification_channel_description">Avancement du téléchargement</string>
@@ -592,7 +600,11 @@
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipedia</string>
   <string name="feed_empty_message">Il n\'y a rien dans votre flux Explore</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d’exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil, et aussi prioriser vos types de contenu favoris.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_text_hint_per_language">description de %s</string>
   <string name="description_edit_save">Publier</string>
@@ -643,7 +655,7 @@
   <string name="suggested_edits_unlock_notification_button">Oui, allons-y</string>
   <string name="suggested_edits_license_notice">En ajoutant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Tâches d’éditeur</string>
+  <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
   <string name="suggested_edits_task_add_description_title">Ajouter les descriptions</string>
   <string name="suggested_edits_task_add_description_description">Contribuer aux articles sans description</string>
   <string name="suggested_edits_task_image_caption_title">Légender les images</string>
@@ -662,7 +674,7 @@
     <item quantity="one">contribution</item>
     <item quantity="other">%d contributions</item>
   </plurals>
-  <string name="suggested_edits">Modifications suggérées</string>
+  <string name="suggested_edits_feed_card_title">Modifications suggérées</string>
   <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Commencer</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
@@ -670,6 +682,7 @@
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">votre contribution ressemblait à une expérience ou à du vandalisme.</string>
   <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Annuler</string>
   <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion.</string>
   <string name="offline_read_final_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour utiliser la Bibliothèque hors connexion.</string>
   <string name="size_gb">%.2f GB</string>
@@ -731,6 +744,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Vous avez actuellement les deux variantes Chinois traditionnel et simplifié mises dans vos langues de l’application. Mettre à jour vos paramètres de langue de l’application ?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifier les langues</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non merci</string>
+  <string name="remove_language_dialog_cancel_button_text">Annuler</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Annuler</string>
   <string name="wikitext_bold">Gras</string>
   <string name="wikitext_italic">Italique</string>
   <string name="wikitext_link">Lien</string>
@@ -743,4 +764,8 @@
   <string name="main_drawer_close">Fermer</string>
   <string name="main_drawer_help">Aide</string>
   <string name="main_drawer_login">Connexion / rejoindre Wikipedia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Annuler</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Annuler</string>
 </resources>

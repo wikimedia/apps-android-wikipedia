@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
@@ -47,7 +47,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_add_title_descriptions_item, container, false)
+        return inflater.inflate(R.layout.fragment_suggested_edits_add_descriptions_item, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

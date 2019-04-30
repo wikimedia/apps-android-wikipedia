@@ -56,7 +56,6 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
-import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
@@ -87,6 +86,7 @@ import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -183,7 +183,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity(SearchInvokeSource.TOOLBAR, null);
+                openSearchActivity(TOOLBAR, null);
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -204,7 +204,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchActivity(SearchInvokeSource.TOOLBAR, null);
+        openSearchActivity(TOOLBAR, null);
     }
 
     @OnClick(R.id.page_toolbar_button_tabs_container)
@@ -249,7 +249,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public boolean onSearchRequested() {
-        openSearchActivity(SearchInvokeSource.TOOLBAR, null);
+        openSearchActivity(TOOLBAR, null);
         return true;
     }
 
@@ -795,8 +795,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .show();
     }
 
-    private void openSearchActivity(@NonNull SearchInvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(this, source.code(), query);
+    private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
+        Intent intent = SearchActivity.newIntent(this, source, query);
         startActivity(intent);
     }
 
