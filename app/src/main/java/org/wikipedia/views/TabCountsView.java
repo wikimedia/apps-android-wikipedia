@@ -1,14 +1,17 @@
 package org.wikipedia.views;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
 
 import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 
 import butterknife.BindView;
@@ -23,7 +26,6 @@ public class TabCountsView extends FrameLayout {
     private static final float TAB_COUNT_TEXT_SIZE_SMALL = 8;
 
     @BindView(R.id.tabs_count_text) TextView tabsCountText;
-
 
     public TabCountsView(Context context) {
         super(context);
@@ -43,6 +45,9 @@ public class TabCountsView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_tabs_count, this);
         ButterKnife.bind(this);
+
+        final int buttonWidth = 48;
+        setLayoutParams(new ViewGroup.LayoutParams(DimenUtil.roundedDpToPx(buttonWidth), ViewGroup.LayoutParams.MATCH_PARENT));
         setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackgroundBorderless));
     }
 
@@ -60,7 +65,8 @@ public class TabCountsView extends FrameLayout {
         tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_SP, tabTextSize);
     }
 
-    public void setTextColor(@ColorInt int color) {
+    public void setColor(@ColorInt int color) {
         tabsCountText.setTextColor(color);
+        tabsCountText.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
     }
 }

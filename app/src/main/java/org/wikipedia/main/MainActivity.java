@@ -138,17 +138,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_tabs:
-                startActivityForResult(TabActivity.newIntent(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     @LayoutRes
     @Override
     protected int getLayout() {
