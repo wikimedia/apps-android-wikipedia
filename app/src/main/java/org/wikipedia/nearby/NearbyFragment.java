@@ -49,7 +49,6 @@ import org.wikipedia.dataclient.mwapi.NearbyPage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.main.MainActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -164,10 +163,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
     @Override
     public void onResume() {
         mapView.onResume();
-
-        locationButton.animate().translationY(((MainActivity) requireActivity()).isFloatingQueueEnabled()
-                ? -((MainActivity) requireActivity()).getFloatingQueueImageView().getHeight() : 0).start();
-
         super.onResume();
     }
 
