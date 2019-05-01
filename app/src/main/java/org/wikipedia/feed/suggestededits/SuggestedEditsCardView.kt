@@ -5,10 +5,8 @@ import android.content.Context
 import android.net.Uri
 import android.text.TextUtils
 import android.view.View
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
@@ -17,11 +15,10 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView, SuggestedEditsFeedClient.Companion.Callback {
     interface Callback {
         fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
@@ -129,35 +126,16 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     fun refreshCardContent() {
-        getArticleWithMissingDescription()
+        SuggestedEditsFeedClient.getArticleWithMissingDescription(isTranslation, null, this)
+    }
 
+    override fun updateCardContent(card: SuggestedEditsCard) {
+        setCard(card)
     }
 
     companion object {
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
     }
 
-    private fun getArticleWithMissingDescription() {
-        if (isTranslation) {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCodes[0]), app.language().appLanguageCodes[1], true)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { pair ->
-                        sourceSummary = pair.second
-                        targetSummary = pair.first
-                        setCard(SuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[1]), isTranslation, sourceSummary, targetSummary))
-                    })
 
-        } else {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCode))
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { pageSummary ->
-                        sourceSummary = pageSummary
-                        setCard(SuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[0]), isTranslation, sourceSummary, targetSummary))
-
-                    })
-        }
-
-    }
 }
