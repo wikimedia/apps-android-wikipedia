@@ -3,8 +3,8 @@ package org.wikipedia.analytics;
 import androidx.annotation.NonNull;
 
 import org.json.JSONObject;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.util.StringUtil;
 
 public class SearchFunnel extends Funnel {
@@ -14,9 +14,9 @@ public class SearchFunnel extends Funnel {
      */
     private static final String SCHEMA_NAME = "MobileWikiAppSearch";
     private static final int REVISION = 18204643;
-    private SearchInvokeSource source;
+    private InvokeSource source;
 
-    public SearchFunnel(WikipediaApp app, SearchInvokeSource source) {
+    public SearchFunnel(WikipediaApp app, InvokeSource source) {
         super(app, SCHEMA_NAME, REVISION, Funnel.SAMPLE_LOG_100);
         this.source = source;
     }
@@ -80,7 +80,7 @@ public class SearchFunnel extends Funnel {
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, "invoke_source", source.code());
+        preprocessData(eventData, "invoke_source", source.ordinal());
         return super.preprocessData(eventData);
     }
 }

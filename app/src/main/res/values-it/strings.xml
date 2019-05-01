@@ -29,6 +29,7 @@
 * Samuele2002
 * Sarah Bernabei
 * Selven
+* Senpremì
 * Simoarmanni
 * Statix64
 * SuperVirtual
@@ -147,6 +148,7 @@
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
   <string name="logout_prompt">Sei sicuro di voler uscire?</string>
+  <string name="logout_dialog_cancel_button_text">Annulla</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="history_offline_articles_toast">Alcune voci nella cronologia potrebbero non essere visualizzabili offline.</string>
@@ -481,6 +483,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Elenchi di lettura sincronizzati correttamente</string>
   <string name="reading_list_menu_last_sync">Ultima sincronizzazione: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Annulla</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Annulla</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Annulla</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Annulla</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
   <string name="notification_channel_description">Progresso dello scaricamento</string>
@@ -555,18 +564,24 @@
   <string name="view_static_card_save_button_label">Salva</string>
   <string name="view_featured_article_footer_saved_button_label">Salvato</string>
   <string name="feed_configure_activity_title">Personalizza il feed</string>
+  <string name="feed_configure_menu_reset">Ripristina visualizzazione predefinita</string>
   <string name="feed_configure_menu_select_all">Mostra tutto</string>
   <string name="feed_configure_menu_deselect_all">Nascondi tutto</string>
   <string name="feed_configure_language_warning">Nota che non tutti i tipi di contenuti sono disponibili in tutte le lingue di Wikipedia. Modifica la tua lingua selezionata nelle impostazioni.</string>
   <string name="feed_item_type_news">Voci su eventi attuali</string>
   <string name="feed_item_type_on_this_day">Eventi nella storia in questo giorno</string>
   <string name="feed_item_type_because_you_read">Suggerimenti basati su una voce letta di recente dalla tua cronologia</string>
+  <string name="feed_item_type_featured_article">Voce del giorno su Wikipedia</string>
   <string name="feed_item_type_trending">Voci più viste al giorno</string>
   <string name="feed_item_type_featured_image">Immagine in primo piano quotidiana di Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
   <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
   <string name="feed_configure_onboarding_action">Personalizza</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Annulla</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_text_hint_per_language">descrizione in %s</string>
   <string name="description_edit_save">Pubblica</string>
@@ -580,22 +595,29 @@
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guida di Wikidata per la scrittura di descrizioni</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
+  <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
   <string name="description_edit_success_saved">Descrizione pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
+  <string name="description_edit_success_article_edit_hint">Puoi anche modificare le voci all\'interno di questa applicazione. Prova a correggere errori di battitura e frasi di piccole dimensioni facendo clic sull\'icona ^1 la prossima volta</string>
   <string name="description_edit_tutorial_title_descriptions">Descrizioni del titolo</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Riassume una voce per aiutare i lettori a capire l\'argomento a colpo d\'occhio</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="suggested_edits_add_descriptions">Aggiungi descrizioni</string>
   <string name="suggested_edits_translate_descriptions">Traduci descrizioni</string>
+  <string name="suggested_edits_review_description">Revisiona descrizione</string>
   <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
   <string name="suggested_edits_my_contributions">I miei contributi</string>
   <string name="suggested_edits_added_by_you">Aggiunto da te:</string>
   <string name="suggested_edits_translated_by_you">Tradotto da te:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Hai sbloccato l\'attività \"Aggiungi descrizioni\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grazie per tutti i tuoi contributi! Dato che sei molto bravo a modificare, abbiamo compilato un elenco di voci con descrizioni mancanti. Vuoi aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Hai sbloccato l\'attività \"Traduci descrizioni\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulazioni per i tuoi numerosi contributi, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni delle descrizione. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
   <string name="suggested_edits_unlock_dialog_no">Forse più tardi</string>
@@ -603,8 +625,11 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_title">Hai sbloccato \"Aggiungi descrizioni\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">Hai sbloccato \"Traduci descrizioni\"</string>
   <string name="suggested_edits_unlock_notification_text">Modifiche suggerite</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Modifiche suggerite\n\nGrazie per tutti i tuoi contributi. Dato che sei molto bravo a modificare, abbiamo compilato un elenco di voci con descrizioni mancanti. Vuoi aiutarci a migliorare Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Modifiche suggerite\n\nCongratulazioni per i tuoi numerosi contributi, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni di descrizione. Vuoi continuare ad aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_unlock_notification_button">Si, partiamo</string>
   <string name="suggested_edits_menu_info">Informazioni</string>
+  <string name="suggested_edits_tasks_activity_title">Modifiche suggerite</string>
   <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni</string>
   <string name="suggested_edits_task_add_description_description">Contribuire alle voci senza descrizioni</string>
   <string name="suggested_edits_task_image_caption_title">Didascalia immagini</string>
@@ -623,12 +648,13 @@
     <item quantity="one">1 contributo</item>
     <item quantity="other">%d contributi</item>
   </plurals>
-  <string name="suggested_edits">Modifiche suggerite</string>
+  <string name="suggested_edits_feed_card_title">Modifiche suggerite</string>
   <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Annulla</string>
   <string name="offline_read_permission_rationale">Per accedere allo spazio di archiviazione sul tuo dispositivo per la navigazione offline è richiesto un permesso.</string>
   <string name="offline_read_final_rationale">Per utilizzare la libreria offline è necessaria l\'autorizzazione per accedere allo spazio di archiviazione sul dispositivo.</string>
   <string name="size_gb">%.2f GB</string>
@@ -648,11 +674,13 @@
   <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>
   <string name="onboarding_create_account_preferences">Salva le tue preferenze</string>
   <string name="onboarding_got_it">Capito</string>
+  <string name="onboarding_multilingual_secondary_text">Abbiamo trovato quanto segue sul tuo dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Aggiungi o modifica lingue</string>
   <string name="onboarding_welcome_title_v2">L\'enciclopedia libera\n…in più di 300 lingue</string>
   <string name="app_shortcuts_random">Una pagina a caso</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
+  <string name="more_trending_text">Voci correlate</string>
   <string name="on_this_day_card_title">In questo giorno</string>
   <string name="more_events_text">Altro in questo giorno</string>
   <string name="events_count_text">%1$s eventi dal %2$s–%3$d</string>
@@ -683,6 +711,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Al momento hai varianti del cinese tradizionale e del cinese semplificato impostate nelle lingue dell\'applicazione. Aggiorna le impostazioni della lingua dell\'applicazione?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica lingue</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazie</string>
+  <string name="remove_language_dialog_cancel_button_text">Annulla</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Annulla</string>
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>
   <string name="wikitext_link">Collegamento</string>
@@ -695,4 +731,8 @@
   <string name="main_drawer_close">Chiudi</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Annulla</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Annulla</string>
 </resources>

@@ -39,7 +39,6 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemClick;
 import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -120,14 +119,6 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-    }
-
-    @OnItemClick(R.id.search_results_list) void onItemClick(ListView view, int position) {
-        Callback callback = callback();
-        if (callback != null) {
-            PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-            callback.navigateToTitle(item, false, position);
-        }
     }
 
     @OnClick(R.id.search_suggestion) void onSuggestionClick(View view) {
@@ -413,7 +404,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.ListViewContextMenuListener {
+            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
         private int lastPositionRequested;
 
         @Override
@@ -524,6 +515,16 @@ public class SearchResultsFragment extends Fragment {
                     doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinuation(), false);
                 }
             }
+
+            convertView.setOnClickListener((view) -> {
+                Callback callback = callback();
+                if (callback != null) {
+                    PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
+                    callback.navigateToTitle(item, false, position);
+                }
+            });
+
+            convertView.setOnLongClickListener(view -> false);
 
             return convertView;
         }

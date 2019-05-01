@@ -138,6 +138,7 @@
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
   <string name="logout_prompt">هل أنت متأكد أنك تريد تسجيل الخروج؟</string>
+  <string name="logout_dialog_cancel_button_text">إلغاء</string>
   <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
   <string name="history_empty_message">يمكنك متابعة ما كنت تقرأه هنا.</string>
   <string name="history_offline_articles_toast">قد لا تكون بعض المقالات في السجل قابلة للعرض دون اتصال.</string>
@@ -477,6 +478,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">تمت مزامنة قوائم القراءة بنجاح</string>
   <string name="reading_list_menu_last_sync">آخر مزامنة: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">حسنا</string>
+  <string name="reading_list_delete_dialog_ok_button_text">حسنا</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">إلغاء</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">إلغاء</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">إلغاء</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">إلغاء</string>
+  <string name="reading_list_split_dialog_ok_button_text">حسنا</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_reverted_title">تعديل ملغى</string>
   <string name="notification_channel_description">تقدم التنزيل</string>
@@ -587,7 +595,11 @@
   <string name="feed_item_type_suggested_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
   <string name="feed_empty_message">لا يوجد شيء في خلاصة استكشافك</string>
   <string name="feed_configure_onboarding_action">تخصيص</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">حسنا</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">إلغاء</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">حسنا</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
   <string name="description_edit_text_hint">وصف العنوان</string>
   <string name="description_edit_text_hint_per_language">وصف %s</string>
   <string name="description_edit_save">انشر</string>
@@ -638,7 +650,7 @@
   <string name="suggested_edits_unlock_notification_button">نعم، هيا بنا</string>
   <string name="suggested_edits_license_notice">بإضافة وصف العنوان، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">معلومات</string>
-  <string name="suggested_edits_tasks_activity_title">مهام المحرر</string>
+  <string name="suggested_edits_tasks_activity_title">التعديلات المقترحة</string>
   <string name="suggested_edits_task_add_description_title">إضافة وصوفات</string>
   <string name="suggested_edits_task_add_description_description">ساهم في المقالات التي تفتقد للوصوف</string>
   <string name="suggested_edits_task_image_caption_title">تعليقات الصور</string>
@@ -657,7 +669,7 @@
     <item quantity="one">مساهمة</item>
     <item quantity="other">%d مساهمات</item>
   </plurals>
-  <string name="suggested_edits">التعديلات المقترحة</string>
+  <string name="suggested_edits_feed_card_title">التعديلات المقترحة</string>
   <string name="suggested_edits_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
@@ -665,6 +677,7 @@
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">مساهمتك ظهرت كتجربة أو تخريب.</string>
   <string name="description_edit_revert_history">إن كنت مهتما، طالع &lt;a href=\"%1$s\"&gt;تاريخ التعديل&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">إلغاء</string>
   <string name="offline_read_permission_rationale">مطلوب إذن للوصول إلى التخزين على جهازك للتصفح دون اتصال.</string>
   <string name="offline_read_final_rationale">مطلوب إذن للوصول إلى التخزين على جهازك لاستخدام المكتبة دون اتصال.</string>
   <string name="size_gb">%.2f جيجابايت</string>
@@ -726,6 +739,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">لديك حاليا مجموعة من المتغيرات الصينية التقليدية والمبسطة في لغات تطبيقك، تحديث إعدادات لغات تطبيقك؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">تعديل اللغات</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">لا شكرًا</string>
+  <string name="remove_language_dialog_cancel_button_text">إلغاء</string>
+  <string name="remove_language_dialog_ok_button_text">حسنا</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">حسنا</string>
+  <string name="protected_page_warning_dialog_ok_button_text">حسنا</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">حسنا</string>
+  <string name="edit_conflict_dialog_ok_button_text">حسنا</string>
+  <string name="reverted_edit_dialog_ok_button_text">حسنا</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">إلغاء</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
   <string name="wikitext_link">وصلة</string>
@@ -738,4 +759,8 @@
   <string name="main_drawer_close">إغلاق</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
+  <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>
+  <string name="text_input_dialog_ok_button_text">حسنا</string>
+  <string name="text_input_dialog_cancel_button_text">إلغاء</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">إلغاء</string>
 </resources>

@@ -628,7 +628,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Başlık açıklamalarını düzenlemek istediğinizi fark ettik ve birden çok dilde Vikipwsi\'yi okuyun. Daha fazla başlık açıklaması çevirmeye izin veren bu görev listesine göz atın!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belki daha sonra</string>
   <string name="suggested_edits_menu_info">Bilgi</string>
-  <string name="suggested_edits_tasks_activity_title">Editör görevleri</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Editör görevleri</string>
   <string name="suggested_edits_task_add_description_title">Tanım ekle</string>
   <string name="suggested_edits_task_add_description_description">Tanımı olmayan sayfalara katkı yap</string>
   <string name="suggested_edits_task_image_caption_title">Resimlere altyazı koy</string>
