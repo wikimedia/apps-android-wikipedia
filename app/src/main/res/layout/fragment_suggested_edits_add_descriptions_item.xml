@@ -80,7 +80,7 @@
                     android:textSize="24sp"
                     android:fontFamily="serif"
                     android:textColor="?attr/primary_text_color"
-                    android:lineSpacingExtra="4sp"
+                    android:lineSpacingExtra="8sp"
                     android:maxLines="2"
                     android:ellipsize="end"
                     tools:text="Lorem ipsum"/>
@@ -176,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:ellipsize="end"
-                    android:lineSpacingExtra="14sp"
+                    android:lineSpacingExtra="12sp"
                     android:textSize="16sp"
                     android:textColor="?attr/primary_text_color"
                     android:minLines="3"
