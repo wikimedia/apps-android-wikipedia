@@ -217,7 +217,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())));
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().getTabCount() > 0) {
             startActivity(PageActivity.newIntent(requireContext()));
-            requireActivity().finish();
         }
     }
 
