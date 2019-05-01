@@ -94,11 +94,6 @@
     <!-- Dialog -->
     <dimen name="dialog_line_spacing_extra">5sp</dimen>
 
-    <!-- Floating Queue -->
-    <dimen name="floating_queue_container_height">48dp</dimen>
-    <dimen name="floating_queue_container_margin_top_bottom">8dp</dimen>
-    <dimen name="floating_queue_container_margin_start_end">16dp</dimen>
-
     <!-- Article bottom toolbar -->
     <dimen name="bottom_toolbar_height">48dp</dimen>
     <dimen name="bottom_toolbar_icon_size">48dp</dimen>
