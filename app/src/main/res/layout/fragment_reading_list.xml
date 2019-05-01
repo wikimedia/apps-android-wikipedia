@@ -80,21 +80,6 @@
 
         </FrameLayout>
 
-        <org.wikipedia.main.floatingqueue.FloatingQueueView
-            android:id="@+id/floating_queue_view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/floating_queue_container_height"
-            android:layout_gravity="bottom"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginTop="@dimen/floating_queue_container_margin_top_bottom"
-            android:layout_marginBottom="@dimen/floating_queue_container_margin_top_bottom"
-            android:layout_marginStart="@dimen/floating_queue_container_margin_start_end"
-            android:layout_marginEnd="@dimen/floating_queue_container_margin_start_end"
-            app:cardCornerRadius="2dp"
-            app:cardElevation="10dp"
-            app:layout_behavior="org.wikipedia.main.floatingqueue.FloatingQueueBottomViewBehavior"/>
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,10 +1,8 @@
 package org.wikipedia.feed.onthisday;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
@@ -12,17 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ResourceUtil;
@@ -83,17 +77,9 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     @OnClick(R.id.parent) void onBaseViewClicked() {
-        Context context = WikipediaApp.getInstance().getApplicationContext();
         PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
-
-        Bundle bundle = null;
-        if (activity instanceof MainActivity) {
-            bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, ((MainActivity) activity)
-                    .getFloatingQueueImageView(), ViewCompat.getTransitionName(((MainActivity) activity)
-                    .getFloatingQueueImageView())).toBundle();
-        }
 
         Intent intent = new Intent(ACTION_LOAD_IN_NEW_TAB)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -101,7 +87,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(EXTRA_PAGETITLE, pageTitle);
 
-        activity.startActivity(intent, bundle);
+        activity.startActivity(intent);
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
