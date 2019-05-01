@@ -208,10 +208,7 @@ public class TabActivity extends BaseActivity {
     }
 
     @OnClick(R.id.tab_counts_view) void onItemClick(View view) {
-        if (!launchedFromPageActivity) {
-            startActivity(PageActivity.newIntent(this));
-        }
-        finish();
+        onBackPressed();
     }
 
     @Override
@@ -269,11 +266,6 @@ public class TabActivity extends BaseActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     private void openNewTab() {
