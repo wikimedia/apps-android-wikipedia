@@ -28,6 +28,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -50,6 +51,8 @@ import de.mrapp.android.util.logging.LogLevel;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class TabActivity extends BaseActivity {
+    private static final String LAUNCHED_FROM_PAGE_ACTIVITY = "launchedFromPageActivity";
+
     public static final int RESULT_LOAD_FROM_BACKSTACK = 10;
     public static final int RESULT_NEW_TAB = 11;
 
@@ -57,9 +60,9 @@ public class TabActivity extends BaseActivity {
 
     @BindView(R.id.tab_switcher) TabSwitcher tabSwitcher;
     @BindView(R.id.tab_toolbar) Toolbar tabToolbar;
-    @BindView(R.id.tab_counts_view_container) View tabCountsViewContainer;
     @BindView(R.id.tab_counts_view) TabCountsView tabCountsView;
     private WikipediaApp app;
+    private boolean launchedFromPageActivity;
     private TabListener tabListener = new TabListener();
     private TabFunnel funnel = new TabFunnel();
     private boolean cancelled = true;
@@ -111,6 +114,11 @@ public class TabActivity extends BaseActivity {
         return new Intent(context, TabActivity.class);
     }
 
+    public static Intent newIntentFromPageActivity(@NonNull Context context) {
+        return new Intent(context, TabActivity.class)
+                .putExtra(LAUNCHED_FROM_PAGE_ACTIVITY, true);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,8 +127,9 @@ public class TabActivity extends BaseActivity {
         app = WikipediaApp.getInstance();
         funnel.logEnterList(app.getTabCount());
         tabCountsView.setTabCount(app.getTabCount());
+        launchedFromPageActivity = getIntent().hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsViewContainer);
+        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
 
         setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.windowBackground));
         setSupportActionBar(tabToolbar);
@@ -198,8 +207,8 @@ public class TabActivity extends BaseActivity {
         tabSwitcher.showSwitcher();
     }
 
-    @OnClick(R.id.tab_counts_view_container) void onItemClick(View view) {
-        finish();
+    @OnClick(R.id.tab_counts_view) void onItemClick(View view) {
+        onBackPressed();
     }
 
     @Override
@@ -228,10 +237,7 @@ public class TabActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                cancelled = false;
-                funnel.logCreateNew(app.getTabCount());
-                setResult(RESULT_NEW_TAB);
-                finish();
+                openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -244,10 +250,7 @@ public class TabActivity extends BaseActivity {
                 alert.create().show();
                 return true;
             case R.id.menu_open_a_new_tab:
-                cancelled = false;
-                funnel.logCreateNew(app.getTabCount());
-                setResult(RESULT_NEW_TAB);
-                finish();
+                openNewTab();
                 return true;
             case R.id.menu_reading_lists:
                 startActivity(MainActivity.newIntent(TabActivity.this)
@@ -265,9 +268,15 @@ public class TabActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    private void openNewTab() {
+        cancelled = false;
+        funnel.logCreateNew(app.getTabCount());
+        if (launchedFromPageActivity) {
+            setResult(RESULT_NEW_TAB);
+        } else {
+            startActivity(PageActivity.newIntentForNewTab(TabActivity.this));
+        }
+        finish();
     }
 
     private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
@@ -309,7 +318,11 @@ public class TabActivity extends BaseActivity {
             final int tabUpdateDebounceMillis = 250;
             if (System.currentTimeMillis() - tabUpdatedTimeMillis > tabUpdateDebounceMillis) {
                 funnel.logSelect(app.getTabCount(), tabIndex);
-                setResult(RESULT_LOAD_FROM_BACKSTACK);
+                if (launchedFromPageActivity) {
+                    setResult(RESULT_LOAD_FROM_BACKSTACK);
+                } else {
+                    startActivity(PageActivity.newIntent(TabActivity.this));
+                }
                 finish();
             }
         }
