@@ -104,8 +104,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
                     icon.setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
                 }
             } else if (childView instanceof TabCountsView) {
-                ((TabCountsView) childView).setTextColor(iconColor);
-                childView.getBackground().setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
+                ((TabCountsView) childView).setColor(iconColor);
             } else if (childView instanceof ViewGroup) {
                 updateChildIconTint((ViewGroup) childView, opacity);
             }
