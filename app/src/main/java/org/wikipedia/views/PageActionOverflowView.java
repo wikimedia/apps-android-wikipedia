@@ -26,16 +26,15 @@ public class PageActionOverflowView extends FrameLayout {
 
     public interface Callback {
         void forwardClick();
-        void backwardClick();
-        void openNewTabClick();
+        void feedClick();
         void readingListsClick();
-        void recentlyViewedClick();
+        void historyClick();
+        void nearbyClick();
     }
 
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
     @BindView(R.id.page_action_overflow_forward) AppCompatImageView forwardButton;
-    @BindView(R.id.page_action_overflow_back) AppCompatImageView backButton;
 
     public PageActionOverflowView(Context context) {
         super(context);
@@ -50,17 +49,14 @@ public class PageActionOverflowView extends FrameLayout {
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
         PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
 
-
         final float disabledAlpha = 0.5f;
-        backButton.setEnabled(currentTab.canGoBack());
-        backButton.setAlpha(backButton.isEnabled() ? 1.0f : disabledAlpha);
         forwardButton.setEnabled(currentTab.canGoForward());
         forwardButton.setAlpha(forwardButton.isEnabled() ? 1.0f : disabledAlpha);
     }
 
-    @OnClick({R.id.page_action_overflow_forward, R.id.page_action_overflow_back,
-            R.id.page_action_overflow_open_a_new_tab, R.id.page_action_overflow_reading_lists,
-            R.id.page_action_overflow_recently_viewed})
+    @OnClick({R.id.page_action_overflow_forward, R.id.page_action_overflow_feed,
+            R.id.page_action_overflow_history, R.id.page_action_overflow_reading_lists,
+            R.id.page_action_overflow_nearby})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
@@ -73,17 +69,17 @@ public class PageActionOverflowView extends FrameLayout {
             case R.id.page_action_overflow_forward:
                 callback.forwardClick();
                 break;
-            case R.id.page_action_overflow_back:
-                callback.backwardClick();
+            case R.id.page_action_overflow_feed:
+                callback.feedClick();
                 break;
-            case R.id.page_action_overflow_open_a_new_tab:
-                callback.openNewTabClick();
+            case R.id.page_action_overflow_history:
+                callback.historyClick();
                 break;
             case R.id.page_action_overflow_reading_lists:
                 callback.readingListsClick();
                 break;
-            case R.id.page_action_overflow_recently_viewed:
-                callback.recentlyViewedClick();
+            case R.id.page_action_overflow_nearby:
+                callback.nearbyClick();
                 break;
             default:
                 break;
@@ -93,7 +89,6 @@ public class PageActionOverflowView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_page_action_overflow, this);
         ButterKnife.bind(this);
-
-        FeedbackUtil.setToolbarButtonLongPressToast(forwardButton, backButton);
+        FeedbackUtil.setToolbarButtonLongPressToast(forwardButton);
     }
 }
