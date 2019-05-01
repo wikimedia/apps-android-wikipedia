@@ -30,7 +30,7 @@ class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
                     .subscribe({ pair ->
                         sourceSummary = pair.second
                         targetSummary = pair.first
-                        FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(toSuggestedEditsCard(wiki)))
+                        FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(toSuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))))
                     }, { cb.success(emptyList()) }))
 
         } else {
@@ -39,7 +39,7 @@ class SuggestedEditsFeedClient(var translation: Boolean) : FeedClient {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pageSummary ->
                         sourceSummary = pageSummary
-                        FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(toSuggestedEditsCard(wiki)))
+                        FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(toSuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))))
                     }, { cb.success(emptyList()) }))
         }
 
