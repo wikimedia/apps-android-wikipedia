@@ -136,6 +136,4 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     companion object {
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 6
     }
-
-
 }

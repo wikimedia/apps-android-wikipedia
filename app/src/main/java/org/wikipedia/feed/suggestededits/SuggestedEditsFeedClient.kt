@@ -66,6 +66,4 @@ class SuggestedEditsFeedClient(var isTranslation: Boolean) : FeedClient {
             return SuggestedEditsCard(wiki, translation, sourceSummary, targetSummary)
         }
     }
-
-
 }
