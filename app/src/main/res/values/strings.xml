@@ -554,7 +554,6 @@
     <!-- /Notifications -->
 
     <!-- The Feed -->
-    <string name="view_continue_reading_card_title">Continue reading</string>
     <string name="view_because_you_read_card_title">Because you read</string>
     <string name="view_random_card_title">Randomizer</string>
     <string name="view_random_card_subtitle">Flip through random articles to read from Wikipedia.</string>
