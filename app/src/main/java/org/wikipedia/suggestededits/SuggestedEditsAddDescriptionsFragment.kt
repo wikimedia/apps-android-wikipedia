@@ -108,16 +108,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
             updateFromLanguageSpinner()
         }
 
-        updateBackButton(0)
-        backButton.setOnClickListener { previousPage() }
-        nextButton.setOnClickListener {
-            if (nextButton.drawable is Animatable) {
-                (nextButton.drawable as Animatable).start()
-            }
-            nextPage()
-        }
-
-        addDescriptionButton.setOnClickListener { onSelectPage() }
+        topChild?.updateBackButton(0)
 
         arrow.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
@@ -156,26 +147,21 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedDescriptionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION))
+            topChild?.updateActionButton()
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
             nextPage()
         }
     }
 
-    private fun previousPage() {
+    fun previousPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         if (addTitleDescriptionsItemPager.currentItem > 0) {
             addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem - 1, true)
         }
     }
-
-    private fun nextPage() {
+    fun nextPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
-    }
-
-    private fun updateBackButton(pagerPosition: Int) {
-        backButton.isClickable = pagerPosition != 0
-        backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
     private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
@@ -264,7 +250,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
                 resetTitleDescriptionItemAdapter()
             }
             updateToLanguageSpinner(position)
-            updateBackButton(0)
+           topChild?.updateBackButton(0)
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {
@@ -306,7 +292,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         override fun onPageSelected(position: Int) {
-            updateBackButton(position)
+            topChild?.updateBackButton(position)
             if (!nextPageSelectedAutomatic && funnel != null) {
                 if (position > prevPosition) {
                     funnel!!.swipedForward()

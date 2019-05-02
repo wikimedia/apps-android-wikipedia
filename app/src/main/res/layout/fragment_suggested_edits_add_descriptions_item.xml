@@ -1,17 +1,17 @@
-<FrameLayout
+<LinearLayout
     android:id="@+id/suggestedEditsItemRootView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="20dp">
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="20dp"
@@ -68,8 +68,6 @@
                 android:layout_height="wrap_content"
                 android:minHeight="231dp"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
                 android:paddingTop="11dp"
                 android:paddingBottom="16dp">
 
@@ -78,6 +76,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:fontFamily="serif"
                     android:textColor="?attr/primary_text_color"
                     android:lineSpacingExtra="8sp"
@@ -85,53 +85,38 @@
                     android:ellipsize="end"
                     tools:text="Lorem ipsum"/>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:id="@+id/viewArticleSubtitleContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
                     android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/viewArticleSubtitleAddedBy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/suggested_edits_added_by_you"
-                        android:textStyle="italic"
-                        android:textColor="?attr/secondary_text_color"
-                        android:textSize="14sp"
-                        android:lineSpacingExtra="6sp"
+                    <View
+                        android:id="@+id/accentSideBar"
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/accent50"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <org.wikipedia.views.GoneIfEmptyTextView
                         android:id="@+id/viewArticleSubtitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:paddingStart="13dp"
+                        android:layout_weight="1"
+                        android:background="?attr/multi_select_background_color"
                         android:ellipsize="end"
-                        android:maxLines="3"
-                        android:textColor="?attr/secondary_text_color"
-                        android:textSize="16sp"
-                        android:layout_marginEnd="5dp"
                         android:lineSpacingExtra="6sp"
-                        app:layout_constraintVertical_weight="1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/viewArticleSubtitleAddedBy"
+                        android:maxLines="3"
+                        android:textColor="?attr/material_theme_primary_color"
+                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/viewArticleSubtitleEdit"
+                        app:layout_constraintStart_toEndOf="@+id/accentSideBar"
                         tools:text="Lorem ipsum" />
-
-                    <ImageView
-                        android:id="@+id/viewArticleSubtitleEdit"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:tint="?attr/page_toolbar_icon_color"
-                        android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/viewAddDescriptionButton"
@@ -144,7 +129,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginEnd="6dp"
-                        android:tint="?attr/colorAccent"
+                        android:tint="?attr/paper_color"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
 
@@ -175,6 +160,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:paddingLeft="16dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="12sp"
                     android:textSize="16sp"
@@ -186,4 +172,85 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomButtonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addDescriptionButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+            app:tint="?attr/colorAccent" />
+
+        <LinearLayout
+            android:id="@+id/addDescriptionButton"
+            android:layout_width="194dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_shape_gray"
+            android:backgroundTint="?attr/colorAccent"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/addDescriptionImage"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                app:tint="@color/base100" />
+
+            <TextView
+                android:id="@+id/addDescriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/suggested_edits_add_description_button"
+                android:textAllCaps="true"
+                android:textColor="?attr/paper_color" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/nextButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/view_next_random_article"
+            android:focusable="true"
+            android:padding="16dp"
+            android:scaleX="-1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addDescriptionButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+            app:tint="?attr/colorAccent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

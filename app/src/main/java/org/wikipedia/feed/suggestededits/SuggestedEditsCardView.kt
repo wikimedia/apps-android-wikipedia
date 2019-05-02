@@ -5,7 +5,7 @@ import android.content.Context
 import android.net.Uri
 import android.text.TextUtils
 import android.view.View
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import android.widget.LinearLayout
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.view.*
@@ -61,8 +61,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         if (isTranslation) {
             sourceDescription = StringUtils.capitalize(sourceSummary!!.description)
             viewArticleSubtitleContainer.visibility = View.VISIBLE
-            viewArticleSubtitleAddedBy.visibility = View.GONE
-            viewArticleSubtitleEdit.visibility = View.GONE
+            accentSideBar.visibility= View.GONE
             viewArticleSubtitle.text = sourceDescription
         }
         viewAddDescriptionButton.visibility = View.VISIBLE
@@ -100,7 +99,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
         suggestedEditsItemRootView.setPadding(0, 0, 0, 0)
-        val param = cardView.layoutParams as LayoutParams
+        val param = cardView.layoutParams as LinearLayout.LayoutParams
         param.setMargins(0, 0, 0, 0)
         cardView.useCompatPadding = false
         cardView.setContentPadding(0, 0, 0, 0)
@@ -131,11 +130,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         if (!TextUtils.isEmpty(addedDescription)) {
             viewArticleSubtitleContainer.visibility = View.VISIBLE
             viewAddDescriptionButton.visibility = View.GONE
-            viewArticleSubtitleAddedBy.visibility = View.VISIBLE
-            viewArticleSubtitleEdit.visibility = View.VISIBLE
             viewArticleSubtitle.text = StringUtils.capitalize(addedDescription)
-            if (isTranslation) viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_translated_by_you)
-            else viewArticleSubtitleAddedBy.text = context.getString(R.string.suggested_edits_added_by_you)
             this.addedDescription = addedDescription
         }
     }

@@ -73,84 +73,9 @@
             android:id="@+id/addTitleDescriptionsItemPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintVertical_weight="1"
-            app:layout_constraintBottom_toTopOf="@id/bottomButtonContainer"
-            app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bottomButtonContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:clipToPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/backButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:padding="16dp"
-                android:focusable="true"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@null"
-                android:layout_marginEnd="8dp"
-                app:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
-                app:layout_constraintEnd_toStartOf="@+id/addDescriptionButton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
-            <LinearLayout
-                android:id="@+id/addDescriptionButton"
-                android:layout_width="194dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
-                android:background="@drawable/button_shape_gray"
-                android:backgroundTint="?attr/colorAccent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:elevation="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_add_gray_themed_24dp"
-                    app:tint="@color/base100" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAllCaps="true"
-                    android:text="@string/suggested_edits_add_description_button"
-                    android:textColor="?attr/paper_color" />
-            </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/nextButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:padding="16dp"
-                android:focusable="true"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/view_next_random_article"
-                android:layout_marginStart="8dp"
-                android:scaleX="-1"
-                app:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
-                app:layout_constraintStart_toEndOf="@+id/addDescriptionButton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer"
+            app:layout_constraintVertical_weight="1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.graphics.drawable.Animatable
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
@@ -69,6 +70,20 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
                 parent().onSelectPage()
             }
         }
+        backButton.setOnClickListener { parent().previousPage() }
+        nextButton.setOnClickListener {
+            if (nextButton.drawable is Animatable) {
+                (nextButton.drawable as Animatable).start()
+            }
+            parent().nextPage()
+        }
+
+        addDescriptionButton.setOnClickListener { parent().onSelectPage() }
+
+        if(addDescriptionText!=null) {
+            addDescriptionText!!.text = if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) getString(R.string.suggested_edits_add_translation)
+            else getString(R.string.suggested_edits_add_description_button)
+        }
 
     }
 
@@ -99,15 +114,26 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
         }
     }
 
+    fun updateBackButton(pagerPosition: Int) {
+        if(backButton!=null) {
+            backButton.isClickable = pagerPosition != 0
+            backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
+        }
+    }
+
+    fun updateActionButton() {
+        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
+        if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            if (addDescriptionText != null)
+                addDescriptionText!!.text = getString(R.string.suggested_edits_edit_translation)
+        } else
+            if (addDescriptionText != null)
+                addDescriptionText!!.text = getString(R.string.description_edit_edit_description)
+    }
+
     fun showAddedDescriptionView(addedDescription: String?) {
         if (!TextUtils.isEmpty(addedDescription)) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
-                viewArticleSubtitleAddedBy.visibility = VISIBLE
-                viewArticleSubtitleEdit.visibility = VISIBLE
-                viewArticleSubtitleAddedBy.text = getString(R.string.suggested_edits_translated_by_you)
-            }
-            viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
             this.addedDescription = addedDescription!!
@@ -123,6 +149,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     private fun updateContents() {
+        bottomButtonContainer.visibility = VISIBLE
         cardItemErrorView.visibility = GONE
         cardItemContainer.visibility = if (sourceSummary == null) GONE else VISIBLE
         cardItemProgressBar.visibility = if (sourceSummary == null) VISIBLE else GONE
@@ -133,13 +160,9 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
         if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitleAddedBy.visibility = GONE
-            viewArticleSubtitleEdit.visibility = GONE
             viewArticleSubtitle.text = StringUtils.capitalize(sourceSummary!!.description)
-            callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(parent().langToCode))
         }
 
-        viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
         if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
             viewArticleImage.visibility = GONE
