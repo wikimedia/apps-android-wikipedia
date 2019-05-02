@@ -236,7 +236,6 @@
   <string name="reading_list_delete_confirm" fuzzy="true">Sètz segur que volètz suprimir aquesta lista %s de lectura ?</string>
   <string name="user_option_sync_label">Preferéncias</string>
   <string name="notification_reverted_title">Modificacion anullada</string>
-  <string name="view_continue_reading_card_title">Contunhar de legir</string>
   <string name="view_because_you_read_card_title">Perque avètz legit</string>
   <string name="view_random_card_title">A l\'azard</string>
   <string name="view_random_card_subtitle" fuzzy="true">Legissètz un article de la Wikipèdia a l\'azard</string>

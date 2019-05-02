@@ -528,7 +528,6 @@
   <string name="preference_summary_notification_thanks">Valaki megköszönte egy szerkesztésedet</string>
   <string name="preference_title_notification_revert">Visszaállítás</string>
   <string name="preference_summary_notification_revert">Közreműködéseid egyike vissza lett vonva.</string>
-  <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
   <string name="view_random_card_subtitle">Olvass találomra egy cikket a Wikipédiából.</string>

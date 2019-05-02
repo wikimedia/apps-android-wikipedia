@@ -350,7 +350,6 @@
   <string name="preference_title_notification_welcome">স্বাগতম</string>
   <string name="preference_summary_notification_welcome">এটা একাউণ্ট সৃষ্টি কৰা হ\'ল</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
-  <string name="view_continue_reading_card_title">পঢ়া অব্যাহত ৰাখক</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_random_card_subtitle" fuzzy="true">ৱিকিপিডিয়াৰ যিকোনো এটা প্ৰবন্ধ পঢ়ক</string>

@@ -535,7 +535,6 @@
   <string name="preference_summary_notification_milestone">編集回数が特定の回数に達したとき</string>
   <string name="preference_title_notification_thanks">感謝</string>
   <string name="preference_summary_notification_thanks">誰かがあなたの編集に謝意を示しました</string>
-  <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_card_subtitle">ウィキペディアから記事をランダムに表示して閲覧</string>

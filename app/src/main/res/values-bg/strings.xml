@@ -516,7 +516,6 @@
   <string name="preference_summary_notification_milestone">Достигнат е определен брой редакции</string>
   <string name="preference_title_notification_thanks">Благодарност</string>
   <string name="preference_summary_notification_thanks">Някой Ви благодари за редакция</string>
-  <string name="view_continue_reading_card_title">Продължаване на четенето</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
   <string name="view_random_card_subtitle">Прелиствайте случайни статии от Уикипедия</string>

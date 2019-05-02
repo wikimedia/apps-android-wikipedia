@@ -569,7 +569,6 @@
   <string name="preference_summary_notification_thanks">Кто-то поблагодарил вас за правку</string>
   <string name="preference_title_notification_revert">Откаты правок</string>
   <string name="preference_summary_notification_revert">Одна из ваших правок была откачена</string>
-  <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_card_subtitle">Полистайте подборку случайных статей Википедии.</string>
@@ -673,7 +672,7 @@
   <string name="suggested_edits_unlock_notification_button">Поехали</string>
   <string name="suggested_edits_license_notice">Добавляя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информация</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задания для профи</string>
+  <string name="suggested_edits_tasks_activity_title">Предложение отредактировать</string>
   <string name="suggested_edits_task_add_description_title">Добавление кратких описаний</string>
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
   <string name="suggested_edits_task_image_caption_title">Подписи для изображений</string>
@@ -692,7 +691,7 @@
     <item quantity="one">одна правка</item>
     <item quantity="other">%d правки</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Предложено отредактировать</string>
+  <string name="suggested_edits_feed_card_title">Предложения отредактировать</string>
   <string name="suggested_edits_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>

@@ -484,7 +484,6 @@
   <string name="preference_summary_notification_milestone">Dostignut je određeni broj izmena</string>
   <string name="preference_title_notification_thanks">Zahvala</string>
   <string name="preference_summary_notification_thanks">Neko vam se zahvalio na izmeni</string>
-  <string name="view_continue_reading_card_title">Nastavi čitanje</string>
   <string name="view_because_you_read_card_title">Na osnovu pročitanog</string>
   <string name="view_random_card_title">Slučajni članak</string>
   <string name="view_random_card_subtitle">Prelistajte slučajne članke sa Vikipedije.</string>

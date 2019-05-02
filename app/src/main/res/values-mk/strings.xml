@@ -526,7 +526,6 @@
   <string name="preference_summary_notification_thanks">Некој ви благодари за уредување</string>
   <string name="preference_title_notification_revert">Отповикај</string>
   <string name="preference_summary_notification_revert">Еден од вашите придонеси е отповикан</string>
-  <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_card_subtitle">Прелистајте случајни статии од Википедија</string>

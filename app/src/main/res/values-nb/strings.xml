@@ -538,7 +538,6 @@
   <string name="preference_summary_notification_thanks">Noen takket deg for en redigering</string>
   <string name="preference_title_notification_revert">Tilbakestilling</string>
   <string name="preference_summary_notification_revert">Et av bidragene dine ble tilbakestilt</string>
-  <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
   <string name="view_random_card_subtitle">Gå gjennom tilfeldige artikler å lese fra Wikipedia.</string>

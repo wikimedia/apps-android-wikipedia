@@ -504,7 +504,6 @@
   <string name="preference_summary_notification_milestone">Sroichtear líonta athruithe áirithe</string>
   <string name="preference_title_notification_thanks">Buíochas</string>
   <string name="preference_summary_notification_thanks">Gabhálann duine éigin buíochas leat as athrú a chur in eagar</string>
-  <string name="view_continue_reading_card_title">Lean ort ag léamh</string>
   <string name="view_because_you_read_card_title">De bharr gur léigh tú</string>
   <string name="view_random_card_title">Randamóir</string>
   <string name="view_random_card_subtitle">Méaraigh trí ailt randamacha atá le léamh ar Vicipéid.</string>

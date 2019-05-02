@@ -479,7 +479,7 @@
   <string name="reading_list_toast_last_sync">Message informing the user that their reading lists were synced successfully.</string>
   <string name="reading_list_menu_last_sync">Message informing the user that their reading lists were synced successfully. The \"%s\" symbol is replaced with the last synced time.</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Positive action button text in pop-up dialog for removing article from list.</string>
-  <string name="reading_list_delete_dialog_ok_button_text">Positive action button text in pop-up dialog for deleting a list.</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Positive action button text in pop-up dialog for deleting a list.\n{{Identical|OK}}</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing article from a list.\n{{Identical|Cancel}}</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Negative action button text in pop-up dialog for deleting a list.\n{{Identical|Cancel}}</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Negative action button text in pop-up dialog for removing article from offline storage.\n{{Identical|Cancel}}</string>
@@ -546,7 +546,6 @@
   <string name="preference_summary_notification_thanks">Short summary explaining what Thanks notifications are.</string>
   <string name="preference_title_notification_revert">Label for settings switch that enables or disables Revert notifications.</string>
   <string name="preference_summary_notification_revert">Short summary explaining what Revert notifications are.</string>
-  <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
@@ -760,7 +759,7 @@
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.</string>
-  <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.</string>
+  <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
 </resources>

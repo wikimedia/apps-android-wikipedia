@@ -531,7 +531,6 @@
   <string name="preference_summary_notification_thanks">Jemand dankt dir für eine Bearbeitung</string>
   <string name="preference_title_notification_revert">Zurücksetzung</string>
   <string name="preference_summary_notification_revert">Eines deiner Beiträge wurde zurückgesetzt</string>
-  <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
   <string name="view_random_card_subtitle">Durch zufällige Artikel aus der Wikipedia blättern.</string>

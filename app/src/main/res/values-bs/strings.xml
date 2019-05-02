@@ -354,7 +354,6 @@
   <string name="notification_channel_name" fuzzy="true">Sinhronizacija</string>
   <string name="notification_syncing_title" fuzzy="true">Preuzimam %1$d članak/-(a)ka…</string>
   <string name="notification_syncing_description" fuzzy="true">Preostalo članaka: %1$d</string>
-  <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
   <string name="view_random_card_subtitle">Prelistajte nasumično izabrane članke s Wikipedije.</string>

@@ -521,7 +521,6 @@
   <string name="preference_summary_notification_milestone">Достигнут је одређени број измена</string>
   <string name="preference_title_notification_thanks">Захвала</string>
   <string name="preference_summary_notification_thanks">Неко вам се захвалио на измени</string>
-  <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">На основу прочитаног</string>
   <string name="view_random_card_title">Случајни чланак</string>
   <string name="view_random_card_subtitle">Прелистајте случајне чланке са Википедије.</string>
