@@ -87,6 +87,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun prepareViews() {
         addedDescription = ""
+        viewArticleSubtitle.background = null
         viewArticleContainer.minimumHeight = 0
         viewArticleExtract.text = ""
         viewArticleTitle.text = ""
