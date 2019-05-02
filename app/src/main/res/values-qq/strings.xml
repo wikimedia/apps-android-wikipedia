@@ -546,7 +546,6 @@
   <string name="preference_summary_notification_thanks">Short summary explaining what Thanks notifications are.</string>
   <string name="preference_title_notification_revert">Label for settings switch that enables or disables Revert notifications.</string>
   <string name="preference_summary_notification_revert">Short summary explaining what Revert notifications are.</string>
-  <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
