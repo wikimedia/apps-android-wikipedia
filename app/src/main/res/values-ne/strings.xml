@@ -355,7 +355,6 @@
   <string name="preference_title_notification_welcome">स्वागतम्</string>
   <string name="preference_title_notification_thanks">धन्यवाद</string>
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
-  <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
   <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएका कुनै लेखहरू पढ्नुहोस्</string>

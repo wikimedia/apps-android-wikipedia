@@ -387,6 +387,7 @@
     <item quantity="one">Dësen Artikel ass net méi offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Ofbriechen</string>
@@ -420,7 +421,7 @@
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">nach %1$d Lëscht</item>
-    <item quantity="other">nach %1$d%1$d Lëschten</item>
+    <item quantity="other">nach %1$d Lëschten</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia Notifikatiounen</string>
   <string name="notifications_activity_title">Notifikatiounen</string>
@@ -442,7 +443,6 @@
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
   <string name="preference_title_notification_revert">Zrécksetzen</string>
-  <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
@@ -529,10 +529,6 @@
   <string name="description_edit_login_cancel_button_text">Ofbriechen</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Nach eng Minutt</item>
-    <item quantity="other">Nach %d Minutten</item>
-  </plurals>
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
   <string name="onboarding_get_started">Fir unzefänken</string>
@@ -588,6 +584,7 @@
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
 </resources>

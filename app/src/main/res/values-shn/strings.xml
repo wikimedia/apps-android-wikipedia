@@ -302,7 +302,6 @@
   <string name="reading_list_article_not_offline_message" fuzzy="true">ပွင်ႈလိၵ်ႈၼႆ့ တေဢမ်ႇလူလႆႈ ၽွင်းဢမ်ႇမီးၼႅင်ႈ။</string>
   <string name="user_option_sync_label">ငဝ်ႈၵုမ်းပိူင်</string>
   <string name="notification_reverted_title">လွင်ႈမႄးထတ်း ဢၼ်ပိၼ်ႈဝႆႉ</string>
-  <string name="view_continue_reading_card_title">သိုပ်ႇလူ</string>
   <string name="view_because_you_read_card_title">ယွၼ်ႉပိူဝ်ႈၸဝ်ႈၵဝ်ႇ လူ</string>
   <string name="view_random_card_title">တူဝ်တႅဝ်ႇ</string>
   <string name="view_random_card_subtitle" fuzzy="true">လူပွင်ႈလိၵ်ႈတႅဝ်ႇ ၵႃႈတီႈတီႈ ဝီႇၶီႇၽီးတီးယႃး</string>
@@ -319,7 +318,7 @@
   <string name="view_static_card_icon_content_description">ႁၢင်ႈႁိင်ႈ ၶႅပ်း</string>
   <string name="view_card_news_title">တီႈၼႂ်းၶၢဝ်ႇ</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="other">ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
+    <item quantity="other">%d ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">မိူဝ်ႈၼႆႉ</string>
   <string name="view_announcement_card_negative_action">ပႆႇၵွၼ်ႇၶႃႈ။</string>

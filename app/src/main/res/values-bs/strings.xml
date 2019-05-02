@@ -354,7 +354,6 @@
   <string name="notification_channel_name" fuzzy="true">Sinhronizacija</string>
   <string name="notification_syncing_title" fuzzy="true">Preuzimam %1$d članak/-(a)ka…</string>
   <string name="notification_syncing_description" fuzzy="true">Preostalo članaka: %1$d</string>
-  <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
   <string name="view_random_card_subtitle">Prelistajte nasumično izabrane članke s Wikipedije.</string>
@@ -426,10 +425,6 @@
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Vaš doprinos djelovao je kao eksperiment ili vandalizam.</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Preostala jedna minuta</item>
-    <item quantity="other">Preostale %d minute</item>
-  </plurals>
   <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nastavi</string>
   <string name="onboarding_get_started">Započnite</string>
