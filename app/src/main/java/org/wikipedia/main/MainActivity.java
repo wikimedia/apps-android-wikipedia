@@ -130,11 +130,16 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
-        TabCountsView tabCountsView = new TabCountsView(this);
-        tabCountsView.setOnClickListener(v -> startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS));
-        tabCountsView.setTabCount(WikipediaApp.getInstance().getTabCount());
-        tabsItem.setActionView(tabCountsView);
-        tabsItem.expandActionView();
+        if (WikipediaApp.getInstance().getTabCount() < 1) {
+            tabsItem.setVisible(false);
+        } else {
+            tabsItem.setVisible(true);
+            TabCountsView tabCountsView = new TabCountsView(this);
+            tabCountsView.setOnClickListener(v -> startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS));
+            tabCountsView.setTabCount(WikipediaApp.getInstance().getTabCount());
+            tabsItem.setActionView(tabCountsView);
+            tabsItem.expandActionView();
+        }
         return true;
     }
 
