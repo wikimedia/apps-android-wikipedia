@@ -487,11 +487,11 @@
     <item quantity="other">מתבצעת הורדה של ערכים</item>
   </plurals>
   <plurals name="notification_syncing_title">
-    <item quantity="one">מתבצעת הורדה של ערך אחד…</item>
+    <item quantity="one">מתבצעת הורדה של %1$d אחד…</item>
     <item quantity="other">מתבצעת הורדה של %1$d ערכים…</item>
   </plurals>
   <plurals name="notification_syncing_description">
-    <item quantity="one">נשאר ערך אחד</item>
+    <item quantity="one">נשאר %1$d אחד</item>
     <item quantity="other">נשארו %1$d ערכים</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
@@ -499,11 +499,11 @@
     <item quantity="other">סנכרון רשימות קריאה</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="one">מתבצע סנכרון של רשימה אחת…</item>
+    <item quantity="one">מתבצע סנכרון של %1$d אחת…</item>
     <item quantity="other">מתבצע סנכרון של %1$d רשימות…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">נשארה רשימה אחת</item>
+    <item quantity="one">נשארה %1$d אחת</item>
     <item quantity="other">נשארו %1$d רשימות</item>
   </plurals>
   <string name="notification_echo_channel_description">הודעות ויקיפדיה</string>
@@ -672,10 +672,6 @@
   <string name="offline_read_final_rationale">השראה לגשת לאחסון במכשיר שלך נדרשת לשימוש בספרייה הלא־מקוונת שלך.</string>
   <string name="size_gb">%.2f ג\"ב</string>
   <string name="size_mb">%.2f מ\"ב</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">נשארה דקה</item>
-    <item quantity="other">נשארו %d דקות</item>
-  </plurals>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>
@@ -698,7 +694,7 @@
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
   <string name="more_trending_text">עוד דברים דומים</string>
-  <string name="top_on_this_day">מובילים ב{{GRAMMAR:תחילית|%1$s}}</string>
+  <string name="top_on_this_day">מובילים ב %1$s</string>
   <string name="on_this_day_card_title">היום בהיסטוריה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
@@ -706,7 +702,7 @@
   <string name="back_to_top">חזרה למעלה</string>
   <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
-    <item quantity="other">שנתיים</item>
+    <item quantity="other">שנתיים %d</item>
   </plurals>
   <string name="languages_list_activity_title">הוספת שפה</string>
   <string name="languages_list_suggested_text">מוצעות</string>

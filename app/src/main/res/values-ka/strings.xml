@@ -332,10 +332,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">დარჩა 1 წუთი</item>
-    <item quantity="other">დარჩა %d წუთი</item>
-  </plurals>
   <string name="onboarding_skip">გამოტოვება</string>
   <string name="onboarding_continue">გაგრძელება</string>
   <string name="onboarding_get_started">დაწყება</string>

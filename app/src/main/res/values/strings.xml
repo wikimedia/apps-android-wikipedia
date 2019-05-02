@@ -708,10 +708,6 @@
     <string name="offline_read_final_rationale">Permission to access storage on your device is required to use the Offline Library.</string>
     <string name="size_gb">%.2f GB</string>
     <string name="size_mb">%.2f MB</string>
-    <plurals name="offline_compilation_download_time_remaining">
-        <item quantity="one">1 min left</item>
-        <item quantity="other">%d mins left</item>
-    </plurals>
     <!-- /Offline -->
 
     <!-- Onboarding -->

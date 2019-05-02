@@ -682,10 +682,6 @@
   <string name="offline_read_final_rationale">مطلوب إذن للوصول إلى التخزين على جهازك لاستخدام المكتبة دون اتصال.</string>
   <string name="size_gb">%.2f جيجابايت</string>
   <string name="size_mb">%.2f ميجابايت</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 دقيقة متبقية</item>
-    <item quantity="other">%d دقائق متبقية</item>
-  </plurals>
   <string name="onboarding_skip">تجاوز</string>
   <string name="onboarding_continue">استمر</string>
   <string name="onboarding_get_started">ابدأ</string>
