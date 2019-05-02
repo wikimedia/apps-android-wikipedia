@@ -554,7 +554,6 @@
     <!-- /Notifications -->
 
     <!-- The Feed -->
-    <string name="view_continue_reading_card_title">Continue reading</string>
     <string name="view_because_you_read_card_title">Because you read</string>
     <string name="view_random_card_title">Randomizer</string>
     <string name="view_random_card_subtitle">Flip through random articles to read from Wikipedia.</string>
@@ -709,10 +708,6 @@
     <string name="offline_read_final_rationale">Permission to access storage on your device is required to use the Offline Library.</string>
     <string name="size_gb">%.2f GB</string>
     <string name="size_mb">%.2f MB</string>
-    <plurals name="offline_compilation_download_time_remaining">
-        <item quantity="one">1 min left</item>
-        <item quantity="other">%d mins left</item>
-    </plurals>
     <!-- /Offline -->
 
     <!-- Onboarding -->

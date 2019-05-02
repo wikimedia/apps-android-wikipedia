@@ -425,10 +425,6 @@
   <string name="description_edit_revert_reason2">Kontribusi anjeun sigana mah coba-coba atawa vandalismeu kitu.</string>
   <string name="description_edit_revert_history">Mun anjeun kataji, témbongan &lt;a href=\"%1$s\"&gt;jujutan éditanana&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan oflén.</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 menit deui</item>
-    <item quantity="other">%d menit deui</item>
-  </plurals>
   <string name="onboarding_skip">Liwatkeun</string>
   <string name="onboarding_continue">Tuluykeun</string>
   <string name="onboarding_get_started">Mitembeyan</string>

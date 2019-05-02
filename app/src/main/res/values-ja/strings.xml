@@ -644,10 +644,6 @@
   <string name="offline_read_final_rationale">オフラインライブラリを使用するには、端末のストレージにアクセスする権限が必要です。</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">あと1分</item>
-    <item quantity="other">あと%d分</item>
-  </plurals>
   <string name="onboarding_skip">スキップ</string>
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>

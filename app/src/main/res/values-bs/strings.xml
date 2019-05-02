@@ -425,10 +425,6 @@
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Vaš doprinos djelovao je kao eksperiment ili vandalizam.</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Preostala jedna minuta</item>
-    <item quantity="other">Preostale %d minute</item>
-  </plurals>
   <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nastavi</string>
   <string name="onboarding_get_started">Započnite</string>

@@ -28,8 +28,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -56,7 +54,6 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
-import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
@@ -65,7 +62,6 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -87,6 +83,7 @@ import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -97,6 +94,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_FROM_EXISTING_TAB = "org.wikipedia.load_from_existing_tab";
+    public static final String ACTION_CREATE_NEW_TAB = "org.wikipedia.create_new_tab";
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
@@ -114,8 +112,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
-    @BindView(R.id.page_toolbar_button_tabs_container) View tabsButtonContainer;
-    @BindView(R.id.page_toolbar_button_show_tabs) TabCountsView tabsButton;
+    @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
     @Nullable private Unbinder unbinder;
 
@@ -176,14 +173,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButtonContainer, overflowButton);
+        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity(SearchInvokeSource.TOOLBAR, null);
+                openSearchActivity(TOOLBAR, null);
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -204,13 +201,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchActivity(SearchInvokeSource.TOOLBAR, null);
+        openSearchActivity(TOOLBAR, null);
     }
 
-    @OnClick(R.id.page_toolbar_button_tabs_container)
+    @OnClick(R.id.page_toolbar_button_tabs)
     public void onShowTabsButtonClicked() {
         TabActivity.captureFirstTabBitmap(pageFragment.getContainerView());
-        startActivityForResult(TabActivity.newIntent(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
+        startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
     }
 
     @OnClick(R.id.page_toolbar_button_show_overflow_menu)
@@ -240,7 +237,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                goToMainTab(NavTab.EXPLORE.code());
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -249,26 +246,16 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public boolean onSearchRequested() {
-        openSearchActivity(SearchInvokeSource.TOOLBAR, null);
+        openSearchActivity(TOOLBAR, null);
         return true;
     }
 
     private void goToMainTab(int navTabCode) {
-        Bundle bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-                pageFragment.getHeaderView(), ViewCompat.getTransitionName(pageFragment.getHeaderView())).toBundle();
-
         startActivity(MainActivity.newIntent(this)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode),
-                app.haveMainActivity() ? null : bundle);
-
-        if (app.haveMainActivity()) {
-            overridePendingTransition(0, L10nUtil.isDeviceRTL() ? R.anim.page_exit_transition_rtl : R.anim.page_exit_transition);
-            finish();
-        } else {
-            supportFinishAfterTransition();
-        }
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode));
+        finish();
     }
 
     /** @return True if the contextual action bar is open. */
@@ -285,6 +272,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static Intent newIntent(@NonNull Context context, @NonNull String title) {
         PageTitle pageTitle = new PageTitle(title, WikipediaApp.getInstance().getWikiSite());
         return newIntentForNewTab(context, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK), pageTitle);
+    }
+
+    @NonNull
+    public static Intent newIntentForNewTab(@NonNull Context context) {
+        return new Intent(ACTION_CREATE_NEW_TAB)
+                .setClass(context, PageActivity.class);
     }
 
     @NonNull
@@ -369,6 +362,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_WIDGET);
             loadPageInForegroundTab(title, historyEntry);
+        } else if (ACTION_CREATE_NEW_TAB.equals(intent.getAction())) {
+            loadMainPageInForegroundTab();
         } else {
             loadMainPageInCurrentTab();
         }
@@ -635,15 +630,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         public void forwardClick() {
             pageFragment.goForward();
         }
+
         @Override
-        public void backwardClick() {
-            onBackPressed();
+        public void feedClick() {
+            goToMainTab(NavTab.EXPLORE.code());
         }
-        @Override
-        public void openNewTabClick() {
-            loadMainPageInForegroundTab();
-            animateTabsButton();
-        }
+
         @Override
         public void readingListsClick() {
             if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
@@ -651,9 +643,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             }
             goToMainTab(NavTab.READING_LISTS.code());
         }
+
         @Override
-        public void recentlyViewedClick() {
+        public void historyClick() {
             goToMainTab(NavTab.HISTORY.code());
+        }
+
+        @Override
+        public void nearbyClick() {
+            goToMainTab(NavTab.NEARBY.code());
         }
     }
 
@@ -795,8 +793,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .show();
     }
 
-    private void openSearchActivity(@NonNull SearchInvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(this, source.code(), query);
+    private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
+        Intent intent = SearchActivity.newIntent(this, source, query);
         startActivity(intent);
     }
 

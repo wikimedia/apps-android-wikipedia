@@ -687,10 +687,6 @@
   <string name="offline_read_final_rationale">É necessário ter permissão de acesso ao armazenamento do seu dispositivo para usar a biblioteca sem acesso à Internet.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">falta 1 minuto</item>
-    <item quantity="other">faltam %d minutos</item>
-  </plurals>
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>
