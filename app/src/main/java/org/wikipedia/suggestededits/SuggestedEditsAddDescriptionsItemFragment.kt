@@ -117,10 +117,8 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     fun updateBackButton(pagerPosition: Int) {
-        if(backButton!=null) {
             backButton.isClickable = pagerPosition != 0
             backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
-        }
     }
 
     fun updateActionButton() {
