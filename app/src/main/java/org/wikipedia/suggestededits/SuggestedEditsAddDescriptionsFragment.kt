@@ -108,8 +108,6 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
             updateFromLanguageSpinner()
         }
 
-        topChild?.updateBackButton(0)
-
         arrow.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
             val prevFromLang = languageList[wikiFromLanguageSpinner.selectedItemPosition]

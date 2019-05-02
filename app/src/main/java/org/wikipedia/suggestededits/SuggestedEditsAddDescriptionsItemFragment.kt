@@ -77,6 +77,8 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
             }
             parent().nextPage()
         }
+        updateBackButton(0)
+        if (!TextUtils.isEmpty(addedDescription)) addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
 
         addDescriptionButton.setOnClickListener { parent().onSelectPage() }
 
@@ -160,7 +162,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
         if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = StringUtils.capitalize(sourceSummary!!.description)
+            viewArticleSubtitle.text =  StringUtils.capitalize(if(!TextUtils.isEmpty(addedDescription)) addedDescription else sourceSummary!!.description)
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
