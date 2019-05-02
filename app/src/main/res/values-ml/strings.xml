@@ -287,7 +287,6 @@
   <string name="reading_list_description_hint">വിവരണം (ഐച്ഛികം)</string>
   <string name="reading_lists_onboarding_for_example">ഉദാഹരണത്തിന്</string>
   <string name="user_option_sync_label">ക്രമീകരണങ്ങൾ</string>
-  <string name="view_continue_reading_card_title">വായന തുടരുക</string>
   <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
   <string name="description_edit_text_hint">തലക്കെട്ട് വിവരണം</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>

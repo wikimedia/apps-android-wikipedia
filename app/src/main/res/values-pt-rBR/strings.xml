@@ -552,7 +552,6 @@
   <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
   <string name="preference_title_notification_revert">Reverter</string>
   <string name="preference_summary_notification_revert">Uma de suas contribuições foi revertida</string>
-  <string name="view_continue_reading_card_title">Continue lendo</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Folhear artigos aleatórios para ler a partir da Wikipédia</string>

@@ -533,7 +533,6 @@
   <string name="preference_summary_notification_milestone">Visse antal redigeringer er opnået</string>
   <string name="preference_title_notification_thanks">Tak</string>
   <string name="preference_summary_notification_thanks">Nogen takkede dig for en redigering</string>
-  <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia.</string>

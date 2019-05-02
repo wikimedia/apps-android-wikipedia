@@ -400,7 +400,6 @@
   <string name="notification_channel_name" fuzzy="true">सिंक हो रहा है</string>
   <string name="notification_syncing_title" fuzzy="true">%1$d लेख सिंक किये जा रहे हैं...</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
-  <string name="view_continue_reading_card_title">पढ़ना जारी रखें</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
   <string name="view_random_card_subtitle">विकिपीडिया से पढ़ने के लिए बेतरतीब लेख पलट के देखें</string>

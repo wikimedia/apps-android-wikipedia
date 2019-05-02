@@ -316,7 +316,6 @@
   <string name="notification_syncing_pause_button">ڕاگرتن</string>
   <string name="notification_syncing_resume_button">دەستپێکردنەوە</string>
   <string name="notification_syncing_cancel_button">ھەڵوەشاندنەوە</string>
-  <string name="view_continue_reading_card_title">بەردەوامبوون لە خوێندنەوە</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
   <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
   <string name="view_random_card_subtitle" fuzzy="true">خوێندنەوەی وتارێکی بەھەڵکەوت لە ویکیپیدیا</string>

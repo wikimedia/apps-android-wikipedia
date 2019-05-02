@@ -536,7 +536,6 @@
   <string name="preference_summary_notification_thanks">מישהו מודה לך על עריכה</string>
   <string name="preference_title_notification_revert">שחזור</string>
   <string name="preference_summary_notification_revert">אחת מהתרומות שלך שוחזרה</string>
-  <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_card_subtitle">עלעול בערכים אקראיים מוויקיפדיה.</string>
