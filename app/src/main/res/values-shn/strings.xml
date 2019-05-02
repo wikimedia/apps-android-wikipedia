@@ -319,7 +319,7 @@
   <string name="view_static_card_icon_content_description">ႁၢင်ႈႁိင်ႈ ၶႅပ်း</string>
   <string name="view_card_news_title">တီႈၼႂ်းၶၢဝ်ႇ</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="other">ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
+    <item quantity="other">%d ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">မိူဝ်ႈၼႆႉ</string>
   <string name="view_announcement_card_negative_action">ပႆႇၵွၼ်ႇၶႃႈ။</string>

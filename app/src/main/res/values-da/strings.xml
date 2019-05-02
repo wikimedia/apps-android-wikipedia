@@ -650,10 +650,6 @@
   <string name="offline_read_final_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at bruge lokalt bibliotek.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minut tilbage</item>
-    <item quantity="other">%d minutter tilbage</item>
-  </plurals>
   <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>

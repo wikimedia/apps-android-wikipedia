@@ -490,10 +490,6 @@
   <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
   <string name="size_gb">%.2f جيبي</string>
   <string name="size_mb">%.2f ايمبي</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 منٽ باقي</item>
-    <item quantity="other">%d منٽَ باقي</item>
-  </plurals>
   <string name="onboarding_skip">ڇڏيو</string>
   <string name="onboarding_continue">جاري رکو</string>
   <string name="onboarding_get_started">شروع ڪريو</string>

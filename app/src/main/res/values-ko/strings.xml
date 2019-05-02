@@ -80,7 +80,7 @@
   <string name="nav_item_nearby">근처</string>
   <string name="nearby_zoom_to_location">지도 상의 장소를 확대</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; 기여자</string>
-  <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
+  <string name="last_updated_text">%s에 마지막으로 업데이트됨</string>
   <string name="talk_page_link_text">토론 문서 보기</string>
   <string name="edit_history_link_text">편집 역사 보기</string>
   <string name="map_view_link_text">지도에서 보기</string>
@@ -655,10 +655,6 @@
   <string name="offline_read_final_rationale">오프라인 라이브러리를 사용하려면 장치에서 저장소의 접근 권한이 필요합니다.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1분 남음</item>
-    <item quantity="other">%d분 남음</item>
-  </plurals>
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>

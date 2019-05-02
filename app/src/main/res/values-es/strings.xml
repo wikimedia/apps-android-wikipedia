@@ -652,7 +652,7 @@
   <string name="suggested_edits_task_translate_caption_description">Traduce las leyendas a otros idiomas</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">contribución desde la aplicación</item>
-    <item quantity="other">contribuciones desde la aplicación</item>
+    <item quantity="other">%d contribuciones desde la aplicación</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
@@ -665,10 +665,6 @@
   <string name="offline_read_final_rationale">Es necesario permitir el acceso al almacenamiento de tu dispositivo para usar la biblioteca sin conexión.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">falta 1 minuto</item>
-    <item quantity="other">faltan %d minutos</item>
-  </plurals>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Empieza</string>

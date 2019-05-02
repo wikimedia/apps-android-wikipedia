@@ -555,10 +555,6 @@
   <string name="description_edit_login_cancel_button_text">বাতিল</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">১ মিনিট বাকি</item>
-    <item quantity="other">%d মিনিট বাকি</item>
-  </plurals>
   <string name="onboarding_skip">এড়ান</string>
   <string name="onboarding_continue">অব্যাহত</string>
   <string name="onboarding_get_started">শুরু করুন</string>
