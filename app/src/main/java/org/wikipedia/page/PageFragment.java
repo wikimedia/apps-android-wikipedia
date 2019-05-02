@@ -66,6 +66,7 @@ import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
+import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
@@ -385,16 +386,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
         }
-
-        disposables.add(ServiceFactory.getRest(app.getWikiSite()).getReferences(getTitle().getConvertedText())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(references -> {
-                    L.d("References endpoint output " + references.getReferencesMap().size());
-                    referencesMap = references.getReferencesMap();
-                }, caught -> {
-                   L.d("References endpoint error " + caught);
-                }));
     }
 
     public void reloadFromBackstack() {
@@ -783,6 +774,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }).subscribeOn(Schedulers.io()).subscribe());
         }
 
+        loadPageReferences();
         checkAndShowBookmarkOnboarding();
     }
 
@@ -924,25 +916,26 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.addListener("linkClicked", linkHandler);
 
         bridge.addListener("referenceClicked", (String messageType, JSONObject messagePayload) -> {
+            if (referencesMap == null) {
+                loadPageReferences();
+            }
+
             try {
                 int selectedIndex = messagePayload.getInt("selectedIndex");
                 JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
-                List<String> adjacentLinkTexts = new ArrayList<>();
                 List<References.Reference> adjacentReferencesList = new ArrayList<>();
                 for (int i = 0; i < referencesGroup.length(); i++) {
                     JSONObject reference = (JSONObject) referencesGroup.get(i);
                     String getReferenceText = StringUtils.defaultString(reference.optString("text"));
-                    adjacentLinkTexts.add(getReferenceText);
-                    L.d("referenceClicked getReferenceText " + getReferenceText);
-                    L.d("referenceClicked referencesMap check " + referencesMap.get(getReferenceText));
-                    adjacentReferencesList.add(referencesMap.get(getReferenceText));
+                    String getReferenceId = StringUtils.defaultString(reference.optString("id")).replace("#cite_note-", "");
+                    References.Reference getReference = referencesMap.get(getReferenceId);
+                    if (getReference != null) {
+                        getReference.setText(getReferenceText);
+                        adjacentReferencesList.add(getReference);
+                    }
                 }
 
-                L.d("referenceClicked adjacentLinkTexts " + adjacentLinkTexts.size());
-                L.d("referenceClicked adjacentReferencesList " + adjacentReferencesList.size());
-                L.d("referenceClicked adjacentReferencesList 1 " + adjacentReferencesList.get(0));
-
-                // showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentLinkTexts, adjacentReferencesList, linkHandler));
+                 showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -1065,6 +1058,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void goForward() {
         pageFragmentLoadState.goForward();
+    }
+
+    private void loadPageReferences() {
+        disposables.add(ServiceFactory.getRest(app.getWikiSite()).getReferences(getTitle().getConvertedText())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(references ->  referencesMap = references.getReferencesMap(), L::d));
     }
 
     private void checkAndShowBookmarkOnboarding() {

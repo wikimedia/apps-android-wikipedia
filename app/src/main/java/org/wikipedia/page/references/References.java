@@ -20,10 +20,20 @@ public class References {
 
     public static class Reference  {
         @SuppressWarnings("unused,NullableProblems") @NonNull private ReferenceContent content;
+        private String text;
 
         @NonNull
         public String getContent() {
             return content.getHtml();
+        }
+
+        public void setText(@NonNull String text) {
+            this.text = text;
+        }
+
+        @NonNull
+        public String getText() {
+            return text;
         }
     }
 

@@ -38,7 +38,7 @@ public class ReferenceDialog extends BottomSheetDialog {
     @BindView(R.id.reference_title_text) TextView singleCitationTitleText;
     private LinkHandler referenceLinkHandler;
 
-    public ReferenceDialog(@NonNull Context context, int selectedIndex, List<String> adjacentLinkTexts, List<References.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
+    public ReferenceDialog(@NonNull Context context, int selectedIndex, List<References.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
         super(context);
         View rootView = LayoutInflater.from(context).inflate(R.layout.fragment_references_pager, null);
         setContentView(rootView);
@@ -57,7 +57,7 @@ public class ReferenceDialog extends BottomSheetDialog {
         }
 
         referencesViewPager.setOffscreenPageLimit(2);
-        referencesViewPager.setAdapter(new ReferencesAdapter(adjacentLinkTexts, adjacentReferences));
+        referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
         pageIndicatorView.setCount(adjacentReferences.size());
         referencesViewPager.setCurrentItem(selectedIndex, true);
 
@@ -85,12 +85,9 @@ public class ReferenceDialog extends BottomSheetDialog {
     }
 
     private class ReferencesAdapter extends PagerAdapter {
-        private List<String> linkTexts = new ArrayList<>();
         private List<References.Reference> references = new ArrayList<>();
 
-        ReferencesAdapter(@NonNull List<String> adjacentLinkTexts,
-                          @NonNull List<References.Reference> adjacentReferences) {
-            linkTexts.addAll(adjacentLinkTexts);
+        ReferencesAdapter(@NonNull List<References.Reference> adjacentReferences) {
             references.addAll(adjacentReferences);
         }
 
@@ -104,7 +101,7 @@ public class ReferenceDialog extends BottomSheetDialog {
             pagerReferenceText.setMovementMethod(new LinkMovementMethodExt(referenceLinkHandler));
 
             TextView pagerTitleText = view.findViewById(R.id.reference_title_text);
-            pagerTitleText.setText(getContext().getString(R.string.reference_title, processLinkTextWithAlphaReferences(linkTexts.get(position))));
+            pagerTitleText.setText(getContext().getString(R.string.reference_title, processLinkTextWithAlphaReferences(references.get(position).getText())));
             container.addView(view);
 
             return view;
