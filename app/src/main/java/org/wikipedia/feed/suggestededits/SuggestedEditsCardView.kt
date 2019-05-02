@@ -126,7 +126,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     fun refreshCardContent() {
-        SuggestedEditsFeedClient(isTranslation).getArticleWithMissingDescription( null, this)
+        SuggestedEditsFeedClient(isTranslation).getArticleWithMissingDescription(null, this)
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {
