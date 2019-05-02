@@ -24,6 +24,8 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 
 /**
+ * TODO: Remove this class if we are completely confident with the new TranslationTest
+ *
  * Tests to make sure that the string resources don't cause any issues. Mainly the goal is to test
  * all translations, but even the default strings are tested.
  *
