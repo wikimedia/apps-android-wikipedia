@@ -1027,10 +1027,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (pageFragmentLoadState.goBack()) {
             return true;
         }
-        if (app.getTabList().size() > 1) {
-            // if we're at the end of the current tab's backstack, then pop the current tab.
-            app.getTabList().remove(app.getTabList().size() - 1);
-        }
         return false;
     }
 
