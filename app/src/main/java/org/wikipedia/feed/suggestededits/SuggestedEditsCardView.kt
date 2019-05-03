@@ -60,7 +60,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         if (isTranslation) {
             sourceDescription = StringUtils.capitalize(sourceSummary!!.description)
             viewArticleSubtitleContainer.visibility = View.VISIBLE
-            accentSideBar.visibility= View.GONE
+            accentSideBar.visibility = View.GONE
             viewArticleSubtitle.text = sourceDescription
         }
         viewAddDescriptionButton.visibility = View.VISIBLE
@@ -101,6 +101,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         suggestedEditsItemRootView.setPadding(0, 0, 0, 0)
         val param = cardView.layoutParams as LinearLayout.LayoutParams
         param.setMargins(0, 0, 0, 0)
+        cardView.layoutParams = param
         cardView.useCompatPadding = false
         cardView.setContentPadding(0, 0, 0, 0)
         cardView.setOnClickListener {
