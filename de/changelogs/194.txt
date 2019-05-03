@@ -1,1 +1,6 @@
-- Grundlegende Verbesserungen der Leselistenhandhabung - Mehrere Leselistenartikel können nun auf einmal ausgewählt werden. - Artikel in der persönlichen Leseliste sind jetzt wahlweise online oder offline verfügbar. - Bilder werden jetzt zwischengespeichert, damit sie offline zur Verfügung stehen - Der Zufallsgenerator wählt nun einen zufälligen Artikel aus der Leseliste des Nutzers, wenn keine Internetverbindung besteht - Viele weitere Fehlerkorrekturen und Aktualisierungen der Benutzeroberfläc
+- Wesentliche Verbesserungen an den Leselisten UI
+- Mehrere Leselistenartikel können nun auf einmal ausgewählt werden
+- Individuelle Leselistenartikel können nun on/offline umgeschaltet werden.
+- Bilder werden jetzt für die Offline-Verfügbarkeit zwischengespeichert
+- Zufällige Feedkarte zieht nun einen zufälligen Artikel aus den Leselisten des Benutzers, wenn er offline ist
+- Viele andere Bugfixes und UI-Updates
