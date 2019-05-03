@@ -417,8 +417,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 .setListener(null);
         funnel.hide();
     }
-
-
+    
     private void showCompleteScroller(@Nullable AnimatorListenerAdapter listenerAdapter) {
         if (scrollerView.getVisibility() != View.VISIBLE) {
             return;
