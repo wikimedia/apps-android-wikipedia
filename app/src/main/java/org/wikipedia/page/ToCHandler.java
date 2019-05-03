@@ -207,8 +207,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             setScrollerPosition();
             if (showOnboading) {
                 showTocOnboarding();
-            } else {
-                showScrollerThenHide();
             }
         } else {
             tocContainer.setVisibility(View.GONE);
@@ -230,7 +228,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         setScrollerPosition();
-        showScrollerThenHide();
     }
 
     @Override
@@ -432,11 +429,8 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         if (scrollerView.getVisibility() != View.VISIBLE) {
             return;
         }
-        scrollerView.animate().translationX(0)
-                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
-                .setListener(null);
         scrollerView.removeCallbacks(hideScrollerRunnable);
-        scrollerView.postDelayed(hideScrollerRunnable, SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS);
+        hideScroller();
     }
 
     private void showScroller() {
