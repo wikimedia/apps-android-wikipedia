@@ -46,13 +46,12 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class ToCHandler implements ObservableWebView.OnClickListener,
         ObservableWebView.OnScrollChangeListener, ObservableWebView.OnContentHeightChangedListener,
-        ObservableWebView.OnEdgeSwipeListener{
+        ObservableWebView.OnEdgeSwipeListener {
     private static final float SCROLLER_BUTTON_SIZE = 44f;
     private static final float SCROLLER_BUTTON_PEEK_MARGIN = -18f;
     private static final float SCROLLER_BUTTON_HIDE_MARGIN = 48f;
     private static final float SCROLLER_BUTTON_ONBOARDING_MARGIN = 22f;
     private static final float SCROLLER_BUTTON_REVEAL_MARGIN = -30f;
-    private static final int SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS = 2000;
 
     private static final float TOC_LEAD_TEXT_SIZE = 24f;
     private static final float TOC_SECTION_TEXT_SIZE = 18f;
@@ -75,19 +74,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private ToCInteractionFunnel funnel;
 
     private boolean rtl;
-    private boolean scrollerShown;
     private boolean tocShown;
     private boolean showOnboading;
     private int currentItemSelected;
-
-    private Runnable hideScrollerRunnable = new Runnable() {
-        @Override
-        public void run() {
-            if (!tocShown) {
-                hideScroller();
-            }
-        }
-    };
 
     ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
@@ -211,7 +200,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         } else {
             tocContainer.setVisibility(View.GONE);
             scrollerView.setVisibility(View.GONE);
-            hideScroller();
+            bringInScroller();
         }
     }
 
@@ -219,8 +208,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public boolean onClick(float x, float y) {
         if (isVisible()) {
             hide();
-        } else {
-            showScrollerThenHide();
         }
         return false;
     }
@@ -337,7 +324,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     private void showTocOnboarding() {
         try {
-            showScroller();
             showCompleteScroller(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
@@ -397,7 +383,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             return;
         }
         tocShown = true;
-        scrollerView.removeCallbacks(hideScrollerRunnable);
     }
 
     private void fadeOutToc() {
@@ -418,35 +403,12 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         if (scrollerView.getVisibility() != View.VISIBLE) {
             return;
         }
-        scrollerView.removeCallbacks(hideScrollerRunnable);
         scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_REVEAL_MARGIN : SCROLLER_BUTTON_REVEAL_MARGIN))
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
-        scrollerShown = true;
     }
 
     private void bringInScroller() {
-        if (scrollerView.getVisibility() != View.VISIBLE) {
-            return;
-        }
-        scrollerView.removeCallbacks(hideScrollerRunnable);
-        hideScroller();
-    }
-
-    private void showScroller() {
-        if (scrollerView.getVisibility() != View.VISIBLE) {
-            return;
-        }
-        scrollerView.removeCallbacks(hideScrollerRunnable);
-        scrollerView.animate().translationX(0)
-                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
-                .setListener(null);
-        scrollerShown = true;
-        funnel.peek();
-    }
-
-    private void hideScroller() {
-        scrollerShown = false;
         if (scrollerView.getVisibility() != View.VISIBLE) {
             return;
         }
@@ -456,6 +418,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         funnel.hide();
     }
 
+
     private void showCompleteScroller(@Nullable AnimatorListenerAdapter listenerAdapter) {
         if (scrollerView.getVisibility() != View.VISIBLE) {
             return;
@@ -463,14 +426,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? SCROLLER_BUTTON_ONBOARDING_MARGIN : -SCROLLER_BUTTON_ONBOARDING_MARGIN))
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(listenerAdapter);
-    }
-
-    private void showScrollerThenHide() {
-        if (!scrollerShown) {
-            showScroller();
-        }
-        scrollerView.removeCallbacks(hideScrollerRunnable);
-        scrollerView.postDelayed(hideScrollerRunnable, SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS);
     }
 
     private void scrollToListSectionByOffset(int yOffset) {
