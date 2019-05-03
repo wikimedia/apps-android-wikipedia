@@ -509,7 +509,6 @@
   <string name="preference_summary_notification_milestone">Algamóse un númberu d\'ediciones</string>
   <string name="preference_title_notification_thanks">Agradecimientos</string>
   <string name="preference_summary_notification_thanks">Dalguién agradecióte una edición</string>
-  <string name="view_continue_reading_card_title">Siguir lleyendo</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
   <string name="view_random_card_subtitle">Echar una güeyada per artículos al debalu de Wikipedia pa lleer.</string>

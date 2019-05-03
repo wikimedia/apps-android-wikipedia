@@ -551,7 +551,6 @@
   <string name="preference_summary_notification_thanks">Quelqu’un vous a remercié pour une modification</string>
   <string name="preference_title_notification_revert">Révoquer</string>
   <string name="preference_summary_notification_revert">Une de vos contributions a été révoquée</string>
-  <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
   <string name="view_random_card_subtitle">Voltiger à travers des articles aléatoires à lire depuis Wikipédia.</string>

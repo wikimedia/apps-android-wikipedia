@@ -138,6 +138,7 @@
   <string name="preference_title_logout">退出</string>
   <string name="toast_logout_complete">已退出登录</string>
   <string name="logout_prompt">确定要注销吗？</string>
+  <string name="logout_dialog_cancel_button_text">取消</string>
   <string name="history_empty_title">没有最近查看的条目</string>
   <string name="history_empty_message">在此跟踪您阅读过的东西。</string>
   <string name="history_offline_articles_toast">部分历史文章可能在离线状态下无法显示。</string>
@@ -476,6 +477,11 @@
   </plurals>
   <string name="reading_list_toast_last_sync">阅读列表已成功同步</string>
   <string name="reading_list_menu_last_sync">上次同步：%s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">好的</string>
+  <string name="reading_list_delete_dialog_ok_button_text">确认</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">取消</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">取消</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_reverted_title">回退的编辑</string>
   <string name="notification_channel_description">下载过程</string>
@@ -535,7 +541,6 @@
   <string name="preference_summary_notification_milestone">已达成某个编辑数</string>
   <string name="preference_title_notification_thanks">感谢</string>
   <string name="preference_summary_notification_thanks">有人感谢了您的一次编辑</string>
-  <string name="view_continue_reading_card_title">继续阅读</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
   <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
@@ -584,7 +589,10 @@
   <string name="feed_item_type_suggested_edits">向维基百科添砖加瓦的建议</string>
   <string name="feed_empty_message">在您的探索订阅源中没有任何东西</string>
   <string name="feed_configure_onboarding_action">自定义</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">好</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;自定义您的浏览订阅源&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您现在可以选择在您的订阅源上显示什么，并可以排序您感兴趣的内容类型。</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">确认</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="description_edit_text_hint">标题描述</string>
   <string name="description_edit_text_hint_per_language">%s 描述</string>
   <string name="description_edit_save">发布</string>
@@ -706,8 +714,13 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">当前在您的应用语言中同时有繁体和简体中文变体设置。更新您的应用语言设置么？</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">编辑语言</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，谢谢</string>
+  <string name="remove_language_dialog_cancel_button_text">取消</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">确认</string>
+  <string name="protected_page_warning_dialog_ok_button_text">完成</string>
+  <string name="edit_conflict_dialog_ok_button_text">好的</string>
   <string name="main_drawer_open">打开</string>
   <string name="main_drawer_close">关闭</string>
   <string name="main_drawer_help">帮助</string>
   <string name="main_drawer_login">登录/加入维基百科</string>
+  <string name="text_input_dialog_ok_button_text">确定</string>
 </resources>

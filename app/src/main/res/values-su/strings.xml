@@ -363,7 +363,6 @@
   <string name="notification_channel_name" fuzzy="true">Nyingkronkeun</string>
   <string name="notification_syncing_title" fuzzy="true">Keur ngundeur %1$d artikel...</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d artikel sésa</string>
-  <string name="view_continue_reading_card_title">Tuluykeun maca</string>
   <string name="view_because_you_read_card_title">Sabab anjeun maca</string>
   <string name="view_random_card_title">Kaca acak</string>
   <string name="view_random_card_subtitle" fuzzy="true">Baca kaca acak tina Wikipédia</string>

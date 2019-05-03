@@ -249,7 +249,6 @@
   <string name="default_reading_list_name">ਸੰਭਾਲਿਆ</string>
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
   <string name="notification_syncing_cancel_button">ਰੱਦ ਕਰੋ</string>
-  <string name="view_continue_reading_card_title">ਪੜ੍ਹਦੇ ਰਹੋ</string>
   <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
   <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
   <string name="view_random_card_subtitle" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਤੋੰ ਕੋਈ ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਪੜ੍ਹੋ</string>

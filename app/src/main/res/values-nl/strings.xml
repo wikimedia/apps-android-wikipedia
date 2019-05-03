@@ -546,7 +546,6 @@
   <string name="preference_summary_notification_thanks">Iemand bedankt u voor een bewerking</string>
   <string name="preference_title_notification_revert">Terugdraaien</string>
   <string name="preference_summary_notification_revert">Een van uw bijdragen is ongedaan gemaakt</string>
-  <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
   <string name="view_random_card_subtitle">Een willekeurige pagina uit Wikipedia lezen.</string>

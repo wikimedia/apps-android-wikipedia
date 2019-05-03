@@ -534,7 +534,6 @@
   <string name="preference_summary_notification_thanks">누군가가 편집에 대해 감사를 표했습니다</string>
   <string name="preference_title_notification_revert">되돌리기</string>
   <string name="preference_summary_notification_revert">내 기여 중 한 건이 되돌려졌습니다</string>
-  <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
   <string name="view_random_card_subtitle">카드를 넘겨 위키백과에서 임의의 문서를 읽어보세요.</string>
