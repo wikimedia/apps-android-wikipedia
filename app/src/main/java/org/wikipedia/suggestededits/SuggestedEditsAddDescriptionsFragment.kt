@@ -119,6 +119,38 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
                 }
             }, postDelay)
         }
+
+        backButton.setOnClickListener { previousPage() }
+        nextButton.setOnClickListener {
+            if (nextButton.drawable is Animatable) {
+                (nextButton.drawable as Animatable).start()
+            }
+            nextPage()
+        }
+        updateBackButton(0)
+        if (!TextUtils.isEmpty(topChild?.addedDescription)) addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
+
+        addDescriptionButton.setOnClickListener { onSelectPage() }
+
+        if(addDescriptionText!=null) {
+            addDescriptionText!!.text = if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) getString(R.string.suggested_edits_add_translation)
+            else getString(R.string.suggested_edits_add_description_button)
+        }
+    }
+
+    fun updateBackButton(pagerPosition: Int) {
+        backButton.isClickable = pagerPosition != 0
+        backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
+    }
+
+    fun updateActionButton() {
+        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
+        if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            if (addDescriptionText != null)
+                addDescriptionText!!.text = getString(R.string.suggested_edits_edit_translation)
+        } else
+            if (addDescriptionText != null)
+                addDescriptionText!!.text = getString(R.string.description_edit_edit_description)
     }
 
     override fun onDestroyView() {
@@ -145,7 +177,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedDescriptionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION))
-            topChild?.updateActionButton()
+            updateActionButton()
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
             nextPage()
         }
@@ -248,7 +280,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
                 resetTitleDescriptionItemAdapter()
             }
             updateToLanguageSpinner(position)
-           topChild?.updateBackButton(0)
+           updateBackButton(0)
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {
@@ -290,7 +322,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         override fun onPageSelected(position: Int) {
-            topChild?.updateBackButton(position)
+            updateBackButton(position)
             if (!nextPageSelectedAutomatic && funnel != null) {
                 if (position > prevPosition) {
                     funnel!!.swipedForward()

@@ -1,17 +1,16 @@
-<LinearLayout
+<FrameLayout
     android:id="@+id/suggestedEditsItemRootView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:paddingBottom="20dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="20dp"
@@ -52,6 +51,8 @@
                 android:id="@+id/headerView"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:visibility="gone"/>
 
             <org.wikipedia.views.FaceAndColorDetectImageView
@@ -175,85 +176,4 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottomButtonContainer"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:clipToPadding="false"
-        android:paddingBottom="8dp"
-        android:visibility="gone"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/backButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@null"
-            android:focusable="true"
-            android:padding="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/addDescriptionButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
-            app:tint="?attr/colorAccent" />
-
-        <LinearLayout
-            android:id="@+id/addDescriptionButton"
-            android:layout_width="194dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/button_shape_gray"
-            android:backgroundTint="?attr/colorAccent"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:elevation="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/addDescriptionImage"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_add_gray_themed_24dp"
-                app:tint="@color/base100" />
-
-            <TextView
-                android:id="@+id/addDescriptionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/suggested_edits_add_description_button"
-                android:textAllCaps="true"
-                android:textColor="?attr/paper_color" />
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/nextButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/view_next_random_article"
-            android:focusable="true"
-            android:padding="12dp"
-            android:scaleX="-1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/addDescriptionButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
-            app:tint="?attr/colorAccent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</LinearLayout>
+</FrameLayout>

@@ -70,23 +70,6 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
                 parent().onSelectPage()
             }
         }
-        backButton.setOnClickListener { parent().previousPage() }
-        nextButton.setOnClickListener {
-            if (nextButton.drawable is Animatable) {
-                (nextButton.drawable as Animatable).start()
-            }
-            parent().nextPage()
-        }
-        updateBackButton(0)
-        if (!TextUtils.isEmpty(addedDescription)) addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
-
-        addDescriptionButton.setOnClickListener { parent().onSelectPage() }
-
-        if(addDescriptionText!=null) {
-            addDescriptionText!!.text = if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) getString(R.string.suggested_edits_add_translation)
-            else getString(R.string.suggested_edits_add_description_button)
-        }
-
     }
 
     override fun onDestroy() {
@@ -116,21 +99,6 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
         }
     }
 
-    fun updateBackButton(pagerPosition: Int) {
-            backButton.isClickable = pagerPosition != 0
-            backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
-    }
-
-    fun updateActionButton() {
-        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
-        if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(R.string.suggested_edits_edit_translation)
-        } else
-            if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(R.string.description_edit_edit_description)
-    }
-
     fun showAddedDescriptionView(addedDescription: String?) {
         if (!TextUtils.isEmpty(addedDescription)) {
             viewArticleSubtitleContainer.visibility = VISIBLE
@@ -149,7 +117,6 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     private fun updateContents() {
-        bottomButtonContainer.visibility = VISIBLE
         cardItemErrorView.visibility = GONE
         cardItemContainer.visibility = if (sourceSummary == null) GONE else VISIBLE
         cardItemProgressBar.visibility = if (sourceSummary == null) VISIBLE else GONE
