@@ -543,7 +543,6 @@
   <string name="preference_summary_notification_thanks">Někdo Vám poděkoval za Vaši editaci</string>
   <string name="preference_title_notification_revert">Vrácení zpět</string>
   <string name="preference_summary_notification_revert">Jeden z vašich příspěvků byl vrácen zpět</string>
-  <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>
   <string name="view_random_card_subtitle">Procházet náhodné články na Wikipedii ke čtení</string>
@@ -680,11 +679,6 @@
   <string name="offline_read_final_rationale">Povolení k přístupu do úložného prostoru vašeho zařízení je požadováno, abyste mohli používat Offline Knihovnu</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">zbývá 1 minuta</item>
-    <item quantity="few">zbývají %d minuty</item>
-    <item quantity="other">zbývá %d minut</item>
-  </plurals>
   <string name="onboarding_skip">Přeskočit</string>
   <string name="onboarding_continue">Pokračovat</string>
   <string name="onboarding_get_started">Začít</string>

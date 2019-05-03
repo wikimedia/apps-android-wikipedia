@@ -115,7 +115,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+            app:srcCompat="@drawable/ic_tune_black_24dp"
             app:tint="?attr/material_theme_secondary_color" />
 
         <TextView
@@ -140,7 +140,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_action_feed_edit"
+                app:srcCompat="@drawable/ic_mode_edit_themed_24dp"
                 app:tint="?attr/material_theme_secondary_color" />
 
             <ImageView

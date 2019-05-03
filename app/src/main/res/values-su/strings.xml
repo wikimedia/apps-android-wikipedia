@@ -363,7 +363,6 @@
   <string name="notification_channel_name" fuzzy="true">Nyingkronkeun</string>
   <string name="notification_syncing_title" fuzzy="true">Keur ngundeur %1$d artikel...</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d artikel sésa</string>
-  <string name="view_continue_reading_card_title">Tuluykeun maca</string>
   <string name="view_because_you_read_card_title">Sabab anjeun maca</string>
   <string name="view_random_card_title">Kaca acak</string>
   <string name="view_random_card_subtitle" fuzzy="true">Baca kaca acak tina Wikipédia</string>
@@ -426,10 +425,6 @@
   <string name="description_edit_revert_reason2">Kontribusi anjeun sigana mah coba-coba atawa vandalismeu kitu.</string>
   <string name="description_edit_revert_history">Mun anjeun kataji, témbongan &lt;a href=\"%1$s\"&gt;jujutan éditanana&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan oflén.</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 menit deui</item>
-    <item quantity="other">%d menit deui</item>
-  </plurals>
   <string name="onboarding_skip">Liwatkeun</string>
   <string name="onboarding_continue">Tuluykeun</string>
   <string name="onboarding_get_started">Mitembeyan</string>

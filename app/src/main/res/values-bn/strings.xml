@@ -465,7 +465,6 @@
   <string name="preference_title_notification_milestone">মাইলফলক</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
   <string name="preference_title_notification_revert">প্রত্যাবর্তন</string>
-  <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
   <string name="view_random_card_subtitle">উইকিপিডিয়া থেকে পড়ার জন্য অজানাক্রমে অনির্দিষ্ট প্রবন্ধগুলো উল্টান।</string>
@@ -555,10 +554,6 @@
   <string name="description_edit_login_cancel_button_text">বাতিল</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">১ মিনিট বাকি</item>
-    <item quantity="other">%d মিনিট বাকি</item>
-  </plurals>
   <string name="onboarding_skip">এড়ান</string>
   <string name="onboarding_continue">অব্যাহত</string>
   <string name="onboarding_get_started">শুরু করুন</string>

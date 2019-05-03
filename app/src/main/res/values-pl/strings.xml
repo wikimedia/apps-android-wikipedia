@@ -490,7 +490,6 @@
   <string name="preference_summary_notification_milestone">Określone liczby zmian zostały osiągnięte</string>
   <string name="preference_title_notification_thanks">Podziękowania</string>
   <string name="preference_summary_notification_thanks">Ktoś dziękuje Ci za edycję</string>
-  <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_card_subtitle">Przeglądaj losowe artykuły na Wikipedii</string>
