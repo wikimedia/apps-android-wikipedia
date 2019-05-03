@@ -551,7 +551,6 @@
   <string name="preference_summary_notification_thanks">Quelqu’un vous a remercié pour une modification</string>
   <string name="preference_title_notification_revert">Révoquer</string>
   <string name="preference_summary_notification_revert">Une de vos contributions a été révoquée</string>
-  <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
   <string name="view_random_card_subtitle">Voltiger à travers des articles aléatoires à lire depuis Wikipédia.</string>
@@ -687,10 +686,6 @@
   <string name="offline_read_final_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour utiliser la Bibliothèque hors connexion.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minute restante</item>
-    <item quantity="other">%d minutes restantes</item>
-  </plurals>
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>

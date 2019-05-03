@@ -378,10 +378,10 @@
   <string name="reading_list_added_to_named">Message shown when an article is added to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
-  <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of megabytes saved to disk for offline page reading.</string>
-  <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1) the number of pages in the list, 2) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
-  <string name="format_reading_list_statistical_detail_singular">Detailed description shown for a reading list that contains one article (singular); this string is formatted with two arguments: 1) the number, zero or one, of pages saved to disk for offline reading, 2) a parameter containing the number of megabytes saved to disk for offline page reading.</string>
-  <string name="format_reading_list_statistical_detail_plural">Detailed description shown for a reading list that contains zero or multiple articles (plural); this string is formatted with three arguments: 1) the number of pages saved to disk for offline reading, 2) the number of pages in the list total, 3) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
+  <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of megabytes saved to disk for offline page reading. The %1$.2f symbol is replaced with the cache size of the article.</string>
+  <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1)(%1$d) the number of pages in the list, 2)(%2$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
+  <string name="format_reading_list_statistical_detail_singular">Detailed description shown for a reading list that contains one article (singular); this string is formatted with two arguments: 1)(%1$d) the number, zero or one, of pages saved to disk for offline reading, 2)(%2$.2f) a parameter containing the number of megabytes saved to disk for offline page reading.</string>
+  <string name="format_reading_list_statistical_detail_plural">Detailed description shown for a reading list that contains zero or multiple articles (plural); this string is formatted with three arguments: 1)(%1$d) the number of pages saved to disk for offline reading, 2)(%2$d) the number of pages in the list total, 3)(%3$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
   <string name="reading_list_sort">Button label to sort reading lists.\n{{Identical|Sort}}</string>
   <string name="reading_list_sort_ellipsis">Menu option suggesting that the user can sort the reading listsin many ways.</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
@@ -479,7 +479,7 @@
   <string name="reading_list_toast_last_sync">Message informing the user that their reading lists were synced successfully.</string>
   <string name="reading_list_menu_last_sync">Message informing the user that their reading lists were synced successfully. The \"%s\" symbol is replaced with the last synced time.</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Positive action button text in pop-up dialog for removing article from list.</string>
-  <string name="reading_list_delete_dialog_ok_button_text">Positive action button text in pop-up dialog for deleting a list.</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Positive action button text in pop-up dialog for deleting a list.\n{{Identical|OK}}</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing article from a list.\n{{Identical|Cancel}}</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Negative action button text in pop-up dialog for deleting a list.\n{{Identical|Cancel}}</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Negative action button text in pop-up dialog for removing article from offline storage.\n{{Identical|Cancel}}</string>
@@ -666,25 +666,21 @@
   <string name="suggested_edits_task_translate_caption_description">Image caption translation tasks explanation given to user.</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
-    <item quantity="other">Text suggesting that two or more in-app contributions were made.</item>
+    <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
-  <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag in its exact form)</string>
+  <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>
   <string name="description_edit_revert_reason2">Reason for an edit being reverted, because it looks like vandalism.</string>
-  <string name="description_edit_revert_history">Message that allows the user to go to the edit history associated with the article. (Please preserve the anchor tag in its exact form)</string>
+  <string name="description_edit_revert_history">Message that allows the user to go to the edit history associated with the article. (Please preserve the anchor tag %1$s in its exact form)</string>
   <string name="description_edit_login_cancel_button_text">Negative action button text in pop-up dialog for loging in for editing.\n{{Identical|Cancel}}</string>
   <string name="offline_read_permission_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <string name="offline_read_final_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <string name="size_gb">Label for showing size in GB. The %.2f is replaced by the number in gigabytes(GB)</string>
   <string name="size_mb">Label for showing size in MB. The %.2f is replaced by the number in megabytes (MB)</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Message shown when an offline article pack has an estimated one minute remaining before the download is finished.</item>
-    <item quantity="other">Message shown when an offline article pack has an estimated two or more minutes remaining before the download is finished.</item>
-  </plurals>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n\nAppears next to {{msg-wm|Wikipedia-android-strings-editactionfeed add description button}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>
@@ -759,7 +755,7 @@
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.</string>
-  <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.</string>
+  <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="suggested_edits_add_translation">Label that prompts the user to translate a description of an article that does not yet have one.</string>

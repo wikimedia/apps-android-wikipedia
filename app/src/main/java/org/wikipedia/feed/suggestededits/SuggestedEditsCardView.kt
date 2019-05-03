@@ -16,11 +16,10 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView, SuggestedEditsFeedClient.Callback {
     interface Callback {
         fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
@@ -121,19 +120,18 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         headerView!!.setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
-                .setImageCircleColor(ResourceUtil.getThemedAttributeId(context, R.attr.material_theme_de_emphasised_color))
+                .setImageCircleColor(R.color.base30)
                 .setLangCode(if (isTranslation) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }
 
-    fun showAddedDescriptionView(addedDescription: String?) {
-        if (!TextUtils.isEmpty(addedDescription)) {
-            viewArticleSubtitleContainer.visibility = View.VISIBLE
-            viewAddDescriptionButton.visibility = View.GONE
-            viewArticleSubtitle.text = StringUtils.capitalize(addedDescription)
-            this.addedDescription = addedDescription
-        }
+    fun refreshCardContent() {
+        SuggestedEditsFeedClient(isTranslation).getArticleWithMissingDescription(null, this)
+    }
+
+    override fun updateCardContent(card: SuggestedEditsCard) {
+        setCard(card)
     }
 
     companion object {

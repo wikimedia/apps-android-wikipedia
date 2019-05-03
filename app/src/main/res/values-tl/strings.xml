@@ -176,7 +176,7 @@
   <string name="gallery_save_success" fuzzy="true">Matagumpay na naitala ang larawan.</string>
   <string name="gallery_error_video_failed">Hindi mai-play ang video.</string>
   <string name="err_cannot_save_file">Hindi maitala ang talakasan</string>
-  <string name="snippet_share_intro">\"%1$s\" sa @Wikipedia: %2$s%2$s</string>
+  <string name="snippet_share_intro">\"%1$s\" sa @Wikipedia: %2$s</string>
   <string name="expand_refs">Tapakin upang palawakin</string>
   <string name="share_snippet_button">Ibahagi bilang larawan</string>
   <string name="share_normal_button">Ibahagi bilang teksto</string>
