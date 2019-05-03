@@ -1,6 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.graphics.drawable.Animatable
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
@@ -70,6 +69,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
                 parent().onSelectPage()
             }
         }
+       showAddedDescriptionView(addedDescription)
     }
 
     override fun onDestroy() {
@@ -100,7 +100,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     fun showAddedDescriptionView(addedDescription: String?) {
-        if (!TextUtils.isEmpty(addedDescription)) {
+        if (!TextUtils.isEmpty(addedDescription) && viewArticleSubtitleContainer != null && viewArticleSubtitle != null && viewArticleExtract != null) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = addedDescription
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1

@@ -132,10 +132,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
         addDescriptionButton.setOnClickListener { onSelectPage() }
 
-        if(addDescriptionText!=null) {
-            addDescriptionText!!.text = if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) getString(R.string.suggested_edits_add_translation)
-            else getString(R.string.suggested_edits_add_description_button)
-        }
+        updateActionButton()
     }
 
     fun updateBackButton(pagerPosition: Int) {
@@ -144,13 +141,14 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     }
 
     fun updateActionButton() {
-        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
+        if(!TextUtils.isEmpty(topChild?.addedDescription)) topChild?.showAddedDescriptionView(topChild?.addedDescription)
+        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (TextUtils.isEmpty(topChild?.addedDescription)) R.drawable.ic_add_gray_themed_24dp else R.drawable.ic_mode_edit_white_24dp))
         if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(R.string.suggested_edits_edit_translation)
+                addDescriptionText!!.text = getString(if(TextUtils.isEmpty(topChild?.addedDescription)) R.string.suggested_edits_add_translation else R.string.suggested_edits_edit_translation)
         } else
             if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(R.string.description_edit_edit_description)
+                addDescriptionText!!.text = getString(if(TextUtils.isEmpty(topChild?.addedDescription)) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
     }
 
     override fun onDestroyView() {
@@ -177,7 +175,6 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedDescriptionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION))
-            updateActionButton()
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
             nextPage()
         }
@@ -188,10 +185,12 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         if (addTitleDescriptionsItemPager.currentItem > 0) {
             addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem - 1, true)
         }
+        updateActionButton()
     }
     fun nextPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
+        updateActionButton()
     }
 
     private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
@@ -323,6 +322,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
+            updateActionButton()
             if (!nextPageSelectedAutomatic && funnel != null) {
                 if (position > prevPosition) {
                     funnel!!.swipedForward()

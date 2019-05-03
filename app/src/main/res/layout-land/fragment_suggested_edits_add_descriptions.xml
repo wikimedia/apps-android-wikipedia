@@ -76,8 +76,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/bottomButtonContainer"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer"/>
-
+            app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottomButtonContainer"
