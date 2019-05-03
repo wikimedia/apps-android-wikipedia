@@ -849,5 +849,9 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_multilingual_task, showTask);
     }
 
+    public static boolean shouldShowSuggestedEditsCardsForTesting() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_cards_testing, false);
+    }
+
     private Prefs() { }
 }

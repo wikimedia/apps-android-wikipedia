@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -40,7 +39,6 @@ import org.wikipedia.gallery.MediaDownloadReceiver;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.main.floatingqueue.FloatingQueueView;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
@@ -77,11 +75,9 @@ import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, FloatingQueueView.Callback,
-        LinkPreviewDialog.Callback {
+        NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
-    @BindView(R.id.floating_queue_view) FloatingQueueView floatingQueueView;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
@@ -120,8 +116,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             return true;
         });
 
-        floatingQueueView.setCallback(this);
-
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
@@ -133,7 +127,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         super.onPause();
         downloadReceiver.setCallback(null);
         requireContext().unregisterReceiver(downloadReceiver);
-        floatingQueueView.animation(true);
     }
 
     @Override public void onResume() {
@@ -143,8 +136,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        // update after returning from PageActivity
-        floatingQueueView.update();
     }
 
     @Override public void onDestroyView() {
@@ -226,7 +217,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())));
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().getTabCount() > 0) {
             startActivity(PageActivity.newIntent(requireContext()));
-            requireActivity().finish();
         }
     }
 
@@ -314,8 +304,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Nullable
     public Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
-        return pageTitle.getThumbUrl() != null ? ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle() : null;
+        // TODO: add future transition animations.
+        return null;
     }
 
     @Override
@@ -371,12 +361,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override
-    public void onFloatingQueueClicked(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle(title));
-    }
-
-    @Override
     public boolean onBackPressed() {
         Fragment fragment = getCurrentFragment();
         return fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed();
@@ -402,10 +386,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (fragment instanceof HistoryFragment) {
             ((HistoryFragment) fragment).refresh();
         }
-    }
-
-    public FloatingQueueView getFloatingQueueView() {
-        return floatingQueueView;
     }
 
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
