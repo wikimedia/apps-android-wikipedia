@@ -935,7 +935,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     }
                 }
 
-                 showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
+                if (adjacentReferencesList.size() > 0) {
+                    showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
+                }
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -1061,7 +1063,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void loadPageReferences() {
-        disposables.add(ServiceFactory.getRest(app.getWikiSite()).getReferences(getTitle().getConvertedText())
+        disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(references ->  referencesMap = references.getReferencesMap(), L::d));
