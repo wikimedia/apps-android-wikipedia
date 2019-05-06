@@ -131,7 +131,7 @@
   <string name="reset_password_button">Зберегти і увійти</string>
   <string name="preference_title_logout">Вийти із системи</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
-  <string name="logout_prompt">Ви впевнені, що хочете вийти?</string>
+  <string name="logout_prompt" fuzzy="true">Ви впевнені, що хочете вийти?</string>
   <string name="history_empty_title">Немає недавно відвіданих сторінок</string>
   <string name="history_empty_message">Відстежувати те, що ви вже читали тут.</string>
   <string name="history_offline_articles_toast">Деякі статті в історії можуть бути недоступними в режимі офлайн.</string>

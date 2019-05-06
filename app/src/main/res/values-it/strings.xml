@@ -147,7 +147,7 @@
   <string name="reset_password_button">Salva ed accedi</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="logout_prompt">Sei sicuro di voler uscire?</string>
+  <string name="logout_prompt">Questo ti disconnetterà da tutti i dispositivi in cui sei attualmente connesso. Vuoi continuare?</string>
   <string name="logout_dialog_cancel_button_text">Annulla</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>

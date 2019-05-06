@@ -141,7 +141,7 @@
   <string name="reset_password_button">Kaydet ve giriş yap</string>
   <string name="preference_title_logout">Oturumu kapat</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
-  <string name="logout_prompt">Oturumu kapatmak istediğinizden emin misiniz?</string>
+  <string name="logout_prompt" fuzzy="true">Oturumu kapatmak istediğinizden emin misiniz?</string>
   <string name="history_empty_title">Ziyaret edilmiş hiç madde yok.</string>
   <string name="history_empty_message">Okuduklarınızı buradan takip edin.</string>
   <string name="history_offline_articles_toast">Geçmişteki bazı maddeler, çevrimdışı iken görünmeyebilir.</string>

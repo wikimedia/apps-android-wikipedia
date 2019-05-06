@@ -143,7 +143,7 @@
   <string name="reset_password_button">Salvar e entrar</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Saiu</string>
-  <string name="logout_prompt">Você tem certeza que quer sair?</string>
+  <string name="logout_prompt">Isso será feito em todos os dispositivos em que você está conectado. Deseja continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>
   <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>

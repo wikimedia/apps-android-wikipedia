@@ -131,7 +131,7 @@
   <string name="reset_password_button">Uložit a přihlásit se</string>
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
-  <string name="logout_prompt">Jste si jisti, že se chcete odhlásit?</string>
+  <string name="logout_prompt">Tímto se odhlásíte na všech zařízeních, na kterých jste právě přihlášeni. Chcete pokračovat?</string>
   <string name="logout_dialog_cancel_button_text">Zrušit</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
@@ -529,7 +529,7 @@
   <string name="notifications_poll_enable_positive">Zapnout</string>
   <string name="notifications_poll_enable_negative">Teď ne</string>
   <string name="notifications_empty_message">Přečetli jste si všechna upozornění!</string>
-  <string name="notifications_view_archived_button_text">Zobrazit přečtené upozornění</string>
+  <string name="notifications_view_archived_button_text">Zobrazit přečtená upozornění</string>
   <string name="notification_preferences_title">Nastavení upozornění</string>
   <string name="notifications_mark_unread">Označit jako nepřečtené</string>
   <string name="preference_title_notification_poll">Kontrola nových upozornění</string>

@@ -117,7 +117,7 @@
   <string name="reset_password_button">Sábháil agus logáil isteach</string>
   <string name="preference_title_logout">Logáil amach</string>
   <string name="toast_logout_complete">Logáilte amach</string>
-  <string name="logout_prompt">An bhfuil tú cinnte gur mhaith leat logáil amach?</string>
+  <string name="logout_prompt" fuzzy="true">An bhfuil tú cinnte gur mhaith leat logáil amach?</string>
   <string name="logout_dialog_cancel_button_text">Cealaigh</string>
   <string name="history_empty_title">Níor féachadh ar aon alt le déanaí</string>
   <string name="history_empty_message">Coinnigh súil anseo ar na hailt atá léite agat.</string>
