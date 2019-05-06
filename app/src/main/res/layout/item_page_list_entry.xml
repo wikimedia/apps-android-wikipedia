@@ -143,7 +143,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
-        app:srcCompat="@drawable/ic_favorite_white_24dp"
+        app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
         app:tint="?attr/material_theme_secondary_color"
         tools:visibility="visible" />
 </merge>
