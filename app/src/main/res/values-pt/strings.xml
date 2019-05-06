@@ -131,7 +131,7 @@
   <string name="reset_password_button">Gravar e iniciar sessão</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Sessão terminada</string>
-  <string name="logout_prompt">Tem a certeza de que pretende sair?</string>
+  <string name="logout_prompt" fuzzy="true">Tem a certeza de que pretende sair?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
   <string name="history_empty_title">Não há artigos vistos recentemente</string>
   <string name="history_empty_message">Registo do que esteve a ler</string>

@@ -387,11 +387,13 @@
     <item quantity="one">Dësen Artikel ass net méi offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Ofbriechen</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
@@ -478,7 +480,9 @@
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_text_hint_per_language">%s Beschreiwung</string>
@@ -517,6 +521,7 @@
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
   <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
+  <string name="suggested_edits_tasks_activity_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_task_add_description_title">Beschreiwungen derbäisetzen</string>
   <string name="suggested_edits_task_translation_title">Beschreiwungen iwwersetzen</string>
   <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
@@ -574,6 +579,12 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
   <string name="remove_language_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
@@ -584,6 +595,7 @@
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>

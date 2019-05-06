@@ -201,7 +201,7 @@
   <string name="user_option_sync_label">Enschtällonge</string>
   <string name="view_because_you_read_card_title">Weijl De jelässe häs</string>
   <string name="view_random_card_title">Zoffälleje Sigg</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Donn en zoffälleje Sigg us de Wikkipehdija op belohre.</string>
+  <string name="view_random_card_subtitle">Donn en zoffälleje Sigg us de Wikkipehdija op belohre.</string>
   <string name="view_main_page_card_title">Hück op de Wikkipehdija</string>
   <string name="view_main_page_card_subtitle">Houpsigg op %s</string>
   <string name="view_featured_image_card_title">Et Beld vum Daach</string>

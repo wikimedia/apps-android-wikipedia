@@ -140,7 +140,7 @@
   <string name="reset_password_button">ذخیره و ورود به سامانه</string>
   <string name="preference_title_logout">خروج از سامانه</string>
   <string name="toast_logout_complete">خارج شد</string>
-  <string name="logout_prompt">آیا اطمینان دارید که می‌خواهید خارج شوید؟</string>
+  <string name="logout_prompt" fuzzy="true">آیا اطمینان دارید که می‌خواهید خارج شوید؟</string>
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده‌است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="history_offline_articles_toast">برخی از مقالات در تاریخچه ممکن است در حالت آفلاین دیده نشوند.</string>
