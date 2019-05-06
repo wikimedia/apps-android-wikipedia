@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.LinearLayout
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
-import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.view.*
+import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -30,16 +30,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     var isTranslation: Boolean = false
     var sourceSummary: RbPageSummary? = null
     var targetSummary: RbPageSummary? = null
-    var addedDescription: String? = null
 
     init {
-        inflate(getContext(), R.layout.fragment_suggested_edits_add_descriptions_item, this)
+        inflate(getContext(), R.layout.view_suggested_edit_card, this)
     }
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
-
-        prepareViews()
 
         isTranslation = card.isTranslation
         sourceSummary = card.sourceSummary
@@ -47,6 +44,12 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
         setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceSummary!!.lang), this)
 
+        cardView.setOnClickListener {
+            if (callback != null) {
+                callback!!.onSuggestedEditsCardClick(this)
+            }
+        }
+        viewArticleSubtitle.visibility = View.GONE
         header(card)
         updateContents()
     }
@@ -59,11 +62,9 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun updateContents() {
         if (isTranslation) {
             sourceDescription = StringUtils.capitalize(sourceSummary!!.description)
-            viewArticleSubtitleContainer.visibility = View.VISIBLE
-            accentSideBar.visibility = View.GONE
+            viewArticleSubtitle.visibility = View.VISIBLE
             viewArticleSubtitle.text = sourceDescription
         }
-        viewAddDescriptionButton.visibility = View.VISIBLE
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
         callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
@@ -84,32 +85,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         }
     }
 
-    private fun prepareViews() {
-        addedDescription = ""
-        viewArticleSubtitle.background = null
-        viewArticleContainer.minimumHeight = 0
-        viewArticleExtract.text = ""
-        viewArticleTitle.text = ""
-        callToActionText.text = ""
-        viewArticleImage.loadImage(null)
-        headerView.visibility = View.GONE
-        viewAddDescriptionButton.visibility = View.GONE
-        cardItemProgressBar.visibility = View.GONE
-        viewArticleSubtitleContainer.visibility = View.GONE
-        viewArticleExtract.visibility = View.GONE
-        divider.visibility = View.GONE
-        suggestedEditsItemRootView.setPadding(0, 0, 0, 0)
-        val param = cardView.layoutParams as LinearLayout.LayoutParams
-        param.setMargins(0, 0, 0, 0)
-        cardView.layoutParams = param
-        cardView.useCompatPadding = false
-        cardView.setContentPadding(0, 0, 0, 0)
-        cardView.setOnClickListener {
-            if (callback != null && card != null) {
-                callback!!.onSuggestedEditsCardClick(this)
-            }
-        }
-    }
 
     override fun onDetachedFromWindow() {
         disposables.clear()
@@ -117,7 +92,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun header(card: SuggestedEditsCard) {
-        headerView.visibility = View.VISIBLE
         headerView!!.setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
