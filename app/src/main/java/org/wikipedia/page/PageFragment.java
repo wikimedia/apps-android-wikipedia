@@ -520,19 +520,27 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         pageFragmentLoadState.loadFromBackStack();
     }
 
-    public void openInNewTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
-        openInNewTab(title, entry, position);
-        tabFunnel.logOpenInNew(app.getTabList().size());
+    private void openInNewTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
+        int selectedTabPosition = -1;
+        for (Tab tab : app.getTabList()) {
+            if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().equals(title)) {
+                selectedTabPosition = app.getTabList().indexOf(tab);
+                break;
+            }
+        }
+        if (selectedTabPosition == -1) {
+            openInNewTab(title, entry, position);
+            tabFunnel.logOpenInNew(app.getTabList().size());
+            return;
+        }
+        if (selectedTabPosition == app.getTabList().size() - 1) {
+            pageFragmentLoadState.loadFromBackStack();
+        } else {
+            setCurrentTab(selectedTabPosition);
+        }
     }
 
     public void openFromExistingTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        if (!title.isMainPage() && !title.isFilePage() && app.getTabCount() > 0) {
-            PageTitle t = app.getTabList().get(app.getTabList().size() - 1).getBackStackPositionTitle();
-            if (t != null) {
-                pageHeaderView.loadImage(t.getThumbUrl());
-            }
-        }
-
         // find the tab in which this title appears...
         int selectedTabPosition = -1;
         for (Tab tab : app.getTabList()) {
@@ -1050,10 +1058,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         if (pageFragmentLoadState.goBack()) {
             return true;
-        }
-        if (app.getTabList().size() > 1) {
-            // if we're at the end of the current tab's backstack, then pop the current tab.
-            app.getTabList().remove(app.getTabList().size() - 1);
         }
         return false;
     }

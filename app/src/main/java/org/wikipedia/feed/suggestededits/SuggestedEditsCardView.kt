@@ -18,7 +18,7 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView, SuggestedEditsFeedClient.Companion.Callback {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView, SuggestedEditsFeedClient.Callback {
     interface Callback {
         fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
@@ -126,7 +126,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     fun refreshCardContent() {
-        SuggestedEditsFeedClient.getArticleWithMissingDescription(isTranslation, null, this)
+        SuggestedEditsFeedClient(isTranslation).getArticleWithMissingDescription(null, this)
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {
