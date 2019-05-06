@@ -7,7 +7,7 @@ import android.text.TextUtils
 import android.view.View
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
-import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.view.*
+import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -44,7 +44,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceSummary!!.lang), this)
 
         cardView.setOnClickListener {
-            if (callback != null && card != null) {
+            if (callback != null) {
                 callback!!.onSuggestedEditsCardClick(this)
             }
         }
