@@ -115,7 +115,7 @@
   <string name="reset_password_button">Simpen lan mlebu log</string>
   <string name="preference_title_logout">Metu log</string>
   <string name="toast_logout_complete">Wis metu log</string>
-  <string name="logout_prompt">Apa panjenengan yakin arep metu log?</string>
+  <string name="logout_prompt" fuzzy="true">Apa panjenengan yakin arep metu log?</string>
   <string name="history_empty_title">Ora ana artikel sing bubar didelok</string>
   <string name="history_empty_message">Lacak apa-apa sing wis kokwaca ing kéné.</string>
   <string name="search_empty_message">Golék lan waca bauwarna bébas ing basané panjenengan</string>

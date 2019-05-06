@@ -124,7 +124,7 @@
   <string name="reset_password_button">Gardar e acceder</string>
   <string name="preference_title_logout">Saír</string>
   <string name="toast_logout_complete">Sesión pechada</string>
-  <string name="logout_prompt">Está seguro de que quere pechar a sesión?</string>
+  <string name="logout_prompt" fuzzy="true">Está seguro de que quere pechar a sesión?</string>
   <string name="history_empty_title">Non hai artigos vistos recentemente</string>
   <string name="history_empty_message">Manter un rexistro do que fuches lendo aquí.</string>
   <string name="history_offline_articles_toast">Algúns artigos do historial poden non ser visualizables mentres non estea en liña.</string>
