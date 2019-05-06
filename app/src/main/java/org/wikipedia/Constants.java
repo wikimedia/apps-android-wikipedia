@@ -83,7 +83,9 @@ public final class Constants {
         INTENT_SHARE,
         INTENT_PROCESS_TEXT,
         FEED_BAR,
-        VOICE
+        VOICE,
+        ON_THIS_DAY_CARD_BODY,
+        ON_THIS_DAY_CARD_FOOTER
     }
 
     private Constants() { }
