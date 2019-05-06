@@ -127,7 +127,7 @@
   <string name="reset_password_button">שמירה וכניסה לחשבון</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
-  <string name="logout_prompt">האם ברצונך באמת לצאת מהחשבון?</string>
+  <string name="logout_prompt" fuzzy="true">האם ברצונך באמת לצאת מהחשבון?</string>
   <string name="logout_dialog_cancel_button_text">ביטול</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>

@@ -132,7 +132,7 @@
   <string name="reset_password_button">Simpan dan masuk log</string>
   <string name="preference_title_logout">Keluar log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
-  <string name="logout_prompt">Apakah Anda yakin ingin keluar log?</string>
+  <string name="logout_prompt" fuzzy="true">Apakah Anda yakin ingin keluar log?</string>
   <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
   <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
   <string name="history_offline_articles_toast">Beberapa artikel yang pernah diakses mungkin tidak dapat dibaca tanpa koneksi.</string>

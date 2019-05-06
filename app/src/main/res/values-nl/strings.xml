@@ -138,7 +138,7 @@
   <string name="reset_password_button">Opslaan en aanmelden</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="logout_prompt">Weet u zeker dat u wilt afmelden?</string>
+  <string name="logout_prompt" fuzzy="true">Weet u zeker dat u wilt afmelden?</string>
   <string name="logout_dialog_cancel_button_text">Annuleren</string>
   <string name="history_empty_title">Geen recent bekeken pagina\'s</string>
   <string name="history_empty_message">Blijf op de hoogte van wat u hier hebt gelezen.</string>
@@ -591,6 +591,7 @@
   <string name="feed_item_type_featured_image">Dagelijkse uitgelichte afbeelding van Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hoofdpagina van Wikipedia met dagelijkse uitgelichte inhoud</string>
   <string name="feed_item_type_randomizer">Genereert willekeurige pagina\'s om te lezen</string>
+  <string name="feed_item_type_suggested_edits">Voorstellen om content aan Wikipedia toe te voegen</string>
   <string name="feed_empty_message">Er staat niets in uw Explore-feed</string>
   <string name="feed_configure_onboarding_action">Aanpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -637,6 +638,7 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">U hebt de taak \"Beschrijvingen toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">U hebt de taak \"Beschrijvingen vertalen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_dialog_no">Misschien later</string>
+  <string name="suggested_edits_unlock_dialog_yes">Ja, laten we beginnen</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_title">U hebt \"Beschrijvingen toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">U hebt \"Beschrijvingen vertalen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_notification_text">Voorgestelde bewerkingen</string>
@@ -645,6 +647,7 @@
   <string name="suggested_edits_tasks_activity_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_task_add_description_title">Beschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
+  <string name="suggested_edits_task_image_caption_title">Titelfoto\'s</string>
   <string name="suggested_edits_task_image_caption_description">Voeg titels toe aan plaatjes</string>
   <string name="suggested_edits_task_multilingual_title">Meer taken voor meertalige bewerkers</string>
   <string name="suggested_edits_task_multilingual_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
