@@ -188,7 +188,11 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @NonNull Call<MwQueryResponse> getCsrfToken();
+    @NonNull Call<MwQueryResponse> getCsrfTokenCall();
+
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
+    @NonNull Observable<MwQueryResponse> getCsrfToken();
 
     @SuppressWarnings("checkstyle:parameternumber")
     @FormUrlEncoded
@@ -219,6 +223,11 @@ public interface Service {
                                                        @Field("retype") String retypedPass, @Field("OATHToken") String twoFactorCode,
                                                        @Field("logintoken") String token,
                                                        @Field("logincontinue") boolean loginContinue);
+
+    @Headers("Cache-Control: no-cache")
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=logout")
+    @NonNull Observable<MwPostResponse> postLogout(@NonNull @Field("token") String token);
 
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
