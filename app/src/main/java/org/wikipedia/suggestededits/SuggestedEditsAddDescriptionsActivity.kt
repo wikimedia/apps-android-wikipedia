@@ -23,7 +23,6 @@ class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEd
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
             R.string.suggested_edits_add_descriptions else R.string.suggested_edits_translate_descriptions)
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this,R.attr.suggestions_background_color))
     }
 
     override fun createFragment(): SuggestedEditsAddDescriptionsFragment {

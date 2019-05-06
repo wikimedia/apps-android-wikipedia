@@ -128,7 +128,6 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
             nextPage()
         }
         updateBackButton(0)
-        if (!TextUtils.isEmpty(topChild?.addedDescription)) addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(R.drawable.ic_mode_edit_white_24dp))
 
         addDescriptionButton.setOnClickListener { onSelectPage() }
 
@@ -141,14 +140,15 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     }
 
     fun updateActionButton() {
-        if(!TextUtils.isEmpty(topChild?.addedDescription)) topChild?.showAddedDescriptionView(topChild?.addedDescription)
-        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (TextUtils.isEmpty(topChild?.addedDescription)) R.drawable.ic_add_gray_themed_24dp else R.drawable.ic_mode_edit_white_24dp))
+        val isAddedDescriptionEmpty = TextUtils.isEmpty(topChild?.addedDescription)
+        if(!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
+        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_themed_24dp else R.drawable.ic_mode_edit_white_24dp))
         if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(if(TextUtils.isEmpty(topChild?.addedDescription)) R.string.suggested_edits_add_translation else R.string.suggested_edits_edit_translation)
+                addDescriptionText!!.text = getString(if(isAddedDescriptionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
         } else
             if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(if(TextUtils.isEmpty(topChild?.addedDescription)) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+                addDescriptionText!!.text = getString(if(isAddedDescriptionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
     }
 
     override fun onDestroyView() {

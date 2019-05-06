@@ -113,7 +113,6 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:background="@drawable/button_shape_gray"
                 android:backgroundTint="?attr/colorAccent"
                 android:gravity="center"
@@ -126,8 +125,10 @@
 
                 <ImageView
                     android:id="@+id/addDescriptionImage"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/ic_add_gray_themed_24dp"
                     android:tint="@color/base100" />
