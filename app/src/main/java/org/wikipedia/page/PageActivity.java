@@ -474,12 +474,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (pageFragment.onBackPressed()) {
             return;
         }
-
-        if (WikipediaApp.getInstance().getTabCount() < 1) {
-            finish();
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
     }
 
     @Override

@@ -143,7 +143,7 @@
   <string name="reset_password_button">Salvar e entrar</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Saiu</string>
-  <string name="logout_prompt">Você tem certeza que quer sair?</string>
+  <string name="logout_prompt">Isso será feito em todos os dispositivos em que você está conectado. Deseja continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>
   <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>
@@ -552,7 +552,6 @@
   <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
   <string name="preference_title_notification_revert">Reverter</string>
   <string name="preference_summary_notification_revert">Uma de suas contribuições foi revertida</string>
-  <string name="view_continue_reading_card_title">Continue lendo</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Folhear artigos aleatórios para ler a partir da Wikipédia</string>
@@ -688,10 +687,6 @@
   <string name="offline_read_final_rationale">É necessário ter permissão de acesso ao armazenamento do seu dispositivo para usar a biblioteca sem acesso à Internet.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">falta 1 minuto</item>
-    <item quantity="other">faltam %d minutos</item>
-  </plurals>
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>

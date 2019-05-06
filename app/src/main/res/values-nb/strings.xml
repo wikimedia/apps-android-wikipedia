@@ -129,7 +129,7 @@
   <string name="reset_password_button">Lagre og logg inn</string>
   <string name="preference_title_logout">Logg ut</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="logout_prompt">Er du sikker på at du vil logge ut?</string>
+  <string name="logout_prompt" fuzzy="true">Er du sikker på at du vil logge ut?</string>
   <string name="logout_dialog_cancel_button_text">Avbryt</string>
   <string name="history_empty_title">Ingen nylig besøkte sider</string>
   <string name="history_empty_message">Finn igjen det du har lest her.</string>
@@ -538,7 +538,6 @@
   <string name="preference_summary_notification_thanks">Noen takket deg for en redigering</string>
   <string name="preference_title_notification_revert">Tilbakestilling</string>
   <string name="preference_summary_notification_revert">Et av bidragene dine ble tilbakestilt</string>
-  <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
   <string name="view_random_card_subtitle">Gå gjennom tilfeldige artikler å lese fra Wikipedia.</string>
@@ -658,7 +657,7 @@
   <string name="suggested_edits_task_translate_caption_description">Oversett beskrivelser til andre språk</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">bidrag fra appen</item>
-    <item quantity="other">bidrag fra appen</item>
+    <item quantity="other">%d bidrag fra appen</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">Velkommen til den nye startsiden for enkel redigering i Wikipedia-appen. Alle bidrag er høyt verdsatt. Lykke til med redigeringen!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
@@ -672,10 +671,6 @@
   <string name="offline_read_final_rationale">Tilgang til enhetslagring trengs for å bruke lokalt bibliotek.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">ett minutt igjen</item>
-    <item quantity="other">%d minutter igjen</item>
-  </plurals>
   <string name="onboarding_skip">Hopp over</string>
   <string name="onboarding_continue">Fortsett</string>
   <string name="onboarding_get_started">Kom i gang</string>

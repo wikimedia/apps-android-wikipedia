@@ -131,7 +131,7 @@
   <string name="reset_password_button">儲存並登入</string>
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
-  <string name="logout_prompt">您確定要登出嗎？</string>
+  <string name="logout_prompt" fuzzy="true">您確定要登出嗎？</string>
   <string name="logout_dialog_cancel_button_text">取消</string>
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
@@ -540,7 +540,6 @@
   <string name="preference_summary_notification_thanks">某人感謝您所做的編輯</string>
   <string name="preference_title_notification_revert">回退</string>
   <string name="preference_summary_notification_revert">您所做出的其一貢獻已被回退</string>
-  <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_card_subtitle">快速翻閱來自維基百科的隨機條目。</string>
@@ -565,7 +564,7 @@
     <item quantity="other">%d 日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今天</string>
-  <string name="view_continue_reading_card_subtitle_read_date">讀取 %s</string>
+  <string name="view_continue_reading_card_subtitle_read_date">讀取於 %s</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="onboarding_negative_action">不用了，謝謝</string>
   <string name="view_offline_card_text">內容無法在離線時載入。</string>
@@ -676,10 +675,6 @@
   <string name="offline_read_final_rationale">需要可存取在您裝置上儲存庫的權限才能使用離線圖書館。</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">剩下 1 分鐘</item>
-    <item quantity="other">剩下 %d 分鐘</item>
-  </plurals>
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>

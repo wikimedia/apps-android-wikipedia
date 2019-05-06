@@ -117,7 +117,7 @@
   <string name="reset_password_button">Зачувај и најави ме</string>
   <string name="preference_title_logout">Одјава</string>
   <string name="toast_logout_complete">Одјавени сте</string>
-  <string name="logout_prompt">Сигурно сакате да се одјавите?</string>
+  <string name="logout_prompt" fuzzy="true">Сигурно сакате да се одјавите?</string>
   <string name="logout_dialog_cancel_button_text">Откажи</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
@@ -526,7 +526,6 @@
   <string name="preference_summary_notification_thanks">Некој ви благодари за уредување</string>
   <string name="preference_title_notification_revert">Отповикај</string>
   <string name="preference_summary_notification_revert">Еден од вашите придонеси е отповикан</string>
-  <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_card_subtitle">Прелистајте случајни статии од Википедија</string>
@@ -630,7 +629,7 @@
   <string name="suggested_edits_unlock_notification_button">Да, ајде</string>
   <string name="suggested_edits_license_notice">Додавајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">Инфо</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Уреднички задачи</string>
+  <string name="suggested_edits_tasks_activity_title">Предложени уредувања</string>
   <string name="suggested_edits_task_add_description_title">Додај описи</string>
   <string name="suggested_edits_task_add_description_description">Придонесувајте со статии без описи</string>
   <string name="suggested_edits_task_image_caption_title">Описи на слики</string>
@@ -662,10 +661,6 @@
   <string name="offline_read_final_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да ја користите Вонмрежната библиотека.</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Преостанува една минута</item>
-    <item quantity="other">Преостануваат %d минути</item>
-  </plurals>
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>

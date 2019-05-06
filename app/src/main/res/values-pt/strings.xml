@@ -131,7 +131,7 @@
   <string name="reset_password_button">Gravar e iniciar sessão</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Sessão terminada</string>
-  <string name="logout_prompt">Tem a certeza de que pretende sair?</string>
+  <string name="logout_prompt" fuzzy="true">Tem a certeza de que pretende sair?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
   <string name="history_empty_title">Não há artigos vistos recentemente</string>
   <string name="history_empty_message">Registo do que esteve a ler</string>
@@ -540,7 +540,6 @@
   <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
   <string name="preference_title_notification_revert">Reverter</string>
   <string name="preference_summary_notification_revert">Uma das suas contribuições foi revertida</string>
-  <string name="view_continue_reading_card_title">Continuar a ler</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Folhear aleatoriamente artigos da Wikipédia.</string>
@@ -644,7 +643,7 @@
   <string name="suggested_edits_unlock_notification_button">Sim, continuar</string>
   <string name="suggested_edits_license_notice">Ao adicionar a descrição do título, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informação</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tarefas de edição</string>
+  <string name="suggested_edits_tasks_activity_title">Edições sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Adicionar descrições</string>
   <string name="suggested_edits_task_add_description_description">Contribuir para os artigos a que falta a descrição</string>
   <string name="suggested_edits_task_image_caption_title">Legendar imagens</string>
@@ -676,10 +675,6 @@
   <string name="offline_read_final_rationale">É necessário ter permissão de acesso ao armazenamento do seu dispositivo para usar a biblioteca sem acesso à Internet.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">falta 1 minuto</item>
-    <item quantity="other">faltam %d minutos</item>
-  </plurals>
   <string name="onboarding_skip">Ignorar</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>

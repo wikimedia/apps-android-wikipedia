@@ -130,7 +130,8 @@
   <string name="reset_password_button">Mentés és belépés</string>
   <string name="preference_title_logout">Kijelentkezés</string>
   <string name="toast_logout_complete">Kijelentkezve</string>
-  <string name="logout_prompt">Biztos vagy benne, hogy ki akarsz jelentkezni?</string>
+  <string name="logout_prompt" fuzzy="true">Biztos vagy benne, hogy ki akarsz jelentkezni?</string>
+  <string name="logout_dialog_cancel_button_text">Mégse</string>
   <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="history_offline_articles_toast">Néhány szócikk lehet, hogy nem olvasható offline módban.</string>
@@ -262,7 +263,7 @@
   <string name="preference_summary_show_images">Képek betöltésének engedélyezése vagy letiltása. Kapcsold ki, ha az internetkapcsolatod lassú vagy az adatcsomagod korlátozott.</string>
   <string name="preference_title_download_only_over_wifi">Letöltés csak Wi-Fi-n</string>
   <string name="dialog_title_download_only_over_wifi">Megerősíted a mobiladat használatával történő letöltést?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">A beállításaidnál „letöltés csak Wi-Fi-n” van jelölve. Engedélyezed mobil adatforgalmad használatát ehhez a letöltéshez?</string>
+  <string name="dialog_text_download_only_over_wifi">A beállításaidnál „letöltés csak Wi-Fi-n” van jelölve. Engedélyezed mobil adatforgalmad használatát ehhez a letöltéshez?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Engedélyezés</string>
   <string name="read_more_section">További információ</string>
   <string name="about_article_section">Erről a szócikkről</string>
@@ -467,6 +468,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Az olvasólisták sikeresen szinkronizálva</string>
   <string name="reading_list_menu_last_sync">Utolsó szinkronizálás: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Mégse</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Mégse</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Mégse</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Mégse</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_reverted_title">Szerkesztés visszavonva</string>
   <string name="notification_channel_description">Letöltés állapota</string>
@@ -528,7 +536,6 @@
   <string name="preference_summary_notification_thanks">Valaki megköszönte egy szerkesztésedet</string>
   <string name="preference_title_notification_revert">Visszaállítás</string>
   <string name="preference_summary_notification_revert">Közreműködéseid egyike vissza lett vonva.</string>
-  <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
   <string name="view_random_card_subtitle">Olvass találomra egy cikket a Wikipédiából.</string>
@@ -576,7 +583,11 @@
   <string name="feed_item_type_randomizer">Véletlenszerűen kiválasztott szócikkek</string>
   <string name="feed_empty_message">Nincs semmi a Felfedezés hírfolyamodban</string>
   <string name="feed_configure_onboarding_action">Testreszabás</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Szabd testre a Felfedezés hírfolyamodat!&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Mostantól kiválaszthatod, hogy mi jelenjen meg a hírfolyamodban, és át is rendezheted azt, feljebb helyezve a kedvenc tartalomtípusaidat.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="description_edit_text_hint">Cím leírása</string>
   <string name="description_edit_text_hint_per_language">%s leírás</string>
   <string name="description_edit_save">Közzététel</string>
@@ -584,6 +595,7 @@
   <string name="description_edit_read">Olvasás</string>
   <string name="description_edit_add_description">Adj meg egy címleírást</string>
   <string name="description_edit_add_description_v2">Leírás hozzáadása</string>
+  <string name="description_edit_translate_description">Leírás fordítása</string>
   <string name="description_edit_edit_description">Leírás szerkesztése</string>
   <string name="add_translation">%s fordítás hozzáadása</string>
   <string name="description_edit_cancel_hint">Mégse</string>
@@ -606,6 +618,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
   <string name="suggested_edits_add_descriptions">Címleírások hozzáadása</string>
+  <string name="suggested_edits_translate_descriptions">Leírások fordítása</string>
   <string name="suggested_edits_review_description">Címleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>
   <string name="suggested_edits_my_contributions">Közreműködéseim</string>
@@ -643,14 +656,11 @@
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">tesztelésnek vagy vandalizmusnak tűnt</string>
   <string name="description_edit_revert_history">Többet megtudhatsz a visszavonás okáról a &lt;a href=\"%1$s\"&gt;laptörténetben&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Mégse</string>
   <string name="offline_read_permission_rationale">A kapcsolat nélküli böngészéshez szükséges a hozzáférés az eszköz háttértárához.</string>
   <string name="offline_read_final_rationale">Az offline könyvtár használatához szükséges a hozzáférés az eszköz háttértárához.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">még 1 perc</item>
-    <item quantity="other">még %d perc</item>
-  </plurals>
   <string name="onboarding_skip">Kihagy</string>
   <string name="onboarding_continue">Tovább</string>
   <string name="onboarding_get_started">Kezdés</string>
@@ -704,6 +714,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Jelenleg mind a hagyományos, mind az egyszerűsített kínai nyelvi változat is be van állítva az alkalmazásban. Módosítod az alkalmazás nyelvi beállításait?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Nyelvek szerkesztése</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Köszönöm, nem</string>
+  <string name="remove_language_dialog_cancel_button_text">Mégse</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Mégse</string>
   <string name="wikitext_bold">Félkövér</string>
   <string name="wikitext_italic">Dőlt</string>
   <string name="wikitext_link">Hivatkozás</string>
@@ -716,4 +734,8 @@
   <string name="main_drawer_close">Bezár</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Mégse</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Mégse</string>
 </resources>
