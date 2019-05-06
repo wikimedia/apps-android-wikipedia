@@ -415,7 +415,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN))
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
-        funnel.hide();
     }
 
     private void showCompleteScroller(@Nullable AnimatorListenerAdapter listenerAdapter) {
