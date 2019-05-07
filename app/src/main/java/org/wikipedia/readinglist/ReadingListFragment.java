@@ -762,7 +762,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     ReadingListDbHelper.instance().updatePage(page);
                 }).subscribeOn(Schedulers.io()).subscribe();
 
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+                startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
             }
         }
 
