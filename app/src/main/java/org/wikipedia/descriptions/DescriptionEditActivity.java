@@ -76,7 +76,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(this, entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.getTitle()));
     }
 
     @Override
