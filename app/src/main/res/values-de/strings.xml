@@ -122,7 +122,7 @@
   <string name="reset_password_button">Speichern und anmelden</string>
   <string name="preference_title_logout">Abmelden</string>
   <string name="toast_logout_complete">Abgemeldet</string>
-  <string name="logout_prompt">Möchtest du dich wirklich abmelden?</string>
+  <string name="logout_prompt">Dies meldet dich auf allen Geräten ab, auf denen du derzeit angemeldet bist. Möchtest du fortfahren?</string>
   <string name="logout_dialog_cancel_button_text">Abbrechen</string>
   <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>
   <string name="history_empty_message">Verfolge hier, was du gelesen hast.</string>

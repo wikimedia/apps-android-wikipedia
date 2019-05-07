@@ -129,7 +129,7 @@
   <string name="reset_password_button">Lagre og logg inn</string>
   <string name="preference_title_logout">Logg ut</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="logout_prompt">Er du sikker på at du vil logge ut?</string>
+  <string name="logout_prompt" fuzzy="true">Er du sikker på at du vil logge ut?</string>
   <string name="logout_dialog_cancel_button_text">Avbryt</string>
   <string name="history_empty_title">Ingen nylig besøkte sider</string>
   <string name="history_empty_message">Finn igjen det du har lest her.</string>

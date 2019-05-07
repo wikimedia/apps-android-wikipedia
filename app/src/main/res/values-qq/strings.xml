@@ -478,13 +478,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Message informing the user that their reading lists were synced successfully.</string>
   <string name="reading_list_menu_last_sync">Message informing the user that their reading lists were synced successfully. The \"%s\" symbol is replaced with the last synced time.</string>
-  <string name="reading_list_remove_list_dialog_ok_button_text">Positive action button text in pop-up dialog for removing article from list.</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">Positive action button text in pop-up dialog for removing article from list.\n{{Identical|OK}}</string>
   <string name="reading_list_delete_dialog_ok_button_text">Positive action button text in pop-up dialog for deleting a list.\n{{Identical|OK}}</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing article from a list.\n{{Identical|Cancel}}</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Negative action button text in pop-up dialog for deleting a list.\n{{Identical|Cancel}}</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Negative action button text in pop-up dialog for removing article from offline storage.\n{{Identical|Cancel}}</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Negative action button text in pop-up dialog for downloading content on mobile data connection.\n{{Identical|Cancel}}</string>
-  <string name="reading_list_split_dialog_ok_button_text">Positive action button text in warning pop-up dialog for spliting large reading lists.</string>
+  <string name="reading_list_split_dialog_ok_button_text">Positive action button text in warning pop-up dialog for splitting large reading lists.\n{{Identical|OK}}</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
   <string name="notification_channel_description">Description of the notification channel</string>
@@ -594,10 +594,10 @@
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
   <string name="feed_configure_onboarding_action">Button label for onboarding card that introduces the customization of the Explore feed.</string>
-  <string name="customize_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for card language selection in customization screen.</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for card language selection in customization screen.\n{{Identical|OK}}</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for card language selection in customization screen.\n{{Identical|Cancel}}</string>
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
-  <string name="feed_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for feed card language selection.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for feed card language selection.\n{{Identical|OK}}</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
@@ -735,12 +735,12 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
   <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Cancel}}</string>
-  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.</string>
-  <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.</string>
-  <string name="protected_page_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for protected editing of a page.</string>
-  <string name="account_editing_blocked_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for accounts for which editing is blocked.</string>
-  <string name="edit_conflict_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for editing conflict.</string>
-  <string name="reverted_edit_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for reverted edit.</string>
+  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Ok}}</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.\n{{Identical|OK}}</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for protected editing of a page.\n{{Identical|OK}}</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|OK}}</string>
+  <string name="edit_conflict_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for editing conflict.\n{{Identical|OK}}</string>
+  <string name="reverted_edit_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for reverted edit.\n{{Identical|OK}}</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Negative action button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|Cancel}}</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
@@ -754,7 +754,7 @@
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
-  <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.</string>
+  <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
