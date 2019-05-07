@@ -82,8 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:clipToPadding="false"
-            android:paddingBottom="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -107,7 +106,6 @@
                 android:layout_width="194dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:background="@drawable/button_shape_gray"
                 android:backgroundTint="?attr/colorAccent"
                 app:elevation="4dp"
