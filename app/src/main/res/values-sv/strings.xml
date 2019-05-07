@@ -127,7 +127,7 @@
   <string name="reset_password_button">Spara och logga in</string>
   <string name="preference_title_logout">Logga ut</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="logout_prompt">Är du säker på att du vill logga ut?</string>
+  <string name="logout_prompt" fuzzy="true">Är du säker på att du vill logga ut?</string>
   <string name="logout_dialog_cancel_button_text">Avbryt</string>
   <string name="history_empty_title">Inga nyligen lästa artiklar</string>
   <string name="history_empty_message">Håll koll på vad du har läst här.</string>

@@ -118,7 +118,7 @@
   <string name="reset_password_button">Vista og skrá inn</string>
   <string name="preference_title_logout">Skrá út</string>
   <string name="toast_logout_complete">Skráður út</string>
-  <string name="logout_prompt">Ertu viss að þú viljir skrá þig út?</string>
+  <string name="logout_prompt" fuzzy="true">Ertu viss að þú viljir skrá þig út?</string>
   <string name="history_empty_title">Engar nýlega lesnar greinar</string>
   <string name="history_empty_message">Haltu utan um það sem þú hefur verið að lesa hérna.</string>
   <string name="history_offline_articles_toast">Sumar greinar í lesferlinum gætu verið óaðgengilegar án nettengingar.</string>

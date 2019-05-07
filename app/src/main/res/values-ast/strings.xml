@@ -117,7 +117,7 @@
   <string name="reset_password_button">Guardar y aniciar sesión</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Desconeutáu</string>
-  <string name="logout_prompt">¿De xuru que quies zarrar la sesión?</string>
+  <string name="logout_prompt" fuzzy="true">¿De xuru que quies zarrar la sesión?</string>
   <string name="history_empty_title">Nun hai artículos vistos recien</string>
   <string name="history_empty_message">Siguir lo que tuvisti lleyendo equí.</string>
   <string name="history_offline_articles_toast">Ye posible que dellos artículos del historial nun apaezan al tar ensin conexón.</string>

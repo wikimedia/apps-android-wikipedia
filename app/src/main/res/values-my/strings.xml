@@ -122,7 +122,7 @@
   <string name="reset_password_button">သိမ်းဆည်းပြီး အကောင့်ထဲဝင်ရန်</string>
   <string name="preference_title_logout">ထွက်ရန်</string>
   <string name="toast_logout_complete">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
-  <string name="logout_prompt">သင် ထွက်မည်ဆိုသည်မှာ သေချာပါသလား?</string>
+  <string name="logout_prompt" fuzzy="true">သင် ထွက်မည်ဆိုသည်မှာ သေချာပါသလား?</string>
   <string name="history_empty_title">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
   <string name="history_empty_message">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
   <string name="search_empty_message">အခမဲ့စွယ်စုံကျမ်းကို သင့်ဘာသာစကားဖြင့် ရှာဖွေဖတ်ရှုပါ။</string>
@@ -608,7 +608,6 @@
   <string name="offline_read_final_rationale">အော့ဖ်လိုင်းစာကြည့်တိုက်ကို အသုံးပြုရန် သင့်စက်ပစ္စည်းပေါ်ရှိ သိုလှောင်ခန်းအား ဝင်ရောက်ခွင့်လိုအပ်ပါသည်။</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_download_time_remaining">{{PLURAL|one=1 မိနစ် ကျန်|%d မိနစ် ကျန်}</string>
   <string name="onboarding_skip">ကျော်ရန်</string>
   <string name="onboarding_continue">ဆက်လက်</string>
   <string name="onboarding_get_started">စတင်ပါ</string>

@@ -134,7 +134,7 @@
   <string name="reset_password_button">저장하고 로그인</string>
   <string name="preference_title_logout">로그아웃</string>
   <string name="toast_logout_complete">로그아웃됨</string>
-  <string name="logout_prompt">로그아웃하시겠습니까?</string>
+  <string name="logout_prompt" fuzzy="true">로그아웃하시겠습니까?</string>
   <string name="logout_dialog_cancel_button_text">취소</string>
   <string name="history_empty_title">최근에 본 글이 없습니다</string>
   <string name="history_empty_message">당신이 읽고 계신 문서를 여기에서 추적하세요.</string>
