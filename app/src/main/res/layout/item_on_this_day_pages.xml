@@ -11,20 +11,13 @@
         android:background="?attr/selectableItemBackground"
         android:orientation="horizontal">
 
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            style="@style/SimpleDraweeViewPlaceholder"
-            android:id="@+id/page_list_item_image"
-            android:layout_width="72dp"
-            android:layout_height="match_parent"
-            app:actualImageScaleType="centerCrop" />
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:orientation="vertical">
 
             <TextView
@@ -47,5 +40,12 @@
                 android:lineSpacingExtra="2sp"
                 android:maxLines="2" />
         </LinearLayout>
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/page_list_item_image"
+            style="@style/SimpleDraweeViewPlaceholder"
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            app:actualImageScaleType="centerCrop" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
