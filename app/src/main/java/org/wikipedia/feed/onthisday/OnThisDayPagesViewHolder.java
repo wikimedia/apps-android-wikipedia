@@ -76,7 +76,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
-        activity.startActivity(PageActivity.newIntentForNewTab(activity, entry, pageTitle));
+        activity.startActivity(PageActivity.newIntentForCurrentTab(activity, entry, pageTitle));
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
