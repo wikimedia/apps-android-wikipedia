@@ -119,6 +119,7 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @VisibleForTesting void setImage(@Nullable String url) {
+        imageView.setVisibility((url == null) ? GONE : VISIBLE);
         ViewUtil.loadImageUrlInto(imageView, url);
     }
 

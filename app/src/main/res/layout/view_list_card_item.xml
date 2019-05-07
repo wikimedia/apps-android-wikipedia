@@ -8,16 +8,6 @@
     tools:paddingTop="16dp"
     tools:paddingBottom="16dp">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        style="@style/SimpleDraweeViewPlaceholder"
-        android:id="@+id/view_list_card_item_image"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="2dp" />
-
     <TextView
         android:id="@+id/view_list_card_item_title"
         style="@style/MaterialListTitle"
@@ -26,8 +16,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toTopOf="@+id/view_list_card_item_subtitle"
-        app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_menu"
-        app:layout_constraintStart_toEndOf="@+id/view_list_card_item_image"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
@@ -44,12 +34,24 @@
         style="@style/MaterialListSubtitle"
         tools:text="Lorem ipsum"/>
 
+    <com.facebook.drawee.view.SimpleDraweeView
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:id="@+id/view_list_card_item_image"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/view_list_card_item_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_menu"
+        app:roundedCornerRadius="2dp" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/view_list_card_item_menu"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintTop_toTopOf="@+id/view_list_card_item_title"
+        app:layout_constraintStart_toEndOf="@id/view_list_card_item_image"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
         app:tint="?attr/material_theme_de_emphasised_color"
