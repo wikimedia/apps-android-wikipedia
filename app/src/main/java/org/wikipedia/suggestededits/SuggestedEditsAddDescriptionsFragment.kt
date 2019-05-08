@@ -180,14 +180,15 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         }
     }
 
-    fun previousPage() {
+    private fun previousPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         if (addTitleDescriptionsItemPager.currentItem > 0) {
             addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem - 1, true)
         }
         updateActionButton()
     }
-    fun nextPage() {
+
+    private fun nextPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
         updateActionButton()
@@ -279,7 +280,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
                 resetTitleDescriptionItemAdapter()
             }
             updateToLanguageSpinner(position)
-           updateBackButton(0)
+            updateBackButton(0)
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {

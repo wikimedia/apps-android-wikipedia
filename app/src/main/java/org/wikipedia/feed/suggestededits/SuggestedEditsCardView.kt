@@ -5,7 +5,6 @@ import android.content.Context
 import android.net.Uri
 import android.text.TextUtils
 import android.view.View
-import android.widget.LinearLayout
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
@@ -84,7 +83,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
         }
     }
-
 
     override fun onDetachedFromWindow() {
         disposables.clear()

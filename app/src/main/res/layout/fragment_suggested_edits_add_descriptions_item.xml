@@ -51,8 +51,8 @@
                 android:id="@+id/headerView"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:visibility="gone"/>
 
             <org.wikipedia.views.FaceAndColorDetectImageView

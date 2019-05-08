@@ -13,7 +13,6 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DialogTitleWithImage
 
 class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEditsAddDescriptionsFragment>() {
