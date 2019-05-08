@@ -10,7 +10,7 @@
         android:toYScale="0.1" />
     <alpha
         android:duration="250"
-        android:startOffset="250"
         android:fromAlpha="1"
+        android:startOffset="250"
         android:toAlpha="0" />
 </set>

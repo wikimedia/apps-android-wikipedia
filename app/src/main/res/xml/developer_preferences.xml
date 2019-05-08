@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/preferences_developer_feature_testing_heading">
 
@@ -10,9 +9,9 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
+            android:dialogMessage="@string/preferences_developer_announcement_country_override_hint"
             android:key="@string/preference_key_announcement_country_override"
-            android:title="@string/preferences_developer_announcement_country_override"
-            android:dialogMessage="@string/preferences_developer_announcement_country_override_hint" />
+            android:title="@string/preferences_developer_announcement_country_override" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_announcement_ignore_date"
@@ -20,9 +19,9 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
+            android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"
             android:key="@string/preference_key_announcement_version_code"
-            android:title="@string/preference_key_announcement_version_code"
-            android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
+            android:title="@string/preference_key_announcement_version_code" />
 
     </PreferenceCategory>
 
@@ -48,37 +47,37 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
-            android:key="@string/preference_key_restbase_uri_format"
-            android:title="@string/preference_key_restbase_uri_format"
             android:dialogMessage="Prod: %1$s://%2$s/api/rest_v1/
             \nLabs: http://appservice.wmflabs.org/%2$s/v1/
             \nDev: http://host:6927/%2$s/v1/
             \n%1$s &#10139; protocol (https if omitted)
-            \n%2$s &#10139; WP host" />
+            \n%2$s &#10139; WP host"
+            android:key="@string/preference_key_restbase_uri_format"
+            android:title="@string/preference_key_restbase_uri_format" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
-            android:key="@string/preference_key_mediawiki_base_uri"
-            android:title="@string/preference_key_mediawiki_base_uri"
             android:dialogMessage="Prod (default if blank): https://wikipedia.org
             \nDev: http://host:8080
-            \nBeta cluster: https://wikipedia.beta.wmflabs.org" />
+            \nBeta cluster: https://wikipedia.beta.wmflabs.org"
+            android:key="@string/preference_key_mediawiki_base_uri"
+            android:title="@string/preference_key_mediawiki_base_uri" />
 
         <SwitchPreferenceCompat
+            android:defaultValue="true"
             android:key="@string/preference_key_mediawiki_base_uri_supports_lang_code"
-            android:title="@string/preference_key_mediawiki_base_uri_supports_lang_code"
-            android:defaultValue="true" />
+            android:title="@string/preference_key_mediawiki_base_uri_supports_lang_code" />
 
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_logging_heading">
 
         <ListPreference
-            android:key="@string/preference_key_retrofit_log_level"
-            android:title="@string/preferences_developer_retrofit_log_level"
             android:entries="@array/preference_values_retrofit_log"
             android:entryValues="@array/preference_values_retrofit_log"
-            android:summary="%s" />
+            android:key="@string/preference_key_retrofit_log_level"
+            android:summary="%s"
+            android:title="@string/preferences_developer_retrofit_log_level" />
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
@@ -87,9 +86,9 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
+            android:dialogMessage="@string/preferences_developer_remote_log_summary"
             android:key="@string/preference_key_remote_log"
-            android:title="@string/preferences_developer_remote_log_title"
-            android:dialogMessage="@string/preferences_developer_remote_log_summary" />
+            android:title="@string/preferences_developer_remote_log_title" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
@@ -100,18 +99,19 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
         <SwitchPreferenceCompat
+            android:defaultValue="false"
             android:key="@string/preference_key_notification_show_all"
-            android:title="@string/preference_key_notification_show_all"
-            android:defaultValue="false" />
+            android:title="@string/preference_key_notification_show_all" />
 
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"
             android:key="@string/preference_key_page_last_shown"
             android:title="@string/preference_key_page_last_shown" />
 
-        <Preference android:key="@string/preferences_developer_user_option_key"
-            android:title="@string/preferences_developer_user_option_title"
-            android:summary="@string/preferences_developer_user_option_summary" />
+        <Preference
+            android:key="@string/preferences_developer_user_option_key"
+            android:summary="@string/preferences_developer_user_option_summary"
+            android:title="@string/preferences_developer_user_option_title" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
@@ -145,18 +145,18 @@
 
         <Preference
             android:key="@string/preference_key_missing_description_test"
-            android:title="@string/preference_key_missing_description_test"
-            android:summary="Fetch a random article that has no description in the current app language." />
+            android:summary="Fetch a random article that has no description in the current app language."
+            android:title="@string/preference_key_missing_description_test" />
 
         <Preference
             android:key="@string/preference_key_missing_description_test2"
-            android:title="@string/preference_key_missing_description_test2"
-            android:summary="Fetch a random article that has a description in the current app language, but does *not* have a description in the *second* app language." />
+            android:summary="Fetch a random article that has a description in the current app language, but does *not* have a description in the *second* app language."
+            android:title="@string/preference_key_missing_description_test2" />
 
         <Preference
             android:key="@string/preference_key_dialog_with_image_test"
-            android:title="@string/preference_key_dialog_with_image_test"
-            android:summary="Show our customized dialog with an image above the title." />
+            android:summary="Show our customized dialog with an image above the title."
+            android:title="@string/preference_key_dialog_with_image_test" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
@@ -186,9 +186,10 @@
             android:key="@string/preference_key_crashed_before_activity_created"
             android:title="@string/preference_key_crashed_before_activity_created" />
 
-        <Preference android:key="@string/preferences_developer_crash_key"
-            android:title="@string/preferences_developer_crash_title"
-            android:summary="@string/preferences_developer_crash_summary" />
+        <Preference
+            android:key="@string/preferences_developer_crash_key"
+            android:summary="@string/preferences_developer_crash_summary"
+            android:title="@string/preferences_developer_crash_title" />
 
     </PreferenceCategory>
 
@@ -237,7 +238,7 @@
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_feed_hidden_cards"
-            android:title="@string/preference_key_feed_hidden_cards"/>
+            android:title="@string/preference_key_feed_hidden_cards" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_show_reading_lists_sync_prompt"
@@ -305,19 +306,19 @@
 
         <Preference
             android:key="@string/preferences_developer_suggested_edits_add_description_dialog"
-            android:title="@string/preferences_developer_suggested_edits_add_description_dialog"/>
+            android:title="@string/preferences_developer_suggested_edits_add_description_dialog" />
 
         <Preference
             android:key="@string/preferences_developer_suggested_edits_add_description_notification"
-            android:title="@string/preferences_developer_suggested_edits_add_description_notification"/>
+            android:title="@string/preferences_developer_suggested_edits_add_description_notification" />
 
         <Preference
             android:key="@string/preferences_developer_suggested_edits_translate_description_dialog"
-            android:title="@string/preferences_developer_suggested_edits_translate_description_dialog"/>
+            android:title="@string/preferences_developer_suggested_edits_translate_description_dialog" />
 
         <Preference
             android:key="@string/preferences_developer_suggested_edits_translate_description_notification"
-            android:title="@string/preferences_developer_suggested_edits_translate_description_notification"/>
+            android:title="@string/preferences_developer_suggested_edits_translate_description_notification" />
 
     </PreferenceCategory>
 

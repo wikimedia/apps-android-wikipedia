@@ -7,29 +7,35 @@
     <color name="base80">#eaecf0</color> <!-- B AAA: Disabled text input background -->
     <color name="base70">#c8ccd1</color> <!-- B AAA: Disabled button / 3D widget background -->
     <color name="base50">#a2a9b1</color> <!-- B AAA: Highlighted border -->
-    <color name="base30">#72777d</color> <!-- B&W AA: Disabled elements text, Placeholder text, Active border -->
+    <color name="base30">#72777d
+    </color> <!-- B&W AA: Disabled elements text, Placeholder text, Active border -->
     <color name="base20">#54595d</color> <!-- W AAA: Emphasized secondary text at level AAA need -->
     <color name="base18">#43464a</color> <!-- AAA: "Mesosphere gray" -->
     <color name="base14">#2e3136</color> <!-- AAA: "Thermosphere gray" -->
     <color name="base12">#27292d</color> <!-- AAA: "Exosphere gray" -->
     <color name="base10">#222</color> <!-- W AAA: Copy color, Buttons / widgets text -->
     <color name="base4">#101418</color> <!-- W AAA: "Pitch black" -->
-    <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
+    <color name="base0">#000
+    </color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
 
     <!-- Accent -->
-    <color name="accent90">#eaf3ff</color> <!-- B AAA: Hovered buttons, Active menu, Items background -->
+    <color name="accent90">#eaf3ff
+    </color> <!-- B AAA: Hovered buttons, Active menu, Items background -->
     <color name="accent75">#69f</color> <!-- AAA "Stratosphere blue" -->
-    <color name="accent50">#36c</color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
+    <color name="accent50">#36c
+    </color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
     <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
     <color name="accent20">#223966</color>
     <color name="accent16">#1A3060</color> <!-- W AAA: "Midnight blue" -->
     <color name="accent10">#132347</color>
     <color name="red75">#FF6E6E</color> <!-- Destructive text (error messages, red links) -->
-    <color name="red50">#d33</color> <!-- Foundation Red: B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
+    <color name="red50">#d33
+    </color> <!-- Foundation Red: B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
     <color name="red30">#b32424</color>
 
     <!-- Supplementary -->
-    <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
+    <color name="green50">#00af89
+    </color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
     <color name="green30">#14866d</color> <!-- W AA: -->
     <color name="yellow90">#fef6e7</color>
     <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->

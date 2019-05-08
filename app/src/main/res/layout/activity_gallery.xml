@@ -12,41 +12,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:orientation="vertical"
         android:background="@android:color/black"
-        android:visibility="gone"/>
+        android:orientation="vertical"
+        android:visibility="gone" />
 
     <com.duolingo.open.rtlviewpager.RtlViewPager
         android:id="@+id/gallery_item_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <FrameLayout
         android:id="@+id/gallery_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/gallery_toolbar"
-                android:theme="@style/ToolbarTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black26" />
+                android:background="@color/black26"
+                android:theme="@style/ToolbarTheme" />
+
             <View
                 android:id="@+id/gallery_toolbar_gradient"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"/>
+                android:layout_height="80dp" />
         </LinearLayout>
+
         <ProgressBar
             android:id="@+id/gallery_progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_marginTop="-7.5dp"
-            style="?android:attr/progressBarStyleHorizontal"/>
+            android:layout_marginTop="-7.5dp" />
     </FrameLayout>
 
     <LinearLayout
@@ -55,25 +59,27 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical">
+
         <View
             android:id="@+id/gallery_info_gradient"
             android:layout_width="match_parent"
-            android:layout_height="80dp"/>
+            android:layout_height="80dp" />
+
         <org.wikipedia.views.AppTextView
             android:id="@+id/gallery_description_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/black38"
+            android:fadeScrollbars="false"
+            android:maxHeight="128dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:maxHeight="128dp"
-            android:textIsSelectable="true"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
-            android:fadeScrollbars="false"
-            android:background="@color/black38"
-            tools:text="Sample image description text"
             android:textColor="@color/base90"
-            android:textColorLink="@color/base90"/>
+            android:textColorLink="@color/base90"
+            android:textIsSelectable="true"
+            tools:text="Sample image description text" />
 
         <LinearLayout
             android:id="@+id/license_container"

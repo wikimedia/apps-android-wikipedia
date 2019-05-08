@@ -1,15 +1,17 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="oval">
-            <size android:width="64dp"
-                android:height="64dp"/>
-            <solid android:color="@android:color/white"/>
+            <size
+                android:width="64dp"
+                android:height="64dp" />
+            <solid android:color="@android:color/white" />
         </shape>
     </item>
 
-    <item android:top="20dp"
+    <item
         android:bottom="20dp"
+        android:drawable="@drawable/w_nav_mark"
         android:left="20dp"
         android:right="20dp"
-        android:drawable="@drawable/w_nav_mark"/>
+        android:top="20dp" />
 </layer-list>

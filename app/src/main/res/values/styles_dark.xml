@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="ThemeDark">
 
@@ -32,11 +32,15 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
 
         <!-- Overrides of our own custom style attributes -->
-        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
-        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>
+        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark
+        </item>
+        <item name="edit_improve_tag_unselected_drawable">
+            @drawable/edit_improve_tag_unselected_dark
+        </item>
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="list_separator_drawable">@drawable/divider_dark</item>
-        <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_dark</item>
+        <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_dark
+        </item>
         <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->

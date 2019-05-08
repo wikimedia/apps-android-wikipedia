@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
     android:paddingStart="16dp"
-    android:paddingEnd="30dp">
+    android:paddingTop="16dp"
+    android:paddingEnd="30dp"
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/page_toc_item_text"
-        android:layout_height="wrap_content"
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textAlignment="viewEnd"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="32dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         tools:text="Sample Table of Contents entry" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/page_toc_item_bullet"
         android:layout_width="8dp"
         android:layout_height="8dp"
+        android:contentDescription="@null"
         app:srcCompat="@drawable/shape_circle"
-        app:tint="@color/base50"
-        android:contentDescription="@null"/>
+        app:tint="@color/base50" />
 
 </LinearLayout>

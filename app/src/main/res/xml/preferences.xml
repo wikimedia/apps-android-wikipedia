@@ -1,70 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     //TODO: Remove the override of the private attributes in values/sw360dp/v13/preference.xml
      when a better solution is found in androidx for removing the iconReserved space.
 -->
-<androidx.preference.PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/preferences_general_heading">
         <org.wikipedia.settings.PreferenceMultiLine
-                android:key="@string/preference_key_language"
-                android:title="@string/preference_title_language">
-        </org.wikipedia.settings.PreferenceMultiLine>
+            android:key="@string/preference_key_language"
+            android:title="@string/preference_title_language"></org.wikipedia.settings.PreferenceMultiLine>
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:defaultValue="true"
             android:key="@string/preference_key_show_link_previews"
-            android:defaultValue="true"
-            android:title="@string/preference_title_show_link_previews"
-            android:summary="@string/preference_summary_show_link_previews" />
+            android:summary="@string/preference_summary_show_link_previews"
+            android:title="@string/preference_title_show_link_previews" />
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_collapse_tables"
             android:defaultValue="true"
-            android:title="@string/preference_title_collapse_tables"
-            android:summary="@string/preference_summary_collapse_tables" />
+            android:key="@string/preference_key_collapse_tables"
+            android:summary="@string/preference_summary_collapse_tables"
+            android:title="@string/preference_title_collapse_tables" />
         <org.wikipedia.settings.PreferenceMultiLine
-            android:key="@string/preference_key_color_theme"
             android:defaultValue="0"
-            android:title="@string/preference_title_app_theme"
-            android:summary="@string/preference_summary_color_theme"/>
+            android:key="@string/preference_key_color_theme"
+            android:summary="@string/preference_summary_color_theme"
+            android:title="@string/preference_title_app_theme" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_sync"
         android:title="@string/preferences_heading_syncing">
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:defaultValue="false"
             android:key="@string/preference_key_sync_reading_lists"
-            android:defaultValue="false"
-            android:title="@string/preference_title_sync_reading_lists_from_account"/>
+            android:title="@string/preference_title_sync_reading_lists_from_account" />
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_download_reading_list_articles"
             android:defaultValue="true"
-            android:title="@string/preference_title_download_reading_list_articles"/>
+            android:key="@string/preference_key_download_reading_list_articles"
+            android:title="@string/preference_title_download_reading_list_articles" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/preferences_heading_data_usage">
+    <PreferenceCategory android:title="@string/preferences_heading_data_usage">
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_download_only_over_wifi"
             android:defaultValue="false"
+            android:key="@string/preference_key_download_only_over_wifi"
             android:title="@string/preference_title_download_only_over_wifi" />
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_images"
             android:defaultValue="true"
-            android:title="@string/preference_title_show_images"
-            android:summary="@string/preference_summary_show_images" />
+            android:key="@string/preference_key_show_images"
+            android:summary="@string/preference_summary_show_images"
+            android:title="@string/preference_title_show_images" />
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_prefer_offline_content"
             android:defaultValue="false"
-            android:title="@string/preference_title_prefer_offline_content"
-            android:summary="@string/preference_summary_prefer_offline_content" />
+            android:key="@string/preference_key_prefer_offline_content"
+            android:summary="@string/preference_summary_prefer_offline_content"
+            android:title="@string/preference_title_prefer_offline_content" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_privacy_settings_heading">
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:defaultValue="true"
             android:key="@string/preference_key_eventlogging_opt_in"
-            android:defaultValue="true"
-            android:title="@string/preference_title_eventlogging_opt_in"
-            android:summary="@string/preference_summary_eventlogging_opt_in" />
+            android:summary="@string/preference_summary_eventlogging_opt_in"
+            android:title="@string/preference_title_eventlogging_opt_in" />
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_auto_upload_crash_reports"
             android:defaultValue="true"
-            android:title="@string/preference_title_auto_upload_crash_reports"
-            android:summary="@string/preference_summary_auto_upload_crash_reports" />
+            android:key="@string/preference_key_auto_upload_crash_reports"
+            android:summary="@string/preference_summary_auto_upload_crash_reports"
+            android:title="@string/preference_title_auto_upload_crash_reports" />
     </PreferenceCategory>
 </androidx.preference.PreferenceScreen>

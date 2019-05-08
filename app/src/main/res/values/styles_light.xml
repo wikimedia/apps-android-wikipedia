@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="ThemeLight">
 
@@ -32,11 +32,15 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
-        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
-        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
+        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light
+        </item>
+        <item name="edit_improve_tag_unselected_drawable">
+            @drawable/edit_improve_tag_unselected_light
+        </item>
         <item name="lead_image_drawable">@drawable/lead_default</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
-        <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
+        <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light
+        </item>
         <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
@@ -66,7 +70,8 @@
         <item name="chart_shade7">@color/base100</item>
         <item name="green_highlight_color">@color/green30</item>
         <item name="randomizer_dice_icon_color">@android:color/white</item>
-        <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_light</item>
+        <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_light
+        </item>
         <item name="thumb_off_color">@color/base90</item>
         <item name="track_off_color">@color/base0</item>
         <item name="toc_h1_h2_color">@color/base0</item>

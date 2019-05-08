@@ -5,11 +5,11 @@
     tools:ignore="AlwaysShowAction">
     <item
         android:id="@+id/menu_help"
-        android:title="@string/suggested_edits_menu_info"
         android:icon="@drawable/ic_info_outline_themed_24dp"
+        android:title="@string/suggested_edits_menu_info"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_my_contributions"
         android:title="@string/suggested_edits_my_contributions"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 </menu>

@@ -3,14 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AlwaysShowAction">
-    <item android:id="@+id/menu_feed_configure_select_all"
+    <item
+        android:id="@+id/menu_feed_configure_select_all"
         android:title="@string/feed_configure_menu_select_all"
-        app:showAsAction="never"/>
-    <item android:id="@+id/menu_feed_configure_deselect_all"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_feed_configure_deselect_all"
         android:title="@string/feed_configure_menu_deselect_all"
-        app:showAsAction="never"/>
-    <item android:id="@+id/menu_feed_configure_reset"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_feed_configure_reset"
         android:title="@string/feed_configure_menu_reset"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
 </menu>

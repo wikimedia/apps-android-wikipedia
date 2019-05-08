@@ -3,7 +3,8 @@
 
     <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
-        <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
+        <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference
+        </item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:buttonStyle">@style/App.Button</item>
@@ -293,7 +294,7 @@
 
     <!-- Preferences -->
 
-    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay" >
+    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay">
         <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
         <item name="android:listPreferredItemPaddingLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>
@@ -415,8 +416,11 @@
     </style>
 
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
-        <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
-        <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
+        <item name="android:dropDownHorizontalOffset">
+            @dimen/popup_menu_drop_down_horizontal_offset
+        </item>
+        <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset
+        </item>
     </style>
 
     <style name="DialogTextAppearance">

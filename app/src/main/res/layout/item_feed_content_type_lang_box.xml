@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/feed_content_type_lang_code"
     android:layout_width="wrap_content"
     android:layout_height="16dp"
     android:layout_marginStart="4dp"
     android:layout_marginEnd="4dp"
-    android:paddingTop="1dp"
-    android:paddingBottom="1dp"
     android:paddingStart="3dp"
+    android:paddingTop="1dp"
     android:paddingEnd="3dp"
+    android:paddingBottom="1dp"
     android:textAllCaps="true"
     android:textSize="10sp"
-    tools:text="zh-hant"/>
+    tools:text="zh-hant" />

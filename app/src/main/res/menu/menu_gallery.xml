@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-        >
-    <item android:id="@+id/menu_gallery_share"
-        android:title="@string/gallery_menu_share"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_gallery_share"
         android:icon="?actionModeShareDrawable"
-        app:showAsAction="ifRoom"/>
-    <item android:id="@+id/menu_gallery_save"
+        android:title="@string/gallery_menu_share"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_gallery_save"
         android:title="@string/view_featured_image_card_download"
-        app:showAsAction="never"/>
-    <item android:id="@+id/menu_gallery_visit_page"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_gallery_visit_page"
         android:title="@string/menu_gallery_visit_page"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
 </menu>

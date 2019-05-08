@@ -9,8 +9,9 @@
     We truly want all of the buttons to be shown in the toolbar, even on small
     screens, instead of overflowing into the native overflow menu.
     -->
-    <item android:id="@+id/menu_feed_search"
-        android:title="@string/search_hint"
+    <item
+        android:id="@+id/menu_feed_search"
         android:icon="@drawable/ic_search_main_themed_24dp"
-        app:showAsAction="always"/>
+        android:title="@string/search_hint"
+        app:showAsAction="always" />
 </menu>

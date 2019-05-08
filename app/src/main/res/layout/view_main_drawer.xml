@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:background="?attr/paper_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_drawer_account_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/windowBackground"
         android:paddingStart="4dp"
         android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="?android:attr/windowBackground">
+        android:paddingBottom="16dp">
 
         <FrameLayout
             android:id="@+id/main_drawer_account_avatar_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -50,29 +49,30 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="sans-serif-medium"
-            app:layout_constraintStart_toEndOf="@+id/main_drawer_account_avatar_container"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/main_drawer_account_avatar_container"
-            app:layout_constraintBottom_toBottomOf="@+id/main_drawer_account_avatar_container"
             android:textColor="?attr/material_theme_secondary_color"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/main_drawer_account_avatar_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/main_drawer_account_avatar_container"
+            app:layout_constraintTop_toTopOf="@+id/main_drawer_account_avatar_container"
             tools:text="Sample account name" />
 
         <TextView
             android:id="@+id/main_drawer_login_button"
+            style="@style/TransparentButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:text="@string/main_drawer_login"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_drawer_account_avatar_container"
-            style="@style/TransparentButton"
-            android:text="@string/main_drawer_login" />
+            app:layout_constraintTop_toBottomOf="@+id/main_drawer_account_avatar_container" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/main_drawer_settings_container"
         style="@style/SideDrawerMenuItem">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -92,6 +92,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_notifications_container"
         style="@style/SideDrawerMenuItem">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -111,6 +112,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_configure_container"
         style="@style/SideDrawerMenuItem">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -173,6 +175,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_donate_container"
         style="@style/SideDrawerMenuItem">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
