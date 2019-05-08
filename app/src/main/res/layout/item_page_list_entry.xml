@@ -26,22 +26,12 @@
         tools:text="Header text"
         tools:visibility="visible" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/page_list_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:layout_marginStart="@dimen/list_item_horizontal_padding"
-        app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:roundedCornerRadius="2dp" />
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/page_list_item_selected_image"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
-        app:layout_constraintTop_toTopOf="@id/page_list_item_image"
-        app:layout_constraintStart_toStartOf="@+id/page_list_item_image"
+        app:layout_constraintTop_toTopOf="@id/page_list_item_title"
+        app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/button_shape_gray"
         android:contentDescription="@null"
         android:padding="8dp"
@@ -60,7 +50,7 @@
         android:paddingEnd="8dp"
         app:layout_constraintBottom_toTopOf="@id/page_list_item_description"
         app:layout_constraintEnd_toStartOf="@id/page_list_item_secondary_container"
-        app:layout_constraintStart_toEndOf="@id/page_list_item_image"
+        app:layout_constraintStart_toEndOf="@+id/page_list_item_selected_image"
         app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
@@ -84,7 +74,8 @@
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/page_list_item_action_primary"
+        app:layout_constraintStart_toEndOf="@+id/page_list_item_title"
+        app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
         tools:visibility="visible">
         <org.wikipedia.views.CircularProgressBar
@@ -132,6 +123,17 @@
             app:singleLine="true"
             app:singleSelection="true" />
     </HorizontalScrollView>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/page_list_item_image"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
+        app:layout_constraintStart_toEndOf="@+id/page_list_item_secondary_container"
+        app:layout_constraintEnd_toStartOf="@+id/page_list_item_action_primary"
+        app:roundedCornerRadius="2dp" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/page_list_item_action_primary"

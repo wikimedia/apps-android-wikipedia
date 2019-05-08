@@ -107,6 +107,7 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
+        imageView.setVisibility((url == null) ? GONE : VISIBLE);
         ViewUtil.loadImageUrlInto(imageView, url);
     }
 
