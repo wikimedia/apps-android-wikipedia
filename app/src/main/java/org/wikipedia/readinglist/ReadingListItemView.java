@@ -38,6 +38,7 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class ReadingListItemView extends ConstraintLayout {
     public interface Callback {
@@ -53,7 +54,6 @@ public class ReadingListItemView extends ConstraintLayout {
     @BindView(R.id.item_title) TextView titleView;
     @BindView(R.id.item_reading_list_statistical_description) TextView statisticalDescriptionView;
     @BindView(R.id.item_description) TextView descriptionView;
-    @BindView(R.id.item_overflow_menu)View overflowButton;
 
     @BindView(R.id.default_list_empty_image) ImageView defaultListEmptyView;
     @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<SimpleDraweeView> imageViews;
@@ -98,10 +98,6 @@ public class ReadingListItemView extends ConstraintLayout {
         this.callback = callback;
     }
 
-    public void setOverflowButtonVisible(boolean visible) {
-        overflowButton.setVisibility(visible ? VISIBLE : GONE);
-    }
-
     public void setThumbnailVisible(boolean visible) {
         for (View view : imageViews) {
             view.setVisibility(visible ? VISIBLE : GONE);
@@ -124,7 +120,7 @@ public class ReadingListItemView extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.item_overflow_menu) void showOverflowMenu(View anchorView) {
+    @OnLongClick(R.id.item_title) void showOverflowMenu(View anchorView) {
         PopupMenu menu = new PopupMenu(getContext(), anchorView, Gravity.END);
         menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
 
