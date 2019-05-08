@@ -33,8 +33,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 style="@style/MaterialListSubtitle"
                 android:text="@string/feed_configure_language_warning"/>
 

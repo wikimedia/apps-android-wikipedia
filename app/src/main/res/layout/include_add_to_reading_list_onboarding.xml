@@ -5,8 +5,8 @@
     android:background="?attr/paper_color"
     android:orientation="vertical"
     android:paddingBottom="24dp"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
     android:paddingTop="24dp">
 
     <TextView
@@ -137,8 +137,8 @@
     <TextView
         android:id="@+id/onboarding_button"
         style="@style/App.Button.Blue"
-        android:paddingLeft="26dp"
-        android:paddingRight="26dp"
+        android:paddingStart="26dp"
+        android:paddingEnd="26dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:layout_gravity="end"
