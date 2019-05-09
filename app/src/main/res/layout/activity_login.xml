@@ -36,8 +36,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
                     android:layout_marginTop="-8dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:text="@string/login_join_wikipedia"
                     android:textColor="?attr/colorAccent" />
 
@@ -49,8 +49,8 @@
                 android:layout_marginTop="16dp"
                 android:orientation="vertical"
                 android:clipToPadding="false"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/login_username_text"
@@ -105,8 +105,8 @@
                     android:layout_width="match_parent"
                     android:enabled="false"
                     android:text="@string/menu_login"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="0dp"/>
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,8 +126,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
                         android:text="•"
                         tools:ignore="HardcodedText" />
 
