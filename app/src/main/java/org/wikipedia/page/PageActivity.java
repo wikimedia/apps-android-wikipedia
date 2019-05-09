@@ -269,12 +269,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @NonNull
-    public static Intent newIntent(@NonNull Context context, @NonNull String title) {
-        PageTitle pageTitle = new PageTitle(title, WikipediaApp.getInstance().getWikiSite());
-        return newIntentForNewTab(context, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK), pageTitle);
-    }
-
-    @NonNull
     public static Intent newIntentForNewTab(@NonNull Context context) {
         return new Intent(ACTION_CREATE_NEW_TAB)
                 .setClass(context, PageActivity.class);
@@ -474,12 +468,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (pageFragment.onBackPressed()) {
             return;
         }
-
-        if (WikipediaApp.getInstance().getTabCount() < 1) {
-            finish();
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
     }
 
     @Override

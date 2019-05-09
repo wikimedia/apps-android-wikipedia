@@ -7,8 +7,8 @@
     android:orientation="vertical"
     android:gravity="center_vertical"
     android:paddingTop="@dimen/list_item_header_padding"
-    android:paddingRight="@dimen/list_item_horizontal_padding"
-    android:paddingLeft="@dimen/list_item_horizontal_padding"
+    android:paddingEnd="@dimen/list_item_horizontal_padding"
+    android:paddingStart="@dimen/list_item_horizontal_padding"
     android:background="?attr/paper_color">
     <TextView
         android:id="@+id/section_header_text"

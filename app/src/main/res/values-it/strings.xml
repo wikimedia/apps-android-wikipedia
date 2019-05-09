@@ -147,7 +147,7 @@
   <string name="reset_password_button">Salva ed accedi</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="logout_prompt">Sei sicuro di voler uscire?</string>
+  <string name="logout_prompt">Questo ti disconnetterà da tutti i dispositivi in cui sei attualmente connesso. Vuoi continuare?</string>
   <string name="logout_dialog_cancel_button_text">Annulla</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
@@ -530,7 +530,6 @@
   <string name="preference_summary_notification_thanks">Qualcuno ti ha ringraziato per una modifica</string>
   <string name="preference_title_notification_revert">Ripristina</string>
   <string name="preference_summary_notification_revert">Uno dei tuoi contributi è stato annullato</string>
-  <string name="view_continue_reading_card_title">Continua a leggere</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_card_subtitle">Sfoglia voci casuali da leggere da Wikipedia.</string>
@@ -659,10 +658,6 @@
   <string name="offline_read_final_rationale">Per utilizzare la libreria offline è necessaria l\'autorizzazione per accedere allo spazio di archiviazione sul dispositivo.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minuto rimasto</item>
-    <item quantity="other">%d minuti rimasti</item>
-  </plurals>
   <string name="onboarding_skip">Salta</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Inizia</string>

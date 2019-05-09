@@ -15,12 +15,8 @@ public class ToCInteractionFunnel extends Funnel {
     private final int pageId;
     private final int numSections;
 
-    private int numPeeks;
     private int numOpens;
     private int numSectionClicks;
-
-    private long lastPeekMillis;
-    private int totalPeekSec;
 
     private long lastScrollStartMillis;
     private int totalOpenedSec;
@@ -39,19 +35,6 @@ public class ToCInteractionFunnel extends Funnel {
     }
 
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
-
-    public void peek() {
-        numPeeks++;
-        lastPeekMillis = System.currentTimeMillis();
-    }
-
-    public void hide() {
-        if (lastPeekMillis == 0) {
-            return;
-        }
-        totalPeekSec += (System.currentTimeMillis() - lastPeekMillis) / TimeUnit.SECONDS.toMillis(1);
-        lastPeekMillis = 0;
-    }
 
     public void scrollStart() {
         numOpens++;
@@ -72,16 +55,15 @@ public class ToCInteractionFunnel extends Funnel {
     }
 
     public void log() {
-        hide();
         scrollStop();
-        if (numSections == 0 || totalPeekSec == 0) {
+        if (numSections == 0 || numOpens == 0) {
             return;
         }
         log(
-                "num_peeks", numPeeks,
+                "num_peeks", 0,
                 "num_opens", numOpens,
                 "num_section_clicks", numSectionClicks,
-                "total_peek_sec", totalPeekSec,
+                "total_peek_sec", 0,
                 "total_open_sec", totalOpenedSec
         );
     }

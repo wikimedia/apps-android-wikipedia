@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:background="?attr/paper_color"
         android:paddingBottom="16dp"
-        android:paddingLeft="@dimen/list_item_horizontal_padding"
-        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:paddingStart="@dimen/list_item_horizontal_padding"
+        android:paddingEnd="@dimen/list_item_horizontal_padding"
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="?attr/section_title_color"
         android:visibility="gone"
@@ -143,7 +143,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
-        app:srcCompat="@drawable/ic_favorite_white_24dp"
+        app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
         app:tint="?attr/material_theme_secondary_color"
         tools:visibility="visible" />
 </merge>

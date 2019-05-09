@@ -533,7 +533,6 @@
   <string name="preference_summary_notification_milestone">Visse antal redigeringer er opnået</string>
   <string name="preference_title_notification_thanks">Tak</string>
   <string name="preference_summary_notification_thanks">Nogen takkede dig for en redigering</string>
-  <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia.</string>
@@ -650,10 +649,6 @@
   <string name="offline_read_final_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at bruge lokalt bibliotek.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minut tilbage</item>
-    <item quantity="other">%d minutter tilbage</item>
-  </plurals>
   <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>

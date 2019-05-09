@@ -108,7 +108,6 @@ public final class AccountUtil {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
                 accountManager().removeAccountExplicitly(account);
             } else {
-                //noinspection deprecation
                 accountManager().removeAccount(account, null, null);
             }
         }

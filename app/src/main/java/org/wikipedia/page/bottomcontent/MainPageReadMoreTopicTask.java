@@ -22,7 +22,7 @@ import java.util.concurrent.Callable;
 public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
     private int age;
 
-    public MainPageReadMoreTopicTask() {
+    MainPageReadMoreTopicTask() {
         this(0);
     }
 
@@ -31,7 +31,7 @@ public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
     }
 
     @Override
-    public HistoryEntry call() throws Exception {
+    public HistoryEntry call() {
         try (Cursor c = getInterestedHistoryEntry()) {
             if (c.moveToPosition(age)) {
                 HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
@@ -47,7 +47,6 @@ public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
         ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
         try {
             Uri uri = PageHistoryContract.PageWithImage.URI;
-            final String[] projection = null;
             String selection = ":sourceCol != ? and :sourceCol != ? and :sourceCol != ? and :timeSpentCol >= ?"
                     .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName())
                     .replaceAll(":timeSpentCol", PageHistoryContract.Page.TIME_SPENT.qualifiedName());
@@ -56,7 +55,7 @@ public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
                     Integer.toString(HistoryEntry.SOURCE_FEED_MAIN_PAGE),
                     Integer.toString(context.getResources().getInteger(R.integer.article_engagement_threshold_sec))};
             String order = PageHistoryContract.PageWithImage.ORDER_MRU;
-            return client.query(uri, projection, selection, selectionArgs, order);
+            return client.query(uri, null, selection, selectionArgs, order);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         } finally {

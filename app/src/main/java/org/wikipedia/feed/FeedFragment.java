@@ -78,7 +78,6 @@ import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
-import static org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
 
 public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
@@ -237,7 +236,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             refresh();
         } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             if (suggestedEditsCardView != null) {
-                suggestedEditsCardView.showAddedDescriptionView(data.getStringExtra(EXTRA_SOURCE_ADDED_DESCRIPTION));
+                suggestedEditsCardView.refreshCardContent();
             }
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar);
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
@@ -249,7 +248,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         PageTitle pageTitle = suggestedEditsCardView.isTranslation()
                 ? suggestedEditsCardView.getTargetSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getTargetSummary().getLang()))
                 : suggestedEditsCardView.getSourceSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getSourceSummary().getLang()));
-        pageTitle.setDescription(suggestedEditsCardView.getAddedDescription());
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,
                 suggestedEditsCardView.getSourceSummary(), suggestedEditsCardView.getTargetSummary(),
                 suggestedEditsCardView.isTranslation() ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),

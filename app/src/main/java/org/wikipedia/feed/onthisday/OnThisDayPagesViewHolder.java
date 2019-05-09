@@ -1,7 +1,6 @@
 package org.wikipedia.feed.onthisday;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
@@ -27,10 +26,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-
-import static org.wikipedia.page.PageActivity.ACTION_LOAD_IN_NEW_TAB;
-import static org.wikipedia.page.PageActivity.EXTRA_HISTORYENTRY;
-import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 
 public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     public interface ItemCallBack {
@@ -81,13 +76,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
-        Intent intent = new Intent(ACTION_LOAD_IN_NEW_TAB)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .setClass(activity, PageActivity.class)
-                .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, pageTitle);
-
-        activity.startActivity(intent);
+        activity.startActivity(PageActivity.newIntentForCurrentTab(activity, entry, pageTitle));
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
