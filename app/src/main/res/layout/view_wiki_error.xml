@@ -72,8 +72,8 @@
                     android:gravity="center_horizontal"
                     style="@style/TextViewCentered"
                     android:lineSpacingMultiplier="1.2"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:textColor="@color/base30"
                     android:textSize="14sp"
                     tools:text="Footer text, if any, appears here." />

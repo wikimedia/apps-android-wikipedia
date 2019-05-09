@@ -31,8 +31,8 @@
         android:id="@+id/view_featured_article_card_text_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_divider"
         android:clickable="true"
         android:background="?attr/selectableItemBackground">

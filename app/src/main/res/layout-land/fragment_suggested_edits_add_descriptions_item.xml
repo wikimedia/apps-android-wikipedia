@@ -67,8 +67,8 @@
                 android:layout_height="wrap_content"
                 android:minHeight="116dp"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:paddingTop="11dp"
                 android:paddingBottom="16dp">
 

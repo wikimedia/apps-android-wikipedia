@@ -63,8 +63,8 @@
             android:id="@+id/gallery_description_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
             android:maxHeight="128dp"
             android:textIsSelectable="true"
             android:scrollbarStyle="insideInset"
@@ -81,9 +81,9 @@
             android:layout_height="wrap_content"
             android:background="@color/black38"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingTop="16dp"
-            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
             android:paddingBottom="16dp">
 
             <include layout="@layout/view_license_icons_layout" />

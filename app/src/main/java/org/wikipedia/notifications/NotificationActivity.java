@@ -400,7 +400,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     @Override
     public void onActionPageTitle(@NonNull PageTitle pageTitle) {
-        startActivity(PageActivity.newIntentForNewTab(this,
+        startActivity(PageActivity.newIntentForCurrentTab(this,
                 new HistoryEntry(pageTitle, HistoryEntry.SOURCE_NOTIFICATION), pageTitle));
     }
 
