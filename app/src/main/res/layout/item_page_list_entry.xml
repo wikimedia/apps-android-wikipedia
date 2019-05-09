@@ -110,7 +110,7 @@
         android:scrollbars="none"
         android:clipChildren="false"
         android:clipToPadding="false"
-        app:layout_constraintTop_toBottomOf="@id/page_list_item_description"
+        app:layout_constraintTop_toBottomOf="@id/page_list_item_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/page_list_item_title"
         app:layout_constraintEnd_toEndOf="parent"
