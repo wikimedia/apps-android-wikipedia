@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="20dp"
         android:layout_gravity="center_vertical"
         android:clickable="true"
@@ -68,8 +68,8 @@
                 android:layout_height="wrap_content"
                 android:minHeight="231dp"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:paddingTop="11dp"
                 android:paddingBottom="16dp">
 

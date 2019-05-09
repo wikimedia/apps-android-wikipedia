@@ -14,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/bottomSheetPeekHeight"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -26,7 +26,6 @@
                     android:id="@+id/link_preview_thumbnail"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginRight="12dp"
                     android:layout_marginEnd="12dp"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@null"
