@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
-import org.wikipedia.util.L10nUtil;
 
 @SuppressLint("AppCompatCustomView")
 public class DiscreteSeekBar extends SeekBar {
@@ -62,7 +61,7 @@ public class DiscreteSeekBar extends SeekBar {
             }
             array.recycle();
         }
-        isRtl = L10nUtil.isDeviceRTL();
+        isRtl = getResources().getConfiguration().getLayoutDirection() == LAYOUT_DIRECTION_RTL;
     }
 
     @Override
