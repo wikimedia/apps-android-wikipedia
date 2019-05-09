@@ -20,6 +20,7 @@ public class DiscreteSeekBar extends SeekBar {
     private int min;
     @Nullable private Drawable tickDrawable;
     @Nullable private Drawable centerDrawable;
+    private boolean isRtl;
 
     public DiscreteSeekBar(Context context) {
         super(context);
@@ -60,6 +61,7 @@ public class DiscreteSeekBar extends SeekBar {
             }
             array.recycle();
         }
+        isRtl = getResources().getConfiguration().getLayoutDirection() == LAYOUT_DIRECTION_RTL;
     }
 
     @Override
@@ -90,6 +92,9 @@ public class DiscreteSeekBar extends SeekBar {
         }
         float tickSpacing = (float) (getWidth() - getPaddingLeft() - getPaddingRight()) / (float) (max - min);
         canvas.save();
+        if (isRtl) {
+            canvas.scale(-1, 1, getWidth() / 2, getHeight() / 2);
+        }
         canvas.translate((float) getPaddingLeft(), (float) (getHeight() / 2));
         for (int i = min; i <= max; ++i) {
             if (drawOther && tickDrawable != null && i > value) {
