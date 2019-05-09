@@ -24,15 +24,18 @@ import com.google.android.material.snackbar.Snackbar;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
 import org.wikipedia.events.EditorTaskUnlockEvent;
+import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -82,6 +85,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(networkStateReceiver, filter);
 
         DeviceUtil.setLightSystemUiVisibility(this);
+
+        maybeShowLoggedOutInBackgroundDialog();
     }
 
     @Override protected void onDestroy() {
@@ -217,6 +222,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    private void maybeShowLoggedOutInBackgroundDialog() {
+        if (Prefs.wasLoggedOutInBackground()) {
+            Prefs.setLoggedOutInBackground(false);
+            new AlertDialog.Builder(this)
+                    .setCancelable(false)
+                    .setTitle(R.string.logged_out_in_background_title)
+                    .setMessage(R.string.logged_out_in_background_dialog)
+                    .setPositiveButton(R.string.logged_out_in_background_login, (dialog, which)
+                            -> startActivity(LoginActivity.newIntent(BaseActivity.this, LoginFunnel.SOURCE_LOGOUT_BACKGROUND)))
+                    .setNegativeButton(R.string.logged_out_in_background_cancel, null)
+                    .show();
+        }
+    }
+
     /**
      * Bus consumer that should be registered by all created activities.
      */
@@ -254,6 +273,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                 } else if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 2) {
                     SuggestedEditsAddDescriptionsActivity.Companion.showTranslateUnlockDialog(BaseActivity.this);
                 }
+            } else if (event instanceof LoggedOutInBackgroundEvent) {
+                maybeShowLoggedOutInBackgroundDialog();
             }
         }
     }
