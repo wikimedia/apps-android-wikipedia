@@ -24,6 +24,7 @@
 * Zjzengdongyang
 * 佛壁灯
 * 水獭很懒
+* 科劳
 -->
 <resources>
   <string name="app_name_prod">维基百科</string>
@@ -37,7 +38,7 @@
   <string name="search_hint_search_history">搜索历史</string>
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
-  <string name="nav_item_history">历史</string>
+  <string name="nav_item_history">历史记录</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -47,15 +48,15 @@
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
   <string name="menu_clear_all_history">清除历史</string>
-  <string name="history_item_deleted">%s已从历史中移除</string>
-  <string name="history_items_deleted">%d个条目已从历史中移除</string>
+  <string name="history_item_deleted">%s的历史记录已删除</string>
+  <string name="history_items_deleted">%d个条目的历史记录已删除</string>
   <string name="history_item_delete_undo">撤销</string>
   <string name="notification_archive_undo">撤销</string>
   <string name="app_settings">应用设置</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
-  <string name="dialog_message_clear_history">这将删除您所有的浏览历史，并关闭任何当前打开的标签。您确定要这样做么？</string>
-  <string name="dialog_message_clear_history_yes">是</string>
-  <string name="dialog_message_clear_history_no">否</string>
+  <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
+  <string name="dialog_message_clear_history_yes">确认</string>
+  <string name="dialog_message_clear_history_no">不</string>
   <string name="share_via">分享到…</string>
   <string name="image_share_via">分享到…</string>
   <string name="search_redirect_from">重定向自%s</string>
@@ -74,92 +75,92 @@
   <string name="menu_long_press_open_in_new_tab">在新标签页打开链接</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
   <string name="menu_text_select_copy">复制</string>
-  <string name="menu_text_select_define">定义</string>
+  <string name="menu_text_select_define">编辑定义</string>
   <string name="menu_text_select_share">分享</string>
   <string name="share">分享</string>
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此编辑</string>
   <string name="nav_item_nearby">附近</string>
-  <string name="nearby_zoom_to_location">缩放至地图上的位置</string>
+  <string name="nearby_zoom_to_location">找到地图上的位置</string>
   <string name="nearby_osm_license">&amp;copy;&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;贡献者</string>
   <string name="last_updated_text">最后更新于%s</string>
   <string name="talk_page_link_text">查看讨论页</string>
   <string name="edit_history_link_text">查看编辑历史</string>
   <string name="map_view_link_text">在地图上查看</string>
-  <string name="other_languages_indication_text">以另一语言阅读</string>
-  <string name="language_count_link_text">在%d种其他语言中可用</string>
+  <string name="other_languages_indication_text">其他语言</string>
+  <string name="language_count_link_text">在其他%d种语言中可用</string>
   <string name="content_license_html">除非另有声明，内容采用&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议发表。</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
-  <string name="preference_title_language">维基百科语言</string>
+  <string name="preference_title_language">添加维基百科语言</string>
   <string name="langlinks_filter_hint">搜索</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
-  <string name="langlinks_no_match">找不到语言</string>
-  <string name="langlinks_activity_title">其他语言</string>
-  <string name="langlinks_your_wikipedia_languages">您的维基百科语言</string>
-  <string name="menu_save_changes">发布更改</string>
-  <string name="dialog_saving_in_progress">正在发布…</string>
-  <string name="edit_saved_successfully">编辑已发布！</string>
-  <string name="dialog_message_edit_failed">编辑失败！</string>
+  <string name="langlinks_no_match">没有符合条件的语言版本</string>
+  <string name="langlinks_activity_title">查看其他语言的版本</string>
+  <string name="langlinks_your_wikipedia_languages">添加维基百科语言</string>
+  <string name="menu_save_changes">保存更改</string>
+  <string name="dialog_saving_in_progress">正在保存更改…</string>
+  <string name="edit_saved_successfully">更改保存成功！</string>
+  <string name="dialog_message_edit_failed">更改保存失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
-  <string name="dialog_message_leaving_edit">您的修改还没有发布。您确认要离开该页面吗？</string>
-  <string name="dialog_message_leaving_edit_leave">离开</string>
-  <string name="dialog_message_leaving_edit_stay">留下</string>
+  <string name="dialog_message_leaving_edit">当前更改未保存，确认要离开该页面吗？</string>
+  <string name="dialog_message_leaving_edit_leave">确认</string>
+  <string name="dialog_message_leaving_edit_stay">取消</string>
   <string name="menu_show_toc">目录</string>
-  <string name="search_no_results_found">没有搜索结果</string>
+  <string name="search_no_results_found">未找到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
-  <string name="edit_section_captcha_message">为了防止自动垃圾信息，请输入下面显示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">无法看到图片么？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;请求新账号&lt;/a&gt;</string>
+  <string name="edit_section_captcha_message">为了防止非法的自动更改，请输入下面显示的文字</string>
+  <string name="edit_section_captcha_request_an_account_message">无法显示图片？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号申请\"&gt;新账号申请&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">请输入验证码中的文字</string>
   <string name="title_captcha">输入验证码</string>
   <string name="edit_section_captcha_reload">点按验证码重新加载</string>
-  <string name="nav_item_login">登录至维基百科</string>
+  <string name="nav_item_login">登录维基百科</string>
   <string name="login_username_hint">用户名</string>
   <string name="login_password_hint">密码</string>
   <string name="account_creation_password_hint">密码</string>
-  <string name="login_2fa_hint">双因素验证代码</string>
-  <string name="login_2fa_other_workflow_error_msg">需要双因素验证！请返回主活动页面，并通过您的2FA令牌登录，然后重试。</string>
+  <string name="login_2fa_hint">输入二元验证码</string>
+  <string name="login_2fa_other_workflow_error_msg">需要二元验证，请返回主活动页面使用2FA Token登录后重试。</string>
   <string name="onboarding_card_login">登录</string>
   <string name="page_editing_login">登录</string>
   <string name="reading_lists_sync_login">登录</string>
   <string name="create_account_login">登录</string>
   <string name="menu_login">登录</string>
-  <string name="login_activity_title">登录至维基百科</string>
+  <string name="login_activity_title">登录维基百科</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
   <string name="login_success_toast">登录成功！</string>
-  <string name="reset_password_title">设置您的密码</string>
-  <string name="reset_password_description">您已通过临时密码登录。要完成登录，请在此设置您的新密码。</string>
+  <string name="reset_password_title">重设密码</string>
+  <string name="reset_password_description">您使用了通过电子邮件发送的临时密码登录。要完成登录，您必须在此设置一个新密码：</string>
   <string name="reset_password_hint">新密码</string>
   <string name="reset_password_button">保存并登录</string>
   <string name="preference_title_logout">退出</string>
-  <string name="toast_logout_complete">已退出登录</string>
+  <string name="toast_logout_complete">已退出</string>
   <string name="logout_prompt" fuzzy="true">确定要注销吗？</string>
   <string name="logout_dialog_cancel_button_text">取消</string>
   <string name="history_empty_title">没有最近查看的条目</string>
   <string name="history_empty_message">在此跟踪您阅读过的东西。</string>
-  <string name="history_offline_articles_toast">部分历史文章可能在离线状态下无法显示。</string>
-  <string name="search_empty_message">以您的语言搜索并阅读自由的百科全书</string>
-  <string name="search_empty_message_multilingual_upgrade">在更多语言中搜索维基百科</string>
-  <string name="delete_selected_items">删除选定项目</string>
-  <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
+  <string name="history_offline_articles_toast">历史记录中的部分条目在离线状态下无法显示。</string>
+  <string name="search_empty_message">以您的语言查阅自由的百科全书</string>
+  <string name="search_empty_message_multilingual_upgrade">在更多语言中搜索</string>
+  <string name="delete_selected_items">删除选项</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
-  <string name="login_dont_have_account">没有账户？</string>
+  <string name="login_dont_have_account">新用户？</string>
   <string name="login_join_wikipedia">加入维基百科</string>
-  <string name="login_forgot_password">忘记了您的密码？</string>
-  <string name="create_account_already_have">已经拥有账户？</string>
-  <string name="create_account_activity_title">创建账户</string>
+  <string name="login_forgot_password">忘记密码</string>
+  <string name="create_account_already_have">已有帐户？请登录。</string>
+  <string name="create_account_activity_title">注册</string>
   <string name="dialog_create_account_checking_progress">正在验证</string>
-  <string name="create_account_email_hint">电子邮件地址（可选）</string>
-  <string name="create_account_password_repeat_hint">确认密码</string>
-  <string name="create_account_passwords_mismatch_error">两次密码不一致</string>
-  <string name="create_account_email_error">无效的电子邮件地址</string>
-  <string name="create_account_username_error">用户名中包含无效字符</string>
-  <string name="create_account_password_error">密码无效</string>
-  <string name="create_account_generic_error">无法创建账户</string>
+  <string name="create_account_email_hint">电子邮件（可选）</string>
+  <string name="create_account_password_repeat_hint">重新输入密码</string>
+  <string name="create_account_passwords_mismatch_error">密码不匹配</string>
+  <string name="create_account_email_error">电子邮件地址无效</string>
+  <string name="create_account_username_error">用户名中包含非法字符</string>
+  <string name="create_account_password_error">密码格式无效</string>
+  <string name="create_account_generic_error">无法注册</string>
   <string name="create_account_next">下一步</string>
   <string name="email_recommendation_dialog_title">创建账户而不填写电子邮件地址么？</string>
   <string name="email_recommendation_dialog_message">虽然电子邮件地址是可选项，但&lt;b&gt;强烈建议您填写&lt;/b&gt;，因为当您忘记您的密码时，需要电子邮件才能找回账户。</string>
