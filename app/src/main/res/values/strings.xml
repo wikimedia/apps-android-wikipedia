@@ -126,6 +126,10 @@
     <string name="toast_logout_complete">Logged out</string>
     <string name="logout_prompt">This will log you out on all devices where you are currently logged in. Do you want to continue?</string>
     <string name="logout_dialog_cancel_button_text">Cancel</string>
+    <string name="logged_out_in_background_title">Logged out</string>
+    <string name="logged_out_in_background_dialog">You have been logged out of Wikipedia. Would you like to log in again?</string>
+    <string name="logged_out_in_background_login">Log in</string>
+    <string name="logged_out_in_background_cancel">Cancel</string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
