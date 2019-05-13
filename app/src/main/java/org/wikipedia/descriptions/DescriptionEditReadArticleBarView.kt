@@ -2,7 +2,6 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
@@ -31,7 +30,7 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         setConditionalLayoutDirection(this, pageSummary.lang)
         viewArticleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
 
-        if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) {
+        if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
             viewArticleImage!!.visibility = GONE
         } else {
             viewArticleImage!!.visibility = VISIBLE

@@ -64,7 +64,7 @@
   <string name="notification_archive_undo">Deshacer</string>
   <string name="app_settings">Configuración de aplicación</string>
   <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
-  <string name="dialog_message_clear_history">¿Confirmas que quieres borrar el historial de navegación y cerrar todas las pestañas abiertas?</string>
+  <string name="dialog_message_clear_history">¿Confirmas que quieres vaciar el historial de navegación y cerrar cualesquier pestañas abiertas?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Compartir por</string>
@@ -83,7 +83,7 @@
   <string name="menu_page_recently_viewed">Visto recientemente</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
-  <string name="menu_long_press_copy_page">Copiar el enlace</string>
+  <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
   <string name="menu_text_select_copy">\nCopiar</string>
   <string name="menu_text_select_define">\nDefinir</string>
   <string name="menu_text_select_share">\nCompartir</string>
@@ -108,11 +108,11 @@
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
   <string name="langlinks_no_match">No se encontró ningún idioma</string>
   <string name="langlinks_activity_title">Otros idiomas</string>
-  <string name="langlinks_your_wikipedia_languages">Tus idiomas en Wikipedia</string>
+  <string name="langlinks_your_wikipedia_languages">Tus idiomas de Wikipedia</string>
   <string name="menu_save_changes">Publicar cambios</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
-  <string name="edit_saved_successfully">¡Se publicó la edición!</string>
-  <string name="dialog_message_edit_failed">¡Falló la edición!</string>
+  <string name="edit_saved_successfully">Se publicó la edición.</string>
+  <string name="dialog_message_edit_failed">Falló la edición.</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
   <string name="dialog_message_leaving_edit">Tus cambios aún no han sido publicados. ¿Confirmas que quieres salir de esta página?</string>
@@ -145,10 +145,10 @@
   <string name="reset_password_title">Establecer contraseña</string>
   <string name="reset_password_description">Has accedido con una contraseña temporal. Para completar tu acceso, establece una contraseña nueva.</string>
   <string name="reset_password_hint">Contraseña nueva</string>
-  <string name="reset_password_button">Guardar e iniciar sesión</string>
+  <string name="reset_password_button">Guardar y acceder</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
-  <string name="logout_prompt">Cerrará sesión en todos los dispositivos. ¿Desea  continuar?</string>
+  <string name="logout_prompt">Se cerrarán las sesiones de todos los dispositivos. ¿Quieres continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
   <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
   <string name="history_empty_message">Consulta lo que has leído aquí.</string>
@@ -158,7 +158,7 @@
   <string name="delete_selected_items">Eliminar los elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
-  <string name="login_dont_have_account">¿No tienes una cuenta?</string>
+  <string name="login_dont_have_account">¿No tienes cuenta?</string>
   <string name="login_join_wikipedia">Únete a Wikipedia</string>
   <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
   <string name="create_account_already_have">¿Ya tienes una cuenta?</string>
@@ -284,7 +284,7 @@
   <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
   <string name="preference_title_download_only_over_wifi">Descargar solo mediante wifi</string>
   <string name="dialog_title_download_only_over_wifi">¿Confirmas la descarga a través de datos móviles?</string>
-  <string name="dialog_text_download_only_over_wifi">Has activado «Descargar solo mediante wifi». ¿Quieres permitir el uso de datos móviles para esta descarga solamente?</string>
+  <string name="dialog_text_download_only_over_wifi">Has activado «Descargar solo mediante wifi». ¿Quieres permitir el uso del plan de datos móviles durante esta descarga solamente?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Más información</string>
   <string name="about_article_section">Acerca de este artículo</string>
