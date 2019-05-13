@@ -3,7 +3,6 @@ package org.wikipedia.feed.suggestededits
 
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.view.View
 import io.reactivex.annotations.NonNull
 import io.reactivex.disposables.CompositeDisposable
@@ -70,7 +69,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun showImageOrExtract() {
-        if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
+        if (sourceSummary!!.thumbnailUrl.isNullOrEmpty()) {
             viewArticleImage.visibility = View.GONE
             viewArticleExtract.visibility = View.VISIBLE
             divider.visibility = View.VISIBLE

@@ -2,7 +2,6 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -40,7 +39,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
         articleSubtitle!!.text = StringUtils.capitalize(description)
         articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)
 
-        if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) {
+        if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
             articleImage.visibility = View.GONE
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
