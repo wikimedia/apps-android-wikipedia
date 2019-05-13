@@ -106,6 +106,9 @@
   <string name="preference_title_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
   <string name="logout_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="logged_out_in_background_title">Ausgeloggt</string>
+  <string name="logged_out_in_background_login">Aloggen</string>
+  <string name="logged_out_in_background_cancel">Ofbriechen</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
   <string name="history_empty_message">Markéiert dat wat Dir hei gelies hutt.</string>
   <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>

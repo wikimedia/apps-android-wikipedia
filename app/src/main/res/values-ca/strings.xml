@@ -132,6 +132,10 @@
   <string name="toast_logout_complete">Sessió finalitzada</string>
   <string name="logout_prompt">Això farà que finalitzi la sessió de tots els dispositius d\'on l\'heu iniciada. Esteu segur que voleu continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancel·la</string>
+  <string name="logged_out_in_background_title">Sessió finalitzada</string>
+  <string name="logged_out_in_background_dialog">Heu finalitzat la sessió de la Viquipèdia. Voleu provar d\'iniciar la sessió de nou?</string>
+  <string name="logged_out_in_background_login">Inicia una sessió</string>
+  <string name="logged_out_in_background_cancel">Cancel·la</string>
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="history_offline_articles_toast">Alguns articles de l\'historial potser no són visibles quan s\'és fora de línia.</string>
