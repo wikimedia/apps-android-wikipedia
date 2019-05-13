@@ -131,8 +131,12 @@
   <string name="reset_password_button">儲存並登入</string>
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
-  <string name="logout_prompt" fuzzy="true">您確定要登出嗎？</string>
+  <string name="logout_prompt">這會讓您在您目前所有已登入的裝置上登出。您確定要繼續嗎？</string>
   <string name="logout_dialog_cancel_button_text">取消</string>
+  <string name="logged_out_in_background_title">已登出</string>
+  <string name="logged_out_in_background_dialog">您已登出維基百科。您要重新登入嗎？</string>
+  <string name="logged_out_in_background_login">登入</string>
+  <string name="logged_out_in_background_cancel">取消</string>
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="history_offline_articles_toast">一些在歷史紀錄裡的條目可能無法在離線時閱覽。</string>
