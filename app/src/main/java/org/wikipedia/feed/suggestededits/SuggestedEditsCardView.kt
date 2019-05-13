@@ -3,10 +3,8 @@ package org.wikipedia.feed.suggestededits
 
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.view.View
 import io.reactivex.annotations.NonNull
-import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
@@ -23,7 +21,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
 
-    private val disposables = CompositeDisposable()
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
     var isTranslation: Boolean = false
@@ -70,7 +67,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun showImageOrExtract() {
-        if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
+        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = View.GONE
             viewArticleExtract.visibility = View.VISIBLE
             divider.visibility = View.VISIBLE
@@ -82,11 +79,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             divider.visibility = View.GONE
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
         }
-    }
-
-    override fun onDetachedFromWindow() {
-        disposables.clear()
-        super.onDetachedFromWindow()
     }
 
     private fun header(card: SuggestedEditsCard) {

@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/list_item_vertical_padding"
-    android:paddingRight="@dimen/list_item_horizontal_padding"
+    android:paddingEnd="@dimen/list_item_horizontal_padding"
     android:paddingBottom="@dimen/list_item_vertical_padding"
-    android:paddingLeft="@dimen/list_item_horizontal_padding"
+    android:paddingStart="@dimen/list_item_horizontal_padding"
     android:background="?attr/paper_color"
     android:foreground="?attr/selectableItemBackground">
 

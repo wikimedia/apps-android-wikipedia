@@ -124,6 +124,10 @@
   <string name="toast_logout_complete">Abgemeldet</string>
   <string name="logout_prompt">Dies meldet dich auf allen Geräten ab, auf denen du derzeit angemeldet bist. Möchtest du fortfahren?</string>
   <string name="logout_dialog_cancel_button_text">Abbrechen</string>
+  <string name="logged_out_in_background_title">Abgemeldet</string>
+  <string name="logged_out_in_background_dialog">Du wurdest von Wikipedia abgemeldet. Möchtest du dich erneut anmelden?</string>
+  <string name="logged_out_in_background_login">Anmelden</string>
+  <string name="logged_out_in_background_cancel">Abbrechen</string>
   <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>
   <string name="history_empty_message">Verfolge hier, was du gelesen hast.</string>
   <string name="history_offline_articles_toast">Einige Artikel im Verlauf könnten nicht anschaubar sein, während du offline bist.</string>

@@ -18,8 +18,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:background="?attr/paper_color"
         android:elevation="4dp"
         android:gravity="center">
@@ -138,8 +138,8 @@
             android:layout_gravity="start"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="12dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
             android:text="@string/send_feedback"
             android:textColor="?attr/colorAccent" />
 

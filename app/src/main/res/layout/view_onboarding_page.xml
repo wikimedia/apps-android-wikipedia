@@ -37,8 +37,8 @@
                 android:layout_marginTop="32dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/view_onboarding_page_primary_text"
@@ -87,8 +87,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_marginTop="8dp"
                         android:textColor="?attr/material_theme_primary_color"
                         app:theme="@style/OnboardingSwitch"

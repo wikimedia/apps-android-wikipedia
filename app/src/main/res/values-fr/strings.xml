@@ -143,8 +143,12 @@
   <string name="reset_password_button">Enregistrer et se connecter</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="logout_prompt" fuzzy="true">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+  <string name="logout_prompt">Ceci va vous déconnecter de tous les appareils sur lesquels vous l\'êtes actuellement. Êtes-vous sûr de vouloir continuer  ?</string>
   <string name="logout_dialog_cancel_button_text">Annuler</string>
+  <string name="logged_out_in_background_title">Déconnecté</string>
+  <string name="logged_out_in_background_dialog">Vous avez été déconnecté de Wikipédia. Voulez-vous vous reconnecter ?</string>
+  <string name="logged_out_in_background_login">Se connecter</string>
+  <string name="logged_out_in_background_cancel">Annuler</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l\'historique peuvent ne pas être consultables en mode déconnecté.</string>
