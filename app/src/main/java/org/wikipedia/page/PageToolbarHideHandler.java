@@ -37,7 +37,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     private int toolbarHeight;
 
-    public PageToolbarHideHandler(@NonNull PageFragment pageFragment, @NonNull View hideableView,
+    PageToolbarHideHandler(@NonNull PageFragment pageFragment, @NonNull View hideableView,
                                   @NonNull Toolbar toolbar, @NonNull TabCountsView tabsButton) {
         super(hideableView, null, Gravity.TOP);
         this.pageFragment = pageFragment;
