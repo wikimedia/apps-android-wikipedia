@@ -146,7 +146,7 @@
   <string name="search_empty_message">以您的语言查阅自由的百科全书</string>
   <string name="search_empty_message_multilingual_upgrade">在更多语言中搜索</string>
   <string name="delete_selected_items">删除选项</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
   <string name="login_dont_have_account">新用户？</string>
   <string name="login_join_wikipedia">加入维基百科</string>

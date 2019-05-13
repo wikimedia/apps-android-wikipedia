@@ -124,6 +124,10 @@
   <string name="reset_password_button">Αποθήκευση και σύνδεση</string>
   <string name="preference_title_logout">Αποσύνδεση</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
+  <string name="logged_out_in_background_title">Αποσύνδεση</string>
+  <string name="logged_out_in_background_dialog">Αποσυνδεθήκατε από τη Wikipedia. Θα θέλατε να ξανασυνδεθείτε;</string>
+  <string name="logged_out_in_background_login">Σύνδεση</string>
+  <string name="logged_out_in_background_cancel">Ακύρωση</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Ιχνηλατήστε τι έχετε διαβάσει εδώ.</string>
   <string name="history_offline_articles_toast">Μερικά άρθρα στο ιστορικό μπορεί να μην είναι προσβάσιμα όταν είστε offline.</string>

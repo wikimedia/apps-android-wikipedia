@@ -142,7 +142,7 @@
   <string name="logged_out_in_background_title">Title of dialog box that tells the user they have been logged out.</string>
   <string name="logged_out_in_background_dialog">Dialog box text that tells the user they have been logged out, and asks if they want to log in again.</string>
   <string name="logged_out_in_background_login">Button that allows the user to go to the login screen.</string>
-  <string name="logged_out_in_background_cancel">Button that cancels the dialog box that tells the user they have been logged out.</string>
+  <string name="logged_out_in_background_cancel">Button that cancels the dialog box that tells the user they have been logged out.\n{{Identical|Cancel}}</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="history_offline_articles_toast">Message shown in a toast when some articles in the history page may not be viewable while offline.</string>
