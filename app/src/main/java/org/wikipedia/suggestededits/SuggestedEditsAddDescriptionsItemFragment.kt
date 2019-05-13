@@ -139,7 +139,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
-        if (sourceSummary!!.thumbnailUrl.isNullOrEmpty()) {
+        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {

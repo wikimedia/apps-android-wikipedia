@@ -39,7 +39,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
         articleSubtitle!!.text = StringUtils.capitalize(description)
         articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)
 
-        if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
+        if (pageSummary.thumbnailUrl.isNullOrBlank()) {
             articleImage.visibility = View.GONE
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
