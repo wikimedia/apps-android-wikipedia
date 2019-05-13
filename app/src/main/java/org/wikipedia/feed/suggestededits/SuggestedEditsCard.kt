@@ -8,19 +8,15 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 
-class SuggestedEditsCard(wiki: WikiSite) : WikiSiteCard(wiki) {
-    var isTranslation: Boolean = false
-    var sourceSummary: RbPageSummary? = null
-    var targetSummary: RbPageSummary? = null
+class SuggestedEditsCard(
+        wiki: WikiSite,
+        val isTranslation: Boolean,
+        val sourceSummary: RbPageSummary?,
+        val targetSummary: RbPageSummary?
+) : WikiSiteCard(wiki) {
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
-    }
-
-    constructor(wiki: WikiSite, translation: Boolean, sourceSummary: RbPageSummary?, targetSummary: RbPageSummary?) : this(wiki) {
-        this.isTranslation = translation
-        this.sourceSummary = sourceSummary
-        this.targetSummary = targetSummary
     }
 
     override fun title(): String {
