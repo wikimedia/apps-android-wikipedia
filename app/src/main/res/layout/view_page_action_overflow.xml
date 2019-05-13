@@ -26,7 +26,7 @@
             android:paddingTop="13dp"
             android:paddingBottom="13dp"
             android:background="?attr/paper_color"
-            android:paddingLeft="0dp"
+            android:paddingStart="0dp"
             android:gravity="center_vertical">
 
             <androidx.appcompat.widget.AppCompatImageView

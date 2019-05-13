@@ -45,8 +45,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -94,8 +94,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -152,8 +152,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 style="@style/MaterialListTitle"
                 android:text="@string/talk_page_link_text"/>
 
@@ -196,8 +196,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 style="@style/MaterialListTitle"
                 android:text="@string/map_view_link_text"/>
         </LinearLayout>
@@ -234,8 +234,8 @@
                     android:id="@+id/read_more_header"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:paddingRight="@dimen/list_item_horizontal_padding"
-                    android:paddingLeft="@dimen/list_item_horizontal_padding"
+                    android:paddingEnd="@dimen/list_item_horizontal_padding"
+                    android:paddingStart="@dimen/list_item_horizontal_padding"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="?attr/section_title_color"
                     android:gravity="center_vertical"
@@ -255,8 +255,8 @@
             android:layout_width="120dp"
             android:layout_height="48dp"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             app:srcCompat="@drawable/wp_wordmark"
             android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
@@ -264,8 +264,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:background="?attr/material_theme_border_color"/>
 
         <org.wikipedia.views.AppTextView
@@ -273,8 +273,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             style="?android:textAppearanceSmall"
             android:textColor="?attr/secondary_text_color"
             android:textIsSelectable="true"
@@ -285,8 +285,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             style="?android:textAppearanceSmall"
             android:text="@string/page_view_in_browser"
             android:textColor="?attr/colorAccent"/>

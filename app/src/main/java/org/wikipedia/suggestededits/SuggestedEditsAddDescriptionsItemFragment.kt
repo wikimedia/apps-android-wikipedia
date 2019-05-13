@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -100,11 +99,11 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     fun showAddedDescriptionView(addedDescription: String?) {
-        if (!TextUtils.isEmpty(addedDescription) && viewArticleSubtitleContainer != null && viewArticleSubtitle != null && viewArticleExtract != null) {
+        if (!addedDescription.isNullOrEmpty() && viewArticleSubtitleContainer != null && viewArticleSubtitle != null && viewArticleExtract != null) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = addedDescription
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
-            this.addedDescription = addedDescription!!
+            this.addedDescription = addedDescription
         }
     }
 
@@ -131,7 +130,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
-        if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
+        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {

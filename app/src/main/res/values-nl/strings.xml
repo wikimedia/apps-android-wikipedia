@@ -140,6 +140,9 @@
   <string name="toast_logout_complete">Afgemeld</string>
   <string name="logout_prompt" fuzzy="true">Weet u zeker dat u wilt afmelden?</string>
   <string name="logout_dialog_cancel_button_text">Annuleren</string>
+  <string name="logged_out_in_background_title">Afgemeld</string>
+  <string name="logged_out_in_background_login">Aanmelden</string>
+  <string name="logged_out_in_background_cancel">Annuleren</string>
   <string name="history_empty_title">Geen recent bekeken pagina\'s</string>
   <string name="history_empty_message">Blijf op de hoogte van wat u hier hebt gelezen.</string>
   <string name="history_offline_articles_toast">Sommige artikelen in de geschiedenis zijn mogelijk niet offline zichtbaar.</string>

@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="12dp"
         android:textStyle="bold"
@@ -26,8 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginBottom="12dp"
         android:textSize="14sp"
         android:textColorLink="@android:color/white"
@@ -39,8 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginBottom="8dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp">
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
 
         <TextView
             android:id="@+id/view_onboarding_action_negative"

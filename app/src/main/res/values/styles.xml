@@ -236,8 +236,8 @@
     <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
         <item name="android:paddingTop">13dp</item>
         <item name="android:paddingBottom">13dp</item>
         <item name="android:background">?attr/selectableItemBackground</item>
@@ -249,12 +249,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:layout_marginBottom">4dp</item>
-        <item name="android:layout_marginLeft">4dp</item>
-        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
         <item name="backgroundTint">@color/color_state_green</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textAlignment">center</item>
@@ -411,8 +411,8 @@
         <item name="android:singleLine">true</item>
         <item name="android:textColor">?attr/colorAccent</item>
         <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:gravity">center_vertical</item>

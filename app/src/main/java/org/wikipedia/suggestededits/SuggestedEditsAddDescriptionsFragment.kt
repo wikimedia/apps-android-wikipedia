@@ -4,7 +4,6 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -229,7 +228,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
                 break
             }
         }
-        if (TextUtils.isEmpty(name)) {
+        if (name.isNullOrEmpty()) {
             name = app.language().getAppLanguageLocalizedName(code)
         }
         return name ?: code
