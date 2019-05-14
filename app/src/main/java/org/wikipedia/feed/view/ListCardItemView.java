@@ -19,8 +19,6 @@ import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageAvailableOfflineHandler;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
-import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -85,29 +83,8 @@ public class ListCardItemView extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.view_list_card_item_menu) void showOverflowMenu(View anchorView) {
-        new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
-            @Override
-            public void onAddRequest(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onAddPageToList(entry);
-                }
-            }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onRemovePageFromList(entry);
-                }
-            }
-
-            @Override
-            public void onShare() {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onSharePage(entry);
-                }
-            }
-        }).show(entry.getTitle());
+    @OnClick(R.id.view_list_card_item_image) void showOverflowMenu(View anchorView) {
+        //Todo: Remove@Onclick
     }
 
     @VisibleForTesting @Nullable Callback getCallback() {

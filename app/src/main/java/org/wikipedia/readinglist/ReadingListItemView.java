@@ -4,8 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.TextViewCompat;
@@ -38,7 +35,6 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnLongClick;
 
 public class ReadingListItemView extends ConstraintLayout {
     public interface Callback {
@@ -120,16 +116,8 @@ public class ReadingListItemView extends ConstraintLayout {
         }
     }
 
-    @OnLongClick(R.id.item_title) void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(getContext(), anchorView, Gravity.END);
-        menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
-
-        if (readingList.isDefault()) {
-            menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
-            menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
-        }
-        menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
-        menu.show();
+    @OnClick(R.id.item_title) void showOverflowMenu(View anchorView) {
+        //Todo: Remove@Onclick
     }
 
     private void init() {
@@ -227,45 +215,5 @@ public class ReadingListItemView extends ConstraintLayout {
 
     @NonNull private String getString(@StringRes int id, @Nullable Object... formatArgs) {
         return getResources().getString(id, formatArgs);
-    }
-
-    private class OverflowMenuClickListener implements PopupMenu.OnMenuItemClickListener {
-        @Nullable private ReadingList list;
-
-        OverflowMenuClickListener(@Nullable ReadingList list) {
-            this.list = list;
-        }
-
-        @Override public boolean onMenuItemClick(MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.menu_reading_list_rename:
-                    if (callback != null && list != null) {
-                        callback.onRename(list);
-                        return true;
-                    }
-                    break;
-                case R.id.menu_reading_list_delete:
-                    if (callback != null && list != null) {
-                        callback.onDelete(list);
-                        return true;
-                    }
-                    break;
-                case R.id.menu_reading_list_save_all_offline:
-                    if (callback != null && list != null) {
-                        callback.onSaveAllOffline(list);
-                        return true;
-                    }
-                    break;
-                case R.id.menu_reading_list_remove_all_offline:
-                    if (callback != null && list != null) {
-                        callback.onRemoveAllOffline(list);
-                        return true;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return false;
-        }
     }
 }

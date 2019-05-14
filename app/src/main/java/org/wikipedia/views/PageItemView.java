@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.AttrRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -56,7 +54,6 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
-    @BindView(R.id.page_list_item_action_primary) ImageView primaryActionView;
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
@@ -109,19 +106,6 @@ public class PageItemView<T> extends ConstraintLayout {
     public void setImageUrl(@Nullable String url) {
         imageView.setVisibility((url == null) ? GONE : VISIBLE);
         ViewUtil.loadImageUrlInto(imageView, url);
-    }
-
-    public void setActionIcon(@DrawableRes int id) {
-        primaryActionView.setImageResource(id);
-        primaryActionView.setVisibility(VISIBLE);
-    }
-
-    public void setActionHint(@StringRes int id) {
-        primaryActionView.setContentDescription(getContext().getString(id));
-    }
-
-    public void setActionTint(@AttrRes int tint) {
-        DrawableCompat.setTint(primaryActionView.getDrawable(), ResourceUtil.getThemedColor(getContext(), tint));
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
@@ -230,7 +214,6 @@ public class PageItemView<T> extends ConstraintLayout {
             setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
 
-        FeedbackUtil.setToolbarButtonLongPressToast(primaryActionView);
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
