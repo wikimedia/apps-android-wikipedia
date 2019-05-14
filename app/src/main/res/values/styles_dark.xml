@@ -79,6 +79,7 @@
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
+        <item name="suggestions_background_color">@color/base12</item>
 
     </style>
 
