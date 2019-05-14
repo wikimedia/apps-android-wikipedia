@@ -107,15 +107,6 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
             updateFromLanguageSpinner()
         }
 
-        updateBackButton(0)
-        backButton.setOnClickListener { previousPage() }
-        nextButton.setOnClickListener {
-            if (nextButton.drawable is Animatable) {
-                (nextButton.drawable as Animatable).start()
-            }
-            nextPage()
-        }
-
         arrow.setOnClickListener {
             val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
             val prevFromLang = languageList[wikiFromLanguageSpinner.selectedItemPosition]
@@ -127,6 +118,36 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
                 }
             }, postDelay)
         }
+
+        backButton.setOnClickListener { previousPage() }
+        nextButton.setOnClickListener {
+            if (nextButton.drawable is Animatable) {
+                (nextButton.drawable as Animatable).start()
+            }
+            nextPage()
+        }
+        updateBackButton(0)
+
+        addDescriptionButton.setOnClickListener { onSelectPage() }
+
+        updateActionButton()
+    }
+
+    fun updateBackButton(pagerPosition: Int) {
+        backButton.isClickable = pagerPosition != 0
+        backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
+    }
+
+    fun updateActionButton() {
+        val isAddedDescriptionEmpty = topChild?.addedDescription.isNullOrEmpty()
+        if(!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
+        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_themed_24dp else R.drawable.ic_mode_edit_white_24dp))
+        if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+            if (addDescriptionText != null)
+                addDescriptionText!!.text = getString(if(isAddedDescriptionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
+        } else
+            if (addDescriptionText != null)
+                addDescriptionText!!.text = getString(if(isAddedDescriptionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
     }
 
     override fun onDestroyView() {
@@ -163,16 +184,13 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         if (addTitleDescriptionsItemPager.currentItem > 0) {
             addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem - 1, true)
         }
+        updateActionButton()
     }
 
     private fun nextPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
-    }
-
-    private fun updateBackButton(pagerPosition: Int) {
-        backButton.isClickable = pagerPosition != 0
-        backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
+        updateActionButton()
     }
 
     private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
@@ -304,6 +322,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
+            updateActionButton()
             if (!nextPageSelectedAutomatic && funnel != null) {
                 if (position > prevPosition) {
                     funnel!!.swipedForward()

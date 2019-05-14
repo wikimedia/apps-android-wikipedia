@@ -68,7 +68,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
                 parent().onSelectPage()
             }
         }
-
+       showAddedDescriptionView(addedDescription)
     }
 
     override fun onDestroy() {
@@ -99,14 +99,8 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     fun showAddedDescriptionView(addedDescription: String?) {
-        if (!addedDescription.isNullOrEmpty()) {
+        if (!addedDescription.isNullOrEmpty() && viewArticleSubtitleContainer != null && viewArticleSubtitle != null && viewArticleExtract != null) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
-                viewArticleSubtitleAddedBy.visibility = VISIBLE
-                viewArticleSubtitleEdit.visibility = VISIBLE
-                viewArticleSubtitleAddedBy.text = getString(R.string.suggested_edits_translated_by_you)
-            }
-            viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
             this.addedDescription = addedDescription
@@ -132,10 +126,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
         if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitleAddedBy.visibility = GONE
-            viewArticleSubtitleEdit.visibility = GONE
-            viewArticleSubtitle.text = StringUtils.capitalize(sourceSummary!!.description)
-            callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(parent().langToCode))
+            viewArticleSubtitle.text =  StringUtils.capitalize(if(!addedDescription.isNullOrEmpty()) addedDescription else sourceSummary!!.description)
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
