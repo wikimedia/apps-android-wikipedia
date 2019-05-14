@@ -27,8 +27,8 @@
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:background="?attr/material_theme_border_color"/>
 
     <org.wikipedia.views.WikitextKeyboardButtonView
@@ -50,8 +50,8 @@
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:background="?attr/material_theme_border_color"/>
 
     <org.wikipedia.views.WikitextKeyboardButtonView
@@ -74,8 +74,8 @@
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:background="?attr/material_theme_border_color"/>
 
     <org.wikipedia.views.WikitextKeyboardButtonView
@@ -104,8 +104,8 @@
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:background="?attr/material_theme_border_color"/>
 
     <FrameLayout

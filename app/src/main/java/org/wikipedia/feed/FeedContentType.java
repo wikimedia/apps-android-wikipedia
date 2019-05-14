@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
@@ -85,6 +86,9 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             if (ReleaseUtil.isPreBetaRelease() && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+                if (Prefs.shouldShowSuggestedEditsCardsForTesting()) {
+                    return new SuggestedEditsFeedClient(!(age % 2 == 0) && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION);
+                }
                 return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(!(age % 2 == 0) && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) : null;
             }
             return null;

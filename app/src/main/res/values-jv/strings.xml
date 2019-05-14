@@ -115,7 +115,7 @@
   <string name="reset_password_button">Simpen lan mlebu log</string>
   <string name="preference_title_logout">Metu log</string>
   <string name="toast_logout_complete">Wis metu log</string>
-  <string name="logout_prompt">Apa panjenengan yakin arep metu log?</string>
+  <string name="logout_prompt" fuzzy="true">Apa panjenengan yakin arep metu log?</string>
   <string name="history_empty_title">Ora ana artikel sing bubar didelok</string>
   <string name="history_empty_message">Lacak apa-apa sing wis kokwaca ing kéné.</string>
   <string name="search_empty_message">Golék lan waca bauwarna bébas ing basané panjenengan</string>
@@ -138,6 +138,8 @@
   <string name="create_account_generic_error">Ora bisa gawé akun</string>
   <string name="create_account_next">Sabanjuré</string>
   <string name="email_recommendation_dialog_title">Gawé akun tanpa alamat layang-èl?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Banjuraké tanpa layang-è</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Wuwuh alamat layang-è</string>
   <string name="create_account_button">Gawé akun</string>
   <string name="create_account_name_unavailable">Jeneng panganggo \"%s\" ora ana. Jajal anggonen jeneng liyané.</string>
   <string name="create_account_ip_block_message">Nyuwun pangapura, alamat IP panjenengan saiki kapenggak saka nggawé akun anyar.</string>
@@ -152,6 +154,7 @@
   <string name="preferences_heading_data_usage">Panggunaning dhata</string>
   <string name="preferences_heading_experimental">Èkspèrimèntal</string>
   <string name="preference_title_sync_reading_lists_from_account">Nyinkronaké pratélan wacan</string>
+  <string name="preference_title_download_reading_list_articles">Undhuh artikel ing pratélan wacan</string>
   <string name="preference_summary_sync_reading_lists">Sinkronaké pratélan wacan saka manéka piranti kanthi nyimpen ing akun Wikipédiané panjenengan</string>
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronaké pratélan wacan ing manéka piranti kanthi nyimpen ing akun Wikipédia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Busak pratélan wacan kang kasinkronaké saka \"%s\"?</string>
@@ -176,19 +179,20 @@
   <string name="privacy_policy_description">Pranatan bab priangga</string>
   <string name="terms_of_use_description">Bebakuning Pangguna</string>
   <string name="about_wikipedia_url">https://jv.m.wikipedia.org/wiki/Wikipedia:Bab</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Kapustakan sing dienggo</string>
   <string name="about_contributors_heading">Panyumbang</string>
   <string name="about_translators_heading">Pamertal</string>
   <string name="about_translators_translatewiki">Aplikasi iki dipertal déning pamertal sukarila ing &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisènsi</string>
   <string name="about_app_license">Kodhe sumber cumepak ing &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; lan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; kanthi pangayoman &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Yèn ora ana liyané sing diterangaké, tegesé isiné iki cumepak ing pangayomané &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Atribusi-DumSaèmper Creative Commons&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Wetoné &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yeyasan Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Wetoné &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Ngenani</string>
   <string name="edit_abandon_confirm">Kaca iki wis dimodhifikasi. Apa panjenengan yakin arep metu tanpa nyimpen owah-owahané panjenengan?</string>
   <string name="edit_abandon_confirm_yes">Iya</string>
@@ -488,7 +492,6 @@
   <string name="preference_summary_notification_welcome">Akun wis kagawé</string>
   <string name="preference_title_notification_thanks">Nuwun</string>
   <string name="preference_summary_notification_thanks">Ana wong kang matur nuwun awit saka pambesuté panjenengan</string>
-  <string name="view_continue_reading_card_title">Bacutaké maca</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_card_subtitle">Waca sembarang artikelé Wikipédia.</string>
@@ -536,11 +539,15 @@
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
   <string name="description_edit_text_hint">Wedharaning sesirah</string>
+  <string name="description_edit_text_hint_per_language">%s wedharan</string>
   <string name="description_edit_save">Babar</string>
   <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Waca</string>
   <string name="description_edit_add_description">Wuwuh wedharaning sesirah</string>
+  <string name="description_edit_add_description_v2">Wuwuh wedharan</string>
+  <string name="description_edit_translate_description">Pertal wedharan</string>
   <string name="description_edit_edit_description">Besut wedharan</string>
+  <string name="add_translation">Wuwuh %s wedharan</string>
   <string name="description_edit_cancel_hint">Wurung</string>
   <string name="description_edit_help_title">Pitulung: wedharaning sesirah</string>
   <string name="description_edit_help_about_wikidata">Ngenani Wikidata</string>
@@ -549,6 +556,7 @@
   <string name="description_edit_anon_limit">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
   <string name="description_edit_license_notice">Kanthi ngganti wedharaning sesirah, aku sarujuk marang &lt;a href=\"%1$s\"&gt;Pranatan Pangguna&lt;/a&gt; lan nguculaké sumbanganku ing pangayomané lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Wedharané wis terbit!</string>
+  <string name="description_edit_success_saved_snackbar">Wedharan wis babar!</string>
   <string name="description_edit_success_encouragement">Panjenengan mentas waé ndadèkaké Wikipédia luwih becik kanggo saben wong</string>
   <string name="description_edit_success_done">Rampung</string>
   <string name="description_edit_success_did_you_know">Panjenengan ngerti, ta?</string>
@@ -559,7 +567,26 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Prayogané salarik, tembungé cacahé antarané loro tekan rolas</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Kanthi miwiti, kula jangji ora nyalahi panganggoné fitur iki.</string>
+  <string name="suggested_edits_add_descriptions">Wuwuh wedharan</string>
+  <string name="suggested_edits_translate_descriptions">Pertal wedharan</string>
+  <string name="suggested_edits_review_description">Priksa wedharan</string>
+  <string name="suggested_edits_add_description_button">Wuwuh wedharan</string>
+  <string name="suggested_edits_my_contributions">Pasumbangku</string>
+  <string name="suggested_edits_added_by_you">Kang dakwuwuh:</string>
+  <string name="suggested_edits_translated_by_you">Kang dakpertal:</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Kowé mbukak ayahan \"Wuwuh wedharan\"</string>
   <string name="suggested_edits_menu_info">Info</string>
+  <string name="suggested_edits_task_translation_title">Pertal wedharan</string>
+  <string name="suggested_edits_task_translation_description">Pertal wedharan ing akèh basa.</string>
+  <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>
+  <string name="suggested_edits_task_multilingual_positive">Wuwuh basa</string>
+  <string name="suggested_edits_task_translate_caption_title">Pertal katerangan gambar</string>
+  <string name="suggested_edits_task_translate_caption_description">Pertal katerangan menyang basa liya</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 pasumbang</item>
+    <item quantity="other">%d pasumbang</item>
+  </plurals>
+  <string name="suggested_edits_tasks_onboarding_get_started">Miwiti</string>
   <string name="description_edit_revert_subtitle">Matur nuwun kanggo mbesut ing Wikipedia!</string>
   <string name="description_edit_revert_intro">Awak dhéwé sumurup panjenengan wis njajal sakatogé, nanging salah siji pamriksa sedhih. Alesané bokmanawa besutané panjenengan dibalèkaké ya iku:</string>
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
@@ -568,13 +595,10 @@
   <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">kari 1 menit</item>
-    <item quantity="other">kari %d menit</item>
-  </plurals>
   <string name="onboarding_skip">Lumpati</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>
+  <string name="onboarding_maybe_later">Mengko baé</string>
   <string name="onboarding_explore_title">Cara anyar ndlajah</string>
   <string name="onboarding_explore_text" fuzzy="true">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
   <string name="onboarding_reading_list_sync_title">Pratélan wacan mawa sinkronisasi</string>
@@ -596,7 +620,7 @@
   <string name="more_events_text">Liyané ing dina iki</string>
   <string name="events_count_text">%1$s kadadéan saka %2$s–%3$d</string>
   <string name="this_year">Taun iki</string>
-  <string name="back_to_top">Bali mandhuwur</string>
+  <string name="back_to_top">Bali munggah</string>
   <plurals name="diff_years">
     <item quantity="one">Taun kapungkur</item>
     <item quantity="other">%d taun kapungkur</item>
@@ -614,6 +638,7 @@
     <item quantity="other">Busak basa kang kapilih?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Panjenengan mung bakal ndeleng kontèn ing saran Dlajah lan saringan golèkan rikat kanggo basa-basa Wikipédia liyané.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Ora bisa ngilangi kabèh basa</string>
   <string name="more_language_options">liyané</string>
   <string name="add_wikipedia_languages_text">Tambah basa Wikipédia</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Buwang varian Cina saka basa aplikasiné panjenengan?</string>

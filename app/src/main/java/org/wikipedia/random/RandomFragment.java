@@ -18,6 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.RandomizerFunnel;
@@ -42,6 +43,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.RANDOM_ACTIVITY;
 
 public class RandomFragment extends Fragment {
@@ -81,7 +83,7 @@ public class RandomFragment extends Fragment {
         }
 
         funnel = new RandomizerFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
-                requireActivity().getIntent().getIntExtra(RandomActivity.INVOKE_SOURCE_EXTRA, 0));
+                (Constants.InvokeSource) requireActivity().getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
         return view;
     }
 
@@ -149,7 +151,7 @@ public class RandomFragment extends Fragment {
     }
 
     public void onSelectPage(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForNewTab(requireActivity(),
+        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(),
                 new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title));
     }
 

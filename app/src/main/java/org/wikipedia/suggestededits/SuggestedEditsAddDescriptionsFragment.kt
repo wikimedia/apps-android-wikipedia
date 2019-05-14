@@ -4,7 +4,6 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -19,7 +18,7 @@ import androidx.viewpager.widget.ViewPager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_add_title_descriptions.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
@@ -85,7 +84,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
-        return inflater.inflate(R.layout.fragment_add_title_descriptions, container, false)
+        return inflater.inflate(R.layout.fragment_suggested_edits_add_descriptions, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -211,7 +210,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
                 break
             }
         }
-        if (TextUtils.isEmpty(name)) {
+        if (name.isNullOrEmpty()) {
             name = app.language().getAppLanguageLocalizedName(code)
         }
         return name ?: code

@@ -124,8 +124,12 @@
     <string name="reset_password_button">Save and log in</string>
     <string name="preference_title_logout">Log out</string>
     <string name="toast_logout_complete">Logged out</string>
-    <string name="logout_prompt">Are you sure you want to log out?</string>
+    <string name="logout_prompt">This will log you out on all devices where you are currently logged in. Do you want to continue?</string>
     <string name="logout_dialog_cancel_button_text">Cancel</string>
+    <string name="logged_out_in_background_title">Logged out</string>
+    <string name="logged_out_in_background_dialog">You have been logged out of Wikipedia. Would you like to log in again?</string>
+    <string name="logged_out_in_background_login">Log in</string>
+    <string name="logged_out_in_background_cancel">Cancel</string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
@@ -554,7 +558,6 @@
     <!-- /Notifications -->
 
     <!-- The Feed -->
-    <string name="view_continue_reading_card_title">Continue reading</string>
     <string name="view_because_you_read_card_title">Because you read</string>
     <string name="view_random_card_title">Randomizer</string>
     <string name="view_random_card_subtitle">Flip through random articles to read from Wikipedia.</string>
@@ -671,7 +674,7 @@
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
     <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
-    <string name="suggested_edits_tasks_activity_title">Editor tasks</string>
+    <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_task_add_description_title">Add descriptions</string>
     <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
     <string name="suggested_edits_task_image_caption_title">Caption images</string>
@@ -709,10 +712,6 @@
     <string name="offline_read_final_rationale">Permission to access storage on your device is required to use the Offline Library.</string>
     <string name="size_gb">%.2f GB</string>
     <string name="size_mb">%.2f MB</string>
-    <plurals name="offline_compilation_download_time_remaining">
-        <item quantity="one">1 min left</item>
-        <item quantity="other">%d mins left</item>
-    </plurals>
     <!-- /Offline -->
 
     <!-- Onboarding -->

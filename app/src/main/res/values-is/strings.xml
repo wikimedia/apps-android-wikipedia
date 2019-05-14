@@ -118,7 +118,7 @@
   <string name="reset_password_button">Vista og skrá inn</string>
   <string name="preference_title_logout">Skrá út</string>
   <string name="toast_logout_complete">Skráður út</string>
-  <string name="logout_prompt">Ertu viss að þú viljir skrá þig út?</string>
+  <string name="logout_prompt" fuzzy="true">Ertu viss að þú viljir skrá þig út?</string>
   <string name="history_empty_title">Engar nýlega lesnar greinar</string>
   <string name="history_empty_message">Haltu utan um það sem þú hefur verið að lesa hérna.</string>
   <string name="history_offline_articles_toast">Sumar greinar í lesferlinum gætu verið óaðgengilegar án nettengingar.</string>
@@ -519,7 +519,6 @@
   <string name="preference_summary_notification_thanks">Einhver þakkar þér fyrir breytingu</string>
   <string name="preference_title_notification_revert">Afturkalla</string>
   <string name="preference_summary_notification_revert">Ein breyting frá þér var afturkölluð</string>
-  <string name="view_continue_reading_card_title">Halda lestri áfram</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>
   <string name="view_random_card_subtitle">Flettu í gegnum handahófsvaldar greinar af Wikipedia.</string>
@@ -616,7 +615,7 @@
   <string name="suggested_edits_unlock_notification_button">Já, í gang með þetta</string>
   <string name="suggested_edits_license_notice">Með því að breyta lýsingu á þessum titli, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_menu_info">Upplýsingar</string>
-  <string name="suggested_edits_tasks_activity_title">Verkefni fyrir ritstýringu</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Verkefni fyrir ritstýringu</string>
   <string name="suggested_edits_task_add_description_title">Bæta við lýsingum</string>
   <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
   <string name="suggested_edits_task_image_caption_title">Setja myndatexta</string>
@@ -646,10 +645,6 @@
   <string name="offline_read_final_rationale">Til að nota safn án nettengingar er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 mínúta eftir</item>
-    <item quantity="other">%d mínútur eftir</item>
-  </plurals>
   <string name="onboarding_skip">Sleppa</string>
   <string name="onboarding_continue">Áfram</string>
   <string name="onboarding_get_started">Komast í gang</string>

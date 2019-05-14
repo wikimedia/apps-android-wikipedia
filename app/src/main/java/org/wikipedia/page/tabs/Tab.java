@@ -32,7 +32,7 @@ public class Tab extends BaseModel {
     }
 
     public boolean canGoBack() {
-        return getBackStackPosition() >= 0;
+        return getBackStackPosition() > 0;
     }
 
     public boolean canGoForward() {
@@ -46,13 +46,8 @@ public class Tab extends BaseModel {
     }
 
     public void moveBack() {
-        if (getBackStackPosition() >= 0) {
+        if (getBackStackPosition() > 0) {
             backStackPosition--;
-            if (backStackPosition < 0) {
-                // special case: if we're navigating back beyond the beginning of the backstack,
-                // it means that our tab is about to be destroyed, so clear the backstack explicitly.
-                backStack.clear();
-            }
         }
     }
 
@@ -63,5 +58,20 @@ public class Tab extends BaseModel {
         }
         backStack.add(item);
         backStackPosition = backStack.size() - 1;
+    }
+
+    public void clearBackstack() {
+        backStack.clear();
+        backStackPosition = -1;
+    }
+
+    public void squashBackstack() {
+        if (backStack.isEmpty()) {
+            return;
+        }
+        PageBackStackItem item = backStack.get(backStack.size() - 1);
+        backStack.clear();
+        backStack.add(item);
+        backStackPosition = 0;
     }
 }

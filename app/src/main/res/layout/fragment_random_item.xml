@@ -61,8 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/randomizer_text_view_height"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <TextView
                     android:id="@+id/view_random_article_card_article_title"

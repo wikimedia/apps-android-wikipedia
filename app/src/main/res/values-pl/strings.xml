@@ -122,6 +122,7 @@
   <string name="reset_password_button">Zapisz i zaloguj się</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowano</string>
+  <string name="logout_dialog_cancel_button_text">Anuluj</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
   <string name="history_empty_message">Śledź tutaj, co było czytane.</string>
   <string name="history_offline_articles_toast">Bez dostępu do sieci (offline) niektóre artykuły w historii mogą być niewidoczne.</string>
@@ -431,6 +432,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Listy czytanych pomyślnie zsynchronizowane</string>
   <string name="reading_list_menu_last_sync">Ostatnia synchronizacja: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Anuluj</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Anuluj</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Anuluj</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Anuluj</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="notification_channel_description">Postęp pobierania</string>
@@ -482,7 +490,6 @@
   <string name="preference_summary_notification_milestone">Określone liczby zmian zostały osiągnięte</string>
   <string name="preference_title_notification_thanks">Podziękowania</string>
   <string name="preference_summary_notification_thanks">Ktoś dziękuje Ci za edycję</string>
-  <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_card_subtitle">Przeglądaj losowe artykuły na Wikipedii</string>
@@ -525,6 +532,10 @@
   <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_configure_onboarding_action">Dostosuj</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Anuluj</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
   <string name="description_edit_text_hint">Opis tytułu</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_add_description">Dodaj opis tytułu</string>
@@ -548,6 +559,7 @@
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Anuluj</string>
   <string name="offline_read_permission_rationale">Pozwolenie na dostęp do pamięci masowej na urządzeniu jest wymagane do przeglądania w trybie offline.</string>
   <string name="offline_read_final_rationale">Zezwolenie na dostęp do pamięci masowej na urządzeniu jest wymagane do korzystania z Biblioteki offline.</string>
   <string name="size_gb">%.2f GB</string>
@@ -594,8 +606,20 @@
   <string name="add_wikipedia_languages_text">Dodaj języki Wikipedii</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Edytuj języki</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, dziękuję</string>
+  <string name="remove_language_dialog_cancel_button_text">Anuluj</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Anuluj</string>
   <string name="main_drawer_open">Otwórz</string>
   <string name="main_drawer_close">Zamknij</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Anuluj</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Anuluj</string>
 </resources>

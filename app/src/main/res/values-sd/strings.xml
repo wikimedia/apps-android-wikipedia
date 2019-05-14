@@ -415,7 +415,6 @@
   <string name="preference_title_notification_milestone">سنگ ميل</string>
   <string name="preference_title_notification_thanks">مھرباني</string>
   <string name="preference_summary_notification_thanks">ڪوئي توھان جي ڪنھن ترميم لاءِ مھرباني چئي ٿو</string>
-  <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
   <string name="view_random_card_subtitle">وڪيپيڊيا مان پڙھڻ لاءِ ڪو بلاترتيب مضمونن مان گھمو</string>
@@ -490,10 +489,6 @@
   <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
   <string name="size_gb">%.2f جيبي</string>
   <string name="size_mb">%.2f ايمبي</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 منٽ باقي</item>
-    <item quantity="other">%d منٽَ باقي</item>
-  </plurals>
   <string name="onboarding_skip">ڇڏيو</string>
   <string name="onboarding_continue">جاري رکو</string>
   <string name="onboarding_get_started">شروع ڪريو</string>

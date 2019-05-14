@@ -28,8 +28,8 @@
                     android:orientation="vertical"
                     android:layout_marginTop="16dp"
                     android:clipToPadding="false"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin">
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/create_account_username"
@@ -99,16 +99,16 @@
                         style="@style/RtlAwareTextView"
                         android:enabled="false"
                         android:textSize="12sp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="0dp"/>
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="0dp"/>
                     <TextView
                         android:id="@+id/create_account_submit_button"
                         android:layout_width="match_parent"
                         android:text="@string/create_account_next"
                         style="@style/App.Button.Blue"
                         android:enabled="false"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginRight="0dp"/>
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="0dp"/>
 
                     <TextView
                         android:id="@+id/privacy_policy_link"

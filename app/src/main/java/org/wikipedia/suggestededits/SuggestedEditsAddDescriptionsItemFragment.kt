@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -12,7 +11,7 @@ import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_add_title_descriptions_item.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
@@ -47,7 +46,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_add_title_descriptions_item, container, false)
+        return inflater.inflate(R.layout.fragment_suggested_edits_add_descriptions_item, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -100,7 +99,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     fun showAddedDescriptionView(addedDescription: String?) {
-        if (!TextUtils.isEmpty(addedDescription)) {
+        if (!addedDescription.isNullOrEmpty()) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
                 viewArticleSubtitleAddedBy.visibility = VISIBLE
@@ -110,7 +109,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
             viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
-            this.addedDescription = addedDescription!!
+            this.addedDescription = addedDescription
         }
     }
 
@@ -140,7 +139,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
-        if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
+        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {

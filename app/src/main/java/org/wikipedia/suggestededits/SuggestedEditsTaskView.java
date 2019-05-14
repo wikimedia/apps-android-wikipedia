@@ -40,7 +40,7 @@ class SuggestedEditsTaskView extends FrameLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_edit_task, this);
+        inflate(getContext(), R.layout.view_suggested_edits_task, this);
         ButterKnife.bind(this);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }

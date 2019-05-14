@@ -65,8 +65,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:background="?attr/material_theme_border_color"/>
 
         <LinearLayout
@@ -79,8 +79,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:textSize="16sp"
                 android:lineSpacingMultiplier="1.3"
                 android:textColor="?attr/primary_text_color"

@@ -6,22 +6,25 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 
-import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
-public class ToCInteractionFunnel extends TimedFunnel {
+public class ToCInteractionFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppToCInteraction";
-    private static final int REV_ID = 18389174;
+    private static final int REV_ID = 19044853;
 
     private final int pageId;
     private final int numSections;
-    private String interactionToken;
-    private boolean opened;
+
+    private int numOpens;
+    private int numSectionClicks;
+
+    private long lastScrollStartMillis;
+    private int totalOpenedSec;
 
     public ToCInteractionFunnel(WikipediaApp app, WikiSite wiki, int pageId, int numSections) {
-        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, wiki);
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL, wiki);
         this.pageId = pageId;
         this.numSections = numSections;
-        invalidate();
     }
 
     @Override
@@ -31,50 +34,37 @@ public class ToCInteractionFunnel extends TimedFunnel {
         return super.preprocessData(eventData);
     }
 
-    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) {
-        preprocessData(eventData, "interaction_token", interactionToken);
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
+
+    public void scrollStart() {
+        numOpens++;
+        lastScrollStartMillis = System.currentTimeMillis();
     }
 
-    private void invalidate() {
-        interactionToken = UUID.randomUUID().toString();
-        opened = false;
+    public void scrollStop() {
+        if (lastScrollStartMillis == 0) {
+            return;
+        }
+        totalOpenedSec += (System.currentTimeMillis() - lastScrollStartMillis) / TimeUnit.SECONDS.toMillis(1);
+        lastScrollStartMillis = 0;
     }
 
-    public void logOpen() {
-        resetDuration();
-        opened = true;
-        log(
-                "action", "open"
-        );
+
+    public void logClick() {
+        numSectionClicks++;
     }
 
-    public void logClose() {
-        log(
-                "action", "close"
-        );
-        invalidate();
-    }
-
-    public void logScrollStart() {
-        if (!opened) {
-            logOpen();
+    public void log() {
+        scrollStop();
+        if (numSections == 0 || numOpens == 0) {
+            return;
         }
         log(
-                "action", "scroll_start"
-        );
-    }
-
-    public void logScrollStop() {
-        log(
-                "action", "scroll_stop"
-        );
-    }
-
-    public void logClick(int sectionIndex, String sectionName) {
-        log(
-                "action", "click",
-                "section_index", sectionIndex,
-                "section_name", sectionName
+                "num_peeks", 0,
+                "num_opens", numOpens,
+                "num_section_clicks", numSectionClicks,
+                "total_peek_sec", 0,
+                "total_open_sec", totalOpenedSec
         );
     }
 }

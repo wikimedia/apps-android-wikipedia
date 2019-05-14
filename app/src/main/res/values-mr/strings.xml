@@ -312,7 +312,6 @@
   <string name="reading_list_article_limit_message">या यादीत जोडू शकत नाही. आपण \"%1$s\" पैकी %2$d लेखांच्या मर्यादेवर पोचला आहात.</string>
   <string name="reading_lists_limit_message">दुसरी यादी तयार करू शकत नाही.प्रत्येक खात्यासाठी असणाऱ्या १०० वाचन यादींच्या मर्यादेवर आपण पोचला आहात.</string>
   <string name="user_option_sync_label">पसंतीक्रम</string>
-  <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
   <string name="view_random_card_title">रैंडमाइझर</string>
   <string name="view_main_page_card_title">विकिपीडियावर आज</string>

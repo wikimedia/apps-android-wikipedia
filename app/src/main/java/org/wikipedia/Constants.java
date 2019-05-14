@@ -76,7 +76,16 @@ public final class Constants {
         SUGGESTED_EDITS_ONBOARDING,
         ONBOARDING_DIALOG,
         FEED,
-        NOTIFICATION
+        NOTIFICATION,
+        APP_SHORTCUTS,
+        TOOLBAR,
+        WIDGET,
+        INTENT_SHARE,
+        INTENT_PROCESS_TEXT,
+        FEED_BAR,
+        VOICE,
+        ON_THIS_DAY_CARD_BODY,
+        ON_THIS_DAY_CARD_FOOTER
     }
 
     private Constants() { }

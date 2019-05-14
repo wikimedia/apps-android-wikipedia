@@ -24,8 +24,8 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
                 app:tint="?attr/material_theme_secondary_color"/>
@@ -46,8 +46,8 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
                 app:tint="?attr/material_theme_secondary_color"/>
@@ -68,8 +68,8 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
                 app:tint="?attr/material_theme_secondary_color"/>
@@ -102,8 +102,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="-8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="@string/create_account_login"
         android:textColor="?attr/colorAccent" />
 

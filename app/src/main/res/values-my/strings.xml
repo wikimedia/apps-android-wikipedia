@@ -122,7 +122,7 @@
   <string name="reset_password_button">သိမ်းဆည်းပြီး အကောင့်ထဲဝင်ရန်</string>
   <string name="preference_title_logout">ထွက်ရန်</string>
   <string name="toast_logout_complete">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
-  <string name="logout_prompt">သင် ထွက်မည်ဆိုသည်မှာ သေချာပါသလား?</string>
+  <string name="logout_prompt" fuzzy="true">သင် ထွက်မည်ဆိုသည်မှာ သေချာပါသလား?</string>
   <string name="history_empty_title">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
   <string name="history_empty_message">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
   <string name="search_empty_message">အခမဲ့စွယ်စုံကျမ်းကို သင့်ဘာသာစကားဖြင့် ရှာဖွေဖတ်ရှုပါ။</string>
@@ -509,7 +509,6 @@
   <string name="preference_title_notification_thanks">ကျေးဇူးတင်ပါသည်</string>
   <string name="preference_summary_notification_thanks">တည်းဖြတ်မှုတစ်ခုအတွက် တစ်စုံတစ်ယောက်က သင့်ကိုကျေးဇူးတင်သည်</string>
   <string name="preference_title_notification_revert">ပြန်ပြောင်းရန်</string>
-  <string name="view_continue_reading_card_title">ဆက်လက်ဖတ်ရှုရန်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
   <string name="view_random_card_subtitle">ဝီကီပီးဒီးယားမှ ကျပန်းဆောင်းပါးတစ်ပုဒ်အား ဖတ်ရန် လှည့်ယမ်းပါ</string>
@@ -565,7 +564,7 @@
   <string name="description_edit_read">ဖတ်ရန်</string>
   <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
   <string name="description_edit_add_description_v2">ဖော်ပြချက်ထည့်သွင်းပါ</string>
-  <string name="description_edit_translate_description" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
+  <string name="description_edit_translate_description">ခေါင်းစဉ်ဖော်ပြချက်ကို ဘာသာပြန်ရန်</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့ပါ</string>
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>
@@ -587,6 +586,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
   <string name="suggested_edits_add_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="suggested_edits_translate_descriptions">ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_review_description">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_my_contributions">ပံ့ပိုးထားမှုများ</string>
@@ -608,7 +608,6 @@
   <string name="offline_read_final_rationale">အော့ဖ်လိုင်းစာကြည့်တိုက်ကို အသုံးပြုရန် သင့်စက်ပစ္စည်းပေါ်ရှိ သိုလှောင်ခန်းအား ဝင်ရောက်ခွင့်လိုအပ်ပါသည်။</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_download_time_remaining">{{PLURAL|one=1 မိနစ် ကျန်|%d မိနစ် ကျန်}</string>
   <string name="onboarding_skip">ကျော်ရန်</string>
   <string name="onboarding_continue">ဆက်လက်</string>
   <string name="onboarding_get_started">စတင်ပါ</string>

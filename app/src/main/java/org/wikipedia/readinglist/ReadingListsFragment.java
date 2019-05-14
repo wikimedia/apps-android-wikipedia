@@ -2,7 +2,6 @@ package org.wikipedia.readinglist;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -57,7 +56,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
-import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
@@ -135,16 +133,6 @@ public class ReadingListsFragment extends Fragment implements
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
         readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
-        readingListView.addItemDecoration(new MarginItemDecoration(0, 0, 0, DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.floating_queue_container_height))) {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1
-                        && ((MainActivity) requireActivity()).isFloatingQueueEnabled()
-                        && displayedLists.size() > 1) {
-                    super.getItemOffsets(outRect, view, parent, state);
-                }
-            }
-        });
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -593,7 +581,7 @@ public class ReadingListsFragment extends Fragment implements
                     ReadingListDbHelper.instance().updatePage(page);
                 }).subscribeOn(Schedulers.io()).subscribe();
 
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+                startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
             }
         }
 

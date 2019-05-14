@@ -849,5 +849,17 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_multilingual_task, showTask);
     }
 
+    public static boolean shouldShowSuggestedEditsCardsForTesting() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_cards_testing, false);
+    }
+
+    public static boolean wasLoggedOutInBackground() {
+        return getBoolean(R.string.preference_key_logged_out_in_background, false);
+    }
+
+    public static void setLoggedOutInBackground(boolean loggedOut) {
+        setBoolean(R.string.preference_key_logged_out_in_background, loggedOut);
+    }
+
     private Prefs() { }
 }
