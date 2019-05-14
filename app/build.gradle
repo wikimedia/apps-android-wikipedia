@@ -145,15 +145,6 @@ android {
         }
     }
 
-    splits {
-        abi {
-            enable true
-            reset()
-            include 'x86', 'x86_64', 'arm64-v8a', 'armeabi-v7a'
-            universalApk true
-        }
-    }
-
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
 
@@ -167,20 +158,6 @@ android {
             includeAndroidResources = true
             returnDefaultValues = true
         }
-    }
-}
-
-// Map for the version code that gives each ABI a value.
-ext.abiCodes = ['armeabi-v7a':1, 'arm64-v8a':2, x86:3, x86_64:4]
-
-// For per-density APKs, create a similar map like this:
-// ext.densityCodes = ['mdpi': 1, 'hdpi': 2, 'xhdpi': 3]
-
-// For each APK output variant, override versionCode with a combination of
-// ext.abiCodes * 10000 + variant.versionCode.
-android.applicationVariants.all { variant ->
-    variant.outputs.each { output ->
-        output.versionCodeOverride = project.ext.abiCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) * 10000 + variant.versionCode
     }
 }
 
@@ -246,7 +223,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation mockitoCore
-    testImplementation 'org.robolectric:robolectric:3.8'
+    testImplementation 'org.robolectric:robolectric:4.2'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation "commons-io:commons-io:2.6"
 
