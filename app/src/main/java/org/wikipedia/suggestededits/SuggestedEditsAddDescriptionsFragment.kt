@@ -133,21 +133,20 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         updateActionButton()
     }
 
-    fun updateBackButton(pagerPosition: Int) {
+    private fun updateBackButton(pagerPosition: Int) {
         backButton.isClickable = pagerPosition != 0
         backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
-    fun updateActionButton() {
+    private fun updateActionButton() {
         val isAddedDescriptionEmpty = topChild?.addedDescription.isNullOrEmpty()
-        if(!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
+        if (!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
         addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_themed_24dp else R.drawable.ic_mode_edit_white_24dp))
         if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
-            if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(if(isAddedDescriptionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
-        } else
-            if (addDescriptionText != null)
-                addDescriptionText!!.text = getString(if(isAddedDescriptionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+            addDescriptionText?.text = getString(if (isAddedDescriptionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
+        } else if (addDescriptionText != null) {
+            addDescriptionText?.text = getString(if (isAddedDescriptionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+        }
     }
 
     override fun onDestroyView() {

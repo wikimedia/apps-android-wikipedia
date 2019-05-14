@@ -68,7 +68,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
                 parent().onSelectPage()
             }
         }
-       showAddedDescriptionView(addedDescription)
+        showAddedDescriptionView(addedDescription)
     }
 
     override fun onDestroy() {
@@ -99,7 +99,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     fun showAddedDescriptionView(addedDescription: String?) {
-        if (!addedDescription.isNullOrEmpty() && viewArticleSubtitleContainer != null && viewArticleSubtitle != null && viewArticleExtract != null) {
+        if (!addedDescription.isNullOrEmpty()) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = addedDescription
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
@@ -126,7 +126,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
         if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text =  StringUtils.capitalize(if(!addedDescription.isNullOrEmpty()) addedDescription else sourceSummary!!.description)
+            viewArticleSubtitle.text =  StringUtils.capitalize(if(addedDescription.isNotEmpty()) addedDescription else sourceSummary!!.description)
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
