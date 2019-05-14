@@ -126,7 +126,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
         if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text =  StringUtils.capitalize(if(!TextUtils.isEmpty(addedDescription)) addedDescription else sourceSummary!!.description)
+            viewArticleSubtitle.text =  StringUtils.capitalize(if(!addedDescription.isNullOrEmpty()) addedDescription else sourceSummary!!.description)
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)

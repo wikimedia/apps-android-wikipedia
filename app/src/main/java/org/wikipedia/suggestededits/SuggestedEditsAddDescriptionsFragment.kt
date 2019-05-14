@@ -139,7 +139,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     }
 
     fun updateActionButton() {
-        val isAddedDescriptionEmpty = TextUtils.isEmpty(topChild?.addedDescription)
+        val isAddedDescriptionEmpty = topChild?.addedDescription.isNullOrEmpty()
         if(!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
         addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_themed_24dp else R.drawable.ic_mode_edit_white_24dp))
         if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
