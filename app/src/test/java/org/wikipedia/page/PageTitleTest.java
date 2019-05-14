@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
     @Test public void testPrefixedText() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
-        assertThat(new PageTitle(null, "Test  title",  enwiki).getPrefixedText(), is("Test__title"));
+        assertThat(new PageTitle(null, "Test  title",  enwiki).getPrefixedText(), is("Test_title"));
         assertThat(new PageTitle(null, "Test title",  enwiki).getPrefixedText(), is("Test_title"));
         assertThat(new PageTitle("Talk", "Test title",  enwiki).getPrefixedText(), is("Talk:Test_title"));
         assertThat(new PageTitle(null, "Test title",  enwiki).getText(), is("Test_title"));
