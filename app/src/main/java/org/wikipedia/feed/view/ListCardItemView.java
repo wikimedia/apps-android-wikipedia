@@ -26,7 +26,6 @@ import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ListCardItemView extends ConstraintLayout {
     public interface Callback {
@@ -56,6 +55,11 @@ public class ListCardItemView extends ConstraintLayout {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
+        setOnClickListener(v -> {
+            if (callback != null && entry != null && card != null) {
+                callback.onSelectPage(card, entry);
+            }
+        });
     }
 
     @NonNull public ListCardItemView setCard(@Nullable Card card) {
@@ -75,16 +79,6 @@ public class ListCardItemView extends ConstraintLayout {
         setImage(entry.getTitle().getThumbUrl());
         PageAvailableOfflineHandler.INSTANCE.check(entry.getTitle(), available -> setViewsGreyedOut(!available));
         return this;
-    }
-
-    @OnClick void onClick(View view) {
-        if (callback != null && entry != null && card != null) {
-            callback.onSelectPage(card, entry);
-        }
-    }
-
-    @OnClick(R.id.view_list_card_item_title) void showOverflowMenu(View anchorView) {
-        //Todo: Remove@Onclick
     }
 
     @VisibleForTesting @Nullable Callback getCallback() {

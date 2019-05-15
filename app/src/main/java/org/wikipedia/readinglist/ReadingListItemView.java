@@ -110,16 +110,6 @@ public class ReadingListItemView extends ConstraintLayout {
         StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
     }
 
-    @OnClick void onClick(View view) {
-        if (callback != null && readingList != null) {
-            callback.onClick(readingList);
-        }
-    }
-
-    @OnClick(R.id.item_title) void showOverflowMenu(View anchorView) {
-        //Todo: Remove@Onclick
-    }
-
     private void init() {
         inflate(getContext(), R.layout.item_reading_list, this);
         ButterKnife.bind(this);
@@ -133,6 +123,11 @@ public class ReadingListItemView extends ConstraintLayout {
         }
         setClickable(true);
         clearThumbnails();
+        setOnClickListener(v -> {
+            if (callback != null && readingList != null) {
+                callback.onClick(readingList);
+            }
+        });
     }
 
     private void updateDetails() {
