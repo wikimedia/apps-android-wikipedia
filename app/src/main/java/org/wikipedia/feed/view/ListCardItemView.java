@@ -83,6 +83,10 @@ public class ListCardItemView extends ConstraintLayout {
         }
     }
 
+    @OnClick(R.id.view_list_card_item_title) void showOverflowMenu(View anchorView) {
+        //Todo: Remove@Onclick
+    }
+
     @VisibleForTesting @Nullable Callback getCallback() {
         return callback;
     }
