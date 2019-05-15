@@ -116,10 +116,6 @@ public class ReadingListItemView extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.item_title) void showOverflowMenu(View anchorView) {
-        //Todo: Remove@Onclick
-    }
-
     private void init() {
         inflate(getContext(), R.layout.item_reading_list, this);
         ButterKnife.bind(this);
