@@ -106,48 +106,22 @@
                         android:id="@+id/viewArticleSubtitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingStart="16dp"
+                        android:paddingStart="13dp"
                         android:paddingEnd="16dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_weight="1"
                         android:background="?attr/multi_select_background_color"
                         android:ellipsize="end"
+                        android:letterSpacing="0.01"
                         android:lineSpacingExtra="6sp"
                         android:maxLines="3"
                         android:textColor="?attr/material_theme_primary_color"
                         android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/accentSideBar"
                         tools:text="Lorem ipsum" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/viewAddDescriptionButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_marginTop="5dp">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginEnd="6dp"
-                        android:layout_marginStart="16dp"
-                        android:tint="?attr/colorAccent"
-                        android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-
-                    <TextView
-                        android:id="@+id/callToActionText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textColor="?attr/colorAccent"
-                        android:textSize="14sp"
-                        android:text="@string/suggested_edits_add_description_button"
-                        android:fontFamily="sans-serif-medium"
-                        android:letterSpacing="0.01"
-                        android:lineSpacingExtra="6sp"
-                        tools:text="Add description"
-                        />
                 </LinearLayout>
 
                 <View
@@ -165,6 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="12sp"
                     android:textSize="16sp"
