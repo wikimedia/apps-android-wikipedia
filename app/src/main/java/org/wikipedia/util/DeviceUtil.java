@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -79,16 +80,22 @@ public final class DeviceUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
                 // this make the system recognizes the status bar is light and will make status bar icons become visible
-                activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    activity.getWindow().setNavigationBarColor(ResourceUtil.getThemedColor(activity, android.R.attr.windowBackground));
+                    activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+                } else {
+                    activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                }
             } else {
                 resetSystemUiVisibility(activity);
             }
         }
     }
 
-    public static void resetSystemUiVisibility(@NonNull Activity activity) {
+    private static void resetSystemUiVisibility(@NonNull Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             activity.getWindow().getDecorView().setSystemUiVisibility(0);
+            activity.getWindow().setNavigationBarColor(Color.BLACK);
         }
     }
 
