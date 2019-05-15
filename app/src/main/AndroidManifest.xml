@@ -147,7 +147,7 @@
         <activity
             android:name=".suggestededits.SuggestedEditsAddDescriptionsActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.SuggestedEdits"
             android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>
         <activity
             android:name=".edit.EditSectionActivity"

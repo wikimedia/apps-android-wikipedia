@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/addTitleDescriptionsCoordinatorLayout"
+    android:background="?attr/suggestions_background_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="1px"
-            android:background="?attr/main_toolbar_color"
             android:elevation="4dp"
             android:gravity="center_vertical"
             app:layout_constraintTop_toTopOf="parent"
@@ -81,43 +81,81 @@
             android:id="@+id/bottomButtonContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
             android:clipToPadding="false"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/backButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="4dp"
-                android:focusable="true"
-                android:clickable="true"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
                 android:contentDescription="@null"
-                android:layout_marginEnd="32dp"
-                app:tint="?attr/material_theme_de_emphasised_color"
-                app:srcCompat="@drawable/ic_replay_black_24dp"
-                app:layout_constraintEnd_toStartOf="@+id/nextButton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/nextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:contentDescription="@string/view_next_random_article"
-                app:backgroundTint="?attr/paper_color"
-                app:borderWidth="0dp"
-                app:elevation="4dp"
-                app:srcCompat="@drawable/animated_dice"
-                app:tint="?attr/material_theme_de_emphasised_color"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:focusable="true"
+                android:padding="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toStartOf="@+id/addDescriptionButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:tint="?attr/colorAccent" />
 
+            <LinearLayout
+                android:id="@+id/addDescriptionButton"
+                android:layout_width="194dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_shape_gray"
+                android:backgroundTint="?attr/colorAccent"
+                app:elevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/addDescriptionImage"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                        app:tint="@color/base100" />
+
+                    <TextView
+                        android:id="@+id/addDescriptionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suggested_edits_add_description_button"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/paper_color" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/nextButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/view_next_random_article"
+                android:focusable="true"
+                android:padding="12dp"
+                android:scaleX="-1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/addDescriptionButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:tint="?attr/colorAccent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
