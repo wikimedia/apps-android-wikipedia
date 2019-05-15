@@ -31,9 +31,12 @@
             <com.facebook.drawee.view.SimpleDraweeView
                 style="@style/SimpleDraweeViewPlaceholder"
                 android:id="@+id/link_preview_thumbnail"
+                android:visibility="gone"
                 android:layout_width="@dimen/defaultListItemSize"
                 android:layout_height="@dimen/defaultListItemSize"
-                android:layout_margin="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@null"/>
             <TextView
@@ -41,6 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginStart="16dp"
                 android:layout_gravity="center_vertical"
                 android:textColor="?attr/primary_text_color"
                 android:paddingBottom="4dp"

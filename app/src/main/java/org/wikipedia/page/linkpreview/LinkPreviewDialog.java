@@ -259,7 +259,11 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         if (contents.getExtract().length() > 0) {
             extractText.setText(contents.getExtract());
         }
-        ViewUtil.loadImageUrlInto(thumbnailView, contents.getTitle().getThumbUrl());
+        String thumbnailImageUrl = contents.getTitle().getThumbUrl();
+        if (thumbnailImageUrl != null) {
+            thumbnailView.setVisibility(View.VISIBLE);
+            ViewUtil.loadImageUrlInto(thumbnailView, thumbnailImageUrl);
+        }
         if (overlayView != null) {
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,
                     contents.isDisambiguation() ? R.string.button_continue_to_disambiguation : R.string.button_continue_to_article));
