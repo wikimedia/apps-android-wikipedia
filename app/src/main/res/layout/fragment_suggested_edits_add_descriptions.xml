@@ -127,7 +127,7 @@
                         android:layout_height="24dp"
                         android:layout_marginEnd="8dp"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                        app:srcCompat="@drawable/ic_add_gray_white_24dp"
                         app:tint="@color/base100" />
 
                     <TextView
