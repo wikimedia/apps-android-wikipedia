@@ -126,6 +126,10 @@
     <string name="toast_logout_complete">Logged out</string>
     <string name="logout_prompt">This will log you out on all devices where you are currently logged in. Do you want to continue?</string>
     <string name="logout_dialog_cancel_button_text">Cancel</string>
+    <string name="logged_out_in_background_title">Logged out</string>
+    <string name="logged_out_in_background_dialog">You have been logged out of Wikipedia. Would you like to log in again?</string>
+    <string name="logged_out_in_background_login">Log in</string>
+    <string name="logged_out_in_background_cancel">Cancel</string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
@@ -692,6 +696,8 @@
     <string name="suggested_edits_feed_card_title">Suggested edits</string>
     <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
+    <string name="suggested_edits_add_translation_button_label">Add Translation</string>
+    <string name="suggested_edits_edit_translation_button_label">Edit Translation</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

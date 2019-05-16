@@ -88,7 +88,7 @@
   <string name="dialog_message_edit_failed">Уларытыы алҕаһа!</string>
   <string name="dialog_message_edit_failed_retry">Хатылаа</string>
   <string name="dialog_message_edit_failed_cancel">Салҕаама</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Уларытыыгын бигэргэппэтэххин. Сирэйтэн, кырдьык, тахсаары гынаҕын дуо?</string>
+  <string name="dialog_message_leaving_edit">Уларытыыгын бигэргэппэтэххин. Сирэйтэн кырдьык тахсаары гынаҕын дуо?</string>
   <string name="dialog_message_leaving_edit_leave">Таҕыс</string>
   <string name="dialog_message_leaving_edit_stay">Хаал</string>
   <string name="menu_show_toc">Иһинээҕитэ</string>
@@ -97,7 +97,7 @@
   <string name="search_reading_lists_no_results">Ааҕыы испииһэгэр туох да көстүбэтэ</string>
   <string name="search_history_no_results">Устуоруйатыгар туох да көстүбэтэ</string>
   <string name="edit_section_captcha_message">Аптамаатынан ыытыллар спаамтан көмүскэнэбит, бука диэн, аллара көстөр тыллары ук</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Капча ойуута көстүбэт дуо? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Бу сигэни батаа&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Капча ойуута көстүбэт дуо? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Бэлиэ-аатта көрдөө&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Үөһэ көстөр тыллары хатылаа</string>
   <string name="title_captcha">Капчаны киллэр</string>
   <string name="edit_section_captcha_reload">Капчаны таарыйан саҥардан биэриэххин сөп</string>
@@ -121,7 +121,7 @@
   <string name="reset_password_button">Бигэргэт уонна киир</string>
   <string name="preference_title_logout">Тахсыы</string>
   <string name="toast_logout_complete">Тахсыбыккын</string>
-  <string name="logout_prompt" fuzzy="true">Кырдьык тахсаары гынаҕын дуо?</string>
+  <string name="logout_prompt">Туох баар тэриллэриҥ тиһиктэн тахсыахтара. Кырдьык таһаараары гынаҕын дуо?</string>
   <string name="logout_dialog_cancel_button_text">Салҕаама</string>
   <string name="history_empty_title">Соторутааҕыта көрүллүбүт сирэй суох эбит</string>
   <string name="history_empty_message">Урут аахпыккын манна кэтээ.</string>
@@ -383,6 +383,7 @@
   <string name="reading_list_description_hint">Тиһилик туһунан (булгуччута суох)</string>
   <string name="reading_list_item_deleted">%s сотулунна</string>
   <string name="reading_list_items_deleted">%d ыстатыйа испииһэктэн сотулунна</string>
+  <string name="reading_lists_item_deleted">%s испииһэктэртэн сотулунна</string>
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>
   <string name="saved_list_empty_title">Испииһэк оҥоһулла илик эбит</string>
@@ -404,14 +405,16 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
   <string name="reading_lists_sync_reminder_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
   <string name="reading_lists_sync_reminder_text">Мэнэйдэһии испииһэгэр хараллыбыт ыстатыйалар Эн Бикипиэдьийэҕэ бэлиэтэммит ааккын кытта ситимнэниэхтэрин сөп. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Мэнэйдээһини холбоо</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
+  <string name="reading_lists_login_reminder_text">Ааҕар испииһэктэри тэриллэр ыккардыларыгар тэҥниир кыах баар. Бикипиэдьийэҕэ киирэр ааккынан киир уонна испииһэктэри бигэргэтиини көҥүллээ.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Сөп</string>
   <string name="reading_lists_confirm_remote_delete_no">Суох</string>
   <string name="reading_list_article_save_in_progress">Сирэй хачайданан бүттэҕинэ ситимэ да суох көрүөххэ сөп буолуо.</string>
   <string name="reading_list_already_contains_selection">Талбыт ыстатыйаҥ испииһэккэ хайыы-үйэ баар эбит.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ыстатыйаны манна киллэр: %2$s</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Бу тиһилиги чахчы сотоору гынаҕын дуо %s?</string>
+  <string name="reading_list_delete_confirm">Маны чахчы сотоору гынаҕын дуо %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Тэҥниири холбуурга бэлиэ-ааккынан киир</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Киирдэххинэ ааҕыыҥ испииһэгэ ааккын кытта ситимнэһиэ.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Салҕаама</string>

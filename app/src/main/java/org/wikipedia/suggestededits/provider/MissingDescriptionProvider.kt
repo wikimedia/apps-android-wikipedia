@@ -1,6 +1,5 @@
 package org.wikipedia.suggestededits.provider
 
-import android.text.TextUtils
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
 import org.apache.commons.lang3.StringUtils
@@ -36,14 +35,14 @@ object MissingDescriptionProvider {
             }
         }
 
-        return (if (!TextUtils.isEmpty(cachedTitle)) Observable.just(cachedTitle) else
+        return (if (cachedTitle.isNotEmpty()) Observable.just(cachedTitle) else
             ServiceFactory.get(wiki).randomWithPageProps
                     .map<String> { response ->
                         var title : String? = null
                         synchronized(articlesWithMissingDescriptionCache) {
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
                             for (page in response.query()!!.pages()!!) {
-                                if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !TextUtils.isEmpty(page.description())) {
+                                if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !page.description().isNullOrEmpty()) {
                                     continue
                                 }
                                 articlesWithMissingDescriptionCache.push(page.title())
@@ -91,7 +90,7 @@ object MissingDescriptionProvider {
                     .flatMap { response: MwQueryResponse ->
                         val qNumbers = ArrayList<String>()
                         for (page in response.query()!!.pages()!!) {
-                            if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || TextUtils.isEmpty(page.pageProps()!!.wikiBaseItem)) {
+                            if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || page.pageProps()!!.wikiBaseItem.isEmpty()) {
                                 continue
                             }
                             qNumbers.add(page.pageProps()!!.wikiBaseItem)

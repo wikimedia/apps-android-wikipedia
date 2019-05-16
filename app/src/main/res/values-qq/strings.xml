@@ -139,6 +139,10 @@
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.\n{{Identical|Logged out}}</string>
   <string name="logout_prompt">Message that asks the user whether they really want to log out.</string>
   <string name="logout_dialog_cancel_button_text">Negative action button text in pop-up dialog for loging out.\n{{Identical|Cancel}}</string>
+  <string name="logged_out_in_background_title">Title of dialog box that tells the user they have been logged out.</string>
+  <string name="logged_out_in_background_dialog">Dialog box text that tells the user they have been logged out, and asks if they want to log in again.</string>
+  <string name="logged_out_in_background_login">Button that allows the user to go to the login screen.</string>
+  <string name="logged_out_in_background_cancel">Button that cancels the dialog box that tells the user they have been logged out.\n{{Identical|Cancel}}</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="history_offline_articles_toast">Message shown in a toast when some articles in the history page may not be viewable while offline.</string>
@@ -758,4 +762,6 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="suggested_edits_add_translation_button_label">Label that prompts the user to translate a description of an article that does not yet have one.</string>
+  <string name="suggested_edits_edit_translation_button_label">Label that prompts the user to edit a translated description again.</string>
 </resources>

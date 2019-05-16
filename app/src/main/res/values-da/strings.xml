@@ -130,6 +130,9 @@
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
   <string name="logout_dialog_cancel_button_text">Annullér</string>
+  <string name="logged_out_in_background_title">Logget af</string>
+  <string name="logged_out_in_background_login">Log på</string>
+  <string name="logged_out_in_background_cancel">Annullér</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
   <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
   <string name="history_offline_articles_toast">Nogle artikler i historikken kan måske ikke vises når offline.</string>
