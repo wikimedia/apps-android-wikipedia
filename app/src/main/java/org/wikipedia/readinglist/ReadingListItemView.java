@@ -38,9 +38,9 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
-public class ReadingListItemView extends ConstraintLayout
-        implements View.OnLongClickListener {
+public class ReadingListItemView extends ConstraintLayout {
 
     public interface Callback {
         void onClick(@NonNull ReadingList readingList);
@@ -138,6 +138,19 @@ public class ReadingListItemView extends ConstraintLayout
         menu.show();
     }
 
+    @OnLongClick boolean onLongClick(View view) {
+        PopupMenu menu = new PopupMenu(getContext(), view, Gravity.END);
+        menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
+
+        if (readingList.isDefault()) {
+            menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
+            menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
+        }
+        menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
+        menu.show();
+        return false;
+    }
+
     private void init() {
         inflate(getContext(), R.layout.item_reading_list, this);
         ButterKnife.bind(this);
@@ -151,8 +164,6 @@ public class ReadingListItemView extends ConstraintLayout
         }
         setClickable(true);
         clearThumbnails();
-
-        setOnLongClickListener(this);
     }
 
     private void updateDetails() {
@@ -275,19 +286,5 @@ public class ReadingListItemView extends ConstraintLayout
             }
             return false;
         }
-    }
-
-    @Override
-    public boolean onLongClick(View view) {
-        PopupMenu menu = new PopupMenu(getContext(), view, Gravity.END);
-        menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
-
-        if (readingList.isDefault()) {
-            menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
-            menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
-        }
-        menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
-        menu.show();
-        return false;
     }
 }
