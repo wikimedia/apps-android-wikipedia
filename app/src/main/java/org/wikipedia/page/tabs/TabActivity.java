@@ -146,7 +146,7 @@ public class TabActivity extends BaseActivity {
                     view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     view.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     view.setImageBitmap(FIRST_TAB_BITMAP);
-                    view.setPadding(0, topTabLeadImageEnabled() ? 0 : - DimenUtil.getToolbarHeightPx(TabActivity.this), 0, 0);
+                    view.setPadding(0, topTabLeadImageEnabled() ? 0 : -DimenUtil.getToolbarHeightPx(TabActivity.this), 0, 0);
 
                     return view;
                 }
