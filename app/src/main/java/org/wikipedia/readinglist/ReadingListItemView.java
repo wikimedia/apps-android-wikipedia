@@ -34,7 +34,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ReadingListItemView extends ConstraintLayout {
     public interface Callback {
