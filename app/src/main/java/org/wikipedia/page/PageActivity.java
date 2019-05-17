@@ -103,6 +103,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public enum TabPosition {
         CURRENT_TAB,
+        CURRENT_TAB_SQUASH,
         NEW_TAB_BACKGROUND,
         NEW_TAB_FOREGROUND,
         EXISTING_TAB
@@ -188,7 +189,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         if (languageChanged) {
             app.resetWikiSite();
-            loadMainPageInForegroundTab();
+            loadMainPage(TabPosition.EXISTING_TAB);
         }
 
         if (savedInstanceState == null) {
@@ -326,15 +327,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 finish();
                 return;
             }
-            loadPageInForegroundTab(title, historyEntry);
+            loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
                 || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())) {
-                loadPageInForegroundTab(title, historyEntry);
+                loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND);
             } else if (ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
-                loadPage(title, historyEntry, TabPosition.CURRENT_TAB);
+                loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH);
             }
             if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER));
@@ -350,16 +351,16 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getWikiSite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-            loadPageInForegroundTab(title, historyEntry);
+            loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_WIDGET);
-            loadPageInForegroundTab(title, historyEntry);
+            loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (ACTION_CREATE_NEW_TAB.equals(intent.getAction())) {
-            loadMainPageInForegroundTab();
+            loadMainPage(TabPosition.NEW_TAB_FOREGROUND);
         } else {
-            loadMainPageInCurrentTab();
+            loadMainPage(TabPosition.CURRENT_TAB);
         }
     }
 
@@ -414,28 +415,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
             pageFragment.closeFindInPage();
             if (position == TabPosition.CURRENT_TAB) {
-                pageFragment.loadPage(title, entry, true);
+                pageFragment.loadPage(title, entry, true, false);
+            } else if (position == TabPosition.CURRENT_TAB_SQUASH) {
+                pageFragment.loadPage(title, entry, true, true);
             } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
-                pageFragment.openInNewBackgroundTabFromMenu(title, entry);
-            } else if (position == TabPosition.EXISTING_TAB) {
-                pageFragment.openFromExistingTab(title, entry);
+                pageFragment.openInNewBackgroundTab(title, entry);
+            } else if (position == TabPosition.NEW_TAB_FOREGROUND) {
+                pageFragment.openInNewForegroundTab(title, entry);
             } else {
-                pageFragment.openInNewForegroundTabFromMenu(title, entry);
+                pageFragment.openFromExistingTab(title, entry);
             }
             app.getSessionFunnel().pageViewed(entry);
         });
-    }
-
-    public void loadPageInForegroundTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND);
-    }
-
-    public void loadMainPageInForegroundTab() {
-        loadMainPage(TabPosition.NEW_TAB_FOREGROUND);
-    }
-
-    private void loadMainPageInCurrentTab() {
-        loadMainPage(TabPosition.CURRENT_TAB);
     }
 
     /**
@@ -504,7 +495,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onPageLoadMainPageInForegroundTab() {
-        loadMainPageInForegroundTab();
+        loadMainPage(TabPosition.EXISTING_TAB);
     }
 
     @Override
@@ -678,7 +669,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                loadMainPageInForegroundTab();
+                loadMainPage(TabPosition.NEW_TAB_FOREGROUND);
                 animateTabsButton();
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
@@ -756,7 +747,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void loadNewLanguageMainPage() {
         Handler uiThread = new Handler(Looper.getMainLooper());
         uiThread.postDelayed(() -> {
-            loadMainPageInForegroundTab();
+            loadMainPage(TabPosition.EXISTING_TAB);
             updateFeaturedPageWidget();
         }, DateUtils.SECOND_IN_MILLIS);
     }
