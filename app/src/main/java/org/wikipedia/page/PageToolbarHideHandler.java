@@ -23,7 +23,6 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class PageToolbarHideHandler extends ViewHideHandler {
     private static final int FULL_OPACITY = 255;
-    private static final int DELAY_UPDATE_MS = 100;
 
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private boolean fadeEnabled;
@@ -56,15 +55,13 @@ public class PageToolbarHideHandler extends ViewHideHandler {
      */
     void setFadeEnabled(boolean enabled) {
         fadeEnabled = enabled;
-
-        // to avoid the toolbar applies the opacity before image loaded
-        pageFragment.getWebView().postDelayed(this::update, DELAY_UPDATE_MS);
+        update();
     }
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
 
-        int opacity = fadeEnabled && scrollY < (pageFragment.getHeaderView().getHeight() - toolbarHeight) ? 0 : FULL_OPACITY;
+        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice() - toolbarHeight) ? 0 : FULL_OPACITY;
 
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
