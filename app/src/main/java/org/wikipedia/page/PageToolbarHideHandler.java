@@ -23,13 +23,13 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class PageToolbarHideHandler extends ViewHideHandler {
     private static final int FULL_OPACITY = 255;
+    private static final int DELAY_UPDATE_MS = 100;
 
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private boolean fadeEnabled;
     @NonNull private PageFragment pageFragment;
     @NonNull private Toolbar toolbar;
     @NonNull private Drawable toolbarBackground;
-    @NonNull private TabCountsView tabsButton;
 
     @ColorInt private int themedIconColor;
     @ColorInt private int baseStatusBarColor;
@@ -43,11 +43,11 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         this.pageFragment = pageFragment;
         this.toolbar = toolbar;
         this.toolbarBackground = hideableView.getBackground().mutate();
-        this.tabsButton = tabsButton;
         themedIconColor = getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color);
         baseStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_expanded_status_bar_color);
         themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
         toolbarHeight = DimenUtil.getToolbarHeightPx(pageFragment.requireContext());
+        tabsButton.setTabCount(WikipediaApp.getInstance().getTabCount());
     }
 
     /**
@@ -56,12 +56,13 @@ public class PageToolbarHideHandler extends ViewHideHandler {
      */
     void setFadeEnabled(boolean enabled) {
         fadeEnabled = enabled;
-        update();
+
+        // to avoid the toolbar applies the opacity before image loaded
+        pageFragment.getWebView().postDelayed(this::update, DELAY_UPDATE_MS);
     }
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        tabsButton.setTabCount(WikipediaApp.getInstance().getTabCount());
 
         int opacity = fadeEnabled && scrollY < (pageFragment.getHeaderView().getHeight() - toolbarHeight) ? 0 : FULL_OPACITY;
 
