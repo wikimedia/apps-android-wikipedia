@@ -125,6 +125,7 @@
   <string name="reset_password_button">Konservi kaj ensaluti</string>
   <string name="preference_title_logout">Elsaluti</string>
   <string name="toast_logout_complete">Elsalutinta</string>
+  <string name="logout_prompt">Tio elsalutigos vin el ĉiuj aparatoj en kiuj vi estas ensalutinta. Ĉu fari tion?</string>
   <string name="logout_dialog_cancel_button_text">Nuligi</string>
   <string name="logged_out_in_background_title">Elsalutinta</string>
   <string name="logged_out_in_background_dialog">Vi elsalutis el Vikipedio. Ĉu vi volas reensaluti?</string>
@@ -303,6 +304,7 @@
   <string name="link_preview_disambiguation_description">Ĉi tiu titolo rilatas al pli ol unu paĝo:</string>
   <string name="button_add_to_reading_list">Aldoni al legolisto</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikolo ne povas esti ŝargita dum vi estas eksterrete.</string>
+  <string name="page_offline_notice_last_date">Vi estas leganta loke konservatan version de ĉi tiu artikolon je %s.</string>
   <string name="button_get_directions">Vojpriskribo</string>
   <string name="preference_title_show_link_previews">Antaŭmontri ligitajn paĝojn.</string>
   <string name="preference_summary_show_link_previews">Rapide antaŭmontri artikolojn tuŝetante ligilojn.</string>
@@ -328,6 +330,7 @@
   <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
   <string name="crash_report_dialog_send_button">Sendi</string>
   <string name="crash_report_activity_title">Aplikaĵa eraro</string>
+  <string name="crash_report_relaunch">Rekomenci</string>
   <string name="crash_report_quit">Ĉesigi</string>
   <string name="article_menu_bar_bookmark">Aldoni ĉi tiun artikolon al legolisto</string>
   <string name="article_menu_bar_share">Konigi la artikolan ligilon</string>
@@ -365,15 +368,21 @@
   <string name="reading_list_sort_by_created_desc">Ordigi laŭ dato kreita (plej malnovaj)</string>
   <string name="reading_list_menu_delete">Forigi liston</string>
   <string name="reading_list_menu_rename">Redakti nomon/priskribon</string>
+  <string name="reading_list_action_menu_remove_from_offline">Forigi el loka konservejo</string>
+  <string name="reading_list_action_menu_save_for_offline">Konservi al loka konservejo</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Forigi ĉion el loka konservejo</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Konservi ĉion al loka konservejo</string>
   <string name="reading_list_action_menu_add_to_another_list">Aldoni al alia listo</string>
   <string name="reading_list_name_sample">Mia legolisto</string>
   <string name="reading_list_name_hint">Nomo de ĉi tiu listo</string>
   <string name="reading_list_description_hint">Priskribo (nedeviga)</string>
   <string name="reading_list_item_deleted">%s estas forigita de ĉi tiu listo</string>
   <string name="reading_list_items_deleted">%d artikoloj estis forigitaj de ĉi tiu listo</string>
+  <string name="reading_lists_item_deleted">%s forigita el listoj</string>
   <string name="reading_list_item_delete_undo">Malfari</string>
   <string name="reading_list_deleted">%s forigita</string>
   <string name="saved_list_empty_title">Neniuj konservitaj paĝoj ankoraŭ</string>
+  <string name="reading_lists_empty_message">Aldoni artikolon al listo de legotoj, por eksterreta legado.</string>
   <string name="reading_lists_onboarding_for_example">Ekzemple</string>
   <string name="reading_lists_onboarding_example1">Vizitintaj lokoj</string>
   <string name="reading_lists_onboarding_example2">Plej ŝatataj bestoj</string>
@@ -385,7 +394,9 @@
   <string name="reading_list_add_to_other_list">Aldoni al alia legolisto</string>
   <string name="reading_list_remove_from_list">Forigi de %s</string>
   <string name="reading_list_remove_from_lists">Forigi de legolistoj</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Forigi el loka konservejo</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">La artikolo aperas en pluraj listoj</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s estos ne plu havebla eksterrete en ĉiuj legolistoj:</string>
   <string name="reading_lists_sync_reminder_action">Ŝalti sinkronigadon</string>
   <string name="reading_list_login_reminder_title">Sinkronigi la legolistojn</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jes</string>
@@ -410,9 +421,20 @@
   <string name="default_reading_list_name">Konservitaj</string>
   <string name="default_reading_list_description">Defaŭlta listo por viaj konservitaj artikoloj</string>
   <string name="no_user_lists_title">Organizi artikolojn en listoj</string>
+  <string name="reading_list_saved_list_rename">%1$s (kreita de uzanto)</string>
   <string name="reading_lists_menu_create_list">Krei novan liston</string>
   <string name="reading_lists_menu_sort_by">Ordigi laŭ</string>
+  <string name="reading_lists_refresh_sync_option">Resinkronigi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Ensaluti / registriĝi</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Ĉi tiu artikolo nun estas havebla eksterrete.</item>
+    <item quantity="other">Ĉi tiuj artikoloj nun estas haveblaj eksterrete.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Ĉi tiu artikolo estas ne plu havebla eksterrete.</item>
+    <item quantity="other">Ĉi tiuj artikoloj estas ne plu haveblaj eksterrete.</item>
+  </plurals>
+  <string name="reading_list_menu_last_sync">Lasta sinkronigo: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Bone</string>
   <string name="reading_list_delete_dialog_ok_button_text">Bone</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Nuligi</string>
@@ -426,6 +448,7 @@
   <string name="notification_syncing_pause_button">Paŭzigi</string>
   <string name="notification_syncing_resume_button">Daŭrigi</string>
   <string name="notification_syncing_cancel_button">Nuligi</string>
+  <string name="notification_syncing_reading_list_channel_description">Progreso de sinkronigado de Legolistoj</string>
   <plurals name="notification_channel_name">
     <item quantity="other">unu=Elŝutanta artikolon</item>
   </plurals>
@@ -550,13 +573,26 @@
   <string name="suggested_edits_task_add_description_description">Kontribui al artikloj sen priskriboj</string>
   <string name="suggested_edits_task_image_caption_title">Titoli bildojn</string>
   <string name="suggested_edits_task_image_caption_description">Aldoni titolojn al bildoj</string>
+  <string name="suggested_edits_task_multilingual_title">Pli da taskoj por plurlingvaj redaktanoj</string>
+  <string name="suggested_edits_task_multilingual_description">Tradukaj taskoj estas haveblaj se vi legas kaj skribas plurajn Vikipediajn lingvojn.</string>
   <string name="suggested_edits_task_translation_title">Traduki priskribojn</string>
+  <string name="suggested_edits_task_translation_description">Traduki priskribojn tra artikolaj lingvoj.</string>
   <string name="suggested_edits_task_multilingual_negative">Ne por mi</string>
   <string name="suggested_edits_task_multilingual_positive">Aldoni lingvojn</string>
+  <string name="suggested_edits_task_translate_caption_title">Traduki titolon de bildo</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduki titolon de bildo en aliajn lingvojn</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 kontribuo</item>
+    <item quantity="other">%d kontribuoj</item>
+  </plurals>
   <string name="suggested_edits_feed_card_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komenci</string>
+  <string name="suggested_edits_add_translation_button_label">Aldoni Tradukon</string>
+  <string name="suggested_edits_edit_translation_button_label">Redakti Tradukon</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
+  <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Se vi insteresiĝas, vidu la &lt;a href=\"%1$s\"&gt;historion de redaktoj&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Nuligi</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
@@ -564,8 +600,11 @@
   <string name="onboarding_continue">Daŭrigi</string>
   <string name="onboarding_get_started">Komenci</string>
   <string name="onboarding_maybe_later">Eble poste</string>
+  <string name="onboarding_explore_title">Novaj metodoj por esplorado</string>
+  <string name="onboarding_reading_list_sync_title">Legolistoj sinkronigeblaj</string>
   <string name="onboarding_analytics_title">Sendi anoniman datenon</string>
   <string name="onboarding_analytics_switch_title">Sendi datenon pri uzado</string>
+  <string name="onboarding_create_account_sync">Sinkronigi viajn legolistojn</string>
   <string name="onboarding_create_account_preferences">Konservi viajn preferojn</string>
   <string name="onboarding_got_it">Komprenite</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis la sekvajn sur via aparato:</string>

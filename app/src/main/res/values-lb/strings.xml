@@ -531,6 +531,8 @@
   <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
   <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="suggested_edits_add_translation_button_label">Iwwersetzung dobäisetzen</string>
+  <string name="suggested_edits_edit_translation_button_label">Iwwersetzung änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>

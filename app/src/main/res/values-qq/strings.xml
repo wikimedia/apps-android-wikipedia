@@ -675,6 +675,8 @@
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
+  <string name="suggested_edits_add_translation_button_label">Label that prompts the user to translate a description of an article that does not yet have one.</string>
+  <string name="suggested_edits_edit_translation_button_label">Label that prompts the user to edit a translated description again.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>

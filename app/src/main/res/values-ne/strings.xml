@@ -102,6 +102,9 @@
   <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र लग इन गर्नुहोस्</string>
   <string name="preference_title_logout">निर्गमन</string>
   <string name="toast_logout_complete">लग आउट गरियो</string>
+  <string name="logged_out_in_background_title">निर्गमन भयो।</string>
+  <string name="logged_out_in_background_login">प्रवेग</string>
+  <string name="logged_out_in_background_cancel">रद्द</string>
   <string name="history_empty_title">भर्खरै हेरिएको कुनै पनि लेख छैन</string>
   <string name="history_empty_message">आफूले पढिरहेका कुराहरूलाई यहाँबाट पहिल्याउनुहोस्।</string>
   <string name="search_empty_message">स्वतन्त्र विश्वकोश आफ्नै भाषामा खोज्नुहोस् र पढ्नुहोस्</string>

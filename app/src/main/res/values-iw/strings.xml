@@ -6,6 +6,7 @@
 * Deborahjay
 * Envlh
 * Eraab
+* Erelon
 * Guycn2
 * Inkbug
 * Matanya
@@ -129,6 +130,8 @@
   <string name="toast_logout_complete">יצאת מהחשבון</string>
   <string name="logout_prompt" fuzzy="true">האם ברצונך באמת לצאת מהחשבון?</string>
   <string name="logout_dialog_cancel_button_text">ביטול</string>
+  <string name="logged_out_in_background_login">כניסה לחשבון</string>
+  <string name="logged_out_in_background_cancel">ביטול</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
   <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
@@ -661,6 +664,7 @@
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
+  <string name="suggested_edits_add_translation_button_label">הוספת תרגום</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
