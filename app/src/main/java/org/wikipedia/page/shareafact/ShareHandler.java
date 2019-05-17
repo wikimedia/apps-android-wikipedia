@@ -23,6 +23,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.gallery.ImageLicense;
+import org.wikipedia.html.JavaScriptActionHandler;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.NoDimBottomSheetDialog;
 import org.wikipedia.page.Page;
@@ -187,6 +188,10 @@ public class ShareHandler {
             createFunnel();
         }
         funnel.logHighlight();
+
+        fragment.getWebView().evaluateJavascript(JavaScriptActionHandler.setTextSelectionAction(), returnString -> {
+            L.d("Received value " + returnString);
+        });
     }
 
     private boolean shouldEnableWiktionaryDialog() {

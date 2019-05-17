@@ -1,6 +1,6 @@
 package org.wikipedia.html
 
-object StyleHandler {
+object JavaScriptActionHandler {
 
     private fun buildJavaScriptString(script: String, value: String): String {
         return "$script = '$value'"
@@ -19,5 +19,10 @@ object StyleHandler {
     @JvmStatic
     fun setBodyBottomPadding(topMargin: Float): String {
         return buildJavaScriptString("document.body.style.paddingBottom", topMargin.toString() + "px")
+    }
+
+    @JvmStatic
+    fun setTextSelectionAction(): String {
+        return "window.getSelection().toString().trim();"
     }
 }

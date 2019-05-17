@@ -13,7 +13,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.gallery.GalleryActivity;
-import org.wikipedia.html.StyleHandler;
+import org.wikipedia.html.JavaScriptActionHandler;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
@@ -133,7 +133,7 @@ public class LeadImagesHandler {
     }
 
     private void setWebViewPaddingTop() {
-        webView.evaluateJavascript(StyleHandler.setBodyTopPadding(isMainPage()
+        webView.evaluateJavascript(JavaScriptActionHandler.setBodyTopPadding(isMainPage()
                 ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
                 : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar())), null);
     }

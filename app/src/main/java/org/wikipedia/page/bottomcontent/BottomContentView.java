@@ -26,7 +26,7 @@ import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.html.StyleHandler;
+import org.wikipedia.html.JavaScriptActionHandler;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
@@ -245,7 +245,7 @@ public class BottomContentView extends LinearLayoutOverWebView
 
     private void padWebView() {
         // pad the bottom of the webview, to make room for ourselves
-        webView.evaluateJavascript(StyleHandler.setBodyBottomPadding(
+        webView.evaluateJavascript(JavaScriptActionHandler.setBodyBottomPadding(
                 (getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()), null);
         webViewPadded = true;
         // ^ sending the padding event will guarantee a ContentHeightChanged event to be triggered,

@@ -29,7 +29,7 @@ import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.html.StyleHandler;
+import org.wikipedia.html.JavaScriptActionHandler;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
@@ -368,7 +368,7 @@ public class PageFragmentLoadState {
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        webView.evaluateJavascript(StyleHandler.setContentDivTopMargin(
+        webView.evaluateJavascript(JavaScriptActionHandler.setContentDivTopMargin(
                 DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.activity_vertical_margin))), null);
 
         sendLeadSectionPayload(page);
