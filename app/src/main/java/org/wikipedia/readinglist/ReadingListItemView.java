@@ -34,6 +34,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ReadingListItemView extends ConstraintLayout {
     public interface Callback {
@@ -122,11 +123,13 @@ public class ReadingListItemView extends ConstraintLayout {
         }
         setClickable(true);
         clearThumbnails();
-        setOnClickListener(v -> {
-            if (callback != null && readingList != null) {
-                callback.onClick(readingList);
-            }
-        });
+    }
+
+    @OnClick
+    void onClick(View view) {
+        if (callback != null && readingList != null) {
+            callback.onClick(readingList);
+        }
     }
 
     private void updateDetails() {
