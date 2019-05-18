@@ -328,6 +328,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
+                    if (!fragment.isAdded()) {
+                        return;
+                    }
                     FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.tool_tip_toc_title,
                             R.string.tool_tip_toc_text, new TapTargetView.Listener() {
 
@@ -391,6 +394,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
+                        if (!fragment.isAdded()) {
+                            return;
+                        }
                         tocContainer.setVisibility(View.GONE);
                     }
                 });
