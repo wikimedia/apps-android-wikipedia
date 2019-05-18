@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.readinglist.database.ReadingList
@@ -312,20 +313,21 @@ object ReadingListBehaviorsUtil {
         return StringUtil.fromHtml(result)
     }
 
-    @SuppressLint("CheckResult")
     fun searchListsAndPages(searchQuery: String?, callback: SearchCallback) {
-        Observable.fromCallable { ReadingListDbHelper.instance().allLists }
-                .map {
-                    allReadingLists = it
-                    val list = applySearchQuery(searchQuery, it)
-                    if (searchQuery.isNullOrEmpty()) {
-                        ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
-                    }
-                    list
+        val bgDispatcher: CoroutineDispatcher = Dispatchers.IO
+        val scope = CoroutineScope(Dispatchers.Main)
+
+        // TODO: handle exception
+        scope.launch {
+            val result = withContext(bgDispatcher) { // background thread
+                val list = applySearchQuery(searchQuery, ReadingListDbHelper.instance().allLists)
+                if (searchQuery.isNullOrEmpty()) {
+                    ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
                 }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ callback.onCompleted(it) }, { L.w(it) })
+                list
+            }
+            callback.onCompleted(result)
+        }
     }
 
     private fun applySearchQuery(searchQuery: String?, lists: List<ReadingList>): MutableList<Any> {
