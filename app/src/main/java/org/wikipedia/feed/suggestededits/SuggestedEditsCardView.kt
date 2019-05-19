@@ -6,7 +6,6 @@ import android.net.Uri
 import android.view.View
 import io.reactivex.annotations.NonNull
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -57,7 +56,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         if (isTranslation) {
-            sourceDescription = StringUtils.capitalize(sourceSummary!!.description)
+            sourceDescription = sourceSummary!!.description!!.capitalize()
             viewArticleSubtitle.visibility = View.VISIBLE
             viewArticleSubtitle.text = sourceDescription
         }

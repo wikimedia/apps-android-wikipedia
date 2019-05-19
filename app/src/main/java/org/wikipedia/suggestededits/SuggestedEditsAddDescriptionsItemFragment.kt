@@ -12,7 +12,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
@@ -126,7 +125,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
         if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text =  StringUtils.capitalize(if(addedDescription.isNotEmpty()) addedDescription else sourceSummary!!.description)
+            viewArticleSubtitle.text = (if (addedDescription.isNotEmpty()) addedDescription else sourceSummary!!.description)?.capitalize()
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
