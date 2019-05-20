@@ -143,7 +143,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                     startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
                 }
             });
-            tabCountsView.setTabCount(WikipediaApp.getInstance().getTabCount());
+            tabCountsView.updateTabCount();
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
         }
