@@ -75,7 +75,7 @@
   <string name="language_count_link_text">Атын %d тылынан ааҕыахха сөп</string>
   <string name="content_license_html">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
   <string name="edit_save_action_license_logged_in">Маны бэчээттэтэххинэ &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ бу лиссиэнсийэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; кэлин төннөрүллүбэтин кытта эмиэ сөбүлэһэҕин.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, IP-ҥ көстүө суоҕа.</string>
+  <string name="edit_save_action_license_anon">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, ордук үчүгэй көмүскэллээх буолуоҥ.</string>
   <string name="preference_title_language">Бикипиэдьийэ тыллара</string>
   <string name="langlinks_filter_hint">Бул</string>
   <string name="langlinks_empty">Бу сирэй атын тылынан суох эбит.</string>
@@ -123,6 +123,10 @@
   <string name="toast_logout_complete">Тахсыбыккын</string>
   <string name="logout_prompt">Туох баар тэриллэриҥ тиһиктэн тахсыахтара. Кырдьык таһаараары гынаҕын дуо?</string>
   <string name="logout_dialog_cancel_button_text">Салҕаама</string>
+  <string name="logged_out_in_background_title">Тахсыбыккын</string>
+  <string name="logged_out_in_background_dialog">Бикипиэдьийэҕэ бэлиэ-ааккыттан тахсыбыккын. Төттөрү киирэҕин дуо?</string>
+  <string name="logged_out_in_background_login">Киирии</string>
+  <string name="logged_out_in_background_cancel">Салҕаама</string>
   <string name="history_empty_title">Соторутааҕыта көрүллүбүт сирэй суох эбит</string>
   <string name="history_empty_message">Урут аахпыккын манна кэтээ.</string>
   <string name="history_offline_articles_toast">Ситимҥэ холбоммотох буоллаххына, устуоруйа сорох сирэйдэрэ кыайан арыллыа суохтарын сөп.</string>
@@ -597,6 +601,9 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Быһаарыыны эбии\" диэни холбоотуҥ</string>
   <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
   <string name="suggested_edits_unlock_dialog_yes">Чэ, бардыбыт!</string>
+  <string name="suggested_edits_unlock_notification_button">Чэ, бардыбыт!</string>
+  <string name="suggested_edits_license_notice">Кылгас ойуулааһыны эптэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
+  <string name="suggested_edits_menu_info">Эбии</string>
   <string name="suggested_edits_tasks_activity_title">Этиини уларытыы</string>
   <string name="suggested_edits_task_add_description_title">Кылгас быһаарыы эбии</string>
   <string name="suggested_edits_task_add_description_description">Кылгас быһаарыылары суруйууга кыттарга</string>
@@ -616,8 +623,11 @@
     <item quantity="one">уларытыы</item>
     <item quantity="other">%d уларытыылар</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Уларытар туһунан этиилэр</string>
   <string name="suggested_edits_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Саҕалыырга</string>
+  <string name="suggested_edits_add_translation_button_label">Тылбааһы эбэргэ</string>
+  <string name="suggested_edits_edit_translation_button_label">Тылбааһы уларытарга</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>
@@ -642,7 +652,7 @@
   <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>
   <string name="onboarding_multilingual_add_language_text">Тылы эп биитэр сот</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Аһаҕас энциклопедия\n... 300-чэ тылынан</string>
+  <string name="onboarding_welcome_title_v2">Аһаҕас энциклопедия\n... 300-тэн тахса тылынан</string>
   <string name="app_shortcuts_random">Түбэспиччэ</string>
   <string name="app_shortcuts_continue_reading">Салгыы ааҕыы</string>
   <string name="app_shortcuts_search">Бул</string>
