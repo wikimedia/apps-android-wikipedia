@@ -125,6 +125,8 @@
   <string name="preference_title_logout">Saír</string>
   <string name="toast_logout_complete">Sesión pechada</string>
   <string name="logout_prompt" fuzzy="true">Está seguro de que quere pechar a sesión?</string>
+  <string name="logout_dialog_cancel_button_text">Cancelar</string>
+  <string name="logged_out_in_background_cancel">Cancelar</string>
   <string name="history_empty_title">Non hai artigos vistos recentemente</string>
   <string name="history_empty_message">Manter un rexistro do que fuches lendo aquí.</string>
   <string name="history_offline_articles_toast">Algúns artigos do historial poden non ser visualizables mentres non estea en liña.</string>
@@ -464,6 +466,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">As listas de lectura foron sincronizadas correctamente</string>
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Cancelar</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Cancelar</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Cancelar</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancelar</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_reverted_title">Edición revertida</string>
   <string name="notification_channel_description">Avance da descarga</string>
@@ -572,7 +581,11 @@
   <string name="feed_item_type_randomizer">Xerar artigos aleatorios para ler</string>
   <string name="feed_empty_message">Non hai nada na súa canle Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar a súa canle Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escoller o que desexa amosar na súa canle, e tamén priorizar os seus tipos de contidos favoritos.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descrición de título</string>
   <string name="description_edit_text_hint_per_language">Descrición en %s</string>
   <string name="description_edit_save">Publicar</string>
@@ -580,6 +593,7 @@
   <string name="description_edit_read">Ler</string>
   <string name="description_edit_add_description">Engadir unha descrición de título</string>
   <string name="description_edit_add_description_v2">Engadir unha descrición</string>
+  <string name="description_edit_translate_description">Traducir descrición</string>
   <string name="description_edit_edit_description">Editar a descrición</string>
   <string name="add_translation">Entadir tradución para %s</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
@@ -602,6 +616,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Comezar a editar</string>
   <string name="description_edit_tutorial_promise">Ó comezar, comprométome a non abusar desta funcionalidade.</string>
   <string name="suggested_edits_add_descriptions">Engadir descricións</string>
+  <string name="suggested_edits_translate_descriptions">Traducir descricións</string>
   <string name="suggested_edits_review_description">Revisar descrición</string>
   <string name="suggested_edits_add_description_button">Engadir descrición</string>
   <string name="suggested_edits_my_contributions">As miñas contribucións</string>
@@ -639,6 +654,7 @@
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">a súa contribución semella unha proba ou vandalismo.</string>
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Cancelar</string>
   <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
   <string name="offline_read_final_rationale">É preciso ter permiso de acceso ao almacenamento do seu dispositivo para usar a Biblioteca sen conexión.</string>
   <string name="size_gb">%.2f GB</string>
@@ -696,6 +712,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora ten definidos tanto o chinés tradicional como o simplificado nas linguas da aplicación. Quere actualizar a configuración das linguas?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar linguas</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazas</string>
+  <string name="remove_language_dialog_cancel_button_text">Cancelar</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="wikitext_bold">Negra</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Ligazón</string>
@@ -708,4 +732,8 @@
   <string name="main_drawer_close">Pechar</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Cancelar</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Cancelar</string>
 </resources>

@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits.provider
 
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -96,7 +95,7 @@ object MissingDescriptionProvider {
                             qNumbers.add(page.pageProps()!!.wikiBaseItem)
                         }
                         ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                                .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
+                                .getWikidataLabelsAndDescriptions(qNumbers.joinToString("|"))
                     }
                     .map<Pair<PageTitle, PageTitle>> { response ->
                         var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
@@ -137,7 +136,7 @@ object MissingDescriptionProvider {
                         qNumbers.add(page.title())
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                            .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
+                            .getWikidataLabelsAndDescriptions(qNumbers.joinToString("|"))
                 }
                 .map<Pair<PageTitle, PageTitle>> { response ->
                     var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
@@ -177,7 +176,7 @@ object MissingDescriptionProvider {
                     for (page in pages!!) {
                         mNumbers.add("M" + page.pageId())
                     }
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(StringUtils.join(mNumbers, '|'))
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
                 }, { mwQueryResponse, entities ->
                     var item: MwQueryPage? = null
                     for (m in entities.entities()!!.keys) {
@@ -207,7 +206,7 @@ object MissingDescriptionProvider {
                     for (page in pages!!) {
                         mNumbers.add("M" + page.pageId())
                     }
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(StringUtils.join(mNumbers, '|'))
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
                 }, { mwQueryResponse, entities ->
                     var item: Pair<String, MwQueryPage>? = null
                     for (m in entities.entities()!!.keys) {
