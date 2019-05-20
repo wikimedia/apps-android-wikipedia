@@ -78,6 +78,9 @@
   <string name="preference_title_logout">لاگ آؤٹ</string>
   <string name="toast_logout_complete">لاگ آؤٹ تھی ڳئے</string>
   <string name="logout_dialog_cancel_button_text">منسوخ</string>
+  <string name="logged_out_in_background_title">لاگ آؤٹ تھی ڳئے</string>
+  <string name="logged_out_in_background_login">لاگ ان تھیوو</string>
+  <string name="logged_out_in_background_cancel">منسوخ</string>
   <string name="delete_selected_items">چُݨے ہوئے آئٹم مٹاو</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;کیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
   <string name="create_account_username_hint">صارف دا ناں</string>
@@ -264,6 +267,7 @@
   <string name="description_edit_success_did_you_know">بھلا تساں ڄاݨدے ہو؟</string>
   <string name="description_edit_tutorial_button_label_start_editing">لکھݨ شروع کرو</string>
   <string name="suggested_edits_menu_info">معلومات</string>
+  <string name="suggested_edits_add_translation_button_label">ترجمہ شامل کرو</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
