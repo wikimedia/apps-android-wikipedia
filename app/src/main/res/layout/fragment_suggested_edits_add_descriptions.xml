@@ -81,8 +81,10 @@
             android:id="@+id/bottomButtonContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:layout_marginBottom="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -101,14 +103,15 @@
                 app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
                 app:tint="?attr/colorAccent" />
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/addDescriptionButton"
-                android:layout_width="194dp"
+                android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:layout_marginTop="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="16dp"
                 android:background="@drawable/button_shape_gray"
                 android:backgroundTint="?attr/colorAccent"
-                app:elevation="4dp"
+                android:elevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +141,7 @@
                         android:textAllCaps="true"
                         android:textColor="?attr/paper_color" />
                 </LinearLayout>
-            </LinearLayout>
+            </FrameLayout>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/nextButton"
