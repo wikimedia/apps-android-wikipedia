@@ -30,6 +30,7 @@
 * Pginer
 * Remux
 * Rodm23
+* Ryo567
 * Sporeunai
 * Tiberius1701
 * VegaDark
@@ -150,6 +151,10 @@
   <string name="toast_logout_complete">Sesión cerrada</string>
   <string name="logout_prompt">Se cerrarán las sesiones de todos los dispositivos. ¿Quieres continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
+  <string name="logged_out_in_background_title">Se ha cerrado la sesión</string>
+  <string name="logged_out_in_background_dialog">Se ha cerrado tu sesión en Wikipedia. ¿Quieres volver a iniciarla?</string>
+  <string name="logged_out_in_background_login">Iniciar sesión</string>
+  <string name="logged_out_in_background_cancel">Cancelar</string>
   <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
   <string name="history_empty_message">Consulta lo que has leído aquí.</string>
   <string name="history_offline_articles_toast">Es posible que algunos artículos del historial no aparezcan al estar sin conexión.</string>
@@ -682,6 +687,8 @@
   <string name="suggested_edits_feed_card_title">Ediciones sugeridas</string>
   <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
+  <string name="suggested_edits_add_translation_button_label">Añadir traducción</string>
+  <string name="suggested_edits_edit_translation_button_label">Editar traducción</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

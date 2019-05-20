@@ -665,6 +665,8 @@
   <string name="suggested_edits_feed_card_title">Förslag på redigeringar</string>
   <string name="suggested_edits_tutorial_message">Välkommen till den nya startsidan för att snabbredigera i Wikipedia-appen. Dina bidrag uppskattas. Ha det så roligt!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
+  <string name="suggested_edits_add_translation_button_label">Lägg till översättning</string>
+  <string name="suggested_edits_edit_translation_button_label">Redigera översättning</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>

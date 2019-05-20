@@ -219,7 +219,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void animateTabsButton() {
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
         tabsButton.startAnimation(anim);
-        tabsButton.setTabCount(WikipediaApp.getInstance().getTabCount());
+        tabsButton.updateTabCount();
     }
 
     private void finishActionMode() {
@@ -232,6 +232,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void hideSoftKeyboard() {
         DeviceUtil.hideSoftKeyboard(this);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        tabsButton.updateTabCount();
+        return false;
     }
 
     @Override

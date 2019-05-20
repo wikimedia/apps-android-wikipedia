@@ -106,6 +106,7 @@
   <string name="preference_title_logout">Bıveciye</string>
   <string name="toast_logout_complete">Ronıştış racneya</string>
   <string name="logout_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="logged_out_in_background_title">Veciya</string>
   <string name="logged_out_in_background_login">Cı kewe</string>
   <string name="logged_out_in_background_cancel">Bıtexelne</string>
   <string name="history_empty_title">Pelê peyêni çıniyê</string>
@@ -284,6 +285,8 @@
   <string name="suggested_edits_task_add_description_title">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="suggested_edits_add_translation_button_label">Açarnayış cı ke</string>
+  <string name="suggested_edits_edit_translation_button_label">Çarnayışi bıvurne</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
