@@ -116,7 +116,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private SwipeableItemTouchHelperCallback touchCallback;
     private boolean toolbarExpanded = true;
-    private boolean transparentStatusBarEnabled = true;
 
     private List<Object> displayedLists = new ArrayList<>();
     private String currentSearchQuery;
@@ -173,7 +172,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
-        appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> swipeRefreshLayout.setEnabled(verticalOffset == 0));
 
         return view;
     }
@@ -522,14 +520,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 toolbarExpanded = false;
             }
 
-            recyclerView.post(() -> {
-                if (isAdded()) {
-                    DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && transparentStatusBarEnabled);
-                    requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    requireActivity().getWindow().setStatusBarColor(transparentStatusBarEnabled
-                            ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
-                }
-            });
+            DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
+                    actionMode == null && (appBarLayout.getTotalScrollRange() + verticalOffset) > appBarLayout.getTotalScrollRange() / 2);
+
             // prevent swiping when collapsing the view
             swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
@@ -814,13 +807,20 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
+    private void setStatusBarActionMode(boolean inActionMode) {
+        DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && !inActionMode);
+        requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        requireActivity().getWindow().setStatusBarColor(!inActionMode
+                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
+    }
+
     private class SearchCallback extends SearchActionModeCallback {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
-            transparentStatusBarEnabled = false;
+            setStatusBarActionMode(true);
             ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
@@ -835,7 +835,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             super.onDestroyActionMode(mode);
             actionMode = null;
             currentSearchQuery = null;
-            transparentStatusBarEnabled = true;
+            setStatusBarActionMode(false);
             updateReadingListData();
         }
 
@@ -860,7 +860,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             super.onCreateActionMode(mode, menu);
             mode.getMenuInflater().inflate(R.menu.menu_action_mode_reading_list, menu);
             actionMode = mode;
-            transparentStatusBarEnabled = false;
+            setStatusBarActionMode(true);
             return true;
         }
 
@@ -900,7 +900,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override public void onDestroyActionMode(ActionMode mode) {
             unselectAllPages();
             actionMode = null;
-            transparentStatusBarEnabled = true;
+            setStatusBarActionMode(false);
             super.onDestroyActionMode(mode);
         }
     }

@@ -400,11 +400,7 @@ public class BottomContentView extends LinearLayoutOverWebView
 
         @Override
         public View getView(int position, View convView, ViewGroup parent) {
-            PageItemView<RbPageSummary> itemView = (PageItemView<RbPageSummary>) convView;
-            if (itemView == null) {
-                itemView = new PageItemView<>(getContext());
-            }
-            itemView.setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            PageItemView<RbPageSummary> itemView = new PageItemView<>(getContext());
             RbPageSummary result = getItem(position);
             PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
