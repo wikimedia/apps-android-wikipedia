@@ -138,8 +138,12 @@
   <string name="reset_password_button">保存并登录</string>
   <string name="preference_title_logout">退出</string>
   <string name="toast_logout_complete">已退出</string>
-  <string name="logout_prompt" fuzzy="true">确定要注销吗？</string>
+  <string name="logout_prompt">您的账号将在当前登录的所有设备下线。要继续吗？</string>
   <string name="logout_dialog_cancel_button_text">取消</string>
+  <string name="logged_out_in_background_title">已退出登录</string>
+  <string name="logged_out_in_background_dialog">您已退出登录。现在要登录吗？</string>
+  <string name="logged_out_in_background_login">登录</string>
+  <string name="logged_out_in_background_cancel">取消</string>
   <string name="history_empty_title">没有最近查看的条目</string>
   <string name="history_empty_message">在此跟踪您阅读过的东西。</string>
   <string name="history_offline_articles_toast">历史记录中的部分条目在离线状态下无法显示。</string>
