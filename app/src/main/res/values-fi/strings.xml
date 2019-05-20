@@ -135,6 +135,10 @@
   <string name="toast_logout_complete">Kirjauduit ulos</string>
   <string name="logout_prompt">Tämä kirjaa sinut ulos kaikista laitteista joihin olet tällä hetkellä kirjautunut. Haluatko jatkaa?</string>
   <string name="logout_dialog_cancel_button_text">Peruuta</string>
+  <string name="logged_out_in_background_title">Kirjauduttu ulos</string>
+  <string name="logged_out_in_background_dialog">Sinut on kirjattu ulos Wikipediasta. Haluaisitko kirjautua takaisin sisään?</string>
+  <string name="logged_out_in_background_login">Kirjaudu sisään</string>
+  <string name="logged_out_in_background_cancel">Peruuta</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemisistasi.</string>
   <string name="history_offline_articles_toast">Jotkut artikkelit historiassa eivät ehkä ole nähtävissä offline-tilassa.</string>
@@ -538,6 +542,7 @@
   <string name="preference_summary_notification_milestone">Tietty muokkausmäärä saavutetaan</string>
   <string name="preference_title_notification_thanks">Kiitokset</string>
   <string name="preference_summary_notification_thanks">Joku kiittää sinua muokkauksestasi</string>
+  <string name="preference_title_notification_revert">Palauttaminen</string>
   <string name="preference_summary_notification_revert">Yksi muokkauksistasi kumottiin</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
@@ -629,12 +634,16 @@
   <string name="suggested_edits_translated_by_you">Sinun kääntämäsi:</string>
   <string name="suggested_edits_unlock_dialog_no">Ehkä myöhemmin</string>
   <string name="suggested_edits_unlock_dialog_yes">Kyllä, mennään</string>
+  <string name="suggested_edits_unlock_notification_text">Ehdotetut muokkaukset</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Ehdotetut muokkaukset\n\nKiitos kaikista muokkauksistasi. Koska olet superhyvä muokkaamisessa, olemme koonneet luettelon artikkeleista, joista puuttuu kuvaukset. Voitko auttaa meitä parantamaan Wikipediaa?</string>
   <string name="suggested_edits_unlock_notification_button">Kyllä, mennään</string>
   <string name="suggested_edits_license_notice">Lisäämällä otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_menu_info">Tiedot</string>
+  <string name="suggested_edits_tasks_activity_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_task_add_description_title">Lisää kuvaukset</string>
   <string name="suggested_edits_task_image_caption_title">Kuvatekstit</string>
   <string name="suggested_edits_task_image_caption_description">Lisää kuvatekstejä</string>
+  <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
   <string name="suggested_edits_task_translation_title">Käännä kuvaukset</string>
   <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
@@ -647,6 +656,7 @@
     <item quantity="one">1 muokkaus</item>
     <item quantity="other">%d muokkausta</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_tutorial_message">Tervetuloa pikamuokkauksen uuteen kotiin Wikipedia-sovelluksessa. Muokkauksesi ovat hyvin arvostettuja. Iloista muokkaamista!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>

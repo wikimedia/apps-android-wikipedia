@@ -141,7 +141,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     private fun updateActionButton() {
         val isAddedDescriptionEmpty = topChild?.addedDescription.isNullOrEmpty()
         if (!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
-        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_themed_24dp else R.drawable.ic_mode_edit_white_24dp))
+        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
         if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             addDescriptionText?.text = getString(if (isAddedDescriptionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
         } else if (addDescriptionText != null) {

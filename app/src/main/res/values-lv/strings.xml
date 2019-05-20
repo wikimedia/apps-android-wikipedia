@@ -82,6 +82,7 @@
   <string name="toast_logout_complete">Jūs esat izgājis</string>
   <string name="logout_prompt">Šī darbība jūs izlogos no visām ierīcēm kurās jūs šobrīd esat ielogojies. Vai vēlaties turpināt?</string>
   <string name="logout_dialog_cancel_button_text">Atcelt</string>
+  <string name="logged_out_in_background_cancel">Atcelt</string>
   <string name="delete_selected_items">Dzēst izvēlētos vienumus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPĒDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Lietotājvārds</string>
