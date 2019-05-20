@@ -680,6 +680,8 @@
   <string name="suggested_edits_feed_card_title">Modifications suggérées</string>
   <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Commencer</string>
+  <string name="suggested_edits_add_translation_button_label">Ajouter la traduction</string>
+  <string name="suggested_edits_edit_translation_button_label">Modifier la traduction</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
