@@ -190,7 +190,6 @@ dependencies {
     implementation 'net.hockeyapp.android:HockeySDK:5.1.1'
     implementation 'org.apache.commons:commons-lang3:3.8.1'
     implementation 'org.jsoup:jsoup:1.11.3'
-    
     annotationProcessor "com.jakewharton:butterknife-compiler:10.1.0"
 
     android.productFlavors.each { flavor ->
