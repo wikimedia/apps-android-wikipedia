@@ -673,6 +673,8 @@
   <string name="suggested_edits_feed_card_title">Navrhování editací</string>
   <string name="suggested_edits_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
+  <string name="suggested_edits_add_translation_button_label">Přidat překlad</string>
+  <string name="suggested_edits_edit_translation_button_label">Editovat překlad</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>

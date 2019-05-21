@@ -456,7 +456,7 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private final class SearchResultAdapter extends BaseAdapter {
+    private final class SearchResultAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener {
         private final LayoutInflater inflater;
 
         SearchResultAdapter(LayoutInflater inflater) {
@@ -482,6 +482,8 @@ public class SearchResultsFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item_search_result, parent, false);
+                convertView.setOnClickListener(this);
+                convertView.setOnLongClickListener(this);
             }
             TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = (SearchResult) getItem(position);
@@ -520,17 +522,22 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
 
-            convertView.setOnClickListener((view) -> {
-                Callback callback = callback();
-                if (callback != null) {
-                    PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-                    callback.navigateToTitle(item, false, position);
-                }
-            });
-
-            convertView.setOnLongClickListener(view -> false);
-
+            convertView.setTag(position);
             return convertView;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Callback callback = callback();
+            int position = (int) v.getTag();
+            if (callback != null && position < totalResults.size()) {
+                callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+            }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            return false;
         }
     }
 
