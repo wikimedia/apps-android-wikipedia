@@ -82,8 +82,8 @@
             android:id="@+id/bottomButtonContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="8dp"
             android:paddingEnd="16dp"
-            android:layout_marginStart="40dp"
             android:clipToPadding="false"
             android:layout_gravity="center_vertical"
             app:layout_constraintVertical_weight="1"
@@ -117,7 +117,7 @@
                 android:backgroundTint="?attr/colorAccent"
                 android:gravity="center"
                 android:orientation="horizontal"
-                app:elevation="4dp"
+                android:elevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +130,7 @@
                     android:layout_height="match_parent"
                     android:padding="12dp"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                    app:srcCompat="@drawable/ic_add_gray_white_24dp"
                     android:tint="@color/base100" />
             </LinearLayout>
 

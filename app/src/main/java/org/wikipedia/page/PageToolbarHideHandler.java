@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.TabCountsView;
 
@@ -29,7 +28,6 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     @NonNull private PageFragment pageFragment;
     @NonNull private Toolbar toolbar;
     @NonNull private Drawable toolbarBackground;
-    @NonNull private TabCountsView tabsButton;
 
     @ColorInt private int themedIconColor;
     @ColorInt private int baseStatusBarColor;
@@ -43,11 +41,11 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         this.pageFragment = pageFragment;
         this.toolbar = toolbar;
         this.toolbarBackground = hideableView.getBackground().mutate();
-        this.tabsButton = tabsButton;
         themedIconColor = getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color);
         baseStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_expanded_status_bar_color);
         themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
         toolbarHeight = DimenUtil.getToolbarHeightPx(pageFragment.requireContext());
+        tabsButton.updateTabCount();
     }
 
     /**
@@ -61,10 +59,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        tabsButton.setTabCount(WikipediaApp.getInstance().getTabCount());
-
-        int opacity = fadeEnabled && scrollY < (pageFragment.getHeaderView().getHeight() - toolbarHeight) ? 0 : FULL_OPACITY;
-
+        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice() - toolbarHeight) ? 0 : FULL_OPACITY;
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
