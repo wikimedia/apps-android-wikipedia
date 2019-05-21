@@ -104,7 +104,7 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
-        imageView.setVisibility((url == null) ? GONE : VISIBLE);
+        imageView.setVisibility((url == null) ? INVISIBLE : VISIBLE);
         ViewUtil.loadImageUrlInto(imageView, url);
     }
 
@@ -130,10 +130,10 @@ public class PageItemView<T> extends ConstraintLayout {
         headerView.setText(text);
     }
 
-    public void setSelected(boolean selected) {
+    public void setSelected(boolean selected, @Nullable String imageUrl) {
         if (this.selected != selected) {
             this.selected = selected;
-            updateSelectedState();
+            updateSelectedState(imageUrl);
         }
     }
 
@@ -217,9 +217,9 @@ public class PageItemView<T> extends ConstraintLayout {
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
-    private void updateSelectedState() {
+    private void updateSelectedState(@Nullable String imageUrl) {
         imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
-        imageView.setVisibility(selected ? INVISIBLE : VISIBLE);
+        imageView.setVisibility(selected ? INVISIBLE : imageUrl == null ? INVISIBLE : VISIBLE);
         // TODO: animate?
         setBackgroundColor(getThemedColor(getContext(),
                 selected ? R.attr.multi_select_background_color : R.attr.paper_color));

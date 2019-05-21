@@ -560,7 +560,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setTitle(page.title());
             getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setImageUrl(page.thumbUrl());
-            getView().setSelected(page.selected());
+            getView().setSelected(page.selected(), page.thumbUrl());
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
