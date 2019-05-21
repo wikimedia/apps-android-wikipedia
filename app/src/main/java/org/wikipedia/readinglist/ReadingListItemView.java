@@ -174,18 +174,16 @@ public class ReadingListItemView extends ConstraintLayout {
             thumbUrls.add("");
         }
         for (int i = 0; i < thumbUrls.size() && i < imageViews.size(); ++i) {
-            loadThumbnail(imageViews.get(i), thumbUrls.get(i));
+            if (thumbUrls.get(i) != null) {
+                loadThumbnail(imageViews.get(i), thumbUrls.get(i));
+            }
         }
     }
 
     private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
-        if (TextUtils.isEmpty(url)) {
-            view.getHierarchy().setFailureImage(ResourceUtil.getThemedAttributeId(getContext(), R.attr.thumbnail_image_placeholder),
-                    ScalingUtils.ScaleType.FIT_CENTER);
-        } else {
+
             ViewUtil.loadImageUrlInto(view, url);
         }
-    }
 
     @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {
         float listSize = statsTextListSize(readingList);

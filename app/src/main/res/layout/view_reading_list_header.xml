@@ -10,6 +10,7 @@
         android:id="@+id/reading_list_header_image_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/paper_color"
         android:orientation="vertical"
         android:layout_gravity="top">
 
@@ -21,11 +22,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginEnd="0.5dp"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_0"/>
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0.5dp"
                 android:layout_weight="1"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_1"/>
@@ -39,17 +42,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="0.5dp"
             android:layout_weight="1">
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginEnd="0.5dp"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_3"/>
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_marginEnd="0.5dp"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_4"/>
             <org.wikipedia.views.FaceAndColorDetectImageView
