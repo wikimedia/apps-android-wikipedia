@@ -90,7 +90,7 @@ public class DescriptionEditFragment extends Fragment {
             } else {
                 // For good measure, poll the editor tasks API explicitly, since the user might have
                 // disabled polling of notifications, which is were the passive polling takes place.
-                NotificationPollBroadcastReceiver.pollEditorTaskCounts(requireContext());
+                NotificationPollBroadcastReceiver.pollEditorTaskCounts(WikipediaApp.getInstance());
             }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
             SuggestedEditsFunnel.get().success(invokeSource);
