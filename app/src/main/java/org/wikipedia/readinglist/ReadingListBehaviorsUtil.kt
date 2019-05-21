@@ -310,8 +310,8 @@ object ReadingListBehaviorsUtil {
 
     fun searchListsAndPages(searchQuery: String?, callback: SearchCallback) {
         scope.launch(exceptionHandler) {
-            // TODO: investigate the issue of not containing the related list
-            val list = withContext(dispatcher) { applySearchQuery(searchQuery, ReadingListDbHelper.instance().allLists) }
+            allReadingLists = withContext(dispatcher) { ReadingListDbHelper.instance().allLists }
+            val list = withContext(dispatcher) { applySearchQuery(searchQuery, allReadingLists) }
             if (searchQuery.isNullOrEmpty()) {
                 ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
             }
