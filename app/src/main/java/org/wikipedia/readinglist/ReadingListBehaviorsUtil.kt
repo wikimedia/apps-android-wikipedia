@@ -67,7 +67,7 @@ object ReadingListBehaviorsUtil {
                                     selectedPages: List<ReadingListPage>,
                                     forcedSave: Boolean,
                                     callback: Callback) {
-        if (!selectedPages.isEmpty()) {
+        if (selectedPages.isNotEmpty()) {
             for (page in selectedPages) {
                 resetPageProgress(page)
             }
@@ -80,7 +80,7 @@ object ReadingListBehaviorsUtil {
     fun removePagesFromOffline(activity: Activity,
                                selectedPages: List<ReadingListPage>,
                                callback: Callback) {
-        if (!selectedPages.isEmpty()) {
+        if (selectedPages.isNotEmpty()) {
             ReadingListDbHelper.instance().markPagesForOffline(selectedPages, false, false)
             showMultiSelectOfflineStateChangeSnackbar(activity, selectedPages, false)
             callback.onCompleted()
