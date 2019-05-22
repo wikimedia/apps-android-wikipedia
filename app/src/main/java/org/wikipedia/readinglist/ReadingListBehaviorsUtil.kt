@@ -123,7 +123,7 @@ object ReadingListBehaviorsUtil {
     }
 
     fun renameReadingList(activity: Activity, readingList: ReadingList?, callback: Callback) {
-        if (readingList == null || readingList.isDefault) {
+        if (readingList == null) {
             return
         } else if (readingList.isDefault) {
             L.w("Attempted to rename default list.")
