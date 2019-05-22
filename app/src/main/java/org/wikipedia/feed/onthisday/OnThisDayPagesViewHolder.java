@@ -63,8 +63,13 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setImage(@Nullable String url) {
-        pageItemImageView.setVisibility((url == null) ? View.GONE : View.VISIBLE);
-        pageItemImageView.loadImage(url == null ? null : Uri.parse(url));
+        if (url == null) {
+            pageItemImageView.setVisibility(View.GONE);
+        } else {
+            pageItemImageView.setVisibility(View.VISIBLE);
+            pageItemImageView.loadImage(Uri.parse(url));
+
+        }
     }
 
     @NonNull public OnThisDayPagesViewHolder setCallback(@Nullable ItemCallBack itemCallback) {

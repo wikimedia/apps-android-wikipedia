@@ -87,13 +87,17 @@ public class ListCardItemView extends ConstraintLayout {
         return callback;
     }
 
-    @VisibleForTesting @Nullable HistoryEntry getHistoryEntry() {
+    @VisibleForTesting @Nullable HistoryEntry getHistoryEntPagery() {
         return entry;
     }
 
     @VisibleForTesting void setImage(@Nullable String url) {
-        imageView.setVisibility((url == null) ? GONE : VISIBLE);
-        ViewUtil.loadImageUrlInto(imageView, url);
+        if (url == null) {
+            imageView.setVisibility(GONE);
+        } else {
+            imageView.setVisibility(VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, url);
+        }
     }
 
     @VisibleForTesting void setTitle(@Nullable CharSequence text) {

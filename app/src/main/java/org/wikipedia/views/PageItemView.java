@@ -104,8 +104,12 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
-        imageView.setVisibility((url == null) ? INVISIBLE : VISIBLE);
-        ViewUtil.loadImageUrlInto(imageView, url);
+        if (url == null) {
+            imageView.setVisibility(INVISIBLE);
+        } else {
+            imageView.setVisibility(VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, url);
+        }
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
