@@ -274,9 +274,9 @@ object ReadingListBehaviorsUtil {
 
     private fun getConfirmToggleOfflineMessage(activity: Activity, page: ReadingListPage, lists: List<ReadingList>): Spanned {
         var result = activity.getString(R.string.reading_list_confirm_remove_article_from_offline_message,
-                "<b>" + page.title() + "</b>")
+                "<b>${page.title()}</b>")
         lists.forEach {
-            result += "<br>&nbsp;&nbsp;<b>&#8226; " + it.title() + "</b>"
+            result += "<br>&nbsp;&nbsp;<b>&#8226; ${it.title()}</b>"
         }
         return StringUtil.fromHtml(result)
     }
