@@ -77,8 +77,7 @@ public class ListCardItemView extends ConstraintLayout {
         return this;
     }
 
-    @OnClick
-    void onClick(View view) {
+    @OnClick void onClick(View view) {
         if (callback != null && entry != null && card != null) {
             callback.onSelectPage(card, entry);
         }
