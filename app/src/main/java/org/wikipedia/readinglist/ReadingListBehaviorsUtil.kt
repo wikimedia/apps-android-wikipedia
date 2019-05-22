@@ -43,12 +43,10 @@ object ReadingListBehaviorsUtil {
     fun getListsContainPage(readingListPage: ReadingListPage): List<ReadingList> {
         val lists = mutableListOf<ReadingList>()
         allReadingLists.forEach { list ->
-            run addToList@{
-                list.pages().forEach { page ->
-                    if (page.title() == readingListPage.title()) {
-                        lists.add(list)
-                        return@addToList
-                    }
+            list.pages().forEach addToList@{ page ->
+                if (page.title() == readingListPage.title()) {
+                    lists.add(list)
+                    return@addToList
                 }
             }
         }
@@ -311,12 +309,10 @@ object ReadingListBehaviorsUtil {
             list.pages().forEach { page ->
                 if (page.title().toLowerCase(Locale.getDefault()).contains(normalizedQuery)) {
                     var noMatch = true
-                    run checkMatch@{
-                        result.forEach {
-                            if (it is ReadingListPage && it.title() == page.title()) {
-                                noMatch = false
-                                return@checkMatch
-                            }
+                    result.forEach checkMatch@{
+                        if (it is ReadingListPage && it.title() == page.title()) {
+                            noMatch = false
+                            return@checkMatch
                         }
                     }
                     if (noMatch) {
