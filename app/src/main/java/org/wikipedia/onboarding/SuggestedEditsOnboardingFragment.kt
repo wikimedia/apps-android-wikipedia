@@ -17,19 +17,18 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 
 
 class SuggestedEditsOnboardingFragment : Fragment() {
-    var source: InvokeSource? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        source = arguments?.getSerializable(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         return inflater.inflate(R.layout.fragment_suggested_edits_onboarding, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        val invokeSource = arguments?.getSerializable(INTENT_EXTRA_INVOKE_SOURCE)
         Prefs.setShowEditTasksOnboarding(false)
         getStartedButton.setOnClickListener {
-            if (source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+            if (invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
                 requireActivity().setResult(Activity.RESULT_OK)
             } else {
                 startActivity(SuggestedEditsTasksActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ONBOARDING))
