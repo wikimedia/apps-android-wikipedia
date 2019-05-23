@@ -2,7 +2,6 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tab_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,16 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="?android:attr/windowBackground"
+        android:background="?android:attr/colorBackground"
         app:layoutPolicy="auto"
-        app:tabBackgroundColor="?attr/main_toolbar_color"
+        app:tabBackgroundColor="?attr/paper_color"
         app:tabContentBackgroundColor="?attr/paper_color"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tab_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?android:attr/windowBackground"
+        android:background="?android:attr/colorBackground"
         android:theme="@style/TabToolbarTheme">
         <LinearLayout
             android:layout_width="match_parent"
