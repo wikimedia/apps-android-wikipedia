@@ -12,8 +12,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:paddingLeft="@dimen/list_item_horizontal_padding"
-            android:paddingRight="@dimen/list_item_horizontal_padding"
+            android:paddingStart="@dimen/list_item_horizontal_padding"
+            android:paddingEnd="@dimen/list_item_horizontal_padding"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:gravity="center_vertical"
@@ -44,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:paddingLeft="@dimen/list_item_horizontal_padding"
-                android:paddingRight="@dimen/list_item_horizontal_padding"
+                android:paddingStart="@dimen/list_item_horizontal_padding"
+                android:paddingEnd="@dimen/list_item_horizontal_padding"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true">
 
@@ -56,7 +56,7 @@
                     android:padding="10dp"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/button_shape_add_reading_list"
-                    app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+                    app:srcCompat="@drawable/ic_add_gray_white_24dp"
                     app:tint="@color/base30"
                     android:contentDescription="@null"/>
 

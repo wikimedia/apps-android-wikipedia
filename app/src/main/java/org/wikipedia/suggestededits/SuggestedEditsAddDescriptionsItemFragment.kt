@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -13,7 +12,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
@@ -69,7 +67,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
                 parent().onSelectPage()
             }
         }
-
+        showAddedDescriptionView(addedDescription)
     }
 
     override fun onDestroy() {
@@ -100,17 +98,11 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
     }
 
     fun showAddedDescriptionView(addedDescription: String?) {
-        if (!TextUtils.isEmpty(addedDescription)) {
+        if (!addedDescription.isNullOrEmpty()) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
-                viewArticleSubtitleAddedBy.visibility = VISIBLE
-                viewArticleSubtitleEdit.visibility = VISIBLE
-                viewArticleSubtitleAddedBy.text = getString(R.string.suggested_edits_translated_by_you)
-            }
-            viewAddDescriptionButton.visibility = GONE
             viewArticleSubtitle.text = addedDescription
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
-            this.addedDescription = addedDescription!!
+            this.addedDescription = addedDescription
         }
     }
 
@@ -133,14 +125,11 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
         if (parent().source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitleAddedBy.visibility = GONE
-            viewArticleSubtitleEdit.visibility = GONE
-            viewArticleSubtitle.text = StringUtils.capitalize(sourceSummary!!.description)
-            callToActionText.text = String.format(getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(parent().langToCode))
+            viewArticleSubtitle.text = (if (addedDescription.isNotEmpty()) addedDescription else sourceSummary!!.description)?.capitalize()
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
-        if (TextUtils.isEmpty(sourceSummary!!.thumbnailUrl)) {
+        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {

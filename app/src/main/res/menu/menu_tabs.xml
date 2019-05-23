@@ -7,10 +7,16 @@
     <item android:id="@+id/menu_close_all_tabs"
         android:title="@string/menu_close_all_tabs"
         app:showAsAction="never" />
-    <item android:id="@+id/menu_reading_lists"
-        android:title="@string/menu_page_reading_lists"
+    <item android:id="@+id/menu_explore"
+        android:title="@string/feed"
         app:showAsAction="never" />
-    <item android:id="@+id/menu_recently_viewed"
-        android:title="@string/menu_page_recently_viewed"
+    <item android:id="@+id/menu_reading_lists"
+        android:title="@string/nav_item_reading_lists"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_history"
+        android:title="@string/nav_item_history"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_nearby"
+        android:title="@string/nav_item_nearby"
         app:showAsAction="never" />
 </menu>

@@ -106,6 +106,9 @@
   <string name="preference_title_logout">Bıveciye</string>
   <string name="toast_logout_complete">Ronıştış racneya</string>
   <string name="logout_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="logged_out_in_background_title">Veciya</string>
+  <string name="logged_out_in_background_login">Cı kewe</string>
+  <string name="logged_out_in_background_cancel">Bıtexelne</string>
   <string name="history_empty_title">Pelê peyêni çıniyê</string>
   <string name="history_empty_message">Wanıyayışanê ho tiya teqib bıkerê</string>
   <string name="search_empty_message_multilingual_upgrade">Tayêna zıwanen de ebe Wikipediya cı geyre</string>
@@ -230,6 +233,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bıtexelne</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Cı kewe</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">TEMAM</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Eyari</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">TEMAM</string>
   <string name="reading_list_delete_dialog_ok_button_text">TEMAM</string>
@@ -281,12 +285,15 @@
   <string name="suggested_edits_task_add_description_title">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="suggested_edits_add_translation_button_label">Açarnayış cı ke</string>
+  <string name="suggested_edits_edit_translation_button_label">Çarnayışi bıvurne</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
   <string name="onboarding_get_started">Dest pêke</string>
   <string name="onboarding_maybe_later">Belkiya badêna</string>
   <string name="onboarding_welcome_title_v2">Ensiklopediya xosere\n… 300 ra zêde zıwanan de</string>
+  <string name="app_shortcuts_random">Raştameye</string>
   <string name="app_shortcuts_search">Cı geyre</string>
   <string name="remove_language_dialog_cancel_button_text">Bıtexelne</string>
   <string name="remove_language_dialog_ok_button_text">TEMAM</string>

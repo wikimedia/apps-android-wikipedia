@@ -137,8 +137,12 @@
   <string name="reset_password_button">حفظ وتسجيل الدخول</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
-  <string name="logout_prompt" fuzzy="true">هل أنت متأكد أنك تريد تسجيل الخروج؟</string>
+  <string name="logout_prompt">سيؤدي ذلك إلى تسجيل خروجك من جميع الأجهزة التي سجلت الدخول إليها حاليا، هل تريد المتابعة؟</string>
   <string name="logout_dialog_cancel_button_text">إلغاء</string>
+  <string name="logged_out_in_background_title">تم تسجيل الخروج</string>
+  <string name="logged_out_in_background_dialog">لقد تم تسجيل خروجك من ويكيبيديا، هل ترغب في تسجيل الدخول مرة أخرى؟</string>
+  <string name="logged_out_in_background_login">تسجيل الدخول</string>
+  <string name="logged_out_in_background_cancel">إلغاء</string>
   <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
   <string name="history_empty_message">يمكنك متابعة ما كنت تقرأه هنا.</string>
   <string name="history_offline_articles_toast">قد لا تكون بعض المقالات في السجل قابلة للعرض دون اتصال.</string>
@@ -671,6 +675,8 @@
   <string name="suggested_edits_feed_card_title">التعديلات المقترحة</string>
   <string name="suggested_edits_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
+  <string name="suggested_edits_add_translation_button_label">إضافة ترجمة</string>
+  <string name="suggested_edits_edit_translation_button_label">تحرير الترجمة</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>

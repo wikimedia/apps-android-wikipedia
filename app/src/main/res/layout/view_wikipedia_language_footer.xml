@@ -14,7 +14,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="12dp"
         android:tint="?colorPrimary"
-        app:srcCompat="@drawable/ic_add_gray_themed_24dp"
+        app:srcCompat="@drawable/ic_add_gray_white_24dp"
         app:tint="@color/base30"
         android:contentDescription="@null"/>
     <TextView
@@ -22,8 +22,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:text="@string/wikipedia_languages_add_language_text"

@@ -132,6 +132,10 @@
   <string name="toast_logout_complete">Sessió finalitzada</string>
   <string name="logout_prompt">Això farà que finalitzi la sessió de tots els dispositius d\'on l\'heu iniciada. Esteu segur que voleu continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancel·la</string>
+  <string name="logged_out_in_background_title">Sessió finalitzada</string>
+  <string name="logged_out_in_background_dialog">Heu finalitzat la sessió de la Viquipèdia. Voleu provar d\'iniciar la sessió de nou?</string>
+  <string name="logged_out_in_background_login">Inicia una sessió</string>
+  <string name="logged_out_in_background_cancel">Cancel·la</string>
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="history_offline_articles_toast">Alguns articles de l\'historial potser no són visibles quan s\'és fora de línia.</string>
@@ -663,6 +667,8 @@
   <string name="suggested_edits_feed_card_title">Edicions suggerides</string>
   <string name="suggested_edits_tutorial_message">Us donem la benvinguda a la nova pàgina inicial d\'edició ràpida de l\'aplicació de la Viquipèdia. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primers passos</string>
+  <string name="suggested_edits_add_translation_button_label">Afegeix una traducció</string>
+  <string name="suggested_edits_edit_translation_button_label">Modifica la traducció</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>

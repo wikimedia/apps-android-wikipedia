@@ -139,6 +139,10 @@
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.\n{{Identical|Logged out}}</string>
   <string name="logout_prompt">Message that asks the user whether they really want to log out.</string>
   <string name="logout_dialog_cancel_button_text">Negative action button text in pop-up dialog for loging out.\n{{Identical|Cancel}}</string>
+  <string name="logged_out_in_background_title">Title of dialog box that tells the user they have been logged out.</string>
+  <string name="logged_out_in_background_dialog">Dialog box text that tells the user they have been logged out, and asks if they want to log in again.</string>
+  <string name="logged_out_in_background_login">Button that allows the user to go to the login screen.</string>
+  <string name="logged_out_in_background_cancel">Button that cancels the dialog box that tells the user they have been logged out.\n{{Identical|Cancel}}</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="history_offline_articles_toast">Message shown in a toast when some articles in the history page may not be viewable while offline.</string>
@@ -671,6 +675,8 @@
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
+  <string name="suggested_edits_add_translation_button_label">Label that prompts the user to translate a description of an article that does not yet have one.</string>
+  <string name="suggested_edits_edit_translation_button_label">Label that prompts the user to edit a translated description again.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>

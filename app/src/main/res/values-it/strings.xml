@@ -149,6 +149,9 @@
   <string name="toast_logout_complete">Disconnesso</string>
   <string name="logout_prompt">Questo ti disconnetterà da tutti i dispositivi in cui sei attualmente connesso. Vuoi continuare?</string>
   <string name="logout_dialog_cancel_button_text">Annulla</string>
+  <string name="logged_out_in_background_title">Disconnesso</string>
+  <string name="logged_out_in_background_login">Entra</string>
+  <string name="logged_out_in_background_cancel">Annulla</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="history_offline_articles_toast">Alcune voci nella cronologia potrebbero non essere visualizzabili offline.</string>
@@ -650,6 +653,8 @@
   <string name="suggested_edits_feed_card_title">Modifiche suggerite</string>
   <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
+  <string name="suggested_edits_add_translation_button_label">Aggiungi traduzione</string>
+  <string name="suggested_edits_edit_translation_button_label">Modifica traduzione</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>

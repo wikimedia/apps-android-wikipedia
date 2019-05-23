@@ -2,12 +2,10 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.util.L10nUtil
@@ -37,10 +35,10 @@ class DescriptionEditReviewView @JvmOverloads constructor(
     fun setPageSummary(pageSummary: RbPageSummary, description: String) {
         L10nUtil.setConditionalLayoutDirection(this, pageSummary.lang)
         articleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
-        articleSubtitle!!.text = StringUtils.capitalize(description)
+        articleSubtitle!!.text = description.capitalize()
         articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)
 
-        if (TextUtils.isEmpty(pageSummary.thumbnailUrl)) {
+        if (pageSummary.thumbnailUrl.isNullOrBlank()) {
             articleImage.visibility = View.GONE
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {

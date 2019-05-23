@@ -133,6 +133,10 @@
   <string name="toast_logout_complete">Odhlášeno</string>
   <string name="logout_prompt">Tímto se odhlásíte na všech zařízeních, na kterých jste právě přihlášeni. Chcete pokračovat?</string>
   <string name="logout_dialog_cancel_button_text">Zrušit</string>
+  <string name="logged_out_in_background_title">Byli jste odhlášeni</string>
+  <string name="logged_out_in_background_dialog">Byli jste odhlášeni z Wikipedie. Chcete se znovu přihlásit?</string>
+  <string name="logged_out_in_background_login">Přihlásit se</string>
+  <string name="logged_out_in_background_cancel">Ne</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -669,6 +673,8 @@
   <string name="suggested_edits_feed_card_title">Navrhování editací</string>
   <string name="suggested_edits_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
+  <string name="suggested_edits_add_translation_button_label">Přidat překlad</string>
+  <string name="suggested_edits_edit_translation_button_label">Editovat překlad</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>

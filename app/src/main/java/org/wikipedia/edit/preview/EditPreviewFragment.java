@@ -202,7 +202,7 @@ public class EditPreviewFragment extends Fragment {
 
                 @Override
                 public void onInternalLinkClicked(@NonNull final PageTitle title) {
-                    showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForNewTab(getContext(),
+                    showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForCurrentTab(getContext(),
                             new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
                 }
 

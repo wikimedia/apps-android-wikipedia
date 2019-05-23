@@ -143,8 +143,12 @@
   <string name="reset_password_button">Enregistrer et se connecter</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="logout_prompt" fuzzy="true">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+  <string name="logout_prompt">Ceci va vous déconnecter de tous les appareils sur lesquels vous l\'êtes actuellement. Êtes-vous sûr de vouloir continuer  ?</string>
   <string name="logout_dialog_cancel_button_text">Annuler</string>
+  <string name="logged_out_in_background_title">Déconnecté</string>
+  <string name="logged_out_in_background_dialog">Vous avez été déconnecté de Wikipédia. Voulez-vous vous reconnecter ?</string>
+  <string name="logged_out_in_background_login">Se connecter</string>
+  <string name="logged_out_in_background_cancel">Annuler</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l\'historique peuvent ne pas être consultables en mode déconnecté.</string>
@@ -676,6 +680,8 @@
   <string name="suggested_edits_feed_card_title">Modifications suggérées</string>
   <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Commencer</string>
+  <string name="suggested_edits_add_translation_button_label">Ajouter la traduction</string>
+  <string name="suggested_edits_edit_translation_button_label">Modifier la traduction</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

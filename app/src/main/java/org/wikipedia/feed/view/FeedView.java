@@ -2,17 +2,13 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.R;
-import org.wikipedia.crash.RemoteLogException;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -42,7 +38,7 @@ public class FeedView extends AutoFitRecyclerView {
 
     public void setCallback(@Nullable ItemTouchHelperSwipeAdapter.Callback callback) {
         if (itemTouchHelper != null) {
-            itemTouchHelper.attachToRecyclerView(new DummyView(getContext()));
+            itemTouchHelper.attachToRecyclerView(null);
             itemTouchHelper = null;
         }
 
@@ -72,34 +68,6 @@ public class FeedView extends AutoFitRecyclerView {
                 R.dimen.view_feed_padding_top, R.dimen.view_feed_search_padding_bottom));
         setCallback(new RecyclerViewColumnCallback());
         setClipChildren(false);
-    }
-
-    /* Workaround for https://code.google.com/p/android/issues/detail?id=205947.
-       ItemTouchHelper.attachToRecyclerView(null) should remove its gesture callback before nulling
-       its RecyclerView:
-        java.lang.NullPointerException: Attempt to invoke virtual method 'android.view.View android.support.v7.widget.RecyclerView.findChildViewUnder(float, float)' on a null object reference
-            at android.support.v7.widget.helper.ItemTouchHelper.findChildView(ItemTouchHelper.java:1024)
-            at android.support.v7.widget.helper.ItemTouchHelper.access$2400(ItemTouchHelper.java:76)
-            at android.support.v7.widget.helper.ItemTouchHelper$ItemTouchHelperGestureListener.onLongPress(ItemTouchHelper.java:2265)
-            at android.view.GestureDetector.dispatchLongPress(GestureDetector.java:770)
-            at android.view.GestureDetector.-wrap0(GestureDetector.java)
-            at android.view.GestureDetector$GestureHandler.handleMessage(GestureDetector.java:293)
-            at android.os.Handler.dispatchMessage(Handler.java:102)
-            at android.os.Looper.loop(Looper.java:154)
-            at android.app.ActivityThread.main(ActivityThread.java:6077)
-            at java.lang.reflect.Method.invoke(Native Method)
-            at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:865)
-            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:755)
-     */
-    private static class DummyView extends RecyclerView {
-        DummyView(Context context) {
-            super(context);
-        }
-
-        @Override public View findChildViewUnder(float x, float y) {
-            L.logRemoteError(new RemoteLogException("ItemTouchHelper.attachToRecyclerView(null)"));
-            return super.findChildViewUnder(x, y);
-        }
     }
 
     private class RecyclerViewColumnCallback implements AutoFitRecyclerView.Callback {
