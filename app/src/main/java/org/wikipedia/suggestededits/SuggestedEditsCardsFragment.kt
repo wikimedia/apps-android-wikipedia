@@ -18,7 +18,7 @@ import androidx.viewpager.widget.ViewPager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
@@ -32,13 +32,13 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.Companion.EXTRA_SOURCE
-import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_DESCRIPTION
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
-class SuggestedEditsAddDescriptionsFragment : Fragment() {
+class SuggestedEditsCardsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
     private var funnel: RandomizerFunnel? = null
     private val disposables = CompositeDisposable()
@@ -62,11 +62,11 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
             }
         }
 
-    private val topChild: SuggestedEditsAddDescriptionsItemFragment?
+    private val topChild: SuggestedEditsCardsItemFragment?
         get() {
             val fm = fragmentManager
             for (f in fm!!.fragments) {
-                if (f is SuggestedEditsAddDescriptionsItemFragment && f.pagerPosition == addTitleDescriptionsItemPager.currentItem) {
+                if (f is SuggestedEditsCardsItemFragment && f.pagerPosition == addTitleDescriptionsItemPager.currentItem) {
                     return f
                 }
             }
@@ -84,7 +84,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
-        return inflater.inflate(R.layout.fragment_suggested_edits_add_descriptions, container, false)
+        return inflater.inflate(R.layout.fragment_suggested_edits_cards, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -303,7 +303,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         }
 
         override fun getItem(position: Int): Fragment {
-            val f = SuggestedEditsAddDescriptionsItemFragment.newInstance()
+            val f = SuggestedEditsCardsItemFragment.newInstance()
             f.pagerPosition = position
             return f
         }
@@ -340,8 +340,8 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(source: InvokeSource): SuggestedEditsAddDescriptionsFragment {
-            val addTitleDescriptionsFragment = SuggestedEditsAddDescriptionsFragment()
+        fun newInstance(source: InvokeSource): SuggestedEditsCardsFragment {
+            val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
             val args = Bundle()
             args.putSerializable(EXTRA_SOURCE, source)
             addTitleDescriptionsFragment.arguments = args

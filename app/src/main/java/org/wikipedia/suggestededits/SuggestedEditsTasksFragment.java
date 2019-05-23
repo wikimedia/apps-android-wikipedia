@@ -291,10 +291,10 @@ public class SuggestedEditsTasksFragment extends Fragment {
         @Override
         public void onViewClick(SuggestedEditsTask task) {
             if (task.equals(addDescriptionsTask)) {
-                startActivity(SuggestedEditsAddDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TITLE_DESC));
+                startActivity(SuggestedEditsCardsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TITLE_DESC));
             } else if (task.equals(translateDescriptionsTask)) {
                 if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
-                    startActivity(SuggestedEditsAddDescriptionsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC));
+                    startActivity(SuggestedEditsCardsActivity.Companion.newIntent(requireActivity(), EDIT_FEED_TRANSLATE_TITLE_DESC));
                 }
             }
         }

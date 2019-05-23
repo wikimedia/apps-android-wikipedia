@@ -145,7 +145,7 @@
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".suggestededits.SuggestedEditsAddDescriptionsActivity"
+            android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.ActionBar.SuggestedEdits"
             android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>

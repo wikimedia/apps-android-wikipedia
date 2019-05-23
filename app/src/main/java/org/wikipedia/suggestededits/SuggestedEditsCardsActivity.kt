@@ -11,11 +11,11 @@ import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsFragment.Companion.newInstance
+import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DialogTitleWithImage
 
-class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEditsAddDescriptionsFragment>() {
+class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEd
             R.string.suggested_edits_add_descriptions else R.string.suggested_edits_translate_descriptions)
     }
 
-    override fun createFragment(): SuggestedEditsAddDescriptionsFragment {
+    override fun createFragment(): SuggestedEditsCardsFragment {
         return newInstance(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource)
     }
 
@@ -52,7 +52,7 @@ class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEd
         const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
-            return Intent(context, SuggestedEditsAddDescriptionsActivity::class.java).putExtra(EXTRA_SOURCE, source)
+            return Intent(context, SuggestedEditsCardsActivity::class.java).putExtra(EXTRA_SOURCE, source)
         }
 
         fun showEditUnlockDialog(context: Context) {

@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions_item.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
 import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
 import org.wikipedia.R
@@ -24,7 +24,7 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
-class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
+class SuggestedEditsCardsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
     var sourceSummary: RbPageSummary? = null
@@ -45,7 +45,7 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_suggested_edits_add_descriptions_item, container, false)
+        return inflater.inflate(R.layout.fragment_suggested_edits_cards_item, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -139,16 +139,16 @@ class SuggestedEditsAddDescriptionsItemFragment : Fragment() {
         }
     }
 
-    private fun parent(): SuggestedEditsAddDescriptionsFragment {
-        return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsAddDescriptionsFragment
+    private fun parent(): SuggestedEditsCardsFragment {
+        return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsCardsFragment
     }
 
     companion object {
         const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
 
-        fun newInstance(): SuggestedEditsAddDescriptionsItemFragment {
-            return SuggestedEditsAddDescriptionsItemFragment()
+        fun newInstance(): SuggestedEditsCardsItemFragment {
+            return SuggestedEditsCardsItemFragment()
         }
     }
 }
