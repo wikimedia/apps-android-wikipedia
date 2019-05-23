@@ -312,6 +312,10 @@ public interface Service {
 
     // ------- Wikidata -------
 
+    @GET(MW_API_PREFIX + "action=wbgetentities")
+    @NonNull Observable<Entities> getEntitiesByTitle(@Query("titles") @NonNull String titles,
+                                                     @Query("sites") @NonNull String sites);
+
     @GET(MW_API_PREFIX + "action=wbgetentities&props=labels&languagefallback=1")
     @NonNull Call<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
                                               @Query("languages") @NonNull String langList);
