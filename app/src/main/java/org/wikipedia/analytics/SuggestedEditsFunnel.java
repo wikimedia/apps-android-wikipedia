@@ -12,8 +12,8 @@ import org.wikipedia.json.GsonUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
-import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.InvokeSource.ONBOARDING_DIALOG;
@@ -63,9 +63,9 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public void impression(InvokeSource source) {
-        if (source == EDIT_FEED_TITLE_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.impressions++;
-        } else if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.impressions++;
         }
     }
@@ -73,9 +73,9 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
 
     public void click(String title, InvokeSource source) {
         SuggestedEditStats stats;
-        if (source == InvokeSource.EDIT_FEED_TITLE_DESC) {
+        if (source == InvokeSource.SUGGESTED_EDITS_ADD_DESC) {
             stats = statsCollection.addDescriptionStats;
-        } else if (source == InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC) {
+        } else if (source == InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC) {
             stats = statsCollection.translateDescriptionStats;
         } else {
             return;
@@ -92,25 +92,25 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public void cancel(InvokeSource source) {
-        if (source == EDIT_FEED_TITLE_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.cancels++;
-        } else if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.cancels++;
         }
     }
 
     public void success(InvokeSource source) {
-        if (source == EDIT_FEED_TITLE_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.successes++;
-        } else if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.successes++;
         }
     }
 
     public void failure(InvokeSource source) {
-        if (source == EDIT_FEED_TITLE_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.failures++;
-        } else if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.failures++;
         }
     }
