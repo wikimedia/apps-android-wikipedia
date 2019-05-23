@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.TabCountsView;
 
@@ -46,7 +45,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         baseStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_expanded_status_bar_color);
         themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
         toolbarHeight = DimenUtil.getToolbarHeightPx(pageFragment.requireContext());
-        tabsButton.setTabCount(WikipediaApp.getInstance().getTabCount());
+        tabsButton.updateTabCount();
     }
 
     /**
