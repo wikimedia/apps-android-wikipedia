@@ -12,7 +12,7 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 
-class SuggestedEditsFeedClient(var isTranslation: Boolean) : FeedClient {
+class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient {
 
     interface Callback {
         fun updateCardContent(card: SuggestedEditsCard)
@@ -45,9 +45,15 @@ class SuggestedEditsFeedClient(var isTranslation: Boolean) : FeedClient {
                     .subscribe({ pair ->
                         sourceSummary = pair.second
                         targetSummary = pair.first
+
                         val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
-                        if (callback == null) FeedCoordinator.postCardsToCallback(cb!!, if (pair == null) emptyList<Card>() else listOf(card))
-                        else callback.updateCardContent(card)
+
+                        if (callback == null) {
+                            FeedCoordinator.postCardsToCallback(cb!!, if (pair == null) emptyList<Card>() else listOf(card))
+                        } else {
+                            callback.updateCardContent(card)
+                        }
+
                     }, { if (callback != null) cb!!.success(emptyList()) }))
 
         } else {
@@ -57,9 +63,15 @@ class SuggestedEditsFeedClient(var isTranslation: Boolean) : FeedClient {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pageSummary ->
                         sourceSummary = pageSummary
+
                         val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
-                        if (callback == null) FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
-                        else callback.updateCardContent(card)
+
+                        if (callback == null) {
+                            FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
+                        } else {
+                            callback.updateCardContent(card)
+                        }
+
                     }, { if (callback == null) cb!!.success(emptyList()) }))
         }
     }
