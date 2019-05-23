@@ -12,11 +12,11 @@ import org.wikipedia.json.GsonUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.InvokeSource.ONBOARDING_DIALOG;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 
 public final class SuggestedEditsFunnel extends TimedFunnel {
     private static SuggestedEditsFunnel INSTANCE;

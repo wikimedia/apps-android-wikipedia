@@ -15,9 +15,9 @@ import org.wikipedia.events.EditorTaskUnlockEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 
+import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
-import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 
 public final class NotificationEditorTasksHandler {
