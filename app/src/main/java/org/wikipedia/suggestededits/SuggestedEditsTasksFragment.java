@@ -62,7 +62,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
     @BindView(R.id.progress_bar) View progressBar;
 
     private SuggestedEditsTask addDescriptionsTask;
-    private SuggestedEditsTask translateDescriptionsTeaserTask;
+    private SuggestedEditsTask translationTeaserTask;
     private SuggestedEditsTask translateDescriptionsTask;
     private SuggestedEditsTask addImageCaptionsTask;
     private SuggestedEditsTask translateImageCaptionsTask;
@@ -162,14 +162,14 @@ public class SuggestedEditsTasksFragment extends Fragment {
         addDescriptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp));
         addDescriptionsTask.setNoActionLayout(true);
 
-        translateDescriptionsTeaserTask = new SuggestedEditsTask();
-        translateDescriptionsTeaserTask.setTitle(getString(R.string.suggested_edits_task_multilingual_title));
-        translateDescriptionsTeaserTask.setDescription(getString(R.string.suggested_edits_task_multilingual_description));
-        translateDescriptionsTeaserTask.setImagePlaceHolderShown(false);
-        translateDescriptionsTeaserTask.setNoActionLayout(false);
-        translateDescriptionsTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
-        translateDescriptionsTeaserTask.setEnabledPositiveActionString(getString(R.string.suggested_edits_task_multilingual_positive));
-        translateDescriptionsTeaserTask.setEnabledNegativeActionString(getString(R.string.suggested_edits_task_multilingual_negative));
+        translationTeaserTask = new SuggestedEditsTask();
+        translationTeaserTask.setTitle(getString(R.string.suggested_edits_task_multilingual_title));
+        translationTeaserTask.setDescription(getString(R.string.suggested_edits_task_multilingual_description));
+        translationTeaserTask.setImagePlaceHolderShown(false);
+        translationTeaserTask.setNoActionLayout(false);
+        translationTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
+        translationTeaserTask.setEnabledPositiveActionString(getString(R.string.suggested_edits_task_multilingual_positive));
+        translationTeaserTask.setEnabledNegativeActionString(getString(R.string.suggested_edits_task_multilingual_negative));
 
         translateDescriptionsTask = new SuggestedEditsTask();
         translateDescriptionsTask.setTitle(getString(R.string.suggested_edits_task_translation_title));
@@ -208,15 +208,19 @@ public class SuggestedEditsTasksFragment extends Fragment {
             addDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsAddDescriptionsUnlocked());
 
             if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                if (Prefs.showTranslateDescriptionsTeaserTask()) {
-                    displayedTasks.add(translateDescriptionsTeaserTask);
-                    translateDescriptionsTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
-                    translateDescriptionsTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
+                if (Prefs.showSuggestedEditsTranslationTeaserTask()) {
+                    displayedTasks.add(translationTeaserTask);
+                    translationTeaserTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
+                    translationTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
                 }
             } else {
                 displayedTasks.add(translateDescriptionsTask);
                 translateDescriptionsTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
                 translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
+
+                displayedTasks.add(translateDescriptionsTask);
+                translateImageCaptionsTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
+                translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateImageCaptionsUnlocked());
             }
 
             // TODO: enable image caption tasks.
@@ -268,7 +272,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
     private class TaskViewCallback implements SuggestedEditsTaskView.Callback {
         @Override
         public void onPositiveActionClick(SuggestedEditsTask task) {
-            if (task.equals(translateDescriptionsTeaserTask)) {
+            if (task.equals(translationTeaserTask)) {
                 requireActivity().startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(),
                         LanguageSettingsInvokeSource.DESCRIPTION_EDITING.text()), ACTIVITY_REQUEST_ADD_A_LANGUAGE);
             }
@@ -276,11 +280,11 @@ public class SuggestedEditsTasksFragment extends Fragment {
 
         @Override
         public void onNegativeActionClick(SuggestedEditsTask task) {
-            if (task.equals(translateDescriptionsTeaserTask)) {
-                int multilingualTaskPosition = displayedTasks.indexOf(translateDescriptionsTeaserTask);
-                displayedTasks.remove(translateDescriptionsTeaserTask);
+            if (task.equals(translationTeaserTask)) {
+                int multilingualTaskPosition = displayedTasks.indexOf(translationTeaserTask);
+                displayedTasks.remove(translationTeaserTask);
                 tasksRecyclerView.getAdapter().notifyItemChanged(multilingualTaskPosition);
-                Prefs.setShowTranslateDescriptionsTeaserTask(false);
+                Prefs.setSuggestedEditsTranslationTeaserTask(false);
             }
         }
 
