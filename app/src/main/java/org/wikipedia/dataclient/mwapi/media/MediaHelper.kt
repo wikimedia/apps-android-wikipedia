@@ -9,7 +9,7 @@ import java.util.HashMap
 import io.reactivex.Observable
 
 object MediaHelper {
-    private const val COMMONS_DB_NAME = "commonswiki";
+    private const val COMMONS_DB_NAME = "commonswiki"
 
     /**
      * Returns a map of "language":"caption" combinations for a particular file on Commons.

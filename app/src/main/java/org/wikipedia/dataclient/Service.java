@@ -348,8 +348,4 @@ public interface Service {
                                              @Nullable @Field("summary") String summary,
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("assert") String user);
-
-
-
-
 }
