@@ -21,6 +21,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.views.ImagePreviewDialog;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
@@ -69,7 +70,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
-                LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle,
+                ImagePreviewDialog.Companion.newInstance(new HistoryEntry(pageTitle,
                         getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
                                 ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
                         null));
