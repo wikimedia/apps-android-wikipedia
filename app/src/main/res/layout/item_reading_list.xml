@@ -2,7 +2,6 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item"
     tools:layout_height="wrap_content"
     tools:layout_width="match_parent"
