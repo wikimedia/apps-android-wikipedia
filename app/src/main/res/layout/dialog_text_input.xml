@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <org.wikipedia.views.PlainPasteEditText
             android:id="@+id/text_input"
             android:layout_width="match_parent"
@@ -25,6 +25,7 @@
         android:id="@+id/secondary_text_input_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <org.wikipedia.views.PlainPasteEditText
             android:id="@+id/secondary_text_input"
             android:layout_width="match_parent"
