@@ -48,7 +48,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
 
     private fun getActionBarTitleRes(invokeSource: InvokeSource): Int {
         return when(invokeSource) {
-            EDIT_FEED_TRANSLATE_TITLE_DESC -> {
+            SUGGESTED_EDITS_TRANSLATE_DESC -> {
                 R.string.suggested_edits_translate_descriptions
             }
             SUGGESTED_ADD_IMAGE_CAPTION -> {
@@ -75,7 +75,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
                     .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
+                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_ADD_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
@@ -87,7 +87,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
                     .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
+                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_TRANSLATE_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()

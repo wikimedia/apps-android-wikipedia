@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Aefgh39622
 * Afaz
 * GAMEZONE628
 * Hzy980512
@@ -139,6 +140,9 @@
   <string name="toast_logout_complete">ログアウトしました</string>
   <string name="logout_prompt">この操作によって、現在ログイン済みのすべてのデバイスからログアウトします。本当に続けてもよろしいですか？</string>
   <string name="logout_dialog_cancel_button_text">キャンセル</string>
+  <string name="logged_out_in_background_title">ログアウトしました</string>
+  <string name="logged_out_in_background_login">ログイン</string>
+  <string name="logged_out_in_background_cancel">キャンセル</string>
   <string name="history_empty_title">履歴はまだありません！</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="history_offline_articles_toast">インターネット未接続のときには、履歴にある記事は表示できない場合があります。</string>
@@ -670,6 +674,8 @@
   <string name="suggested_edits_feed_card_title">編集の提案</string>
   <string name="suggested_edits_tutorial_message">ようこそ、ここはウィキペディアアプリ内で、編集を手早く実行するための新しいホーム画面です。皆さんの編集は大歓迎です。ではお楽しみください！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
+  <string name="suggested_edits_add_translation_button_label">翻訳を追加</string>
+  <string name="suggested_edits_edit_translation_button_label">翻訳を編集</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
