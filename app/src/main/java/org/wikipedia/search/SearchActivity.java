@@ -23,6 +23,9 @@ public class SearchActivity extends SingleFragmentActivity<SearchFragment> {
             new IntentFunnel(WikipediaApp.getInstance()).logSearchWidgetTap();
         }
 
+        // We use the ordinal() for passing the INVOKE_SOURCE into the intent because this intent
+        // could be used as part of an App Shortcut, and unfortunately app shortcuts do not allow
+        // Serializable objects in their intents.
         return new Intent(context, SearchActivity.class)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, source.ordinal())
                 .putExtra(QUERY_EXTRA, query);
