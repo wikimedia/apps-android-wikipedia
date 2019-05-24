@@ -162,6 +162,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerView.setClickable(false);
         headerView.setThumbnailVisible(false);
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
+        headerView.setOverflowViewVisibility(VISIBLE);
 
         readingListId = getArguments().getLong(EXTRA_READING_LIST_ID);
 

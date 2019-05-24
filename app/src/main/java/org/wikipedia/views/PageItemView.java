@@ -104,8 +104,8 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
-        if (url == null) {
-            imageView.setVisibility(INVISIBLE);
+        if (selected || url == null) {
+            imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
             ViewUtil.loadImageUrlInto(imageView, url);
@@ -223,7 +223,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     private void updateSelectedState(@Nullable String imageUrl) {
         imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
-        imageView.setVisibility(selected ? INVISIBLE : imageUrl == null ? INVISIBLE : VISIBLE);
+        imageView.setVisibility((selected || (imageUrl == null)) ? GONE : VISIBLE);
         // TODO: animate?
         setBackgroundColor(getThemedColor(getContext(),
                 selected ? R.attr.multi_select_background_color : R.attr.paper_color));
