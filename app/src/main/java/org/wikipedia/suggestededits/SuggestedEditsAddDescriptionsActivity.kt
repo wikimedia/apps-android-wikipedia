@@ -20,7 +20,7 @@ class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEd
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
+        supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == SUGGESTED_EDITS_ADD_DESC)
             R.string.suggested_edits_add_descriptions else R.string.suggested_edits_translate_descriptions)
     }
 
@@ -61,7 +61,7 @@ class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEd
                     .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TITLE_DESC))
+                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_ADD_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
@@ -73,7 +73,7 @@ class SuggestedEditsAddDescriptionsActivity : SingleFragmentActivity<SuggestedEd
                     .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, EDIT_FEED_TRANSLATE_TITLE_DESC))
+                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_TRANSLATE_DESC))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
