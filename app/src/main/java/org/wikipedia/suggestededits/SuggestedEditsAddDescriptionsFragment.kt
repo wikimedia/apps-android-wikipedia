@@ -21,8 +21,8 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_add_descriptions.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC
-import org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC
+import org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC
+import org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -49,12 +49,12 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     private var languageCodesToList: MutableList<String> = arrayListOf()
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
-    var source: InvokeSource = EDIT_FEED_TITLE_DESC
+    var source: InvokeSource = SUGGESTED_EDITS_ADD_DESC
 
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-            return if (source == EDIT_FEED_TITLE_DESC) {
+            return if (source == SUGGESTED_EDITS_ADD_DESC) {
                 titleFromPageName(f?.title, f?.addedDescription)
             } else {
                 f?.targetPageTitle?.description = f?.addedDescription
@@ -142,7 +142,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
         val isAddedDescriptionEmpty = topChild?.addedDescription.isNullOrEmpty()
         if (!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
         addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-        if (source == EDIT_FEED_TRANSLATE_TITLE_DESC) {
+        if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             addDescriptionText?.text = getString(if (isAddedDescriptionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
         } else if (addDescriptionText != null) {
             addDescriptionText?.text = getString(if (isAddedDescriptionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
@@ -193,7 +193,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
     }
 
     private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
-        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == EDIT_FEED_TITLE_DESC) langFromCode else langToCode), null, description)
+        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == SUGGESTED_EDITS_ADD_DESC) langFromCode else langToCode), null, description)
     }
 
     fun onSelectPage() {
@@ -244,7 +244,7 @@ class SuggestedEditsAddDescriptionsFragment : Fragment() {
 
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && source == EDIT_FEED_TRANSLATE_TITLE_DESC) VISIBLE else GONE
+                && source == SUGGESTED_EDITS_TRANSLATE_DESC) VISIBLE else GONE
     }
 
     private fun updateFromLanguageSpinner() {
