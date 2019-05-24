@@ -192,7 +192,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
         translateImageCaptionsTask.setTitle(getString(R.string.suggested_edits_task_translate_caption_title));
         translateImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_translate_caption_description));
         translateImageCaptionsTask.setImagePlaceHolderShown(true);
-        translateImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions));
+        translateImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate));
         translateImageCaptionsTask.setDisabled(true);
     }
 
