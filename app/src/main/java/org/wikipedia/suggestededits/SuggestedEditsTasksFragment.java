@@ -193,7 +193,10 @@ public class SuggestedEditsTasksFragment extends Fragment {
         translateImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_translate_caption_description));
         translateImageCaptionsTask.setImagePlaceHolderShown(true);
         translateImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate));
-        translateImageCaptionsTask.setDisabled(true);
+        translateImageCaptionsTask.setNoActionLayout(true);
+        // TODO: enable these later
+        // translateDescriptionsTask.setNoActionLayout(!Prefs.isSuggestedEditsTranslateImageCaptionsUnlocked());
+        // translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateImageCaptionsUnlocked());
     }
 
     private void updateDisplayedTasks(@Nullable EditorTaskCounts editorTaskCounts) {
@@ -204,6 +207,8 @@ public class SuggestedEditsTasksFragment extends Fragment {
             }
 
             int targetForTranslateDescriptions = editorTaskCounts.getDescriptionEditTargets().get(1);
+            // TODO: update this with correct index
+            int targetForTranslateImageCaptions = editorTaskCounts.getDescriptionEditTargets().get(1);
 
             displayedTasks.add(addDescriptionsTask);
             addDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsAddDescriptionsUnlocked());
@@ -219,9 +224,10 @@ public class SuggestedEditsTasksFragment extends Fragment {
                 translateDescriptionsTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
                 translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
 
-                displayedTasks.add(translateDescriptionsTask);
-                translateImageCaptionsTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
-                translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateImageCaptionsUnlocked());
+                displayedTasks.add(translateImageCaptionsTask);
+                translateImageCaptionsTask.setDisabledDescriptionText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateImageCaptions));
+                // TODO: enable this later
+                // translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateImageCaptionsUnlocked());
             }
 
             // TODO: enable image caption tasks.
