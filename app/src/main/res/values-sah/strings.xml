@@ -601,6 +601,8 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Быһаарыыны эбии\" диэни холбоотуҥ</string>
   <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
   <string name="suggested_edits_unlock_dialog_yes">Чэ, бардыбыт!</string>
+  <string name="suggested_edits_unlock_notification_text">Этиини уларытыы</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Этиини уларытыы\n\nКыттарыҥ иһин махтанабыт! Хайыы-үйэ уларытары сатыыгын, онон кылгас ойуулааһына суох ыстатыйалар испииһэктэрин көр. Бикипиэдьийэни тупсарарга көмөлөс дуу!</string>
   <string name="suggested_edits_unlock_notification_button">Чэ, бардыбыт!</string>
   <string name="suggested_edits_license_notice">Кылгас ойуулааһыны эптэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
   <string name="suggested_edits_menu_info">Эбии</string>

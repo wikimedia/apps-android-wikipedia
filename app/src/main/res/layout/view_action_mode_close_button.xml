@@ -6,13 +6,13 @@
     android:orientation="horizontal">
 
     <ImageView
-        style="@style/Widget.AppCompat.ImageButton"
         android:id="@+id/close_button"
+        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginStart="2.6dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/dialog_close_description"
-        android:layout_gravity="center_vertical"
-        app:srcCompat="@drawable/ic_arrow_back_themed_24dp"/>
+        app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 </LinearLayout>
