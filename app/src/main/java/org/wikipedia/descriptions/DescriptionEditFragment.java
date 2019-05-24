@@ -54,7 +54,7 @@ import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
-import static org.wikipedia.suggestededits.SuggestedEditsCardsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
+import static org.wikipedia.suggestededits.SuggestedEditsCardsActivity.EXTRA_SOURCE_CONTRIBUTED;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
@@ -104,7 +104,7 @@ public class DescriptionEditFragment extends Fragment {
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
             } else {
                 requireActivity().setResult(RESULT_OK,
-                        new Intent().putExtra(EXTRA_SOURCE_ADDED_DESCRIPTION, editView.getDescription()));
+                        new Intent().putExtra(EXTRA_SOURCE_CONTRIBUTED, editView.getDescription()));
                 hideSoftKeyboard(requireActivity());
                 requireActivity().finish();
             }

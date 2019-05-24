@@ -655,6 +655,8 @@
     <!-- Suggested edits -->
     <string name="suggested_edits_add_descriptions">Add descriptions</string>
     <string name="suggested_edits_translate_descriptions">Translate descriptions</string>
+    <string name="suggested_edits_add_image_captions">Add image captions</string>
+    <string name="suggested_edits_translate_image_captions">Translate image captions</string>
     <string name="suggested_edits_review_description">Review description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
     <string name="suggested_edits_my_contributions">My contributions</string>

@@ -20,8 +20,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getString(if (intent.getSerializableExtra(EXTRA_SOURCE) == EDIT_FEED_TITLE_DESC)
-            R.string.suggested_edits_add_descriptions else R.string.suggested_edits_translate_descriptions)
+        supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource))
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
@@ -47,9 +46,24 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         }
     }
 
+    private fun getActionBarTitleRes(invokeSource: InvokeSource): Int {
+        return when(invokeSource) {
+            EDIT_FEED_TRANSLATE_TITLE_DESC -> {
+                R.string.suggested_edits_translate_descriptions
+            }
+            SUGGESTED_ADD_IMAGE_CAPTION -> {
+                R.string.suggested_edits_add_image_captions
+            }
+            SUGGESTED_TRANSLATE_IMAGE_CAPTION -> {
+                R.string.suggested_edits_translate_image_captions
+            }
+            else -> R.string.suggested_edits_add_descriptions
+        }
+    }
+
     companion object {
         const val EXTRA_SOURCE = "source"
-        const val EXTRA_SOURCE_ADDED_DESCRIPTION = "addedDescription"
+        const val EXTRA_SOURCE_CONTRIBUTED = "contributed"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
             return Intent(context, SuggestedEditsCardsActivity::class.java).putExtra(EXTRA_SOURCE, source)
