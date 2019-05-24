@@ -15,6 +15,13 @@ public class Entities extends MwResponse {
         return entities;
     }
 
+    @Nullable public Entity getFirst() {
+        if (entities == null) {
+            return null;
+        }
+        return entities.values().iterator().next();
+    }
+
     public static class Entity {
         @SuppressWarnings("unused,NullableProblems") @NonNull private String type;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String id;
