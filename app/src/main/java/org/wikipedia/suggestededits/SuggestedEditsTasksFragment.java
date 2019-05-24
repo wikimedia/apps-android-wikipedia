@@ -50,7 +50,7 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_TRANSLATE_IMAGE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
@@ -299,7 +299,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
                 }
             } else if (task.equals(translateImageCaptionsTask)) {
                 if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() > 1) {
-                    startActivity(SuggestedEditsCardsActivity.Companion.newIntent(requireActivity(), SUGGESTED_TRANSLATE_IMAGE_CAPTION));
+                    startActivity(SuggestedEditsCardsActivity.Companion.newIntent(requireActivity(), SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION));
                 }
             }
         }

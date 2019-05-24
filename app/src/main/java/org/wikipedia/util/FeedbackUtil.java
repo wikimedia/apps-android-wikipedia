@@ -148,7 +148,7 @@ public final class FeedbackUtil {
         } else if (activity instanceof ReadingListActivity) {
             return activity.findViewById(R.id.fragment_reading_list_coordinator);
         } else if (activity instanceof SuggestedEditsCardsActivity) {
-            return activity.findViewById(R.id.addTitleDescriptionsCoordinatorLayout);
+            return activity.findViewById(R.id.suggestedEditsCardsCoordinator);
         } else {
             return activity.findViewById(android.R.id.content);
         }

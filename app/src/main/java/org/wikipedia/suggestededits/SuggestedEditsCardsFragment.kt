@@ -21,8 +21,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC
-import org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC
+import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -55,9 +54,9 @@ class SuggestedEditsCardsFragment : Fragment() {
         get() {
             val f = topChild
             return if (source == SUGGESTED_EDITS_ADD_DESC) {
-                titleFromPageName(f?.title, f?.addedDescription)
+                titleFromPageName(f?.title, f?.addedContribution)
             } else {
-                f?.targetPageTitle?.description = f?.addedDescription
+                f?.targetPageTitle?.description = f?.addedContribution
                 f?.targetPageTitle
             }
         }
@@ -66,7 +65,7 @@ class SuggestedEditsCardsFragment : Fragment() {
         get() {
             val fm = fragmentManager
             for (f in fm!!.fragments) {
-                if (f is SuggestedEditsCardsItemFragment && f.pagerPosition == addTitleDescriptionsItemPager.currentItem) {
+                if (f is SuggestedEditsCardsItemFragment && f.pagerPosition == cardsViewPager.currentItem) {
                     return f
                 }
             }
@@ -93,9 +92,9 @@ class SuggestedEditsCardsFragment : Fragment() {
         wikiFromLanguageSpinner.onItemSelectedListener = OnFromSpinnerItemSelectedListener()
         wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
 
-        addTitleDescriptionsItemPager.offscreenPageLimit = 2
-        addTitleDescriptionsItemPager.setPageTransformer(true, AnimationUtil.PagerTransformerWithoutPreviews())
-        addTitleDescriptionsItemPager.addOnPageChangeListener(viewPagerListener)
+        cardsViewPager.offscreenPageLimit = 2
+        cardsViewPager.setPageTransformer(true, AnimationUtil.PagerTransformerWithoutPreviews())
+        cardsViewPager.addOnPageChangeListener(viewPagerListener)
 
         resetTitleDescriptionItemAdapter()
 
@@ -128,7 +127,7 @@ class SuggestedEditsCardsFragment : Fragment() {
         }
         updateBackButton(0)
 
-        addDescriptionButton.setOnClickListener { onSelectPage() }
+        addContributionButton.setOnClickListener { onSelectPage() }
 
         updateActionButton()
     }
@@ -139,19 +138,19 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     private fun updateActionButton() {
-        val isAddedDescriptionEmpty = topChild?.addedDescription.isNullOrEmpty()
-        if (!isAddedDescriptionEmpty) topChild?.showAddedDescriptionView(topChild?.addedDescription)
-        addDescriptionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedDescriptionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-        if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
-            addDescriptionText?.text = getString(if (isAddedDescriptionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
-        } else if (addDescriptionText != null) {
-            addDescriptionText?.text = getString(if (isAddedDescriptionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+        val isAddedContributionEmpty = topChild?.addedContribution.isNullOrEmpty()
+        if (!isAddedContributionEmpty) topChild?.showAddedContributionView(topChild?.addedContribution)
+        addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
+        if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
+        } else if (addContributionText != null) {
+            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
         }
     }
 
     override fun onDestroyView() {
         disposables.clear()
-        addTitleDescriptionsItemPager.removeOnPageChangeListener(viewPagerListener)
+        cardsViewPager.removeOnPageChangeListener(viewPagerListener)
         if (funnel != null) {
             funnel!!.done()
             funnel = null
@@ -172,7 +171,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            topChild?.showAddedDescriptionView(data?.getStringExtra(EXTRA_SOURCE_CONTRIBUTED))
+            topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_CONTRIBUTED))
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
             nextPage()
         }
@@ -180,15 +179,15 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     private fun previousPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
-        if (addTitleDescriptionsItemPager.currentItem > 0) {
-            addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem - 1, true)
+        if (cardsViewPager.currentItem > 0) {
+            cardsViewPager.setCurrentItem(cardsViewPager.currentItem - 1, true)
         }
         updateActionButton()
     }
 
     private fun nextPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
-        addTitleDescriptionsItemPager.setCurrentItem(addTitleDescriptionsItemPager.currentItem + 1, true)
+        cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
         updateActionButton()
     }
 
@@ -237,7 +236,7 @@ class SuggestedEditsCardsFragment : Fragment() {
         val postDelay: Long = 250
         wikiToLanguageSpinner.postDelayed({
             if (isAdded) {
-                addTitleDescriptionsItemPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
+                cardsViewPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
             }
         }, postDelay)
     }

@@ -29,7 +29,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     private val app = WikipediaApp.getInstance()
     var sourceSummary: RbPageSummary? = null
     var targetSummary: RbPageSummary? = null
-    var addedDescription: String = ""
+    var addedContribution: String = ""
         internal set
     var targetPageTitle: PageTitle? = null
 
@@ -67,7 +67,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                 parent().onSelectPage()
             }
         }
-        showAddedDescriptionView(addedDescription)
+        showAddedContributionView(addedContribution)
     }
 
     override fun onDestroy() {
@@ -97,12 +97,12 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         }
     }
 
-    fun showAddedDescriptionView(addedDescription: String?) {
-        if (!addedDescription.isNullOrEmpty()) {
+    fun showAddedContributionView(addedContribution: String?) {
+        if (!addedContribution.isNullOrEmpty()) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = addedDescription
+            viewArticleSubtitle.text = addedContribution
             viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
-            this.addedDescription = addedDescription
+            this.addedContribution = addedContribution
         }
     }
 
@@ -125,7 +125,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = (if (addedDescription.isNotEmpty()) addedDescription else sourceSummary!!.description)?.capitalize()
+            viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
         }
 
         viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
