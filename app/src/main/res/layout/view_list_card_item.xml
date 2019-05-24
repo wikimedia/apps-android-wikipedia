@@ -1,12 +1,11 @@
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
-    tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:paddingBottom="16dp"
     tools:paddingTop="16dp"
-    tools:paddingBottom="16dp">
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <TextView
         android:id="@+id/view_list_card_item_title"
@@ -24,15 +23,15 @@
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/view_list_card_item_subtitle"
+        style="@style/MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        app:layout_constraintStart_toStartOf="@+id/view_list_card_item_title"
-        app:layout_constraintEnd_toEndOf="@+id/view_list_card_item_title"
-        app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
         app:layout_constraintBottom_toBottomOf="parent"
-        style="@style/MaterialListSubtitle"
-        tools:text="Lorem ipsum"/>
+        app:layout_constraintEnd_toEndOf="@+id/view_list_card_item_title"
+        app:layout_constraintStart_toStartOf="@+id/view_list_card_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
+        tools:text="Lorem ipsum" />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/view_list_card_item_image"
