@@ -32,7 +32,7 @@ import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_CONTRIBUTED
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
@@ -171,7 +171,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_CONTRIBUTED))
+            topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
             FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
             nextPage()
         }

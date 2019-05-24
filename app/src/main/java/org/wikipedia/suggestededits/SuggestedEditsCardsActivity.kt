@@ -63,7 +63,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
 
     companion object {
         const val EXTRA_SOURCE = "source"
-        const val EXTRA_SOURCE_CONTRIBUTED = "contributed"
+        const val EXTRA_SOURCE_ADDED_CONTRIBUTION = "addedContribution"
 
         fun newIntent(context: Context, source: InvokeSource): Intent {
             return Intent(context, SuggestedEditsCardsActivity::class.java).putExtra(EXTRA_SOURCE, source)
