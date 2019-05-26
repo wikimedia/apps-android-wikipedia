@@ -60,6 +60,7 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
     @BindView(R.id.chips_scrollview) View chipsScrollView;
+    @BindView(R.id.image_container) View imageContainer;
     @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
@@ -104,12 +105,7 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
-        if (selected || url == null) {
-            imageView.setVisibility(GONE);
-        } else {
-            imageView.setVisibility(VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView, url);
-        }
+        updateSelectedState(url);
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
@@ -222,11 +218,18 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     private void updateSelectedState(@Nullable String imageUrl) {
-        imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
-        imageView.setVisibility((selected || (imageUrl == null)) ? GONE : VISIBLE);
-        // TODO: animate?
-        setBackgroundColor(getThemedColor(getContext(),
-                selected ? R.attr.multi_select_background_color : R.attr.paper_color));
+        if (selected) {
+            imageSelectedView.setVisibility(VISIBLE);
+            imageContainer.setVisibility(VISIBLE);
+            imageView.setVisibility(GONE);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
+        } else {
+            imageSelectedView.setVisibility(GONE);
+            imageContainer.setVisibility(VISIBLE);
+            imageView.setVisibility((imageUrl == null) ? GONE : VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, imageUrl);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

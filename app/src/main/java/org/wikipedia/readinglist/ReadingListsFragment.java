@@ -432,7 +432,6 @@ public class ReadingListsFragment extends Fragment implements
             getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
-            getView().setImageUrl(page.thumbUrl());
             getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
             getView().setSelected(page.selected(), page.thumbUrl());
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
