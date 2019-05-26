@@ -394,6 +394,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             getView().setItem(indexedEntry);
             getView().setTitle(indexedEntry.getEntry().getTitle().getDisplayText());
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
+            getView().setImageUrl(imageUrl);
             getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()), imageUrl);
             PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), available -> getView().setViewsGreyedOut(!available));
 

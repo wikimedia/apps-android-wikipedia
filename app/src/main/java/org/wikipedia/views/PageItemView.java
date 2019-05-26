@@ -220,16 +220,15 @@ public class PageItemView<T> extends ConstraintLayout {
     private void updateSelectedState(@Nullable String imageUrl) {
         if (selected) {
             imageSelectedView.setVisibility(VISIBLE);
-            imageContainer.setVisibility(VISIBLE);
             imageView.setVisibility(GONE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
             imageSelectedView.setVisibility(GONE);
-            imageContainer.setVisibility(VISIBLE);
             imageView.setVisibility((imageUrl == null) ? GONE : VISIBLE);
             ViewUtil.loadImageUrlInto(imageView, imageUrl);
             setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
         }
+        imageContainer.setVisibility((imageView.getVisibility() == VISIBLE || imageSelectedView.getVisibility() == VISIBLE) ? VISIBLE : GONE);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
