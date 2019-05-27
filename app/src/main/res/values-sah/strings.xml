@@ -424,9 +424,11 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Салҕаама</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Киир</string>
   <string name="reading_list_turned_sync_off_dialog_title">Ааҕыы испииһэгин мэнэйдэһиитэ араҕыста</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Ааҕыы испииһэгин тэҥнээһин эн бэлиэ-ааккар араарылынна, онон тэриллэргэр хараллыбыт ыстатыйалар аны тиһиккэ киирбэттэр. Тэҥнээһини туруорууларга киирэн холбуоххун сөп.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Сөп</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Туруоруулар</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Ааҕыыҥ испииһэгэр баар ыстатыйаларыҥ Эн Бикипиэдьийэҕэ бэлиэтэмит ааккын кытта тэҥнэнэр буолуохтара. &lt;a href=\"#faq\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Хос көрдөрүмэ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Мэнэйдээһини холбоо</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Суох, махтанабын</string>
