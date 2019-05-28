@@ -47,14 +47,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <org.wikipedia.feed.view.CardHeaderView
-                android:id="@+id/headerView"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:visibility="gone" />
-
             <org.wikipedia.views.FaceAndColorDetectImageView
-                style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
+                style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                 android:id="@+id/viewArticleImage"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
@@ -117,15 +111,6 @@
                         android:fontFamily="sans-serif-medium"
                         tools:text="Lorem ipsum" />
                 </LinearLayout>
-
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="@dimen/divider_width_for_article"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="19dp"
-                    android:visibility="gone"
-                    android:background="?attr/material_theme_border_color"/>
 
                 <TextView
                     android:id="@+id/viewArticleExtract"

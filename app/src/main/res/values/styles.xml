@@ -349,7 +349,7 @@
         <item name="backgroundImage">?attr/paper_color</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder.EditActionFeed">
+    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits">
         <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
         <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
         <item name="backgroundImage">@color/base30</item>
