@@ -205,6 +205,11 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     @Override
+    public void onSelectItem(@NonNull ReadingListPage page) {
+        // ignore
+    }
+
+    @Override
     public void onDeleteItem(@NonNull ReadingListPage page) {
         ReadingListBehaviorsUtil.INSTANCE.deletePages(requireActivity(), ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, this::updateLists, this::updateLists);
     }
@@ -586,8 +591,13 @@ public class ReadingListsFragment extends Fragment implements
         }
 
         @Override
-        public boolean onLongClick(@Nullable ReadingListPage item) {
-            return false;
+        public boolean onLongClick(@Nullable ReadingListPage page) {
+            if (page == null) {
+                return false;
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
+            return true;
         }
 
         @Override
@@ -601,7 +611,7 @@ public class ReadingListsFragment extends Fragment implements
                 return;
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page));
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
         }
 
         @Override
