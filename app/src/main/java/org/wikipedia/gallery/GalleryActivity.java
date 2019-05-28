@@ -51,6 +51,7 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -561,14 +562,19 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
 
         // TODO: replace when the Media endpoint gives us structured captions automatically.
+        // TODO: remove feature flag when ready.
 
-        imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getTitles().getCanonical())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::updateGalleryDescription, t -> {
-                    L.e(t);
-                    updateGalleryDescription(null);
-                });
+        if (ReleaseUtil.isPreBetaRelease()) {
+            imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getTitles().getCanonical())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::updateGalleryDescription, t -> {
+                        L.e(t);
+                        updateGalleryDescription(null);
+                    });
+        } else {
+            updateGalleryDescription(null);
+        }
     }
 
     public void updateGalleryDescription(@Nullable Map<String, String> captions) {
