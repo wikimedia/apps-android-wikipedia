@@ -42,11 +42,37 @@ public class EditorTaskCounts {
         return Collections.emptyList();
     }
 
+    @Nullable
+    public Map<String, Integer> getCaptionEditsPerLanguage() {
+        if (counts != null && !(counts instanceof JsonArray)) {
+            return GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appCaptionEdits;
+        }
+        return Collections.emptyMap();
+    }
+
+    @Nullable
+    public List<Integer> getCaptionEditTargetsPassed() {
+        if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
+            return GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appCaptionEdits;
+        }
+        return Collections.emptyList();
+    }
+
+    @Nullable
+    public List<Integer> getCaptionEditTargets() {
+        if (targets != null && !(targets instanceof JsonArray)) {
+            return GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appCaptionEdits;
+        }
+        return Collections.emptyList();
+    }
+
     public class Counts {
         @Nullable @SerializedName("app_description_edits") private Map<String, Integer> appDescriptionEdits;
+        @Nullable @SerializedName("app_caption_edits") private Map<String, Integer> appCaptionEdits;
     }
 
     public class Targets {
         @Nullable @SerializedName("app_description_edits") private List<Integer> appDescriptionEdits;
+        @Nullable @SerializedName("app_caption_edits") private List<Integer> appCaptionEdits;
     }
 }
