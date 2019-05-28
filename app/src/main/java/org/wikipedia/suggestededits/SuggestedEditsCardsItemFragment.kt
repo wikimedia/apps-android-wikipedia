@@ -12,8 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
-import org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC
-import org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC
+import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -123,19 +122,25 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         }
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
 
-        if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
         }
 
-        viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
-        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
-            viewArticleImage.visibility = GONE
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+
+        if (parent().source == SUGGESTED_EDITS_ADD_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+            viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
+            if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
+                viewArticleImage.visibility = GONE
+                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+            } else {
+                viewArticleImage.visibility = VISIBLE
+                viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
+            }
         } else {
-            viewArticleImage.visibility = VISIBLE
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
+            // TODO: add views
         }
     }
 

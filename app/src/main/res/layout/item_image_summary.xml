@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/summaryTitle"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="sans-serif"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:letterSpacing="0.04"
+        android:lineSpacingExtra="6sp"
+        android:gravity="end"
+        tools:text="Artist" />
+
+    <TextView
+        android:id="@+id/summaryContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal"
+        android:textColor="?attr/primary_text_color"
+        android:lineSpacingExtra="8sp"
+        tools:text="Alfred Edward Chalon" />
+
+</LinearLayout>

@@ -125,6 +125,13 @@
                     android:textColor="?attr/primary_text_color"
                     android:textSize="16sp"
                     tools:text="Lorem ipsum" />
+
+                <LinearLayout
+                    android:id="@+id/viewImageSummaryContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
             </LinearLayout>
 
         </LinearLayout>
