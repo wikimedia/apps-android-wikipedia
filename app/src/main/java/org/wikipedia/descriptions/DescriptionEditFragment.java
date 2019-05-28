@@ -1,8 +1,11 @@
 package org.wikipedia.descriptions;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -203,6 +207,11 @@ public class DescriptionEditFragment extends Fragment {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH
+                && resultCode == Activity.RESULT_OK && data != null
+                && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
+            String text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
+            editView.setDescription(text);
         }
     }
 
@@ -345,6 +354,16 @@ public class DescriptionEditFragment extends Fragment {
         @Override
         public void onReadArticleClick() {
             callback().onPageSummaryContainerClicked(pageTitle);
+        }
+
+        @Override
+        public void onVoiceInputClick() {
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            try {
+                startActivityForResult(intent, Constants.ACTIVITY_REQUEST_VOICE_SEARCH);
+            } catch (ActivityNotFoundException a) {
+                FeedbackUtil.showMessage(requireActivity(), R.string.error_voice_search_not_available);
+            }
         }
     }
 }
