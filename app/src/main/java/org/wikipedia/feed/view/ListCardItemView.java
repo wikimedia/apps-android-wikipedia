@@ -29,8 +29,10 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class ListCardItemView extends ConstraintLayout {
+
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
@@ -108,6 +110,32 @@ public class ListCardItemView extends ConstraintLayout {
                 }
             }
         }).show(entry.getTitle());
+    }
+
+    @OnLongClick boolean onLongClick(View view) {
+        new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+            @Override
+            public void onAddRequest(@Nullable ReadingListPage page) {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onAddPageToList(entry);
+                }
+            }
+
+            @Override
+            public void onDeleted(@Nullable ReadingListPage page) {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onRemovePageFromList(entry);
+                }
+            }
+
+            @Override
+            public void onShare() {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onSharePage(entry);
+                }
+            }
+        }).show(entry.getTitle());
+        return false;
     }
 
     @VisibleForTesting @Nullable Callback getCallback() {

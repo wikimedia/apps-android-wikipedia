@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/gallery_container"
     android:layout_width="match_parent"
@@ -65,21 +66,84 @@
             android:layout_width="match_parent"
             android:layout_height="80dp" />
 
-        <org.wikipedia.views.AppTextView
-            android:id="@+id/gallery_description_text"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black38"
-            android:fadeScrollbars="false"
-            android:maxHeight="128dp"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:scrollbarStyle="insideInset"
-            android:scrollbars="vertical"
-            android:textColor="@color/base90"
-            android:textColorLink="@color/base90"
-            android:textIsSelectable="true"
-            tools:text="Sample image description text" />
+            android:background="@color/black38">
+
+            <org.wikipedia.views.AppTextView
+                android:id="@+id/gallery_description_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fadeScrollbars="false"
+                android:maxHeight="128dp"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:textColor="@color/base90"
+                android:textColorLink="@color/base90"
+                android:textIsSelectable="true"
+                tools:text="Sample image description text" />
+
+            <ImageView
+                android:id="@+id/gallery_caption_edit_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+                app:tint="@color/base90"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:contentDescription="@null"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/gallery_caption_translate_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:background="@color/black38"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/gallery_caption_translate_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_add_circle_black_24dp"
+                    app:tint="?attr/colorAccent"
+                    android:contentDescription="@null"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="4dp"
+                    android:text="@string/description_edit_translate_description"
+                    android:textColor="?attr/colorAccent"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_gravity="bottom"
+                android:background="?attr/material_theme_border_color"/>
+
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/license_container"
