@@ -9,12 +9,12 @@
         android:id="@+id/wiktionary_definition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="?attr/primary_text_color"
-        android:lineSpacingMultiplier="1.3"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:textIsSelectable="true"
-        android:linksClickable="true" />
+        android:lineSpacingMultiplier="1.3"
+        android:linksClickable="true"
+        android:textColor="?attr/primary_text_color"
+        android:textIsSelectable="true" />
 
     <LinearLayout
         android:id="@+id/wiktionary_examples"
