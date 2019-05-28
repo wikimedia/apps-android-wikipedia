@@ -64,6 +64,7 @@ public class DescriptionEditView extends LinearLayout {
         void onHelpClick();
         void onCancelClick();
         void onReadArticleClick();
+        void onVoiceInputClick();
     }
 
     public DescriptionEditView(Context context) {
@@ -195,6 +196,12 @@ public class DescriptionEditView extends LinearLayout {
         performReadArticleClick();
     }
 
+    @OnClick(R.id.view_description_edit_voice_input) void onVoiceInputClick() {
+        if (callback != null) {
+            callback.onVoiceInputClick();
+        }
+    }
+
     private void performReadArticleClick() {
         if (callback != null && pageSummary != null) {
             callback.onReadArticleClick();
@@ -223,7 +230,7 @@ public class DescriptionEditView extends LinearLayout {
         pageTitleText.setText(text);
     }
 
-    @VisibleForTesting void setDescription(@Nullable String text) {
+    public void setDescription(@Nullable String text) {
         pageDescriptionText.setText(text);
     }
 
