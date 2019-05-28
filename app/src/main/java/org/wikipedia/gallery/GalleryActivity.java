@@ -109,7 +109,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_credit_text) TextView creditText;
     @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
-    @BindView(R.id.gallery_caption_edit_button) View descriptionEditButton;
+    @BindView(R.id.gallery_caption_edit_button) View captionEditButton;
+    @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
     private Disposable imageCaptionDisposable;
@@ -287,6 +288,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
         // TODO: launch caption editing activity.
+    }
+
+    @OnClick(R.id.gallery_caption_translate_button) void onTranslateClick(View v) {
+        // TODO: launch caption translating activity.
     }
 
     @OnClick(R.id.license_container) void onClick(View v) {
@@ -580,14 +585,26 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         // of the unstructured description, and make it editable.
         if (captions != null && captions.containsKey(app.getAppOrSystemLanguageCode())) {
             descriptionStr = captions.get(app.getAppOrSystemLanguageCode());
-            descriptionEditButton.setVisibility(View.VISIBLE);
+            captionEditButton.setVisibility(View.VISIBLE);
+
+            // and if we have another language in which the caption doesn't exist, then offer
+            // it to be translatable.
+            boolean allowTranslate = false;
+            for (String lang : app.language().getAppLanguageCodes()) {
+                if (!captions.containsKey(lang)) {
+                    allowTranslate = true;
+                }
+            }
+            captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
+
         } else {
             if (item.getDescription() != null && item.getDescription().getHtml() != null) {
                 descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
             } else if (item.getDescription() != null && item.getDescription().getText() != null) {
                 descriptionStr = item.getDescription().getText();
             }
-            descriptionEditButton.setVisibility(View.GONE);
+            captionEditButton.setVisibility(View.GONE);
+            captionTranslateContainer.setVisibility(View.GONE);
         }
         if (descriptionStr.length() > 0) {
             descriptionText.setText(strip(descriptionStr));

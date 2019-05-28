@@ -102,7 +102,49 @@
 
         </LinearLayout>
 
+        <FrameLayout
+            android:id="@+id/gallery_caption_translate_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:background="@color/black38"
+            android:visibility="gone"
+            tools:visibility="visible">
 
+            <LinearLayout
+                android:id="@+id/gallery_caption_translate_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_add_circle_black_24dp"
+                    app:tint="?attr/colorAccent"
+                    android:contentDescription="@null"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="4dp"
+                    android:text="@string/description_edit_translate_description"
+                    android:textColor="?attr/colorAccent"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_gravity="bottom"
+                android:background="?attr/material_theme_border_color"/>
+
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/license_container"
