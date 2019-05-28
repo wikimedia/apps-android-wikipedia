@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/margin"
-    android:paddingTop="@dimen/margin">
+    android:paddingTop="@dimen/margin"
+    android:paddingBottom="@dimen/margin">
 
     <TextView
         android:id="@+id/sort_by"
@@ -12,8 +12,8 @@
         android:layout_height="48dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
-        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:text="@string/reading_lists_menu_sort_by"
         android:textColor="?attr/secondary_text_color"
         android:textSize="16sp" />

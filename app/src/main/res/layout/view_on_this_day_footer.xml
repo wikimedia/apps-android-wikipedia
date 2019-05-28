@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/linear_layout"
     android:layout_width="match_parent"
@@ -10,8 +9,8 @@
     <View
         android:layout_width="1dp"
         android:layout_height="100dp"
-        android:background="?attr/chart_shade5"
-        android:layout_marginStart="27dp" />
+        android:layout_marginStart="27dp"
+        android:background="?attr/chart_shade5" />
 
     <LinearLayout
         android:id="@+id/back_to_top_view"
@@ -34,9 +33,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@null"
                 android:tint="?attr/chart_shade5"
-                app:srcCompat="@drawable/drawable_12dp_rounded_corner_base70"
-                android:contentDescription="@null"/>
+                app:srcCompat="@drawable/drawable_12dp_rounded_corner_base70" />
 
             <ImageView
                 android:id="@+id/upward_arrow"
@@ -52,12 +51,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="32dp"
             android:layout_marginTop="2dp"
-            android:layout_gravity="center_vertical"
             android:fontFamily="sans-serif-medium"
-            android:textAllCaps="true"
             android:text="@string/back_to_top"
+            android:textAllCaps="true"
             android:textColor="?attr/colorAccent"
             android:textSize="14sp" />
 

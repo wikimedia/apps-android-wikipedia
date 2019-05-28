@@ -4,19 +4,19 @@
     android:layout_height="wrap_content"
     android:background="?attr/paper_color"
     android:orientation="vertical"
-    android:paddingBottom="24dp"
     android:paddingStart="24dp"
+    android:paddingTop="24dp"
     android:paddingEnd="24dp"
-    android:paddingTop="24dp">
+    android:paddingBottom="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="8sp"
         android:text="@string/reading_lists_onboarding_intro"
         android:textColor="?attr/primary_text_color"
-        android:textSize="16sp"
-        android:lineSpacingExtra="8sp"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:text="@string/reading_lists_onboarding_for_example"
                 android:textAllCaps="true"
                 android:textColor="?attr/secondary_text_color"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <!--
         Not yet able to use vector drawables with compound TextView...
@@ -60,66 +60,66 @@
                 android:id="@+id/reading_lists_onboarding_example1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="8dp"
+                android:orientation="horizontal"
                 android:paddingStart="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reading_lists_onboarding_bullet_point"
-                    android:textColor="?attr/secondary_text_color"/>
+                    android:textColor="?attr/secondary_text_color" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reading_lists_onboarding_example1"
                     android:textColor="?attr/secondary_text_color"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/reading_lists_onboarding_example2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="8dp"
+                android:orientation="horizontal"
                 android:paddingStart="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reading_lists_onboarding_bullet_point"
-                    android:textColor="?attr/secondary_text_color"/>
+                    android:textColor="?attr/secondary_text_color" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reading_lists_onboarding_example2"
                     android:textColor="?attr/secondary_text_color"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/reading_lists_onboarding_example3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="8dp"
+                android:orientation="horizontal"
                 android:paddingStart="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reading_lists_onboarding_bullet_point"
-                    android:textColor="?attr/secondary_text_color"/>
+                    android:textColor="?attr/secondary_text_color" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reading_lists_onboarding_example3"
                     android:textColor="?attr/secondary_text_color"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -127,20 +127,20 @@
             android:id="@+id/reading_list_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_reading_list"
-            android:contentDescription="@null"
             android:layout_gravity="center_vertical"
-            android:paddingStart="30dp"/>
+            android:contentDescription="@null"
+            android:paddingStart="30dp"
+            app:srcCompat="@drawable/ic_reading_list" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/onboarding_button"
         style="@style/App.Button.Blue"
-        android:paddingStart="26dp"
-        android:paddingEnd="26dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:layout_gravity="end"
-        android:text="@string/reading_lists_onboarding_got_it"/>
+        android:paddingStart="26dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="26dp"
+        android:paddingBottom="8dp"
+        android:text="@string/reading_lists_onboarding_got_it" />
 </LinearLayout>

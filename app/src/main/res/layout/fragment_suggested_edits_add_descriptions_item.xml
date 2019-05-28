@@ -1,8 +1,7 @@
-<FrameLayout
-    android:id="@+id/suggestedEditsItemRootView"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/suggestedEditsItemRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="20dp">
@@ -11,10 +10,10 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="20dp"
-        android:layout_gravity="center_vertical"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
@@ -26,9 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="64dp"
             android:layout_marginTop="64dp"
-            android:background="?attr/paper_color"/>
+            android:layout_marginBottom="64dp"
+            android:background="?attr/paper_color" />
 
 
         <org.wikipedia.views.WikiErrorView
@@ -53,15 +52,15 @@
                 android:layout_height="48dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <org.wikipedia.views.FaceAndColorDetectImageView
-                style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
                 android:id="@+id/viewArticleImage"
+                style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
-                app:fadeDuration="0"
-                app:actualImageScaleType="focusCrop" />
+                app:actualImageScaleType="focusCrop"
+                app:fadeDuration="0" />
 
             <LinearLayout
                 android:id="@+id/viewArticleContainer"
@@ -76,15 +75,15 @@
                     android:id="@+id/viewArticleTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
+                    android:ellipsize="end"
                     android:fontFamily="serif"
-                    android:textColor="?attr/primary_text_color"
                     android:lineSpacingExtra="8sp"
                     android:maxLines="2"
-                    android:ellipsize="end"
-                    tools:text="Lorem ipsum"/>
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    tools:text="Lorem ipsum" />
 
                 <LinearLayout
                     android:id="@+id/viewArticleSubtitleContainer"
@@ -93,32 +92,33 @@
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
                     android:visibility="gone">
+
                     <View
                         android:id="@+id/accentSideBar"
                         android:layout_width="3dp"
                         android:layout_height="match_parent"
                         android:background="@color/accent50"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <org.wikipedia.views.GoneIfEmptyTextView
                         android:id="@+id/viewArticleSubtitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingStart="13dp"
-                        android:paddingEnd="16dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
                         android:layout_weight="1"
                         android:background="?attr/multi_select_background_color"
                         android:ellipsize="end"
+                        android:fontFamily="sans-serif-medium"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="6sp"
                         android:maxLines="3"
+                        android:paddingStart="13dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="10dp"
                         android:textColor="?attr/material_theme_primary_color"
                         android:textSize="16sp"
-                        android:fontFamily="sans-serif-medium"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/accentSideBar"
                         tools:text="Lorem ipsum" />
@@ -130,22 +130,22 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="19dp"
-                    android:visibility="gone"
-                    android:background="?attr/material_theme_border_color"/>
+                    android:background="?attr/material_theme_border_color"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/viewArticleExtract"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="12sp"
-                    android:textSize="16sp"
-                    android:textColor="?attr/primary_text_color"
                     android:minLines="3"
-                    tools:text="Lorem ipsum"/>
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="16sp"
+                    tools:text="Lorem ipsum" />
 
             </LinearLayout>
 
