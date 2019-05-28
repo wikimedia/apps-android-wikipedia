@@ -112,15 +112,6 @@
                         tools:text="Lorem ipsum" />
                 </LinearLayout>
 
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="@dimen/divider_width_for_article"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="19dp"
-                    android:visibility="gone"
-                    android:background="?attr/material_theme_border_color"/>
-
                 <TextView
                     android:id="@+id/viewArticleExtract"
                     android:layout_width="match_parent"
