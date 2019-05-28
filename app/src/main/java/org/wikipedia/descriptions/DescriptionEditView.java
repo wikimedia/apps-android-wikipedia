@@ -104,6 +104,7 @@ public class DescriptionEditView extends LinearLayout {
         } else {
             cancelButton.setImageResource(R.drawable.ic_close_main_themed_24dp);
         }
+        helpButton.setVisibility(enabled ? GONE : VISIBLE);
     }
 
     private void setHintText() {
