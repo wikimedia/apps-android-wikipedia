@@ -48,7 +48,7 @@
             android:orientation="vertical">
 
             <org.wikipedia.views.FaceAndColorDetectImageView
-                style="@style/SimpleDraweeViewPlaceholder.EditActionFeed"
+                style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                 android:id="@+id/viewArticleImage"
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
