@@ -599,6 +599,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             for (String lang : app.language().getAppLanguageCodes()) {
                 if (!captions.containsKey(lang)) {
                     allowTranslate = true;
+                    break;
                 }
             }
             captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
