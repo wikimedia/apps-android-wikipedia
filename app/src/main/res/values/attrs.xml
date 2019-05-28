@@ -97,4 +97,8 @@
         <attr name="progressStrokeWidth" format="dimension" />
         <attr name="maxProgress" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="AppTextView">
+        <attr name="html" format="string" />
+    </declare-styleable>
 </resources>
