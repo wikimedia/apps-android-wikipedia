@@ -208,9 +208,8 @@ public class SuggestedEditsTasksFragment extends Fragment {
             } else {
                 displayedTasks.add(translateDescriptionsTask);
                 translateDescriptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
-                boolean t = true;
-                translateDescriptionsTask.setShowActionLayout(t);
-                translateDescriptionsTask.setDisabled(t);
+                translateDescriptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
+                translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
             }
 
             // TODO: enable image caption tasks.
