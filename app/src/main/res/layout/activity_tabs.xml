@@ -12,7 +12,7 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:background="?android:attr/colorBackground"
         app:layoutPolicy="auto"
-        app:tabBackgroundColor="?attr/paper_color"
+        app:tabBackgroundColor="?attr/main_toolbar_color"
         app:tabContentBackgroundColor="?attr/paper_color" />
 
     <androidx.appcompat.widget.Toolbar
@@ -31,7 +31,7 @@
                 android:id="@+id/tab_counts_view"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/page_tabs_back"></org.wikipedia.views.TabCountsView>
+                android:contentDescription="@string/page_tabs_back" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
