@@ -496,6 +496,14 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
+    public void onSelectItem(@NonNull ReadingListPage page) {
+        if (actionMode == null || MultiSelectCallback.is(actionMode)) {
+            beginMultiSelect();
+            toggleSelectPage(page);
+        }
+    }
+
+    @Override
     public void onDeleteItem(@NonNull ReadingListPage page) {
         List<ReadingList> listsContainPage = TextUtils.isEmpty(currentSearchQuery) ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page);
         ReadingListBehaviorsUtil.INSTANCE.deletePages(requireActivity(), listsContainPage, page, this::updateReadingListData, () -> {
@@ -760,11 +768,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
 
         @Override
-        public boolean onLongClick(@Nullable ReadingListPage item) {
-            if (actionMode == null || MultiSelectCallback.is(actionMode)) {
-                beginMultiSelect();
-                toggleSelectPage(item);
+        public boolean onLongClick(@Nullable ReadingListPage page) {
+            if (page == null) {
+                return false;
             }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    ReadingListItemActionsDialog.newInstance(TextUtils.isEmpty(currentSearchQuery)
+                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
             return true;
         }
 
@@ -780,7 +790,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
                     ReadingListItemActionsDialog.newInstance(TextUtils.isEmpty(currentSearchQuery)
-                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page));
+                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
         }
 
         @Override
