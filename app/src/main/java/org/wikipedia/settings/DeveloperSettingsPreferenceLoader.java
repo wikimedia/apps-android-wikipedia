@@ -227,7 +227,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsCardsActivity.Companion.showEditUnlockDialog(getActivity());
+                    SuggestedEditsCardsActivity.Companion.showEditDescriptionUnlockDialog(getActivity());
                     return true;
                 });
 
@@ -239,7 +239,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_dialog))
                 .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsCardsActivity.Companion.showTranslateUnlockDialog(getActivity());
+                    SuggestedEditsCardsActivity.Companion.showTranslateDescriptionUnlockDialog(getActivity());
                     return true;
                 });
 

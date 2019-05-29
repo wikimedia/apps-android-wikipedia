@@ -86,7 +86,9 @@ public final class Constants {
         FEED_BAR,
         VOICE,
         ON_THIS_DAY_CARD_BODY,
-        ON_THIS_DAY_CARD_FOOTER
+        ON_THIS_DAY_CARD_FOOTER,
+        SUGGESTED_EDITS_ADD_CAPTION,
+        SUGGESTED_EDITS_TRANSLATE_CAPTION
     }
 
     private Constants() { }

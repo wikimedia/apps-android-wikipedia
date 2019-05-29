@@ -849,20 +849,20 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_multilingual_task, showTask);
     }
 
-    public static boolean isSuggestedEditsAddImageCaptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_add_image_captions_unlocked, false);
+    public static boolean isSuggestedEditsAddCaptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, false);
     }
 
-    public static void setSuggestedEditsAddImageCaptionsUnlocked(boolean unlocked) {
-        setBoolean(R.string.preference_key_suggested_edits_add_image_captions_unlocked, unlocked);
+    public static void setSuggestedEditsAddCaptionsUnlocked(boolean unlocked) {
+        setBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, unlocked);
     }
 
-    public static boolean isSuggestedEditsTranslateImageCaptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_translate_image_captions_unlocked, false);
+    public static boolean isSuggestedEditsTranslateCaptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, false);
     }
 
-    public static void setSuggestedEditsTranslateImageCaptionsUnlocked(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_translate_image_captions_unlocked, enabled);
+    public static void setSuggestedEditsTranslateCaptionsUnlocked(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, enabled);
     }
 
     public static boolean shouldShowSuggestedEditsCardsForTesting() {
