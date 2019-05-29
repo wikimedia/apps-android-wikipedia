@@ -36,6 +36,9 @@ public interface Service {
     String WIKIPEDIA_URL = "https://wikipedia.org/";
     String WIKIDATA_URL = "https://www.wikidata.org/";
     String COMMONS_URL = "https://commons.wikimedia.org/";
+    String COMMONS_MEDIA_URL = "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&titles=File%3ABahram%20Gur%20hunting.jpg&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=640&iiextmetadatafilter=DateTime%7CCategories%7CGPSLatitude%7CGPSLongitude%7CImageDescription%7CDateTimeOriginal%7CArtist%7CLicenseShortName%7CLicenseUrl&iiextmetadatalanguage=en";
+
+
     String META_URL = "https://meta.wikimedia.org/";
 
     String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=plaintext&";
@@ -193,6 +196,13 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
     @NonNull Observable<MwQueryResponse> getCsrfToken();
+
+
+
+    @Headers("Cache-Control: no-cache")
+    @GET(COMMONS_MEDIA_URL)
+    @NonNull Observable<MwQueryResponse> getMedia();
+
 
     @SuppressWarnings("checkstyle:parameternumber")
     @FormUrlEncoded
