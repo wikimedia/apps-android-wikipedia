@@ -175,7 +175,6 @@ public class SuggestedEditsTasksFragment extends Fragment {
         translateImageCaptionsTask.setTitle(getString(R.string.suggested_edits_task_translate_caption_title));
         translateImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_translate_caption_description));
         translateImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate));
-        translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
 
         multilingualTeaserTask = new SuggestedEditsTask();
         multilingualTeaserTask.setTitle(getString(R.string.suggested_edits_task_multilingual_title));
