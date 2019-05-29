@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.mwapi;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.gson.JsonArray;
@@ -26,12 +27,13 @@ public class EditorTaskCounts {
         return Collections.emptyMap();
     }
 
-    @Nullable
+    @NonNull
     public List<Integer> getDescriptionEditTargetsPassed() {
+        List<Integer> targets = null;
         if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
-            return GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appDescriptionEdits;
+            targets = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appDescriptionEdits;
         }
-        return Collections.emptyList();
+        return targets == null ? Collections.emptyList() : targets;
     }
 
     @Nullable
@@ -50,12 +52,13 @@ public class EditorTaskCounts {
         return Collections.emptyMap();
     }
 
-    @Nullable
+    @NonNull
     public List<Integer> getCaptionEditTargetsPassed() {
+        List<Integer> targets = null;
         if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
-            return GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appCaptionEdits;
+            targets = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appCaptionEdits;
         }
-        return Collections.emptyList();
+        return targets == null ? Collections.emptyList() : targets;
     }
 
     @Nullable
