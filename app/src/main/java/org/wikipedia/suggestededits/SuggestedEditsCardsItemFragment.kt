@@ -16,7 +16,9 @@ import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -28,6 +30,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     private val app = WikipediaApp.getInstance()
     var sourceSummary: RbPageSummary? = null
     var targetSummary: RbPageSummary? = null
+    var sourceCaption: String? = null
+    var sourceExtMetadata: ExtMetadata? = null
     var addedContribution: String = ""
         internal set
     var targetPageTitle: PageTitle? = null
@@ -56,13 +60,14 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             cardItemProgressBar.visibility = VISIBLE
             getArticleWithMissingDescription()
         }
-        updateContents()
-        if (sourceSummary == null) {
+        updateDescriptionContents()
+        updateCaptionContents()
+        if (sourceSummary == null && sourceExtMetadata == null) {
             getArticleWithMissingDescription()
         }
 
         cardView.setOnClickListener {
-            if (sourceSummary != null) {
+            if (sourceSummary != null || sourceExtMetadata != null) {
                 parent().onSelectPage()
             }
         }
@@ -84,7 +89,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             sourceSummary = pair.second
                             targetSummary = pair.first
                             targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
-                            updateContents()
+                            updateDescriptionContents()
                         }, { this.setErrorState(it) })!!)
             }
 
@@ -96,9 +101,11 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
+                        .flatMap { pair -> }
                         .subscribe({ pair ->
-                           // TODO: handle pair
-                            updateContents()
+                            sourceCaption = pair.first
+                            val sourceResponse = pair.second
+                            updateCaptionContents()
                         }, { this.setErrorState(it) })!!)
             }
 
@@ -108,7 +115,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
                             sourceSummary = pageSummary
-                            updateContents()
+                            updateDescriptionContents()
                         }, { this.setErrorState(it) }))
             }
         }
@@ -131,35 +138,55 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         cardItemContainer.visibility = GONE
     }
 
-    private fun updateContents() {
+    private fun isCardAvailable(): Boolean {
         cardItemErrorView.visibility = GONE
-        cardItemContainer.visibility = if (sourceSummary == null) GONE else VISIBLE
-        cardItemProgressBar.visibility = if (sourceSummary == null) VISIBLE else GONE
-        if (sourceSummary == null) {
-            return
+        cardItemContainer.visibility = if (sourceSummary == null && sourceExtMetadata == null) GONE else VISIBLE
+        cardItemProgressBar.visibility = if (sourceSummary == null && sourceExtMetadata == null) VISIBLE else GONE
+        if (sourceSummary == null && sourceExtMetadata == null) {
+            return false
         }
+
+        return true
+    }
+
+    private fun updateDescriptionContents() {
+        if (!isCardAvailable()) return
+
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
 
-        if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
         }
 
+        viewImageSummaryContainer.visibility = GONE
 
-        if (parent().source == SUGGESTED_EDITS_ADD_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
-            viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
-            if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
-                viewArticleImage.visibility = GONE
-                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
-            } else {
-                viewArticleImage.visibility = VISIBLE
-                viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
-                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
-            }
+        viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
+        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
+            viewArticleImage.visibility = GONE
+            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
+            viewArticleImage.visibility = VISIBLE
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
-            // TODO: add views
+            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
+    }
+
+    private fun updateCaptionContents() {
+        if (!isCardAvailable()) return
+
+        viewArticleTitle.text = sourceExtMetadata!!.title()
+
+        if (parent().source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            viewArticleSubtitleContainer.visibility = VISIBLE
+            viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceCaption)?.capitalize()
+        }
+
+        L.d("updateCaptionContents() imageInfo ${sourceMwQueryPage!!.imageInfo()!!}")
+        L.d("updateCaptionContents() imageInfo.source ${sourceMwQueryPage!!.imageInfo()!!.source}")
+        L.d("updateCaptionContents() imageInfo.metadata ${sourceMwQueryPage!!.imageInfo()!!.metadata}")
+
+        viewArticleExtract.visibility = GONE
     }
 
     private fun parent(): SuggestedEditsCardsFragment {
