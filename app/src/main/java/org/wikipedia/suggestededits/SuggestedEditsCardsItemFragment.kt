@@ -53,7 +53,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
-            cardItemProgressBar.visibility = View.VISIBLE
+            cardItemProgressBar.visibility = VISIBLE
             getArticleWithMissingDescription()
         }
         updateContents()
@@ -75,24 +75,42 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun getArticleWithMissingDescription() {
-        if (parent().source == SUGGESTED_EDITS_ADD_DESC) {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pageSummary ->
-                        sourceSummary = pageSummary
-                        updateContents()
-                    }, { this.setErrorState(it) }))
-        } else {
-            disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pair ->
-                        sourceSummary = pair.second
-                        targetSummary = pair.first
-                        targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
-                        updateContents()
-                    }, { this.setErrorState(it) })!!)
+        when (parent().source) {
+            SUGGESTED_EDITS_TRANSLATE_DESC -> {
+                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ pair ->
+                            sourceSummary = pair.second
+                            targetSummary = pair.first
+                            targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
+                            updateContents()
+                        }, { this.setErrorState(it) })!!)
+            }
+
+            SUGGESTED_EDITS_ADD_IMAGE_CAPTION -> {
+                // TODO: add image caption
+            }
+
+            SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> {
+                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ pair ->
+                           // TODO: handle pair
+                            updateContents()
+                        }, { this.setErrorState(it) })!!)
+            }
+
+            else -> {
+                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ pageSummary ->
+                            sourceSummary = pageSummary
+                            updateContents()
+                        }, { this.setErrorState(it) }))
+            }
         }
     }
 
