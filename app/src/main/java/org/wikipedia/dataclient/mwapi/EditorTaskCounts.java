@@ -29,11 +29,11 @@ public class EditorTaskCounts {
 
     @NonNull
     public List<Integer> getDescriptionEditTargetsPassed() {
-        List<Integer> targets = null;
+        List<Integer> passedList = null;
         if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
-            targets = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appDescriptionEdits;
+            passedList = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appDescriptionEdits;
         }
-        return targets == null ? Collections.emptyList() : targets;
+        return passedList == null ? Collections.emptyList() : passedList;
     }
 
     @Nullable
@@ -54,11 +54,11 @@ public class EditorTaskCounts {
 
     @NonNull
     public List<Integer> getCaptionEditTargetsPassed() {
-        List<Integer> targets = null;
+        List<Integer> passedList = null;
         if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
-            targets = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appCaptionEdits;
+            passedList = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appCaptionEdits;
         }
-        return targets == null ? Collections.emptyList() : targets;
+        return passedList == null ? Collections.emptyList() : passedList;
     }
 
     @Nullable
