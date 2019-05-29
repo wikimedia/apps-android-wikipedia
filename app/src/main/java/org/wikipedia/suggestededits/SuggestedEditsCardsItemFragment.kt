@@ -88,11 +88,11 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         }, { this.setErrorState(it) })!!)
             }
 
-            SUGGESTED_EDITS_ADD_IMAGE_CAPTION -> {
+            SUGGESTED_EDITS_ADD_CAPTION -> {
                 // TODO: add image caption
             }
 
-            SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> {
+            SUGGESTED_EDITS_TRANSLATE_CAPTION -> {
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -140,7 +140,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         }
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
 
-        if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
         }

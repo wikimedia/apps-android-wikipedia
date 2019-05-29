@@ -195,6 +195,9 @@ public class SuggestedEditsTasksFragment extends Fragment {
         translateImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate));
         translateImageCaptionsTask.setNoActionLayout(Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
         translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
+        // TODO: remove this
+        translateImageCaptionsTask.setNoActionLayout(true);
+        translateImageCaptionsTask.setDisabled(false);
     }
 
     private void updateDisplayedTasks(@Nullable EditorTaskCounts editorTaskCounts) {
@@ -222,6 +225,9 @@ public class SuggestedEditsTasksFragment extends Fragment {
             }
 
             int targetForTranslateCaptions = editorTaskCounts.getCaptionEditTargets().get(1);
+
+            // TODO: remove this
+            displayedTasks.add(translateImageCaptionsTask);
 
             if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
                 displayedTasks.add(addImageCaptionsTask);
