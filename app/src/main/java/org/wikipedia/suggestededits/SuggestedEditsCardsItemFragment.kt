@@ -4,23 +4,25 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
+import kotlinx.android.synthetic.main.item_image_summary.view.*
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -31,6 +33,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     var sourceSummary: RbPageSummary? = null
     var targetSummary: RbPageSummary? = null
     var sourceCaption: String? = null
+    var sourceMwQueryPage: MwQueryPage? = null
     var sourceExtMetadata: ExtMetadata? = null
     var addedContribution: String = ""
         internal set
@@ -101,10 +104,18 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .flatMap { pair -> }
-                        .subscribe({ pair ->
+                        .flatMap { pair ->
                             sourceCaption = pair.first
-                            val sourceResponse = pair.second
+                            sourceMwQueryPage = pair.second
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second.title())
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                        }
+                        .subscribe({ response ->
+                            val page = response.query()!!.pages()!![0]
+                            if (page.imageInfo() != null && page.imageInfo()!!.metadata != null) {
+                                sourceExtMetadata = page.imageInfo()!!.metadata
+                            }
                             updateCaptionContents()
                         }, { this.setErrorState(it) })!!)
             }
@@ -175,16 +186,25 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     private fun updateCaptionContents() {
         if (!isCardAvailable()) return
 
-        viewArticleTitle.text = sourceExtMetadata!!.title()
+        viewArticleTitle.text = sourceMwQueryPage!!.title()
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceCaption)?.capitalize()
         }
 
-        L.d("updateCaptionContents() imageInfo ${sourceMwQueryPage!!.imageInfo()!!}")
-        L.d("updateCaptionContents() imageInfo.source ${sourceMwQueryPage!!.imageInfo()!!.source}")
-        L.d("updateCaptionContents() imageInfo.metadata ${sourceMwQueryPage!!.imageInfo()!!.metadata}")
+        // TODO: use string from endpoint, or our own text resources
+        val titleArray = arrayOf("Author", "Artist", "Date", "Source")
+        val contentArray = arrayOf(sourceMwQueryPage!!.imageInfo()!!.user,
+                sourceExtMetadata!!.artist()!!.value(),
+                DateUtil.getReadingListsLastSyncDateString(sourceMwQueryPage!!.imageInfo()!!.timestamp),
+                sourceExtMetadata!!.credit()!!.value())
+        contentArray.forEachIndexed { i, content ->
+            val summaryItemView = inflate(requireContext(), R.layout.item_image_summary, null)
+            summaryItemView.summaryTitle.text = titleArray[i]
+            summaryItemView.summaryContent.text = StringUtil.removeHTMLTags(content)
+            viewImageSummaryContainer.addView(summaryItemView)
+        }
 
         viewArticleExtract.visibility = GONE
     }

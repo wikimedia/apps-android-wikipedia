@@ -53,6 +53,10 @@ public class ExtMetadata {
         return artist;
     }
 
+    @Nullable public Values credit() {
+        return credit;
+    }
+
     public class Values {
         @SuppressWarnings("unused,NullableProblems") @NonNull private String value;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String source;

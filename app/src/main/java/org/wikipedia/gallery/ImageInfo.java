@@ -25,6 +25,8 @@ public class ImageInfo implements Serializable {
     @SuppressWarnings("unused") @SerializedName("descriptionshorturl") @Nullable private String descriptionShortUrl;
     @SuppressWarnings("unused,NullableProblems") @SerializedName("mime") @NonNull private String mimeType = "*/*";
     @SuppressWarnings("unused") @SerializedName("extmetadata")@Nullable private ExtMetadata metadata;
+    @SuppressWarnings("unused") @Nullable private String user;
+    @SuppressWarnings("unused") @Nullable private String timestamp;
 
     @NonNull
     public String getSource() {
@@ -53,6 +55,14 @@ public class ImageInfo implements Serializable {
 
     @NonNull public String getOriginalUrl() {
         return StringUtils.defaultString(originalUrl);
+    }
+
+    @NonNull public String getUser() {
+        return StringUtils.defaultString(user);
+    }
+
+    @NonNull public String getTimestamp() {
+        return StringUtils.defaultString(timestamp);
     }
 
     @Nullable public ExtMetadata getMetadata() {
