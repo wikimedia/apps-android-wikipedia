@@ -65,7 +65,7 @@ public class DescriptionEditFragment extends Fragment {
 
     public interface Callback {
         void onDescriptionEditSuccess();
-        void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle);
+        void onBottomBarClicked(@NonNull Object object);
     }
 
     private static final String ARG_TITLE = "title";
@@ -353,7 +353,9 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onReadArticleClick() {
-            callback().onPageSummaryContainerClicked(pageTitle);
+            callback().onBottomBarClicked(pageTitle);
+            //Todo: only for testing - change after image captions logic is solidified
+            //callback().onBottomBarClicked(new ImageInfo());
         }
 
         @Override

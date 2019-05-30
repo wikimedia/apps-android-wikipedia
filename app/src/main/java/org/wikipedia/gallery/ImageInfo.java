@@ -26,6 +26,29 @@ public class ImageInfo implements Serializable {
     @SuppressWarnings("unused,NullableProblems") @SerializedName("mime") @NonNull private String mimeType = "*/*";
     @SuppressWarnings("unused") @SerializedName("extmetadata")@Nullable private ExtMetadata metadata;
 
+    //Todo: only for testing - change after image captions logic is solidified
+    public ImageInfo(@NonNull String originalUrl, @NonNull String caption, @NonNull String artist, @NonNull String dateValue, @NonNull String imageSource, @NonNull String licenseValue) {
+        this.originalUrl = originalUrl;
+        this.metadata = new ExtMetadata();
+        ExtMetadata.Values value = metadata.new Values();
+        value.setValue(dateValue);
+        metadata.setDateTime(value);
+        value = metadata.new Values();
+        value.setValue(caption);
+        value.setSource(imageSource);
+        metadata.setImageDescription(value);
+        value = metadata.new Values();
+        value.setValue(licenseValue);
+        metadata.setLicenseShortName(value);
+        value = metadata.new Values();
+        value.setValue(artist);
+        metadata.setArtist(value);
+    }
+
+    //Todo: only for testing - change after image captions logic is solidified
+    public ImageInfo() {
+    }
+
     @NonNull
     public String getSource() {
         return StringUtils.defaultString(source);

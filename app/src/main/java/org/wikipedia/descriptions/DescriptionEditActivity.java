@@ -10,6 +10,7 @@ import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -68,12 +69,26 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     }
 
     @Override
-    public void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle) {
-        bottomSheetPresenter.show(getSupportFragmentManager(),
-                ImagePreviewDialog.Companion.newInstance(new HistoryEntry(pageTitle,
-                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
-                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                        null));
+    public void onBottomBarClicked(@NonNull Object object) {
+        if (object instanceof PageTitle) {
+            PageTitle pageTitle = (PageTitle) object;
+            bottomSheetPresenter.show(getSupportFragmentManager(),
+                    LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle,
+                                    getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
+                                            ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                            null));
+        }
+        if (object instanceof ImageInfo) {
+            //ImageInfo imageInfo = (ImageInfo) object;
+            //Todo: only for testing - change after image captions logic is solidified
+            ImageInfo imageInfo = new ImageInfo("https://upload.wikimedia.org/wikipedia/commons/a/a1/Bahram_Gur_hunting.jpg", "This painting represents an episode drawn from Nizami's \"Haft Paykar\" (The Seven Thrones), the fourth book of his \"Khamsah\" (Quintet). The great Sasanian king Bahram Gur (r. 430-38), famous for his hunting powers and thus nicknamed \"wild ass\" (Bahram Gur), astonishes his companions with his quasi-divine prowess at hunting onagers. After his expedition and as a gesture of generosity, he orders 1,200 onagers (half to be branded and half to be earmarked with gold rings) to be distributed among his people. Script: nasta'liq.", "Painting drawn from Nizami's \"Khamsah\"",
+                    "2019-05-23 13:40:41", "commons-desc-page", "Public domain");
+
+            bottomSheetPresenter.show(getSupportFragmentManager(),
+                    ImagePreviewDialog.Companion.newInstance(imageInfo,
+                            "File:Bahram Gur hunting.jpg"));
+        }
+
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {

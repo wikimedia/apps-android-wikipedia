@@ -3,7 +3,6 @@ package org.wikipedia.views
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.drawable.Animatable
-import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,20 +13,12 @@ import androidx.annotation.Nullable
 import androidx.appcompat.widget.PopupMenu
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.controller.BaseControllerListener
-import com.facebook.imagepipeline.image.ImageInfo
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
-import org.wikipedia.BuildConfig
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.history.HistoryEntry
+import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
@@ -38,22 +29,10 @@ import org.wikipedia.util.log.L
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
 
-    private var location: Location? = null
-    private val disposables = CompositeDisposable()
+    private var fileName: String? = null
+    private lateinit var imageInfo: ImageInfo
 
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
-        when (item.itemId) {
-            R.id.menu_link_preview_add_to_list -> {
-                return@OnMenuItemClickListener true
-            }
-            R.id.menu_link_preview_share_page -> {
-                return@OnMenuItemClickListener true
-            }
-            R.id.menu_link_preview_copy_link -> {
-                return@OnMenuItemClickListener true
-            }
-
-        }
         false
     }
 
@@ -63,7 +42,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
 
         setConditionalLayoutDirection(rootView, WikipediaApp.getInstance().language().appLanguageCode)
-
+        imageInfo = arguments!!.getSerializable("imageInfo") as ImageInfo
+        fileName = arguments!!.getString("filename")
         return rootView
     }
 
@@ -78,41 +58,30 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
         // show the progress bar while we load content...
         progressBar!!.visibility = View.VISIBLE
+        toolbarView.setOnClickListener { dismiss() }
         imagePageCommonsLinkContainer.setOnClickListener {
+            dismiss()
             UriUtil.visitInExternalBrowser(context,
-                    Uri.parse(String.format(requireContext().getString(R.string.donate_url),
-                            BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().systemLanguageCode)))
+                    Uri.parse(String.format(getString(R.string.suggested_edits_image_file_page_commons_link), fileName)))
         }
-        getImageDetails()
+        setImageDetails()
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         toolbarView!!.setOnClickListener(null)
         overflowButton!!.setOnClickListener(null)
-
         super.onDestroyView()
     }
 
-    private fun getImageDetails() {
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getMedia()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ mwresponse ->
-                    val page: MwQueryPage = mwresponse.query()!!.pages()!![0]
-                    val metaData: ExtMetadata = page.imageInfo()!!.getMetadata()!!
-                    loadImage(page.imageInfo()!!.originalUrl)
-                    titleText!!.text = StringUtil.fromHtml(page.title().removePrefix("File:"))
-                    addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(metaData.imageDescription()!!.value()).toString())
-                    addDetailPortion(getString(R.string.suggested_edits_image_depicts_title), StringUtil.fromHtml(metaData.imageDescription()!!.value()).toString())
-                    addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(metaData.artist()!!.value()).toString())
-                    addDetailPortion(getString(R.string.suggested_edits_image_date), metaData.dateTime()!!.value())
-                    addDetailPortion(getString(R.string.suggested_edits_image_medium), metaData.dateTime()!!.value())
-                    addDetailPortion(getString(R.string.suggested_edits_image_source), metaData.imageDescription()!!.source())
-                    addDetailPortion(getString(R.string.suggested_edits_image_licensing), metaData.licenseShortName()!!.value())
-                    addDetailPortion(getString(R.string.suggested_edits_image_licensing), metaData.licenseShortName()!!.value())
-                    detailsHolder.requestLayout()
-                }, { this.setErrorState(it) }))
+    private fun setImageDetails() {
+        loadImage(imageInfo.originalUrl)
+        titleText!!.text = StringUtil.fromHtml(fileName!!.removePrefix("File:"))
+        addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(imageInfo.getMetadata()!!.imageDescription()!!.value()).toString())
+        addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(imageInfo.getMetadata()!!.artist()!!.value()).toString())
+        addDetailPortion(getString(R.string.suggested_edits_image_date), imageInfo.getMetadata()!!.dateTime()!!.value())
+        addDetailPortion(getString(R.string.suggested_edits_image_source), imageInfo.getMetadata()!!.imageDescription()!!.source())
+        addDetailPortion(getString(R.string.suggested_edits_image_licensing), imageInfo.getMetadata()!!.licenseShortName()!!.value())
+        detailsHolder.requestLayout()
     }
 
     private fun addDetailPortion(@NonNull title: String, @Nullable detail: String?) {
@@ -122,11 +91,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             view.setDetail(detail)
             detailsHolder.addView(view)
         }
-    }
-
-    private fun setErrorState(t: Throwable) {
-        L.e(t)
-
     }
 
     override fun onDismiss(dialogInterface: DialogInterface?) {
@@ -150,8 +114,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         galleryImage.controller = Fresco.newDraweeControllerBuilder()
                 .setUri(url)
                 .setAutoPlayAnimations(true)
-                .setControllerListener(object : BaseControllerListener<ImageInfo>() {
-                    override fun onFinalImageSet(id: String?, imageInfo: ImageInfo?, animatable: Animatable?) {
+                .setControllerListener(object : BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
+                    override fun onFinalImageSet(id: String?, imageInfo: com.facebook.imagepipeline.image.ImageInfo?, animatable: Animatable?) {
                         galleryImage.setDrawBackground(true)
                     }
 
@@ -162,24 +126,14 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                 .build()
     }
 
-    private fun showError(caught: Throwable?) {
-        /* dialogContainer!!.layoutTransition = null
-         dialogContainer!!.minimumHeight = 0
-         progressBar!!.visibility = View.GONE
-         contentContainer!!.visibility = View.GONE
-         errorContainer!!.visibility = View.VISIBLE
-         errorContainer!!.setError(caught)
-         errorContainer!!.setCallback(this)*/
-    }
-
     companion object {
 
-        fun newInstance(entry: HistoryEntry, location: Location?): ImagePreviewDialog {
+        fun newInstance(imageInfo: ImageInfo, fileName: String?): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
-            args.putParcelable("entry", entry)
-            if (location != null) {
-                args.putParcelable("location", location)
+            args.putSerializable("imageInfo", imageInfo)
+            if (fileName != null) {
+                args.putString("filename", fileName)
             }
             dialog.arguments = args
             return dialog

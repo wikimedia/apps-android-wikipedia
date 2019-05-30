@@ -135,6 +135,8 @@ public class DescriptionEditView extends LinearLayout {
                 : StringUtil.fromHtml(sourceSummary.getExtract()));
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
         readArticleBarContainer.setPageSummary(pageSummary);
+        //Todo: only for testing - change after image captions logic is solidified
+        //readArticleBarContainer.setImageDetails(pageSummary.getThumbnailUrl() == null ? "" : pageSummary.getThumbnailUrl(), "File:Bahram Gur hunting.jpg");
         readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 

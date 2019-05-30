@@ -8,7 +8,7 @@ import androidx.annotation.StringRes;
 import org.wikipedia.R;
 import org.wikipedia.util.ThrowableUtil;
 
-enum LinkPreviewErrorType {
+public enum LinkPreviewErrorType {
     // Note: The string resource corresponding to the 'text' field will be updated programmatically
     // for the OFFLINE type to accommodate error view design requirements.  See
     // LinkPreviewErrorView.setError() for further discussion.

@@ -70,16 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="446dp"
                 android:contentDescription="@null"
-                app:actualImageScaleType="fitXY"
-                app:srcCompat="@drawable/ic_commons_logo" />
-
-            <org.wikipedia.page.linkpreview.LinkPreviewErrorView
-                android:id="@+id/dialog_link_preview_error_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:visibility="gone" />
+                app:actualImageScaleType="fitXY" />
 
             <LinearLayout
                 android:id="@+id/detailsHolder"
@@ -88,6 +79,7 @@
                 android:orientation="vertical" />
 
             <LinearLayout
+                android:id="@+id/moreInfoContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -126,10 +118,10 @@
                         android:layout_marginTop="11dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
+                        android:text="@string/suggested_edits_image_file_page_link_text"
                         android:textColor="?attr/colorAccent"
                         android:textSize="16sp"
-                        android:textStyle="normal"
-                        android:text="@string/suggested_edits_image_file_page_link_text"/>
+                        android:textStyle="normal" />
 
                     <ImageView
                         android:layout_width="@dimen/bottom_toolbar_icon_size"
@@ -141,7 +133,13 @@
                         app:srcCompat="@drawable/ic_open_in_new_black_24px" />
                 </LinearLayout>
             </LinearLayout>
-
+            <org.wikipedia.page.linkpreview.LinkPreviewErrorView
+                android:id="@+id/imageLinkErrorContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
