@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import kotlinx.android.synthetic.main.item_image_summary.view.*
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -29,7 +28,7 @@ import org.wikipedia.util.log.L
 
 class SuggestedEditsCardsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
-    private val app = WikipediaApp.getInstance()
+    // TODO: maybe it is good to create a generic data model for the description and caption.
     var sourceSummary: RbPageSummary? = null
     var targetSummary: RbPageSummary? = null
     var sourceCaption: String? = null
@@ -106,6 +105,13 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .flatMap { pair ->
                             sourceCaption = pair.first
                             sourceMwQueryPage = pair.second
+                            targetPageTitle = PageTitle(
+                                    sourceMwQueryPage!!.namespace().name,
+                                    sourceMwQueryPage!!.title(),
+                                    sourceMwQueryPage!!.imageInfo()!!.thumbUrl,
+                                    null,
+                                    WikiSite.forLanguageCode(parent().langToCode)
+                            )
                             ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second.title())
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())

@@ -53,7 +53,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-            return if (source == SUGGESTED_EDITS_ADD_DESC) {
+            return if (source == SUGGESTED_EDITS_ADD_DESC || source == SUGGESTED_EDITS_ADD_CAPTION) {
                 titleFromPageName(f?.title, f?.addedContribution)
             } else {
                 f?.targetPageTitle?.description = f?.addedContribution

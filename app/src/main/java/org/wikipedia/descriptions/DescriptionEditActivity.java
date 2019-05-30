@@ -9,7 +9,9 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.gallery.ExtMetadata;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -26,6 +28,10 @@ import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
@@ -36,6 +42,9 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_INVOKE_SOURCE = "invokeSource";
     private static final String EXTRA_SOURCE_SUMMARY = "sourceSummary";
     private static final String EXTRA_TARGET_SUMMARY = "targetSummary";
+    private static final String EXTRA_SOURCE_CAPTION = "sourceCaption";
+    private static final String EXTRA_SOURCE_MW_QUERY_PAGE = "sourceMwQueryPage";
+    private static final String EXTRA_SOURCE_EXT_METADATA = "sourceExtMetadata";
     private InvokeSource invokeSource;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -58,6 +67,18 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         return newIntent(context, title, null, invokeSource)
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
                 .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary));
+    }
+
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull PageTitle title,
+                                   @NonNull String sourceCaption,
+                                   @NonNull MwQueryPage sourceMwQueryPage,
+                                   @NonNull ExtMetadata sourceExtMetadata,
+                                   @NonNull InvokeSource invokeSource) {
+        return newIntent(context, title, null, invokeSource)
+                .putExtra(EXTRA_SOURCE_CAPTION, sourceCaption)
+                .putExtra(EXTRA_SOURCE_MW_QUERY_PAGE, GsonMarshaller.marshal(sourceMwQueryPage))
+                .putExtra(EXTRA_SOURCE_EXT_METADATA, GsonMarshaller.marshal(sourceExtMetadata));
     }
 
     @Override
@@ -106,11 +127,21 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         PageTitle title = GsonUnmarshaller.unmarshal(PageTitle.class, getIntent().getStringExtra(EXTRA_TITLE));
         SuggestedEditsFunnel.get().click(title.getDisplayText(), invokeSource);
 
-        return DescriptionEditFragment.newInstance(title,
-                getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY),
-                getIntent().getStringExtra(EXTRA_TARGET_SUMMARY),
-                invokeSource);
+        if (invokeSource == SUGGESTED_EDITS_ADD_DESC || invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC) {
+            return DescriptionEditFragment.newInstance(title,
+                    getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY),
+                    getIntent().getStringExtra(EXTRA_TARGET_SUMMARY),
+                    invokeSource);
+        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            return DescriptionEditFragment.newInstance(title,
+                    getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY),
+                    getIntent().getStringExtra(EXTRA_TARGET_SUMMARY),
+                    invokeSource);
+        } else {
+            return DescriptionEditFragment.newInstance(title,
+                    getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT),
+                    invokeSource);
+        }
     }
 
     @Override
