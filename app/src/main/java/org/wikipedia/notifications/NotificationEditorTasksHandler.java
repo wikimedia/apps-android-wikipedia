@@ -38,7 +38,7 @@ public final class NotificationEditorTasksHandler {
             }
             if (!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
                 Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(true);
-                if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION){
+                if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                     maybeShowTranslateDescriptionUnlockNotification(context, false);
                     eventToDispatch = new DescriptionEditUnlockEvent(descriptionTargetsPassed);
                 }
