@@ -63,8 +63,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             cardItemProgressBar.visibility = VISIBLE
             getArticleWithMissingDescription()
         }
-        updateDescriptionContents()
-        updateCaptionContents()
+        updateContents()
         if (sourceSummary == null && sourceExtMetadata == null) {
             getArticleWithMissingDescription()
         }
@@ -92,7 +91,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             sourceSummary = pair.second
                             targetSummary = pair.first
                             targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
-                            updateDescriptionContents()
+                            updateContents()
                         }, { this.setErrorState(it) })!!)
             }
 
@@ -116,7 +115,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             if (page.imageInfo() != null && page.imageInfo()!!.metadata != null) {
                                 sourceExtMetadata = page.imageInfo()!!.metadata
                             }
-                            updateCaptionContents()
+                            updateContents()
                         }, { this.setErrorState(it) })!!)
             }
 
@@ -126,7 +125,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
                             sourceSummary = pageSummary
-                            updateDescriptionContents()
+                            updateContents()
                         }, { this.setErrorState(it) }))
             }
         }
@@ -150,19 +149,23 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun isCardAvailable(): Boolean {
+        val sourceAvailable = sourceSummary != null || (sourceExtMetadata != null && sourceMwQueryPage != null)
         cardItemErrorView.visibility = GONE
-        cardItemContainer.visibility = if (sourceSummary == null && sourceExtMetadata == null) GONE else VISIBLE
-        cardItemProgressBar.visibility = if (sourceSummary == null && sourceExtMetadata == null) VISIBLE else GONE
-        if (sourceSummary == null && sourceExtMetadata == null) {
-            return false
-        }
+        cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
+        cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
+        return sourceAvailable
+    }
 
-        return true
+    private fun updateContents() {
+        if (!isCardAvailable()) return
+        if (parent().source == SUGGESTED_EDITS_ADD_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+            updateDescriptionContents()
+        } else {
+            updateCaptionContents()
+        }
     }
 
     private fun updateDescriptionContents() {
-        if (!isCardAvailable()) return
-
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
@@ -184,8 +187,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun updateCaptionContents() {
-        if (!isCardAvailable()) return
-
         viewArticleTitle.text = sourceMwQueryPage!!.title()
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
@@ -193,19 +194,35 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceCaption)?.capitalize()
         }
 
-        // TODO: use string from endpoint, or our own text resources
-        val titleArray = arrayOf("Author", "Artist", "Date", "Source")
-        val contentArray = arrayOf(sourceMwQueryPage!!.imageInfo()!!.user,
-                sourceExtMetadata!!.artist()!!.value(),
+        // TODO: programmatically add the strings or add static views into the parent view.
+        val titleResourcesArray = arrayOf(
+                if (sourceMwQueryPage?.imageInfo()?.user.isNullOrEmpty())
+                    R.string.suggested_edits_image_caption_summary_title_artist
+                else
+                    R.string.suggested_edits_image_caption_summary_title_author,
+                R.string.suggested_edits_image_caption_summary_title_date,
+                R.string.suggested_edits_image_caption_summary_title_source,
+                R.string.suggested_edits_image_caption_summary_title_license
+        )
+
+        val contentArray = arrayOf(
+                if (sourceMwQueryPage?.imageInfo()?.user.isNullOrEmpty())
+                    sourceExtMetadata!!.artist()!!.value()
+                else
+                    sourceMwQueryPage!!.imageInfo()!!.user,
                 DateUtil.getReadingListsLastSyncDateString(sourceMwQueryPage!!.imageInfo()!!.timestamp),
-                sourceExtMetadata!!.credit()!!.value())
+                sourceExtMetadata!!.credit()!!.value(),
+                sourceExtMetadata!!.licenseShortName()!!.value()
+        )
+
         contentArray.forEachIndexed { i, content ->
             val summaryItemView = inflate(requireContext(), R.layout.item_image_summary, null)
-            summaryItemView.summaryTitle.text = titleArray[i]
+            summaryItemView.summaryTitle.text = getString(titleResourcesArray[i])
             summaryItemView.summaryContent.text = StringUtil.removeHTMLTags(content)
             viewImageSummaryContainer.addView(summaryItemView)
         }
 
+        viewArticleImage.loadImage(Uri.parse(sourceMwQueryPage!!.imageInfo()!!.thumbUrl))
         viewArticleExtract.visibility = GONE
     }
 

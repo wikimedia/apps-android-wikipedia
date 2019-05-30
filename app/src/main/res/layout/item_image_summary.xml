@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
 
     <TextView
         android:id="@+id/summaryTitle"
@@ -31,7 +31,7 @@
         android:textStyle="normal"
         android:textColor="?attr/primary_text_color"
         android:lineSpacingExtra="8sp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         tools:text="Alfred Edward Chalon" />
 
 </LinearLayout>

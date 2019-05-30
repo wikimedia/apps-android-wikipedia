@@ -679,6 +679,11 @@
   <string name="suggested_edits_task_multilingual_positive">Positive action button text for editing tasks.</string>
   <string name="suggested_edits_task_translate_caption_title">Image caption translation tasks heading.</string>
   <string name="suggested_edits_task_translate_caption_description">Image caption translation tasks explanation given to user.</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_license">License title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Date title text of the file summary shown in suggested edit card.</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>

@@ -700,6 +700,11 @@
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
     <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
+    <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
+    <string name="suggested_edits_image_caption_summary_title_author">Author</string>
+    <string name="suggested_edits_image_caption_summary_title_source">Source</string>
+    <string name="suggested_edits_image_caption_summary_title_license">License</string>
+    <string name="suggested_edits_image_caption_summary_title_date">Date</string>
     <plurals name="suggested_edits_contribution_count">
         <item quantity="one">1 contribution</item>
         <item quantity="other">%d contributions</item>
