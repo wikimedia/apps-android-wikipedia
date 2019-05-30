@@ -36,11 +36,12 @@ public final class NotificationEditorTasksHandler {
                 maybeShowEditDescriptionUnlockNotification(context, false);
                 eventToDispatch = new DescriptionEditUnlockEvent(1);
             }
-            if (!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
-                    && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+            if (!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
                 Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(true);
-                maybeShowTranslateDescriptionUnlockNotification(context, false);
-                eventToDispatch = new DescriptionEditUnlockEvent(descriptionTargetsPassed);
+                if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                    maybeShowTranslateDescriptionUnlockNotification(context, false);
+                    eventToDispatch = new DescriptionEditUnlockEvent(descriptionTargetsPassed);
+                }
             }
         } else if (descriptionTargetsPassed > 0) {
             if (!Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
@@ -71,11 +72,12 @@ public final class NotificationEditorTasksHandler {
                 maybeShowEditCaptionUnlockNotification(context, false);
                 eventToDispatch = new CaptionEditUnlockEvent(1);
             }
-            if (!Prefs.isSuggestedEditsTranslateCaptionsUnlocked()
-                    && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+            if (!Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
                 Prefs.setSuggestedEditsTranslateCaptionsUnlocked(true);
-                maybeShowTranslateCaptionUnlockNotification(context, false);
-                eventToDispatch = new CaptionEditUnlockEvent(captionTargetsPassed);
+                if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                    maybeShowTranslateCaptionUnlockNotification(context, false);
+                    eventToDispatch = new CaptionEditUnlockEvent(captionTargetsPassed);
+                }
             }
         } else if (captionTargetsPassed > 0) {
             if (!Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
