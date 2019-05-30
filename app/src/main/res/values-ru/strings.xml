@@ -444,6 +444,7 @@
   <string name="reading_list_add_to_other_list">Добавить в другой список для чтения</string>
   <string name="reading_list_remove_from_list">Удалить из %s</string>
   <string name="reading_list_remove_from_lists">Удалить из списков для чтения</string>
+  <string name="reading_list_select_item">Выбрать</string>
   <string name="reading_list_confirm_remove_article_from_offline">Удалить из офлайн-режима</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
