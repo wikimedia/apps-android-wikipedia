@@ -204,7 +204,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/description_edit_text_hint"
                                 android:imeOptions="actionDone"
-                                android:inputType="textMultiLine|textCapSentences"
+                                android:inputType="textMultiLine"
                                 android:drawableEnd="@drawable/ic_spacer_24dp"
                                 android:textSize="16sp">
 
@@ -216,9 +216,9 @@
                             android:id="@+id/view_description_edit_voice_input"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
-                            android:layout_gravity="bottom|end"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="12dp"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="18dp"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
                             android:contentDescription="@string/description_edit_help_title"
