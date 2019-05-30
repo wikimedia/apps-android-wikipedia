@@ -204,7 +204,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/description_edit_text_hint"
                                 android:imeOptions="actionDone"
-                                android:inputType="textMultiLine|textCapSentences"
+                                android:inputType="textMultiLine"
                                 android:drawableEnd="@drawable/ic_spacer_24dp"
                                 android:textSize="16sp">
 
