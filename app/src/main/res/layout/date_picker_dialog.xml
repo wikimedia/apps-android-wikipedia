@@ -11,9 +11,10 @@
         android:layout_width="320dp"
         android:layout_height="110dp"
         android:background="?attr/main_toolbar_color"
-        android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:paddingStart="24dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="24dp">
 
         <TextView
             android:id="@+id/otd"

@@ -30,7 +30,8 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
-import org.wikipedia.events.EditorTaskUnlockEvent;
+import org.wikipedia.events.CaptionEditUnlockEvent;
+import org.wikipedia.events.DescriptionEditUnlockEvent;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
@@ -282,11 +283,17 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
-            } else if (event instanceof EditorTaskUnlockEvent) {
-                if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 1) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showEditUnlockDialog(BaseActivity.this);
-                } else if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 2) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateUnlockDialog(BaseActivity.this);
+            } else if (event instanceof DescriptionEditUnlockEvent) {
+                if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    SuggestedEditsAddDescriptionsActivity.Companion.showEditDescriptionUnlockDialog(BaseActivity.this);
+                } else if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateDescriptionUnlockDialog(BaseActivity.this);
+                }
+            } else if (event instanceof CaptionEditUnlockEvent) {
+                if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    SuggestedEditsAddDescriptionsActivity.Companion.showEditCaptionUnlockDialog(BaseActivity.this);
+                } else if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateCaptionUnlockDialog(BaseActivity.this);
                 }
             } else if (event instanceof LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog();
