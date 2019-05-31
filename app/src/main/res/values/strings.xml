@@ -625,6 +625,9 @@
     <string name="description_edit_add_description_v2">Add description</string>
     <string name="description_edit_translate_description">Translate description</string>
     <string name="description_edit_edit_description">Edit description</string>
+    <string name="description_edit_add_image_caption">Add image caption</string>
+    <string name="description_edit_edit_image_caption">Edit image caption</string>
+    <string name="description_edit_translate_image_caption">Translate image caption</string>
     <string name="add_translation">Add %s translation</string>
     <string name="description_edit_cancel_hint">Cancel</string>
     <string name="description_edit_help_title">Help: title descriptions</string>

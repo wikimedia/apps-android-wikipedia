@@ -7,7 +7,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
 import org.wikipedia.R
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 
@@ -32,18 +32,18 @@ class DescriptionEditReviewView @JvmOverloads constructor(
         visibility = GONE
     }
 
-    fun setPageSummary(pageSummary: RbPageSummary, description: String) {
-        L10nUtil.setConditionalLayoutDirection(this, pageSummary.lang)
-        articleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
+    fun setSummary(summary: SuggestedEditsSummary, description: String) {
+        L10nUtil.setConditionalLayoutDirection(this, summary.lang)
+        articleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
         articleSubtitle!!.text = description.capitalize()
-        articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)
+        articleExtract!!.text = StringUtil.fromHtml(summary.extractHtml)
 
-        if (pageSummary.thumbnailUrl.isNullOrBlank()) {
+        if (summary.thumbnailUrl.isNullOrBlank()) {
             articleImage.visibility = View.GONE
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             articleImage.visibility = View.VISIBLE
-            articleImage.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+            articleImage.loadImage(Uri.parse(summary.thumbnailUrl))
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }

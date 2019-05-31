@@ -16,9 +16,6 @@ import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
-import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.DateUtil
@@ -28,12 +25,8 @@ import org.wikipedia.util.log.L
 
 class SuggestedEditsCardsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
-    // TODO: maybe it is good to create a generic data model for the description and caption.
-    var sourceSummary: RbPageSummary? = null
-    var targetSummary: RbPageSummary? = null
-    var sourceCaption: String? = null
-    var sourceMwQueryPage: MwQueryPage? = null
-    var sourceExtMetadata: ExtMetadata? = null
+    var sourceSummary: SuggestedEditsSummary? = null
+    var targetSummary: SuggestedEditsSummary? = null
     var addedContribution: String = ""
         internal set
     var targetPageTitle: PageTitle? = null
@@ -63,12 +56,12 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
         updateContents()
-        if (sourceSummary == null && sourceExtMetadata == null) {
+        if (sourceSummary == null) {
             getArticleWithMissingDescription()
         }
 
         cardView.setOnClickListener {
-            if (sourceSummary != null || sourceExtMetadata != null) {
+            if (sourceSummary != null) {
                 parent().onSelectPage()
             }
         }
@@ -87,8 +80,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pair ->
-                            sourceSummary = pair.second
-                            targetSummary = pair.first
+                            sourceSummary = SuggestedEditsSummary(pair.second)
+                            targetSummary = SuggestedEditsSummary(pair.first)
                             targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
                             updateContents()
                         }, { this.setErrorState(it) })!!)
@@ -103,12 +96,12 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
-                            sourceCaption = pair.first
-                            sourceMwQueryPage = pair.second
+                            sourceSummary = SuggestedEditsSummary(pair.second, pair.first, parent().langFromCode)
+                            targetSummary = SuggestedEditsSummary(pair.second, null, parent().langToCode)
                             targetPageTitle = PageTitle(
-                                    sourceMwQueryPage!!.namespace().name,
-                                    sourceMwQueryPage!!.title(),
-                                    sourceMwQueryPage!!.imageInfo()!!.thumbUrl,
+                                    pair.second.namespace().name,
+                                    pair.second.title(),
+                                    pair.second.imageInfo()!!.thumbUrl,
                                     null,
                                     WikiSite.forLanguageCode(parent().langToCode)
                             )
@@ -119,7 +112,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribe({ response ->
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null && page.imageInfo()!!.metadata != null) {
-                                sourceExtMetadata = page.imageInfo()!!.metadata
+                                sourceSummary!!.metadata = page.imageInfo()!!.metadata
                             }
                             updateContents()
                         }, { this.setErrorState(it) })!!)
@@ -130,7 +123,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
-                            sourceSummary = pageSummary
+                            sourceSummary = SuggestedEditsSummary(pageSummary)
                             updateContents()
                         }, { this.setErrorState(it) }))
             }
@@ -154,16 +147,15 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         cardItemContainer.visibility = GONE
     }
 
-    private fun isCardAvailable(): Boolean {
-        val sourceAvailable = sourceSummary != null || (sourceExtMetadata != null && sourceMwQueryPage != null)
+    private fun updateContents() {
+        val sourceAvailable = sourceSummary != null
         cardItemErrorView.visibility = GONE
         cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
         cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
-        return sourceAvailable
-    }
+        if (!sourceAvailable) {
+            return
+        }
 
-    private fun updateContents() {
-        if (!isCardAvailable()) return
         if (parent().source == SUGGESTED_EDITS_ADD_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             updateDescriptionContents()
         } else {
@@ -193,16 +185,16 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun updateCaptionContents() {
-        viewArticleTitle.text = sourceMwQueryPage!!.title()
+        viewArticleTitle.text = sourceSummary!!.normalizedTitle
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceCaption)?.capitalize()
+            viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
         }
 
         // TODO: programmatically add the strings or add static views into the parent view.
         val titleResourcesArray = arrayOf(
-                if (sourceMwQueryPage?.imageInfo()?.user.isNullOrEmpty())
+                if (sourceSummary!!.user.isNullOrEmpty())
                     R.string.suggested_edits_image_caption_summary_title_artist
                 else
                     R.string.suggested_edits_image_caption_summary_title_author,
@@ -212,23 +204,23 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         )
 
         val contentArray = arrayOf(
-                if (sourceMwQueryPage?.imageInfo()?.user.isNullOrEmpty())
-                    sourceExtMetadata!!.artist()!!.value()
+                if (sourceSummary!!.user.isNullOrEmpty())
+                    sourceSummary!!.metadata!!.artist()!!.value()
                 else
-                    sourceMwQueryPage!!.imageInfo()!!.user,
-                DateUtil.getReadingListsLastSyncDateString(sourceMwQueryPage!!.imageInfo()!!.timestamp),
-                sourceExtMetadata!!.credit()!!.value(),
-                sourceExtMetadata!!.licenseShortName()!!.value()
+                    sourceSummary!!.user,
+                DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!),
+                sourceSummary!!.metadata!!.credit()!!.value(),
+                sourceSummary!!.metadata!!.licenseShortName()!!.value()
         )
 
         contentArray.forEachIndexed { i, content ->
             val summaryItemView = inflate(requireContext(), R.layout.item_image_summary, null)
             summaryItemView.summaryTitle.text = getString(titleResourcesArray[i])
-            summaryItemView.summaryContent.text = StringUtil.removeHTMLTags(content)
+            summaryItemView.summaryContent.text = StringUtil.removeHTMLTags(content!!)
             viewImageSummaryContainer.addView(summaryItemView)
         }
 
-        viewArticleImage.loadImage(Uri.parse(sourceMwQueryPage!!.imageInfo()!!.thumbUrl))
+        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
         viewArticleExtract.visibility = GONE
     }
 
