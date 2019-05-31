@@ -414,6 +414,7 @@
   <string name="reading_list_add_to_other_list">הוספה לרשימת קריאה אחרת</string>
   <string name="reading_list_remove_from_list">הסרה מהרשימה %s</string>
   <string name="reading_list_remove_from_lists">הסרה מרשימות קריאה</string>
+  <string name="reading_list_select_item">בחירה</string>
   <string name="reading_list_confirm_remove_article_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע במספר רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
@@ -610,7 +611,7 @@
   <string name="description_edit_help_wikidata_guide">מדריך ויקינתונים לכתיבת תיאורים</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
-  <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">התיאור פורסם!</string>
   <string name="description_edit_success_saved_snackbar">התיאור פורסם!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
@@ -642,7 +643,7 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">עריכות מוצעות\n\nתודה על כל התרומות שלך. מכיוון שהצטיינת בעריכה, בנינו בשבילך רשימת ערכים שחסרים להם תיאורים. אפשר לבקש ממך לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">עריכות מוצעות\n\nברכות על התרומות הרבות שלך, התרשמנו! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של ערכים שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_notification_button">כן, נעשה את זה</string>
-  <string name="suggested_edits_license_notice">הוספת תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">הוספת תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">מידע</string>
   <string name="suggested_edits_tasks_activity_title">עריכות מוצעות</string>
   <string name="suggested_edits_task_add_description_title">הוספת תיאורים</string>

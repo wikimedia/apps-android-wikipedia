@@ -37,6 +37,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
@@ -50,6 +51,7 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -60,6 +62,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,6 +71,7 @@ import butterknife.OnLongClick;
 import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
@@ -106,8 +110,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_credit_text) TextView creditText;
     @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
+    @BindView(R.id.gallery_caption_edit_button) View captionEditButton;
+    @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private Disposable imageCaptionDisposable;
 
     private boolean controlsShowing = true;
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
@@ -278,6 +285,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override
     protected void setTheme() {
         setTheme(Theme.DARK.getResourceId());
+    }
+
+    @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
+        // TODO: launch caption editing activity.
+    }
+
+    @OnClick(R.id.gallery_caption_translate_button) void onTranslateClick(View v) {
+        // TODO: launch caption translating activity.
     }
 
     @OnClick(R.id.license_container) void onClick(View v) {
@@ -542,11 +557,61 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
+        if (imageCaptionDisposable != null && !imageCaptionDisposable.isDisposed()) {
+            imageCaptionDisposable.dispose();
+        }
+
+        // TODO: replace when the Media endpoint gives us structured captions automatically.
+        // TODO: remove feature flag when ready.
+
+        if (ReleaseUtil.isPreBetaRelease()) {
+            imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getTitles().getCanonical())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::updateGalleryDescription, t -> {
+                        L.e(t);
+                        updateGalleryDescription(null);
+                    });
+        } else {
+            updateGalleryDescription(null);
+        }
+    }
+
+    public void updateGalleryDescription(@Nullable Map<String, String> captions) {
+        GalleryItem item = getCurrentItem();
+        if (item == null) {
+            infoContainer.setVisibility(View.GONE);
+            return;
+        }
+        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
+
         CharSequence descriptionStr = "";
-        if (item.getDescription() != null && item.getDescription().getHtml() != null) {
-            descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
-        } else if (item.getDescription() != null && item.getDescription().getText() != null) {
-            descriptionStr = item.getDescription().getText();
+
+        // If we have a structured caption in our current language, then display that instead
+        // of the unstructured description, and make it editable.
+        if (captions != null && captions.containsKey(app.getAppOrSystemLanguageCode())) {
+            descriptionStr = captions.get(app.getAppOrSystemLanguageCode());
+            captionEditButton.setVisibility(View.VISIBLE);
+
+            // and if we have another language in which the caption doesn't exist, then offer
+            // it to be translatable.
+            boolean allowTranslate = false;
+            for (String lang : app.language().getAppLanguageCodes()) {
+                if (!captions.containsKey(lang)) {
+                    allowTranslate = true;
+                    break;
+                }
+            }
+            captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
+
+        } else {
+            if (item.getDescription() != null && item.getDescription().getHtml() != null) {
+                descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
+            } else if (item.getDescription() != null && item.getDescription().getText() != null) {
+                descriptionStr = item.getDescription().getText();
+            }
+            captionEditButton.setVisibility(View.GONE);
+            captionTranslateContainer.setVisibility(View.GONE);
         }
         if (descriptionStr.length() > 0) {
             descriptionText.setText(strip(descriptionStr));

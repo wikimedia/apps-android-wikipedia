@@ -416,6 +416,7 @@
   <string name="reading_list_add_to_other_list">Hozzáadás egy másik olvasólistához</string>
   <string name="reading_list_remove_from_list">Eltávolítás a következőről: %s</string>
   <string name="reading_list_remove_from_lists">Eltávolítás az olvasólistákról</string>
+  <string name="reading_list_select_item">Kiválasztás</string>
   <string name="reading_list_confirm_remove_article_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>

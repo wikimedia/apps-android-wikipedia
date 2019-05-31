@@ -422,6 +422,7 @@
     <string name="reading_list_add_to_other_list">Add to another reading list</string>
     <string name="reading_list_remove_from_list">Remove from %s</string>
     <string name="reading_list_remove_from_lists">Remove from reading lists</string>
+    <string name="reading_list_select_item">Select</string>
     <string name="reading_list_confirm_remove_article_from_offline">Remove from offline</string>
     <string name="reading_list_confirm_remove_article_from_offline_title">Article appears in multiple lists</string>
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all reading lists:</string>
@@ -672,6 +673,14 @@
     <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nThanks for all your contributions. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your many contributions, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
+    <string name="suggested_edits_unlock_add_captions_dialog_title">You unlocked the "Add image captions" task</string>
+    <string name="suggested_edits_unlock_add_captions_notification_title">You unlocked "Add image captions"</string>
+    <string name="suggested_edits_unlock_add_captions_dialog_message">Thanks for all your contributions! Since we think you like adding captions to images, we’ve compiled a list of images that are missing captions. Could you help us improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_add_captions_notification_big_text">Suggested edits\n\nThanks for all your contributions. Since we think you like adding captions to images, we’ve compiled a list of images that are missing captions. Could you help us improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_captions_dialog_title">You unlocked the "Translate image captions" task</string>
+    <string name="suggested_edits_unlock_translate_captions_notification_title">You unlocked "Translate image captions"</string>
+    <string name="suggested_edits_unlock_translate_captions_dialog_message">Thanks for all your contributions! You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Will you continue to help us improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_captions_notification_big_text">Suggested edits\n\nThanks for all your contributions. You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Will you continue to help us improve Wikipedia?</string>
     <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
     <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
