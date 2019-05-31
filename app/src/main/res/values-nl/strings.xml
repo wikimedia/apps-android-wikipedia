@@ -422,6 +422,7 @@
   <string name="reading_list_add_to_other_list">Aan andere leeslijst toevoegen</string>
   <string name="reading_list_remove_from_list">Uit %s verwijderen</string>
   <string name="reading_list_remove_from_lists">Uit leeslijsten verwijderen</string>
+  <string name="reading_list_select_item">Selecteren</string>
   <string name="reading_list_confirm_remove_article_from_offline">Uit offline verwijderen</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Pagina komt voor in meerdere lijsten</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s zal niet beschikbaar zijn offline voor alle leeslijsten:</string>
@@ -667,6 +668,8 @@
   </plurals>
   <string name="suggested_edits_feed_card_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
+  <string name="suggested_edits_add_translation_button_label">Vertaling toevoegen</string>
+  <string name="suggested_edits_edit_translation_button_label">Vertaling bewerken</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>

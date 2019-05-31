@@ -404,6 +404,7 @@
   <string name="reading_list_add_to_other_list">Атын исипииһэккэ угуу</string>
   <string name="reading_list_remove_from_list">Мантан сот %s</string>
   <string name="reading_list_remove_from_lists">Ааҕар испииһэктэртэн сот</string>
+  <string name="reading_list_select_item">Тал</string>
   <string name="reading_list_confirm_remove_article_from_offline">оффлайн эрэhиимин сотторуу</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Ыстатыйа хас да5аны испиhиэккэ кестер</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>

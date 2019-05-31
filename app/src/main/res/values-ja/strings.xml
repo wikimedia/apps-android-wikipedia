@@ -141,6 +141,7 @@
   <string name="logout_prompt">この操作によって、現在ログイン済みのすべてのデバイスからログアウトします。本当に続けてもよろしいですか？</string>
   <string name="logout_dialog_cancel_button_text">キャンセル</string>
   <string name="logged_out_in_background_title">ログアウトしました</string>
+  <string name="logged_out_in_background_dialog">ウィキペディアからログアウトしました。もう一度ログインしますか？</string>
   <string name="logged_out_in_background_login">ログイン</string>
   <string name="logged_out_in_background_cancel">キャンセル</string>
   <string name="history_empty_title">履歴はまだありません！</string>
@@ -423,6 +424,7 @@
   <string name="reading_list_add_to_other_list">別のあとで読むリストに追加</string>
   <string name="reading_list_remove_from_list">%sから削除</string>
   <string name="reading_list_remove_from_lists">あとで読むリストから削除</string>
+  <string name="reading_list_select_item">選択</string>
   <string name="reading_list_confirm_remove_article_from_offline">オフラインから削除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">複数のリストに記事が表示されます</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">すべての閲覧リストに対して、%sはオフラインで利用できなくなります：</string>
