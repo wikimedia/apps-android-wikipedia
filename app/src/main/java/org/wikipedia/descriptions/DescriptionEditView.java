@@ -120,7 +120,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private int getReviewHeaderTextRes() {
-        if (TextUtils.isEmpty(originalDescription) ) {
+        if (TextUtils.isEmpty(originalDescription)) {
             if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
                 return R.string.description_edit_translate_description;
             } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
