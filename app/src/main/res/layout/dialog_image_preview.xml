@@ -28,7 +28,7 @@
                 android:minHeight="64dp">
 
                 <ImageView
-                    android:id="@+id/upDownChevron"
+                    android:id="@+id/downChevron"
                     android:layout_width="@dimen/bottom_toolbar_icon_size"
                     android:layout_height="@dimen/bottom_toolbar_icon_size"
                     android:layout_gravity="center_vertical"

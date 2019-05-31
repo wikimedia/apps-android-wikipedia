@@ -86,7 +86,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     private fun addDetailPortion(@NonNull title: String, @Nullable detail: String?) {
         if (!detail.isNullOrEmpty()) {
-            val view = ImageDetailPortionView(requireContext())
+            val view = ImageDetailView(requireContext())
             view.setTitle(title)
             view.setDetail(detail)
             detailsHolder.addView(view)
