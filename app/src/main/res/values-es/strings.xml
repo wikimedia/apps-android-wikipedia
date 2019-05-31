@@ -12,6 +12,7 @@
 * Envlh
 * Fitoschido
 * Hal9000wopr
+* Harvest
 * Ihojose
 * JO777
 * Jduranboger
@@ -435,6 +436,7 @@
   <string name="reading_list_add_to_other_list">Añadir a otra lista de lectura</string>
   <string name="reading_list_remove_from_list">Quitar de %s</string>
   <string name="reading_list_remove_from_lists">Quitar de las listas de lectura</string>
+  <string name="reading_list_select_item">Seleccionar</string>
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de listas sin conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>

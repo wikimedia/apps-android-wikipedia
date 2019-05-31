@@ -414,6 +414,7 @@
   <string name="reading_list_add_to_other_list">הוספה לרשימת קריאה אחרת</string>
   <string name="reading_list_remove_from_list">הסרה מהרשימה %s</string>
   <string name="reading_list_remove_from_lists">הסרה מרשימות קריאה</string>
+  <string name="reading_list_select_item">בחירה</string>
   <string name="reading_list_confirm_remove_article_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע במספר רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
