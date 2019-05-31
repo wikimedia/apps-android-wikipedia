@@ -417,6 +417,7 @@
   <string name="reading_list_add_to_other_list">Додати до іншого списку для читання</string>
   <string name="reading_list_remove_from_list">Вилучити з %s</string>
   <string name="reading_list_remove_from_lists">Вилучити зі списків для читання</string>
+  <string name="reading_list_select_item">Обрати</string>
   <string name="reading_list_confirm_remove_article_from_offline">Вилучити з автономного списку</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Стаття входить до декількох списків</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s тепер не буде доступна автономно для всіх списків:</string>

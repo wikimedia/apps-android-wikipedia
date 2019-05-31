@@ -430,6 +430,7 @@
   <string name="reading_list_add_to_other_list">Aggiungi ad un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
+  <string name="reading_list_select_item">Seleziona</string>
   <string name="reading_list_confirm_remove_article_from_offline">Rimuovi da offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s non sarà più disponibile offline per tutti gli elenchi di lettura:</string>
@@ -630,6 +631,10 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Modifiche suggerite\n\nGrazie per tutti i tuoi contributi. Dato che sei molto bravo a modificare, abbiamo compilato un elenco di voci con descrizioni mancanti. Vuoi aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Modifiche suggerite\n\nCongratulazioni per i tuoi numerosi contributi, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni di descrizione. Vuoi continuare ad aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_unlock_notification_button">Si, partiamo</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Hai sbloccato l\'attività \"Aggiungi didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Hai sbloccato \"Aggiungi didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Hai sbloccato l\'attività \"Traduci didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Hai sbloccato \"Traduci didascalie immagini\"</string>
   <string name="suggested_edits_menu_info">Informazioni</string>
   <string name="suggested_edits_tasks_activity_title">Modifiche suggerite</string>
   <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni</string>
