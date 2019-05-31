@@ -79,6 +79,7 @@ import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_ASC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_DESC;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
+import static org.wikipedia.views.PageItemView.IMAGE_CONTAINER_MARGIN;
 
 public class ReadingListsFragment extends Fragment implements
         SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
@@ -438,6 +439,7 @@ public class ReadingListsFragment extends Fragment implements
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
             getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
+            getView().setImageContainerEndMargin(IMAGE_CONTAINER_MARGIN);
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected(), page.thumbUrl());
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,

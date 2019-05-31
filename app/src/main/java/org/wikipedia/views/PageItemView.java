@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,12 +61,13 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
     @BindView(R.id.chips_scrollview) View chipsScrollView;
-    @BindView(R.id.image_container) View imageContainer;
+    @BindView(R.id.image_container) FrameLayout imageContainer;
     @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
     private boolean selected;
+    public static final int IMAGE_CONTAINER_MARGIN = DimenUtil.roundedDpToPx(16);
 
     public PageItemView(@NonNull Context context) {
         super(context);
@@ -215,6 +217,12 @@ public class PageItemView<T> extends ConstraintLayout {
         }
 
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
+    }
+
+    public void setImageContainerEndMargin(int dimension) {
+        ViewGroup.MarginLayoutParams params = (MarginLayoutParams) imageContainer.getLayoutParams();
+        params.setMargins(0, 0, dimension, 0);
+        imageContainer.setLayoutParams(params);
     }
 
     private void updateSelectedState(@Nullable String imageUrl) {
