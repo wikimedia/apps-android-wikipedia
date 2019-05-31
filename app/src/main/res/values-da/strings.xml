@@ -411,6 +411,7 @@
   <string name="reading_list_add_to_other_list">Tilføj til en anden læseliste</string>
   <string name="reading_list_remove_from_list">Fjern fra %s</string>
   <string name="reading_list_remove_from_lists">Fjern fra læselister</string>
+  <string name="reading_list_select_item">Vælg</string>
   <string name="reading_list_confirm_remove_article_from_offline">Fjern fra offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artiklen forekommer i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle læselister:</string>
