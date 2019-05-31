@@ -417,6 +417,7 @@
   <string name="reading_list_add_to_other_list">Přidat do dalšího seznamu k přečtení</string>
   <string name="reading_list_remove_from_list">Odstranit z %s</string>
   <string name="reading_list_remove_from_lists">Odstranit se seznamů k přečtení</string>
+  <string name="reading_list_select_item">Vybrat</string>
   <string name="reading_list_confirm_remove_article_from_offline">Odstranit z offline úložiště</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Článek je ve více seznamech</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s již nebude k dispozici offline pro všechny seznamy k přečtení:</string>
