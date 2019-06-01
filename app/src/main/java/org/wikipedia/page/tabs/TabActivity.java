@@ -284,7 +284,7 @@ public class TabActivity extends BaseActivity {
     private boolean topTabLeadImageEnabled() {
         if (app.getTabCount() > 0) {
             PageTitle pageTitle = app.getTabList().get(app.getTabCount() - 1).getBackStackPositionTitle();
-            return pageTitle != null && !TextUtils.isEmpty(pageTitle.getThumbUrl());
+            return pageTitle != null && (!pageTitle.isMainPage() && !TextUtils.isEmpty(pageTitle.getThumbUrl()));
         }
         return false;
     }
