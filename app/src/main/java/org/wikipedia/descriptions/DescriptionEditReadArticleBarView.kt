@@ -46,7 +46,7 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         show()
     }
 
-    fun setImageDetails(thumbUrl: String, @NonNull fileName: String) {
+    fun setImageDetails(thumbUrl: String, fileName: String) {
         setConditionalLayoutDirection(this, WikipediaApp.getInstance().language().appLanguageCode)
         viewArticleTitle!!.text = StringUtil.fromHtml(fileName)
 

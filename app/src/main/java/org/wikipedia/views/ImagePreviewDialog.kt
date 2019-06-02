@@ -42,8 +42,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
 
         setConditionalLayoutDirection(rootView, WikipediaApp.getInstance().language().appLanguageCode)
-        imageInfo = arguments!!.getSerializable("imageInfo") as ImageInfo
-        fileName = arguments!!.getString("filename")
+        imageInfo = arguments!!.getSerializable(IMAGE_INFO) as ImageInfo
+        fileName = arguments!!.getString(FILE_NAME)
         return rootView
     }
 
@@ -76,11 +76,11 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun setImageDetails() {
         loadImage(imageInfo.originalUrl)
         titleText!!.text = StringUtil.fromHtml(fileName!!.removePrefix("File:"))
-        addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(imageInfo.getMetadata()!!.imageDescription()!!.value()).toString())
-        addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(imageInfo.getMetadata()!!.artist()!!.value()).toString())
-        addDetailPortion(getString(R.string.suggested_edits_image_date), imageInfo.getMetadata()!!.dateTime()!!.value())
-        addDetailPortion(getString(R.string.suggested_edits_image_source), imageInfo.getMetadata()!!.imageDescription()!!.source())
-        addDetailPortion(getString(R.string.suggested_edits_image_licensing), imageInfo.getMetadata()!!.licenseShortName()!!.value())
+        addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()!!.value()).toString())
+        addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(imageInfo.metadata!!.artist()!!.value()).toString())
+        addDetailPortion(getString(R.string.suggested_edits_image_date), imageInfo.metadata!!.dateTime()!!.value())
+        addDetailPortion(getString(R.string.suggested_edits_image_source), imageInfo.metadata!!.imageDescription()!!.source())
+        addDetailPortion(getString(R.string.suggested_edits_image_licensing), imageInfo.metadata!!.licenseShortName()!!.value())
         detailsHolder.requestLayout()
     }
 
@@ -127,13 +127,15 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     companion object {
+        const val IMAGE_INFO = "imageInfo"
+        const val FILE_NAME = "filename"
 
         fun newInstance(imageInfo: ImageInfo, fileName: String?): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
-            args.putSerializable("imageInfo", imageInfo)
+            args.putSerializable(IMAGE_INFO, imageInfo)
             if (fileName != null) {
-                args.putString("filename", fileName)
+                args.putString(FILE_NAME, fileName)
             }
             dialog.arguments = args
             return dialog

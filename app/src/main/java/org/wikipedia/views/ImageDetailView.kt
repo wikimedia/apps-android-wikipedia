@@ -9,19 +9,11 @@ import androidx.annotation.NonNull
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.R
 
-class ImageDetailView : LinearLayout {
+class ImageDetailView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
 
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init(context)
-    }
-
-    private fun init(context: Context) {
+    init {
         View.inflate(context, R.layout.view_image_detail, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
     }
 
     fun setTitle(@NonNull title: String) {
