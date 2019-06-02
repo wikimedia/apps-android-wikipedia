@@ -56,7 +56,7 @@
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/image_container"
+        app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
         tools:visibility="visible">
 
@@ -83,38 +83,31 @@
     </FrameLayout>
 
 
-    <FrameLayout
-        android:id="@+id/image_container"
-        android:layout_width="@dimen/readingListItemSize"
-        android:layout_height="@dimen/readingListItemSize"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/page_list_item_selected_image"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_gravity="center"
+        android:background="@drawable/button_shape_gray"
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:tint="@android:color/white"
         android:visibility="gone"
+        app:backgroundTint="@color/accent50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
-        tools:visibility="visible">
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        tools:visibility="visible" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/page_list_item_selected_image"
-            android:layout_width="@dimen/view_list_card_item_image"
-            android:layout_height="@dimen/view_list_card_item_image"
-            android:layout_gravity="center"
-            android:background="@drawable/button_shape_gray"
-            android:contentDescription="@null"
-            android:padding="8dp"
-            android:tint="@android:color/white"
-            android:visibility="gone"
-            app:backgroundTint="@color/accent50"
-            app:srcCompat="@drawable/ic_check_black_24dp"
-            tools:visibility="visible" />
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/page_list_item_image"
-            style="@style/SimpleDraweeViewPlaceholder"
-            android:layout_width="@dimen/readingListItemSize"
-            android:layout_height="@dimen/readingListItemSize"
-            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            app:roundedCornerRadius="2dp" />
-
-    </FrameLayout>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/page_list_item_image"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/page_list_item_title"
+        app:roundedCornerRadius="2dp" />
 
 
     <HorizontalScrollView

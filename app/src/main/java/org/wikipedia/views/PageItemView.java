@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,7 +60,6 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
     @BindView(R.id.chips_scrollview) View chipsScrollView;
-    @BindView(R.id.image_container) FrameLayout imageContainer;
     @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
@@ -220,9 +218,9 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageContainerEndMargin(int dimension) {
-        ViewGroup.MarginLayoutParams params = (MarginLayoutParams) imageContainer.getLayoutParams();
+        ViewGroup.MarginLayoutParams params = (MarginLayoutParams) imageView.getLayoutParams();
         params.setMargins(0, 0, dimension, 0);
-        imageContainer.setLayoutParams(params);
+        imageView.setLayoutParams(params);
     }
 
     private void updateSelectedState(@Nullable String imageUrl) {
@@ -236,7 +234,6 @@ public class PageItemView<T> extends ConstraintLayout {
             ViewUtil.loadImageUrlInto(imageView, imageUrl);
             setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
         }
-        imageContainer.setVisibility((imageView.getVisibility() == VISIBLE || imageSelectedView.getVisibility() == VISIBLE) ? VISIBLE : GONE);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
