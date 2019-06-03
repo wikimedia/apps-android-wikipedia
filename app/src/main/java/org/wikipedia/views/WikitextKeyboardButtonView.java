@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
 import org.wikipedia.util.FeedbackUtil;
@@ -81,7 +81,7 @@ public class WikitextKeyboardButtonView extends FrameLayout {
 
         setClickable(true);
         setFocusable(true);
-        setBackground(ContextCompat.getDrawable(getContext(),
+        setBackground(AppCompatResources.getDrawable(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), android.R.attr.selectableItemBackground)));
     }
 }

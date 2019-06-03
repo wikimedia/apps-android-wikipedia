@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -159,7 +159,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
         addDescriptionsTask.setTitle(getString(R.string.suggested_edits_task_add_description_title));
         addDescriptionsTask.setDescription(getString(R.string.suggested_edits_task_add_description_description));
         addDescriptionsTask.setImagePlaceHolderShown(true);
-        addDescriptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp));
+        addDescriptionsTask.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp));
         addDescriptionsTask.setNoActionLayout(true);
 
         translateDescriptionsTeaserTask = new SuggestedEditsTask();
@@ -175,7 +175,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
         translateDescriptionsTask.setTitle(getString(R.string.suggested_edits_task_translation_title));
         translateDescriptionsTask.setDescription(getString(R.string.suggested_edits_task_translation_description));
         translateDescriptionsTask.setImagePlaceHolderShown(true);
-        translateDescriptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions));
+        translateDescriptionsTask.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions));
         translateDescriptionsTask.setNoActionLayout(Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
         translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
 
@@ -183,14 +183,14 @@ public class SuggestedEditsTasksFragment extends Fragment {
         addImageCaptionsTask.setTitle(getString(R.string.suggested_edits_task_image_caption_title));
         addImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_image_caption_description));
         addImageCaptionsTask.setImagePlaceHolderShown(true);
-        addImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_images));
+        addImageCaptionsTask.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_images));
         addImageCaptionsTask.setDisabled(true);
 
         translateImageCaptionsTask = new SuggestedEditsTask();
         translateImageCaptionsTask.setTitle(getString(R.string.suggested_edits_task_translate_caption_title));
         translateImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_translate_caption_description));
         translateImageCaptionsTask.setImagePlaceHolderShown(true);
-        translateImageCaptionsTask.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate));
+        translateImageCaptionsTask.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate));
         translateImageCaptionsTask.setNoActionLayout(Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
         translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
     }

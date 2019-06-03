@@ -18,7 +18,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import org.wikipedia.R;
@@ -213,7 +213,7 @@ public final class SnippetImage {
             left = right - SnippetImage.ICONS_WIDTH;
         }
 
-        Drawable d = ContextCompat.getDrawable(context,
+        Drawable d = AppCompatResources.getDrawable(context,
                 shouldDefaultToCCLicense(leadImageBitmap, license)
                         ? R.drawable.ic_license_cc : license.getLicenseIcon());
         d.setBounds(left, top, right, bottom);
@@ -237,7 +237,7 @@ public final class SnippetImage {
         final int bottom = HEIGHT - BOTTOM_PADDING;
         final int top = bottom - height;
 
-        Drawable d = ContextCompat.getDrawable(context, R.drawable.wp_wordmark);
+        Drawable d = AppCompatResources.getDrawable(context, R.drawable.wp_wordmark);
         DrawableCompat.setTint(d, Color.LTGRAY);
 
         int left = WIDTH - HORIZONTAL_PADDING - width;
