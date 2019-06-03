@@ -634,6 +634,8 @@
   <string name="suggested_edits_unlock_notification_button">Да, ајде</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Ја отклучивте задачата „Додај описи на сликите“</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Го отклучивте „Додај описи на сликите“</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Ви благодариме на сите ваши придонеси! Се чини дека сакате да додавате описи на слики. Затоа, составивме список од слики на кои треба да им се дадат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложени уредувања\n\nВи благодариме на сите ваши придонеси! Се чини дека сакате да додавате описи на слики. Затоа, составивме список од слики на кои треба да им се дадат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Ја отклучивте задачата „Преведи описи на слики“</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Го отклучивте „Преведи описи на слики“</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Ви благодариме за сите ваши придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на слики чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
