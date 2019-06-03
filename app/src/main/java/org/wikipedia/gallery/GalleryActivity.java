@@ -35,9 +35,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
@@ -51,7 +51,6 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -62,7 +61,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -561,64 +559,37 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             imageCaptionDisposable.dispose();
         }
 
-        // TODO: replace when the Media endpoint gives us structured captions automatically.
-        // TODO: remove feature flag when ready.
+        CharSequence descriptionStr;
 
-        if (ReleaseUtil.isPreBetaRelease()) {
-            imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getTitles().getCanonical())
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::updateGalleryDescription, t -> {
-                        L.e(t);
-                        updateGalleryDescription(null);
-                    });
-        } else {
-            updateGalleryDescription(null);
+        // Display the Caption Edit button based on whether the image is hosted on Commons,
+        // and not the local Wikipedia.
+        captionEditButton.setVisibility(item.getFilePage().contains(Service.COMMONS_URL) ? View.VISIBLE : View.GONE);
+
+        boolean allowTranslate = false;
+        // and if we have another language in which the caption doesn't exist, then offer
+        // it to be translatable.
+        for (String lang : app.language().getAppLanguageCodes()) {
+            if (!item.getStructuredCaptions().containsKey(lang)) {
+                allowTranslate = true;
+                break;
+            }
         }
-    }
-
-    public void updateGalleryDescription(@Nullable Map<String, String> captions) {
-        GalleryItem item = getCurrentItem();
-        if (item == null) {
-            infoContainer.setVisibility(View.GONE);
-            return;
-        }
-        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
-
-        CharSequence descriptionStr = "";
 
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        if (captions != null && captions.containsKey(app.getAppOrSystemLanguageCode())) {
-            descriptionStr = captions.get(app.getAppOrSystemLanguageCode());
-            captionEditButton.setVisibility(View.VISIBLE);
-
-            // and if we have another language in which the caption doesn't exist, then offer
-            // it to be translatable.
-            boolean allowTranslate = false;
-            for (String lang : app.language().getAppLanguageCodes()) {
-                if (!captions.containsKey(lang)) {
-                    allowTranslate = true;
-                    break;
-                }
-            }
-            captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
-
+        if (item.getStructuredCaptions().containsKey(app.getAppOrSystemLanguageCode())) {
+            descriptionStr = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
         } else {
-            if (item.getDescription() != null && item.getDescription().getHtml() != null) {
-                descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
-            } else if (item.getDescription() != null && item.getDescription().getText() != null) {
-                descriptionStr = item.getDescription().getText();
-            }
-            captionEditButton.setVisibility(View.GONE);
-            captionTranslateContainer.setVisibility(View.GONE);
+            descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
         }
         if (descriptionStr.length() > 0) {
             descriptionText.setText(strip(descriptionStr));
             descriptionText.setVisibility(View.VISIBLE);
         } else {
-            descriptionText.setVisibility(View.GONE);
+            descriptionText.setVisibility(View.INVISIBLE);
+            allowTranslate = false;
         }
+        captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
 
         // determine which icon to display...
         if (getLicenseIcon(item) == R.drawable.ic_license_by) {
