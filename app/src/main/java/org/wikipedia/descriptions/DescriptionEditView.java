@@ -115,8 +115,7 @@ public class DescriptionEditView extends LinearLayout {
 
     private void setHintText() {
         pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
-        pageDescriptionLayout.setHint(String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
-                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(pageTitle.getWikiSite().languageCode())));
+        pageDescriptionLayout.setHint(getLabelText(pageTitle.getWikiSite().languageCode()));
     }
 
     private int getReviewHeaderTextRes() {
@@ -140,15 +139,24 @@ public class DescriptionEditView extends LinearLayout {
         headerText.setText(getContext().getString(headerTextRes));
     }
 
+    private CharSequence getLabelText(@NonNull String lang) {
+        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+            return String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
+                    WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
+        } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            return String.format(getContext().getString(R.string.description_edit_caption_hint_per_language),
+                    WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
+        } else {
+            return getContext().getString(R.string.description_edit_article);
+        }
+    }
+
     public void setSummaries(@NonNull SuggestedEditsSummary sourceSummary, SuggestedEditsSummary targetSummary) {
         // the summary data that will bring to the review screen
         suggestedEditsSummary = isTranslationEdit ? targetSummary : sourceSummary;
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
-        labelText.setText(isTranslationEdit
-                ? String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
-                WikipediaApp.getInstance().language().getAppLanguageCanonicalName(sourceSummary.getLang()))
-                : getContext().getString(R.string.description_edit_article));
+        labelText.setText(getLabelText(sourceSummary.getLang()));
         pageSummaryText.setText(isTranslationEdit
                 ? StringUtils.capitalize(sourceSummary.getDescription())
                 : StringUtil.fromHtml(sourceSummary.getExtractHtml()));
