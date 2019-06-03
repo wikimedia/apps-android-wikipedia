@@ -228,7 +228,7 @@
   <string name="search_did_you_mean">Kersané panjenengan \"%s\"?</string>
   <string name="search_recent_header">Golèkan mentas waé:</string>
   <string name="button_clear_all_recent_searches">Busak golèkan mentas waé</string>
-  <string name="clear_recent_searches_confirm">Panjenengan yakin arep mbusak sajarah golèkané panjenengan?</string>
+  <string name="clear_recent_searches_confirm">Kowé yakin arep mbusek sajarahing golèkanmu?</string>
   <string name="clear_recent_searches_confirm_yes">Iya</string>
   <string name="clear_recent_searches_confirm_no">Ora</string>
   <string name="error_browser_not_found">Ora bisa mbukak kaca jaringan (ora ana aplikasi pangluruné).</string>
