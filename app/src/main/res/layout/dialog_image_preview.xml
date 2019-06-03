@@ -52,17 +52,6 @@
                     android:textColor="?attr/primary_text_color"
                     android:textSize="20sp"
                     tools:text="Lorem ipsum" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/overflowButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="?attr/actionBarItemBackground"
-                    android:contentDescription="@string/abc_action_menu_overflow_description"
-                    android:padding="12dp"
-                    app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                    app:tint="?attr/material_theme_secondary_color" />
             </LinearLayout>
 
             <org.wikipedia.views.ZoomableDraweeViewWithBackground
@@ -133,13 +122,14 @@
                         app:srcCompat="@drawable/ic_open_in_new_black_24px" />
                 </LinearLayout>
             </LinearLayout>
+
             <org.wikipedia.page.linkpreview.LinkPreviewErrorView
                 android:id="@+id/imageLinkErrorContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

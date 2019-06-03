@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.net.Uri
 import android.os.Bundle
@@ -10,14 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
-import androidx.appcompat.widget.PopupMenu
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.controller.BaseControllerListener
 import kotlinx.android.synthetic.main.dialog_image_preview.*
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -32,10 +28,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private var fileName: String? = null
     private lateinit var imageInfo: ImageInfo
 
-    private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
-        false
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val app = WikipediaApp.getInstance()
 
@@ -49,13 +41,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        overflowButton!!.setOnClickListener { v: View ->
-            val popupMenu = PopupMenu(requireActivity(), overflowButton!!)
-            popupMenu.inflate(R.menu.menu_link_preview)
-            popupMenu.setOnMenuItemClickListener(menuListener)
-            popupMenu.show()
-        }
-
         // show the progress bar while we load content...
         progressBar!!.visibility = View.VISIBLE
         toolbarView.setOnClickListener { dismiss() }
@@ -69,7 +54,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onDestroyView() {
         toolbarView!!.setOnClickListener(null)
-        overflowButton!!.setOnClickListener(null)
         super.onDestroyView()
     }
 
@@ -90,18 +74,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             view.setTitle(title)
             view.setDetail(detail)
             detailsHolder.addView(view)
-        }
-    }
-
-    override fun onDismiss(dialogInterface: DialogInterface?) {
-        super.onDismiss(dialogInterface)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
-            startActivity(data)
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 
