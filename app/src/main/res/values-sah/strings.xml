@@ -437,11 +437,13 @@
   <string name="reading_list_login_option_reminder_dialog_text">Ыстатыйалар ааҕар испииһэктэрин киирбэккэ эрэ оҥорбуккун. Бэлиэ-ааккар сыһыараҕын дуо?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Оннук, мин ааҕар испииһэкпэр эп</string>
   <string name="reading_list_login_option_reminder_dialog_no">Суох, сотон кэбис</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Ааҕарга анаммыт ыстатыйалардааххын. Бу тэрилгэ тахсыаххар диэри хааллараҕын дуо?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Оннук, испииһэккэ харай</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Суох, ыстатыйалары испииһэктэн сот</string>
   <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <string name="no_user_lists_title">Испииһэккэ ыстатыйалары наардаа</string>
+  <string name="no_user_lists_msg">Сылдьыбыт сирдэргин, сэргиир тиэмэҕэр сыһыаннааҕы уо.д.а. эгэлгэ элбэҕи ыстатыйаҥ испииһэгэр киллэриэххин сөп</string>
   <string name="reading_list_saved_list_rename">%1$s (кыттааччы айбыт)</string>
   <string name="reading_lists_menu_create_list">Саҥа испииһэги оҥоруу</string>
   <string name="reading_lists_menu_sort_by">Маннык наардаа...</string>

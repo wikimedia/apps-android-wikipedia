@@ -429,6 +429,7 @@
   <string name="reading_list_add_to_other_list">Ajouter à une autre liste de lecture</string>
   <string name="reading_list_remove_from_list">Supprimer de %s</string>
   <string name="reading_list_remove_from_lists">Supprimer des listes de lecture</string>
+  <string name="reading_list_select_item">Sélectionner</string>
   <string name="reading_list_confirm_remove_article_from_offline">Indisponible en mode déconnecté</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Article présent dans plusieurs listes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
@@ -656,6 +657,14 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions !. Comme vous êtes très bon en édition, nous avons compilé une liste d’articles sans description. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Modifications suggérées\n\nFélicitations pour vos nombreuses contribution, nous sommes impressionnés ! Vous utilisez l’application dans plusieurs langues ; nous avons donc compilé une liste d’articles qui ont besoin de traduction de description. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_notification_button">Oui, allons-y</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Vous avez débloqué la tâche « Ajouter des légendes d’image »</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Vous avez débloqué « Ajouter les légendes aux images »</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Merci pour toutes vos contributions ! Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légende. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions. Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légende. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Vous avez débloqué la tâche « Traduire les légendes d’image »</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Vous avez débloqué « Traduire les légendes d’image »</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Merci pour toutes vos contributions ! Vous avez utilisé l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions. Vous utilisez l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_license_notice">En ajoutant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
