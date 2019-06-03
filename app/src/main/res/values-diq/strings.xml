@@ -229,6 +229,7 @@
   <string name="reading_list_sort_by_recent">Tarixê dekerdışi gore ratın (tewr newe)</string>
   <string name="reading_lists_item_deleted">%s listan ra dariya we</string>
   <string name="reading_list_item_delete_undo">Peyser bıgê</string>
+  <string name="reading_list_select_item">Weçine</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bıtexelne</string>
@@ -281,6 +282,9 @@
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
   <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
   <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message"/>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Seba iştiakanê şıma rê teşekur kem. A fıkıtyayım ke şıma qayılê resiman rê nuştey resimi cı kerê, ma lista resimanê ke nuştey resimi çıniyo ma ê arêday pêser. Şıma şenê marê seba Wikipedia ravêr berdışi rê peşti bıdê</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message"/>
   <string name="suggested_edits_menu_info">Melumat</string>
   <string name="suggested_edits_task_add_description_title">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>

@@ -30,6 +30,7 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
@@ -131,7 +132,7 @@ public class TabActivity extends BaseActivity {
 
         FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
 
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.windowBackground));
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.colorBackground));
         setSupportActionBar(tabToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
@@ -145,6 +146,8 @@ public class TabActivity extends BaseActivity {
                     view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     view.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     view.setImageBitmap(FIRST_TAB_BITMAP);
+                    view.setPadding(0, topTabLeadImageEnabled() ? 0 : -DimenUtil.getToolbarHeightPx(TabActivity.this), 0, 0);
+
                     return view;
                 }
                 return inflater.inflate(R.layout.item_tab_contents, parent, false);
@@ -276,6 +279,14 @@ public class TabActivity extends BaseActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean topTabLeadImageEnabled() {
+        if (app.getTabCount() > 0) {
+            PageTitle pageTitle = app.getTabList().get(app.getTabCount() - 1).getBackStackPositionTitle();
+            return pageTitle != null && (!pageTitle.isMainPage() && !TextUtils.isEmpty(pageTitle.getThumbUrl()));
+        }
+        return false;
     }
 
     private void openNewTab() {

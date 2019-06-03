@@ -418,6 +418,7 @@
   <string name="reading_list_add_to_other_list">Lisää toiseen lukulistaan</string>
   <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukulistoista</string>
+  <string name="reading_list_select_item">Valitse</string>
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta listasta</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>

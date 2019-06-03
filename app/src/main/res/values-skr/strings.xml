@@ -213,6 +213,7 @@
   <string name="reading_lists_onboarding_example1">ݙیکھݨ کیتے جاہیں</string>
   <string name="reading_lists_onboarding_example2">پسندیدہ جانور</string>
   <string name="reading_lists_onboarding_got_it">گھن گھندا</string>
+  <string name="reading_list_select_item">چݨو</string>
   <string name="reading_lists_confirm_remote_delete_yes">جیا</string>
   <string name="reading_lists_confirm_remote_delete_no">کو</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">منسوخ</string>
@@ -243,7 +244,7 @@
   <string name="preference_title_notification_milestone">سنگ میل</string>
   <string name="preference_title_notification_thanks">شکریہ</string>
   <string name="preference_title_notification_revert">واپس</string>
-  <string name="view_featured_image_card_download">ڈاؤن لوڈ ، لہاوݨ</string>
+  <string name="view_featured_image_card_download">ڈاؤن لوڈ کرو ، لہاؤ</string>
   <string name="menu_feed_card_dismiss">ایں کارڈ کوں لکاؤ</string>
   <string name="menu_feed_overflow_label">ٻئے اختیار</string>
   <string name="feed">پھرولو</string>

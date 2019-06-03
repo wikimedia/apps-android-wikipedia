@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tab_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,27 +10,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="?android:attr/windowBackground"
+        android:background="?android:attr/colorBackground"
         app:layoutPolicy="auto"
         app:tabBackgroundColor="?attr/main_toolbar_color"
-        app:tabContentBackgroundColor="?attr/paper_color"/>
+        app:tabContentBackgroundColor="?attr/paper_color" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tab_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?android:attr/windowBackground"
+        android:background="?android:attr/colorBackground"
         android:theme="@style/TabToolbarTheme">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="end|center_vertical">
+
             <org.wikipedia.views.TabCountsView
                 android:id="@+id/tab_counts_view"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/page_tabs_back">
-            </org.wikipedia.views.TabCountsView>
+                android:contentDescription="@string/page_tabs_back" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 

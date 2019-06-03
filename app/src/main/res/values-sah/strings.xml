@@ -404,6 +404,7 @@
   <string name="reading_list_add_to_other_list">Атын исипииһэккэ угуу</string>
   <string name="reading_list_remove_from_list">Мантан сот %s</string>
   <string name="reading_list_remove_from_lists">Ааҕар испииһэктэртэн сот</string>
+  <string name="reading_list_select_item">Тал</string>
   <string name="reading_list_confirm_remove_article_from_offline">оффлайн эрэhиимин сотторуу</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Ыстатыйа хас да5аны испиhиэккэ кестер</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
@@ -424,9 +425,11 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Салҕаама</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Киир</string>
   <string name="reading_list_turned_sync_off_dialog_title">Ааҕыы испииһэгин мэнэйдэһиитэ араҕыста</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Ааҕыы испииһэгин тэҥнээһин эн бэлиэ-ааккар араарылынна, онон тэриллэргэр хараллыбыт ыстатыйалар аны тиһиккэ киирбэттэр. Тэҥнээһини туруорууларга киирэн холбуоххун сөп.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Сөп</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Туруоруулар</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Аҕыы испииһэгин мэнэйдэһиитин холбуугун дуо?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Ааҕыыҥ испииһэгэр баар ыстатыйаларыҥ Эн Бикипиэдьийэҕэ бэлиэтэмит ааккын кытта тэҥнэнэр буолуохтара. &lt;a href=\"#faq\"&gt;Сиһилии&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Хос көрдөрүмэ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Мэнэйдээһини холбоо</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Суох, махтанабын</string>
@@ -434,11 +437,13 @@
   <string name="reading_list_login_option_reminder_dialog_text">Ыстатыйалар ааҕар испииһэктэрин киирбэккэ эрэ оҥорбуккун. Бэлиэ-ааккар сыһыараҕын дуо?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Оннук, мин ааҕар испииһэкпэр эп</string>
   <string name="reading_list_login_option_reminder_dialog_no">Суох, сотон кэбис</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Ааҕарга анаммыт ыстатыйалардааххын. Бу тэрилгэ тахсыаххар диэри хааллараҕын дуо?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Оннук, испииһэккэ харай</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Суох, ыстатыйалары испииһэктэн сот</string>
   <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <string name="no_user_lists_title">Испииһэккэ ыстатыйалары наардаа</string>
+  <string name="no_user_lists_msg">Сылдьыбыт сирдэргин, сэргиир тиэмэҕэр сыһыаннааҕы уо.д.а. эгэлгэ элбэҕи ыстатыйаҥ испииһэгэр киллэриэххин сөп</string>
   <string name="reading_list_saved_list_rename">%1$s (кыттааччы айбыт)</string>
   <string name="reading_lists_menu_create_list">Саҥа испииһэги оҥоруу</string>
   <string name="reading_lists_menu_sort_by">Маннык наардаа...</string>
@@ -601,6 +606,8 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Быһаарыыны эбии\" диэни холбоотуҥ</string>
   <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
   <string name="suggested_edits_unlock_dialog_yes">Чэ, бардыбыт!</string>
+  <string name="suggested_edits_unlock_notification_text">Этиини уларытыы</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Этиини уларытыы\n\nКыттарыҥ иһин махтанабыт! Хайыы-үйэ уларытары сатыыгын, онон кылгас ойуулааһына суох ыстатыйалар испииһэктэрин көр. Бикипиэдьийэни тупсарарга көмөлөс дуу!</string>
   <string name="suggested_edits_unlock_notification_button">Чэ, бардыбыт!</string>
   <string name="suggested_edits_license_notice">Кылгас ойуулааһыны эптэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
   <string name="suggested_edits_menu_info">Эбии</string>

@@ -413,6 +413,7 @@
   <string name="reading_list_add_to_other_list">Lägg till i en annan läslista</string>
   <string name="reading_list_remove_from_list">Ta bort från %s</string>
   <string name="reading_list_remove_from_lists">Ta bort från läslistor</string>
+  <string name="reading_list_select_item">Markera</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ta bort från offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikeln förekommer i flera listor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
@@ -641,6 +642,14 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Förslag på redigeringar\n\nTack för alla dina bidrag. Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Förslag på redigeringar\n\nGrattis till dina åtskilliga bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_unlock_notification_button">Ja, nu kör vi</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Du låste upp uppgiften \"Lägg till bildtexter\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Du låste upp \"Lägg till bildtexter\"</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Tack för alla dina bidrag! Eftersom vi tror att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Föreslagna redigeringar\n\nTack för alla dina bidrag! Eftersom vi tror att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Du låste upp uppgiften \"Översätt bildtexter\"</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Du låste upp \"Översätt bildtexter\"</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Tack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Föreslagna redigeringar\n\nTack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_license_notice">Genom att lägg till titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
   <string name="suggested_edits_tasks_activity_title">Föreslagna redigeringar</string>

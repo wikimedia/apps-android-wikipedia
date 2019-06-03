@@ -10,6 +10,8 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -112,6 +114,11 @@ public final class DeviceUtil {
             L.d("Location service setting not found.", e);
         }
         return locationMode != Settings.Secure.LOCATION_MODE_OFF;
+    }
+
+    public static boolean isNavigationBarShowing() {
+        // TODO: revisit this if there's no more navigation bar by default.
+        return KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK) && KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
     }
 
     private static ConnectivityManager getConnectivityManager() {

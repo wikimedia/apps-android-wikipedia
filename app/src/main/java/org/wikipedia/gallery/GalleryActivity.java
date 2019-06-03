@@ -35,6 +35,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -68,6 +69,7 @@ import butterknife.OnLongClick;
 import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
@@ -106,8 +108,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_credit_text) TextView creditText;
     @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
+    @BindView(R.id.gallery_caption_edit_button) View captionEditButton;
+    @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private Disposable imageCaptionDisposable;
 
     private boolean controlsShowing = true;
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
@@ -278,6 +283,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override
     protected void setTheme() {
         setTheme(Theme.DARK.getResourceId());
+    }
+
+    @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
+        // TODO: launch caption editing activity.
+    }
+
+    @OnClick(R.id.gallery_caption_translate_button) void onTranslateClick(View v) {
+        // TODO: launch caption translating activity.
     }
 
     @OnClick(R.id.license_container) void onClick(View v) {
@@ -542,18 +555,41 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
-        CharSequence descriptionStr = "";
-        if (item.getDescription() != null && item.getDescription().getHtml() != null) {
+        if (imageCaptionDisposable != null && !imageCaptionDisposable.isDisposed()) {
+            imageCaptionDisposable.dispose();
+        }
+
+        CharSequence descriptionStr;
+
+        // Display the Caption Edit button based on whether the image is hosted on Commons,
+        // and not the local Wikipedia.
+        captionEditButton.setVisibility(item.getFilePage().contains(Service.COMMONS_URL) ? View.VISIBLE : View.GONE);
+
+        boolean allowTranslate = false;
+        // and if we have another language in which the caption doesn't exist, then offer
+        // it to be translatable.
+        for (String lang : app.language().getAppLanguageCodes()) {
+            if (!item.getStructuredCaptions().containsKey(lang)) {
+                allowTranslate = true;
+                break;
+            }
+        }
+
+        // If we have a structured caption in our current language, then display that instead
+        // of the unstructured description, and make it editable.
+        if (item.getStructuredCaptions().containsKey(app.getAppOrSystemLanguageCode())) {
+            descriptionStr = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
+        } else {
             descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
-        } else if (item.getDescription() != null && item.getDescription().getText() != null) {
-            descriptionStr = item.getDescription().getText();
         }
         if (descriptionStr.length() > 0) {
             descriptionText.setText(strip(descriptionStr));
             descriptionText.setVisibility(View.VISIBLE);
         } else {
-            descriptionText.setVisibility(View.GONE);
+            descriptionText.setVisibility(View.INVISIBLE);
+            allowTranslate = false;
         }
+        captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
 
         // determine which icon to display...
         if (getLicenseIcon(item) == R.drawable.ic_license_by) {

@@ -1,8 +1,11 @@
 package org.wikipedia.descriptions;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -48,10 +52,10 @@ import io.reactivex.schedulers.Schedulers;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
-import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TITLE_DESC;
-import static org.wikipedia.Constants.InvokeSource.EDIT_FEED_TRANSLATE_TITLE_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
 import static org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity.EXTRA_SOURCE_ADDED_DESCRIPTION;
@@ -137,8 +141,8 @@ public class DescriptionEditFragment extends Fragment {
                 : DescriptionEditFunnel.Type.EXISTING;
         highlightText = getArguments().getString(ARG_HIGHLIGHT_TEXT);
         invokeSource = (InvokeSource) getArguments().getSerializable(ARG_INVOKE_SOURCE);
-        reviewEnabled = invokeSource == EDIT_FEED_TITLE_DESC
-                || invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC
+        reviewEnabled = invokeSource == SUGGESTED_EDITS_ADD_DESC
+                || invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC
                 || invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC
                 || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 
@@ -160,7 +164,7 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        editView.setTranslationEdit(invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
+        editView.setTranslationEdit(invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
@@ -203,6 +207,11 @@ public class DescriptionEditFragment extends Fragment {
             if (callback() != null) {
                 callback().onDescriptionEditSuccess();
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH
+                && resultCode == Activity.RESULT_OK && data != null
+                && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
+            String text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
+            editView.setDescription(text);
         }
     }
 
@@ -275,8 +284,8 @@ public class DescriptionEditFragment extends Fragment {
                         return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
                                 pageTitle.getConvertedText(), editView.getDescription(),
-                                invokeSource == EDIT_FEED_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                                        : invokeSource == EDIT_FEED_TRANSLATE_TITLE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
+                                invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                        : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                                 editToken, AccountUtil.isLoggedIn() ? "user" : null);
                     })
                     .subscribeOn(Schedulers.io())
@@ -345,6 +354,16 @@ public class DescriptionEditFragment extends Fragment {
         @Override
         public void onReadArticleClick() {
             callback().onPageSummaryContainerClicked(pageTitle);
+        }
+
+        @Override
+        public void onVoiceInputClick() {
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            try {
+                startActivityForResult(intent, Constants.ACTIVITY_REQUEST_VOICE_SEARCH);
+            } catch (ActivityNotFoundException a) {
+                FeedbackUtil.showMessage(requireActivity(), R.string.error_voice_search_not_available);
+            }
         }
     }
 }

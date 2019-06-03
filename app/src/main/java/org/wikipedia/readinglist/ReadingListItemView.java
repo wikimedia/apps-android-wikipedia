@@ -15,9 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.TextViewCompat;
 
 import com.facebook.drawee.drawable.ScalingUtils;
@@ -38,8 +38,10 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class ReadingListItemView extends ConstraintLayout {
+
     public interface Callback {
         void onClick(@NonNull ReadingList readingList);
         void onRename(@NonNull ReadingList readingList);
@@ -136,6 +138,19 @@ public class ReadingListItemView extends ConstraintLayout {
         menu.show();
     }
 
+    @OnLongClick boolean onLongClick(View view) {
+        PopupMenu menu = new PopupMenu(getContext(), view, Gravity.END);
+        menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
+
+        if (readingList.isDefault()) {
+            menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
+            menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
+        }
+        menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
+        menu.show();
+        return false;
+    }
+
     private void init() {
         inflate(getContext(), R.layout.item_reading_list, this);
         ButterKnife.bind(this);
@@ -145,7 +160,7 @@ public class ReadingListItemView extends ConstraintLayout {
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
         setClickable(true);
         clearThumbnails();

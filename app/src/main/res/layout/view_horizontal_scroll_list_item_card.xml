@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="180dp"
     android:layout_height="208dp"
-    android:orientation="vertical"
-    android:background="?attr/selectableItemBackground">
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
-        style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/horizontal_scroll_list_item_image"
+        style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="match_parent"
         android:layout_height="96dp"
         android:transitionName="@string/transition_news_item"
-        app:actualImageScaleType="focusCrop"/>
+        app:actualImageScaleType="focusCrop" />
 
     <TextView
         android:id="@+id/horizontal_scroll_list_item_text"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="13dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="13dp"
+        android:ellipsize="end"
+        android:lineSpacingMultiplier="1.2"
+        android:linksClickable="false"
+        android:maxLines="5"
         android:textColor="?attr/primary_text_color"
         android:textColorLink="?attr/primary_text_color"
-        android:maxLines="5"
-        android:ellipsize="end"
-        android:linksClickable="false"
-        android:lineSpacingMultiplier="1.2"
-        android:textSize="12sp"/>
+        android:textSize="12sp" />
 
 </LinearLayout>

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -100,7 +100,7 @@ public class WikipediaLanguagesItemView extends LinearLayout {
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(),
+            setForeground(AppCompatResources.getDrawable(getContext(),
                     ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
     }

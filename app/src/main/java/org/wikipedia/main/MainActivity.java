@@ -40,6 +40,7 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
@@ -77,7 +78,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         AnimationUtil.setSharedElementTransitions(this);
 
         Completable.fromAction(() -> AppShortcuts.setShortcuts(getApplicationContext()))
-                .subscribeOn(Schedulers.newThread()).subscribe();
+                .subscribeOn(Schedulers.newThread()).subscribe(() -> { }, L::e);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip

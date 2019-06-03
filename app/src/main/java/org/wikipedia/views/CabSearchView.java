@@ -9,8 +9,8 @@ import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.richtext.RichTextUtil;
@@ -74,7 +74,7 @@ public class CabSearchView extends SearchView {
 
         } else {
             searchCloseBtn.setVisibility(VISIBLE);
-            searchCloseBtn.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_close_themed_24dp));
+            searchCloseBtn.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_close_themed_24dp));
         }
     }
 

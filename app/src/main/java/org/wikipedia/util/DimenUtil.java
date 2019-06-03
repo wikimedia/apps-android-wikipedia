@@ -98,6 +98,11 @@ public final class DimenUtil {
         return id > 0 ? DimenUtil.getDimension(id) : 0;
     }
 
+    public static float getNavigationBarHeight(Context context) {
+        int id = getNavigationBarId(context);
+        return id > 0 ? DimenUtil.getDimension(id) : 0;
+    }
+
     private static float getToolbarHeight(Context context) {
         return DimenUtil.roundedPxToDp(getToolbarHeightPx(context));
     }
@@ -120,6 +125,10 @@ public final class DimenUtil {
 
     @DimenRes private static int getStatusBarId(Context context) {
         return context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+    }
+
+    @DimenRes private static int getNavigationBarId(Context context) {
+        return context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
     }
 
     public static void setViewHeight(View view, int height) {

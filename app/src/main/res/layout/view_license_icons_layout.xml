@@ -20,8 +20,8 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@null"
-        app:tint="@color/white70"
         android:visibility="gone"
+        app:tint="@color/white70"
         tools:src="@drawable/ic_license_by" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -30,7 +30,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@null"
-        app:tint="@color/white70"
         android:visibility="gone"
+        app:tint="@color/white70"
         tools:src="@drawable/ic_license_sharealike" />
 </merge>

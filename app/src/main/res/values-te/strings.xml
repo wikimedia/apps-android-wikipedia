@@ -19,12 +19,13 @@
   <string name="nav_item_forward">ముందుకు</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
-  <string name="error_network_error" fuzzy="true">ఇంటర్నెట్ తో అనుసందానం ఏర్పరచలేకపోయాము.</string>
+  <string name="error_network_error">అంతర్జాలానికి అనుసంధానం కాలేకపోయాం.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
+  <string name="card_offline_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="page_error_back_to_main">వెనక్కి వెళ్ళు</string>
   <string name="error_back">వెనుకకు వెళ్ళు</string>
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
-  <string name="dialog_title_clear_history" fuzzy="true">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
+  <string name="dialog_title_clear_history">విహరణ చరిత్రను తుడిచివేయి</string>
   <string name="dialog_message_clear_history" fuzzy="true">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
   <string name="dialog_message_clear_history_yes">అవును</string>
   <string name="dialog_message_clear_history_no">కాదు</string>
@@ -51,8 +52,8 @@
   <string name="langlinks_no_match" fuzzy="true">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.\n\n.</string>
   <string name="langlinks_activity_title">ఇతర భాషలు</string>
   <string name="menu_save_changes" fuzzy="true">మార్పులను భద్రపరచు</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">భద్రపరుస్తున్నాం…</string>
-  <string name="edit_saved_successfully" fuzzy="true">సవరణ భద్రపరచపడింది!</string>
+  <string name="dialog_saving_in_progress">ప్రచురిస్తున్నాం...</string>
+  <string name="edit_saved_successfully">దిద్దుబాటు ప్రచురించబడింది!</string>
   <string name="dialog_message_edit_failed">సవరణ విఫలమయ్యింది!</string>
   <string name="dialog_message_edit_failed_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_message_edit_failed_cancel">రద్దుచేయి</string>
@@ -130,6 +131,8 @@
   <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
   <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
+  <string name="edit_abandon_confirm_yes">అవును</string>
+  <string name="edit_abandon_confirm_no">కాదు</string>
   <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>
   <string name="user_logged_in_blocked_from_editing">ఈ వికీని సవరించకుండా మీ వాడుక ఖాతా నిరోధించబడింది.</string>
   <string name="user_anon_blocked_from_editing">సవరించకుండా మీ ఐపి చిరునామా నిరోధించబడింది</string>
@@ -201,6 +204,8 @@
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
   <string name="color_theme_dark">చీకటి</string>
+  <string name="color_theme_black">నలుపు</string>
+  <string name="color_theme_test_title">నమూనా పాఠ్యం</string>
   <string name="text_size_percent_default">%s (అప్రమేయం)</string>
   <string name="nav_item_reading_lists">నా జాబితాలు</string>
   <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
@@ -208,6 +213,7 @@
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">అంతరిక్షం!</string>
   <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">రద్దుచేయి</string>
   <string name="reading_list_turned_sync_off_dialog_ok">సరే</string>
   <string name="reading_list_turned_sync_off_dialog_settings">అమరికలు</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">సరే</string>
@@ -231,7 +237,7 @@
     <item quantity="one">నిన్న</item>
     <item quantity="other">%d రోజుల క్రితం</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">నేడు</string>
+  <string name="view_continue_reading_card_subtitle_today">నేడు</string>
   <string name="view_featured_article_footer_save_button_label">భద్రపరచు</string>
   <string name="view_static_card_save_button_label">భద్రపరచు</string>
   <string name="view_featured_article_footer_saved_button_label">భద్రపరచబడింది</string>
