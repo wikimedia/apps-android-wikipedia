@@ -36,6 +36,20 @@ public class EditorTaskCounts {
         return passedList == null ? Collections.emptyList() : passedList;
     }
 
+    public int getDescriptionEditTargetsPassedCount() {
+        List<Integer> targetList = getDescriptionEditTargets();
+        List<Integer> passedList = getDescriptionEditTargetsPassed();
+        int count = 0;
+        if (targetList != null && !targetList.isEmpty() && !passedList.isEmpty()) {
+            for (int target : targetList) {
+                if (passedList.contains(target)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
     @Nullable
     public List<Integer> getDescriptionEditTargets() {
         if (targets != null && !(targets instanceof JsonArray)) {
@@ -59,6 +73,20 @@ public class EditorTaskCounts {
             passedList = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appCaptionEdits;
         }
         return passedList == null ? Collections.emptyList() : passedList;
+    }
+
+    public int getCaptionEditTargetsPassedCount() {
+        List<Integer> targetList = getCaptionEditTargets();
+        List<Integer> passedList = getCaptionEditTargetsPassed();
+        int count = 0;
+        if (targetList != null && !targetList.isEmpty() && !passedList.isEmpty()) {
+            for (int target : targetList) {
+                if (passedList.contains(target)) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     @Nullable
