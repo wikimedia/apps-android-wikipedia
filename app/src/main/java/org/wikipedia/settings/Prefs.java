@@ -841,12 +841,12 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
     }
 
-    public static boolean showSuggestedEditsTranslationTeaserTask() {
-        return getBoolean(R.string.preference_key_show_multilingual_task, true);
+    public static boolean showSuggestedEditsMultilingualTeaserTask() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, true);
     }
 
-    public static void setSuggestedEditsTranslationTeaserTask(boolean showTask) {
-        setBoolean(R.string.preference_key_show_multilingual_task, showTask);
+    public static void setShowSuggestedEditsMultilingualTeaserTask(boolean showTask) {
+        setBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, showTask);
     }
 
     public static boolean isSuggestedEditsAddCaptionsUnlocked() {

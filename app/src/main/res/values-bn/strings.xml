@@ -396,6 +396,7 @@
   <string name="reading_list_add_to_other_list">আরেকটি পড়ার তালিকা থেকে সরান</string>
   <string name="reading_list_remove_from_list">%s থেকে সরান</string>
   <string name="reading_list_remove_from_lists">পড়ার তালিকা থেকে সরান</string>
+  <string name="reading_list_select_item">নির্বাচন করুন</string>
   <string name="reading_list_confirm_remove_article_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">একাধিক তালিকাতে নিবন্ধটি আছে</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">এই সব পড়ার তালিকার জন্য %s আর অফলাইনে উপলব্ধ হবে না:</string>
