@@ -415,6 +415,7 @@
   <string name="reading_list_add_to_other_list">Afegeix a una altra llista de lectura</string>
   <string name="reading_list_remove_from_list">Suprimeix de %s</string>
   <string name="reading_list_remove_from_lists">Suprimeix de les llistes de seguiment</string>
+  <string name="reading_list_select_item">Selecciona</string>
   <string name="reading_list_confirm_remove_article_from_offline">Suprimeix del mode fora de línia</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
@@ -643,6 +644,11 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edicions suggerides\n\nGràcies per les vostres contribucions. Atès que ho feu molt bé editant, hem compilat una llista d\'articles que no tenen descripcions. Ens ajudeu a millorar la Viquipèdia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edicions suggerides\n\nEnhorabona per totes les contribucions que heu fet. Estem impressionats! Atès que feu servir l\'aplicació en més d\'una llengua, hem compilat una llista d\'articles que necessiten una traducció de les descripcions. Ens podeu continuar ajudant a millorar la Viquipèdia?</string>
   <string name="suggested_edits_unlock_notification_button">Sí, som-hi</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Heu desbloquejat la tasca «Afegeix llegendes a les imatges»</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Heu desbloquejat «Afegeix descripcions d\'imatges»</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Gràcies per les vostres contribucions! Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat un llistat d\'imatges que no en tenen. Ens ajudeu a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Heu desbloquejat la tasca «Tradueix llegendes de les imatges»</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Heu desbloquejat «Tradueix llegendes de les imatges»</string>
   <string name="suggested_edits_license_notice">En afegir la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
   <string name="suggested_edits_tasks_activity_title">Edicions suggerides</string>
