@@ -641,7 +641,8 @@
   <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing descriptions to be translated.</string>
   <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>
   <string name="suggested_edits_translate_image_captions">Title of screen where the user chooses images that are missing captions to be translated.</string>
-  <string name="suggested_edits_review_description">Title of the review title description page.</string>
+  <string name="suggested_edits_review_description">Title of the review description page.</string>
+  <string name="suggested_edits_review_image_caption">Title of the review image caption page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="suggested_edits_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="suggested_edits_added_by_you">A label shows that the current article description was added by you.</string>
@@ -667,6 +668,7 @@
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Message for dialog that tells the user that they have unlocked the Translate Image Captions feature in their Suggested Edits screen.</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Message for notification that tells the user that they have unlocked the Translate Image Captions feature in their Suggested Edits screen.</string>
   <string name="suggested_edits_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
+  <string name="suggested_edits_image_caption_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add image captions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
   <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
   <string name="suggested_edits_task_add_description_title">Title description task heading.</string>

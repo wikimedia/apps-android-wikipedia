@@ -8,6 +8,7 @@
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <ScrollView
+        android:id="@+id/articleContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/licenseContainer"
@@ -16,7 +17,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/articleContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -88,6 +88,41 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/galleryContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/licenseContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <org.wikipedia.views.ZoomableDraweeViewWithBackground
+            android:id="@+id/galleryImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            app:actualImageScaleType="fitCenter" />
+
+        <org.wikipedia.views.AppTextView
+            android:id="@+id/galleryDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:maxHeight="128dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textColor="@color/base90"
+            android:textColorLink="@color/base90"
+            android:textIsSelectable="true"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:layout_gravity="bottom"
+            android:background="@color/black38"
+            tools:text="Sample image description text" />
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/licenseContainer"

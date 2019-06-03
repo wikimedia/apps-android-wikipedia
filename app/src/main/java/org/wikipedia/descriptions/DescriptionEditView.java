@@ -115,28 +115,31 @@ public class DescriptionEditView extends LinearLayout {
 
     private void setHintText() {
         pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
-        pageDescriptionLayout.setHint(getLabelText(pageTitle.getWikiSite().languageCode()));
+        pageDescriptionLayout.setHint(getHintText(pageTitle.getWikiSite().languageCode()));
     }
 
-    private int getReviewHeaderTextRes() {
+    private int getHeaderTextRes(boolean inReview) {
         if (TextUtils.isEmpty(originalDescription)) {
-            if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
-                return R.string.description_edit_translate_description;
-            } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
-                return R.string.description_edit_add_image_caption;
-            } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-                return R.string.description_edit_translate_image_caption;
+            if (inReview) {
+                if (invokeSource.name().contains("CAPTION")) {
+                    return R.string.suggested_edits_review_image_caption;
+                } else {
+                    return R.string.suggested_edits_review_description;
+                }
             } else {
-                return R.string.description_edit_add_description_v2;
+                if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+                    return R.string.description_edit_translate_description;
+                } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+                    return R.string.description_edit_add_image_caption;
+                } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+                    return R.string.description_edit_translate_image_caption;
+                } else {
+                    return R.string.description_edit_add_description_v2;
+                }
             }
         } else {
             return R.string.description_edit_edit_description;
         }
-    }
-
-    private void setReviewHeaderText(boolean inReview) {
-        int headerTextRes = inReview ? R.string.suggested_edits_review_description : getReviewHeaderTextRes();
-        headerText.setText(getContext().getString(headerTextRes));
     }
 
     private CharSequence getLabelText(@NonNull String lang) {
@@ -150,6 +153,21 @@ public class DescriptionEditView extends LinearLayout {
             return getContext().getString(R.string.description_edit_article);
         }
     }
+
+    private CharSequence getHintText(@NonNull String lang) {
+        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            return String.format(getContext().getString(R.string.description_edit_caption_hint_per_language),
+                    WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
+        } else {
+            return String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
+                    WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
+        }
+    }
+
+    private void setReviewHeaderText(boolean inReview) {
+        headerText.setText(getContext().getString(getHeaderTextRes(inReview)));
+    }
+
 
     public void setSummaries(@NonNull SuggestedEditsSummary sourceSummary, SuggestedEditsSummary targetSummary) {
         // the summary data that will bring to the review screen
@@ -177,7 +195,7 @@ public class DescriptionEditView extends LinearLayout {
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
             setReviewHeaderText(true);
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription());
+            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource);
             pageReviewContainer.show();
             readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
