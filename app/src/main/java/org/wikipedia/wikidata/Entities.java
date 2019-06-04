@@ -58,7 +58,7 @@ public class Entities extends MwResponse implements PostProcessingTypeAdapter.Po
         }
 
         boolean isMissing() {
-            return missing != null;
+            return "-1".equals(id) && missing != null;
         }
     }
 
