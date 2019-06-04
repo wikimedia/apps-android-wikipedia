@@ -226,7 +226,7 @@ public class PageItemView<T> extends ConstraintLayout {
     private void updateSelectedState(@Nullable String imageUrl) {
         if (selected) {
             imageSelectedView.setVisibility(VISIBLE);
-            imageView.setVisibility(GONE);
+            imageView.setVisibility(INVISIBLE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
             imageSelectedView.setVisibility(GONE);
