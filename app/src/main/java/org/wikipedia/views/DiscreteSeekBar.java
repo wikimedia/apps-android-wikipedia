@@ -11,7 +11,7 @@ import android.widget.SeekBar;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
 
@@ -53,11 +53,11 @@ public class DiscreteSeekBar extends SeekBar {
             setMax(getMax() - min);
             int id = array.getResourceId(R.styleable.DiscreteSeekBar_tickDrawable, 0);
             if (id != 0) {
-                tickDrawable = ContextCompat.getDrawable(getContext(), id);
+                tickDrawable = AppCompatResources.getDrawable(getContext(), id);
             }
             id = array.getResourceId(R.styleable.DiscreteSeekBar_centerDrawable, 0);
             if (id != 0) {
-                centerDrawable = ContextCompat.getDrawable(getContext(), id);
+                centerDrawable = AppCompatResources.getDrawable(getContext(), id);
             }
             array.recycle();
         }
