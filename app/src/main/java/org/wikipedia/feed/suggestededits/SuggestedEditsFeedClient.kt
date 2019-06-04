@@ -12,7 +12,13 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 
-class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient {
+class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsType) : FeedClient {
+    enum class SuggestedEditsType {
+        ADD_DESCRIPTION,
+        TRANSLATE_DESCRIPTION,
+        ADD_IMAGE_CAPTION,
+        TRANSLATE_IMAGE_CAPTION
+    }
 
     interface Callback {
         fun updateCardContent(card: SuggestedEditsCard)
@@ -32,12 +38,12 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
         disposables.clear()
     }
 
-    private fun toSuggestedEditsCard(translation: Boolean, wiki: WikiSite): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, translation, sourceSummary, targetSummary)
+    private fun toSuggestedEditsCard(suggestedEditsType: SuggestedEditsType, wiki: WikiSite): SuggestedEditsCard {
+        return SuggestedEditsCard(wiki, suggestedEditsType, sourceSummary, targetSummary)
     }
 
     fun getArticleWithMissingDescription(cb: FeedClient.Callback?, callback: Callback?) {
-        if (isTranslation) {
+        if (suggestedEditsType==SuggestedEditsType.TRANSLATE_DESCRIPTION) {
             disposables.add(MissingDescriptionProvider
                     .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(app.language().appLanguageCodes[0]), app.language().appLanguageCodes[1], true)
                     .subscribeOn(Schedulers.io())
@@ -46,7 +52,7 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                         sourceSummary = pair.second
                         targetSummary = pair.first
 
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(SuggestedEditsType.TRANSLATE_DESCRIPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
 
                         if (callback == null) {
                             FeedCoordinator.postCardsToCallback(cb!!, if (pair == null) emptyList<Card>() else listOf(card))
@@ -64,7 +70,7 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                     .subscribe({ pageSummary ->
                         sourceSummary = pageSummary
 
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(SuggestedEditsType.ADD_DESCRIPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
 
                         if (callback == null) {
                             FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))

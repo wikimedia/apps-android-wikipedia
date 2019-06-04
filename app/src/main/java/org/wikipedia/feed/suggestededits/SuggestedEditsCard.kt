@@ -6,10 +6,11 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
+import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType
 import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(wiki: WikiSite,
-                         val isTranslation: Boolean,
+                         val suggestedEditsType: SuggestedEditsType,
                          val sourceSummary: RbPageSummary?,
                          val targetSummary: RbPageSummary?) : WikiSiteCard(wiki) {
 

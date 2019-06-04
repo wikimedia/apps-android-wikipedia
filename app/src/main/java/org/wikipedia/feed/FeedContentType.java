@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
@@ -23,6 +22,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.ADD_DESCRIPTION;
 
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
@@ -86,10 +87,11 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             if (ReleaseUtil.isPreBetaRelease() && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
-                if (Prefs.shouldShowSuggestedEditsCardsForTesting()) {
+                /*if (Prefs.shouldShowSuggestedEditsCardsForTesting()) {
                     return new SuggestedEditsFeedClient(!(age % 2 == 0) && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION);
                 }
-                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(!(age % 2 == 0) && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) : null;
+                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(!(age % 2 == 0) && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) : null;*/
+                return new SuggestedEditsFeedClient(ADD_DESCRIPTION);
             }
             return null;
         }

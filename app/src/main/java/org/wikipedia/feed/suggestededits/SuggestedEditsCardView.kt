@@ -10,6 +10,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType
+import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.*
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.StringUtil
@@ -22,7 +24,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
-    var isTranslation: Boolean = false
+    lateinit var suggestedEditsType: SuggestedEditsType
     var sourceSummary: RbPageSummary? = null
     var targetSummary: RbPageSummary? = null
 
@@ -33,7 +35,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
 
-        isTranslation = card.isTranslation
+        suggestedEditsType = card.suggestedEditsType
         sourceSummary = card.sourceSummary
         targetSummary = card.targetSummary
 
@@ -55,13 +57,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun updateContents() {
-        if (isTranslation) {
+        if (suggestedEditsType==TRANSLATE_DESCRIPTION) {
             sourceDescription = sourceSummary!!.description!!.capitalize()
             viewArticleSubtitle.visibility = View.VISIBLE
             viewArticleSubtitle.text = sourceDescription
         }
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
-        callToActionText.text = if (isTranslation) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
+        callToActionText.text = if (suggestedEditsType==TRANSLATE_DESCRIPTION) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
@@ -85,13 +87,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(R.color.base30)
-                .setLangCode(if (isTranslation) card.wikiSite().languageCode() else "")
+                .setLangCode(if (suggestedEditsType==TRANSLATE_DESCRIPTION) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }
 
     fun refreshCardContent() {
-        SuggestedEditsFeedClient(isTranslation).getArticleWithMissingDescription(null, this)
+        SuggestedEditsFeedClient(TRANSLATE_DESCRIPTION).getArticleWithMissingDescription(null, this)
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {
