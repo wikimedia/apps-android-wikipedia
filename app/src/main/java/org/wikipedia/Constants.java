@@ -54,6 +54,9 @@ public final class Constants {
 
     public static final int MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2;
 
+    public static final String INVOKE_SOURCE_KEYWORD_CAPTION = "CAPTION";
+    public static final String INVOKE_SOURCE_KEYWORD_TRANSLATION = "TRANSLATE";
+
     public enum InvokeSource {
         CONTEXT_MENU,
         LINK_PREVIEW_MENU,

@@ -19,8 +19,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
-import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
-import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.*
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -172,7 +171,13 @@ class SuggestedEditsCardsFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
-            FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar)
+            FeedbackUtil.showMessage(this,
+                    if (source.name.contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
+                        R.string.description_edit_success_saved_image_caption_snackbar
+                    } else {
+                        R.string.description_edit_success_saved_snackbar
+                    }
+            )
             nextPage()
         }
     }

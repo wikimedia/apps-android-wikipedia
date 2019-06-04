@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
@@ -45,12 +46,14 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
+import static org.wikipedia.Constants.INVOKE_SOURCE_KEYWORD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
@@ -276,12 +279,7 @@ public class DescriptionEditFragment extends Fragment {
                     .flatMap(response -> {
                         String languageCode = response.query().siteInfo() != null && response.query().siteInfo().lang() != null
                                 ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
-                        return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
-                                pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                                pageTitle.getConvertedText(), editView.getDescription(),
-                                invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                                        : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
-                                editToken, AccountUtil.isLoggedIn() ? "user" : null);
+                        return getPostService(editToken, languageCode);
                     })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -317,6 +315,24 @@ public class DescriptionEditFragment extends Fragment {
                             editFailed(caught, true);
                         }
                     }));
+        }
+
+        private Observable<MwPostResponse> getPostService(@NonNull String editToken, @Nullable String languageCode) {
+            if (invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
+                return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
+                        pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
+                        pageTitle.getConvertedText(), editView.getDescription(),
+                        invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
+                        editToken, AccountUtil.isLoggedIn() ? "user" : null);
+            } else {
+                return ServiceFactory.get(wikiData).postLabelEdit(languageCode,
+                        pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
+                        pageTitle.getConvertedText(), editView.getDescription(),
+                        invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
+                        editToken, AccountUtil.isLoggedIn() ? "user" : null);
+            }
         }
 
         private void editFailed(@NonNull Throwable caught, boolean logError) {

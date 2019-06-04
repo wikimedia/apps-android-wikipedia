@@ -36,6 +36,8 @@ import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
+import static org.wikipedia.Constants.INVOKE_SOURCE_KEYWORD_CAPTION;
+import static org.wikipedia.Constants.INVOKE_SOURCE_KEYWORD_TRANSLATION;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
@@ -62,8 +64,6 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.label_text) TextView labelText;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
 
-    private static final String ARG_INVOKE_SOURCE_CAPTION = "CAPTION";
-    private static final String ARG_INVOKE_SOURCE_TRANSLATION = "TRANSLATE";
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
     private Activity activity;
@@ -128,7 +128,7 @@ public class DescriptionEditView extends LinearLayout {
     private int getHeaderTextRes(boolean inReview) {
         if (TextUtils.isEmpty(originalDescription)) {
             if (inReview) {
-                if (invokeSource.name().contains(ARG_INVOKE_SOURCE_CAPTION)) {
+                if (invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
                     return R.string.suggested_edits_review_image_caption;
                 } else {
                     return R.string.suggested_edits_review_description;
@@ -212,8 +212,8 @@ public class DescriptionEditView extends LinearLayout {
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
             setReviewHeaderText(true);
-            setDarkReviewScreen(invokeSource.name().contains(ARG_INVOKE_SOURCE_CAPTION));
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource.name().contains(ARG_INVOKE_SOURCE_CAPTION));
+            setDarkReviewScreen(invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION));
+            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION));
             pageReviewContainer.show();
             readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
@@ -334,6 +334,6 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setInvokeSource(InvokeSource source) {
         invokeSource = source;
-        isTranslationEdit = source.name().contains(ARG_INVOKE_SOURCE_TRANSLATION);
+        isTranslationEdit = source.name().contains(INVOKE_SOURCE_KEYWORD_TRANSLATION);
     }
 }

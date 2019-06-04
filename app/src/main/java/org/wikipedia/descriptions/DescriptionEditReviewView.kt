@@ -60,6 +60,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
 
     private fun setGalleryReviewView(summary: SuggestedEditsSummary, description: String) {
         articleContainer.visibility = GONE
+        indicatorDivider.visibility = GONE
         galleryDescriptionText.text = StringUtil.fromHtml(description)
         galleryDescriptionText.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
         if (summary.thumbnailUrl.isNullOrBlank()) {
@@ -69,7 +70,6 @@ class DescriptionEditReviewView @JvmOverloads constructor(
             galleryImage.loadImage(Uri.parse(summary.originalUrl))
         }
         licenseView.darkLicenseView()
-        indicatorDivider.visibility = GONE
     }
 
     companion object {
