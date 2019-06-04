@@ -15,6 +15,7 @@ class SuggestedEditsSummary {
     var displayTitle: String? = null
     var description: String? = null
     var thumbnailUrl: String? = null
+    var originalUrl: String? = null
     var extractHtml: String? = null
     var timestamp: String? = null
     var user: String? = null
@@ -36,6 +37,7 @@ class SuggestedEditsSummary {
         displayTitle = StringUtil.removeHTMLTags(mwQueryPage.title())
         description = caption
         thumbnailUrl = if (mwQueryPage.imageInfo() != null) mwQueryPage.imageInfo()!!.thumbUrl else mwQueryPage.thumbUrl()
+        originalUrl = if (mwQueryPage.imageInfo() != null) mwQueryPage.imageInfo()!!.originalUrl else thumbnailUrl
         user = mwQueryPage.imageInfo()!!.user
         timestamp = mwQueryPage.imageInfo()!!.timestamp
         lang = langCode

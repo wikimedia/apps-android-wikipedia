@@ -1,11 +1,13 @@
 package org.wikipedia.descriptions;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -22,6 +24,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -42,6 +45,7 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class DescriptionEditView extends LinearLayout {
+    @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
     @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
     @BindView(R.id.view_description_edit_save_button) ImageView saveButton;
@@ -58,8 +62,11 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.label_text) TextView labelText;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
 
+    private static final String ARG_INVOKE_SOURCE_CAPTION = "CAPTION";
+    private static final String ARG_INVOKE_SOURCE_TRANSLATION = "TRANSLATE";
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
+    private Activity activity;
     private PageTitle pageTitle;
     private SuggestedEditsSummary suggestedEditsSummary;
     private InvokeSource invokeSource;
@@ -121,7 +128,7 @@ public class DescriptionEditView extends LinearLayout {
     private int getHeaderTextRes(boolean inReview) {
         if (TextUtils.isEmpty(originalDescription)) {
             if (inReview) {
-                if (invokeSource.name().contains("CAPTION")) {
+                if (invokeSource.name().contains(ARG_INVOKE_SOURCE_CAPTION)) {
                     return R.string.suggested_edits_review_image_caption;
                 } else {
                     return R.string.suggested_edits_review_description;
@@ -168,8 +175,18 @@ public class DescriptionEditView extends LinearLayout {
         headerText.setText(getContext().getString(getHeaderTextRes(inReview)));
     }
 
+    private void setDarkReviewScreen(boolean enabled) {
+        int whiteRes = getResources().getColor(android.R.color.white);
+        toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color));
+        saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedAttributeId(getContext(), R.attr.themed_icon_color), android.graphics.PorterDuff.Mode.SRC_IN);
+        cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_icon_color), android.graphics.PorterDuff.Mode.SRC_IN);
+        headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_title_color));
+        ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_status_bar_color));
+        DeviceUtil.updateStatusBarTheme(activity, null, enabled);
+    }
 
-    public void setSummaries(@NonNull SuggestedEditsSummary sourceSummary, SuggestedEditsSummary targetSummary) {
+    public void setSummaries(@NonNull Activity activity, @NonNull SuggestedEditsSummary sourceSummary, SuggestedEditsSummary targetSummary) {
+        this.activity = activity;
         // the summary data that will bring to the review screen
         suggestedEditsSummary = isTranslationEdit ? targetSummary : sourceSummary;
 
@@ -195,13 +212,15 @@ public class DescriptionEditView extends LinearLayout {
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
             setReviewHeaderText(true);
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource);
+            setDarkReviewScreen(invokeSource.name().contains(ARG_INVOKE_SOURCE_CAPTION));
+            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource.name().contains(ARG_INVOKE_SOURCE_CAPTION));
             pageReviewContainer.show();
             readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
             hideSoftKeyboard(pageReviewContainer);
         } else {
             setReviewHeaderText(false);
+            setDarkReviewScreen(false);
             pageReviewContainer.hide();
             readArticleBarContainer.show();
             descriptionEditContainer.setVisibility(VISIBLE);
@@ -315,6 +334,6 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setInvokeSource(InvokeSource source) {
         invokeSource = source;
-        isTranslationEdit = source.name().contains("TRANSLATE");
+        isTranslationEdit = source.name().contains(ARG_INVOKE_SOURCE_TRANSLATION);
     }
 }

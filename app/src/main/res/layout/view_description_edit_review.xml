@@ -99,27 +99,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <org.wikipedia.views.ZoomableDraweeViewWithBackground
+        <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/galleryImage"
+            style="@style/SimpleDraweeViewPlaceholder.SuggestedEditsReview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@null"
-            app:actualImageScaleType="fitCenter" />
+            app:actualImageScaleType="centerCrop"
+            app:fadeDuration="0" />
 
         <org.wikipedia.views.AppTextView
             android:id="@+id/galleryDescriptionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fadeScrollbars="false"
-            android:maxHeight="128dp"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
             android:textColor="@color/base90"
             android:textColorLink="@color/base90"
             android:textIsSelectable="true"
-            android:paddingStart="@dimen/activity_horizontal_margin"
-            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="16dp"
             android:layout_gravity="bottom"
+            android:lineSpacingExtra="8sp"
             android:background="@color/black38"
             tools:text="Sample image description text" />
     </FrameLayout>
@@ -137,16 +142,16 @@
             android:id="@+id/indicatorDivider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_marginBottom="16dp"
             android:background="?attr/material_theme_border_color" />
 
         <org.wikipedia.descriptions.DescriptionEditLicenseView
             android:id="@+id/licenseView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp" />
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp" />
     </LinearLayout>
 
 </merge>

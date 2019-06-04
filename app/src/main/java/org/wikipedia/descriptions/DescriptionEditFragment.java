@@ -165,7 +165,7 @@ public class DescriptionEditFragment extends Fragment {
         editView.setCallback(new EditViewCallback());
         editView.editTaskEnabled(reviewEnabled);
         if (reviewEnabled) {
-            editView.setSummaries(sourceSummary, targetSummary);
+            editView.setSummaries(requireActivity(), sourceSummary, targetSummary);
             if (savedInstanceState != null) {
                 editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
             }

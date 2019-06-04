@@ -95,6 +95,10 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         ShareUtil.shareText(this, title);
     }
 
+    public void updateStatusBarColor(int color) {
+        setStatusBarColor(color);
+    }
+
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(this, null, url);
         FeedbackUtil.showMessage(this, R.string.address_copied);
