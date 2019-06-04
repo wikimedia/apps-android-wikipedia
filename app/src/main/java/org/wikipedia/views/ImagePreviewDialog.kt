@@ -24,13 +24,10 @@ import org.wikipedia.util.log.L
 
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
-
     private var fileName: String? = null
     private lateinit var imageInfo: ImageInfo
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val app = WikipediaApp.getInstance()
-
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
 
         setConditionalLayoutDirection(rootView, WikipediaApp.getInstance().language().appLanguageCode)
