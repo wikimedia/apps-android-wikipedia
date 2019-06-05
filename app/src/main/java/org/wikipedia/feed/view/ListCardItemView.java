@@ -117,7 +117,7 @@ public class ListCardItemView extends ConstraintLayout {
         return callback;
     }
 
-    @VisibleForTesting @Nullable HistoryEntry getHistoryEntPagery() {
+    @VisibleForTesting @Nullable HistoryEntry getHistoryEntry() {
         return entry;
     }
 

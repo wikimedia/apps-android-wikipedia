@@ -85,7 +85,6 @@ import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_I
 import static org.wikipedia.readinglist.ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
-import static org.wikipedia.views.PageItemView.IMAGE_CONTAINER_MARGIN;
 
 public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
@@ -586,10 +585,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 getView().setDescriptionMaxLines(2);
                 getView().setDescriptionEllipsis();
                 getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
-                getView().setImageContainerEndMargin(IMAGE_CONTAINER_MARGIN);
             } else {
                 getView().hideChipGroup();
-                getView().setImageContainerEndMargin(0);
             }
 
         }

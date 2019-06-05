@@ -61,7 +61,6 @@ import io.reactivex.Completable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
-import static org.wikipedia.views.PageItemView.IMAGE_CONTAINER_MARGIN;
 
 public class HistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
@@ -396,7 +395,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             getView().setTitle(indexedEntry.getEntry().getTitle().getDisplayText());
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
             getView().setImageUrl(imageUrl);
-            getView().setImageContainerEndMargin(IMAGE_CONTAINER_MARGIN);
             getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()), imageUrl);
             PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), available -> getView().setViewsGreyedOut(!available));
 

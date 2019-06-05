@@ -56,7 +56,6 @@ public class ReadingListItemView extends ConstraintLayout {
     @BindView(R.id.item_description) TextView descriptionView;
 
     @BindView(R.id.default_list_empty_image) ImageView defaultListEmptyView;
-
     @BindView(R.id.item_overflow_menu) View overflowView;
     @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<SimpleDraweeView> imageViews;
 
@@ -162,11 +161,9 @@ public class ReadingListItemView extends ConstraintLayout {
         clearThumbnails();
     }
 
-
     public void setOverflowViewVisibility(int visibility) {
         overflowView.setVisibility(visibility);
     }
-
 
     private void updateDetails() {
         if (readingList == null) {
@@ -217,9 +214,8 @@ public class ReadingListItemView extends ConstraintLayout {
     }
 
     private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
-
-            ViewUtil.loadImageUrlInto(view, url);
-        }
+        ViewUtil.loadImageUrlInto(view, url);
+    }
 
     @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {
         float listSize = statsTextListSize(readingList);
@@ -247,6 +243,7 @@ public class ReadingListItemView extends ConstraintLayout {
     @NonNull private String getString(@StringRes int id, @Nullable Object... formatArgs) {
         return getResources().getString(id, formatArgs);
     }
+
     private class OverflowMenuClickListener implements PopupMenu.OnMenuItemClickListener {
         @Nullable private ReadingList list;
 

@@ -211,12 +211,6 @@ public class PageItemView<T> extends ConstraintLayout {
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
-    public void setImageContainerEndMargin(int dimension) {
-        ViewGroup.MarginLayoutParams params = (MarginLayoutParams) imageView.getLayoutParams();
-        params.setMargins(0, 0, dimension, 0);
-        imageView.setLayoutParams(params);
-    }
-
     private void updateSelectedState(@Nullable String imageUrl) {
         if (selected) {
             imageSelectedView.setVisibility(VISIBLE);
