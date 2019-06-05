@@ -227,7 +227,8 @@ public class DescriptionEditFragment extends Fragment {
 
     private class EditViewCallback implements DescriptionEditView.Callback {
         private final WikiSite wikiData = new WikiSite(Service.WIKIDATA_URL, "");
-        private final WikiSite wikiCommons = new WikiSite(Service.COMMONS_URL, "");
+        private final WikiSite wikiCommons = new WikiSite(Service.COMMONS_URL);
+        private final String commonsDbName = "commonswiki";
 
         @Override
         public void onSaveClick() {
@@ -239,8 +240,11 @@ public class DescriptionEditFragment extends Fragment {
 
                 cancelCalls();
 
-                csrfClient = new CsrfTokenClient(new WikiSite(Service.WIKIDATA_URL, ""),
-                        pageTitle.getWikiSite());
+                if (invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
+                    csrfClient = new CsrfTokenClient(wikiCommons, wikiCommons);
+                } else {
+                    csrfClient = new CsrfTokenClient(wikiData, pageTitle.getWikiSite());
+                }
                 getEditTokenThenSave(false);
 
                 if (funnel != null) {
@@ -319,15 +323,10 @@ public class DescriptionEditFragment extends Fragment {
         }
 
         private Observable<MwPostResponse> getPostService(@NonNull String editToken, @Nullable String languageCode) {
-            L.d("getPostService languageCode " + languageCode);
-            L.d("getPostService pageTitle.getWikiSite().languageCode() " + pageTitle.getWikiSite().languageCode());
-            L.d("getPostService pageTitle.getWikiSite().dbName() " + pageTitle.getWikiSite().dbName());
-            L.d("getPostService pageTitle.getConvertedText() " + pageTitle.getConvertedText());
-            L.d("getPostService editView.getDescription() " + editView.getDescription());
             if (invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
-                // TODO: update funnel & check the language code for zh-variant
+                // TODO: update funnel
                 return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
-                        pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
+                        pageTitle.getWikiSite().languageCode(), commonsDbName,
                         pageTitle.getConvertedText(), editView.getDescription(),
                         invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
