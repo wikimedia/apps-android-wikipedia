@@ -107,7 +107,6 @@
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
         android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
         app:roundedCornerRadius="2dp" />
