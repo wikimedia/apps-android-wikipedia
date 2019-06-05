@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <org.wikipedia.views.FaceAndColorDetectImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/viewArticleImage"
         style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="40dp"
@@ -61,15 +61,13 @@
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintVertical_weight="1" />
 
-    <org.wikipedia.views.FaceAndColorDetectImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/viewImageThumbnail"
         style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:gravity="center_vertical"
-        android:text="@string/description_edit_read"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

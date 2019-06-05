@@ -1,10 +1,8 @@
 package org.wikipedia.descriptions
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.NonNull
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
 import org.wikipedia.R
@@ -14,6 +12,8 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ViewUtil
+
 
 class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ConstraintLayout(context, attrs, defStyle) {
@@ -39,7 +39,7 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
             viewArticleImage!!.visibility = GONE
         } else {
             viewArticleImage!!.visibility = VISIBLE
-            viewArticleImage!!.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+            ViewUtil.loadImageUrlInto(viewArticleImage!!, pageSummary.thumbnailUrl)
         }
         viewImageThumbnail.visibility = View.GONE
         viewReadButton.visibility = View.VISIBLE
@@ -60,7 +60,7 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
             viewImageThumbnail!!.visibility = GONE
         } else {
             viewImageThumbnail.visibility = View.VISIBLE
-            viewImageThumbnail!!.loadImage(Uri.parse(thumbUrl))
+            ViewUtil.loadImageUrlInto(viewImageThumbnail!!, thumbUrl)
         }
 
         viewReadButton.visibility = View.GONE
