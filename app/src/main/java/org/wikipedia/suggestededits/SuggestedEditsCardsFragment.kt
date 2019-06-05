@@ -248,7 +248,7 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && source == SUGGESTED_EDITS_TRANSLATE_DESC) VISIBLE else GONE
+                && source.name.contains(INVOKE_SOURCE_KEYWORD_TRANSLATION)) VISIBLE else GONE
     }
 
     private fun updateFromLanguageSpinner() {
