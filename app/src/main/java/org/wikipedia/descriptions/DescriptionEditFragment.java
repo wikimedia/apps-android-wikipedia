@@ -227,6 +227,7 @@ public class DescriptionEditFragment extends Fragment {
 
     private class EditViewCallback implements DescriptionEditView.Callback {
         private final WikiSite wikiData = new WikiSite(Service.WIKIDATA_URL, "");
+        private final WikiSite wikiCommons = new WikiSite(Service.COMMONS_URL, "");
 
         @Override
         public void onSaveClick() {
@@ -325,7 +326,7 @@ public class DescriptionEditFragment extends Fragment {
             L.d("getPostService editView.getDescription() " + editView.getDescription());
             if (invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
                 // TODO: update funnel & check the language code for zh-variant
-                return ServiceFactory.get(wikiData).postLabelEdit(pageTitle.getWikiSite().languageCode(),
+                return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
                         pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
                         pageTitle.getConvertedText(), editView.getDescription(),
                         invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
