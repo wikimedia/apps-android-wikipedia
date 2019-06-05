@@ -128,8 +128,7 @@
                         android:layout_height="24dp"
                         android:layout_marginEnd="8dp"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_add_gray_white_24dp"
-                        app:tint="@color/base100" />
+                        app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
                     <TextView
                         android:id="@+id/addContributionText"
@@ -137,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/suggested_edits_add_description_button"
                         android:textAllCaps="true"
-                        android:textColor="?attr/paper_color" />
+                        android:textColor="@color/base100" />
                 </LinearLayout>
             </FrameLayout>
 

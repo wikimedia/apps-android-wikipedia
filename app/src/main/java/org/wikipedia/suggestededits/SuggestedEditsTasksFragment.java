@@ -222,6 +222,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
 
             if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
                 displayedTasks.add(addImageCaptionsTask);
+                addImageCaptionsTask.setDisabled(false);
 
                 if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                     displayedTasks.add(translateImageCaptionsTask);
