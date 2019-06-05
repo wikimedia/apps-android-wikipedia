@@ -68,7 +68,6 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         } else {
             pageItemImageView.setVisibility(View.VISIBLE);
             pageItemImageView.loadImage(Uri.parse(url));
-
         }
     }
 

@@ -65,7 +65,6 @@ public class PageItemView<T> extends ConstraintLayout {
     @Nullable private Callback<T> callback;
     @Nullable private T item;
     private boolean selected;
-    public static final int IMAGE_CONTAINER_MARGIN = DimenUtil.roundedDpToPx(16);
 
     public PageItemView(@NonNull Context context) {
         super(context);
