@@ -52,7 +52,7 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                         sourceSummary = pair.second
                         targetSummary = pair.first
 
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(SuggestedEditsType.TRANSLATE_DESCRIPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(SuggestedEditsType.TRANSLATE_IMAGE_CAPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
 
                         if (callback == null) {
                             FeedCoordinator.postCardsToCallback(cb!!, if (pair == null) emptyList<Card>() else listOf(card))
@@ -70,7 +70,7 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                     .subscribe({ pageSummary ->
                         sourceSummary = pageSummary
 
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(SuggestedEditsType.ADD_DESCRIPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(SuggestedEditsType.TRANSLATE_IMAGE_CAPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
 
                         if (callback == null) {
                             FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))

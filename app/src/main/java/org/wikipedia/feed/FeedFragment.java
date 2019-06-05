@@ -246,12 +246,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     private void startDescriptionEditScreen() {
-        PageTitle pageTitle = suggestedEditsCardView.suggestedEditsType == TRANSLATE_DESCRIPTION
-                ? suggestedEditsCardView.getTargetSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getTargetSummary().getLang()))
-                : suggestedEditsCardView.getSourceSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getSourceSummary().getLang()));
+        PageTitle pageTitle = suggestedEditsCardView.getCard().getSuggestedEditsType() == TRANSLATE_DESCRIPTION
+                ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getCard().getTargetSummary().getLang()))
+                : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getCard().getSourceSummary().getLang()));
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,
-                suggestedEditsCardView.getSourceSummary(), suggestedEditsCardView.getTargetSummary(),
-                suggestedEditsCardView.suggestedEditsType == TRANSLATE_DESCRIPTION ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
+                suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
+                suggestedEditsCardView.getCard().getSuggestedEditsType() == TRANSLATE_DESCRIPTION ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 

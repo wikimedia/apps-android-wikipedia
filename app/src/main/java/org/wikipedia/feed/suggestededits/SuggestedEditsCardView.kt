@@ -9,8 +9,6 @@ import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
-import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.*
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
@@ -24,9 +22,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
-    lateinit var suggestedEditsType: SuggestedEditsType
-    var sourceSummary: RbPageSummary? = null
-    var targetSummary: RbPageSummary? = null
+    private var card: SuggestedEditsCard? = null
 
     init {
         inflate(getContext(), R.layout.view_suggested_edit_card, this)
@@ -34,19 +30,15 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
+        this.card = card
 
-        suggestedEditsType = card.suggestedEditsType
-        sourceSummary = card.sourceSummary
-        targetSummary = card.targetSummary
-
-        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(sourceSummary!!.lang), this)
+        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary!!.lang), this)
 
         cardView.setOnClickListener {
             if (callback != null) {
                 callback!!.onSuggestedEditsCardClick(this)
             }
         }
-        viewArticleSubtitle.visibility = View.GONE
         header(card)
         updateContents()
     }
@@ -57,28 +49,57 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun updateContents() {
-        if (suggestedEditsType==TRANSLATE_DESCRIPTION) {
-            sourceDescription = sourceSummary!!.description!!.capitalize()
-            viewArticleSubtitle.visibility = View.VISIBLE
-            viewArticleSubtitle.text = sourceDescription
+        viewArticleSubtitle.visibility = View.GONE
+        when (card!!.suggestedEditsType) {
+            ADD_DESCRIPTION -> showAddDescriptionUI()
+            TRANSLATE_DESCRIPTION -> showTranslateDescriptionUI()
+            ADD_IMAGE_CAPTION -> showAddImageCaptionUI()
+            TRANSLATE_IMAGE_CAPTION -> showTranslateImageCaptionUI()
         }
-        viewArticleTitle.text = sourceSummary!!.normalizedTitle
-        callToActionText.text = if (suggestedEditsType==TRANSLATE_DESCRIPTION) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
+
+    }
+
+    private fun showAddDescriptionUI() {
+        viewArticleTitle.text = card!!.sourceSummary!!.normalizedTitle
+        callToActionText.text = if (card!!.suggestedEditsType == TRANSLATE_DESCRIPTION) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
+    private fun showTranslateDescriptionUI() {
+        sourceDescription = card!!.sourceSummary!!.description!!.capitalize()
+        viewArticleSubtitle.visibility = View.VISIBLE
+        viewArticleSubtitle.text = sourceDescription
+        showAddDescriptionUI()
+    }
+
+    private fun showAddImageCaptionUI() {
+        viewArticleImage.visibility = View.VISIBLE
+        viewArticleExtract.visibility = View.GONE
+        divider.visibility = View.GONE
+        viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
+        viewArticleTitle.text = card!!.imageFileName()
+        callToActionText.text = if (card!!.suggestedEditsType == TRANSLATE_IMAGE_CAPTION) String.format(context.getString(R.string.suggested_edits_feed_card_translate_image_caption), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
+    }
+
+    private fun showTranslateImageCaptionUI() {
+        sourceDescription = card!!.sourceSummary!!.description!!.capitalize()
+        viewArticleSubtitle.visibility = View.VISIBLE
+        viewArticleSubtitle.text = sourceDescription
+        showAddImageCaptionUI()
+    }
+
     private fun showImageOrExtract() {
-        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
+        if (card!!.sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = View.GONE
             viewArticleExtract.visibility = View.VISIBLE
             divider.visibility = View.VISIBLE
-            viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
+            viewArticleExtract.text = StringUtil.fromHtml(card!!.sourceSummary!!.extractHtml)
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = View.VISIBLE
             viewArticleExtract.visibility = View.GONE
             divider.visibility = View.GONE
-            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+            viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
         }
     }
 
@@ -87,7 +108,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(R.color.base30)
-                .setLangCode(if (suggestedEditsType==TRANSLATE_DESCRIPTION) card.wikiSite().languageCode() else "")
+                .setLangCode(if (card.suggestedEditsType == TRANSLATE_DESCRIPTION) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }

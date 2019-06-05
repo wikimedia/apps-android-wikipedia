@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.ADD_DESCRIPTION;
+import static org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.TRANSLATE_DESCRIPTION;
 
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
@@ -91,7 +91,7 @@ public enum FeedContentType implements EnumCode {
                     return new SuggestedEditsFeedClient(!(age % 2 == 0) && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION);
                 }
                 return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(!(age % 2 == 0) && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) : null;*/
-                return new SuggestedEditsFeedClient(ADD_DESCRIPTION);
+                return new SuggestedEditsFeedClient(TRANSLATE_DESCRIPTION);
             }
             return null;
         }
