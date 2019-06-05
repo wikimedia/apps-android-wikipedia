@@ -132,7 +132,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         @Override
         public void onDismiss(DialogInterface dialogInterface) {
             pageFragment.updateBookmarkAndMenuOptionsFromDao();
-            pageFragment.getBottomContentView().updateBookmark();
         }
     };
 

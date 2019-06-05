@@ -471,7 +471,4 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
     }
 
-    public void updateBookmark() {
-        ((ReadMoreAdapter) readMoreList.getAdapter()).notifyDataSetChanged();
-    }
 }
