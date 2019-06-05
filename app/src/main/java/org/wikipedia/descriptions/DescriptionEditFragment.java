@@ -318,15 +318,21 @@ public class DescriptionEditFragment extends Fragment {
         }
 
         private Observable<MwPostResponse> getPostService(@NonNull String editToken, @Nullable String languageCode) {
+            L.d("getPostService languageCode " + languageCode);
+            L.d("getPostService pageTitle.getWikiSite().languageCode() " + pageTitle.getWikiSite().languageCode());
+            L.d("getPostService pageTitle.getWikiSite().dbName() " + pageTitle.getWikiSite().dbName());
+            L.d("getPostService pageTitle.getConvertedText() " + pageTitle.getConvertedText());
+            L.d("getPostService editView.getDescription() " + editView.getDescription());
             if (invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
-                return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
+                // TODO: update funnel & check the language code for zh-variant
+                return ServiceFactory.get(wikiData).postLabelEdit(pageTitle.getWikiSite().languageCode(),
                         pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
                         pageTitle.getConvertedText(), editView.getDescription(),
                         invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
             } else {
-                return ServiceFactory.get(wikiData).postLabelEdit(languageCode,
+                return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                         pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
                         pageTitle.getConvertedText(), editView.getDescription(),
                         invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT

@@ -18,7 +18,6 @@ class DescriptionEditReviewView @JvmOverloads constructor(
     init {
         inflate(context, R.layout.view_description_edit_review, this)
         licenseView.buildLicenseNotice(false)
-        licenseView.removeUnderlinesFromLinks()
     }
 
     val isShowing: Boolean
@@ -56,6 +55,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
             articleImage.loadImage(Uri.parse(summary.thumbnailUrl))
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
+        licenseView.removeUnderlinesFromLinks()
     }
 
     private fun setGalleryReviewView(summary: SuggestedEditsSummary, description: String) {

@@ -82,7 +82,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribe({ pair ->
                             sourceSummary = SuggestedEditsSummary(pair.second)
                             targetSummary = SuggestedEditsSummary(pair.first)
-                            targetPageTitle = targetSummary!!.getPageTitle(WikiSite.forLanguageCode(targetSummary!!.lang))
+                            targetPageTitle = targetSummary!!.pageTitle
                             updateContents()
                         }, { this.setErrorState(it) })!!)
             }
@@ -98,13 +98,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .flatMap { pair ->
                             sourceSummary = SuggestedEditsSummary(pair.second, pair.first, parent().langFromCode)
                             targetSummary = SuggestedEditsSummary(pair.second, null, parent().langToCode)
-                            targetPageTitle = PageTitle(
-                                    pair.second.namespace().name,
-                                    pair.second.title(),
-                                    pair.second.imageInfo()!!.thumbUrl,
-                                    null,
-                                    WikiSite.forLanguageCode(parent().langToCode)
-                            )
+                            targetPageTitle = targetSummary!!.pageTitle
                             ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second.title())
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())

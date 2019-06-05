@@ -9,6 +9,8 @@ import org.wikipedia.util.StringUtil
 
 class SuggestedEditsSummary {
 
+    // TODO: verify the following variables' access level
+    val pageTitle: PageTitle
     var title: String
     var lang: String
     var normalizedTitle: String? = null
@@ -29,21 +31,19 @@ class SuggestedEditsSummary {
         thumbnailUrl = rbPageSummary.thumbnailUrl
         extractHtml = rbPageSummary.extractHtml
         lang = rbPageSummary.lang
+        pageTitle = rbPageSummary.getPageTitle(WikiSite.forLanguageCode(lang))
     }
 
     constructor(mwQueryPage: MwQueryPage, caption: String?, langCode: String) {
-        title = mwQueryPage.title()
-        normalizedTitle = StringUtil.removeUnderscores(mwQueryPage.title())
-        displayTitle = StringUtil.removeHTMLTags(mwQueryPage.title())
+        title = StringUtil.removeNamespace(mwQueryPage.title())
+        normalizedTitle = StringUtil.removeUnderscores(title)
+        displayTitle = StringUtil.removeHTMLTags(title)
         description = caption
         thumbnailUrl = if (mwQueryPage.imageInfo() != null) mwQueryPage.imageInfo()!!.thumbUrl else mwQueryPage.thumbUrl()
         originalUrl = if (mwQueryPage.imageInfo() != null) mwQueryPage.imageInfo()!!.originalUrl else thumbnailUrl
         user = mwQueryPage.imageInfo()!!.user
         timestamp = mwQueryPage.imageInfo()!!.timestamp
         lang = langCode
-    }
-
-    fun getPageTitle(wiki: WikiSite): PageTitle {
-        return PageTitle(title, wiki, thumbnailUrl, description)
+        pageTitle = PageTitle(mwQueryPage.namespace().name, title, null, thumbnailUrl, WikiSite.forLanguageCode(lang))
     }
 }
