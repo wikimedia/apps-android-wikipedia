@@ -163,37 +163,6 @@ public final class ReadingListsTest {
         waitFor(WAIT_FOR_500);
         ScreenshotTools.snap("ReadingListRemoveOffline" + mode);
         waitFor(WAIT_FOR_1000);
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, ViewTools.clickChildViewWithId(R.id.page_list_item_action_primary)));
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("ReadingListFragmentArticleOverflow" + mode);
-        waitFor(WAIT_FOR_1000);
-        onView(withText("Add to another reading list")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("AddToAnotherListDialog" + mode);
-
-        onView(withText("Create new")).perform(click());
-        waitFor(WAIT_FOR_2000);
-        ScreenshotTools.snap("CreateNewReadingListDialog" + mode);
-
-        onView(withText("OK")).perform(click());
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, ViewTools.clickChildViewWithId(R.id.page_list_item_action_primary)));
-        waitFor(WAIT_FOR_1000);
-        onView(withText("Add to another reading list")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        onView(withText("Create new")).perform(click());
-
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("CreateNewReadingListDialogNameError" + mode);
-
-        onView(withText("Cancel")).perform(click());
-        pressBack();
-
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, ViewTools.clickChildViewWithId(R.id.page_list_item_action_primary)));
-        onView(withText("Remove from Saved")).perform(click());
-        ScreenshotTools.snap("ArticleDeletedRationale" + mode);
     }
 
     private void captureAddingArticleToDefaultList(String mode) {

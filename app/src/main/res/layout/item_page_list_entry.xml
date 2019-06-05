@@ -2,6 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:minHeight="48dp"
     tools:layout_height="wrap_content"
     tools:layout_width="match_parent"
     tools:paddingTop="16dp"
@@ -106,9 +107,9 @@
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
         android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:roundedCornerRadius="2dp" />
 
 
@@ -136,19 +137,4 @@
             app:singleLine="true"
             app:singleSelection="true" />
     </HorizontalScrollView>
-
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/page_list_item_action_primary"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@null"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
-        app:layout_constraintTop_toTopOf="@id/page_list_item_title"
-        app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
-        app:tint="?attr/material_theme_secondary_color"
-        tools:visibility="visible" />
 </merge>

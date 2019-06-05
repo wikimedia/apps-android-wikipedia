@@ -405,11 +405,6 @@ public class BottomContentView extends LinearLayoutOverWebView
             PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
 
-            ImageView primaryActionBtn = itemView.findViewById(R.id.page_list_item_action_primary);
-            primaryActionBtn.setVisibility(VISIBLE);
-            if (firstTimeShown) {
-                setPrimaryActionDrawable(primaryActionBtn, pageTitle);
-            }
             final int paddingEnd = 8;
             itemView.setPaddingRelative(itemView.getPaddingStart(), itemView.getPaddingTop(),
                     DimenUtil.roundedDpToPx(paddingEnd), itemView.getPaddingBottom());
@@ -419,15 +414,6 @@ public class BottomContentView extends LinearLayoutOverWebView
             itemView.setDescription(StringUtils.capitalize(pageTitle.getDescription()));
             itemView.setImageUrl(pageTitle.getThumbUrl());
             return itemView;
-        }
-
-        private void setPrimaryActionDrawable(ImageView primaryActionBtn, PageTitle pageTitle) {
-            disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle) != null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(exists -> primaryActionBtn.setImageResource(exists
-                            ? R.drawable.ic_bookmark_white_24dp
-                            : R.drawable.ic_bookmark_border_black_24dp), L::w));
         }
 
         @Override public void onClick(@Nullable RbPageSummary item) {
@@ -459,8 +445,6 @@ public class BottomContentView extends LinearLayoutOverWebView
                                 public void onDeleted(@Nullable ReadingListPage page) {
                                     FeedbackUtil.showMessage((Activity) getContext(),
                                             getContext().getString(R.string.reading_list_item_deleted, pageTitle.getDisplayText()));
-                                    setPrimaryActionDrawable((ImageView) view, pageTitle);
-
                                 }
 
                                 @Override

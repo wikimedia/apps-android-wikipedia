@@ -190,12 +190,6 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.page_list_item_action_primary) void onActionClick(View v) {
-        if (callback != null) {
-            callback.onActionClick(item, v);
-        }
-    }
-
     @OnClick(R.id.page_list_item_action_secondary) void onSecondaryActionClick() {
         if (callback != null) {
             callback.onSecondaryActionClick(item, this);
