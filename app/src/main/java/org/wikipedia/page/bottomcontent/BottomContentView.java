@@ -1,6 +1,5 @@
 package org.wikipedia.page.bottomcontent;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -33,12 +32,8 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingList;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
@@ -58,7 +53,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.Constants.InvokeSource.READ_MORE_BOOKMARK_BUTTON;
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -403,11 +397,6 @@ public class BottomContentView extends LinearLayoutOverWebView
             RbPageSummary result = getItem(position);
             PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
-
-            final int paddingEnd = 8;
-            itemView.setPaddingRelative(itemView.getPaddingStart(), itemView.getPaddingTop(),
-                    DimenUtil.roundedDpToPx(paddingEnd), itemView.getPaddingBottom());
-
             itemView.setCallback(this);
             itemView.setTitle(pageTitle.getDisplayText());
             itemView.setDescription(StringUtils.capitalize(pageTitle.getDescription()));
@@ -422,44 +411,14 @@ public class BottomContentView extends LinearLayoutOverWebView
             funnel.logSuggestionClicked(page.getTitle(), readMoreItems, results.indexOf(item));
         }
 
-        @Override public void onActionClick(@Nullable RbPageSummary item, @NonNull View view) {
-            if (item == null) {
-                return;
-            }
-            PageTitle pageTitle = item.getPageTitle(page.getTitle().getWikiSite());
-            disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle) != null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(pageInList -> {
-                        if (!pageInList) {
-                            parentFragment.addToReadingList(pageTitle, READ_MORE_BOOKMARK_BUTTON);
-                        } else {
-                            new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
-                                @Override
-                                public void onAddRequest(@Nullable ReadingListPage page) {
-                                    parentFragment.addToReadingList(pageTitle, READ_MORE_BOOKMARK_BUTTON);
-                                }
-
-                                @Override
-                                public void onDeleted(@Nullable ReadingListPage page) {
-                                    FeedbackUtil.showMessage((Activity) getContext(),
-                                            getContext().getString(R.string.reading_list_item_deleted, pageTitle.getDisplayText()));
-                                }
-
-                                @Override
-                                public void onShare() {
-                                    // ignore
-                                }
-                            }).show(pageTitle);
-                        }
-                    }, L::w));
-        }
-
         @Override public boolean onLongClick(@Nullable RbPageSummary item) {
             return false;
         }
 
         @Override public void onThumbClick(@Nullable RbPageSummary item) {
+        }
+
+        @Override public void onActionClick(@Nullable RbPageSummary item, @NonNull View view) {
         }
 
         @Override public void onSecondaryActionClick(@Nullable RbPageSummary item, @NonNull View view) {

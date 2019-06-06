@@ -124,8 +124,11 @@
   <string name="reset_password_button">Gardar e acceder</string>
   <string name="preference_title_logout">Saír</string>
   <string name="toast_logout_complete">Sesión pechada</string>
-  <string name="logout_prompt" fuzzy="true">Está seguro de que quere pechar a sesión?</string>
+  <string name="logout_prompt">Pecharanse as sesións de tódolos dispositivos nos que está conectado. Quere continuar?</string>
   <string name="logout_dialog_cancel_button_text">Cancelar</string>
+  <string name="logged_out_in_background_title">Sesión pechada</string>
+  <string name="logged_out_in_background_dialog">Pechouse a súa sesión en Wikipedia. Quere comezar a sesión de novo?</string>
+  <string name="logged_out_in_background_login">Acceder ao sistema</string>
   <string name="logged_out_in_background_cancel">Cancelar</string>
   <string name="history_empty_title">Non hai artigos vistos recentemente</string>
   <string name="history_empty_message">Manter un rexistro do que fuches lendo aquí.</string>
@@ -261,7 +264,7 @@
   <string name="preference_summary_show_images">Activar ou desactivar a carga de imaxes nas páxinas. Desmarque esta opción se a súa conexión á internet é lenta, ou se o seu plan de datos é limitado.</string>
   <string name="preference_title_download_only_over_wifi">Descargar só mediante Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirma a descarga usando datos móbiles?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Ten activado \"Descargar só mediante Wi-Fi\". Quere permitir o uso do plan de datos móbiles só durante esta descarga?</string>
+  <string name="dialog_text_download_only_over_wifi">Ten activado \"Descargar só mediante Wi-Fi\". Quere permitir o uso do plan de datos móbiles só durante esta descarga?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Ler máis</string>
   <string name="about_article_section">Acerca deste artigo</string>
@@ -407,6 +410,7 @@
   <string name="reading_list_add_to_other_list">Engadir a outra lista de lectura</string>
   <string name="reading_list_remove_from_list">Eliminar de %s</string>
   <string name="reading_list_remove_from_lists">Eliminar das listas de lectura</string>
+  <string name="reading_list_select_item">Seleccionar</string>
   <string name="reading_list_confirm_remove_article_from_offline">Quitar das listas sen conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s xa non estará dispoñible sen conexión en ningunha lista de lectura:</string>
@@ -579,6 +583,7 @@
   <string name="feed_item_type_featured_image">Imaxe destacada do día en Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Páxina principal de Wikipedia co contido destacado diario</string>
   <string name="feed_item_type_randomizer">Xerar artigos aleatorios para ler</string>
+  <string name="feed_item_type_suggested_edits">Suxestións para engadir contido a Wikipedia</string>
   <string name="feed_empty_message">Non hai nada na súa canle Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -622,11 +627,24 @@
   <string name="suggested_edits_my_contributions">As miñas contribucións</string>
   <string name="suggested_edits_added_by_you">Engadidas por vostedeː</string>
   <string name="suggested_edits_translated_by_you">Traducidas por vostedeː</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Desbloqueou \"Engadir descricións\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Grazas polas súas achegas constantesǃ Porque é moi bo editando, compilamos unha lista de artigos nos que falta a descrición de título. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Desbloqueou \"Traducir descricións\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Grazas pola súa contribución constanteǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Quizais máis tarde</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Desbloqueou a tarefa \"Engadir descricións\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grazas por tódalas súas achegasǃ Porque é moi bo editando, compilamos unha lista de artigos nos que falta a descrición de título. Pode axudarnos a mellorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloqueou a tarefa \"Traducir descricións\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Felicidades polas moitas contribucións que fixo, estamos impresionadosǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
+  <string name="suggested_edits_unlock_dialog_no">Quizais máis tarde</string>
+  <string name="suggested_edits_unlock_dialog_yes">Si, continuar</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Desbloqueou \"Engadir descricións\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Desbloqueou \"Traducir descricións\"</string>
+  <string name="suggested_edits_unlock_notification_text">Edicións suxeridas</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edicións suxeridas\n\nGrazas por tódalas súas contribucións. Como é un editor fantástico, compilamos unha lista de artigos ós que lles falta a descrición. Pode axudarnos a mellorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edicións suxeridas\n\nFelicidades polas moitas contribucións que fixo, estamos impresionadosǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
+  <string name="suggested_edits_unlock_notification_button">Si, continuar</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Desbloqueou a tarefa \"Engadir pés de imaxes\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Desbloqueou \"Engadir pés de imaxes\"</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Grazas por tódalas súas contribuciónsǃ Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha alista de imaxes ás que lles falta o pé. Pode axudarnos a mellorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Edicións suxeridas\n\nGrazas por tódalas súas contribucións. Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha lista de imaxes que non teñen o pé. Quere axudarnos a mellorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Desbloqueou a tarefa \"Traducir pés de imaxe\"</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Desbloqueou \"Traducir pés de imaxe\"</string>
   <string name="suggested_edits_menu_info">Información</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tarefas de editor</string>
   <string name="suggested_edits_task_add_description_title">Engadir descricións</string>
@@ -647,8 +665,11 @@
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribucións</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Edicións suxeridas</string>
   <string name="suggested_edits_tutorial_message">Benvido á nova páxina inicial de edición rápida da aplicación da Wikipedia. As súas contribucións son moi apreciadas. Boas ediciónsǃ</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Comezar</string>
+  <string name="suggested_edits_add_translation_button_label">Engadir unha tradución</string>
+  <string name="suggested_edits_edit_translation_button_label">Editar tradución</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
