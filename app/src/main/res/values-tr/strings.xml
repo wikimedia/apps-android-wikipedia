@@ -40,7 +40,7 @@
   <string name="nav_item_forward">İleri</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="search_hint_search_history">Arama geçmişi</string>
-  <string name="search_hint_search_languages">Bu dilde ara</string>
+  <string name="search_hint_search_languages">Bir dilde ara</string>
   <string name="search_hint_search_my_lists_and_articles">Listelerimde ve makalelerimde ara</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
@@ -65,7 +65,7 @@
   <string name="image_share_via">Şununla paylaş</string>
   <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
-  <string name="menu_page_other_languages">Başka dilde oku</string>
+  <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Sayfada bul</string>
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
@@ -99,14 +99,14 @@
   <string name="edit_save_action_license_anon">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="preference_title_language">Vikipedi dilleri</string>
   <string name="langlinks_filter_hint">Ara</string>
-  <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
+  <string name="langlinks_empty">Bu sayfa, diğer dillerde mevcut değil.</string>
   <string name="langlinks_no_match">Dil bulunamadı</string>
   <string name="langlinks_activity_title">Diğer diller</string>
   <string name="langlinks_your_wikipedia_languages">Vikipedi dilleriniz</string>
   <string name="menu_save_changes">Değişiklikleri yayımla</string>
   <string name="dialog_saving_in_progress">Yayımlanıyor...</string>
   <string name="edit_saved_successfully">Düzenleme yayımlandı!</string>
-  <string name="dialog_message_edit_failed">Değişiklik başarısız!</string>
+  <string name="dialog_message_edit_failed">Değişiklik başarısız oldu!</string>
   <string name="dialog_message_edit_failed_retry">Tekrar dene</string>
   <string name="dialog_message_edit_failed_cancel">İptal</string>
   <string name="dialog_message_leaving_edit">Yaptığınız değişiklikler henüz yayımlanmadı. Bu sayfadan ayrılmak istediğinizden emin misiniz?</string>
@@ -118,16 +118,16 @@
   <string name="search_reading_lists_no_results">Okuma listelerinde sonuç bulunamadı</string>
   <string name="search_history_no_results">Geçmişte sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için aşağıda görünen kelimeleri yazınız.</string>
-  <string name="edit_section_captcha_request_an_account_message">Resmi göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap isteyin&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Resmi göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap talep edin&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
-  <string name="title_captcha">CAPTCHA\'yı girin</string>
+  <string name="title_captcha">Güvenlik kodunu girin</string>
   <string name="edit_section_captcha_reload">Güvenlik kodunu yenilemek için üzerine dokunun</string>
   <string name="nav_item_login">Vikipedi\'de oturum aç</string>
   <string name="login_username_hint">Kullanıcı adı</string>
   <string name="login_password_hint">Parola</string>
   <string name="account_creation_password_hint">Parola</string>
   <string name="login_2fa_hint">İki Aşamalı Doğrulama Kodu</string>
-  <string name="login_2fa_other_workflow_error_msg">İki faktörlü kimlik doğrulaması gerekli. Lütfen ana faaliyetinize dönün ve 2FKD anahtarınızla giriş yapıp, ardından tekrar deneyin.</string>
+  <string name="login_2fa_other_workflow_error_msg">İki faktörlü kimlik doğrulaması gerekli. Lütfen ana faaliyetinize dönün ve 2FKD anahtarınızla giriş yapıp ardından tekrar deneyin.</string>
   <string name="onboarding_card_login">Oturum aç</string>
   <string name="page_editing_login">Oturum aç</string>
   <string name="reading_lists_sync_login">Oturum aç</string>
@@ -647,7 +647,7 @@
   <string name="suggested_edits_translated_by_you">Senin çevirdiklerin:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Açıklama ekle\" görevini açtınız</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tüm katkılarınız için teşekkürler! Düzenleme konusunda çok iyi olduğunuzdan açıklamaların eksik olduğu bir madde listesi hazırladık. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Başlık açıklamaları çevirilerine dair düzenleme kilidi açıldı!</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"Açıklamaları çevir\" görevinin kilidini açtınız</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Katkılarınızdan dolayı tebrikler, çok etkilendik! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle açıklama çevirileri gerektiren maddelerden oluşan bir liste hazırladık. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
   <string name="suggested_edits_unlock_dialog_no">Belki daha sonra</string>
   <string name="suggested_edits_unlock_dialog_yes">Evet, hadi yapalım</string>
