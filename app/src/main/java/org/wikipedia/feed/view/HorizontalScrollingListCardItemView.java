@@ -46,8 +46,10 @@ public class HorizontalScrollingListCardItemView extends CardView {
 
     public void setImage(@Nullable Uri image) {
         if (image == null) {
-            imageView.loadImage(R.drawable.lead_default);
+            imageView.setVisibility(GONE);
+            textView.setMaxLines(10);
         } else {
+            imageView.setVisibility(VISIBLE);
             imageView.loadImage(image);
         }
     }
