@@ -104,7 +104,7 @@
             style="@style/SimpleDraweeViewPlaceholder.SuggestedEditsReview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:actualImageScaleType="centerCrop"
+            app:actualImageScaleType="fitCenter"
             app:fadeDuration="0" />
 
         <org.wikipedia.views.AppTextView
