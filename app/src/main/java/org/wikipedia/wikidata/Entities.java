@@ -28,9 +28,9 @@ public class Entities extends MwResponse implements PostProcessingTypeAdapter.Po
 
     @Override
     public void postProcess() {
-//        if (getFirst() != null && getFirst().isMissing()) {
-//            throw new RuntimeException("The requested entity was not found.");
-//        }
+        if (getFirst() != null && getFirst().isMissing()) {
+            throw new RuntimeException("The requested entity was not found.");
+        }
     }
 
     public static class Entity {
