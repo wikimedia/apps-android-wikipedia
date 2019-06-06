@@ -36,8 +36,6 @@ import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
-import static org.wikipedia.Constants.INVOKE_SOURCE_KEYWORD_CAPTION;
-import static org.wikipedia.Constants.INVOKE_SOURCE_KEYWORD_TRANSLATION;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
@@ -128,7 +126,7 @@ public class DescriptionEditView extends LinearLayout {
     private int getHeaderTextRes(boolean inReview) {
         if (TextUtils.isEmpty(originalDescription)) {
             if (inReview) {
-                if (invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION)) {
+                if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
                     return R.string.suggested_edits_review_image_caption;
                 } else {
                     return R.string.suggested_edits_review_description;
@@ -151,10 +149,10 @@ public class DescriptionEditView extends LinearLayout {
 
     private CharSequence getLabelText(@NonNull String lang) {
         if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
-            return String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
+            return getContext().getString(R.string.description_edit_text_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
         } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-            return String.format(getContext().getString(R.string.description_edit_caption_hint_per_language),
+            return getContext().getString(R.string.description_edit_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
         } else {
             return getContext().getString(R.string.description_edit_article);
@@ -163,10 +161,10 @@ public class DescriptionEditView extends LinearLayout {
 
     private CharSequence getHintText(@NonNull String lang) {
         if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-            return String.format(getContext().getString(R.string.description_edit_caption_hint_per_language),
+            return getContext().getString(R.string.description_edit_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
         } else {
-            return String.format(getContext().getString(R.string.description_edit_text_hint_per_language),
+            return getContext().getString(R.string.description_edit_text_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
         }
     }
@@ -212,8 +210,8 @@ public class DescriptionEditView extends LinearLayout {
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
             setReviewHeaderText(true);
-            setDarkReviewScreen(invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION));
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource.name().contains(INVOKE_SOURCE_KEYWORD_CAPTION));
+            setDarkReviewScreen(invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION);
+            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION);
             pageReviewContainer.show();
             readArticleBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
@@ -334,6 +332,6 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setInvokeSource(InvokeSource source) {
         invokeSource = source;
-        isTranslationEdit = source.name().contains(INVOKE_SOURCE_KEYWORD_TRANSLATION);
+        isTranslationEdit = (source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION);
     }
 }

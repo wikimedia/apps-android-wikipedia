@@ -177,8 +177,6 @@ public class SuggestedEditsTasksFragment extends Fragment {
         translateImageCaptionsTask.setTitle(getString(R.string.suggested_edits_task_translate_caption_title));
         translateImageCaptionsTask.setDescription(getString(R.string.suggested_edits_task_translate_caption_description));
         translateImageCaptionsTask.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate));
-        // TODO: remove this
-        translateImageCaptionsTask.setDisabled(false);
 
         multilingualTeaserTask = new SuggestedEditsTask();
         multilingualTeaserTask.setTitle(getString(R.string.suggested_edits_task_multilingual_title));
@@ -217,9 +215,6 @@ public class SuggestedEditsTasksFragment extends Fragment {
 
             int targetForTranslateCaptions = editorTaskCounts.getCaptionEditTargets().get(1);
 
-            // TODO: remove this
-            displayedTasks.add(translateImageCaptionsTask);
-
             if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
                 displayedTasks.add(addImageCaptionsTask);
                 addImageCaptionsTask.setDisabled(false);
@@ -227,8 +222,11 @@ public class SuggestedEditsTasksFragment extends Fragment {
                 if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                     displayedTasks.add(translateImageCaptionsTask);
                     translateImageCaptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateCaptions));
-                    translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
-                    translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
+                    // TODO: remove it
+                    translateImageCaptionsTask.setShowActionLayout(false);
+                    translateImageCaptionsTask.setDisabled(false);
+//                    translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
+//                    translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
                 }
             }
 

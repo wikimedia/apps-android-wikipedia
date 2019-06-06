@@ -43,8 +43,34 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        sourceSummary = SuggestedEditsSummary(pair.second)
-                        targetSummary = SuggestedEditsSummary(pair.first)
+                        val source = pair.second
+                        val target = pair.first
+
+                        sourceSummary = SuggestedEditsSummary(
+                                source.title,
+                                source.lang,
+                                source.getPageTitle(WikiSite.forLanguageCode(source.lang)),
+                                source.normalizedTitle,
+                                source.displayTitle,
+                                source.description,
+                                source.thumbnailUrl,
+                                source.originalImageUrl,
+                                source.extractHtml,
+                                null, null, null
+                        )
+
+                        targetSummary = SuggestedEditsSummary(
+                                target.title,
+                                target.lang,
+                                target.getPageTitle(WikiSite.forLanguageCode(target.lang)),
+                                target.normalizedTitle,
+                                target.displayTitle,
+                                target.description,
+                                target.thumbnailUrl,
+                                target.originalImageUrl,
+                                target.extractHtml,
+                                null, null, null
+                        )
 
                         val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
 
@@ -62,7 +88,18 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pageSummary ->
-                        sourceSummary = SuggestedEditsSummary(pageSummary)
+                        sourceSummary = SuggestedEditsSummary(
+                                pageSummary.title,
+                                pageSummary.lang,
+                                pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
+                                pageSummary.normalizedTitle,
+                                pageSummary.displayTitle,
+                                pageSummary.description,
+                                pageSummary.thumbnailUrl,
+                                pageSummary.originalImageUrl,
+                                pageSummary.extractHtml,
+                                null, null, null
+                        )
 
                         val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
 
