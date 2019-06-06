@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingTop="6dp"
-    android:paddingBottom="6dp">
-
+    tools:parentTag="android.widget.LinearLayout">
     <TextView
-        android:id="@+id/summaryTitle"
+        android:id="@+id/titleText"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -19,10 +14,12 @@
         android:letterSpacing="0.04"
         android:lineSpacingExtra="6sp"
         android:textAlignment="textEnd"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
         tools:text="Artist" />
 
-    <TextView
-        android:id="@+id/summaryContent"
+    <org.wikipedia.views.AppTextView
+        android:id="@+id/detailText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -32,6 +29,7 @@
         android:textColor="?attr/primary_text_color"
         android:lineSpacingExtra="8sp"
         android:layout_marginStart="12dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
         tools:text="Alfred Edward Chalon" />
-
-</LinearLayout>
+</merge>

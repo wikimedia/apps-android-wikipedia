@@ -4,14 +4,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
-import kotlinx.android.synthetic.main.item_image_summary.view.*
+import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
@@ -260,33 +261,16 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
         }
 
-        // TODO: programmatically add the strings or add static views into the parent view.
-        val titleResourcesArray = arrayOf(
-                if (sourceSummary!!.user.isNullOrEmpty())
-                    R.string.suggested_edits_image_caption_summary_title_artist
-                else
-                    R.string.suggested_edits_image_caption_summary_title_author,
-                R.string.suggested_edits_image_caption_summary_title_date,
-                R.string.suggested_edits_image_caption_summary_title_source,
-                R.string.suggested_edits_image_caption_summary_title_license
-        )
-
-        val contentArray = arrayOf(
-                if (sourceSummary!!.user.isNullOrEmpty())
-                    sourceSummary!!.metadata!!.artist()!!.value()
-                else
-                    sourceSummary!!.user,
-                DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!),
-                sourceSummary!!.metadata!!.credit()!!.value(),
-                sourceSummary!!.metadata!!.licenseShortName()!!.value()
-        )
-
-        contentArray.forEachIndexed { i, content ->
-            val summaryItemView = inflate(requireContext(), R.layout.item_image_summary, null)
-            summaryItemView.summaryTitle.text = getString(titleResourcesArray[i])
-            summaryItemView.summaryContent.text = StringUtil.removeHTMLTags(content!!)
-            viewImageSummaryContainer.addView(summaryItemView)
+        if (!sourceSummary!!.user.isNullOrEmpty()) {
+            viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
+            viewImageArtist!!.setDetailText(sourceSummary!!.user)
+        } else {
+            viewImageArtist!!.titleText.text = StringUtil.fromHtml(sourceSummary!!.metadata!!.artist()!!.value())
         }
+
+        viewImageDate!!.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!))
+        viewImageSource!!.setDetailText(sourceSummary!!.metadata!!.credit()!!.value())
+        viewImageLicense!!.setDetailText(sourceSummary!!.metadata!!.licenseShortName()!!.value())
 
         viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
         viewArticleExtract.visibility = GONE
