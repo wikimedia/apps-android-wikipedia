@@ -92,7 +92,8 @@
         android:minHeight="@dimen/view_list_card_item_image"
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/page_list_header_text">
+        app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
+        app:layout_constraintBottom_toTopOf="@id/chips_scrollview">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/page_list_item_image"
