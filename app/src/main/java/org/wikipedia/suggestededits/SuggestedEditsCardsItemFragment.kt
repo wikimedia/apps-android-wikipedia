@@ -92,21 +92,22 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             }
 
             SUGGESTED_EDITS_TRANSLATE_CAPTION -> {
+                var fileCaption: String? = null
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
-                            sourceSummary = SuggestedEditsSummary(pair.second, pair.first, parent().langFromCode)
-                            targetSummary = SuggestedEditsSummary(pair.second, null, parent().langToCode)
-                            targetPageTitle = targetSummary!!.pageTitle
+                            fileCaption = pair.first
                             ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second.title())
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
                         .subscribe({ response ->
                             val page = response.query()!!.pages()!![0]
-                            if (page.imageInfo() != null && page.imageInfo()!!.metadata != null) {
-                                sourceSummary!!.metadata = page.imageInfo()!!.metadata
+                            if (page.imageInfo() != null) {
+                                sourceSummary = SuggestedEditsSummary(page.title(), page.imageInfo()!!, fileCaption, parent().langFromCode)
+                                targetSummary = SuggestedEditsSummary(page.title(), page.imageInfo()!!, null, parent().langToCode)
+                                targetPageTitle = targetSummary!!.pageTitle
                             }
                             updateContents()
                         }, { this.setErrorState(it) })!!)

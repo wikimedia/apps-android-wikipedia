@@ -1,9 +1,10 @@
 package org.wikipedia.suggestededits
 
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.gallery.ExtMetadata
+import org.wikipedia.gallery.ImageInfo
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 
@@ -34,16 +35,17 @@ class SuggestedEditsSummary {
         pageTitle = rbPageSummary.getPageTitle(WikiSite.forLanguageCode(lang))
     }
 
-    constructor(mwQueryPage: MwQueryPage, caption: String?, langCode: String) {
-        title = StringUtil.removeNamespace(mwQueryPage.title())
-        normalizedTitle = StringUtil.removeUnderscores(title)
-        displayTitle = StringUtil.removeHTMLTags(title)
+    constructor(fileTitle: String, imageInfo: ImageInfo, caption: String?, langCode: String) {
+        title = StringUtil.removeNamespace(fileTitle)
+        normalizedTitle = StringUtil.removeUnderscores(fileTitle)
+        displayTitle = StringUtil.removeHTMLTags(fileTitle)
         description = caption
-        thumbnailUrl = if (mwQueryPage.imageInfo() != null) mwQueryPage.imageInfo()!!.thumbUrl else mwQueryPage.thumbUrl()
-        originalUrl = if (mwQueryPage.imageInfo() != null) mwQueryPage.imageInfo()!!.originalUrl else thumbnailUrl
-        user = mwQueryPage.imageInfo()!!.user
-        timestamp = mwQueryPage.imageInfo()!!.timestamp
+        thumbnailUrl = imageInfo.thumbUrl
+        originalUrl = imageInfo.originalUrl
+        user = imageInfo.user
+        timestamp = imageInfo.timestamp
+        metadata = imageInfo.metadata
         lang = langCode
-        pageTitle = PageTitle(mwQueryPage.namespace().name, title, null, thumbnailUrl, WikiSite.forLanguageCode(lang))
+        pageTitle = PageTitle(Namespace.FILE.name, title, null, thumbnailUrl, WikiSite.forLanguageCode(lang))
     }
 }
