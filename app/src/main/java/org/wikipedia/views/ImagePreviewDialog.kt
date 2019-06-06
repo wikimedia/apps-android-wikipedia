@@ -12,6 +12,7 @@ import androidx.annotation.Nullable
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.controller.BaseControllerListener
 import kotlinx.android.synthetic.main.dialog_image_preview.*
+import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.gallery.ImageInfo
@@ -27,7 +28,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private var fileName: String? = null
     private lateinit var imageInfo: ImageInfo
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
 
         setConditionalLayoutDirection(rootView, WikipediaApp.getInstance().language().appLanguageCode)
@@ -56,7 +57,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     private fun setImageDetails() {
         loadImage(imageInfo.originalUrl)
-        titleText!!.text = StringUtil.fromHtml(fileName!!.removePrefix("File:"))
+        titleText!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(fileName!!.removePrefix("File:")))
         addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()!!.value()).toString())
         addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(imageInfo.metadata!!.artist()!!.value()).toString())
         addDetailPortion(getString(R.string.suggested_edits_image_date), imageInfo.metadata!!.dateTime()!!.value())
@@ -68,8 +69,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun addDetailPortion(@NonNull title: String, @Nullable detail: String?) {
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(requireContext())
-            view.setTitle(title)
-            view.setDetail(detail)
+            view.titleTextView.text = title
+            view.detailTextView.text = detail
             detailsHolder.addView(view)
         }
     }
@@ -96,8 +97,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     companion object {
-        const val IMAGE_INFO = "imageInfo"
-        const val FILE_NAME = "filename"
+        private const val IMAGE_INFO = "imageInfo"
+        private const val FILE_NAME = "filename"
 
         fun newInstance(imageInfo: ImageInfo, fileName: String?): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
