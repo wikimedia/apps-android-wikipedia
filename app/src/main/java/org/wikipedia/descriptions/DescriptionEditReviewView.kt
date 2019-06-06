@@ -62,7 +62,6 @@ class DescriptionEditReviewView @JvmOverloads constructor(
         articleContainer.visibility = GONE
         indicatorDivider.visibility = GONE
         galleryDescriptionText.text = StringUtil.fromHtml(description)
-        galleryDescriptionText.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
         if (summary.thumbnailUrl.isNullOrBlank()) {
             galleryImage.visibility = GONE
         } else {

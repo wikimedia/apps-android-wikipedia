@@ -125,7 +125,7 @@
             android:paddingBottom="16dp"
             android:layout_gravity="bottom"
             android:lineSpacingExtra="8sp"
-            android:background="@color/black38"
+            android:background="@drawable/gallery_caption_gradient_background"
             tools:text="Sample image description text" />
     </FrameLayout>
 
