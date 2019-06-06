@@ -130,6 +130,7 @@
                     android:layout_height="match_parent"
                     android:padding="12dp"
                     android:contentDescription="@null"
+                    android:tint="@color/base100"
                     app:srcCompat="@drawable/ic_add_gray_white_24dp" />
             </LinearLayout>
 
