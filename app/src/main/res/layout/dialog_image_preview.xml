@@ -50,7 +50,7 @@
                     android:maxLines="3"
                     android:paddingBottom="4dp"
                     android:textColor="?attr/primary_text_color"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     tools:text="Lorem ipsum" />
             </LinearLayout>
 
