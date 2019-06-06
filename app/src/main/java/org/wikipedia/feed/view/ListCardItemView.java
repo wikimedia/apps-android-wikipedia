@@ -87,31 +87,6 @@ public class ListCardItemView extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.view_list_card_item_menu) void showOverflowMenu(View anchorView) {
-        new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
-            @Override
-            public void onAddRequest(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onAddPageToList(entry);
-                }
-            }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onRemovePageFromList(entry);
-                }
-            }
-
-            @Override
-            public void onShare() {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onSharePage(entry);
-                }
-            }
-        }).show(entry.getTitle());
-    }
-
     @OnLongClick boolean onLongClick(View view) {
         new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
             @Override
@@ -147,7 +122,12 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @VisibleForTesting void setImage(@Nullable String url) {
-        ViewUtil.loadImageUrlInto(imageView, url);
+        if (url == null) {
+            imageView.setVisibility(GONE);
+        } else {
+            imageView.setVisibility(VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, url);
+        }
     }
 
     @VisibleForTesting void setTitle(@Nullable CharSequence text) {
