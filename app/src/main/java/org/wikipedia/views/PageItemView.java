@@ -106,8 +106,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     public void setImageUrl(@Nullable String url) {
         imageUrl = url;
-        imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
-        ViewUtil.loadImageUrlInto(imageView, imageUrl);
+        updateSelectedState();
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
@@ -220,6 +219,7 @@ public class PageItemView<T> extends ConstraintLayout {
             setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
             imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, imageUrl);
             imageSelectedView.setVisibility(GONE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
         }
