@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.preference.PreferenceViewHolder;
 
 import org.wikipedia.R;
@@ -45,7 +45,7 @@ public class SwitchPreferenceWithLinks extends SwitchPreferenceMultiLine {
         TextView view = (TextView) holder.findViewById(android.R.id.summary);
         view.setMovementMethod(movementMethod);
         view.setOnClickListener(onClickListener);
-        view.setBackground(ContextCompat.getDrawable(getContext(),
+        view.setBackground(AppCompatResources.getDrawable(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackgroundBorderless)));
     }
 }

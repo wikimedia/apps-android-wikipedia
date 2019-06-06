@@ -2,9 +2,9 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:minHeight="48dp"
     tools:layout_height="wrap_content"
     tools:layout_width="match_parent"
-    tools:paddingBottom="16dp"
     tools:paddingTop="16dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
@@ -25,31 +25,6 @@
         tools:text="Header text"
         tools:visibility="visible" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/page_list_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:layout_marginStart="@dimen/list_item_horizontal_padding"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
-        app:roundedCornerRadius="2dp" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/page_list_item_selected_image"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:background="@drawable/button_shape_gray"
-        android:contentDescription="@null"
-        android:padding="8dp"
-        android:tint="@android:color/white"
-        android:visibility="gone"
-        app:backgroundTint="@color/accent50"
-        app:layout_constraintStart_toStartOf="@+id/page_list_item_image"
-        app:layout_constraintTop_toTopOf="@id/page_list_item_image"
-        app:srcCompat="@drawable/ic_check_black_24dp"
-        tools:visibility="visible" />
-
     <TextView
         android:id="@+id/page_list_item_title"
         style="@style/MaterialListTitle"
@@ -58,8 +33,8 @@
         android:layout_marginStart="16dp"
         android:paddingEnd="8dp"
         app:layout_constraintBottom_toTopOf="@id/page_list_item_description"
-        app:layout_constraintEnd_toStartOf="@id/page_list_item_secondary_container"
-        app:layout_constraintStart_toEndOf="@id/page_list_item_image"
+        app:layout_constraintEnd_toStartOf="@+id/page_list_item_secondary_container"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
@@ -71,7 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:paddingEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/chips_scrollview"
         app:layout_constraintEnd_toEndOf="@id/page_list_item_title"
         app:layout_constraintStart_toStartOf="@id/page_list_item_title"
         app:layout_constraintTop_toBottomOf="@id/page_list_item_title"
@@ -83,7 +57,7 @@
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/page_list_item_action_primary"
+        app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
         app:layout_constraintTop_toTopOf="@id/page_list_item_title"
         tools:visibility="visible">
 
@@ -109,6 +83,35 @@
 
     </FrameLayout>
 
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/page_list_item_selected_image"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        android:background="@drawable/button_shape_gray"
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:tint="@android:color/white"
+        android:visibility="gone"
+        app:backgroundTint="@color/accent50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/page_list_item_title"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        tools:visibility="visible" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/page_list_item_image"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/page_list_item_title"
+        app:roundedCornerRadius="2dp" />
+
+
     <HorizontalScrollView
         android:id="@+id/chips_scrollview"
         android:layout_width="0dp"
@@ -133,18 +136,4 @@
             app:singleLine="true"
             app:singleSelection="true" />
     </HorizontalScrollView>
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/page_list_item_action_primary"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@null"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/page_list_item_title"
-        app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
-        app:tint="?attr/material_theme_secondary_color"
-        tools:visibility="visible" />
 </merge>

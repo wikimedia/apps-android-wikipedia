@@ -15,12 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.TextViewCompat;
 
-import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
@@ -55,9 +54,9 @@ public class ReadingListItemView extends ConstraintLayout {
     @BindView(R.id.item_title) TextView titleView;
     @BindView(R.id.item_reading_list_statistical_description) TextView statisticalDescriptionView;
     @BindView(R.id.item_description) TextView descriptionView;
-    @BindView(R.id.item_overflow_menu)View overflowButton;
 
     @BindView(R.id.default_list_empty_image) ImageView defaultListEmptyView;
+    @BindView(R.id.item_overflow_menu) View overflowView;
     @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<SimpleDraweeView> imageViews;
 
     @Nullable private Callback callback;
@@ -98,10 +97,6 @@ public class ReadingListItemView extends ConstraintLayout {
 
     public void setCallback(@Nullable Callback callback) {
         this.callback = callback;
-    }
-
-    public void setOverflowButtonVisible(boolean visible) {
-        overflowButton.setVisibility(visible ? VISIBLE : GONE);
     }
 
     public void setThumbnailVisible(boolean visible) {
@@ -160,10 +155,14 @@ public class ReadingListItemView extends ConstraintLayout {
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
         setClickable(true);
         clearThumbnails();
+    }
+
+    public void setOverflowViewVisibility(int visibility) {
+        overflowView.setVisibility(visibility);
     }
 
     private void updateDetails() {
@@ -208,17 +207,14 @@ public class ReadingListItemView extends ConstraintLayout {
             thumbUrls.add("");
         }
         for (int i = 0; i < thumbUrls.size() && i < imageViews.size(); ++i) {
-            loadThumbnail(imageViews.get(i), thumbUrls.get(i));
+            if (thumbUrls.get(i) != null) {
+                loadThumbnail(imageViews.get(i), thumbUrls.get(i));
+            }
         }
     }
 
     private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
-        if (TextUtils.isEmpty(url)) {
-            view.getHierarchy().setFailureImage(ResourceUtil.getThemedAttributeId(getContext(), R.attr.thumbnail_image_placeholder),
-                    ScalingUtils.ScaleType.FIT_CENTER);
-        } else {
-            ViewUtil.loadImageUrlInto(view, url);
-        }
+        ViewUtil.loadImageUrlInto(view, url);
     }
 
     @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {

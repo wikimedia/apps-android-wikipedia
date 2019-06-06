@@ -166,6 +166,7 @@ public class LeadImagesHandler {
 
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
+            pageHeaderView.show(isLeadImageEnabled());
             pageHeaderView.loadImage(url);
         } else {
             pageHeaderView.loadImage(null);
