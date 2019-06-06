@@ -88,7 +88,8 @@
     <FrameLayout
         android:id="@+id/page_list_item_image_container"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/view_list_card_item_image"
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/page_list_header_text">
