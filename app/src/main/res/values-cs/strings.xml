@@ -594,7 +594,7 @@
   <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
   <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
-  <string name="feed_empty_message">Nic není ve Vašem kanále Objevit</string>
+  <string name="feed_empty_message">Nic není ve vašem kanále Objevit</string>
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Zrušit</string>
@@ -709,7 +709,7 @@
   <string name="onboarding_create_account_contributions">Přehled o svých příspěvcích</string>
   <string name="onboarding_create_account_preferences">Uložení nastavení v aplikaci</string>
   <string name="onboarding_got_it">Rozumím</string>
-  <string name="onboarding_multilingual_secondary_text">Na vašem zařízení jsme našli následující jazyky:</string>
+  <string name="onboarding_multilingual_secondary_text">Na vašem zařízení máte nastaveny následující jazyky:</string>
   <string name="onboarding_multilingual_add_language_text">Přidat nebo editovat jazyky</string>
   <string name="onboarding_welcome_title_v2">Otevřená encyklopedie\n...ve více než 300 jazycích</string>
   <string name="app_shortcuts_random">Náhodný článek</string>

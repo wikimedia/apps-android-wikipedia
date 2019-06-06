@@ -482,9 +482,18 @@
   <string name="notification_syncing_resume_button">ادامه</string>
   <string name="notification_syncing_cancel_button">کَنسِل</string>
   <string name="notification_syncing_reading_list_channel_description">فرایند همگام سازی فهرست مطالعه</string>
-  <string name="notification_channel_name" fuzzy="true">همگام سازی</string>
-  <string name="notification_syncing_title" fuzzy="true">بارگیری %1$d مقاله(ها)...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d مقاله(ها) باقی مانده اند</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">مقاله در حال بارگیری</item>
+    <item quantity="other">مقاله در حال بارگیری</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">در حال بارگیری %1$d مقاله…</item>
+    <item quantity="other">در حال بارگیری %1$d مقاله…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d مقاله باقی مانده است</item>
+    <item quantity="other">%1$d مقاله باقی مانده است</item>
+  </plurals>
   <string name="notification_echo_channel_description">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_activity_title">اعلان‌ها</string>
   <string name="notifications_activity_title_archived">اعلان‌ها (بایگانی‌شده)</string>
@@ -589,7 +598,7 @@
   <string name="suggested_edits_unlock_dialog_no">شاید بعداً</string>
   <string name="suggested_edits_unlock_notification_text">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_menu_info">اطلاعات</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">وظایف ویرایشگر</string>
+  <string name="suggested_edits_tasks_activity_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات</string>
   <string name="suggested_edits_task_add_description_description">مشارکت در مقالات بدون توضیحات</string>
   <string name="suggested_edits_task_image_caption_title">زیر نویس تصویر</string>

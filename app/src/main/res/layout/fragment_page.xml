@@ -18,7 +18,9 @@
         <org.wikipedia.page.leadimages.PageHeaderView
             android:id="@+id/page_header_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
 
         <org.wikipedia.page.bottomcontent.BottomContentView
             android:id="@+id/page_bottom_view"

@@ -9,7 +9,7 @@
   "devDependencies": {
     "browserify": "^14.4.0",
     "eslint-config-wikimedia": "0.5.0",
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.4",
     "grunt-browserify": "^5.2.0",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-copy": "^1.0.0",
