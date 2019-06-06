@@ -64,6 +64,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
+    @Nullable private String imageUrl;
     private boolean selected;
 
     public PageItemView(@NonNull Context context) {
@@ -104,7 +105,8 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
-        updateSelectedState(url);
+        imageUrl = url;
+        updateSelectedState();
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
@@ -129,10 +131,10 @@ public class PageItemView<T> extends ConstraintLayout {
         headerView.setText(text);
     }
 
-    public void setSelected(boolean selected, @Nullable String imageUrl) {
+    public void setSelected(boolean selected) {
         if (this.selected != selected) {
             this.selected = selected;
-            updateSelectedState(imageUrl);
+            updateSelectedState();
         }
     }
 
@@ -210,15 +212,15 @@ public class PageItemView<T> extends ConstraintLayout {
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
-    private void updateSelectedState(@Nullable String imageUrl) {
+    private void updateSelectedState() {
         if (selected) {
             imageSelectedView.setVisibility(VISIBLE);
-            imageView.setVisibility(INVISIBLE);
+            imageView.setVisibility(GONE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
-            imageSelectedView.setVisibility(GONE);
-            imageView.setVisibility((imageUrl == null) ? GONE : VISIBLE);
+            imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
             ViewUtil.loadImageUrlInto(imageView, imageUrl);
+            imageSelectedView.setVisibility(GONE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
         }
     }
