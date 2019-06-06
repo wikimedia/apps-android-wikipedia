@@ -70,6 +70,7 @@ public class DescriptionEditFragment extends Fragment {
 
     private static final String ARG_TITLE = "title";
     private static final String ARG_REVIEWING = "inReviewing";
+    private static final String ARG_DESCRIPTION = "description";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
     private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_SOURCE_SUMMARY = "sourceSummary";
@@ -172,6 +173,7 @@ public class DescriptionEditFragment extends Fragment {
         if (reviewEnabled) {
             editView.setPageSummaries(sourceSummary, targetSummary);
             if (savedInstanceState != null) {
+                editView.setDescription(savedInstanceState.getString(ARG_DESCRIPTION));
                 editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
             }
         }
@@ -198,6 +200,7 @@ public class DescriptionEditFragment extends Fragment {
 
     @Override public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putString(ARG_DESCRIPTION, editView.getDescription());
         outState.putBoolean(ARG_REVIEWING, reviewEnabled && editView.showingReviewContent());
     }
 

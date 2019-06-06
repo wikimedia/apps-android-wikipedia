@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
+        android:background="?attr/paper_color"
         android:orientation="vertical">
 
         <LinearLayout
@@ -22,6 +23,7 @@
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0.5dp"
                 android:layout_weight="1" />
 
             <org.wikipedia.views.FaceAndColorDetectImageView
@@ -29,6 +31,7 @@
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0.5dp"
                 android:layout_weight="1" />
 
             <org.wikipedia.views.FaceAndColorDetectImageView
@@ -42,6 +45,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="0.5dp"
             android:layout_weight="1">
 
             <org.wikipedia.views.FaceAndColorDetectImageView
@@ -49,6 +53,7 @@
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0.5dp"
                 android:layout_weight="1" />
 
             <org.wikipedia.views.FaceAndColorDetectImageView
@@ -56,6 +61,7 @@
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="0.5dp"
                 android:layout_weight="1" />
 
             <org.wikipedia.views.FaceAndColorDetectImageView

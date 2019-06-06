@@ -388,13 +388,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         void bindItem(@NonNull Cursor cursor) {
             index = cursor.getPosition();
+            String imageUrl = PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor);
             IndexedHistoryEntry indexedEntry
                     = new IndexedHistoryEntry(HistoryEntry.DATABASE_TABLE.fromCursor(cursor), index);
             getView().setItem(indexedEntry);
             getView().setTitle(indexedEntry.getEntry().getTitle().getDisplayText());
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
-            getView().setImageUrl(PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor));
-            getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()));
+            getView().setImageUrl(imageUrl);
+            getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()), imageUrl);
             PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), available -> getView().setViewsGreyedOut(!available));
 
             // Check the previous item, see if the times differ enough
