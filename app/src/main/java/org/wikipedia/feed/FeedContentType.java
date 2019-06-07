@@ -13,6 +13,7 @@ import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
+import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
@@ -23,7 +24,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.ADD_DESCRIPTION;
+import static org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.ADD_IMAGE_CAPTION;
 import static org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.TRANSLATE_DESCRIPTION;
+import static org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.TRANSLATE_IMAGE_CAPTION;
 
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
@@ -87,15 +91,30 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             if (ReleaseUtil.isPreBetaRelease() && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
-                /*if (Prefs.shouldShowSuggestedEditsCardsForTesting()) {
-                    return new SuggestedEditsFeedClient(!(age % 2 == 0) && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION);
-                }
-                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(!(age % 2 == 0) && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) : null;*/
-                return new SuggestedEditsFeedClient(TRANSLATE_DESCRIPTION);
+                List<SuggestedEditsType> unlockedTypes = getUnlockedEditingPrevileges();
+                return new SuggestedEditsFeedClient(unlockedTypes.get(age % unlockedTypes.size()));
             }
             return null;
         }
     };
+
+    List<SuggestedEditsType> getUnlockedEditingPrevileges() {
+        List<SuggestedEditsType> unlockedTypes = new ArrayList<>();
+        //Todo: Convert into an app-wide available mapping of preferences to SuggestedEditTypes
+        if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+            unlockedTypes.add(ADD_DESCRIPTION);
+        }
+        if (!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
+            unlockedTypes.add(TRANSLATE_DESCRIPTION);
+        }
+        if (!Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
+            unlockedTypes.add(ADD_IMAGE_CAPTION);
+        }
+        if (!Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+            unlockedTypes.add(TRANSLATE_IMAGE_CAPTION);
+        }
+        return unlockedTypes;
+    }
 
     private static final EnumCodeMap<FeedContentType> MAP
             = new EnumCodeMap<>(FeedContentType.class);

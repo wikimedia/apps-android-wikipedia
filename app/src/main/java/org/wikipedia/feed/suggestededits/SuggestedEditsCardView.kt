@@ -114,7 +114,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     fun refreshCardContent() {
-        SuggestedEditsFeedClient(TRANSLATE_DESCRIPTION).getArticleWithMissingDescription(null, this)
+        SuggestedEditsFeedClient(TRANSLATE_DESCRIPTION).fetchSuggestedEditForType(null, this)
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {

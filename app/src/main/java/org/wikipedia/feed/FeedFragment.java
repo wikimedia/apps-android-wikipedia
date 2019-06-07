@@ -28,7 +28,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
@@ -247,8 +246,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
     private void startDescriptionEditScreen() {
         PageTitle pageTitle = suggestedEditsCardView.getCard().getSuggestedEditsType() == TRANSLATE_DESCRIPTION
-                ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getCard().getTargetSummary().getLang()))
-                : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getCard().getSourceSummary().getLang()));
+                ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
+                : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,
                 null, null,
                 suggestedEditsCardView.getCard().getSuggestedEditsType() == TRANSLATE_DESCRIPTION ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
