@@ -355,6 +355,12 @@
         <item name="backgroundImage">@color/base30</item>
     </style>
 
+    <style name="SimpleDraweeViewPlaceholder.SuggestedEditsReview">
+        <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
+        <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
+        <item name="backgroundImage">@android:color/black</item>
+    </style>
+
     <style name="SimpleDraweeViewPlaceholder.ReadingListThumbnail">
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>

@@ -9,6 +9,7 @@
     tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
+        android:id="@+id/view_description_edit_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/main_toolbar_color"
@@ -31,7 +32,6 @@
                 app:srcCompat="@drawable/ic_close_main_themed_24dp" />
 
             <LinearLayout
-                android:id="@+id/view_description_edit_header_container"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

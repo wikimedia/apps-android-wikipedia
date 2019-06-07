@@ -9,9 +9,9 @@ import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
@@ -23,8 +23,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
     var isTranslation: Boolean = false
-    var sourceSummary: RbPageSummary? = null
-    var targetSummary: RbPageSummary? = null
+    var sourceSummary: SuggestedEditsSummary? = null
+    var targetSummary: SuggestedEditsSummary? = null
 
     init {
         inflate(getContext(), R.layout.view_suggested_edit_card, this)

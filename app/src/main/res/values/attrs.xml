@@ -101,4 +101,9 @@
     <declare-styleable name="AppTextView">
         <attr name="html" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="ImageDetailHorizontalView">
+        <attr name="title" format="string" />
+        <attr name="detail" format="string" />
+    </declare-styleable>
 </resources>

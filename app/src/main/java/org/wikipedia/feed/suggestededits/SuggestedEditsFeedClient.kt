@@ -6,10 +6,10 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
+import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 
 class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient {
@@ -20,8 +20,8 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
 
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
-    private var sourceSummary: RbPageSummary? = null
-    private var targetSummary: RbPageSummary? = null
+    private var sourceSummary: SuggestedEditsSummary? = null
+    private var targetSummary: SuggestedEditsSummary? = null
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
@@ -43,8 +43,34 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pair ->
-                        sourceSummary = pair.second
-                        targetSummary = pair.first
+                        val source = pair.second
+                        val target = pair.first
+
+                        sourceSummary = SuggestedEditsSummary(
+                                source.title,
+                                source.lang,
+                                source.getPageTitle(WikiSite.forLanguageCode(source.lang)),
+                                source.normalizedTitle,
+                                source.displayTitle,
+                                source.description,
+                                source.thumbnailUrl,
+                                source.originalImageUrl,
+                                source.extractHtml,
+                                null, null, null
+                        )
+
+                        targetSummary = SuggestedEditsSummary(
+                                target.title,
+                                target.lang,
+                                target.getPageTitle(WikiSite.forLanguageCode(target.lang)),
+                                target.normalizedTitle,
+                                target.displayTitle,
+                                target.description,
+                                target.thumbnailUrl,
+                                target.originalImageUrl,
+                                target.extractHtml,
+                                null, null, null
+                        )
 
                         val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
 
@@ -62,7 +88,18 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ pageSummary ->
-                        sourceSummary = pageSummary
+                        sourceSummary = SuggestedEditsSummary(
+                                pageSummary.title,
+                                pageSummary.lang,
+                                pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
+                                pageSummary.normalizedTitle,
+                                pageSummary.displayTitle,
+                                pageSummary.description,
+                                pageSummary.thumbnailUrl,
+                                pageSummary.originalImageUrl,
+                                pageSummary.extractHtml,
+                                null, null, null
+                        )
 
                         val card: SuggestedEditsCard = toSuggestedEditsCard(isTranslation, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
 
