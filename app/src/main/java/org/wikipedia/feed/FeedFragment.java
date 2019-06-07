@@ -250,7 +250,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getCard().getTargetSummary().getLang()))
                 : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle(WikiSite.forLanguageCode(suggestedEditsCardView.getCard().getSourceSummary().getLang()));
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,
-                suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
+                null, null,
                 suggestedEditsCardView.getCard().getSuggestedEditsType() == TRANSLATE_DESCRIPTION ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }

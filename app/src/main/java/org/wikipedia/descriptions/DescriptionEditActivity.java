@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -18,6 +17,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -52,8 +52,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
-                                   @Nullable RbPageSummary sourceSummary,
-                                   @Nullable RbPageSummary targetSummary,
+                                   @Nullable SuggestedEditsSummary sourceSummary,
+                                   @Nullable SuggestedEditsSummary targetSummary,
                                    @NonNull InvokeSource invokeSource) {
         return newIntent(context, title, null, invokeSource)
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
@@ -93,6 +93,10 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(this, title);
+    }
+
+    public void updateStatusBarColor(int color) {
+        setStatusBarColor(color);
     }
 
     private void copyLink(@NonNull String url) {
