@@ -7,7 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
@@ -31,16 +31,16 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         visibility = GONE
     }
 
-    fun setPageSummary(pageSummary: RbPageSummary) {
-        setConditionalLayoutDirection(this, pageSummary.lang)
+    fun setSummary(summary: SuggestedEditsSummary) {
+        setConditionalLayoutDirection(this, summary.lang)
         val horizontalMargin: Int = DimenUtil.dpToPx(16.0f).toInt()
         val params: MarginLayoutParams = viewArticleTitle!!.layoutParams as MarginLayoutParams
         params.setMargins(horizontalMargin, 0, 0, 0)
         viewArticleTitle!!.layoutParams = params
         viewArticleTitle!!.requestLayout()
-        viewArticleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
+        viewArticleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
 
-        if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
+        if (summary.thumbnailUrl.isNullOrEmpty()) {
             viewArticleImage!!.visibility = GONE
         } else {
             val verticalMargin: Int = DimenUtil.dpToPx(8.0f).toInt()
@@ -51,7 +51,7 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
             val padding: Int = DimenUtil.dpToPx(4.0f).toInt()
             viewArticleImage!!.setPadding(padding, padding, padding, padding)
             viewArticleImage!!.visibility = VISIBLE
-            ViewUtil.loadImageUrlInto(viewArticleImage!!, pageSummary.thumbnailUrl)
+            ViewUtil.loadImageUrlInto(viewArticleImage!!, summary.thumbnailUrl)
         }
 
         viewImageThumbnail.visibility = View.GONE

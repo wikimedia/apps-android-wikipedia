@@ -76,6 +76,10 @@ public class ExtMetadata {
         return artist;
     }
 
+    @Nullable public Values credit() {
+        return credit;
+    }
+
     public class Values {
         //Todo: only for testing - change after image captions logic is solidified
         public void setValue(@NonNull String value) {

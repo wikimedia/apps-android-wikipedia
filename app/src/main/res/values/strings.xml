@@ -618,6 +618,7 @@
     <!-- Description editing -->
     <string name="description_edit_text_hint">Title description</string>
     <string name="description_edit_text_hint_per_language">%s description</string>
+    <string name="description_edit_caption_hint_per_language">%s caption</string>
     <string name="description_edit_save">Publish</string>
     <string name="description_edit_article">Article</string>
     <string name="description_edit_read">Read</string>
@@ -625,6 +626,9 @@
     <string name="description_edit_add_description_v2">Add description</string>
     <string name="description_edit_translate_description">Translate description</string>
     <string name="description_edit_edit_description">Edit description</string>
+    <string name="description_edit_add_image_caption">Add image caption</string>
+    <string name="description_edit_edit_image_caption">Edit image caption</string>
+    <string name="description_edit_translate_image_caption">Translate image caption</string>
     <string name="add_translation">Add %s translation</string>
     <string name="description_edit_cancel_hint">Cancel</string>
     <string name="description_edit_help_title">Help: title descriptions</string>
@@ -638,6 +642,7 @@
     <!-- Description editing success -->
     <string name="description_edit_success_saved">Description published!</string>
     <string name="description_edit_success_saved_snackbar">Description published!</string>
+    <string name="description_edit_success_saved_image_caption_snackbar">Caption published!</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
@@ -656,8 +661,11 @@
     <!-- Suggested edits -->
     <string name="suggested_edits_add_descriptions">Add descriptions</string>
     <string name="suggested_edits_translate_descriptions">Translate descriptions</string>
+    <string name="suggested_edits_add_image_captions">Add image captions</string>
+    <string name="suggested_edits_translate_image_captions">Translate image captions</string>
     <string name="suggested_edits_review_description">Review description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
+    <string name="suggested_edits_review_image_caption">Review image caption</string>
     <string name="suggested_edits_my_contributions">My contributions</string>
     <string name="suggested_edits_added_by_you">Added by you:</string>
     <string name="suggested_edits_translated_by_you">Translated by you:</string>
@@ -681,7 +689,8 @@
     <string name="suggested_edits_unlock_translate_captions_notification_title">You unlocked "Translate image captions"</string>
     <string name="suggested_edits_unlock_translate_captions_dialog_message">Thanks for all your contributions! You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Will you continue to help us improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_captions_notification_big_text">Suggested edits\n\nThanks for all your contributions. You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Will you continue to help us improve Wikipedia?</string>
-    <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="suggested_edits_license_notice"><![CDATA[By adding the description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="suggested_edits_image_caption_license_notice"><![CDATA[By adding the image caption, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
     <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_task_add_description_title">Add descriptions</string>
@@ -698,6 +707,11 @@
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
     <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
+    <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
+    <string name="suggested_edits_image_caption_summary_title_author">Author</string>
+    <string name="suggested_edits_image_caption_summary_title_source">Source</string>
+    <string name="suggested_edits_image_caption_summary_title_license">License</string>
+    <string name="suggested_edits_image_caption_summary_title_date">Date</string>
     <plurals name="suggested_edits_contribution_count">
         <item quantity="one">1 contribution</item>
         <item quantity="other">%d contributions</item>

@@ -25,6 +25,8 @@ public class ImageInfo implements Serializable {
     @SuppressWarnings("unused") @SerializedName("descriptionshorturl") @Nullable private String descriptionShortUrl;
     @SuppressWarnings("unused,NullableProblems") @SerializedName("mime") @NonNull private String mimeType = "*/*";
     @SuppressWarnings("unused") @SerializedName("extmetadata")@Nullable private ExtMetadata metadata;
+    @SuppressWarnings("unused") @Nullable private String user;
+    @SuppressWarnings("unused") @Nullable private String timestamp;
 
     //Todo: only for testing - change after image captions logic is solidified
     public ImageInfo(@NonNull String originalUrl, @NonNull String caption, @NonNull String artist, @NonNull String dateValue, @NonNull String imageSource, @NonNull String licenseValue) {
@@ -76,6 +78,14 @@ public class ImageInfo implements Serializable {
 
     @NonNull public String getOriginalUrl() {
         return StringUtils.defaultString(originalUrl);
+    }
+
+    @NonNull public String getUser() {
+        return StringUtils.defaultString(user);
+    }
+
+    @NonNull public String getTimestamp() {
+        return StringUtils.defaultString(timestamp);
     }
 
     @Nullable public ExtMetadata getMetadata() {
