@@ -31,12 +31,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     var targetSummary: SuggestedEditsSummary? = null
     var addedContribution: String = ""
         internal set
-    var targetPageTitle: PageTitle? = null
-
     var pagerPosition = -1
-
-    val title: String?
-        get() = if (sourceSummary == null) null else sourceSummary!!.title
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,8 +105,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                     target.extractHtml,
                                     null, null, null
                             )
-
-                            targetPageTitle = targetSummary!!.pageTitle
                             updateContents()
                         }, { this.setErrorState(it) })!!)
             }
@@ -169,8 +162,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                                 WikiSite.forLanguageCode(parent().langToCode)
                                         )
                                 )
-
-                                targetPageTitle = targetSummary!!.pageTitle
                             }
                             updateContents()
                         }, { this.setErrorState(it) })!!)
