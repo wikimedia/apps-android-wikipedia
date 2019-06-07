@@ -29,7 +29,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
-
+        //Todo: only for testing: set direction based on image details
         setConditionalLayoutDirection(rootView, WikipediaApp.getInstance().language().appLanguageCode)
         imageInfo = arguments!!.getSerializable(IMAGE_INFO) as ImageInfo
         fileName = arguments!!.getString(FILE_NAME)
