@@ -7,8 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
