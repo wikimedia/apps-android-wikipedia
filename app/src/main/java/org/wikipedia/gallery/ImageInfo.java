@@ -12,21 +12,22 @@ import java.io.Serializable;
 /**
  * Gson POJO for a standard image info object as returned by the API ImageInfo module
  */
+@SuppressWarnings("unused")
 public class ImageInfo implements Serializable {
-    @SuppressWarnings("unused") private int size;
-    @SuppressWarnings("unused") private int width;
-    @SuppressWarnings("unused") private int height;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String source;
-    @SuppressWarnings("unused") @SerializedName("thumburl") @Nullable private String thumbUrl;
-    @SuppressWarnings("unused") @SerializedName("thumbwidth") private int thumbWidth;
-    @SuppressWarnings("unused") @SerializedName("thumbheight") private int thumbHeight;
-    @SuppressWarnings("unused") @SerializedName("url") @Nullable private String originalUrl;
-    @SuppressWarnings("unused") @SerializedName("descriptionurl") @Nullable private String descriptionUrl;
-    @SuppressWarnings("unused") @SerializedName("descriptionshorturl") @Nullable private String descriptionShortUrl;
-    @SuppressWarnings("unused,NullableProblems") @SerializedName("mime") @NonNull private String mimeType = "*/*";
-    @SuppressWarnings("unused") @SerializedName("extmetadata")@Nullable private ExtMetadata metadata;
-    @SuppressWarnings("unused") @Nullable private String user;
-    @SuppressWarnings("unused") @Nullable private String timestamp;
+    private int size;
+    private int width;
+    private int height;
+    @Nullable private String source;
+    @SerializedName("thumburl") @Nullable private String thumbUrl;
+    @SerializedName("thumbwidth") private int thumbWidth;
+    @SerializedName("thumbheight") private int thumbHeight;
+    @SerializedName("url") @Nullable private String originalUrl;
+    @SerializedName("descriptionurl") @Nullable private String descriptionUrl;
+    @SerializedName("descriptionshorturl") @Nullable private String descriptionShortUrl;
+    @SerializedName("mime") @Nullable private String mimeType;
+    @SerializedName("extmetadata")@Nullable private ExtMetadata metadata;
+    @Nullable private String user;
+    @Nullable private String timestamp;
 
     @NonNull
     public String getSource() {
@@ -47,6 +48,10 @@ public class ImageInfo implements Serializable {
 
     public int getHeight() {
         return height;
+    }
+
+    @NonNull public String getMimeType() {
+        return StringUtils.defaultString(mimeType, "*/*");
     }
 
     @NonNull public String getThumbUrl() {
