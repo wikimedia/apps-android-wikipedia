@@ -68,7 +68,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     }
 
     @Override
-    public void onBottomBarClicked(@NonNull Object object) {
+    public void onBottomBarContainerClicked(@NonNull Object object) {
         if (object instanceof PageTitle) {
             PageTitle pageTitle = (PageTitle) object;
             bottomSheetPresenter.show(getSupportFragmentManager(),

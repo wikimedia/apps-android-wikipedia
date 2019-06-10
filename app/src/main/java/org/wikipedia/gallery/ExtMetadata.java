@@ -49,7 +49,7 @@ public class ExtMetadata {
         return usageTerms;
     }
     @Nullable public Values dateTime() {
-        return dateTime;
+        return dateTimeOriginal;
     }
 
     @Nullable public Values artist() {

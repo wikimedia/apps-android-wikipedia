@@ -204,7 +204,7 @@ public class DescriptionEditView extends LinearLayout {
         switch (invokeSource) {
             case SUGGESTED_EDITS_ADD_CAPTION:
             case SUGGESTED_EDITS_TRANSLATE_CAPTION:
-                bottomBarContainer.setImageDetails(suggestedEditsSummary, "File:Bahram Gur hunting.jpg");
+                bottomBarContainer.setImageDetails(suggestedEditsSummary);
                 break;
             default:
                 bottomBarContainer.setSummary(suggestedEditsSummary);
