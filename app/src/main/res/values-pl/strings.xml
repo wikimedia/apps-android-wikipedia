@@ -561,6 +561,8 @@
   <string name="description_edit_article">Artykuł</string>
   <string name="description_edit_add_description">Dodaj opis tytułu</string>
   <string name="description_edit_edit_description">Edytuj opis</string>
+  <string name="description_edit_add_image_caption">Dodaj podpis obrazu</string>
+  <string name="description_edit_edit_image_caption">Edytuj podpis obrazu</string>
   <string name="description_edit_cancel_hint">Anuluj</string>
   <string name="description_edit_help_about_wikidata">O Wikidanych</string>
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
@@ -575,6 +577,7 @@
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
   <string name="suggested_edits_add_descriptions">Dodaj opisy tytułów</string>
   <string name="suggested_edits_translate_descriptions">Przetłumacz opisy tytułów</string>
+  <string name="suggested_edits_add_image_captions">Dodaj podpisy obrazu</string>
   <string name="suggested_edits_review_description">Sprawdź opis</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
@@ -586,6 +589,9 @@
   <string name="suggested_edits_menu_info">Informacje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy tytułów</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>

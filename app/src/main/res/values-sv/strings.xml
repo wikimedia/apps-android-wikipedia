@@ -596,6 +596,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_text_hint_per_language">Beskrivning på %s</string>
+  <string name="description_edit_caption_hint_per_language">Bildtext på %s</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Läs</string>
@@ -603,6 +604,9 @@
   <string name="description_edit_add_description_v2">Lägg till beskrivning</string>
   <string name="description_edit_translate_description">Översätt titelbeskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivningen</string>
+  <string name="description_edit_add_image_caption">Lägg till bildtext</string>
+  <string name="description_edit_edit_image_caption">Redigera bildtext</string>
+  <string name="description_edit_translate_image_caption">Översätt bildtext</string>
   <string name="add_translation">Lägg till översättning på %s</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
   <string name="description_edit_help_title">Hjälp: Titelbeskrivningar</string>
@@ -613,6 +617,7 @@
   <string name="description_edit_license_notice">Genom att ändra titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Beskrivningen publicerades!</string>
   <string name="description_edit_success_saved_snackbar">Beskrivningen publicerades!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Bildtext skapades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>
@@ -625,8 +630,11 @@
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
   <string name="suggested_edits_add_descriptions">Lägg till beskrivningar</string>
   <string name="suggested_edits_translate_descriptions">Översätt beskrivningar</string>
+  <string name="suggested_edits_add_image_captions">Lägg till bildtexter</string>
+  <string name="suggested_edits_translate_image_captions">Översätt bildtexter</string>
   <string name="suggested_edits_review_description">Granska beskrivning</string>
   <string name="suggested_edits_add_description_button">Lägg till beskrivning</string>
+  <string name="suggested_edits_review_image_caption">Granska bildtext</string>
   <string name="suggested_edits_my_contributions">Mina bidrag</string>
   <string name="suggested_edits_added_by_you">Lades till av dig:</string>
   <string name="suggested_edits_translated_by_you">Översattes av dig:</string>
@@ -650,7 +658,8 @@
   <string name="suggested_edits_unlock_translate_captions_notification_title">Du låste upp \"Översätt bildtexter\"</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Tack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Föreslagna redigeringar\n\nTack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_license_notice">Genom att lägg till titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Genom att lägga till beskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Genom att lägga till bildtexten samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
   <string name="suggested_edits_tasks_activity_title">Föreslagna redigeringar</string>
   <string name="suggested_edits_task_add_description_title">Lägg till beskrivningar</string>
@@ -667,6 +676,11 @@
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
   <string name="suggested_edits_task_translate_caption_title">Översätt bildtexter</string>
   <string name="suggested_edits_task_translate_caption_description">Översätt bildtexter till andra språk</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Författare</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Källa</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 bidrag</item>
     <item quantity="other">%d bidrag</item>
