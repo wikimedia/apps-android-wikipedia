@@ -34,6 +34,8 @@
         android:lineSpacingExtra="6sp"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="14sp"
+        android:maxLines="2"
+        android:ellipsize="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewReadButton"
         app:layout_constraintStart_toEndOf="@+id/viewArticleImage"

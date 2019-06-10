@@ -61,6 +61,8 @@ class DescriptionEditBottomBarView @JvmOverloads constructor(
     fun setImageDetails(suggestedEditsSummary: SuggestedEditsSummary) {
         setConditionalLayoutDirection(this, suggestedEditsSummary.lang)
         viewArticleTitle!!.text = suggestedEditsSummary.title
+        val titlePadding: Int = DimenUtil.dpToPx(62.0f).toInt()
+        viewArticleTitle!!.setPadding(0, 0, titlePadding, 0)
 
         val padding: Int = DimenUtil.dpToPx(12.0f).toInt()
         viewArticleImage!!.visibility = VISIBLE
