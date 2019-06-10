@@ -643,7 +643,7 @@
   <string name="suggested_edits_unlock_translate_captions_notification_title">Vi liberigis la taskon \"Traduki titolon de bildo\"</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Sugestataj redaktoj\n\nDankon pro viaj kontribuoj! Vi uzas la aplikaĵon en pluraj lingvoj; tial ni kompilis liston de artikoloj bezonantaj tradukojn de priskriboj. Ĉu vi povas daŭre helpi nin per plibonigado de Vikipedio?</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Sugestataj redaktoj\n\nDankon pro viaj kontribuoj. Vi uzas la aplikaĵon en pluraj lingvoj; tial ni kompilis liston de artikoloj bezonantaj tradukojn de priskriboj. Ĉu vi povas daŭre helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_license_notice">Per aldonado de la titola priskribo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">Per aldonado de la titola priskribo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informo</string>
   <string name="suggested_edits_tasks_activity_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_task_add_description_title">Aldoni priskribojn</string>

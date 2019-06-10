@@ -611,6 +611,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_text_hint_per_language">description de %s</string>
+  <string name="description_edit_caption_hint_per_language">légende de %s</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_article">Article</string>
   <string name="description_edit_read">Lire</string>
@@ -618,6 +619,9 @@
   <string name="description_edit_add_description_v2">Ajouter une description</string>
   <string name="description_edit_translate_description">Traduire la description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
+  <string name="description_edit_add_image_caption">Ajouter la légende de l\'image</string>
+  <string name="description_edit_edit_image_caption">Modifier la légende de l\'image</string>
+  <string name="description_edit_translate_image_caption">Traduire la légende de l\'image</string>
   <string name="add_translation">Ajouter la traduction %s</string>
   <string name="description_edit_cancel_hint">Annuler</string>
   <string name="description_edit_help_title">Aide : descriptions des titres</string>
@@ -640,6 +644,7 @@
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
   <string name="suggested_edits_add_descriptions">Ajouter des descriptions</string>
   <string name="suggested_edits_translate_descriptions">Traduire les descriptions</string>
+  <string name="suggested_edits_add_image_captions">Ajouter les légendes aux images</string>
   <string name="suggested_edits_review_description">Relire la description</string>
   <string name="suggested_edits_add_description_button">Ajouter une description</string>
   <string name="suggested_edits_my_contributions">Mes contributions</string>
@@ -665,7 +670,7 @@
   <string name="suggested_edits_unlock_translate_captions_notification_title">Vous avez débloqué « Traduire les légendes d’image »</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Merci pour toutes vos contributions ! Vous avez utilisé l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions. Vous utilisez l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_license_notice">En ajoutant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">En ajoutant la description, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
   <string name="suggested_edits_task_add_description_title">Ajouter les descriptions</string>
@@ -682,6 +687,11 @@
   <string name="suggested_edits_task_multilingual_positive">Ajouter des langues</string>
   <string name="suggested_edits_task_translate_caption_title">Traduire les légendes des images</string>
   <string name="suggested_edits_task_translate_caption_description">Traduire les légendes dans d\'autres langues</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artiste</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Source</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licence</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Date</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">contribution</item>
     <item quantity="other">%d contributions</item>
