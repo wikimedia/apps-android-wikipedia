@@ -328,7 +328,6 @@ public class DescriptionEditFragment extends Fragment {
 
         private Observable<MwPostResponse> getPostObservable(@NonNull String editToken, @Nullable String languageCode) {
             if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-                // TODO: update funnel
                 return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
                         pageTitle.getWikiSite().languageCode(), commonsDbName,
                         pageTitle.getConvertedText(), editView.getDescription(),

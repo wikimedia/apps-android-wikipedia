@@ -143,7 +143,11 @@ class SuggestedEditsCardsFragment : Fragment() {
         if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
         } else if (addContributionText != null) {
-            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+            if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
+            } else {
+                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+            }
         }
     }
 

@@ -154,6 +154,8 @@ public class DescriptionEditView extends LinearLayout {
         } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             return getContext().getString(R.string.description_edit_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
+        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+            return getContext().getString(R.string.description_edit_description);
         } else {
             return getContext().getString(R.string.description_edit_article);
         }
@@ -163,6 +165,8 @@ public class DescriptionEditView extends LinearLayout {
         if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             return getContext().getString(R.string.description_edit_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
+        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+            return getContext().getString(R.string.description_edit_caption_hint);
         } else {
             return getContext().getString(R.string.description_edit_text_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
@@ -190,9 +194,8 @@ public class DescriptionEditView extends LinearLayout {
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
         labelText.setText(getLabelText(sourceSummary.getLang()));
-        pageSummaryText.setText(isTranslationEdit
-                ? StringUtils.capitalize(sourceSummary.getDescription())
-                : StringUtil.fromHtml(sourceSummary.getExtractHtml()));
+        pageSummaryText.setText(StringUtil.strip(StringUtil.fromHtml(StringUtils.capitalize(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION
+                ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
         //Todo: only for testing - change after image captions logic is solidified
         //readArticleBarContainer.setImageDetails(pageSummary.getThumbnailUrl() == null ? "" : pageSummary.getThumbnailUrl(), "File:Bahram Gur hunting.jpg");

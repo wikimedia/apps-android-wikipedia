@@ -619,8 +619,10 @@
     <string name="description_edit_text_hint">Title description</string>
     <string name="description_edit_text_hint_per_language">%s description</string>
     <string name="description_edit_caption_hint_per_language">%s caption</string>
+    <string name="description_edit_caption_hint">Caption</string>
     <string name="description_edit_save">Publish</string>
     <string name="description_edit_article">Article</string>
+    <string name="description_edit_description">Description</string>
     <string name="description_edit_read">Read</string>
     <string name="description_edit_add_description">Add title description</string>
     <string name="description_edit_add_description_v2">Add description</string>
@@ -665,6 +667,8 @@
     <string name="suggested_edits_translate_image_captions">Translate image captions</string>
     <string name="suggested_edits_review_description">Review description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
+    <string name="suggested_edits_add_caption_button">Add caption</string>
+    <string name="suggested_edits_edit_caption_button">Edit caption</string>
     <string name="suggested_edits_review_image_caption">Review image caption</string>
     <string name="suggested_edits_my_contributions">My contributions</string>
     <string name="suggested_edits_added_by_you">Added by you:</string>
