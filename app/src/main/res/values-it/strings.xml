@@ -398,9 +398,9 @@
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordina per data di aggiunta (più recenti)</string>
-  <string name="reading_list_sort_by_recent_desc">Ordina per data di aggiunta (più vecchi)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordina per data di aggiunta (meno recenti)</string>
   <string name="reading_list_sort_by_created">Ordina per data creazione (più recente)</string>
-  <string name="reading_list_sort_by_created_desc">Ordina per data creazione (più vecchia)</string>
+  <string name="reading_list_sort_by_created_desc">Ordina per data di creazione (meno recente)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
@@ -587,6 +587,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_text_hint_per_language">descrizione in %s</string>
+  <string name="description_edit_caption_hint_per_language">didascalia in %s</string>
   <string name="description_edit_save">Pubblica</string>
   <string name="description_edit_article">Voce</string>
   <string name="description_edit_read">Leggi</string>
@@ -594,6 +595,9 @@
   <string name="description_edit_add_description_v2">Aggiungi descrizione</string>
   <string name="description_edit_translate_description">Traduci la descrizione del titolo</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
+  <string name="description_edit_add_image_caption">Aggiungi didascalia immagine</string>
+  <string name="description_edit_edit_image_caption">Modifica didascalia immagine</string>
+  <string name="description_edit_translate_image_caption">Traduci didascalia immagine</string>
   <string name="add_translation">Aggiungi traduzione in %s</string>
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
@@ -603,6 +607,7 @@
   <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
   <string name="description_edit_success_saved">Descrizione pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione pubblicata!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Didascalia pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
@@ -614,8 +619,11 @@
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="suggested_edits_add_descriptions">Aggiungi descrizioni</string>
   <string name="suggested_edits_translate_descriptions">Traduci descrizioni</string>
+  <string name="suggested_edits_add_image_captions">Aggiungi didascalie immagini</string>
+  <string name="suggested_edits_translate_image_captions">Traduci didascalie immagini</string>
   <string name="suggested_edits_review_description">Revisiona descrizione</string>
   <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
+  <string name="suggested_edits_review_image_caption">Rivedi didascalia immagine</string>
   <string name="suggested_edits_my_contributions">I miei contributi</string>
   <string name="suggested_edits_added_by_you">Aggiunto da te:</string>
   <string name="suggested_edits_translated_by_you">Tradotto da te:</string>
@@ -635,6 +643,8 @@
   <string name="suggested_edits_unlock_add_captions_notification_title">Hai sbloccato \"Aggiungi didascalie immagini\"</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Hai sbloccato l\'attività \"Traduci didascalie immagini\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Hai sbloccato \"Traduci didascalie immagini\"</string>
+  <string name="suggested_edits_license_notice">Aggiungendo la descrizione, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Aggiungendo la didascalia all\'immagine, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informazioni</string>
   <string name="suggested_edits_tasks_activity_title">Modifiche suggerite</string>
   <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni</string>
@@ -651,6 +661,10 @@
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
   <string name="suggested_edits_task_translate_caption_title">Traduci didascalie immagini</string>
   <string name="suggested_edits_task_translate_caption_description">Traduci didascalie in altre lingue</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Autore</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licenza</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contributo</item>
     <item quantity="other">%d contributi</item>
@@ -661,6 +675,7 @@
   <string name="suggested_edits_add_translation_button_label">Aggiungi traduzione</string>
   <string name="suggested_edits_edit_translation_button_label">Modifica traduzione</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
+  <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Annulla</string>

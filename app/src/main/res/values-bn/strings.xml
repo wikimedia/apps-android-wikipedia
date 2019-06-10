@@ -131,6 +131,8 @@
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
   <string name="logout_prompt" fuzzy="true">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
   <string name="logout_dialog_cancel_button_text">বাতিল</string>
+  <string name="logged_out_in_background_login">প্রবেশ করুন</string>
+  <string name="logged_out_in_background_cancel">বাতিল</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
   <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
   <string name="history_offline_articles_toast">অফলাইন থাকাকালীন ইতিহাসের কিছু নিবন্ধ অপ্রদর্শিত হতে পারে।</string>
@@ -342,6 +344,7 @@
   <string name="color_theme_light">উজ্জ্বল</string>
   <string name="color_theme_dark">কালো</string>
   <string name="color_theme_black">কালো</string>
+  <string name="color_theme_sepia">কালচে-বাদামি</string>
   <string name="color_theme_test_title">নমুনা পাঠ্য</string>
   <string name="preference_title_app_theme">অ্যাপের থিম</string>
   <string name="preference_summary_color_theme">অ্যাপ্লিকেশনের কালো রঙের থিম ব্যবহার করতে স্যুইচ করুন</string>
@@ -518,8 +521,11 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
+  <string name="description_edit_article">নিবন্ধ</string>
+  <string name="description_edit_read">পড়ুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
   <string name="description_edit_add_description_v2">বিবরণ যোগ করুন</string>
+  <string name="description_edit_translate_description">বিবরণ অনুবাদ করুন</string>
   <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="add_translation">%s অনুবাদ যোগ করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
