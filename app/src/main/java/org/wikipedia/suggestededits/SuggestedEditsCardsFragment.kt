@@ -63,10 +63,9 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     private val topChild: SuggestedEditsCardsItemFragment?
         get() {
-            val fm = fragmentManager
-            for (f in fm!!.fragments) {
-                if (f is SuggestedEditsCardsItemFragment && f.pagerPosition == cardsViewPager.currentItem) {
-                    return f
+            fragmentManager!!.fragments.forEach {
+                if (it is SuggestedEditsCardsItemFragment && it.pagerPosition == cardsViewPager.currentItem) {
+                    return it
                 }
             }
             return null
@@ -215,8 +214,8 @@ class SuggestedEditsCardsFragment : Fragment() {
                 .map { siteMatrix = it; }
                 .doFinally { updateFromLanguageSpinner() }
                 .subscribe({
-                    for (code in app.language().appLanguageCodes) {
-                        languageList.add(getLanguageLocalName(code))
+                    app.language().appLanguageCodes.forEach {
+                        languageList.add(getLanguageLocalName(it))
                     }
                 }, { L.e(it) }))
     }
@@ -226,10 +225,10 @@ class SuggestedEditsCardsFragment : Fragment() {
             return app.language().getAppLanguageLocalizedName(code)!!
         }
         var name: String? = null
-        for (info in SiteMatrix.getSites(siteMatrix!!)) {
-            if (code == info.code()) {
-                name = info.name()
-                break
+        SiteMatrix.getSites(siteMatrix!!).forEach {
+            if (code == it.code()) {
+                name = it.name()
+                return@forEach
             }
         }
         if (name.isNullOrEmpty()) {
@@ -261,8 +260,8 @@ class SuggestedEditsCardsFragment : Fragment() {
         languageCodesToList.addAll(app.language().appLanguageCodes)
         languageCodesToList.removeAt(fromLanguageSpinnerPosition)
         languageToList.clear()
-        for (language in languageCodesToList) {
-            languageToList.add(getLanguageLocalName(language))
+        languageCodesToList.forEach {
+            languageToList.add(getLanguageLocalName(it))
         }
 
         val toAdapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageToList)

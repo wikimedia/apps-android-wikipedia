@@ -33,9 +33,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         internal set
     var pagerPosition = -1
 
-    val title: String?
-        get() = if (sourceSummary == null) null else sourceSummary!!.title
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
