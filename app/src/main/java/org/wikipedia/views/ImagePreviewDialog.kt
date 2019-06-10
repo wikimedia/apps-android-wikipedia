@@ -14,14 +14,12 @@ import com.facebook.drawee.controller.BaseControllerListener
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -57,18 +55,21 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun setImageDetails() {
         loadImage(suggestedEditsSummary.originalUrl)
         titleText!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(suggestedEditsSummary.title))
-        addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(suggestedEditsSummary.description).toString())
-        addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()!!.value()).toString())
-        addDetailPortion(getString(R.string.suggested_edits_image_date), suggestedEditsSummary.metadata!!.dateTime()!!.value())
-        addDetailPortion(getString(R.string.suggested_edits_image_source), suggestedEditsSummary.metadata!!.imageDescription()!!.source())
-        addDetailPortion(getString(R.string.suggested_edits_image_licensing), suggestedEditsSummary.metadata!!.licenseShortName()!!.value())
+        addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(suggestedEditsSummary.description).toString(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()!!.value()).toString(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_date), suggestedEditsSummary.metadata!!.dateTime()!!.value(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_source), suggestedEditsSummary.metadata!!.imageDescription()!!.source(), true)
+        addDetailPortion(getString(R.string.suggested_edits_image_licensing), suggestedEditsSummary.metadata!!.licenseShortName()!!.value(), true)
         detailsHolder.requestLayout()
     }
 
-    private fun addDetailPortion(@NonNull title: String, @Nullable detail: String?) {
+    private fun addDetailPortion(@NonNull title: String, @Nullable detail: String?, shouldAddAccentTint: Boolean) {
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(requireContext())
             view.titleTextView.text = title
+            if (shouldAddAccentTint) {
+                view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
+            }
             view.detailTextView.text = detail
             detailsHolder.addView(view)
         }
@@ -101,7 +102,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         fun newInstance(suggestedEditsSummary: SuggestedEditsSummary): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
-                  args.putString(SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
+            args.putString(SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
             dialog.arguments = args
             return dialog
         }
