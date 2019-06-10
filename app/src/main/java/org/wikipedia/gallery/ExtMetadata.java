@@ -6,26 +6,6 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 public class ExtMetadata {
-    //Todo: only for testing - change after image captions logic is solidified
-    void setDateTime(@Nullable Values dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    //Todo: only for testing - change after image captions logic is solidified
-    void setImageDescription(@Nullable Values imageDescription) {
-        this.imageDescription = imageDescription;
-    }
-
-    //Todo: only for testing - change after image captions logic is solidified
-    public void setArtist(@Nullable Values artist) {
-        this.artist = artist;
-    }
-
-    //Todo: only for testing - change after image captions logic is solidified
-    void setLicenseShortName(@Nullable Values licenseShortName) {
-        this.licenseShortName = licenseShortName;
-    }
-
     @SuppressWarnings("unused") @SerializedName("DateTime") @Nullable private Values dateTime;
     @SuppressWarnings("unused") @SerializedName("ObjectName") @Nullable private Values objectName;
     @SuppressWarnings("unused") @SerializedName("CommonsMetadataExtension") @Nullable private Values commonsMetadataExtension;
@@ -81,16 +61,6 @@ public class ExtMetadata {
     }
 
     public class Values {
-        //Todo: only for testing - change after image captions logic is solidified
-        public void setValue(@NonNull String value) {
-            this.value = value;
-        }
-
-        //Todo: only for testing - change after image captions logic is solidified
-        public void setSource(@NonNull String source) {
-            this.source = source;
-        }
-
         @SuppressWarnings("unused,NullableProblems") @NonNull private String value;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String source;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String hidden;

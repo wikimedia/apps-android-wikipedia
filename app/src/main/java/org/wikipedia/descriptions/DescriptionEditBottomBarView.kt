@@ -5,17 +5,17 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
+import org.jetbrains.annotations.NotNull
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
 
-class DescriptionEditReadArticleBarView @JvmOverloads constructor(
+class DescriptionEditBottomBarView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ConstraintLayout(context, attrs, defStyle) {
 
     init {
@@ -59,10 +59,9 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         show()
     }
 
-    fun setImageDetails(thumbUrl: String, fileName: String) {
-        //Todo: only for testing: set direction based on image details
-        setConditionalLayoutDirection(this, WikipediaApp.getInstance().language().appLanguageCode)
-        viewArticleTitle!!.text = StringUtil.fromHtml(fileName)
+    fun setImageDetails(suggestedEditsSummary: SuggestedEditsSummary, fileName: @NotNull String) {
+        setConditionalLayoutDirection(this, suggestedEditsSummary.lang)
+        viewArticleTitle!!.text = suggestedEditsSummary.title
 
         val padding: Int = DimenUtil.dpToPx(12.0f).toInt()
         viewArticleImage!!.visibility = VISIBLE
@@ -70,11 +69,11 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         viewArticleImage!!.setColorFilter(ResourceUtil.getThemedColor(context, R.attr.main_toolbar_icon_color))
         viewArticleImage.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp)
 
-        if (thumbUrl.isEmpty()) {
+        if (suggestedEditsSummary.thumbnailUrl!!.isEmpty()) {
             viewImageThumbnail!!.visibility = GONE
         } else {
             viewImageThumbnail.visibility = View.VISIBLE
-            ViewUtil.loadImageUrlInto(viewImageThumbnail!!, thumbUrl)
+            ViewUtil.loadImageUrlInto(viewImageThumbnail!!, suggestedEditsSummary.thumbnailUrl)
         }
 
         viewReadButton.visibility = View.GONE

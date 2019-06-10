@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -78,15 +77,10 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                                             ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
                             null));
         }
-        if (object instanceof ImageInfo) {
-            //ImageInfo imageInfo = (ImageInfo) object;
-            //Todo: only for testing - change after image captions logic is solidified
-            ImageInfo imageInfo = new ImageInfo("https://upload.wikimedia.org/wikipedia/commons/a/a1/Bahram_Gur_hunting.jpg", "This painting represents an episode drawn from Nizami's \"Haft Paykar\" (The Seven Thrones), the fourth book of his \"Khamsah\" (Quintet). The great Sasanian king Bahram Gur (r. 430-38), famous for his hunting powers and thus nicknamed \"wild ass\" (Bahram Gur), astonishes his companions with his quasi-divine prowess at hunting onagers. After his expedition and as a gesture of generosity, he orders 1,200 onagers (half to be branded and half to be earmarked with gold rings) to be distributed among his people. Script: nasta'liq.", "Painting drawn from Nizami's \"Khamsah\"",
-                    "2019-05-23 13:40:41", "commons-desc-page", "Public domain");
-
+        if (object instanceof SuggestedEditsSummary) {
+            SuggestedEditsSummary suggestedEditsSummary = (SuggestedEditsSummary) object;
             bottomSheetPresenter.show(getSupportFragmentManager(),
-                    ImagePreviewDialog.Companion.newInstance(imageInfo,
-                            "File:Bahram Gur hunting.jpg"));
+                    ImagePreviewDialog.Companion.newInstance(suggestedEditsSummary));
         }
 
     }

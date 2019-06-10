@@ -372,10 +372,17 @@ public class DescriptionEditFragment extends Fragment {
         }
 
         @Override
-        public void onReadArticleClick() {
-            callback().onBottomBarClicked(pageTitle);
-            //Todo: only for testing - change after image captions logic is solidified
-            //callback().onBottomBarClicked(new ImageInfo());
+        public void onBottomBarClick() {
+            switch (invokeSource) {
+                case SUGGESTED_EDITS_ADD_CAPTION:
+                    callback().onBottomBarClicked(sourceSummary);
+                    break;
+                case SUGGESTED_EDITS_TRANSLATE_CAPTION:
+                    callback().onBottomBarClicked(targetSummary);
+                    break;
+                default:
+                    callback().onBottomBarClicked(pageTitle);
+            }
         }
 
         @Override
