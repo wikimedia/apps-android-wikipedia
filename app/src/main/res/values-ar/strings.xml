@@ -608,6 +608,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
   <string name="description_edit_text_hint">وصف العنوان</string>
   <string name="description_edit_text_hint_per_language">وصف %s</string>
+  <string name="description_edit_caption_hint_per_language">شرح %s</string>
   <string name="description_edit_save">انشر</string>
   <string name="description_edit_article">مقالة</string>
   <string name="description_edit_read">قراءة</string>
@@ -615,6 +616,9 @@
   <string name="description_edit_add_description_v2">إضافة وصف</string>
   <string name="description_edit_translate_description">ترجمة الوصف</string>
   <string name="description_edit_edit_description">عدل الوصف</string>
+  <string name="description_edit_add_image_caption">إضافة تعليق الصورة</string>
+  <string name="description_edit_edit_image_caption">تحرير تعليق الصورة</string>
+  <string name="description_edit_translate_image_caption">ترجمة تعليق الصورة</string>
   <string name="add_translation">أضف ترجمة ب%s</string>
   <string name="description_edit_cancel_hint">ألغ</string>
   <string name="description_edit_help_title">مساعدة:وصوف العناوين</string>
@@ -625,6 +629,7 @@
   <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">نُشر الوصف!</string>
   <string name="description_edit_success_saved_snackbar">نُشِر الوصف!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">تم نشر التعليق!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
@@ -637,8 +642,11 @@
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
   <string name="suggested_edits_add_descriptions">إضافة وصوفات</string>
   <string name="suggested_edits_translate_descriptions">ترجمة الأوصاف</string>
+  <string name="suggested_edits_add_image_captions">إضافة تعليقات الصور</string>
+  <string name="suggested_edits_translate_image_captions">ترجمة تعليقات الصور</string>
   <string name="suggested_edits_review_description">معاينة الوصف</string>
   <string name="suggested_edits_add_description_button">أضف وصفا</string>
+  <string name="suggested_edits_review_image_caption">مراجعة تعليقات الصور</string>
   <string name="suggested_edits_my_contributions">مساهماتي</string>
   <string name="suggested_edits_added_by_you">أُضِيف بواسطتك:</string>
   <string name="suggested_edits_translated_by_you">ترجمتها أنت:</string>
@@ -662,7 +670,8 @@
   <string name="suggested_edits_unlock_translate_captions_notification_title">لقد قمت بإلغاء حماية  ميزة \"ترجم أوصاف الصورة\"</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">شكراً لكل مساهماتك! أنت تستخدم هذا التطبيق بعدة لغات، ولهذا قمنا بجمع قائمة بالصور التي تحتاج إلى ترجمة وصف. هل ستستمر في مساعدتنا في تحسين ويكيبيديا؟</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">التعديلات المقترحة\n\n\nشكراً لكل مساهماتك! أنت تستخدم هذا التطبيق بعدة لغات، ولهذا قمنا بجمع قائمة بالصور التي تحتاج إلى ترجمة وصف. هل ستستمر في مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_license_notice">بإضافة وصف العنوان، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">بإضافة الوصف، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">بإضافة تعليق الصورة، أوافق على &lt;a href=\"%1$s\"&gt;Tشروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">معلومات</string>
   <string name="suggested_edits_tasks_activity_title">التعديلات المقترحة</string>
   <string name="suggested_edits_task_add_description_title">إضافة وصوفات</string>
@@ -679,6 +688,11 @@
   <string name="suggested_edits_task_multilingual_positive">أضف لغات</string>
   <string name="suggested_edits_task_translate_caption_title">ترجمة تعليقات الصور</string>
   <string name="suggested_edits_task_translate_caption_description">ترجمة التعليقات إلى لغات أخرى</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">الفنان</string>
+  <string name="suggested_edits_image_caption_summary_title_author">المؤلف</string>
+  <string name="suggested_edits_image_caption_summary_title_source">المصدر</string>
+  <string name="suggested_edits_image_caption_summary_title_license">الترخيص</string>
+  <string name="suggested_edits_image_caption_summary_title_date">التاريخ</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">مساهمة</item>
     <item quantity="other">%d مساهمات</item>
