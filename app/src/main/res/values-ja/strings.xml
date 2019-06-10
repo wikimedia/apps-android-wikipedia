@@ -660,7 +660,7 @@
   <string name="suggested_edits_unlock_translate_captions_notification_title">「画像の説明を翻訳」を実績解除しました</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">たくさんの編集おめでとうございます、感激しました！　アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">編集提案\n\nたくさんの編集ありがとうございます、感激しました！　アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_menu_info">情報</string>
   <string name="suggested_edits_tasks_activity_title">編集提案</string>
   <string name="suggested_edits_task_add_description_title">説明を追加</string>

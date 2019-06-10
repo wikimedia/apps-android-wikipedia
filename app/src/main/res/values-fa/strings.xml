@@ -141,6 +141,11 @@
   <string name="preference_title_logout">خروج از سامانه</string>
   <string name="toast_logout_complete">خارج شد</string>
   <string name="logout_prompt" fuzzy="true">آیا اطمینان دارید که می‌خواهید خارج شوید؟</string>
+  <string name="logout_dialog_cancel_button_text">لغو</string>
+  <string name="logged_out_in_background_title">خارج شدید</string>
+  <string name="logged_out_in_background_dialog">شما از حساب کاربری‌تان در ویکی‌پدیا خارج شده‌اید. آیا می‌خواهید دوباره وارد شوید؟</string>
+  <string name="logged_out_in_background_login">ورود</string>
+  <string name="logged_out_in_background_cancel">لغو</string>
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده‌است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="history_offline_articles_toast">برخی از مقالات در تاریخچه ممکن است در حالت آفلاین دیده نشوند.</string>
@@ -417,6 +422,7 @@
   <string name="reading_list_add_to_other_list">افزودن به فهرست مطالعهٔ دیگر</string>
   <string name="reading_list_remove_from_list">حذف از %s</string>
   <string name="reading_list_remove_from_lists">حذف از فهرست‌های خواندن</string>
+  <string name="reading_list_select_item">انتخاب</string>
   <string name="reading_list_confirm_remove_article_from_offline">حذف از آفلاین</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های خواند موجود نیست:</string>
@@ -475,6 +481,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">فهرست مطالعه با موفقیت همگام سازی شد</string>
   <string name="reading_list_menu_last_sync">آخرین هم‌زمان‌سازی: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">تأیید</string>
+  <string name="reading_list_delete_dialog_ok_button_text">تأیید</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">لغو</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">لغو</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">لغو</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">لغو</string>
+  <string name="reading_list_split_dialog_ok_button_text">تأیید</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_reverted_title">واگردانی ویرایش</string>
   <string name="notification_channel_description">پیشرفت بارگیری</string>
@@ -494,6 +507,18 @@
     <item quantity="one">%1$d مقاله باقی مانده است</item>
     <item quantity="other">%1$d مقاله باقی مانده است</item>
   </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">همگام‌سازی فهرست مطالعه</item>
+    <item quantity="other">همگام‌سازی فهرست‌های مطالعه</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">در حال همگام‌سازی %1$d فهرست…</item>
+    <item quantity="other">در حال همگام‌سازی %1$d فهرست…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d فهرست باقی مانده است</item>
+    <item quantity="other">%1$d فهرست باقی مانده است</item>
+  </plurals>
   <string name="notification_echo_channel_description">اعلان‌های ویکی‌پدیا</string>
   <string name="notifications_activity_title">اعلان‌ها</string>
   <string name="notifications_activity_title_archived">اعلان‌ها (بایگانی‌شده)</string>
@@ -502,6 +527,10 @@
   <string name="notifications_view_archived">نمایش بایگانی‌شده</string>
   <string name="notifications_prefs">ترجیحات اعلان ها</string>
   <string name="notifications_archive">نشان به عنوان خوانده شده و آرشیو کردن</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">آگاه‌سازی بایگانی شد</item>
+    <item quantity="other">%d آگاه‌سازی بایگانی شد</item>
+  </plurals>
   <string name="notifications_poll_enable_title">فعال‌سازی اعلان‌ها</string>
   <string name="notifications_poll_enable_positive">فعال سازی</string>
   <string name="notifications_poll_enable_negative">اکنون نه</string>
@@ -561,9 +590,14 @@
   <string name="feed_item_type_featured_image">تصویر روز ویکی‌انبار</string>
   <string name="feed_item_type_main_page">صفحهٔ اصلی ویکی‌پدیا با متن مقالهٔ روز</string>
   <string name="feed_item_type_randomizer">مقالهٔ تصادفی برای خواندن</string>
+  <string name="feed_item_type_suggested_edits">پیشنهادهایی برای افزودن محتوا به ویکی‌پدیا</string>
   <string name="feed_empty_message">در خوراک جستجویتان چیزی وجود ندارد.</string>
   <string name="feed_configure_onboarding_action">سفارشی‌کردن</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">تأیید</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">لغو</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;شخصی‌سازی فید جستجویتان&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; الان امکان انتخاب مواردی که در فیدتان نشان‌داده شود را دارید و همچنین اولویت‌بندی کردن نوع محتوی را می‌توانید انجام دهید.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">تأیید</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">لغو</string>
   <string name="description_edit_text_hint">توضیحات عنوان</string>
   <string name="description_edit_save">منتشر</string>
   <string name="description_edit_article">مقاله</string>
@@ -596,7 +630,9 @@
   <string name="suggested_edits_added_by_you">افزوده شده توسط شما:</string>
   <string name="suggested_edits_translated_by_you">ترجمه‌شده توسط شما:</string>
   <string name="suggested_edits_unlock_dialog_no">شاید بعداً</string>
+  <string name="suggested_edits_unlock_dialog_yes">بله؛ ادامه بده</string>
   <string name="suggested_edits_unlock_notification_text">ویرایش‌های پیشنهادی</string>
+  <string name="suggested_edits_unlock_notification_button">بله؛ ادامه بده</string>
   <string name="suggested_edits_menu_info">اطلاعات</string>
   <string name="suggested_edits_tasks_activity_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات</string>
@@ -609,12 +645,16 @@
   <string name="suggested_edits_task_multilingual_positive">افزودن زبان</string>
   <string name="suggested_edits_task_translate_caption_title">ترجمه توضیحات تصویر</string>
   <string name="suggested_edits_task_translate_caption_description">ترجمه توضیحات تصویر به زبان های دیگر</string>
+  <string name="suggested_edits_feed_card_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع شد</string>
+  <string name="suggested_edits_add_translation_button_label">افزودن ترجمه</string>
+  <string name="suggested_edits_edit_translation_button_label">ویرایش ترجمه</string>
   <string name="description_edit_revert_subtitle">از بابت ویرایش در ویکی‌پدیا ممنونیم!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
+  <string name="description_edit_login_cancel_button_text">لغو</string>
   <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="offline_read_final_rationale">اجازه دسترسی به حافظه دستگاه شما جهت استفاده از کتابخانه آفلاین مورد نیاز است.</string>
   <string name="size_gb">%.2f GB</string>
@@ -665,7 +705,16 @@
   <string name="add_wikipedia_languages_text">افزودن زبان های ویکی پدیا</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ویرایش زبان ها</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نه ممنون</string>
+  <string name="remove_language_dialog_cancel_button_text">لغو</string>
+  <string name="remove_language_dialog_ok_button_text">تأیید</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">تأیید</string>
+  <string name="protected_page_warning_dialog_ok_button_text">تأیید</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">تأیید</string>
+  <string name="edit_conflict_dialog_ok_button_text">تأیید</string>
+  <string name="reverted_edit_dialog_ok_button_text">تأیید</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">لغو</string>
   <string name="wikitext_bold">پررنگ</string>
+  <string name="wikitext_italic">کج</string>
   <string name="wikitext_link">پیوند</string>
   <string name="wikitext_bulleted_list">فهرست گلوله‌ای</string>
   <string name="wikitext_numbered_list">فهرست شماره‌ای</string>
@@ -675,4 +724,8 @@
   <string name="main_drawer_close">بستن</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
+  <string name="custom_date_picker_dialog_ok_button_text">تأیید</string>
+  <string name="text_input_dialog_ok_button_text">تأیید</string>
+  <string name="text_input_dialog_cancel_button_text">لغو</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">لغو</string>
 </resources>

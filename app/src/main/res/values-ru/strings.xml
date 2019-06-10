@@ -629,6 +629,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="description_edit_text_hint">Краткое описание</string>
   <string name="description_edit_text_hint_per_language">%s описание</string>
+  <string name="description_edit_caption_hint_per_language">описание на {{grammar:genitive|%s}}</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_article">Статья</string>
   <string name="description_edit_read">Читать</string>
@@ -636,6 +637,9 @@
   <string name="description_edit_add_description_v2">Добавить краткое описание</string>
   <string name="description_edit_translate_description">Перевод кратких описаний</string>
   <string name="description_edit_edit_description">Править описание</string>
+  <string name="description_edit_add_image_caption">Добавить описание изображения</string>
+  <string name="description_edit_edit_image_caption">Редактировать описание изображения</string>
+  <string name="description_edit_translate_image_caption">Перевести описание изображения</string>
   <string name="add_translation">Добавить перевод на %s</string>
   <string name="description_edit_cancel_hint">Отмена</string>
   <string name="description_edit_help_title">Справка: краткие описания</string>
@@ -646,6 +650,7 @@
   <string name="description_edit_license_notice">Изменяя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание сохранено!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Описание опубликовано!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -658,8 +663,11 @@
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
   <string name="suggested_edits_add_descriptions">Добавление кратких описаний</string>
   <string name="suggested_edits_translate_descriptions">Перевод кратких описаний</string>
+  <string name="suggested_edits_add_image_captions">Добавить описания изображений</string>
+  <string name="suggested_edits_translate_image_captions">Перевести описания изображений</string>
   <string name="suggested_edits_review_description">Проверить описание</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
+  <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_added_by_you">Добавлено вами:</string>
   <string name="suggested_edits_translated_by_you">Переведено вами:</string>
@@ -684,6 +692,7 @@
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Спасибо за ваш вклад! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список изображений, нуждающихся в переводе описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список изображений, нуждающихся в переводе описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_license_notice">Добавляя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Добавляя описание изображения, я соглашаюсь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаюсь на безотзывную публикацию моего вклада по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информация</string>
   <string name="suggested_edits_tasks_activity_title">Предложение отредактировать</string>
   <string name="suggested_edits_task_add_description_title">Добавление кратких описаний</string>
@@ -700,6 +709,11 @@
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
   <string name="suggested_edits_task_translate_caption_title">Перевод описаний изображений</string>
   <string name="suggested_edits_task_translate_caption_description">Перевод подписей для изображений на другие языки</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Источник</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Лицензия</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">одна правка</item>
     <item quantity="other">%d правки</item>

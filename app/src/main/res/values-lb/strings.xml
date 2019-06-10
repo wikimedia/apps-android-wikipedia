@@ -530,6 +530,11 @@
   <string name="suggested_edits_task_translation_title">Beschreiwungen iwwersetzen</string>
   <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
   <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Kënschtler</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Quell</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lizenz</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="suggested_edits_add_translation_button_label">Iwwersetzung dobäisetzen</string>

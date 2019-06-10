@@ -606,6 +606,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
+  <string name="description_edit_caption_hint_per_language">Language specified hint text that is shown when the caption field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.\n{{Identical|Read}}</string>
@@ -613,6 +614,9 @@
   <string name="description_edit_add_description_v2">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_translate_description">Label that prompts the user to translate a description to an article that does not yet have a description.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
+  <string name="description_edit_add_image_caption">Label that prompts the user to add the caption of an image that does not yet have one.</string>
+  <string name="description_edit_edit_image_caption">Label that prompts the user to edit the caption of an image that already has one.</string>
+  <string name="description_edit_translate_image_caption">Label that prompts the user to translate a caption to an image that does not yet have a caption.</string>
   <string name="add_translation">Text on the action button for translating title descriptions. %s represents the language into which the description needs to be translated.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
   <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
@@ -623,6 +627,7 @@
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the description the user just added was saved.</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Message shown on a snackbar that the caption the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
@@ -635,8 +640,11 @@
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
   <string name="suggested_edits_add_descriptions">Title of screen where the user chooses articles that are missing descriptions to be added.</string>
   <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing descriptions to be translated.</string>
-  <string name="suggested_edits_review_description">Title of the review title description page.</string>
+  <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>
+  <string name="suggested_edits_translate_image_captions">Title of screen where the user chooses images that are missing captions to be translated.</string>
+  <string name="suggested_edits_review_description">Title of the review description page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
+  <string name="suggested_edits_review_image_caption">Title of the review image caption page.</string>
   <string name="suggested_edits_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="suggested_edits_added_by_you">A label shows that the current article description was added by you.</string>
   <string name="suggested_edits_translated_by_you">A label shows that the current article description was translated by the user.</string>
@@ -661,6 +669,7 @@
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Message for dialog that tells the user that they have unlocked the Translate Image Captions feature in their Suggested Edits screen.</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Message for notification that tells the user that they have unlocked the Translate Image Captions feature in their Suggested Edits screen.</string>
   <string name="suggested_edits_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
+  <string name="suggested_edits_image_caption_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add image captions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
   <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
   <string name="suggested_edits_task_add_description_title">Title description task heading.</string>
@@ -677,6 +686,11 @@
   <string name="suggested_edits_task_multilingual_positive">Positive action button text for editing tasks.</string>
   <string name="suggested_edits_task_translate_caption_title">Image caption translation tasks heading.</string>
   <string name="suggested_edits_task_translate_caption_description">Image caption translation tasks explanation given to user.</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_license">License title text of the file summary shown in suggested edit card.\n{{Identical|Licence}}</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Date title text of the file summary shown in suggested edit card.\n{{Identical|Date}}</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>
