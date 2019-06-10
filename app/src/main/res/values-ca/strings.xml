@@ -598,6 +598,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_text_hint_per_language">Descripció en %s</string>
+  <string name="description_edit_caption_hint_per_language">llegenda de %s</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_article">Article</string>
   <string name="description_edit_read">Llegeix</string>
@@ -605,6 +606,9 @@
   <string name="description_edit_add_description_v2">Afegeix una descripció</string>
   <string name="description_edit_translate_description">Tradueix la descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
+  <string name="description_edit_add_image_caption">Afegeix una llegenda a la imatge</string>
+  <string name="description_edit_edit_image_caption">Modifica la llegenda de la imatge</string>
+  <string name="description_edit_translate_image_caption">Tradueix la llegenda de la imatge</string>
   <string name="add_translation">Afegeix una traducció al %s</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>
   <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
@@ -615,6 +619,7 @@
   <string name="description_edit_license_notice">En canviar la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció.</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">S\'ha publicat la llegenda!</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
@@ -627,8 +632,11 @@
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="suggested_edits_add_descriptions">Afegeix descripcions</string>
   <string name="suggested_edits_translate_descriptions">Tradueix les descripcions</string>
+  <string name="suggested_edits_add_image_captions">Afegeix llegendes a les imatges</string>
+  <string name="suggested_edits_translate_image_captions">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_review_description">Revisa la descripció</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
+  <string name="suggested_edits_review_image_caption">Revisa la llegenda de la imatge</string>
   <string name="suggested_edits_my_contributions">Les meves contribucions</string>
   <string name="suggested_edits_added_by_you">Afegides per vós:</string>
   <string name="suggested_edits_translated_by_you">Traduïdes per vós:</string>
@@ -648,8 +656,8 @@
   <string name="suggested_edits_unlock_add_captions_notification_title">Heu desbloquejat «Afegeix descripcions d\'imatges»</string>
   <string name="suggested_edits_unlock_add_captions_dialog_message">Gràcies per les vostres contribucions! Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat un llistat d\'imatges que no en tenen. Ens ajudeu a millorar la Viquipèdia?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Heu desbloquejat la tasca «Tradueix llegendes de les imatges»</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Heu desbloquejat «Tradueix llegendes de les imatges»</string>
-  <string name="suggested_edits_license_notice">En afegir la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Heu desbloquejat «Tradueix les llegendes de les imatges»</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">En afegir la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
   <string name="suggested_edits_tasks_activity_title">Edicions suggerides</string>
   <string name="suggested_edits_task_add_description_title">Afegeix descripcions</string>
@@ -666,6 +674,11 @@
   <string name="suggested_edits_task_multilingual_positive">Afegeix llengües</string>
   <string name="suggested_edits_task_translate_caption_title">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_task_translate_caption_description">Tradueix les llegendes en altres llengües</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Font</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Llicència</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribució</item>
     <item quantity="other">%d contribucions</item>
