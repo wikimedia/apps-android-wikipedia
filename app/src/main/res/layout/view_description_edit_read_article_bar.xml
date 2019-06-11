@@ -70,8 +70,10 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewArticleTitle"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintVertical_weight="1">
+
         <TextView
             android:id="@+id/viewReadButton"
             android:layout_width="wrap_content"
@@ -86,9 +88,9 @@
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/viewImageThumbnail"
             style="@style/SimpleDraweeViewPlaceholder"
-            android:layout_gravity="center"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="center"
             android:visibility="gone" />
     </FrameLayout>
 
