@@ -144,7 +144,11 @@ public class DescriptionEditView extends LinearLayout {
                 }
             }
         } else {
-            return R.string.description_edit_edit_description;
+            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+                return R.string.description_edit_edit_image_caption;
+            } else {
+                return R.string.description_edit_edit_description;
+            }
         }
     }
 
