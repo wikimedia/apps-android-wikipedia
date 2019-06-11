@@ -1,7 +1,6 @@
 package org.wikipedia.feed.suggestededits
 
 import android.content.Context
-import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -46,7 +45,7 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
         disposables.clear()
     }
 
-    private fun toSuggestedEditsCard(suggestedEditsType: SuggestedEditsType, wiki: WikiSite): SuggestedEditsCard {
+    private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
         return SuggestedEditsCard(wiki, suggestedEditsType, sourceSummary, targetSummary)
     }
 
@@ -79,7 +78,7 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                             null, null, null
                     )
 
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(ADD_DESCRIPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
+                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[0]))
 
                     if (callback == null) {
                         FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
@@ -125,7 +124,7 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                             null, null, null
                     )
 
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(TRANSLATE_DESCRIPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
+                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
 
                     if (callback == null) {
                         FeedCoordinator.postCardsToCallback(cb!!, if (pair == null) emptyList<Card>() else listOf(card))
@@ -171,7 +170,7 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                                 imageInfo.user,
                                 imageInfo.metadata
                         )
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(TRANSLATE_IMAGE_CAPTION, WikiSite.forLanguageCode(langFromCode))
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
                         FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
                     }
                 }, { if (callback != null) cb!!.success(emptyList()) }))
@@ -227,11 +226,9 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                                         WikiSite.forLanguageCode(langToCode)
                                 )
                         )
-                        Log.e("####", "fileCap" + fileCaption)
 
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(TRANSLATE_IMAGE_CAPTION, WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
                         FeedCoordinator.postCardsToCallback(cb!!, if (targetSummary == null) emptyList<Card>() else listOf(card))
-
                     }
                 }, { if (callback == null) cb!!.success(emptyList()) }))
     }

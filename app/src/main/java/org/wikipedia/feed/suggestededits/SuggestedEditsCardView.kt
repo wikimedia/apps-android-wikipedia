@@ -77,7 +77,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
         viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
-        viewArticleTitle.text = card!!.imageFileName()
+        viewArticleTitle.text = card!!.sourceSummary!!.title
         callToActionText.text = if (card!!.suggestedEditsType == TRANSLATE_IMAGE_CAPTION) String.format(context.getString(R.string.suggested_edits_feed_card_translate_image_caption), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
     }
 
