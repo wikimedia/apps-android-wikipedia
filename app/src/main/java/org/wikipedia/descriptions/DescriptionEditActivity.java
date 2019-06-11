@@ -68,21 +68,33 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     }
 
     @Override
-    public void onBottomBarContainerClicked(@NonNull Object object) {
-        if (object instanceof PageTitle) {
-            PageTitle pageTitle = (PageTitle) object;
-            bottomSheetPresenter.show(getSupportFragmentManager(),
-                    LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle,
-                                    getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
-                                            ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                            null));
-        }
-        if (object instanceof SuggestedEditsSummary) {
-            SuggestedEditsSummary suggestedEditsSummary = (SuggestedEditsSummary) object;
-            bottomSheetPresenter.show(getSupportFragmentManager(),
-                    ImagePreviewDialog.Companion.newInstance(suggestedEditsSummary));
-        }
+    public void onBottomBarContainerClicked(@NonNull InvokeSource invokeSource) {
+        SuggestedEditsSummary sourceSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
+        SuggestedEditsSummary targetSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
 
+        switch (invokeSource) {
+            case SUGGESTED_EDITS_ADD_CAPTION:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        ImagePreviewDialog.Companion.newInstance(sourceSummary));
+                break;
+            case SUGGESTED_EDITS_TRANSLATE_DESC:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        LinkPreviewDialog.newInstance(new HistoryEntry(targetSummary.getPageTitle(),
+                                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
+                                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                                null));
+                break;
+            case SUGGESTED_EDITS_TRANSLATE_CAPTION:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        ImagePreviewDialog.Companion.newInstance(targetSummary));
+                break;
+            default:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        LinkPreviewDialog.newInstance(new HistoryEntry(sourceSummary.getPageTitle(),
+                                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
+                                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                                null));
+        }
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {

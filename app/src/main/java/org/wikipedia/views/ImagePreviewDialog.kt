@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.DialogInterface
-import android.graphics.drawable.Animatable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
-import com.facebook.drawee.backends.pipeline.Fresco
-import com.facebook.drawee.controller.BaseControllerListener
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.R
@@ -24,13 +21,14 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
+
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
-        suggestedEditsSummary = GsonUnmarshaller.unmarshal<SuggestedEditsSummary>(SuggestedEditsSummary::class.java, arguments!!.getString(SUMMARY))
+        suggestedEditsSummary = GsonUnmarshaller.unmarshal<SuggestedEditsSummary>(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         return rootView
     }
@@ -81,28 +79,17 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         galleryImage.visibility = View.VISIBLE
         L.v("Loading image from url: $url")
 
-        galleryImage.controller = Fresco.newDraweeControllerBuilder()
-                .setUri(url)
-                .setAutoPlayAnimations(true)
-                .setControllerListener(object : BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
-                    override fun onFinalImageSet(id: String?, imageInfo: com.facebook.imagepipeline.image.ImageInfo?, animatable: Animatable?) {
-                        galleryImage.setDrawBackground(true)
-                    }
+        ViewUtil.loadImageUrlInto(galleryImage, url)
 
-                    override fun onFailure(id: String?, throwable: Throwable?) {
-                        L.d(throwable)
-                    }
-                })
-                .build()
     }
 
     companion object {
-        private const val SUMMARY = "summary"
+        private const val ARG_SUMMARY = "arg_summary"
 
         fun newInstance(suggestedEditsSummary: SuggestedEditsSummary): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
-            args.putString(SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
+            args.putString(ARG_SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
             dialog.arguments = args
             return dialog
         }

@@ -54,12 +54,13 @@
                     tools:text="Lorem ipsum" />
             </LinearLayout>
 
-            <org.wikipedia.views.ZoomableDraweeViewWithBackground
+            <org.wikipedia.views.FaceAndColorDetectImageView
                 android:id="@+id/galleryImage"
                 android:layout_width="match_parent"
-                android:layout_height="446dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:contentDescription="@null"
-                app:actualImageScaleType="fitXY" />
+                app:actualImageScaleType="fitCenter" />
 
             <LinearLayout
                 android:id="@+id/detailsHolder"
@@ -118,7 +119,7 @@
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@null"
                         android:padding="12dp"
-                        android:tint="?attr/main_toolbar_icon_color"
+                        android:tint="?attr/colorAccent"
                         app:srcCompat="@drawable/ic_open_in_new_black_24px" />
                 </LinearLayout>
             </LinearLayout>

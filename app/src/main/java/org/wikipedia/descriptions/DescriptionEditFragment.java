@@ -68,7 +68,7 @@ public class DescriptionEditFragment extends Fragment {
 
     public interface Callback {
         void onDescriptionEditSuccess();
-        void onBottomBarContainerClicked(@NonNull Object object);
+        void onBottomBarContainerClicked(@NonNull InvokeSource invokeSource);
     }
 
     private static final String ARG_TITLE = "title";
@@ -373,16 +373,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onBottomBarClick() {
-            switch (invokeSource) {
-                case SUGGESTED_EDITS_ADD_CAPTION:
-                    callback().onBottomBarContainerClicked(sourceSummary);
-                    break;
-                case SUGGESTED_EDITS_TRANSLATE_CAPTION:
-                    callback().onBottomBarContainerClicked(targetSummary);
-                    break;
-                default:
-                    callback().onBottomBarContainerClicked(pageTitle);
-            }
+            callback().onBottomBarContainerClicked(invokeSource);
         }
 
         @Override
