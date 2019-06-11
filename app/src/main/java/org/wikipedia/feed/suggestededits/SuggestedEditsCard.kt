@@ -1,16 +1,16 @@
 package org.wikipedia.feed.suggestededits
 
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(wiki: WikiSite,
-                         val suggestedEditsType: SuggestedEditsType,
+                         val invokeSource: InvokeSource,
                          val sourceSummary: SuggestedEditsSummary?,
                          val targetSummary: SuggestedEditsSummary?) : WikiSiteCard(wiki) {
 

@@ -6,10 +6,10 @@ import android.net.Uri
 import android.view.View
 import io.reactivex.annotations.NonNull
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
+import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.*
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.StringUtil
@@ -50,18 +50,18 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         viewArticleSubtitle.visibility = View.GONE
-        when (card!!.suggestedEditsType) {
-            ADD_DESCRIPTION -> showAddDescriptionUI()
-            TRANSLATE_DESCRIPTION -> showTranslateDescriptionUI()
-            ADD_IMAGE_CAPTION -> showAddImageCaptionUI()
-            TRANSLATE_IMAGE_CAPTION -> showTranslateImageCaptionUI()
+        when (card!!.invokeSource) {
+            FEED_CARD_SUGGESTED_EDITS_ADD_DESC -> showAddDescriptionUI()
+            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC -> showTranslateDescriptionUI()
+            FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION -> showAddImageCaptionUI()
+            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> showTranslateImageCaptionUI()
         }
 
     }
 
     private fun showAddDescriptionUI() {
         viewArticleTitle.text = card!!.sourceSummary!!.normalizedTitle
-        callToActionText.text = if (card!!.suggestedEditsType == TRANSLATE_DESCRIPTION) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
+        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
@@ -78,7 +78,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         divider.visibility = View.GONE
         viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
         viewArticleTitle.text = card!!.sourceSummary!!.title
-        callToActionText.text = if (card!!.suggestedEditsType == TRANSLATE_IMAGE_CAPTION) String.format(context.getString(R.string.suggested_edits_feed_card_translate_image_caption), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
+        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) String.format(context.getString(R.string.suggested_edits_feed_card_translate_image_caption), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
     }
 
     private fun showTranslateImageCaptionUI() {
@@ -108,13 +108,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(R.color.base30)
-                .setLangCode(if (card.suggestedEditsType == TRANSLATE_DESCRIPTION) card.wikiSite().languageCode() else "")
+                .setLangCode(if (card.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || card.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }
 
     fun refreshCardContent() {
-        SuggestedEditsFeedClient(TRANSLATE_DESCRIPTION).fetchSuggestedEditForType(null, this)
+        SuggestedEditsFeedClient(card!!.invokeSource).fetchSuggestedEditForType(null, this)
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {

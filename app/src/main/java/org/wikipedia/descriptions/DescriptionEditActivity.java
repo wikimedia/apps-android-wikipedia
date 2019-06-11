@@ -74,10 +74,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
         switch (invokeSource) {
             case SUGGESTED_EDITS_ADD_CAPTION:
+            case FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION:
                 bottomSheetPresenter.show(getSupportFragmentManager(),
                         ImagePreviewDialog.Companion.newInstance(sourceSummary));
                 break;
             case SUGGESTED_EDITS_TRANSLATE_DESC:
+            case FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC:
                 bottomSheetPresenter.show(getSupportFragmentManager(),
                         LinkPreviewDialog.newInstance(new HistoryEntry(targetSummary.getPageTitle(),
                                         getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
@@ -85,6 +87,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                                 null));
                 break;
             case SUGGESTED_EDITS_TRANSLATE_CAPTION:
+            case FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION:
                 bottomSheetPresenter.show(getSupportFragmentManager(),
                         ImagePreviewDialog.Companion.newInstance(targetSummary));
                 break;

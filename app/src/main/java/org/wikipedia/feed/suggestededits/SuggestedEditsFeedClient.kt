@@ -4,27 +4,21 @@ import android.content.Context
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient.SuggestedEditsType.*
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.StringUtil
 
-class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsType) : FeedClient {
-    enum class SuggestedEditsType {
-        ADD_DESCRIPTION,
-        TRANSLATE_DESCRIPTION,
-        ADD_IMAGE_CAPTION,
-        TRANSLATE_IMAGE_CAPTION
-    }
-
+class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource) : FeedClient {
     interface Callback {
         fun updateCardContent(card: SuggestedEditsCard)
     }
@@ -46,15 +40,15 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
     }
 
     private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, suggestedEditsType, sourceSummary, targetSummary)
+        return SuggestedEditsCard(wiki, invokeSource, sourceSummary, targetSummary)
     }
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
-        when (suggestedEditsType) {
-            ADD_DESCRIPTION -> getArticleToAddDescription(cb, callback)
-            TRANSLATE_DESCRIPTION -> getArticleToTranslateDescription(cb, callback)
-            ADD_IMAGE_CAPTION -> getImageToAddCaption(cb, callback)
-            TRANSLATE_IMAGE_CAPTION -> getImageToTranslateCaption(cb, callback)
+        when (invokeSource) {
+            FEED_CARD_SUGGESTED_EDITS_ADD_DESC -> getArticleToAddDescription(cb, callback)
+            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC -> getArticleToTranslateDescription(cb, callback)
+            FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION -> getImageToAddCaption(cb, callback)
+            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> getImageToTranslateCaption(cb, callback)
 
         }
     }
@@ -171,7 +165,11 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                                 imageInfo.metadata
                         )
                         val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
-                        FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
+                        if (callback == null) {
+                            FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
+                        } else {
+                            callback.updateCardContent(card)
+                        }
                     }
                 }, { if (callback != null) cb!!.success(emptyList()) }))
     }
@@ -228,7 +226,11 @@ class SuggestedEditsFeedClient(private var suggestedEditsType: SuggestedEditsTyp
                         )
 
                         val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(app.language().appLanguageCodes[1]))
-                        FeedCoordinator.postCardsToCallback(cb!!, if (targetSummary == null) emptyList<Card>() else listOf(card))
+                        if (callback == null) {
+                            FeedCoordinator.postCardsToCallback(cb!!, if (targetSummary == null) emptyList<Card>() else listOf(card))
+                        } else {
+                            callback.updateCardContent(card)
+                        }
                     }
                 }, { if (callback == null) cb!!.success(emptyList()) }))
     }
