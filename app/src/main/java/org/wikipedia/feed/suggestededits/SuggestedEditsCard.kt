@@ -22,10 +22,6 @@ class SuggestedEditsCard(wiki: WikiSite,
         return WikipediaApp.getInstance().getString(R.string.suggested_edits_feed_card_title)
     }
 
-    fun imageFileName(): String {
-        return "Ada Lovelace Portrait.jpg"
-    }
-
     override fun subtitle(): String {
         return DateUtil.getFeedCardDateString(0)
     }

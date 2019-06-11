@@ -45,11 +45,10 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
         when (invokeSource) {
-            FEED_CARD_SUGGESTED_EDITS_ADD_DESC -> getArticleToAddDescription(cb, callback)
             FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC -> getArticleToTranslateDescription(cb, callback)
             FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION -> getImageToAddCaption(cb, callback)
             FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> getImageToTranslateCaption(cb, callback)
-
+            else -> getArticleToAddDescription(cb, callback)
         }
     }
 

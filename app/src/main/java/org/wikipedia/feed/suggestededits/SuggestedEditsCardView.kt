@@ -51,10 +51,10 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun updateContents() {
         viewArticleSubtitle.visibility = View.GONE
         when (card!!.invokeSource) {
-            FEED_CARD_SUGGESTED_EDITS_ADD_DESC -> showAddDescriptionUI()
             FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC -> showTranslateDescriptionUI()
             FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION -> showAddImageCaptionUI()
             FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> showTranslateImageCaptionUI()
+            else -> showAddDescriptionUI()
         }
 
     }
