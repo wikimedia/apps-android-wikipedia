@@ -92,10 +92,10 @@ class SuggestedEditsContributionsFragment : Fragment() {
                 .subscribe({ response ->
                     editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts)
-                    val totalEdits = editorTaskCounts.descriptionEditsPerLanguage!!.values.sum() + editorTaskCounts.captionEditsPerLanguage!!.values.sum()
+                    val totalEdits = editorTaskCounts.descriptionEditsPerLanguage.values.sum() + editorTaskCounts.captionEditsPerLanguage.values.sum()
                     languageList.clear()
-                    languageList.addAll(editorTaskCounts.descriptionEditsPerLanguage!!.keys)
-                    languageList.addAll(editorTaskCounts.captionEditsPerLanguage!!.keys)
+                    languageList.addAll(editorTaskCounts.descriptionEditsPerLanguage.keys)
+                    languageList.addAll(editorTaskCounts.captionEditsPerLanguage.keys)
                     contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
                     adapter.notifyDataSetChanged()
                 }, { throwable ->
@@ -125,8 +125,8 @@ class SuggestedEditsContributionsFragment : Fragment() {
             ViewUtil.formatLangButton(itemView.languageCode, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.languageCode.text = langCode
             itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
-            itemView.editCount.text = ((editorTaskCounts.descriptionEditsPerLanguage!![langCode] ?: 0)
-                    + (editorTaskCounts.captionEditsPerLanguage!![langCode] ?: 0)).toString()
+            itemView.editCount.text = ((editorTaskCounts.descriptionEditsPerLanguage[langCode] ?: 0)
+                    + (editorTaskCounts.captionEditsPerLanguage[langCode] ?: 0)).toString()
         }
     }
 
