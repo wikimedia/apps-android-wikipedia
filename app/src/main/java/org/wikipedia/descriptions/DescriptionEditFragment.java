@@ -68,7 +68,7 @@ public class DescriptionEditFragment extends Fragment {
 
     public interface Callback {
         void onDescriptionEditSuccess();
-        void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle);
+        void onBottomBarContainerClicked(@NonNull InvokeSource invokeSource);
     }
 
     private static final String ARG_TITLE = "title";
@@ -372,8 +372,8 @@ public class DescriptionEditFragment extends Fragment {
         }
 
         @Override
-        public void onReadArticleClick() {
-            callback().onPageSummaryContainerClicked(pageTitle);
+        public void onBottomBarClick() {
+            callback().onBottomBarContainerClicked(invokeSource);
         }
 
         @Override

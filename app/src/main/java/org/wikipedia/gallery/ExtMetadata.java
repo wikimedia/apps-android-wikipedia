@@ -48,6 +48,9 @@ public class ExtMetadata {
     @Nullable public Values usageTerms() {
         return usageTerms;
     }
+    @Nullable public Values dateTime() {
+        return dateTimeOriginal;
+    }
 
     @Nullable public Values artist() {
         return artist;

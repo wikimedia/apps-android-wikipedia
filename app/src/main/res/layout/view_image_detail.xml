@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center_vertical"
+        android:letterSpacing="0.04"
+        android:lineSpacingExtra="6sp"
+        android:textAllCaps="true"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="IMAGE CAPTION" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/chip_background_color" />
+
+    <TextView
+        android:id="@+id/detailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="8sp"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
+
+</LinearLayout>
