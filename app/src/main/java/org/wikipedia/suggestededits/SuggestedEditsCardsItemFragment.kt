@@ -136,7 +136,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                         ),
                                         StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
-                                        imageInfo.metadata!!.imageDescription()!!.value(),
+                                        StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()!!.value()).toString(),
                                         imageInfo.thumbUrl,
                                         imageInfo.originalUrl,
                                         null,
