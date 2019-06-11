@@ -31,12 +31,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     var targetSummary: SuggestedEditsSummary? = null
     var addedContribution: String = ""
         internal set
-    var targetPageTitle: PageTitle? = null
-
     var pagerPosition = -1
-
-    val title: String?
-        get() = if (sourceSummary == null) null else sourceSummary!!.title
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,14 +105,48 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                     target.extractHtml,
                                     null, null, null
                             )
-
-                            targetPageTitle = targetSummary!!.pageTitle
                             updateContents()
                         }, { this.setErrorState(it) })!!)
             }
 
             SUGGESTED_EDITS_ADD_CAPTION -> {
-                // TODO: add image caption
+                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .flatMap { mwQueryResponse ->
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(mwQueryResponse.title())
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                        }
+                        .subscribe({ response ->
+                            val page = response.query()!!.pages()!![0]
+                            if (page.imageInfo() != null) {
+                                val title = page.title()
+                                val imageInfo = page.imageInfo()!!
+
+                                sourceSummary = SuggestedEditsSummary(
+                                        StringUtil.removeNamespace(title),
+                                        parent().langFromCode,
+                                        PageTitle(
+                                                Namespace.FILE.name,
+                                                StringUtil.removeNamespace(title),
+                                                null,
+                                                imageInfo.thumbUrl,
+                                                WikiSite.forLanguageCode(parent().langFromCode)
+                                        ),
+                                        StringUtil.removeUnderscores(title),
+                                        StringUtil.removeHTMLTags(title),
+                                        imageInfo.metadata!!.imageDescription()!!.value(),
+                                        imageInfo.thumbUrl,
+                                        imageInfo.originalUrl,
+                                        null,
+                                        imageInfo.timestamp,
+                                        imageInfo.user,
+                                        imageInfo.metadata
+                                )
+                            }
+                            updateContents()
+                        }, { this.setErrorState(it) })!!)
             }
 
             SUGGESTED_EDITS_TRANSLATE_CAPTION -> {
@@ -169,8 +198,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                                 WikiSite.forLanguageCode(parent().langToCode)
                                         )
                                 )
-
-                                targetPageTitle = targetSummary!!.pageTitle
                             }
                             updateContents()
                         }, { this.setErrorState(it) })!!)
@@ -255,11 +282,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
     private fun updateCaptionContents() {
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
-
-        if (parent().source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-            viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
-        }
+        viewArticleSubtitleContainer.visibility = VISIBLE
+        viewArticleSubtitle.text = StringUtil.strip(StringUtil.fromHtml((if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description!!).capitalize()))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
             viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)

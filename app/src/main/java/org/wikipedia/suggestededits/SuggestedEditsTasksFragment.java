@@ -142,6 +142,9 @@ public class SuggestedEditsTasksFragment extends Fragment {
                     for (int count : editorTaskCounts.getDescriptionEditsPerLanguage().values()) {
                         totalEdits += count;
                     }
+                    for (int count : editorTaskCounts.getCaptionEditsPerLanguage().values()) {
+                        totalEdits += count;
+                    }
                     contributionsText.setText(getResources().getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits));
                     updateDisplayedTasks(editorTaskCounts);
                 }, throwable -> {
@@ -222,11 +225,8 @@ public class SuggestedEditsTasksFragment extends Fragment {
                 if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                     displayedTasks.add(translateImageCaptionsTask);
                     translateImageCaptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateCaptions));
-                    // TODO: remove it
-                    translateImageCaptionsTask.setShowActionLayout(false);
-                    translateImageCaptionsTask.setDisabled(false);
-//                    translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
-//                    translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
+                    translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
+                    translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
                 }
             }
 

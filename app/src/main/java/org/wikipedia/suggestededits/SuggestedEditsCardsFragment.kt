@@ -27,7 +27,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
@@ -54,19 +53,19 @@ class SuggestedEditsCardsFragment : Fragment() {
         get() {
             val f = topChild
             return if (source == SUGGESTED_EDITS_ADD_DESC || source == SUGGESTED_EDITS_ADD_CAPTION) {
-                titleFromPageName(f?.title, f?.addedContribution)
+                f?.sourceSummary?.pageTitle?.description = f?.addedContribution
+                f?.sourceSummary?.pageTitle
             } else {
-                f?.targetPageTitle?.description = f?.addedContribution
-                f?.targetPageTitle
+                f?.targetSummary?.pageTitle?.description = f?.addedContribution
+                f?.targetSummary?.pageTitle
             }
         }
 
     private val topChild: SuggestedEditsCardsItemFragment?
         get() {
-            val fm = fragmentManager
-            for (f in fm!!.fragments) {
-                if (f is SuggestedEditsCardsItemFragment && f.pagerPosition == cardsViewPager.currentItem) {
-                    return f
+            fragmentManager!!.fragments.forEach {
+                if (it is SuggestedEditsCardsItemFragment && it.pagerPosition == cardsViewPager.currentItem) {
+                    return it
                 }
             }
             return null
@@ -144,7 +143,11 @@ class SuggestedEditsCardsFragment : Fragment() {
         if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
         } else if (addContributionText != null) {
-            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+            if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
+            } else {
+                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+            }
         }
     }
 
@@ -197,10 +200,6 @@ class SuggestedEditsCardsFragment : Fragment() {
         updateActionButton()
     }
 
-    private fun titleFromPageName(pageName: String?, description: String?): PageTitle {
-        return PageTitle(pageName, WikiSite.forLanguageCode(if (source == SUGGESTED_EDITS_ADD_DESC) langFromCode else langToCode), null, description)
-    }
-
     fun onSelectPage() {
         if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.sourceSummary, topChild!!.targetSummary, source),
@@ -215,8 +214,8 @@ class SuggestedEditsCardsFragment : Fragment() {
                 .map { siteMatrix = it; }
                 .doFinally { updateFromLanguageSpinner() }
                 .subscribe({
-                    for (code in app.language().appLanguageCodes) {
-                        languageList.add(getLanguageLocalName(code))
+                    app.language().appLanguageCodes.forEach {
+                        languageList.add(getLanguageLocalName(it))
                     }
                 }, { L.e(it) }))
     }
@@ -226,10 +225,10 @@ class SuggestedEditsCardsFragment : Fragment() {
             return app.language().getAppLanguageLocalizedName(code)!!
         }
         var name: String? = null
-        for (info in SiteMatrix.getSites(siteMatrix!!)) {
-            if (code == info.code()) {
-                name = info.name()
-                break
+        SiteMatrix.getSites(siteMatrix!!).forEach {
+            if (code == it.code()) {
+                name = it.name()
+                return@forEach
             }
         }
         if (name.isNullOrEmpty()) {
@@ -261,8 +260,8 @@ class SuggestedEditsCardsFragment : Fragment() {
         languageCodesToList.addAll(app.language().appLanguageCodes)
         languageCodesToList.removeAt(fromLanguageSpinnerPosition)
         languageToList.clear()
-        for (language in languageCodesToList) {
-            languageToList.add(getLanguageLocalName(language))
+        languageCodesToList.forEach {
+            languageToList.add(getLanguageLocalName(it))
         }
 
         val toAdapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageToList)

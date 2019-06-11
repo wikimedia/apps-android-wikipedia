@@ -586,6 +586,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_text_hint_per_language">Опис на %s</string>
+  <string name="description_edit_caption_hint_per_language">%s опис</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_article">Статија</string>
   <string name="description_edit_read">Прочитај</string>
@@ -593,6 +594,9 @@
   <string name="description_edit_add_description_v2">Додај опис</string>
   <string name="description_edit_translate_description">Преведи опис</string>
   <string name="description_edit_edit_description">Уреди опис</string>
+  <string name="description_edit_add_image_caption">Додај опис на сликата</string>
+  <string name="description_edit_edit_image_caption">Измени опис на сликата</string>
+  <string name="description_edit_translate_image_caption">Преведи опис на сликата</string>
   <string name="add_translation">Стави превод на %s</string>
   <string name="description_edit_cancel_hint">Откажи</string>
   <string name="description_edit_help_title">Помош: описи на наслови</string>
@@ -603,6 +607,7 @@
   <string name="description_edit_license_notice">Менувајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="description_edit_success_saved">Описот е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот е објавен!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Описот е објавен!</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
@@ -615,8 +620,11 @@
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
   <string name="suggested_edits_add_descriptions">Додај описи</string>
   <string name="suggested_edits_translate_descriptions">Преведи описи</string>
+  <string name="suggested_edits_add_image_captions">Додај описи на слики</string>
+  <string name="suggested_edits_translate_image_captions">Преведи описи на слики</string>
   <string name="suggested_edits_review_description">Преглед на описот</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
+  <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
   <string name="suggested_edits_my_contributions">Мои придонеси</string>
   <string name="suggested_edits_added_by_you">Додадено од вас:</string>
   <string name="suggested_edits_translated_by_you">Преведено од Вас:</string>
@@ -640,7 +648,8 @@
   <string name="suggested_edits_unlock_translate_captions_notification_title">Го отклучивте „Преведи описи на слики“</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Ви благодариме за сите ваши придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на слики чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложени уредувања\n\nВи благодариме за сите ваши придонеси! Го користите прилогот на повеќе јазици, па затоа составивме список на слики чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_license_notice">Додавајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
+  <string name="suggested_edits_license_notice">Додавајќи го описот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
+  <string name="suggested_edits_image_caption_license_notice">Додавајќи го описот на сликата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">Инфо</string>
   <string name="suggested_edits_tasks_activity_title">Предложени уредувања</string>
   <string name="suggested_edits_task_add_description_title">Додај описи</string>
@@ -657,6 +666,11 @@
   <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>
   <string name="suggested_edits_task_translate_caption_title">Превод на описи на слики</string>
   <string name="suggested_edits_task_translate_caption_description">Превод на описи на други јазици</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Уметник</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Извор</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Лиценца</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Датум</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 придонес</item>
     <item quantity="other">%d придонеси</item>

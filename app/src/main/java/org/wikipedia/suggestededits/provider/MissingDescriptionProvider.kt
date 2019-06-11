@@ -174,7 +174,12 @@ object MissingDescriptionProvider {
                     val pages = result.query()!!.pages()
                     val mNumbers = ArrayList<String>()
                     for (page in pages!!) {
-                        mNumbers.add("M" + page.pageId())
+                        if (page.imageInfo()?.mimeType == "image/jpeg") {
+                            mNumbers.add("M" + page.pageId())
+                        }
+                    }
+                    if (mNumbers.isEmpty()) {
+                        throw ListEmptyException()
                     }
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
                 }, { mwQueryResponse, entities ->
@@ -204,7 +209,12 @@ object MissingDescriptionProvider {
                     val pages = result.query()!!.pages()
                     val mNumbers = ArrayList<String>()
                     for (page in pages!!) {
-                        mNumbers.add("M" + page.pageId())
+                        if (page.imageInfo()?.mimeType == "image/jpeg") {
+                            mNumbers.add("M" + page.pageId())
+                        }
+                    }
+                    if (mNumbers.isEmpty()) {
+                        throw ListEmptyException()
                     }
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
                 }, { mwQueryResponse, entities ->
