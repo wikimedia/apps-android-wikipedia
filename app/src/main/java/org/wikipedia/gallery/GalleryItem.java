@@ -161,6 +161,13 @@ public class GalleryItem implements Serializable {
         return (structuredData != null && structuredData.captions != null) ? structuredData.captions : Collections.emptyMap();
     }
 
+    public void setStructuredCaptions(@NonNull Map<String, String> captions) {
+        if (structuredData == null) {
+            structuredData = new StructuredData();
+        }
+        structuredData.captions = new HashMap<>(captions);
+    }
+
     public static class Titles implements Serializable {
         @Nullable private String canonical;
         @Nullable private String normalized;
