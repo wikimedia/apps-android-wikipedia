@@ -1,1 +1,1 @@
-Official Wikipedia app for Android.
+Official feature-rich viewer of the free online encyclopedia
