@@ -61,7 +61,7 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
     @BindView(R.id.view_description_edit_license_container) DescriptionEditLicenseView licenseContainer;
     @BindView(R.id.label_text) TextView labelText;
-    @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
+    @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditBottomBarView bottomBarContainer;
 
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
@@ -75,7 +75,7 @@ public class DescriptionEditView extends LinearLayout {
         void onSaveClick();
         void onHelpClick();
         void onCancelClick();
-        void onReadArticleClick();
+        void onBottomBarClick();
         void onVoiceInputClick();
     }
 
@@ -204,8 +204,19 @@ public class DescriptionEditView extends LinearLayout {
         pageSummaryText.setText(StringUtil.strip(StringUtil.fromHtml(StringUtils.capitalize(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION
                 ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
-        readArticleBarContainer.setSummary(suggestedEditsSummary);
-        readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
+        setUpBottomBar();
+    }
+
+    private void setUpBottomBar() {
+        switch (invokeSource) {
+            case SUGGESTED_EDITS_ADD_CAPTION:
+            case SUGGESTED_EDITS_TRANSLATE_CAPTION:
+                bottomBarContainer.setImageDetails(suggestedEditsSummary);
+                break;
+            default:
+                bottomBarContainer.setSummary(suggestedEditsSummary);
+        }
+        bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
     public void setSaveState(boolean saving) {
@@ -221,12 +232,12 @@ public class DescriptionEditView extends LinearLayout {
         if (enabled) {
             pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION);
             pageReviewContainer.show();
-            readArticleBarContainer.hide();
+            bottomBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
             hideSoftKeyboard(pageReviewContainer);
         } else {
             pageReviewContainer.hide();
-            readArticleBarContainer.show();
+            bottomBarContainer.show();
             descriptionEditContainer.setVisibility(VISIBLE);
         }
         setReviewHeaderText(enabled);
@@ -275,7 +286,7 @@ public class DescriptionEditView extends LinearLayout {
 
     private void performReadArticleClick() {
         if (callback != null && suggestedEditsSummary != null) {
-            callback.onReadArticleClick();
+            callback.onBottomBarClick();
         }
     }
 

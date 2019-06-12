@@ -36,7 +36,6 @@ public interface Service {
     String WIKIPEDIA_URL = "https://wikipedia.org/";
     String WIKIDATA_URL = "https://www.wikidata.org/";
     String COMMONS_URL = "https://commons.wikimedia.org/";
-    String META_URL = "https://meta.wikimedia.org/";
 
     String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=plaintext&";
 
