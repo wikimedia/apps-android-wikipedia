@@ -704,7 +704,7 @@
     <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
-  <string name="suggested_edits_feed_card_add_translation_button_in_language">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
+  <string name="suggested_edits_feed_card_add_translationin_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>

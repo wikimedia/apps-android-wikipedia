@@ -725,7 +725,7 @@
         <item quantity="other">%d contributions</item>
     </plurals>
     <string name="suggested_edits_feed_card_title">Suggested edits</string>
-    <string name="suggested_edits_feed_card_add_translation_button_in_language">Add article description (%s)</string>
+    <string name="suggested_edits_feed_card_add_translationin_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_caption_title">Image captions</string>
