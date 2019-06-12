@@ -62,7 +62,7 @@
                 android:minHeight="116dp"
                 android:orientation="vertical"
                 android:paddingTop="11dp"
-                android:paddingBottom="16dp">
+                android:paddingBottom="8dp">
 
                 <TextView
                     android:id="@+id/viewArticleTitle"
@@ -112,67 +112,67 @@
                         tools:text="Lorem ipsum" />
                 </LinearLayout>
 
-                <ScrollView
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="?attr/button_background_color"
-                    android:requiresFadingEdge="vertical"
-                    android:fadingEdgeLength="16dp"
-                    android:scrollbars="none"
-                    android:focusable="false">
+                    android:layout_weight="1">
 
-                    <FrameLayout
+                    <TextView
+                        android:id="@+id/viewArticleExtract"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:ellipsize="end"
+                        android:lineSpacingExtra="14sp"
+                        android:maxLines="2"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="?attr/primary_text_color"
+                        android:textSize="16sp"
+                        tools:text="Lorem ipsum" />
 
-                        <TextView
-                            android:id="@+id/viewArticleExtract"
+                    <LinearLayout
+                        android:id="@+id/viewImageSummaryContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <org.wikipedia.views.ImageDetailHorizontalView
+                            android:id="@+id/viewImageArtist"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:ellipsize="end"
-                            android:lineSpacingExtra="14sp"
-                            android:maxLines="2"
-                            android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
-                            android:textColor="?attr/primary_text_color"
-                            android:textSize="16sp"
-                            tools:text="Lorem ipsum" />
+                            app:title="@string/suggested_edits_image_caption_summary_title_artist" />
 
-                        <LinearLayout
-                            android:id="@+id/viewImageSummaryContainer"
+                        <org.wikipedia.views.ImageDetailHorizontalView
+                            android:id="@+id/viewImageDate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            app:title="@string/suggested_edits_image_caption_summary_title_date"/>
 
-                            <org.wikipedia.views.ImageDetailHorizontalView
-                                android:id="@+id/viewImageArtist"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                app:title="@string/suggested_edits_image_caption_summary_title_artist" />
+                        <org.wikipedia.views.ImageDetailHorizontalView
+                            android:id="@+id/viewImageSource"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:title="@string/suggested_edits_image_caption_summary_title_source" />
 
-                            <org.wikipedia.views.ImageDetailHorizontalView
-                                android:id="@+id/viewImageDate"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                app:title="@string/suggested_edits_image_caption_summary_title_date"/>
+                        <org.wikipedia.views.ImageDetailHorizontalView
+                            android:id="@+id/viewImageLicense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:title="@string/suggested_edits_image_caption_summary_title_license" />
 
-                            <org.wikipedia.views.ImageDetailHorizontalView
-                                android:id="@+id/viewImageSource"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                app:title="@string/suggested_edits_image_caption_summary_title_source" />
-
-                            <org.wikipedia.views.ImageDetailHorizontalView
-                                android:id="@+id/viewImageLicense"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                app:title="@string/suggested_edits_image_caption_summary_title_license" />
-
-                        </LinearLayout>
-                    </FrameLayout>
-                </ScrollView>
+                    </LinearLayout>
+                    <View
+                        android:layout_height="24dp"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/suggested_edits_card_bottom_gradient_background"/>
+                    <View
+                        android:layout_height="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="bottom"
+                        android:background="?attr/button_background_color"/>
+                </FrameLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
