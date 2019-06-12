@@ -16,14 +16,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <org.wikipedia.views.FaceAndColorDetectImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/viewArticleImage"
         style="@style/SimpleDraweeViewPlaceholder"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider" />
@@ -32,12 +29,13 @@
         android:id="@+id/viewArticleTitle"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:layout_marginStart="16dp"
         android:fontFamily="serif"
         android:gravity="center_vertical"
         android:lineSpacingExtra="6sp"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="14sp"
+        android:maxLines="2"
+        android:ellipsize="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewReadButton"
         app:layout_constraintStart_toEndOf="@+id/viewArticleImage"
@@ -56,6 +54,19 @@
         android:textAllCaps="true"
         android:textColor="?attr/material_theme_secondary_color"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+        app:layout_constraintVertical_weight="1" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/viewImageThumbnail"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"

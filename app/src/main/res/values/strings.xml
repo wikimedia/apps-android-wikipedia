@@ -725,6 +725,13 @@
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_add_translation_button_label">Add Translation</string>
     <string name="suggested_edits_edit_translation_button_label">Edit Translation</string>
+    <string name="suggested_edits_image_caption_title">Image captions</string>
+    <string name="suggested_edits_image_artist">Artist</string>
+    <string name="suggested_edits_image_date">Date</string>
+    <string name="suggested_edits_image_source">Source/Photographer</string>
+    <string name="suggested_edits_image_licensing">Licensing</string>
+    <string name="suggested_edits_image_more_info">More Infos</string>
+    <string name="suggested_edits_image_file_page_link_text">File page on Wikimedia Commons</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

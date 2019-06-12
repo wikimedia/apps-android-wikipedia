@@ -2,6 +2,7 @@ package org.wikipedia.descriptions;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -60,7 +61,7 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
     @BindView(R.id.view_description_edit_license_container) DescriptionEditLicenseView licenseContainer;
     @BindView(R.id.label_text) TextView labelText;
-    @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditReadArticleBarView readArticleBarContainer;
+    @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditBottomBarView bottomBarContainer;
 
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
@@ -74,7 +75,7 @@ public class DescriptionEditView extends LinearLayout {
         void onSaveClick();
         void onHelpClick();
         void onCancelClick();
-        void onReadArticleClick();
+        void onBottomBarClick();
         void onVoiceInputClick();
     }
 
@@ -109,7 +110,7 @@ public class DescriptionEditView extends LinearLayout {
         if (enabled) {
             pageTitleText.setVisibility(View.GONE);
             licenseContainer.setVisibility(GONE);
-            saveButton.setColorFilter(ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), android.graphics.PorterDuff.Mode.SRC_IN);
+            saveButton.setColorFilter(ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
             cancelButton.setImageResource(R.drawable.ic_arrow_back_themed_24dp);
             setHintText();
         } else {
@@ -143,7 +144,11 @@ public class DescriptionEditView extends LinearLayout {
                 }
             }
         } else {
-            return R.string.description_edit_edit_description;
+            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+                return R.string.description_edit_edit_image_caption;
+            } else {
+                return R.string.description_edit_edit_description;
+            }
         }
     }
 
@@ -178,13 +183,15 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setDarkReviewScreen(boolean enabled) {
-        int whiteRes = getResources().getColor(android.R.color.white);
-        toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color));
-        saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedAttributeId(getContext(), R.attr.themed_icon_color), android.graphics.PorterDuff.Mode.SRC_IN);
-        cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_icon_color), android.graphics.PorterDuff.Mode.SRC_IN);
-        headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_title_color));
-        ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_status_bar_color));
-        DeviceUtil.updateStatusBarTheme(activity, null, enabled);
+        if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            int whiteRes = getResources().getColor(android.R.color.white);
+            toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color));
+            saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
+            cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+            headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_title_color));
+            ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_status_bar_color));
+            DeviceUtil.updateStatusBarTheme(activity, null, enabled);
+        }
     }
 
     public void setSummaries(@NonNull Activity activity, @NonNull SuggestedEditsSummary sourceSummary, SuggestedEditsSummary targetSummary) {
@@ -197,8 +204,19 @@ public class DescriptionEditView extends LinearLayout {
         pageSummaryText.setText(StringUtil.strip(StringUtil.fromHtml(StringUtils.capitalize(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION
                 ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
-        readArticleBarContainer.setSummary(suggestedEditsSummary);
-        readArticleBarContainer.setOnClickListener(view -> performReadArticleClick());
+        setUpBottomBar();
+    }
+
+    private void setUpBottomBar() {
+        switch (invokeSource) {
+            case SUGGESTED_EDITS_ADD_CAPTION:
+            case SUGGESTED_EDITS_TRANSLATE_CAPTION:
+                bottomBarContainer.setImageDetails(suggestedEditsSummary);
+                break;
+            default:
+                bottomBarContainer.setSummary(suggestedEditsSummary);
+        }
+        bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
     public void setSaveState(boolean saving) {
@@ -212,20 +230,18 @@ public class DescriptionEditView extends LinearLayout {
 
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
-            setReviewHeaderText(true);
-            setDarkReviewScreen(invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION);
             pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION);
             pageReviewContainer.show();
-            readArticleBarContainer.hide();
+            bottomBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
             hideSoftKeyboard(pageReviewContainer);
         } else {
-            setReviewHeaderText(false);
-            setDarkReviewScreen(false);
             pageReviewContainer.hide();
-            readArticleBarContainer.show();
+            bottomBarContainer.show();
             descriptionEditContainer.setVisibility(VISIBLE);
         }
+        setReviewHeaderText(enabled);
+        setDarkReviewScreen(enabled);
     }
 
     public boolean showingReviewContent() {
@@ -270,7 +286,7 @@ public class DescriptionEditView extends LinearLayout {
 
     private void performReadArticleClick() {
         if (callback != null && suggestedEditsSummary != null) {
-            callback.onReadArticleClick();
+            callback.onBottomBarClick();
         }
     }
 

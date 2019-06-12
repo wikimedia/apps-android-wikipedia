@@ -238,7 +238,7 @@
                 </LinearLayout>
             </ScrollView>
 
-            <org.wikipedia.descriptions.DescriptionEditReadArticleBarView
+            <org.wikipedia.descriptions.DescriptionEditBottomBarView
                 android:id="@+id/view_description_edit_read_article_bar_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
