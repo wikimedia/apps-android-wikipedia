@@ -630,10 +630,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         boolean allowTranslate = false;
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
-        for (String lang : app.language().getAppLanguageCodes()) {
-            if (!item.getStructuredCaptions().containsKey(lang)) {
-                allowTranslate = true;
-                break;
+        if (app.language().getAppLanguageCodes().size() > 1) {
+            for (String lang : app.language().getAppLanguageCodes()) {
+                if (!item.getStructuredCaptions().containsKey(lang)) {
+                    allowTranslate = true;
+                    break;
+                }
             }
         }
 
