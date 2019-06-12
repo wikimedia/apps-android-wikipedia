@@ -118,7 +118,8 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:paddingBottom="16dp">
 
                     <TextView
                         android:id="@+id/viewArticleExtract"
@@ -171,12 +172,8 @@
                         android:layout_height="24dp"
                         android:layout_width="match_parent"
                         android:layout_gravity="bottom"
+                        android:layout_marginBottom="-6dp"
                         android:background="@drawable/suggested_edits_card_bottom_gradient_background"/>
-                    <View
-                        android:layout_height="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_gravity="bottom"
-                        android:background="?attr/button_background_color"/>
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
