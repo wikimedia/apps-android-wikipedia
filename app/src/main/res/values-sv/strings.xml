@@ -597,8 +597,10 @@
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_text_hint_per_language">Beskrivning på %s</string>
   <string name="description_edit_caption_hint_per_language">Bildtext på %s</string>
+  <string name="description_edit_caption_hint">Bildtext</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_description">Beskrivning</string>
   <string name="description_edit_read">Läs</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
   <string name="description_edit_add_description_v2">Lägg till beskrivning</string>
@@ -634,6 +636,8 @@
   <string name="suggested_edits_translate_image_captions">Översätt bildtexter</string>
   <string name="suggested_edits_review_description">Granska beskrivning</string>
   <string name="suggested_edits_add_description_button">Lägg till beskrivning</string>
+  <string name="suggested_edits_add_caption_button">Lägg till bildtext</string>
+  <string name="suggested_edits_edit_caption_button">Redigera bildtext</string>
   <string name="suggested_edits_review_image_caption">Granska bildtext</string>
   <string name="suggested_edits_my_contributions">Mina bidrag</string>
   <string name="suggested_edits_added_by_you">Lades till av dig:</string>
@@ -690,6 +694,13 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_add_translation_button_label">Lägg till översättning</string>
   <string name="suggested_edits_edit_translation_button_label">Redigera översättning</string>
+  <string name="suggested_edits_image_caption_title">Bildtexter</string>
+  <string name="suggested_edits_image_artist">Konstnär</string>
+  <string name="suggested_edits_image_date">Datum</string>
+  <string name="suggested_edits_image_source">Källa/fotograf</string>
+  <string name="suggested_edits_image_licensing">Licensiering</string>
+  <string name="suggested_edits_image_more_info">Mer info</string>
+  <string name="suggested_edits_image_file_page_link_text">Filsida på Wikimedia Commons</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
