@@ -3,11 +3,12 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
-import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
+import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 
@@ -17,7 +18,6 @@ class DescriptionEditReviewView @JvmOverloads constructor(
     init {
         inflate(context, R.layout.view_description_edit_review, this)
         licenseView.buildLicenseNotice(false)
-        licenseView.removeUnderlinesFromLinks()
     }
 
     val isShowing: Boolean
@@ -32,20 +32,43 @@ class DescriptionEditReviewView @JvmOverloads constructor(
         visibility = GONE
     }
 
-    fun setPageSummary(pageSummary: RbPageSummary, description: String) {
-        L10nUtil.setConditionalLayoutDirection(this, pageSummary.lang)
-        articleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
-        articleSubtitle!!.text = description.capitalize()
-        articleExtract!!.text = StringUtil.fromHtml(pageSummary.extractHtml)
+    fun setSummary(summary: SuggestedEditsSummary, description: String, captionReview: Boolean) {
+        L10nUtil.setConditionalLayoutDirection(this, summary.lang)
+        if (captionReview) {
+            setGalleryReviewView(summary, description)
+        } else {
+            setDescriptionReviewView(summary, description)
+        }
+    }
 
-        if (pageSummary.thumbnailUrl.isNullOrBlank()) {
-            articleImage.visibility = View.GONE
+    private fun setDescriptionReviewView(summary: SuggestedEditsSummary, description: String) {
+        galleryContainer.visibility = GONE
+        articleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
+        articleSubtitle!!.text = description.capitalize()
+        articleExtract!!.text = StringUtil.fromHtml(summary.extractHtml)
+
+        if (summary.thumbnailUrl.isNullOrBlank()) {
+            articleImage.visibility = GONE
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
-            articleImage.visibility = View.VISIBLE
-            articleImage.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+            articleImage.visibility = VISIBLE
+            articleImage.loadImage(Uri.parse(summary.thumbnailUrl))
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
+        licenseView.removeUnderlinesFromLinks()
+    }
+
+    private fun setGalleryReviewView(summary: SuggestedEditsSummary, description: String) {
+        articleContainer.visibility = GONE
+        indicatorDivider.visibility = GONE
+        galleryDescriptionText.text = StringUtil.fromHtml(description)
+        if (summary.thumbnailUrl.isNullOrBlank()) {
+            galleryImage.visibility = GONE
+        } else {
+            galleryImage.visibility = VISIBLE
+            galleryImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.originalUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE)))
+        }
+        licenseView.darkLicenseView()
     }
 
     companion object {

@@ -2,6 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item"
     tools:layout_height="wrap_content"
     tools:layout_width="match_parent"
     tools:paddingBottom="16dp"
@@ -11,23 +12,24 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/item_image_1"
         style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-        android:layout_marginStart="@dimen/list_item_horizontal_padding"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="0.5dp"
+        app:layout_constraintEnd_toStartOf="@+id/item_image_2"
         app:layout_constraintTop_toTopOf="parent"
         app:roundTopLeft="true" />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/item_image_2"
         style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-        android:layout_marginStart="0.5dp"
-        app:layout_constraintStart_toEndOf="@+id/item_image_1"
-        app:layout_constraintTop_toTopOf="@+id/item_image_1"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:roundTopRight="true" />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/item_image_3"
         style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
         android:layout_marginTop="0.5dp"
+        app:layout_constraintEnd_toStartOf="@+id/item_image_4"
         app:layout_constraintStart_toStartOf="@+id/item_image_1"
         app:layout_constraintTop_toBottomOf="@+id/item_image_1"
         app:roundBottomLeft="true" />
@@ -36,6 +38,8 @@
         android:id="@+id/item_image_4"
         style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
         android:layout_marginStart="0.5dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/item_image_3"
         app:layout_constraintTop_toTopOf="@+id/item_image_3"
         app:roundBottomRight="true" />
@@ -44,12 +48,12 @@
         android:id="@+id/default_list_empty_image"
         android:layout_width="57dp"
         android:layout_height="57dp"
-        android:layout_marginStart="@dimen/list_item_horizontal_padding"
         android:background="@drawable/button_shape_add_reading_list"
         android:contentDescription="@null"
         android:padding="10dp"
         android:tint="@color/base30"
         android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/item_image_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_bookmark_gray_24dp"
@@ -64,8 +68,8 @@
         android:layout_marginEnd="16dp"
         android:ellipsize="end"
         android:maxLines="2"
-        app:layout_constraintEnd_toStartOf="@+id/item_overflow_menu"
-        app:layout_constraintStart_toEndOf="@+id/item_image_2"
+        app:layout_constraintEnd_toStartOf="@+id/item_image_1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -102,8 +106,8 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:tint="?attr/secondary_text_color"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
-
 </merge>

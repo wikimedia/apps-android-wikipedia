@@ -7,16 +7,6 @@
     tools:paddingTop="16dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/view_list_card_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="2dp" />
-
     <TextView
         android:id="@+id/view_list_card_item_title"
         style="@style/MaterialListTitle"
@@ -25,8 +15,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/view_list_card_item_subtitle"
-        app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_menu"
-        app:layout_constraintStart_toEndOf="@+id/view_list_card_item_image"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
@@ -43,17 +33,16 @@
         app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/view_list_card_item_menu"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/abc_action_menu_overflow_description"
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/view_list_card_item_image"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view_list_card_item_title"
-        app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        app:tint="?attr/material_theme_de_emphasised_color"
-        tools:visibility="visible" />
+        app:layout_constraintStart_toEndOf="@+id/view_list_card_item_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCornerRadius="2dp" />
 
 </merge>

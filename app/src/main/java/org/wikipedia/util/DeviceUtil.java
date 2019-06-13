@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
 import org.wikipedia.R;
@@ -94,15 +95,17 @@ public final class DeviceUtil {
         }
     }
 
-    public static void updateStatusBarTheme(@NonNull Activity activity, @NonNull Toolbar toolbar, boolean reset) {
+    public static void updateStatusBarTheme(@NonNull Activity activity, @Nullable Toolbar toolbar, boolean reset) {
         if (reset) {
             resetSystemUiVisibility(activity);
         } else {
             setLightSystemUiVisibility(activity);
         }
 
-        toolbar.getNavigationIcon().setColorFilter(reset ? activity.getResources().getColor(android.R.color.white)
-                : ResourceUtil.getThemedColor(activity, R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        if (toolbar != null) {
+            toolbar.getNavigationIcon().setColorFilter(reset ? activity.getResources().getColor(android.R.color.white)
+                    : ResourceUtil.getThemedColor(activity, R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        }
     }
 
     public static boolean isLocationServiceEnabled(@NonNull Context context) {

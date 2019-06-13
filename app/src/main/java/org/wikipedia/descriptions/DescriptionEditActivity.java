@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -18,9 +17,11 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.views.ImagePreviewDialog;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
@@ -52,8 +53,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
-                                   @Nullable RbPageSummary sourceSummary,
-                                   @Nullable RbPageSummary targetSummary,
+                                   @Nullable SuggestedEditsSummary sourceSummary,
+                                   @Nullable SuggestedEditsSummary targetSummary,
                                    @NonNull InvokeSource invokeSource) {
         return newIntent(context, title, null, invokeSource)
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
@@ -67,12 +68,33 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     }
 
     @Override
-    public void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle) {
-        bottomSheetPresenter.show(getSupportFragmentManager(),
-                LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle,
-                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
-                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                        null));
+    public void onBottomBarContainerClicked(@NonNull InvokeSource invokeSource) {
+        SuggestedEditsSummary sourceSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
+        SuggestedEditsSummary targetSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
+
+        switch (invokeSource) {
+            case SUGGESTED_EDITS_ADD_CAPTION:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        ImagePreviewDialog.Companion.newInstance(sourceSummary));
+                break;
+            case SUGGESTED_EDITS_TRANSLATE_DESC:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        LinkPreviewDialog.newInstance(new HistoryEntry(targetSummary.getPageTitle(),
+                                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
+                                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                                null));
+                break;
+            case SUGGESTED_EDITS_TRANSLATE_CAPTION:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        ImagePreviewDialog.Companion.newInstance(targetSummary));
+                break;
+            default:
+                bottomSheetPresenter.show(getSupportFragmentManager(),
+                        LinkPreviewDialog.newInstance(new HistoryEntry(sourceSummary.getPageTitle(),
+                                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
+                                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                                null));
+        }
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
@@ -93,6 +115,10 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(this, title);
+    }
+
+    public void updateStatusBarColor(int color) {
+        setStatusBarColor(color);
     }
 
     private void copyLink(@NonNull String url) {

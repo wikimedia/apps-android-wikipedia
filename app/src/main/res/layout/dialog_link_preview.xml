@@ -34,14 +34,18 @@
                     android:layout_width="@dimen/defaultListItemSize"
                     android:layout_height="@dimen/defaultListItemSize"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="16dp"
-                    android:contentDescription="@null" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/link_preview_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:fontFamily="serif"
@@ -104,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:visibility="gone"></org.wikipedia.page.linkpreview.LinkPreviewErrorView>
+                android:visibility="gone" />
 
             <!-- Bottom padding for overlay button -->
             <View

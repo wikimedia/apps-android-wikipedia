@@ -46,7 +46,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -285,15 +285,15 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
             } else if (event instanceof DescriptionEditUnlockEvent) {
                 if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showEditDescriptionUnlockDialog(BaseActivity.this);
+                    SuggestedEditsCardsActivity.Companion.showEditDescriptionUnlockDialog(BaseActivity.this);
                 } else if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateDescriptionUnlockDialog(BaseActivity.this);
+                    SuggestedEditsCardsActivity.Companion.showTranslateDescriptionUnlockDialog(BaseActivity.this);
                 }
             } else if (event instanceof CaptionEditUnlockEvent) {
                 if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showEditCaptionUnlockDialog(BaseActivity.this);
+                    SuggestedEditsCardsActivity.Companion.showEditCaptionUnlockDialog(BaseActivity.this);
                 } else if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateCaptionUnlockDialog(BaseActivity.this);
+                    SuggestedEditsCardsActivity.Companion.showTranslateCaptionUnlockDialog(BaseActivity.this);
                 }
             } else if (event instanceof LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog();
