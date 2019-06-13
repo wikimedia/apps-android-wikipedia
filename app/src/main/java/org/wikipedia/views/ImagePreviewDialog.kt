@@ -10,11 +10,13 @@ import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -51,13 +53,13 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun setImageDetails() {
-        loadImage(suggestedEditsSummary.originalUrl)
+        loadImage(ImageUrlUtil.getUrlForPreferredSize(suggestedEditsSummary.originalUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
         titleText!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(suggestedEditsSummary.title))
-        addDetailPortion(getString(R.string.suggested_edits_image_caption_title), StringUtil.fromHtml(suggestedEditsSummary.description).toString(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()!!.value()).toString(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_date), suggestedEditsSummary.metadata!!.dateTime()!!.value(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_source), suggestedEditsSummary.metadata!!.imageDescription()!!.source(), true)
-        addDetailPortion(getString(R.string.suggested_edits_image_licensing), suggestedEditsSummary.metadata!!.licenseShortName()!!.value(), true)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_title), StringUtil.fromHtml(suggestedEditsSummary.description).toString(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()!!.value()).toString(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime()!!.value(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescription()!!.source(), true)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName()!!.value(), true)
         detailsHolder.requestLayout()
     }
 
@@ -84,7 +86,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     companion object {
-        private const val ARG_SUMMARY = "arg_summary"
+        private const val ARG_SUMMARY = "summary"
 
         fun newInstance(suggestedEditsSummary: SuggestedEditsSummary): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
