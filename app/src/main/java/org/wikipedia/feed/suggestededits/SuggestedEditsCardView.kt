@@ -64,7 +64,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun showAddDescriptionUI() {
         viewArticleTitle.text = card!!.sourceSummary!!.normalizedTitle
-        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) String.format(context.getString(R.string.suggested_edits_feed_card_add_translationin_language_button), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
+        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) String.format(context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
