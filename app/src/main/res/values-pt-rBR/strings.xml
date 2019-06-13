@@ -613,8 +613,10 @@
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_text_hint_per_language">Descrição em %s</string>
   <string name="description_edit_caption_hint_per_language">Legenda em %s</string>
+  <string name="description_edit_caption_hint">Legenda</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_article">Artigo</string>
+  <string name="description_edit_description">Descrição</string>
   <string name="description_edit_read">Ler</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
   <string name="description_edit_add_description_v2">Adicionar descrição</string>
@@ -650,6 +652,8 @@
   <string name="suggested_edits_translate_image_captions">Traduzir legendas de imagem</string>
   <string name="suggested_edits_review_description">Revisar a descrição do título</string>
   <string name="suggested_edits_add_description_button">Adicionar descrição</string>
+  <string name="suggested_edits_add_caption_button">Adicionar legenda</string>
+  <string name="suggested_edits_edit_caption_button">Editar legenda</string>
   <string name="suggested_edits_review_image_caption">Rever legenda da imagem</string>
   <string name="suggested_edits_my_contributions">Minhas contribuições</string>
   <string name="suggested_edits_added_by_you">Adicionado por você:</string>
@@ -706,6 +710,13 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="suggested_edits_add_translation_button_label">Adicionar tradução</string>
   <string name="suggested_edits_edit_translation_button_label">Editar a tradução</string>
+  <string name="suggested_edits_image_caption_title">Legendas das imagens</string>
+  <string name="suggested_edits_image_artist">Artista</string>
+  <string name="suggested_edits_image_date">Data</string>
+  <string name="suggested_edits_image_source">Fonte/Fotógrafo</string>
+  <string name="suggested_edits_image_licensing">Licenciando</string>
+  <string name="suggested_edits_image_more_info">Mais informações</string>
+  <string name="suggested_edits_image_file_page_link_text">Página de arquivo no Wikimedia Commons</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
