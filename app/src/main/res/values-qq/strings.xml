@@ -794,11 +794,11 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_image_caption_title">Label for image description detail on image details screen.</string>
-  <string name="suggested_edits_image_artist">Label for image artist detail on image details screen.</string>
-  <string name="suggested_edits_image_date">Label for image date detail on image details screen.</string>
-  <string name="suggested_edits_image_source">Label for image source detail on image details screen.</string>
-  <string name="suggested_edits_image_licensing">Label for image licensing detail on image details screen.</string>
-  <string name="suggested_edits_image_more_info">Label for link to more details about the image on commons page.</string>
-  <string name="suggested_edits_image_file_page_link_text">Text for link to more details about the image on commons page.</string>
+  <string name="suggested_edits_image_preview_dialog_caption_title">Label for image description detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_source">Label for image source detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Label for image licensing detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
 </resources>
