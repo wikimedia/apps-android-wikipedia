@@ -142,6 +142,9 @@ public class SuggestedEditsTasksFragment extends Fragment {
                     for (int count : editorTaskCounts.getDescriptionEditsPerLanguage().values()) {
                         totalEdits += count;
                     }
+                    for (int count : editorTaskCounts.getCaptionEditsPerLanguage().values()) {
+                        totalEdits += count;
+                    }
                     contributionsText.setText(getResources().getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits));
                     updateDisplayedTasks(editorTaskCounts);
                 }, throwable -> {

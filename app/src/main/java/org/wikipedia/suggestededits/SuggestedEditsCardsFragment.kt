@@ -141,12 +141,12 @@ class SuggestedEditsCardsFragment : Fragment() {
         if (!isAddedContributionEmpty) topChild?.showAddedContributionView(topChild?.addedContribution)
         addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
         if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button_label else R.string.suggested_edits_edit_translation_button_label)
+            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
         } else if (addContributionText != null) {
             if (source == SUGGESTED_EDITS_ADD_CAPTION) {
                 addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
             } else {
-                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.description_edit_edit_description)
+                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
             }
         }
     }
@@ -176,10 +176,11 @@ class SuggestedEditsCardsFragment : Fragment() {
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
             FeedbackUtil.showMessage(this,
-                    if (source == SUGGESTED_EDITS_ADD_CAPTION || source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-                        R.string.description_edit_success_saved_image_caption_snackbar
-                    } else {
-                        R.string.description_edit_success_saved_snackbar
+                    when (source) {
+                        SUGGESTED_EDITS_ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                        SUGGESTED_EDITS_TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
+                        SUGGESTED_EDITS_TRANSLATE_DESC -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
+                        else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
             nextPage()

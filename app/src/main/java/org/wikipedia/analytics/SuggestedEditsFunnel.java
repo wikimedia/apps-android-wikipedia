@@ -15,7 +15,9 @@ import java.util.List;
 import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.InvokeSource.ONBOARDING_DIALOG;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 
 public final class SuggestedEditsFunnel extends TimedFunnel {
@@ -67,16 +69,24 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addDescriptionStats.impressions++;
         } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.impressions++;
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+            statsCollection.addCaptionStats.impressions++;
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            statsCollection.translateCaptionStats.impressions++;
         }
     }
 
 
     public void click(String title, InvokeSource source) {
         SuggestedEditStats stats;
-        if (source == InvokeSource.SUGGESTED_EDITS_ADD_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC) {
             stats = statsCollection.addDescriptionStats;
-        } else if (source == InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             stats = statsCollection.translateDescriptionStats;
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+            stats = statsCollection.addCaptionStats;
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            stats = statsCollection.translateCaptionStats;
         } else {
             return;
         }
@@ -96,6 +106,10 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addDescriptionStats.cancels++;
         } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.cancels++;
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+            statsCollection.addCaptionStats.cancels++;
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            statsCollection.translateCaptionStats.cancels++;
         }
     }
 
@@ -104,6 +118,10 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addDescriptionStats.successes++;
         } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.successes++;
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+            statsCollection.addCaptionStats.successes++;
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            statsCollection.translateCaptionStats.successes++;
         }
     }
 
@@ -112,6 +130,10 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addDescriptionStats.failures++;
         } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.failures++;
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+            statsCollection.addCaptionStats.failures++;
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            statsCollection.translateCaptionStats.failures++;
         }
     }
 
@@ -136,6 +158,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     private static class SuggestedEditStatsCollection {
         @SerializedName("add-description") private SuggestedEditStats addDescriptionStats = new SuggestedEditStats();
         @SerializedName("translate-description") private SuggestedEditStats translateDescriptionStats = new SuggestedEditStats();
+        @SerializedName("add-caption") private SuggestedEditStats addCaptionStats = new SuggestedEditStats();
+        @SerializedName("translate-caption") private SuggestedEditStats translateCaptionStats = new SuggestedEditStats();
     }
 
     @SuppressWarnings("unused")

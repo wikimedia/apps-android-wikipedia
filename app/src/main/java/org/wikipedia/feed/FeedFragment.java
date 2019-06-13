@@ -234,10 +234,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             refresh();
         } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            boolean isTranslation = false;
             if (suggestedEditsCardView != null) {
                 suggestedEditsCardView.refreshCardContent();
+                isTranslation = suggestedEditsCardView.isTranslation();
             }
-            FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar);
+            FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
+                    ? getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                    : getString(R.string.description_edit_success_saved_snackbar));
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
             startDescriptionEditScreen();
         }

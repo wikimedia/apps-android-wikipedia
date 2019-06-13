@@ -31,6 +31,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -38,6 +39,8 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.media.MediaHelper;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
@@ -47,6 +50,7 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -82,6 +86,7 @@ import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.Callback,
         GalleryItemFragment.Callback {
     public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
+    private static final int ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_FILENAME = "filename";
@@ -110,6 +115,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
     @BindView(R.id.gallery_caption_edit_button) View captionEditButton;
     @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
+    @BindView(R.id.gallery_caption_translate_button_text) TextView captionTranslateButtonText;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
     private Disposable imageCaptionDisposable;
@@ -285,12 +291,52 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         setTheme(Theme.DARK.getResourceId());
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
+                    app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1))));
+            layOutGalleryDescription();
+        }
+    }
+
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
-        // TODO: launch caption editing activity.
+        GalleryItem item = getCurrentItem();
+        PageTitle title = new PageTitle(item.getTitles().getCanonical(), new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
+        String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
+        title.setDescription(currentCaption);
+
+        SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), app.getAppOrSystemLanguageCode(), title,
+                title.getDisplayText(), title.getDisplayText(), StringUtil.fromHtml(item.getDescription().getHtml()).toString(), item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
+                null, null, null, null);
+
+        startActivityForResult(DescriptionEditActivity.newIntent(this, title, summary, null, Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION),
+                ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
     @OnClick(R.id.gallery_caption_translate_button) void onTranslateClick(View v) {
-        // TODO: launch caption translating activity.
+        if (app.language().getAppLanguageCodes().size() < 2) {
+            return;
+        }
+        GalleryItem item = getCurrentItem();
+        PageTitle sourceTitle = new PageTitle(item.getTitles().getCanonical(), new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
+        PageTitle targetTitle = new PageTitle(item.getTitles().getCanonical(), new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(1)));
+        String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
+        if (TextUtils.isEmpty(currentCaption)) {
+            currentCaption = StringUtil.fromHtml(item.getDescription().getHtml()).toString();
+        }
+
+        SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
+                sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), currentCaption, item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
+                null, null, null, null);
+
+        SuggestedEditsSummary targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
+                targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
+                null, null, null, null);
+
+        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, sourceSummary, targetSummary, Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION),
+                ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
     @OnClick(R.id.license_container) void onClick(View v) {
@@ -559,6 +605,24 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             imageCaptionDisposable.dispose();
         }
 
+        // TODO: replace when the Media endpoint updates structured captions immediately after editing.
+
+        imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getTitles().getCanonical())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(this::updateGalleryDescription)
+                .subscribe(captions -> getCurrentItem().setStructuredCaptions(captions),
+                        L::e);
+    }
+
+    public void updateGalleryDescription() {
+        GalleryItem item = getCurrentItem();
+        if (item == null) {
+            infoContainer.setVisibility(View.GONE);
+            return;
+        }
+        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
+
         CharSequence descriptionStr;
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
@@ -568,10 +632,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         boolean allowTranslate = false;
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
-        for (String lang : app.language().getAppLanguageCodes()) {
-            if (!item.getStructuredCaptions().containsKey(lang)) {
-                allowTranslate = true;
-                break;
+        if (app.language().getAppLanguageCodes().size() > 1) {
+            for (String lang : app.language().getAppLanguageCodes()) {
+                if (!item.getStructuredCaptions().containsKey(lang)) {
+                    allowTranslate = true;
+                    break;
+                }
             }
         }
 
@@ -590,6 +656,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             allowTranslate = false;
         }
         captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
+        captionTranslateButtonText.setText(getString(R.string.gallery_add_image_caption_in_language_button,
+                app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1))));
 
         // determine which icon to display...
         if (getLicenseIcon(item) == R.drawable.ic_license_by) {

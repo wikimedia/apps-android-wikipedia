@@ -21,11 +21,15 @@ import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.views.ImagePreviewDialog;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
@@ -67,12 +71,24 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     }
 
     @Override
-    public void onPageSummaryContainerClicked(@NonNull PageTitle pageTitle) {
-        bottomSheetPresenter.show(getSupportFragmentManager(),
-                LinkPreviewDialog.newInstance(new HistoryEntry(pageTitle,
-                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
-                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                        null));
+    public void onBottomBarContainerClicked(@NonNull InvokeSource invokeSource) {
+        SuggestedEditsSummary summary;
+        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
+        } else {
+            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
+        }
+
+        if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            bottomSheetPresenter.show(getSupportFragmentManager(),
+                    ImagePreviewDialog.Companion.newInstance(summary));
+        } else {
+            bottomSheetPresenter.show(getSupportFragmentManager(),
+                    LinkPreviewDialog.newInstance(new HistoryEntry(summary.getPageTitle(),
+                                    getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
+                                            ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                            null));
+        }
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
