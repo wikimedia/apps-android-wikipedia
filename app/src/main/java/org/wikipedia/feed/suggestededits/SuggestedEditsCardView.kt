@@ -28,6 +28,10 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         inflate(getContext(), R.layout.view_suggested_edit_card, this)
     }
 
+    fun isTranslation(): Boolean {
+        return card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
+    }
+
     override fun setCard(@NonNull card: SuggestedEditsCard) {
         super.setCard(card)
         this.card = card
@@ -60,7 +64,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun showAddDescriptionUI() {
         viewArticleTitle.text = card!!.sourceSummary!!.normalizedTitle
-        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) String.format(context.getString(R.string.add_translation), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
+        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) String.format(context.getString(R.string.suggested_edits_feed_card_add_translationin_language_button), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
