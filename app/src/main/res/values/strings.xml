@@ -675,6 +675,7 @@
     <string name="suggested_edits_edit_caption_button">Edit caption</string>
     <string name="suggested_edits_review_image_caption">Review image caption</string>
     <string name="suggested_edits_my_contributions">My contributions</string>
+    <string name="suggested_edits_no_description">No description</string>
     <string name="suggested_edits_added_by_you">Added by you:</string>
     <string name="suggested_edits_translated_by_you">Translated by you:</string>
     <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the "Add article descriptions" task</string>

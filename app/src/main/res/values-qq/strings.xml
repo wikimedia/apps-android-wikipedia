@@ -654,6 +654,7 @@
   <string name="suggested_edits_add_translation_button">A button text for adding a translation of article description.</string>
   <string name="suggested_edits_edit_translation_button">A button text for editing a translation of article description.</string>
   <string name="suggested_edits_my_contributions">A overflow menu text that leads to my contributions page</string>
+  <string name="suggested_edits_no_description">A label shows that the current image does not have description.</string>
   <string name="suggested_edits_added_by_you">A label shows that the current article description was added by you.</string>
   <string name="suggested_edits_translated_by_you">A label shows that the current article description was translated by the user.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add article descriptions“ task has been unlocked.</string>
