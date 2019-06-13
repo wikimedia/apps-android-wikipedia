@@ -345,6 +345,12 @@
   <string name="color_theme_black">သီလမ်</string>
   <string name="color_theme_sepia">လိူင်ၵမ်ႇ</string>
   <string name="color_theme_test_title">လိၵ်ႈပိူင်ယၢင်ႇ</string>
+  <string name="color_theme_test_text">တွၼ်ႈတႃႇ လၢႆႈသႅၼ်းတူဝ်လိၵ်ႈ ၽွင်းတိုၵ်ႉလူပွင်ႈၵႂၢမ်းၼၼ်ႉ ၼဵၵ်းသေၸၼ်ပၼ် ပႅၵ်ႈလေႃလႄႈ။ တွၼ်ႈတႃႇ မၵ်းမၼ်ႈသႅၼ်းတူဝ်လိၵ်ႈ တီႈဢႅပ်ႉ ၸိူဝ်းၵိုတ်းလိူဝ်တၢင်ႇတီႈၼၼ်ႉတႄႉ လႅၵ်ႈလၢႆႈ သႅၼ်းတူဝ်လိၵ်ႈပိူင်သၢင်ႈၸဝ်ႈၵဝ်ႇလႄႈ။</string>
+  <string name="preference_title_app_theme">ယူင်ႉႁၢင်ႈဢႅပ်ႉ</string>
+  <string name="preference_summary_color_theme">လၢႆႈယူင်ႉႁၢင်ႈလပ်းသိၼ်ႇႁင်း ဢႅပ်ႉ ဢၼ်တိုၵ်ႉၸႂ်ႉယူႇၼၼ်ႉ</string>
+  <string name="text_size_increase">တိူဝ်းသႅၼ်းတူဝ်လိၵ်ႈ</string>
+  <string name="text_size_decrease">ယွၼ်ႇသႅၼ်းတူဝ်လိၵ်ႈ</string>
+  <string name="text_size_percent_default">%s (ပိူင်ၵႅဝ်ႈ)</string>
   <string name="nav_item_reading_lists">သဵၼ်ႈမၢႆၵဝ်ၶႃႈ</string>
   <string name="reading_list_save_to">သိမ်းသႂ်ႇၸူး သဵၼ်ႈမၢႆလူ</string>
   <string name="reading_list_create_new">ၵေႃႇသၢင်ႈ ဢၼ်မႂ်ႇ</string>
@@ -352,27 +358,40 @@
   <string name="reading_list_added_to_named">ထႅမ်သႂ်ႇၸူး %s ယဝ်ႉယဝ်ႈ။</string>
   <string name="reading_list_already_exists">ပွင်ႈလိၵ်ႈဢၼ်ၼႆ့ ပေႃးမီးဝႆႉ တီႈၼႂ်းသဵၼ်ႈမၢႆယဝ်ႈ။</string>
   <string name="reading_list_added_view_button">တူၺ်းသဵၼ်ႈမၢႆ</string>
+  <string name="format_reading_list_statistical_summary_singular">ပွင်ႈၵႂၢမ်း 1 ႁူဝ်, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">ပွင်ႈၵႂၢမ်း %1$d , %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">ၼႂ်းၵႃႈ %1$d ၼၼ်ႉ ပွင်ႈၵႂၢမ်း တႃႇ 1 ႁူဝ် ၸႂ်ႉလႆႈဢွပ်ႉၾ်လၢႆး, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d ႁင်း %2$d ပွင်ႈၵႂၢမ်း ၸႂ်ႉလႆႈ ဢွပ်ႉၾ်လၢႆး, %3$.2f MB</string>
   <string name="reading_list_sort">ၶပ်ႉ</string>
+  <string name="reading_list_sort_ellipsis">ၶပ်ႉၼင်ႇ...</string>
   <string name="reading_list_sort_by_name">ၶပ်ႉၼင်ႇ ၸိုဝ်ႈ</string>
   <string name="reading_list_sort_by_name_desc">ၶပ်ႉၼင်ႇ ၸိုဝ်ႈ (ပိၼ်ႈၽၢႆႇ)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">ၶပ်ႉၼင်ႇ ၸိူဝ်းၵႆႉပိုတ်ႇ</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">ၶပ်ႉၼင်ႇ ၸိူဝ်းပိုတ်ႇလိုၼ်း</string>
+  <string name="reading_list_sort_by_recent">ၶပ်ႉၼင်ႇ ဝၼ်းထီႉထႅမ်သႂ်ႇမႃး (ဢၼ်မႂ်ႇသုတ်း)</string>
+  <string name="reading_list_sort_by_recent_desc">ၶပ်ႉၼၼ် ဝၼ်းထီႉထႅမ်သႂ်ႇမႃး (ဢၼ်ၵဝ်ႇသုတ်း)</string>
+  <string name="reading_list_sort_by_created">ၶပ်ႉၼင်ႇ ဝၼ်းထီႉၵေႃႇသၢင်ႈမႃး (ဢၼ်မႂ်ႇသုတ်း)</string>
+  <string name="reading_list_sort_by_created_desc">ၶပ်ႉၼင်ႇ ဝၼ်းထီႉၵေႃႇသၢင်ႈမႃး (ဢၼ်ၵဝ်ႇသုတ်း)</string>
   <string name="reading_list_menu_delete">မွတ်ႇပႅတ်ႈ သဵၼ်ႈမၢႆ</string>
-  <string name="reading_list_menu_rename" fuzzy="true">ၶိုၼ်းပၼ်ၸိုဝ်ႈ</string>
+  <string name="reading_list_menu_rename">မႄးထတ်း ၸိုဝ်ႈ/ၶေႃႈသပ်းလႅင်း</string>
+  <string name="reading_list_action_menu_remove_from_offline">ထွၼ်ပႅတ်ႈ ၵႃႈတီႈဢွပ်ႉၾ်လၢႆး</string>
+  <string name="reading_list_action_menu_save_for_offline">သိမ်းဝႆႉ တွၼ်ႈတႃႇဢွပ်ႉၾ်လၢႆး</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">ထွၼ်ပႅတ်ႈတင်းသဵင်ႈ ၵႃႈတီႈဢွပ်ႉၾ်လၢႆး</string>
+  <string name="reading_list_action_menu_save_all_for_offline">သိမ်းဝႆႉတင်းသဵင်ႈ တွၼ်ႈတႃႇဢွပ်ႉၾ်လၢႆး</string>
+  <string name="reading_list_action_menu_add_to_another_list">ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆတၢင်ႇဢၼ်</string>
   <string name="reading_list_name_sample">သဵၼ်ႈမၢႆလူ ၵဝ်ၶႃႈ</string>
   <string name="reading_list_name_hint">ၸိုဝ်ႈသဵၼ်ႈမၢႆဢၼ်ၼႆႉ</string>
   <string name="reading_list_description_hint">ၶေႃႈသပ်းလႅင်း (မီးသုၼ်ႇလိူၵ်ႈ)</string>
   <string name="reading_list_item_deleted">%s ၼႆႉ ထုၵ်ႇထွၼ်ပႅတ်ႈ ၵႃႈတီႈ သဵၼ်ႈမၢႆ</string>
   <string name="reading_list_items_deleted">ပွင်ႈလိၵ်ႈ %d ၼႆႉ ထုၵ်ႇထွၼ်ပႅတ်ႈ ၵႃႈတီႈ သဵၼ်ႈမၢႆ</string>
+  <string name="reading_lists_item_deleted">%sၼႆႉ ထွၼ်ပႅတ်ႈယဝ်ႉ ၵႃႈတီႈ သဵၼ်ႈမၢႆ</string>
   <string name="reading_list_item_delete_undo">ၶိုၼ်ၶိုၼ်း</string>
   <string name="reading_list_deleted">မွတ်ႇပႅတ်ႈ %s ယဝ်ႉယဝ်ႈ။</string>
   <string name="saved_list_empty_title">ဢမ်ႇပႆႇမီး သဵၼ်ႈမၢႆလူ</string>
-  <string name="reading_lists_empty_message" fuzzy="true">သိမ်းပွင်ႈလိၵ်ႈၸူး သဵၼ်ႈမၢႆလူ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈလူၶိုၼ်း ဝၢႆးလင် တေႃႈၼင်ႇ ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးသၢႆႈၼႅင်ႈၵေႃႈ တေၸၢင်ႈလူ။</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">ၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆလူ ၵႃႈတီႈ ပွင်ႈလိၵ်ႈ ၸိူဝ်းဢၼ်ၸဝ်ႈၵဝ်ႇ ၶႂ်ႈလူၶိုၼ်းဝၢႆးလင် ႁူမ်ႈဝႃႈ ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးသၢႆၼႅင်ႈ။</string>
+  <string name="reading_lists_empty_message">ထႅမ်ပွင်ႈလိၵ်ႈၸိူဝ်းၼႆႉ ၸူးတီႈၼႂ်း သဵၼ်ႈမၢႆ တွၼ်ႈတႃႇဝႆႉလူဝၢႆးလူင်၊ ႁူမ်ႈဝႃႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးၼႅင်ႈ။</string>
+  <string name="reading_lists_onboarding_intro">ထႅမ်ပွင်ႈလိၵ်ႈၸိူဝ်းၼႆႉ ၸူးတီႈၼႂ်း သဵၼ်ႈမၢႆ တွၼ်ႈတႃႇဝႆႉလူဝၢႆးလူင်၊ ႁူမ်ႈဝႃႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးၼႅင်ႈ!</string>
   <string name="reading_lists_onboarding_for_example">တူဝ်ယၢင်ႇ</string>
   <string name="reading_lists_onboarding_example1">ဢွင်ႈတီႈ တႃႇ ၶဝ်ႈတူၺ်း</string>
   <string name="reading_lists_onboarding_example2">တူဝ်သတ်း ၸိူဝ်းလႆႈၸႂ်</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">ဢွင်ႈတီႈ!</string>
+  <string name="reading_lists_onboarding_example3">သွၵ်ႈႁႃဢွင်ႈတီႈ</string>
   <string name="reading_lists_onboarding_got_it">လႆႈယဝ်ႉ။</string>
   <string name="reading_list_empty">ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးပွင်ႈလိၵ်ႈ တွၼ်ႈတႃႇထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆဢၼ်ၼႆႉ။</string>
   <string name="reading_list_article_offline">ဢမ်ႇမီးၼႅင်ႈၵေႃႈၸႂ်ႉလႆႈ</string>
@@ -380,9 +399,48 @@
   <string name="reading_list_add_to_other_list">ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ တၢင်ႇဢၼ်</string>
   <string name="reading_list_remove_from_list">ထွၼ်ပႅတ်ႈ ၵႃႈတီႈ %s</string>
   <string name="reading_list_remove_from_lists">ထွၼ်ပႅတ်ႈ ၵႃႈတီႈ သဵၼ်ႈမၢႆလူ</string>
+  <string name="reading_list_select_item">လိူၵ်ႈ</string>
   <string name="reading_list_confirm_remove_article_from_offline">ထွၼ်ပႅတ်ႈ ၵႃႈတီႈ ဢမ်ႇမီးၼႅင်ႈ</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">ပွင်ႈလိၵ်ႈၼႆႉ မီးဝႆႉ တီႈၼႂ်း သဵၼ်ႈမၢႆ လၢႆဢၼ်</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ၼႆႉ တေဢမ်ႇၸၢင်ႈၸႂ်ႉ ၽွင်းႁၢမ်းၼႅင်ႈ တွၼ်ႈတႃႇ သဵၼ်ႈမၢႆလူတင်းသဵင်ႈ:</string>
+  <string name="reading_lists_sync_reminder_title">တေပိုတ်ႇ လွင်ႈၶူၼ်းၽဵင်ႇသဵၼ်ႈမၢႆလူၼႄႇ?</string>
+  <string name="reading_lists_sync_reminder_text">ပွင်ႈၵႂၢမ်းဢၼ်သိမ်းသႂ်ႇဝႆႉၼႂ်း သဵၼ်ႈမၢႆလူၼၼ်ႉ ယၢမ်းလဵဝ် ၸၢင်ႈၶူၼ်းၽဵင်ႇၸူး ဢၶွင်ႉ ဝီႇၶီႇၽီးတီးယႃးၸဝ်ႈၵဝ်ႇယဝ်ႉ။ &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;လဵပ်ႈႁဵၼ်းထႅင်ႈ&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">သဵၼ်ႈမၢႆလူၼႆႉ ၸၢင်ႈၶူၼ်းၽဵင်ႇၼႂ်းၵႄႈ ၶိူင်ႈၸႂ်ႉလၢႆလၢႆဢၼ်။ လွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉဝီႇၶီႇၽီးတီးယႃးၸဝ်ႇၵဝ်ႇသေ ၶႂၢင်းပၼ် တွၼ်ႈတႃႇသိမ်းပၼ် သဵၼ်ႈမၢႆၸဝ်ႈၵဝ်ႇလႄႈ။\n&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;လဵပ်ႈႁဵၼ်းထႅင်ႈ&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">ပိုတ်ႇပၼ် လွင်ႈၶူၼ်းၽဵင်ႇ</string>
+  <string name="reading_list_login_reminder_title">ၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</string>
+  <string name="reading_lists_login_reminder_text">သဵၼ်ႈမၢႆလူၼႆႉ ၸၢင်ႈၶူၼ်းၽဵင်ႇၼႂ်းၵႄႈ ၶိူင်ႈၸႂ်ႉလၢႆလၢႆဢၼ်။ လွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉဝီႇၶီႇၽီးတီးယႃးၸဝ်ႇၵဝ်ႇသေ ၶႂၢင်းပၼ် တွၼ်ႈတႃႇသိမ်းပၼ် သဵၼ်ႈမၢႆၸဝ်ႈၵဝ်ႇလႄႈ။</string>
+  <string name="reading_lists_confirm_remote_delete_yes">ၸႂ်ႈယဝ်ႉ</string>
+  <string name="reading_lists_confirm_remote_delete_no">ဢမ်ႇ</string>
+  <string name="reading_list_article_save_in_progress">ပွင်ႈၵႂၢမ်းၼႆႉ တိုၵ်ႉလူတ်ႇလူင်းဝႆႉယူႇယဝ်ႉ၊ ပေႃးဝႃႈမၼ်းယဝ်ႉတူဝ်ႈၵႂႃႇၼႆ မၼ်းတေၸၢင်ႈၸႂ်ႉလႆႈ တီႈဢွပ်ႉၾ်လၢႆးယဝ်ႉ။</string>
+  <string name="reading_list_already_contains_selection">ၼႃႈလိၵ်ႈၸိူဝ်းလိၵ်ႈဝႆႉၼႆႉ မၼ်းပေႃးၶဝ်ႈပႃးဝႆႉ တီႈၼႂ်းသဵၼ်ႈမၢႆဢၼ်လိူၵ်ႈဝႆႉၼၼ်ႉယဝ်ႉ။</string>
+  <string name="reading_list_added_articles_list_titled">ပွင်ႈၵႂၢမ်း %1$d ထႅမ်ႈသႂ်ႇၸူး %2$s ယဝ်ႉယဝ်ႈ</string>
+  <string name="reading_list_delete_confirm">ၸဝ်ႈၵဝ်ႇ တေမွတ်ႇပႅတ်ႈ %s ဢၼ်ဝႃႈၼၼ်ႉ ၼႄႉၼွၼ်းယဝ်ႉႁႃႉ?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">လွၵ်ႉဢိၼ်ႇ တွၼ်ႈတႃႇ ၶူၼ်းၽဵင်ႇ</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">လွၵ်ႉဢိၼ်ႇတွၼ်ႈတႃႇ ၶႂၢင်းပၼ်သဵၼ်ႈမၢႆလူၸဝ်ႈၵဝ်ႇ တႃႇသိမ်းပၼ်ဝႆႉ တီႈၼႂ်း ဢၶွင်ႉၸဝ်ႈၵဝ်ႇ။</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ဢမ်ႇႁဵတ်း</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">လွၵ်ႉဢိၼ်ႇ</string>
+  <string name="reading_list_turned_sync_off_dialog_title">ၶူၼ်းၽဵင်ႇသဵၼ်ႈမၢႆလူ ဢိုတ်းဝႆႉ</string>
+  <string name="reading_list_turned_sync_off_dialog_text">ၶူၼ်းၽဵင်ႇသဵၼ်ႈမၢႆလူၼႆႉ ဢိုတ်းဝႆႉ တွၼ်ႈတႃႇ ဢၶွင်ႉၸဝ်ႈၵဝ်ႇ၊ လႄႈ ပွင်ႈၵႂၢမ်းၸိူဝ်းသိမ်းဝႆႉ တီႈၼိူဝ် ၶိူင်ႈၸဝ်ႈၵဝ်ႇ ဢၼ်ၶဝ်ႈလွၵ်ႉဢိၼ်ႇဝႆႉၼၼ်ႉ တေဢမ်ႇႁဵတ်းၵဵမ်လင်ဝႆႉ။ ပိုတ်ႇပၼ် ၶူၼ်းၽဵၼ်ႇသဵၼ်ႈမၢႆလူ တီႈၼႂ်းၵၢၼ်တင်ႈ။</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">ဢူဝ်ႇၶေႇ</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">ၵၢၼ်တင်ႈ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">တေပိုတ်ႇ လွင်ႈၶူၼ်းၽဵင်ႇသဵၼ်ႈမၢႆလူၼႄႇ?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">ပွင်ႈၵႂၢမ်းၸိူဝ်းသိမ်းဝႆႉၸူးတီႈ သဵၼ်ႈမၢႆလူၼႆႉ ယၢမ်းလဵဝ် ၸၢင်ႈၶူၼ်းၽဵင်ႇၸူး ဢၶွင်ႉဝီႇၶီႇၽီးတီးယႃးၸဝ်ႈၵဝ်ႇယဝ်ႉ။&lt;a href=\"#faq\"&gt;လဵပ်ႈႁဵၼ်းထႅင်ႈ&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ယႃႇပေၼႄဢၼ်ၼႆႉထႅင်ႈ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ပိုတ်ႇပၼ် လွင်ႈၶူၼ်းၽဵင်ႇ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ပႆႇၵွၼ်ႇ</string>
+  <string name="reading_list_login_option_reminder_dialog_title">ထူပ်းႁၼ်ပွင်ႈၵႂၢမ်း သဵၼ်ႈမၢႆလူ</string>
+  <string name="reading_list_login_option_reminder_dialog_text">ၽွင်းၸဝ်ႈၵဝ်ႇလွၵ်ႉဢွၵ်ႉဝႆႉၼၼ်ႉ ပွင်ႈၵႂၢမ်းထုၵ်ႇသိမ်းဝႆႉၸူးတီႈ သဵၼ်ႈမၢႆလူ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၶႂ်ႈဢဝ်ၶဝ် ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ တီႈဢၶွင်ႉၸဝ်ႈၵဝ်ႇႁိုဝ်?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">မႅၼ်ႈယဝ်ႉ၊ ဢဝ်ၶဝ် ထႅမ်သႂ်ႇၸူးၼႂ်း သဵၼ်ႈမၢႆလူၵဝ်ၶႃႈလႄႈ</string>
+  <string name="reading_list_login_option_reminder_dialog_no">ဢမ်ႇ၊ မွတ်ႇပႅတ်ႈပွင်ႈၵႂၢမ်းၸိူဝ်းၼၼ်ႉလႃႈ</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">တေသိုပ်ႇသိမ်းပွင်ႈၵႂၢမ်းၸိူဝ်းၼၼ်ႉဝႆႉ တီႈၼႂ်းဢႅပ်ႉၼႄႇ?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">မီးဝႆႉပွင်ႈၵႂၢမ်း ၸိူဝ်းတိုၵ်ႉသိုမ်းပၼ်ဝႆႉ တီႈၼႂ်းသဵၼ်ႈမၢႆလူ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၶႂ်ႈသိမ်းၶဝ်ဝႆႉ ဝၢႆးသေလွၵ်ႉဢွၵ်ႉၼၼ်ႉ?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">မႅၼ်ႈယဝ်ႉ၊ ၵဵပ်းဝႆႉပွင်ႈၵႂၢမ်း တီႈၼႂ်းသဵၼ်ႈမၢႆလႄႈ</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">ဢမ်ႇ၊ မွတ်ႇပႅတ်ႈပွင်ႈၵႂၢမ်း ၵႃႈတီႈသဵၼ်ႈမၢႆ</string>
+  <string name="default_reading_list_name">ၵဵပ်းသိမ်းယဝ်ႉ</string>
+  <string name="default_reading_list_description">သဵၼ်ႈမၢႆပိူင်ၵႅဝ်ႈ တွၼ်ႈတႃႇ ပွင်ႈၵႂၢမ်းၸိူဝ်းသိမ်းဝႆႉႁင်းၸဝ်ႈၵဝ်ႇ</string>
+  <string name="no_user_lists_title">ၸူႉတွမ်ပွင်ၵႂၢမ်း သႂ်ႇၼႂ်းသဵၼ်ႈမၢႆ</string>
+  <string name="no_user_lists_msg">ၵေႃႇသၢင်ႈသဵၼ်ႈမၢႆတွၼ်ႈတႃႇ ဢွင်ႈတႃႇ တႃႇဢွၵ်ႇၶၢဝ်းတၢင်း၊ ႁူဝ်ၶေႃႈထုၵ်ႇၸႂ် လႄႈ တၢင်ႇၸိူဝ်းၼမ်လိူဝ်</string>
+  <string name="reading_list_saved_list_rename">%1$s (ၽူႈၸႂ်ႉတိုဝ်းသၢင်ႈဝႆႉ)</string>
   <string name="reading_list_article_offline_message" fuzzy="true">ၽွင်းဢမ်ႇမီးၼႅင်ႈၵေႃႈ ပွင်ႈလိၵ်ႈၼႆႉ တေလူလႆႈယဝ်ႉ။</string>
   <string name="reading_list_article_not_offline_message" fuzzy="true">ပွင်ႈလိၵ်ႈၼႆ့ တေဢမ်ႇလူလႆႈ ၽွင်းဢမ်ႇမီးၼႅင်ႈ။</string>
   <string name="user_option_sync_label">ငဝ်ႈၵုမ်းပိူင်</string>

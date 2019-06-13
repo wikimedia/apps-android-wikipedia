@@ -27,6 +27,7 @@
 * Trial
 * Tubezlob
 * Urhixidur
+* VIGNERON
 * Verdy p
 * Wladek92
 * Zarisi
@@ -598,7 +599,7 @@
   <string name="feed_item_type_because_you_read">Suggestions basées sur un article récemment lu de votre historique</string>
   <string name="feed_item_type_featured_article">Article du jour en vedette sur Wikipédia</string>
   <string name="feed_item_type_trending">Articles les plus vus du jour</string>
-  <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimédia Communs</string>
+  <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimédia Commons</string>
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipedia</string>
@@ -612,8 +613,10 @@
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_text_hint_per_language">description de %s</string>
   <string name="description_edit_caption_hint_per_language">légende de %s</string>
+  <string name="description_edit_caption_hint">Légende</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_article">Article</string>
+  <string name="description_edit_description">Description</string>
   <string name="description_edit_read">Lire</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
   <string name="description_edit_add_description_v2">Ajouter une description</string>
@@ -632,6 +635,7 @@
   <string name="description_edit_license_notice">En modifiant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Description publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description publiée !</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Légende publiée !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
@@ -645,8 +649,12 @@
   <string name="suggested_edits_add_descriptions">Ajouter des descriptions</string>
   <string name="suggested_edits_translate_descriptions">Traduire les descriptions</string>
   <string name="suggested_edits_add_image_captions">Ajouter les légendes aux images</string>
+  <string name="suggested_edits_translate_image_captions">Traduire les légendes des images</string>
   <string name="suggested_edits_review_description">Relire la description</string>
   <string name="suggested_edits_add_description_button">Ajouter une description</string>
+  <string name="suggested_edits_add_caption_button">Ajouter une légende</string>
+  <string name="suggested_edits_edit_caption_button">Modifier la légende</string>
+  <string name="suggested_edits_review_image_caption">Relire la légende de l’image</string>
   <string name="suggested_edits_my_contributions">Mes contributions</string>
   <string name="suggested_edits_added_by_you">Ajouté par vous :</string>
   <string name="suggested_edits_translated_by_you">Traduit par vous :</string>
@@ -671,6 +679,7 @@
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Merci pour toutes vos contributions ! Vous avez utilisé l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions. Vous utilisez l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_license_notice">En ajoutant la description, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">En ajoutant la légende de l’image, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de mettre irrévocablement mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
   <string name="suggested_edits_task_add_description_title">Ajouter les descriptions</string>
@@ -701,6 +710,13 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Commencer</string>
   <string name="suggested_edits_add_translation_button_label">Ajouter la traduction</string>
   <string name="suggested_edits_edit_translation_button_label">Modifier la traduction</string>
+  <string name="suggested_edits_image_caption_title">Légende des images</string>
+  <string name="suggested_edits_image_artist">Artiste</string>
+  <string name="suggested_edits_image_date">Date</string>
+  <string name="suggested_edits_image_source">Source/Photographe</string>
+  <string name="suggested_edits_image_licensing">Licence</string>
+  <string name="suggested_edits_image_more_info">Plus d’infos</string>
+  <string name="suggested_edits_image_file_page_link_text">Page du fichier sur Wikimédia Commons</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
