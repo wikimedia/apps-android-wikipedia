@@ -609,8 +609,10 @@
   <string name="description_edit_text_hint">وصف العنوان</string>
   <string name="description_edit_text_hint_per_language">وصف %s</string>
   <string name="description_edit_caption_hint_per_language">شرح %s</string>
+  <string name="description_edit_caption_hint">تعليق</string>
   <string name="description_edit_save">انشر</string>
   <string name="description_edit_article">مقالة</string>
+  <string name="description_edit_description">الوصف</string>
   <string name="description_edit_read">قراءة</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
   <string name="description_edit_add_description_v2">إضافة وصف</string>
@@ -646,6 +648,8 @@
   <string name="suggested_edits_translate_image_captions">ترجمة تعليقات الصور</string>
   <string name="suggested_edits_review_description">معاينة الوصف</string>
   <string name="suggested_edits_add_description_button">أضف وصفا</string>
+  <string name="suggested_edits_add_caption_button">إضافة شرح</string>
+  <string name="suggested_edits_edit_caption_button">عدل الشرح</string>
   <string name="suggested_edits_review_image_caption">مراجعة تعليقات الصور</string>
   <string name="suggested_edits_my_contributions">مساهماتي</string>
   <string name="suggested_edits_added_by_you">أُضِيف بواسطتك:</string>
@@ -702,6 +706,13 @@
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="suggested_edits_add_translation_button_label">إضافة ترجمة</string>
   <string name="suggested_edits_edit_translation_button_label">تحرير الترجمة</string>
+  <string name="suggested_edits_image_caption_title">تعليقات الصور</string>
+  <string name="suggested_edits_image_artist">الفنان</string>
+  <string name="suggested_edits_image_date">التاريخ</string>
+  <string name="suggested_edits_image_source">المصدر/المصور</string>
+  <string name="suggested_edits_image_licensing">الترخيص</string>
+  <string name="suggested_edits_image_more_info">المزيد من المعلومات</string>
+  <string name="suggested_edits_image_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>

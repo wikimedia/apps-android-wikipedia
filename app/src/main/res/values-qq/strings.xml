@@ -607,8 +607,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
   <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
-  <string name="description_edit_caption_hint">Label that prompts the user to add a caption to an image that does not yet have one.</string>
   <string name="description_edit_caption_hint_per_language">Language specified hint text that is shown when the caption field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
+  <string name="description_edit_caption_hint">Label that prompts the user to add a caption to an image that does not yet have one.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_description">Label that prompts the user that the summary of the description of the image shows under the label.\n{{Identical|Description}}</string>
@@ -696,10 +696,10 @@
   <string name="suggested_edits_task_translate_caption_title">Image caption translation tasks heading.</string>
   <string name="suggested_edits_task_translate_caption_description">Image caption translation tasks explanation given to user.</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>
-  <string name="suggested_edits_image_caption_summary_title_license">License title text of the file summary shown in suggested edit card.</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Date title text of the file summary shown in suggested edit card.</string>
+  <string name="suggested_edits_image_caption_summary_title_license">License title text of the file summary shown in suggested edit card.\n{{Identical|Licence}}</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Date title text of the file summary shown in suggested edit card.\n{{Identical|Date}}</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>

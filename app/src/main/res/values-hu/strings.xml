@@ -630,6 +630,7 @@
   <string name="suggested_edits_translate_descriptions">Leírások fordítása</string>
   <string name="suggested_edits_review_description">Címleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>
+  <string name="suggested_edits_review_image_caption">Képaláírások ellenőrzése</string>
   <string name="suggested_edits_my_contributions">Közreműködéseim</string>
   <string name="suggested_edits_added_by_you">Általad hozzáadva:</string>
   <string name="suggested_edits_translated_by_you">Általad fordítva:</string>
@@ -661,6 +662,11 @@
   <string name="suggested_edits_task_multilingual_negative">Nem nekem való</string>
   <string name="suggested_edits_task_multilingual_positive">Nyelvek hozzáadása</string>
   <string name="suggested_edits_task_translate_caption_title">Képaláírások fordítása</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Művész</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Szerző</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Forrás</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licenc</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Dátum</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">egy közreműködés</item>
     <item quantity="other">%d közreműködés</item>
