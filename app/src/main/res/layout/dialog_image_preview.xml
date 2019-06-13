@@ -84,7 +84,7 @@
                     android:gravity="center_vertical"
                     android:letterSpacing="0.04"
                     android:lineSpacingExtra="6sp"
-                    android:text="@string/suggested_edits_image_more_info"
+                    android:text="@string/suggested_edits_image_preview_dialog_more_info"
                     android:textAllCaps="true"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="14sp"
@@ -108,7 +108,7 @@
                         android:layout_marginTop="11dp"
                         android:fontFamily="sans-serif"
                         android:lineSpacingExtra="8sp"
-                        android:text="@string/suggested_edits_image_file_page_link_text"
+                        android:text="@string/suggested_edits_image_preview_dialog_file_page_link_text"
                         android:textColor="?attr/colorAccent"
                         android:textSize="16sp"
                         android:textStyle="normal" />

@@ -728,13 +728,13 @@
     <string name="suggested_edits_feed_card_add_translationin_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
-    <string name="suggested_edits_image_caption_title">Image captions</string>
-    <string name="suggested_edits_image_artist">Artist</string>
-    <string name="suggested_edits_image_date">Date</string>
-    <string name="suggested_edits_image_source">Source/Photographer</string>
-    <string name="suggested_edits_image_licensing">Licensing</string>
-    <string name="suggested_edits_image_more_info">More Infos</string>
-    <string name="suggested_edits_image_file_page_link_text">File page on Wikimedia Commons</string>
+    <string name="suggested_edits_image_preview_dialog_caption_title">Image captions</string>
+    <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
+    <string name="suggested_edits_image_preview_dialog_date">Date</string>
+    <string name="suggested_edits_image_preview_dialog_source">Source/Photographer</string>
+    <string name="suggested_edits_image_preview_dialog_licensing">Licensing</string>
+    <string name="suggested_edits_image_preview_dialog_more_info">More Infos</string>
+    <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
     <string name="suggested_edits_feed_card_add_image_caption">Add caption</string>
     <string name="suggested_edits_feed_card_translate_image_caption">Add caption (%s)</string>
     <!-- /Suggested edits -->

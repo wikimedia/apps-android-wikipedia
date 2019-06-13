@@ -210,16 +210,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setUpBottomBar() {
-        switch (invokeSource) {
-            case SUGGESTED_EDITS_ADD_CAPTION:
-            case SUGGESTED_EDITS_TRANSLATE_CAPTION:
-            case FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION:
-            case FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION:
-                bottomBarContainer.setImageDetails(suggestedEditsSummary);
-                break;
-            default:
-                bottomBarContainer.setSummary(suggestedEditsSummary);
-        }
+        bottomBarContainer.setSummary(suggestedEditsSummary, invokeSource);
         bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
