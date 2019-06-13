@@ -26,6 +26,34 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingStart="12dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:layout_width="@dimen/app_shortcut_icon_size"
+                android:layout_height="@dimen/app_shortcut_icon_size"
+                android:contentDescription="@null"
+                android:tint="?attr/paper_color"
+                app:srcCompat="@drawable/ic_add_gray_themed_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:lineSpacingExtra="6sp"
+                android:text="ADD CAPTION"
+                android:textColor="?attr/paper_color"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                tools:text="ADD CAPTION" />
+        </LinearLayout>
+
     </FrameLayout>
 
 </merge>
