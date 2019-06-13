@@ -630,8 +630,10 @@
   <string name="description_edit_text_hint">Краткое описание</string>
   <string name="description_edit_text_hint_per_language">%s описание</string>
   <string name="description_edit_caption_hint_per_language">описание (%s)</string>
+  <string name="description_edit_caption_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_article">Статья</string>
+  <string name="description_edit_description">Краткое описание</string>
   <string name="description_edit_read">Читать</string>
   <string name="description_edit_add_description">Добавить краткое описание</string>
   <string name="description_edit_add_description_v2">Добавить краткое описание</string>
@@ -667,6 +669,8 @@
   <string name="suggested_edits_translate_image_captions">Перевести описания изображений</string>
   <string name="suggested_edits_review_description">Проверить описание</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
+  <string name="suggested_edits_add_caption_button">Добавить описание</string>
+  <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
   <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_added_by_you">Добавлено вами:</string>
@@ -723,6 +727,13 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="suggested_edits_add_translation_button_label">Добавить перевод</string>
   <string name="suggested_edits_edit_translation_button_label">Редактировать перевод</string>
+  <string name="suggested_edits_image_caption_title">Описания изображений</string>
+  <string name="suggested_edits_image_artist">Автор</string>
+  <string name="suggested_edits_image_date">Дата</string>
+  <string name="suggested_edits_image_source">Источник/Фотограф</string>
+  <string name="suggested_edits_image_licensing">Лицензирование</string>
+  <string name="suggested_edits_image_more_info">Подробнее</string>
+  <string name="suggested_edits_image_file_page_link_text">Страница файла на Викискладе</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>

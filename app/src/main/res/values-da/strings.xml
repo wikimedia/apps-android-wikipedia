@@ -592,6 +592,7 @@
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_description">Beskrivelse</string>
   <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
   <string name="description_edit_add_description_v2">Tilføj beskrivelse</string>

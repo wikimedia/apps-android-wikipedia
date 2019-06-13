@@ -607,6 +607,7 @@
   <string name="description_edit_text_hint_per_language">%s beschrijving</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_article">Artikel</string>
+  <string name="description_edit_description">Beschrijving</string>
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
   <string name="description_edit_add_description_v2">Beschrijving toevoegen</string>
@@ -646,7 +647,7 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_title">U hebt \"Beschrijvingen toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">U hebt \"Beschrijvingen vertalen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_notification_text">Voorgestelde bewerkingen</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">Bij toevoegen van de titelbeschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
+  <string name="suggested_edits_license_notice">Bij toevoegen van de beschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
   <string name="suggested_edits_menu_info">Informatie</string>
   <string name="suggested_edits_tasks_activity_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_task_add_description_title">Beschrijvingen toevoegen</string>
@@ -662,6 +663,10 @@
   <string name="suggested_edits_task_multilingual_positive">Talen toevoegen</string>
   <string name="suggested_edits_task_translate_caption_title">Afbeeldingsbijschriften vertalen</string>
   <string name="suggested_edits_task_translate_caption_description">Onderschriften vertalen in andere talen</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Bron</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licentie</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">in-app contribution</item>
     <item quantity="other">%d bijdragen in app</item>
@@ -670,6 +675,11 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
   <string name="suggested_edits_add_translation_button_label">Vertaling toevoegen</string>
   <string name="suggested_edits_edit_translation_button_label">Vertaling bewerken</string>
+  <string name="suggested_edits_image_date">Datum</string>
+  <string name="suggested_edits_image_source">Bron/fotograaf</string>
+  <string name="suggested_edits_image_licensing">Licentie</string>
+  <string name="suggested_edits_image_more_info">Meer info</string>
+  <string name="suggested_edits_image_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
