@@ -259,7 +259,9 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">منسوخ</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">منسوخ</string>
+  <string name="description_edit_caption_hint">عنوان</string>
   <string name="description_edit_save">شائع کرو</string>
+  <string name="description_edit_description">تفصیل</string>
   <string name="description_edit_add_description">عنوان دی تفصیل لکھو</string>
   <string name="description_edit_edit_description">تفصیل لکھو</string>
   <string name="description_edit_cancel_hint">منسوخ</string>
@@ -267,8 +269,15 @@
   <string name="description_edit_success_done">مکمل</string>
   <string name="description_edit_success_did_you_know">بھلا تساں ڄاݨدے ہو؟</string>
   <string name="description_edit_tutorial_button_label_start_editing">لکھݨ شروع کرو</string>
+  <string name="suggested_edits_add_caption_button">عنوان شامل کرو</string>
+  <string name="suggested_edits_edit_caption_button">عنوان وچ تبدیلی کرو</string>
   <string name="suggested_edits_menu_info">معلومات</string>
+  <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
+  <string name="suggested_edits_image_caption_summary_title_source">ماخذ</string>
+  <string name="suggested_edits_image_caption_summary_title_license">لائیسنس</string>
+  <string name="suggested_edits_image_caption_summary_title_date">تریخ</string>
   <string name="suggested_edits_add_translation_button_label">ترجمہ شامل کرو</string>
+  <string name="suggested_edits_image_date">تریخ</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
