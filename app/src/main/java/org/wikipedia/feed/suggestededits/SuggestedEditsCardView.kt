@@ -56,7 +56,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> showTranslateImageCaptionUI()
             else -> showAddDescriptionUI()
         }
-
     }
 
     private fun showAddDescriptionUI() {

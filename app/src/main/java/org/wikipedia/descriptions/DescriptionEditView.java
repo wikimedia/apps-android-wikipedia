@@ -142,7 +142,7 @@ public class DescriptionEditView extends LinearLayout {
                 } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
                     return R.string.description_edit_translate_image_caption;
                 } else {
-                    return R.string.description_edit_add_description_v2;
+                    return R.string.description_edit_add_description;
                 }
             }
         } else {
