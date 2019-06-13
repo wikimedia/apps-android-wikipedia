@@ -140,7 +140,7 @@ public class DescriptionEditView extends LinearLayout {
                 } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
                     return R.string.description_edit_translate_image_caption;
                 } else {
-                    return R.string.description_edit_add_description_v2;
+                    return R.string.description_edit_add_description;
                 }
             }
         } else {
@@ -208,14 +208,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setUpBottomBar() {
-        switch (invokeSource) {
-            case SUGGESTED_EDITS_ADD_CAPTION:
-            case SUGGESTED_EDITS_TRANSLATE_CAPTION:
-                bottomBarContainer.setImageDetails(suggestedEditsSummary);
-                break;
-            default:
-                bottomBarContainer.setSummary(suggestedEditsSummary);
-        }
+        bottomBarContainer.setSummary(suggestedEditsSummary, invokeSource);
         bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
