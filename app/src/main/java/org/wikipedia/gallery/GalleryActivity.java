@@ -115,6 +115,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
     @BindView(R.id.gallery_caption_edit_button) View captionEditButton;
     @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
+    @BindView(R.id.gallery_caption_translate_button_text) TextView captionTranslateButtonText;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
     private Disposable imageCaptionDisposable;
@@ -294,7 +295,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_image_caption_snackbar);
+            FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
+                    app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1))));
             layOutGalleryDescription();
         }
     }
@@ -654,6 +656,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             allowTranslate = false;
         }
         captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
+        captionTranslateButtonText.setText(getString(R.string.gallery_add_image_caption_in_language_button,
+                app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1))));
 
         // determine which icon to display...
         if (getLicenseIcon(item) == R.drawable.ic_license_by) {
