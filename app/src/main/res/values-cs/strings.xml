@@ -604,8 +604,10 @@
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_text_hint_per_language">popis v jazyce %s</string>
   <string name="description_edit_caption_hint_per_language">popis v jazyce %s</string>
+  <string name="description_edit_caption_hint">Popis</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_article">Článek</string>
+  <string name="description_edit_description">Popis</string>
   <string name="description_edit_read">Číst</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
   <string name="description_edit_add_description_v2">Přidat popis</string>
@@ -641,6 +643,8 @@
   <string name="suggested_edits_translate_image_captions">Přeložit popisy obrázků</string>
   <string name="suggested_edits_review_description">Náhled popisu článku</string>
   <string name="suggested_edits_add_description_button">Přidat popis</string>
+  <string name="suggested_edits_add_caption_button">Přidat popis</string>
+  <string name="suggested_edits_edit_caption_button">Editovat popis</string>
   <string name="suggested_edits_review_image_caption">Náhled popisu obrázku</string>
   <string name="suggested_edits_my_contributions">Moje příspěvky</string>
   <string name="suggested_edits_added_by_you">Přidáno vámi:</string>
@@ -698,6 +702,13 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
   <string name="suggested_edits_add_translation_button_label">Přidat překlad</string>
   <string name="suggested_edits_edit_translation_button_label">Editovat překlad</string>
+  <string name="suggested_edits_image_caption_title">Popis obrázku</string>
+  <string name="suggested_edits_image_artist">Umělec</string>
+  <string name="suggested_edits_image_date">Datum</string>
+  <string name="suggested_edits_image_source">Zdroj/Fotograf</string>
+  <string name="suggested_edits_image_licensing">Licencování</string>
+  <string name="suggested_edits_image_more_info">Více informací</string>
+  <string name="suggested_edits_image_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>

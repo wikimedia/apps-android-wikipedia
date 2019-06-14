@@ -595,14 +595,19 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
   <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_text_hint_per_language">%s 설명</string>
+  <string name="description_edit_caption_hint_per_language">%s 설명</string>
+  <string name="description_edit_caption_hint">설명</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_article">문서</string>
+  <string name="description_edit_description">설명</string>
   <string name="description_edit_read">읽기</string>
   <string name="description_edit_add_description">제목 설명 추가</string>
   <string name="description_edit_add_description_v2">설명 추가</string>
   <string name="description_edit_translate_description">설명 번역하기</string>
   <string name="description_edit_edit_description">설명 편집</string>
   <string name="description_edit_add_image_caption">이미지 설명 추가</string>
+  <string name="description_edit_edit_image_caption">이미지 설명 편집</string>
+  <string name="description_edit_translate_image_caption">이미지 설명 번역하기</string>
   <string name="add_translation">%s 번역 추가</string>
   <string name="description_edit_cancel_hint">취소</string>
   <string name="description_edit_help_title">도움말: 제목 설명</string>
@@ -613,6 +618,7 @@
   <string name="description_edit_license_notice">제목 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="description_edit_success_saved">설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">설명을 게시했습니다!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">설명이 게시되었습니다!</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
@@ -626,8 +632,12 @@
   <string name="suggested_edits_add_descriptions">설명 추가</string>
   <string name="suggested_edits_translate_descriptions">설명 번역하기</string>
   <string name="suggested_edits_add_image_captions">이미지 설명 추가</string>
+  <string name="suggested_edits_translate_image_captions">이미지 설명 번역하기</string>
   <string name="suggested_edits_review_description">설명 검토</string>
   <string name="suggested_edits_add_description_button">설명 추가</string>
+  <string name="suggested_edits_add_caption_button">설명 추가</string>
+  <string name="suggested_edits_edit_caption_button">설명 편집</string>
+  <string name="suggested_edits_review_image_caption">이미지 설명 검토</string>
   <string name="suggested_edits_my_contributions">내 기여</string>
   <string name="suggested_edits_added_by_you">내가 추가함:</string>
   <string name="suggested_edits_translated_by_you">내가 번역함:</string>
@@ -668,6 +678,10 @@
   <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
   <string name="suggested_edits_task_translate_caption_title">이미지 설명 번역하기</string>
   <string name="suggested_edits_task_translate_caption_description">설명을 다른 언어로 번역하기</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
+  <string name="suggested_edits_image_caption_summary_title_author">만든이</string>
+  <string name="suggested_edits_image_caption_summary_title_license">라이선스</string>
+  <string name="suggested_edits_image_caption_summary_title_date">날짜</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1개 기여</item>
     <item quantity="other">%d개 기여</item>

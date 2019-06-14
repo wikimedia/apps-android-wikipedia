@@ -587,8 +587,10 @@
   <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_text_hint_per_language">Опис на %s</string>
   <string name="description_edit_caption_hint_per_language">%s опис</string>
+  <string name="description_edit_caption_hint">Опис на сликата</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_article">Статија</string>
+  <string name="description_edit_description">Опис на содржината</string>
   <string name="description_edit_read">Прочитај</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>
   <string name="description_edit_add_description_v2">Додај опис</string>
@@ -624,6 +626,8 @@
   <string name="suggested_edits_translate_image_captions">Преведи описи на слики</string>
   <string name="suggested_edits_review_description">Преглед на описот</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
+  <string name="suggested_edits_add_caption_button">Додај опис на сликата</string>
+  <string name="suggested_edits_edit_caption_button">Додај опис на содржината</string>
   <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
   <string name="suggested_edits_my_contributions">Мои придонеси</string>
   <string name="suggested_edits_added_by_you">Додадено од вас:</string>
@@ -680,6 +684,13 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="suggested_edits_add_translation_button_label">Додај превод</string>
   <string name="suggested_edits_edit_translation_button_label">Уреди превод</string>
+  <string name="suggested_edits_image_caption_title">Описи на сликата</string>
+  <string name="suggested_edits_image_artist">Уметник</string>
+  <string name="suggested_edits_image_date">Датум</string>
+  <string name="suggested_edits_image_source">Извор/Фотограф</string>
+  <string name="suggested_edits_image_licensing">Лиценцирање</string>
+  <string name="suggested_edits_image_more_info">Повеќе инфо</string>
+  <string name="suggested_edits_image_file_page_link_text">Податотечна страница на Ризницата</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
