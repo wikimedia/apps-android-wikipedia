@@ -12,16 +12,25 @@ import androidx.fragment.app.FragmentActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
+
+import java.util.Map;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -44,6 +53,8 @@ public class LeadImagesHandler {
     @NonNull private final PageHeaderView pageHeaderView;
 
     private int displayHeightDp;
+    private Disposable imageCaptionDisposable;
+
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
@@ -165,12 +176,36 @@ public class LeadImagesHandler {
     }
 
     private void loadLeadImage(@Nullable String url) {
+        String imageName = getPage().getPageProperties().getLeadImageName();
+        String filename = "File:" + imageName;
+
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
             pageHeaderView.show(isLeadImageEnabled());
             pageHeaderView.loadImage(url);
+            imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(filename)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::updateCallToAction,
+                            L::e);
         } else {
             pageHeaderView.loadImage(null);
         }
+    }
+
+    private void updateCallToAction(Map<String, String> captions) {
+        boolean allowTranslate = false;
+
+        WikipediaApp app = WikipediaApp.getInstance();
+        if (app.language().getAppLanguageCodes().size() > 1) {
+            for (String lang : app.language().getAppLanguageCodes()) {
+                if (!captions.containsKey(lang)) {
+                    allowTranslate = true;
+                    break;
+                }
+            }
+        }
+        pageHeaderView.setUpCallToAction(allowTranslate);
+
     }
 
     @Nullable private String getLeadImageUrl() {

@@ -32,6 +32,7 @@ import static org.wikipedia.util.GradientUtil.getPowerGradient;
 public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) FaceAndColorDetectImageView image;
     @BindView(R.id.view_page_header_image_gradient) View gradientView;
+    @BindView(R.id.callToActionContainer) View callToActionContainer;
     @Nullable private Callback callback;
 
     public interface Callback {
@@ -69,6 +70,10 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     public void setCallback(@Nullable Callback callback) {
         this.callback = callback;
+    }
+
+    public void setUpCallToAction(boolean shouldShowCallToAction) {
+        callToActionContainer.setVisibility(shouldShowCallToAction ? VISIBLE : GONE);
     }
 
     public void loadImage(@Nullable String url) {
