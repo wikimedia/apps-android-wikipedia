@@ -655,8 +655,6 @@
   <string name="suggested_edits_edit_translation_button">A button text for editing a translation of article description.</string>
   <string name="suggested_edits_my_contributions">A overflow menu text that leads to my contributions page</string>
   <string name="suggested_edits_no_description">A label shows that the current image does not have description.</string>
-  <string name="suggested_edits_added_by_you">A label shows that the current article description was added by you.</string>
-  <string name="suggested_edits_translated_by_you">A label shows that the current article description was translated by the user.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add article descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Message text of the dialog shown to user that the “Add article descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate article descriptions“ task has been unlocked. \"Translate descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits task translation title}}.</string>
@@ -705,7 +703,7 @@
     <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
-  <string name="suggested_edits_feed_card_add_translationin_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
