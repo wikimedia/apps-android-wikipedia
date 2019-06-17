@@ -14,7 +14,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -22,7 +21,6 @@ import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.suggestededits.SuggestedEditsSummary
-import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -52,7 +50,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         }
 
         titleText!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(suggestedEditsSummary.title))
-        loadImage(ImageUrlUtil.getUrlForPreferredSize(suggestedEditsSummary.originalUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
+        loadImage(suggestedEditsSummary.thumbnailUrl)
         loadImageInfoIfNeeded()
     }
 
