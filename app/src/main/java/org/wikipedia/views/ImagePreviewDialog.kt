@@ -56,10 +56,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         loadImage(ImageUrlUtil.getUrlForPreferredSize(suggestedEditsSummary.originalUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
         titleText!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(suggestedEditsSummary.title))
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_title), StringUtil.fromHtml(suggestedEditsSummary.description).toString(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()!!.value()).toString(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime()!!.value(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescription()!!.source(), true)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName()!!.value(), true)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()).toString(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescriptionSource(), true)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), true)
         detailsHolder.requestLayout()
     }
 
