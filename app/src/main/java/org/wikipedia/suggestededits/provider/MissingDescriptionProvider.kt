@@ -11,44 +11,51 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.wikidata.Entities
 import java.util.*
+import java.util.concurrent.Semaphore
 
 object MissingDescriptionProvider {
+    private val mutex : Semaphore = Semaphore(1)
+
     private val articlesWithMissingDescriptionCache : Stack<String> = Stack()
     private var articlesWithMissingDescriptionCacheLang : String = ""
     private val articlesWithTranslatableDescriptionCache : Stack<Pair<PageTitle, PageTitle>> = Stack()
     private var articlesWithTranslatableDescriptionCacheFromLang : String = ""
     private var articlesWithTranslatableDescriptionCacheToLang : String = ""
 
+    private val imagesWithMissingCaptionsCache : Stack<MwQueryPage> = Stack()
+    private var imagesWithMissingCaptionsCacheLang : String = ""
+    private val imagesWithTranslatableCaptionCache : Stack<Pair<String, MwQueryPage>> = Stack()
+    private var imagesWithTranslatableCaptionCacheFromLang : String = ""
+    private var imagesWithTranslatableCaptionCacheToLang : String = ""
+
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
     @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<RbPageSummary> {
+        mutex.acquire()
+
         var cachedTitle = ""
-        synchronized(articlesWithMissingDescriptionCache) {
-            if (articlesWithMissingDescriptionCacheLang != wiki.languageCode()) {
-                // evict the cache if the language has changed.
-                articlesWithMissingDescriptionCache.clear()
-            }
-            if (!articlesWithMissingDescriptionCache.empty()) {
-                cachedTitle = articlesWithMissingDescriptionCache.pop()
-            }
+        if (articlesWithMissingDescriptionCacheLang != wiki.languageCode()) {
+            // evict the cache if the language has changed.
+            articlesWithMissingDescriptionCache.clear()
+        }
+        if (!articlesWithMissingDescriptionCache.empty()) {
+            cachedTitle = articlesWithMissingDescriptionCache.pop()
         }
 
         return (if (cachedTitle.isNotEmpty()) Observable.just(cachedTitle) else
             ServiceFactory.get(wiki).randomWithPageProps
                     .map<String> { response ->
-                        var title : String? = null
-                        synchronized(articlesWithMissingDescriptionCache) {
-                            articlesWithMissingDescriptionCacheLang = wiki.languageCode()
-                            for (page in response.query()!!.pages()!!) {
-                                if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !page.description().isNullOrEmpty()) {
-                                    continue
-                                }
-                                articlesWithMissingDescriptionCache.push(page.title())
+                        var title: String? = null
+                        articlesWithMissingDescriptionCacheLang = wiki.languageCode()
+                        for (page in response.query()!!.pages()!!) {
+                            if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !page.description().isNullOrEmpty()) {
+                                continue
                             }
-                            if (!articlesWithMissingDescriptionCache.empty()) {
-                                title = articlesWithMissingDescriptionCache.pop()
-                            }
+                            articlesWithMissingDescriptionCache.push(page.title())
+                        }
+                        if (!articlesWithMissingDescriptionCache.empty()) {
+                            title = articlesWithMissingDescriptionCache.pop()
                         }
                         if (title == null) {
                             throw ListEmptyException()
@@ -58,6 +65,7 @@ object MissingDescriptionProvider {
                 )
                 .flatMap { title -> ServiceFactory.getRest(wiki).getSummary(null, title) }
                 .retry { t: Throwable -> t is ListEmptyException }
+                .doFinally { mutex.release() }
     }
 
     fun getNextArticleWithMissingDescriptionNew(wiki: WikiSite): Observable<RbPageSummary> {
@@ -71,17 +79,17 @@ object MissingDescriptionProvider {
 
     @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<RbPageSummary, RbPageSummary>> {
+        mutex.acquire()
+
         val targetWiki = WikiSite.forLanguageCode(targetLang)
         var cachedPair: Pair<PageTitle, PageTitle>? = null
-        synchronized(articlesWithTranslatableDescriptionCache) {
-            if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode()
-                    || articlesWithTranslatableDescriptionCacheToLang != targetLang) {
-                // evict the cache if the language has changed.
-                articlesWithTranslatableDescriptionCache.clear()
-            }
-            if (!articlesWithTranslatableDescriptionCache.empty()) {
-                cachedPair = articlesWithTranslatableDescriptionCache.pop()
-            }
+        if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode()
+                || articlesWithTranslatableDescriptionCacheToLang != targetLang) {
+            // evict the cache if the language has changed.
+            articlesWithTranslatableDescriptionCache.clear()
+        }
+        if (!articlesWithTranslatableDescriptionCache.empty()) {
+            cachedPair = articlesWithTranslatableDescriptionCache.pop()
         }
 
         return (if (cachedPair != null) Observable.just(cachedPair) else
@@ -99,24 +107,22 @@ object MissingDescriptionProvider {
                     }
                     .map<Pair<PageTitle, PageTitle>> { response ->
                         var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
-                        synchronized(articlesWithTranslatableDescriptionCache) {
-                            articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
-                            articlesWithTranslatableDescriptionCacheToLang = targetLang
-                            for (q in response.entities()!!.keys) {
-                                val entity = response.entities()!![q]
-                                if (entity == null
-                                        || entity.descriptions().containsKey(targetLang)
-                                        || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
-                                        || !entity.sitelinks().containsKey(sourceWiki.dbName())
-                                        || !entity.sitelinks().containsKey(targetWiki.dbName())) {
-                                    continue
-                                }
-                                articlesWithTranslatableDescriptionCache.push(Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
-                                        PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)))
+                        articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
+                        articlesWithTranslatableDescriptionCacheToLang = targetLang
+                        for (q in response.entities()!!.keys) {
+                            val entity = response.entities()!![q]
+                            if (entity == null
+                                    || entity.descriptions().containsKey(targetLang)
+                                    || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
+                                    || !entity.sitelinks().containsKey(sourceWiki.dbName())
+                                    || !entity.sitelinks().containsKey(targetWiki.dbName())) {
+                                continue
                             }
-                            if (!articlesWithTranslatableDescriptionCache.empty()) {
-                                sourceAndTargetPageTitles = articlesWithTranslatableDescriptionCache.pop()
-                            }
+                            articlesWithTranslatableDescriptionCache.push(Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
+                                    PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)))
+                        }
+                        if (!articlesWithTranslatableDescriptionCache.empty()) {
+                            sourceAndTargetPageTitles = articlesWithTranslatableDescriptionCache.pop()
                         }
                         if (sourceAndTargetPageTitles == null) {
                             throw ListEmptyException()
@@ -125,6 +131,7 @@ object MissingDescriptionProvider {
                     })
                 .flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
                 .retry { t: Throwable -> t is ListEmptyException }
+                .doFinally { mutex.release() }
     }
 
     fun getNextArticleWithMissingDescriptionNew(sourceWiki: WikiSite, targetLang: String): Observable<Pair<RbPageSummary, RbPageSummary>> {
@@ -169,74 +176,117 @@ object MissingDescriptionProvider {
     }
 
     fun getNextImageWithMissingCaption(lang: String): Observable<MwQueryPage> {
-        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
-                .flatMap<Entities, MwQueryPage>({ result: MwQueryResponse ->
-                    val pages = result.query()!!.pages()
-                    val mNumbers = ArrayList<String>()
-                    for (page in pages!!) {
-                        if (page.imageInfo()?.mimeType == "image/jpeg") {
-                            mNumbers.add("M" + page.pageId())
-                        }
-                    }
-                    if (mNumbers.isEmpty()) {
-                        throw ListEmptyException()
-                    }
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
-                }, { mwQueryResponse, entities ->
-                    var item: MwQueryPage? = null
-                    for (m in entities.entities()!!.keys) {
-                        if (entities.entities()!![m]?.labels() != null && entities.entities()!![m]?.labels()!!.containsKey(lang)) {
-                            continue
-                        }
-                        for (page in mwQueryResponse.query()!!.pages()!!) {
-                            if (m == "M" + page.pageId()) {
-                                item = page
-                                break
+        mutex.acquire()
+
+        var cachedTitle: MwQueryPage? = null
+        if (imagesWithMissingCaptionsCacheLang != lang) {
+            // evict the cache if the language has changed.
+            imagesWithMissingCaptionsCache.clear()
+        }
+        if (!imagesWithMissingCaptionsCache.empty()) {
+            cachedTitle = imagesWithMissingCaptionsCache.pop()
+        }
+
+        if (cachedTitle != null) {
+            mutex.release()
+            return Observable.just(cachedTitle)
+        } else {
+            return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
+                    .flatMap<Entities, MwQueryPage>({ result: MwQueryResponse ->
+                        val pages = result.query()!!.pages()
+                        val mNumbers = ArrayList<String>()
+                        for (page in pages!!) {
+                            if (page.imageInfo()?.mimeType == "image/jpeg") {
+                                mNumbers.add("M" + page.pageId())
                             }
                         }
-                    }
-                    if (item == null) {
-                        throw ListEmptyException()
-                    }
-                    item
-                })
-                .retry { t: Throwable -> t is ListEmptyException }
+                        if (mNumbers.isEmpty()) {
+                            throw ListEmptyException()
+                        }
+                        ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
+                    }, { mwQueryResponse, entities ->
+                        imagesWithMissingCaptionsCacheLang = lang
+                        for (m in entities.entities()!!.keys) {
+                            if (entities.entities()!![m]?.labels() != null && entities.entities()!![m]?.labels()!!.containsKey(lang)) {
+                                continue
+                            }
+                            for (page in mwQueryResponse.query()!!.pages()!!) {
+                                if (m == "M" + page.pageId()) {
+                                    imagesWithMissingCaptionsCache.push(page)
+                                }
+                            }
+                        }
+                        var item: MwQueryPage? = null
+                        if (!imagesWithMissingCaptionsCache.empty()) {
+                            item = imagesWithMissingCaptionsCache.pop()
+                        }
+                        if (item == null) {
+                            throw ListEmptyException()
+                        }
+                        item
+                    })
+                    .retry { t: Throwable -> t is ListEmptyException }
+                    .doFinally { mutex.release() }
+        }
     }
 
     fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String): Observable<Pair<String, MwQueryPage>> {
-        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
-                .flatMap<Entities, Pair<String, MwQueryPage>>({ result: MwQueryResponse ->
-                    val pages = result.query()!!.pages()
-                    val mNumbers = ArrayList<String>()
-                    for (page in pages!!) {
-                        if (page.imageInfo()?.mimeType == "image/jpeg") {
-                            mNumbers.add("M" + page.pageId())
-                        }
-                    }
-                    if (mNumbers.isEmpty()) {
-                        throw ListEmptyException()
-                    }
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
-                }, { mwQueryResponse, entities ->
-                    var item: Pair<String, MwQueryPage>? = null
-                    for (m in entities.entities()!!.keys) {
-                        if (entities.entities()!![m]?.labels() == null || !entities.entities()!![m]?.labels()!!.containsKey(sourceLang)
-                                || entities.entities()!![m]?.labels()!!.containsKey(targetLang)) {
-                            continue
-                        }
-                        for (page in mwQueryResponse.query()!!.pages()!!) {
-                            if (m == "M" + page.pageId()) {
-                                item = Pair(entities.entities()!![m]?.labels()!![sourceLang]!!.value(), page)
-                                break
+        mutex.acquire()
+
+        var cachedPair: Pair<String, MwQueryPage>? = null
+        if (imagesWithTranslatableCaptionCacheFromLang != sourceLang
+                || imagesWithTranslatableCaptionCacheToLang != targetLang) {
+            // evict the cache if the language has changed.
+            imagesWithTranslatableCaptionCache.clear()
+        }
+        if (!imagesWithTranslatableCaptionCache.empty()) {
+            cachedPair = imagesWithTranslatableCaptionCache.pop()
+        }
+
+        if (cachedPair != null) {
+            mutex.release()
+            return Observable.just(cachedPair)
+        } else {
+            return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
+                    .flatMap<Entities, Pair<String, MwQueryPage>>({ result: MwQueryResponse ->
+                        val pages = result.query()!!.pages()
+                        val mNumbers = ArrayList<String>()
+                        for (page in pages!!) {
+                            if (page.imageInfo()?.mimeType == "image/jpeg") {
+                                mNumbers.add("M" + page.pageId())
                             }
                         }
-                    }
-                    if (item == null) {
-                        throw ListEmptyException()
-                    }
-                    item
-                })
-                .retry { t: Throwable -> t is ListEmptyException }
+                        if (mNumbers.isEmpty()) {
+                            throw ListEmptyException()
+                        }
+                        ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
+                    }, { mwQueryResponse, entities ->
+                        imagesWithTranslatableCaptionCacheFromLang = sourceLang
+                        imagesWithTranslatableCaptionCacheToLang = targetLang
+
+                        for (m in entities.entities()!!.keys) {
+                            if (entities.entities()!![m]?.labels() == null || !entities.entities()!![m]?.labels()!!.containsKey(sourceLang)
+                                    || entities.entities()!![m]?.labels()!!.containsKey(targetLang)) {
+                                continue
+                            }
+                            for (page in mwQueryResponse.query()!!.pages()!!) {
+                                if (m == "M" + page.pageId()) {
+                                    imagesWithTranslatableCaptionCache.push(Pair(entities.entities()!![m]?.labels()!![sourceLang]!!.value(), page))
+                                }
+                            }
+                        }
+                        var item: Pair<String, MwQueryPage>? = null
+                        if (!imagesWithTranslatableCaptionCache.empty()) {
+                            item = imagesWithTranslatableCaptionCache.pop()
+                        }
+                        if (item == null) {
+                            throw ListEmptyException()
+                        }
+                        item
+                    })
+                    .retry { t: Throwable -> t is ListEmptyException }
+                    .doFinally { mutex.release() }
+        }
     }
 
     private class ListEmptyException : RuntimeException()
