@@ -16,11 +16,8 @@ import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.suggestededits.SuggestedEditsSummary
-import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
 
@@ -41,7 +38,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         toolbarView.setOnClickListener { dismiss() }
         imagePageCommonsLinkContainer.setOnClickListener {
             dismiss()
-            UriUtil.visitInExternalBrowser(context,
+            UriUtils.visitInExternalBrowser(context,
                     Uri.parse(String.format(getString(R.string.suggested_edits_image_file_page_commons_link), suggestedEditsSummary.title)))
         }
         setImageDetails()
