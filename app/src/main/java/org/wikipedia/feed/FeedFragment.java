@@ -75,6 +75,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDIN
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
@@ -248,7 +249,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     private void startDescriptionEditScreen() {
-        PageTitle pageTitle = suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC
+        Constants.InvokeSource invokeSource = suggestedEditsCardView.getCard().getInvokeSource();
+        PageTitle pageTitle = (invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION)
                 ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
                 : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,

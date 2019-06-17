@@ -109,7 +109,7 @@ public enum FeedContentType implements EnumCode {
         if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
             unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
         }
-        if (Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+        if (!Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
             unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
         }
         return unlockedTypes;

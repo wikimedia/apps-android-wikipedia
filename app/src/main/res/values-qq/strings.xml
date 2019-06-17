@@ -802,4 +802,5 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
+  <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
 </resources>
