@@ -646,16 +646,15 @@
   <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>
   <string name="suggested_edits_translate_image_captions">Title of screen where the user chooses images that are missing captions to be translated.</string>
   <string name="suggested_edits_review_description">Title of the review article description page.</string>
-  <string name="suggested_edits_review_image_caption">Title of the review image caption page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding article description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="suggested_edits_edit_description_button">A button text for editing article description.</string>
-  <string name="suggested_edits_add_caption_button">A button text for adding image caption.</string>
-  <string name="suggested_edits_edit_caption_button">A button text for editing image caption.</string>
   <string name="suggested_edits_add_translation_button">A button text for adding a translation of article description.</string>
   <string name="suggested_edits_edit_translation_button">A button text for editing a translation of article description.</string>
+  <string name="suggested_edits_add_caption_button">A button text for adding image caption.</string>
+  <string name="suggested_edits_edit_caption_button">A button text for editing image caption.</string>
+  <string name="suggested_edits_review_image_caption">Title of the review image caption page.</string>
   <string name="suggested_edits_my_contributions">A overflow menu text that leads to my contributions page</string>
-  <string name="suggested_edits_added_by_you">A label shows that the current article description was added by you.</string>
-  <string name="suggested_edits_translated_by_you">A label shows that the current article description was translated by the user.</string>
+  <string name="suggested_edits_no_description">A label shows that the current image does not have description.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Title text of the dialog shown to user that the “Add article descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Message text of the dialog shown to user that the “Add article descriptions“ task has been unlocked.</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Title text of the dialog shown to user that the “Translate article descriptions“ task has been unlocked. \"Translate descriptions\" is {{msg-wm|Wikipedia-android-strings-suggested edits task translation title}}.</string>
@@ -704,9 +703,16 @@
     <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
-  <string name="suggested_edits_feed_card_add_translationin_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
+  <string name="suggested_edits_image_preview_dialog_caption_title">Label for image description detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_source">Label for image source detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Label for image licensing detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>
@@ -794,11 +800,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Label for image description detail on image details screen.</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
-  <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
-  <string name="suggested_edits_image_preview_dialog_source">Label for image source detail on image details screen.</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Label for image licensing detail on image details screen.</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
 </resources>
