@@ -124,6 +124,10 @@
   <string name="reset_password_button">Αποθήκευση και σύνδεση</string>
   <string name="preference_title_logout">Αποσύνδεση</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
+  <string name="logged_out_in_background_title">Αποσύνδεση</string>
+  <string name="logged_out_in_background_dialog">Αποσυνδεθήκατε από τη Wikipedia. Θα θέλατε να ξανασυνδεθείτε;</string>
+  <string name="logged_out_in_background_login">Σύνδεση</string>
+  <string name="logged_out_in_background_cancel">Ακύρωση</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Ιχνηλατήστε τι έχετε διαβάσει εδώ.</string>
   <string name="history_offline_articles_toast">Μερικά άρθρα στο ιστορικό μπορεί να μην είναι προσβάσιμα όταν είστε offline.</string>
@@ -423,7 +427,7 @@
     <item quantity="one">Αυτό το λήμμα δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα δεν θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Τελευταίος συγχρονισμός: %s</string>
+  <string name="reading_list_toast_last_sync">Τελευταίος συγχρονισμός</string>
   <string name="reading_list_menu_last_sync">Τελευταίος συγχρονισμός: %s</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>
@@ -459,7 +463,6 @@
   <string name="preference_title_notification_welcome">Καλωσορίσατε</string>
   <string name="preference_title_notification_milestone">Ορόσημο</string>
   <string name="preference_title_notification_thanks">Ευχαριστίες</string>
-  <string name="view_continue_reading_card_title">Συνέχεια ανάγνωσης</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
   <string name="view_random_card_subtitle">Βρείτε τυχαία λήμματα για να διαβάσετε από την Βικιπαίδεια</string>
@@ -537,10 +540,6 @@
   <string name="offline_read_final_rationale">Η άδεια στον αποθηκευτικό χώρο της συσκευής σας απαιτείται για να χρησιμοποιήσετε την βιβλιοθήκη εκτός σύνδεσης.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">απομένει 1 λεπτό</item>
-    <item quantity="other">απομένουν %d λεπτά</item>
-  </plurals>
   <string name="onboarding_skip">Παράβλεψη</string>
   <string name="onboarding_continue">Συνέχεια</string>
   <string name="onboarding_get_started">Ξεκινήστε</string>

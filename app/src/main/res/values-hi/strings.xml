@@ -400,7 +400,6 @@
   <string name="notification_channel_name" fuzzy="true">सिंक हो रहा है</string>
   <string name="notification_syncing_title" fuzzy="true">%1$d लेख सिंक किये जा रहे हैं...</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
-  <string name="view_continue_reading_card_title">पढ़ना जारी रखें</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
   <string name="view_random_card_subtitle">विकिपीडिया से पढ़ने के लिए बेतरतीब लेख पलट के देखें</string>
@@ -459,10 +458,6 @@
   <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>
   <string name="description_edit_revert_history">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
   <string name="offline_read_permission_rationale">ऑफ़लाइन विचरण के लिए आपके यंत्र पर संग्रहण का उपयोग करने की अनुमति आवश्यक है।</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 मिनट बाकी</item>
-    <item quantity="other">%d मिनट बाकी</item>
-  </plurals>
   <string name="onboarding_skip">छोड़ें</string>
   <string name="onboarding_continue">जारी रहना</string>
   <string name="onboarding_get_started">शुरू करें</string>

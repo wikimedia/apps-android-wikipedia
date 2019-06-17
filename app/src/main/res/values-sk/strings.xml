@@ -499,7 +499,7 @@
   <plurals name="notification_archive_message">
     <item quantity="one">Notifikácia bola archivovaná</item>
     <item quantity="two">2 notifikácie boli archivované</item>
-    <item quantity="other">three=3 notifikácie boli archivované</item>
+    <item quantity="other">%d notifikácie boli archivované</item>
   </plurals>
   <string name="notifications_poll_enable_title">Povoliť upozornenia</string>
   <string name="notifications_poll_enable_positive">Povoliť</string>
@@ -517,7 +517,6 @@
   <string name="preference_summary_notification_milestone">Dosiahli ste určitého počtu úprav</string>
   <string name="preference_title_notification_thanks">Ďakujeme</string>
   <string name="preference_summary_notification_thanks">Niekto vám poďakoval za úpravu</string>
-  <string name="view_continue_reading_card_title">Pokračujte v čítaní</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Randomizér</string>
   <string name="view_random_card_subtitle">Prečítajte si náhodný článok z Wikipédie.</string>
@@ -592,7 +591,7 @@
   <string name="suggested_edits_my_contributions">Moje príspevky</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Tipy pre popisy článkov boli odomknuté!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Všimli sme si, že sa vám páči úprava popisov článkov a preto sme zostavili zoznam „Úlohy pre upravovanie z aplikácie“ s článkami, ktorým chýbajú popisy. Úlohy vám pomôžu prispievať do Wikipédie!</string>
-  <string name="suggested_edits_tasks_activity_title">Úlohy pre upravovanie z aplikácie</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Úlohy pre upravovanie z aplikácie</string>
   <string name="suggested_edits_task_add_description_title">Pridať popis článku</string>
   <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
   <string name="suggested_edits_task_image_caption_title">Popisy obrázkov</string>
@@ -604,7 +603,7 @@
   <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">príspevok v aplikácii</item>
-    <item quantity="other">príspevky v aplikácii</item>
+    <item quantity="other">%d príspevky v aplikácii</item>
   </plurals>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
@@ -615,10 +614,6 @@
   <string name="offline_read_final_rationale">Povolenie na prístup do úložného priestoru vášho zariadenia je požadované, aby ste mohli používať Offline Knižnicu</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Ostáva 1 minúta</item>
-    <item quantity="other">Ostávajú %d minúty</item>
-  </plurals>
   <string name="onboarding_skip">Preskočiť</string>
   <string name="onboarding_continue">Pokračovať</string>
   <string name="onboarding_get_started">Začíname</string>

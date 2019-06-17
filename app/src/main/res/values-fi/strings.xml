@@ -133,7 +133,12 @@
   <string name="reset_password_button">Tallenna ja kirjaudu sisään</string>
   <string name="preference_title_logout">Kirjaudu ulos</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
-  <string name="logout_prompt">Haluatko varmasti kirjautua ulos?</string>
+  <string name="logout_prompt">Tämä kirjaa sinut ulos kaikista laitteista joihin olet tällä hetkellä kirjautunut. Haluatko jatkaa?</string>
+  <string name="logout_dialog_cancel_button_text">Peruuta</string>
+  <string name="logged_out_in_background_title">Kirjauduttu ulos</string>
+  <string name="logged_out_in_background_dialog">Sinut on kirjattu ulos Wikipediasta. Haluaisitko kirjautua takaisin sisään?</string>
+  <string name="logged_out_in_background_login">Kirjaudu sisään</string>
+  <string name="logged_out_in_background_cancel">Peruuta</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemisistasi.</string>
   <string name="history_offline_articles_toast">Jotkut artikkelit historiassa eivät ehkä ole nähtävissä offline-tilassa.</string>
@@ -413,6 +418,7 @@
   <string name="reading_list_add_to_other_list">Lisää toiseen lukulistaan</string>
   <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukulistoista</string>
+  <string name="reading_list_select_item">Valitse</string>
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta listasta</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>
@@ -472,6 +478,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Lukulistat synkronoitu onnistuneesti</string>
   <string name="reading_list_menu_last_sync">Viimeksi synkronoitu: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Peruuta</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Peruuta</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Peruuta</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Peruuta</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
   <string name="notification_channel_description">Latauksen edistyminen</string>
@@ -530,8 +543,8 @@
   <string name="preference_summary_notification_milestone">Tietty muokkausmäärä saavutetaan</string>
   <string name="preference_title_notification_thanks">Kiitokset</string>
   <string name="preference_summary_notification_thanks">Joku kiittää sinua muokkauksestasi</string>
+  <string name="preference_title_notification_revert">Palauttaminen</string>
   <string name="preference_summary_notification_revert">Yksi muokkauksistasi kumottiin</string>
-  <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_card_subtitle">Selaa satunnaisia ​​artikkeleita luettavaksi Wikipediasta.</string>
@@ -579,7 +592,11 @@
   <string name="feed_item_type_randomizer">Tuota satunnaisia ​​artikkeleita luettavaksi</string>
   <string name="feed_empty_message">Tutki-syötteessäsi ei ole mitään</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="description_edit_text_hint">Otsikon kuvaus</string>
   <string name="description_edit_text_hint_per_language">Kuvaus kielellä %s</string>
   <string name="description_edit_save">Julkaise</string>
@@ -618,12 +635,16 @@
   <string name="suggested_edits_translated_by_you">Sinun kääntämäsi:</string>
   <string name="suggested_edits_unlock_dialog_no">Ehkä myöhemmin</string>
   <string name="suggested_edits_unlock_dialog_yes">Kyllä, mennään</string>
+  <string name="suggested_edits_unlock_notification_text">Ehdotetut muokkaukset</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Ehdotetut muokkaukset\n\nKiitos kaikista muokkauksistasi. Koska olet superhyvä muokkaamisessa, olemme koonneet luettelon artikkeleista, joista puuttuu kuvaukset. Voitko auttaa meitä parantamaan Wikipediaa?</string>
   <string name="suggested_edits_unlock_notification_button">Kyllä, mennään</string>
-  <string name="suggested_edits_license_notice">Lisäämällä otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">Lisäämällä otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_menu_info">Tiedot</string>
+  <string name="suggested_edits_tasks_activity_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_task_add_description_title">Lisää kuvaukset</string>
   <string name="suggested_edits_task_image_caption_title">Kuvatekstit</string>
   <string name="suggested_edits_task_image_caption_description">Lisää kuvatekstejä</string>
+  <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
   <string name="suggested_edits_task_translation_title">Käännä kuvaukset</string>
   <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
@@ -636,6 +657,7 @@
     <item quantity="one">1 muokkaus</item>
     <item quantity="other">%d muokkausta</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_tutorial_message">Tervetuloa pikamuokkauksen uuteen kotiin Wikipedia-sovelluksessa. Muokkauksesi ovat hyvin arvostettuja. Iloista muokkaamista!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
@@ -643,14 +665,11 @@
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
   <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Peruuta</string>
   <string name="offline_read_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan selaamiseen ilman verkkoyhteyttä.</string>
   <string name="offline_read_final_rationale">Käyttöoikeus laitteesi muistiin vaaditaan Offline-kirjaston käyttämiseen.</string>
   <string name="size_gb">%.2f Gt</string>
   <string name="size_mb">%.2f Mt</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minuutti jäljellä</item>
-    <item quantity="other"> %d minuuttia jäljellä</item>
-  </plurals>
   <string name="onboarding_skip">Ohita</string>
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>
@@ -704,6 +723,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Sinulla on tällä hetkellä valittuna sekä perinteisen että yksinkertaistetun kiinan muotoja. Haluatko päivittää kieliasetuksiasi?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Muokkaa kieliä</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ei kiitos</string>
+  <string name="remove_language_dialog_cancel_button_text">Peruuta</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Peruuta</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>
@@ -716,4 +743,8 @@
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Peruuta</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Peruuta</string>
 </resources>

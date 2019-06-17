@@ -1,9 +1,7 @@
 package org.wikipedia.suggestededits.provider
 
-import android.text.TextUtils
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -36,14 +34,14 @@ object MissingDescriptionProvider {
             }
         }
 
-        return (if (!TextUtils.isEmpty(cachedTitle)) Observable.just(cachedTitle) else
+        return (if (cachedTitle.isNotEmpty()) Observable.just(cachedTitle) else
             ServiceFactory.get(wiki).randomWithPageProps
                     .map<String> { response ->
                         var title : String? = null
                         synchronized(articlesWithMissingDescriptionCache) {
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
                             for (page in response.query()!!.pages()!!) {
-                                if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !TextUtils.isEmpty(page.description())) {
+                                if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || !page.description().isNullOrEmpty()) {
                                     continue
                                 }
                                 articlesWithMissingDescriptionCache.push(page.title())
@@ -91,13 +89,13 @@ object MissingDescriptionProvider {
                     .flatMap { response: MwQueryResponse ->
                         val qNumbers = ArrayList<String>()
                         for (page in response.query()!!.pages()!!) {
-                            if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || TextUtils.isEmpty(page.pageProps()!!.wikiBaseItem)) {
+                            if (page.pageProps() == null || page.pageProps()!!.isDisambiguation || page.pageProps()!!.wikiBaseItem.isEmpty()) {
                                 continue
                             }
                             qNumbers.add(page.pageProps()!!.wikiBaseItem)
                         }
                         ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                                .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
+                                .getWikidataLabelsAndDescriptions(qNumbers.joinToString("|"))
                     }
                     .map<Pair<PageTitle, PageTitle>> { response ->
                         var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
@@ -138,7 +136,7 @@ object MissingDescriptionProvider {
                         qNumbers.add(page.title())
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL))
-                            .getWikidataLabelsAndDescriptions(StringUtils.join(qNumbers, '|'))
+                            .getWikidataLabelsAndDescriptions(qNumbers.joinToString("|"))
                 }
                 .map<Pair<PageTitle, PageTitle>> { response ->
                     var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
@@ -176,9 +174,14 @@ object MissingDescriptionProvider {
                     val pages = result.query()!!.pages()
                     val mNumbers = ArrayList<String>()
                     for (page in pages!!) {
-                        mNumbers.add("M" + page.pageId())
+                        if (page.imageInfo()?.mimeType == "image/jpeg") {
+                            mNumbers.add("M" + page.pageId())
+                        }
                     }
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(StringUtils.join(mNumbers, '|'))
+                    if (mNumbers.isEmpty()) {
+                        throw ListEmptyException()
+                    }
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
                 }, { mwQueryResponse, entities ->
                     var item: MwQueryPage? = null
                     for (m in entities.entities()!!.keys) {
@@ -206,9 +209,14 @@ object MissingDescriptionProvider {
                     val pages = result.query()!!.pages()
                     val mNumbers = ArrayList<String>()
                     for (page in pages!!) {
-                        mNumbers.add("M" + page.pageId())
+                        if (page.imageInfo()?.mimeType == "image/jpeg") {
+                            mNumbers.add("M" + page.pageId())
+                        }
                     }
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(StringUtils.join(mNumbers, '|'))
+                    if (mNumbers.isEmpty()) {
+                        throw ListEmptyException()
+                    }
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
                 }, { mwQueryResponse, entities ->
                     var item: Pair<String, MwQueryPage>? = null
                     for (m in entities.entities()!!.keys) {

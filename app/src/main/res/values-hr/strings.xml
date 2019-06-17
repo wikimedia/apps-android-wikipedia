@@ -232,7 +232,6 @@
   <string name="reading_lists_onboarding_got_it">U redu</string>
   <string name="reading_list_delete_confirm">Želite li zaista pobrisati %s?</string>
   <string name="user_option_sync_label">Postavke</string>
-  <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>
   <string name="view_random_card_subtitle" fuzzy="true">Pročitajte slučajan članak s Wikipedije</string>

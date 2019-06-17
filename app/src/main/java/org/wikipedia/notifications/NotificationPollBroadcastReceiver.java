@@ -18,6 +18,7 @@ import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
@@ -27,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -101,7 +103,20 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                     }
                     Prefs.setRemoteNotificationsSeenTime(lastNotificationTime);
                     retrieveNotifications(context);
-                }, L::e);
+                }, t -> {
+                    if (t instanceof MwException && ((MwException)t).getError().getTitle().equals("login-required")) {
+                        assertLoggedIn();
+                    }
+                    L.e(t);
+                });
+    }
+
+    public void assertLoggedIn() {
+        // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
+        // and should automatically log us out if the credentials are no longer valid.
+        Completable.fromAction(() -> new CsrfTokenClient(WikipediaApp.getInstance().getWikiSite(), WikipediaApp.getInstance().getWikiSite())
+                .getTokenBlocking()).subscribeOn(Schedulers.io())
+                .subscribe();
     }
 
     @SuppressLint("CheckResult")

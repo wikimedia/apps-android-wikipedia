@@ -157,8 +157,13 @@
   <string name="reset_password_hint">Новый пароль</string>
   <string name="reset_password_button">Сохранить и войти</string>
   <string name="preference_title_logout">Завершение сеанса</string>
-  <string name="toast_logout_complete">Сеанс был завершён</string>
-  <string name="logout_prompt">Вы уверены, что хотите выйти?</string>
+  <string name="toast_logout_complete">Вы вышли из учётной записи</string>
+  <string name="logout_prompt">Будет произведён выход из вашей учётной записи на всех устройствах. Вы действительно хотите выйти?</string>
+  <string name="logout_dialog_cancel_button_text">Отмена</string>
+  <string name="logged_out_in_background_title">Вы вышли из учётной записи</string>
+  <string name="logged_out_in_background_dialog">Вы вышли из учётной записи Википедии. Желаете войти снова?</string>
+  <string name="logged_out_in_background_login">Войти</string>
+  <string name="logged_out_in_background_cancel">Отмена</string>
   <string name="history_empty_title">Нет недавно просмотренных статей</string>
   <string name="history_empty_message">Отслеживайте здесь прочитанные вами статьи.</string>
   <string name="history_offline_articles_toast">Некоторые страницы в истории могут быть недоступны оффлайн.</string>
@@ -439,6 +444,7 @@
   <string name="reading_list_add_to_other_list">Добавить в другой список для чтения</string>
   <string name="reading_list_remove_from_list">Удалить из %s</string>
   <string name="reading_list_remove_from_lists">Удалить из списков для чтения</string>
+  <string name="reading_list_select_item">Выбрать</string>
   <string name="reading_list_confirm_remove_article_from_offline">Удалить из офлайн-режима</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
@@ -498,6 +504,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Списки чтения успешно синхронизированы</string>
   <string name="reading_list_menu_last_sync">Дата последней синхронизации: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Отмена</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Отмена</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Отмена</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Отмена</string>
+  <string name="reading_list_split_dialog_ok_button_text">ОК</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_reverted_title">Отменённая правка</string>
   <string name="notification_channel_description">Прогресс загрузки</string>
@@ -561,7 +574,6 @@
   <string name="preference_summary_notification_thanks">Кто-то поблагодарил вас за правку</string>
   <string name="preference_title_notification_revert">Откаты правок</string>
   <string name="preference_summary_notification_revert">Одна из ваших правок была откачена</string>
-  <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_card_subtitle">Полистайте подборку случайных статей Википедии.</string>
@@ -610,16 +622,26 @@
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_empty_message">Ваша лента пуста</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">ОК</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="description_edit_text_hint">Краткое описание</string>
   <string name="description_edit_text_hint_per_language">%s описание</string>
+  <string name="description_edit_caption_hint_per_language">описание (%s)</string>
+  <string name="description_edit_caption_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_article">Статья</string>
+  <string name="description_edit_description">Краткое описание</string>
   <string name="description_edit_read">Читать</string>
   <string name="description_edit_add_description">Добавить краткое описание</string>
   <string name="description_edit_add_description_v2">Добавить краткое описание</string>
   <string name="description_edit_translate_description">Перевод кратких описаний</string>
   <string name="description_edit_edit_description">Править описание</string>
+  <string name="description_edit_add_image_caption">Добавить описание изображения</string>
+  <string name="description_edit_edit_image_caption">Редактировать описание изображения</string>
+  <string name="description_edit_translate_image_caption">Перевести описание изображения</string>
   <string name="add_translation">Добавить перевод на %s</string>
   <string name="description_edit_cancel_hint">Отмена</string>
   <string name="description_edit_help_title">Справка: краткие описания</string>
@@ -630,6 +652,7 @@
   <string name="description_edit_license_notice">Изменяя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание сохранено!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Описание опубликовано!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -642,8 +665,13 @@
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
   <string name="suggested_edits_add_descriptions">Добавление кратких описаний</string>
   <string name="suggested_edits_translate_descriptions">Перевод кратких описаний</string>
+  <string name="suggested_edits_add_image_captions">Добавить описания изображений</string>
+  <string name="suggested_edits_translate_image_captions">Перевести описания изображений</string>
   <string name="suggested_edits_review_description">Проверить описание</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
+  <string name="suggested_edits_add_caption_button">Добавить описание</string>
+  <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
+  <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_added_by_you">Добавлено вами:</string>
   <string name="suggested_edits_translated_by_you">Переведено вами:</string>
@@ -653,18 +681,27 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Вы сделали уже довольного много правок. Поздравляем! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_dialog_no">Может позже</string>
   <string name="suggested_edits_unlock_dialog_yes">Поехали!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Вы разблокировали проект \"Добавление кратких описаний\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Вы разблокировали модуль \"Добавление кратких описаний\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">Вы разблокировали модуль \"Перевод кратких описаний\"</string>
   <string name="suggested_edits_unlock_notification_text">Предложение отредактировать</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложение отредактировать\n\nВы сделали уже довольного много правок. Поздравляем!  Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_notification_button">Поехали</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Спасибо за ваш вклад! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список изображений, нуждающихся в переводе описаний. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список изображений, нуждающихся в переводе описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_license_notice">Добавляя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Добавляя описание изображения, я соглашаюсь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаюсь на безотзывную публикацию моего вклада по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информация</string>
-  <string name="suggested_edits_tasks_activity_title">Задания для профи</string>
+  <string name="suggested_edits_tasks_activity_title">Предложение отредактировать</string>
   <string name="suggested_edits_task_add_description_title">Добавление кратких описаний</string>
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
-  <string name="suggested_edits_task_image_caption_title">Подписи для изображений</string>
+  <string name="suggested_edits_task_image_caption_title">Описание изображений</string>
   <string name="suggested_edits_task_image_caption_description">Добавление описания изображениям</string>
   <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
@@ -674,28 +711,39 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
-  <string name="suggested_edits_task_translate_caption_title">Перевод подписей для изображений</string>
+  <string name="suggested_edits_task_translate_caption_title">Перевод описаний изображений</string>
   <string name="suggested_edits_task_translate_caption_description">Перевод подписей для изображений на другие языки</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Источник</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Лицензия</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">одна правка</item>
     <item quantity="other">%d правки</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Предложено отредактировать</string>
+  <string name="suggested_edits_feed_card_title">Предложения отредактировать</string>
   <string name="suggested_edits_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
+  <string name="suggested_edits_add_translation_button_label">Добавить перевод</string>
+  <string name="suggested_edits_edit_translation_button_label">Редактировать перевод</string>
+  <string name="suggested_edits_image_caption_title">Описания изображений</string>
+  <string name="suggested_edits_image_artist">Автор</string>
+  <string name="suggested_edits_image_date">Дата</string>
+  <string name="suggested_edits_image_source">Источник/Фотограф</string>
+  <string name="suggested_edits_image_licensing">Лицензирование</string>
+  <string name="suggested_edits_image_more_info">Подробнее</string>
+  <string name="suggested_edits_image_file_page_link_text">Страница файла на Викискладе</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ваш вклад выглядел как эксперимент или вандализм.</string>
   <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Отмена</string>
   <string name="offline_read_permission_rationale">Для автономного просмотра требуется разрешение на запись в хранилище вашего устройства.</string>
   <string name="offline_read_final_rationale">Для доступа к хранилищу на вашем устройстве требуется использовать автономную библиотеку.</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 мин. осталась</item>
-    <item quantity="other">%d мин. осталось</item>
-  </plurals>
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>
@@ -749,6 +797,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">У вас в наличии и традиционный, и упрощённый китайские языки. Обновить языковые настройки, с возможностью удалить один из вариантов?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактировать языки</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Использовать текущие настройки</string>
+  <string name="remove_language_dialog_cancel_button_text">Отмена</string>
+  <string name="remove_language_dialog_ok_button_text">ОК</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">ОК</string>
+  <string name="protected_page_warning_dialog_ok_button_text">ОК</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">ОК</string>
+  <string name="edit_conflict_dialog_ok_button_text">ОК</string>
+  <string name="reverted_edit_dialog_ok_button_text">ОК</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Отмена</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Ссылка</string>
@@ -761,4 +817,8 @@
   <string name="main_drawer_close">Закрыть</string>
   <string name="main_drawer_help">Справка</string>
   <string name="main_drawer_login">Войти в Википедию</string>
+  <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
+  <string name="text_input_dialog_ok_button_text">ОК</string>
+  <string name="text_input_dialog_cancel_button_text">Отмена</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Отмена</string>
 </resources>

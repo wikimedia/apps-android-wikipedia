@@ -12,6 +12,7 @@
 * Laaknor
 * Macofe
 * Nghtwlkr
+* Orf3us
 * Pmt
 * SuperPotato
 * Tarjeimo
@@ -128,7 +129,8 @@
   <string name="reset_password_button">Lagre og logg inn</string>
   <string name="preference_title_logout">Logg ut</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="logout_prompt">Er du sikker på at du vil logge ut?</string>
+  <string name="logout_prompt" fuzzy="true">Er du sikker på at du vil logge ut?</string>
+  <string name="logout_dialog_cancel_button_text">Avbryt</string>
   <string name="history_empty_title">Ingen nylig besøkte sider</string>
   <string name="history_empty_message">Finn igjen det du har lest her.</string>
   <string name="history_offline_articles_toast">Det kan hende at noen artikler i historikken ikke kan vises når du er uten nett.</string>
@@ -438,7 +440,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei takk</string>
   <string name="reading_list_login_option_reminder_dialog_title">Leselister funnet</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Du har leselister med artikler som ble opprettet mens du ikke var logget inn. Ønsker du å beholde disse og knytte dem til kontoen din?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Du har leselister med artikler som ble lagret mens du ikke var innlogget. Ønsker du å legge til disse i leselistene på kontoen din?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ja, knytt dem til kontoen min</string>
   <string name="reading_list_login_option_reminder_dialog_no">Nei, slett listene</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Behold lagrede artikler i appen?</string>
@@ -468,6 +470,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Leselistene ble synkronisert</string>
   <string name="reading_list_menu_last_sync">Sist synkronisert: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Avbryt</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Avbryt</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Avbryt</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Avbryt</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Innstillinger</string>
   <string name="notification_reverted_title">Tilbakestilt redigering</string>
   <string name="notification_channel_description">Nedlastingsstatus</string>
@@ -529,7 +538,6 @@
   <string name="preference_summary_notification_thanks">Noen takket deg for en redigering</string>
   <string name="preference_title_notification_revert">Tilbakestilling</string>
   <string name="preference_summary_notification_revert">Et av bidragene dine ble tilbakestilt</string>
-  <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
   <string name="view_random_card_subtitle">Gå gjennom tilfeldige artikler å lese fra Wikipedia.</string>
@@ -577,7 +585,11 @@
   <string name="feed_item_type_randomizer">Tilfeldig utvalgte artikler</string>
   <string name="feed_empty_message">Det er ingenting her</string>
   <string name="feed_configure_onboarding_action">Tilpass</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpass utforskingssiden&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan tilpasse og prioritere hvilke typer innhold som skal vises.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="description_edit_text_hint">Tittelbeskrivelse</string>
   <string name="description_edit_text_hint_per_language">Beskrivelse på %s</string>
   <string name="description_edit_save">Publiser</string>
@@ -626,9 +638,9 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Foreslåtte redigeringer\n\nTakk for alle bidragene dine. Siden du er så aktiv, har vi laget en liste med artikler som mangler beskrivelser. Er det noe du kunne tenke deg å se på?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Foreslåtte redigeringer\n\nGratulerer med alle bidragene dine, imponerende! Siden du bruker appen med flere språk, har vi laget en liste med artikkelbeskrivelser som trenger oversettelse. Er det noe du kunne tenke deg å se på?</string>
   <string name="suggested_edits_unlock_notification_button">Ja, la meg se på den</string>
-  <string name="suggested_edits_license_notice">Ved å legge til en beskrivelse, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">Ved å legge til en beskrivelse, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Redigeringsoppgaver i appen</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
   <string name="suggested_edits_task_add_description_title">Legg til tittelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
   <string name="suggested_edits_task_image_caption_title">Bildetekster</string>
@@ -645,7 +657,7 @@
   <string name="suggested_edits_task_translate_caption_description">Oversett beskrivelser til andre språk</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">bidrag fra appen</item>
-    <item quantity="other">bidrag fra appen</item>
+    <item quantity="other">%d bidrag fra appen</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">Velkommen til den nye startsiden for enkel redigering i Wikipedia-appen. Alle bidrag er høyt verdsatt. Lykke til med redigeringen!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
@@ -654,14 +666,11 @@
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">bidraget så ut som testing eller vandalisme.</string>
   <string name="description_edit_revert_history">Du kan finne mer informasjon i &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Avbryt</string>
   <string name="offline_read_permission_rationale">Hvis du vil lagre artikler for lesing offline må du gi appen tilgang til enhetens bilder, media og filer.</string>
   <string name="offline_read_final_rationale">Tilgang til enhetslagring trengs for å bruke lokalt bibliotek.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">ett minutt igjen</item>
-    <item quantity="other">%d minutter igjen</item>
-  </plurals>
   <string name="onboarding_skip">Hopp over</string>
   <string name="onboarding_continue">Fortsett</string>
   <string name="onboarding_get_started">Kom i gang</string>
@@ -715,6 +724,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Du har både tradisjonell og forenklet kinesisk i språkene dine. Vil du oppdatere språkinnstillingene?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Rediger språk</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nei takk</string>
+  <string name="remove_language_dialog_cancel_button_text">Avbryt</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Avbryt</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Lenke</string>
@@ -727,4 +744,8 @@
   <string name="main_drawer_close">Lukk</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Avbryt</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Avbryt</string>
 </resources>

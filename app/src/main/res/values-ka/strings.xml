@@ -290,7 +290,6 @@
   <string name="notification_channel_name" fuzzy="true">სინქრონიზაცია</string>
   <string name="notification_syncing_title" fuzzy="true">იტვირთება %1$d სტატია…</string>
   <string name="notification_syncing_description" fuzzy="true">დარჩა %1$d სტატია</string>
-  <string name="view_continue_reading_card_title">განაგრძე კითხვა</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_title">შემთხვევითი</string>
   <string name="view_random_card_subtitle">გადაფურცლეთ ვიკიპედიის შემთხვევითი სტატიების წასაკითხად.</string>
@@ -332,10 +331,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">დარჩა 1 წუთი</item>
-    <item quantity="other">დარჩა %d წუთი</item>
-  </plurals>
   <string name="onboarding_skip">გამოტოვება</string>
   <string name="onboarding_continue">გაგრძელება</string>
   <string name="onboarding_get_started">დაწყება</string>

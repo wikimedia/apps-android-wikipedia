@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.method.LinkMovementMethod
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.view_description_edit_license.view.*
 import org.wikipedia.R
 import org.wikipedia.richtext.RichTextUtil
@@ -27,5 +28,13 @@ class DescriptionEditLicenseView  @JvmOverloads constructor(
 
     fun removeUnderlinesFromLinks() {
         RichTextUtil.removeUnderlinesFromLinks(licenseText)
+    }
+
+    fun darkLicenseView() {
+        val white70 = ContextCompat.getColor(context, R.color.white70)
+        setBackgroundResource(android.R.color.black)
+        licenseText.setTextColor(white70)
+        licenseText.setLinkTextColor(white70)
+        licenseIcon.setColorFilter(white70, android.graphics.PorterDuff.Mode.SRC_IN)
     }
 }

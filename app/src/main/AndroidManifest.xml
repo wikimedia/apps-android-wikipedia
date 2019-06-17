@@ -82,6 +82,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".page.PageActivity"
@@ -101,7 +102,7 @@
                      https://developer.android.com/training/app-links/deep-linking.html
                      so http and https apply to all prefixes-->
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
-                <data android:host="*.wikipedia.org" android:pathPattern="/zh-.*" android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
             </intent-filter>
             <intent-filter>
                 <action android:name="org.wikipedia.app_shortcut" />
@@ -145,9 +146,9 @@
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".suggestededits.SuggestedEditsAddDescriptionsActivity"
+            android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.SuggestedEdits"
             android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>
         <activity
             android:name=".edit.EditSectionActivity"

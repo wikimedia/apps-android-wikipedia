@@ -11,8 +11,6 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.facebook.drawee.drawable.ScalingUtils;
-
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -85,8 +83,6 @@ public class ReadingListHeaderView extends FrameLayout {
     private void clearThumbnails() {
         for (FaceAndColorDetectImageView imageView : imageViews) {
             ViewUtil.loadImageUrlInto(imageView, null);
-            imageView.getHierarchy().setFailureImage(R.drawable.ic_bookmark_gray_24dp,
-                    ScalingUtils.ScaleType.FIT_CENTER);
         }
     }
 
@@ -113,10 +109,6 @@ public class ReadingListHeaderView extends FrameLayout {
     }
 
     private void loadThumbnail(@NonNull FaceAndColorDetectImageView view, @Nullable String url) {
-        if (TextUtils.isEmpty(url)) {
-            view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp,
-                    ScalingUtils.ScaleType.FIT_CENTER);
-        }
         ViewUtil.loadImageUrlInto(view, url);
     }
 }

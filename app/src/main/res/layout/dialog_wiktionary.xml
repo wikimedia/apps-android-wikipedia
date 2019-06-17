@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,9 +13,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/bottomSheetPeekHeight"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -26,23 +25,22 @@
                     android:id="@+id/link_preview_thumbnail"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginEnd="12dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="12dp"
                     android:contentDescription="@null"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/ic_define"/>
+                    app:srcCompat="@drawable/ic_define" />
 
                 <TextView
                     android:id="@+id/wiktionary_definition_dialog_title"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
+                    android:maxLines="1"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="20sp"
-                    android:maxLines="1"
-                    android:ellipsize="end"
                     tools:text="Lorem ipsum" />
 
             </LinearLayout>
@@ -50,15 +48,15 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="?attr/material_theme_border_color"/>
+                android:background="?attr/material_theme_border_color" />
 
             <TextView
                 android:id="@+id/wiktionary_no_definitions_found"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
-                android:textColor="?attr/primary_text_color"
                 android:text="@string/wiktionary_no_definitions_found"
+                android:textColor="?attr/primary_text_color"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -77,6 +75,6 @@
         android:id="@+id/dialog_wiktionary_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 
 </FrameLayout>

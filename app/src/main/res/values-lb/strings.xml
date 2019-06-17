@@ -105,6 +105,10 @@
   <string name="reset_password_button">Späicheren an aloggen</string>
   <string name="preference_title_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
+  <string name="logout_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="logged_out_in_background_title">Ausgeloggt</string>
+  <string name="logged_out_in_background_login">Aloggen</string>
+  <string name="logged_out_in_background_cancel">Ofbriechen</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
   <string name="history_empty_message">Markéiert dat wat Dir hei gelies hutt.</string>
   <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>
@@ -347,6 +351,7 @@
   <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
   <string name="reading_list_remove_from_list">Vu(n) %s erofhuelen</string>
   <string name="reading_list_remove_from_lists">Vu Lieslëschten erofhuelen</string>
+  <string name="reading_list_select_item">Eraussichen</string>
   <string name="reading_list_confirm_remove_article_from_offline">Aus der Offline-Lëscht eraushuelen</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel ass a verschiddene Lëschten</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
@@ -386,6 +391,13 @@
     <item quantity="one">Dësen Artikel ass net méi offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
@@ -415,7 +427,7 @@
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">nach %1$d Lëscht</item>
-    <item quantity="other">nach %1$d%1$d Lëschten</item>
+    <item quantity="other">nach %1$d Lëschten</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia Notifikatiounen</string>
   <string name="notifications_activity_title">Notifikatiounen</string>
@@ -437,7 +449,6 @@
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
   <string name="preference_title_notification_revert">Zrécksetzen</string>
-  <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
@@ -473,6 +484,10 @@
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_text_hint_per_language">%s Beschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
@@ -510,21 +525,26 @@
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
   <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
+  <string name="suggested_edits_tasks_activity_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_task_add_description_title">Beschreiwungen derbäisetzen</string>
   <string name="suggested_edits_task_translation_title">Beschreiwungen iwwersetzen</string>
   <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
   <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Kënschtler</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Quell</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lizenz</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="suggested_edits_add_translation_button_label">Iwwersetzung dobäisetzen</string>
+  <string name="suggested_edits_edit_translation_button_label">Iwwersetzung änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Ofbriechen</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Nach eng Minutt</item>
-    <item quantity="other">Nach %d Minutten</item>
-  </plurals>
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
   <string name="onboarding_get_started">Fir unzefänken</string>
@@ -569,6 +589,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo esouwuel déi traditionell wéi déi vereinfacht chinesesch Variante an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
+  <string name="remove_language_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>
@@ -578,4 +606,8 @@
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
 </resources>

@@ -66,7 +66,7 @@
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="nearby_zoom_to_location">Zum kepada lokasi pada peta</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;penyumbang &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
-  <string name="last_updated_text">Mutakhir: %1$s</string>
+  <string name="last_updated_text">Mutakhir: %s</string>
   <string name="talk_page_link_text">Lihat laman perbincangan</string>
   <string name="edit_history_link_text">Lihat sejarah penyuntingan</string>
   <string name="map_view_link_text">Paparkan di peta</string>
@@ -516,7 +516,6 @@
   <string name="preference_summary_notification_milestone">Tuntutan suntingan tertentu telah dicapai</string>
   <string name="preference_title_notification_thanks">Terima kasih</string>
   <string name="preference_summary_notification_thanks">Seseorang berterima kasih untuk suntingan anda</string>
-  <string name="view_continue_reading_card_title">Teruskan membaca</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
   <string name="view_random_card_subtitle">Flip melalui rencana rawak untuk dibaca dari Wikipedia</string>
@@ -596,7 +595,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Lain kalilah</string>
-  <string name="suggested_edits_tasks_activity_title">Tugas editor aplikasi</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
   <string name="suggested_edits_task_image_caption_title">Keterangan imej</string>
@@ -613,7 +612,7 @@
   <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">sumbangan dalam apl</item>
-    <item quantity="other">sumbangan dalam apl</item>
+    <item quantity="other">%d sumbangan dalam apl</item>
   </plurals>
   <string name="suggested_edits_tutorial_message">Selamat datang ke rumah baru untuk penyuntingan dalam aplikasinya di Wikipedia. Di sini, kami akan mencadangkan peluang untuk menambah kandungan yang mungkin menarik minat anda. Sumbangan anda amat dihargai. Selamat menyunting!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
@@ -626,10 +625,6 @@
   <string name="offline_read_final_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk menggunakan Perpustakaan Luar Talian.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minit lagi</item>
-    <item quantity="other">%d minit lagi</item>
-  </plurals>
   <string name="onboarding_skip">Langkau</string>
   <string name="onboarding_continue">Teruskan</string>
   <string name="onboarding_get_started">Memulakan</string>

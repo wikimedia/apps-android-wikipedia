@@ -25,17 +25,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_marginTop="16dp"
                     android:clipToPadding="false"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin">
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/create_account_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/create_account_username_hint">
+
                         <org.wikipedia.views.PlainPasteEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -49,15 +50,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:hint="@string/account_creation_password_hint"
                         app:passwordToggleEnabled="true"
-                        app:passwordToggleTint="?android:textColorHint"
-                        android:hint="@string/account_creation_password_hint">
+                        app:passwordToggleTint="?android:textColorHint">
 
                         <org.wikipedia.views.PlainPasteEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textPassword"
                             android:imeOptions="flagNoExtractUi"
+                            android:inputType="textPassword"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,15 +67,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:hint="@string/create_account_password_repeat_hint"
                         app:passwordToggleEnabled="true"
-                        app:passwordToggleTint="?android:textColorHint"
-                        android:hint="@string/create_account_password_repeat_hint">
+                        app:passwordToggleTint="?android:textColorHint">
 
                         <org.wikipedia.views.PlainPasteEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textPassword"
                             android:imeOptions="flagNoExtractUi"
+                            android:inputType="textPassword"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,6 +85,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:hint="@string/create_account_email_hint">
+
                         <org.wikipedia.views.PlainPasteEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -91,40 +93,43 @@
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <TextView
                         android:id="@+id/email_recommendation_text"
+                        style="@style/RtlAwareTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/email_recommendation_message"
-                        style="@style/RtlAwareTextView"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="0dp"
                         android:enabled="false"
-                        android:textSize="12sp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="0dp"/>
+                        android:text="@string/email_recommendation_message"
+                        android:textSize="12sp" />
+
                     <TextView
                         android:id="@+id/create_account_submit_button"
-                        android:layout_width="match_parent"
-                        android:text="@string/create_account_next"
                         style="@style/App.Button.Blue"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="0dp"
                         android:enabled="false"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginRight="0dp"/>
+                        android:text="@string/create_account_next" />
 
                     <TextView
                         android:id="@+id/privacy_policy_link"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|center_horizontal"
+                        android:clickable="true"
                         android:padding="8dp"
                         android:text="@string/privacy_policy_description"
-                        android:textColor="?attr/colorAccent"
-                        android:clickable="true" />
+                        android:textColor="?attr/colorAccent" />
 
                 </LinearLayout>
             </LinearLayout>
 
-            <include layout="@layout/group_captcha"
-                tools:visibility="gone"/>
+            <include
+                layout="@layout/group_captcha"
+                tools:visibility="gone" />
 
         </FrameLayout>
     </ScrollView>
@@ -136,5 +141,5 @@
         android:layout_gravity="center"
         android:background="?android:windowBackground"
         android:orientation="vertical"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 </FrameLayout>

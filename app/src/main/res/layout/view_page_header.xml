@@ -1,11 +1,10 @@
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
-    tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
-    tools:orientation="vertical">
+    tools:layout_width="match_parent"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,17 +14,17 @@
             android:id="@+id/view_page_header_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:placeholderImage="?lead_image_drawable"
-            app:placeholderImageScaleType="centerCrop"
+            android:contentDescription="@null"
+            app:actualImageScaleType="focusCrop"
             app:failureImage="?lead_image_drawable"
             app:failureImageScaleType="centerCrop"
-            app:actualImageScaleType="focusCrop"
-            android:contentDescription="@null" />
+            app:placeholderImage="?lead_image_drawable"
+            app:placeholderImageScaleType="centerCrop" />
 
         <View
             android:id="@+id/view_page_header_image_gradient"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </FrameLayout>
 

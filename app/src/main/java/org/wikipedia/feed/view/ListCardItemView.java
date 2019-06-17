@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -29,8 +29,10 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class ListCardItemView extends ConstraintLayout {
+
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
@@ -56,7 +58,7 @@ public class ListCardItemView extends ConstraintLayout {
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
     }
 
@@ -85,8 +87,8 @@ public class ListCardItemView extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.view_list_card_item_menu) void showOverflowMenu(View anchorView) {
-        new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
+    @OnLongClick boolean onLongClick(View view) {
+        new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
             @Override
             public void onAddRequest(@Nullable ReadingListPage page) {
                 if (getCallback() != null && entry != null) {
@@ -108,6 +110,7 @@ public class ListCardItemView extends ConstraintLayout {
                 }
             }
         }).show(entry.getTitle());
+        return false;
     }
 
     @VisibleForTesting @Nullable Callback getCallback() {
@@ -119,7 +122,12 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @VisibleForTesting void setImage(@Nullable String url) {
-        ViewUtil.loadImageUrlInto(imageView, url);
+        if (url == null) {
+            imageView.setVisibility(GONE);
+        } else {
+            imageView.setVisibility(VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, url);
+        }
     }
 
     @VisibleForTesting void setTitle(@Nullable CharSequence text) {

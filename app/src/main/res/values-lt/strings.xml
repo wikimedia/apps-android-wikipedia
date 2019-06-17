@@ -289,7 +289,6 @@
   <string name="notification_syncing_pause_button">Sustabdyti</string>
   <string name="notification_syncing_resume_button">Tęsti</string>
   <string name="notification_syncing_cancel_button">Atšaukti</string>
-  <string name="view_continue_reading_card_title">Skaityti toliau</string>
   <string name="view_because_you_read_card_title">Nes jūs skaitėte</string>
   <string name="view_random_card_title">Atsitiktinis</string>
   <string name="view_random_card_subtitle" fuzzy="true">Skaityti atsitiktinį straipsnį iš Vikipedijos</string>

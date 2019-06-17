@@ -416,7 +416,6 @@
   <string name="preference_summary_notification_milestone">صارف کی ترامیم کی مخصوص تعداد عبور کرنے پر اطلاع</string>
   <string name="preference_title_notification_thanks">شکر گزاری</string>
   <string name="preference_summary_notification_thanks">دیگر صارفین کا آپ کی ترمیم پر شکریہ ادا کرنے کا پیغام</string>
-  <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
   <string name="view_random_card_subtitle">ویکیپیڈیا سے پڑھنے کے لیے بےترتیب مضامین کی تحریر پلٹ کر دیکھیں۔</string>
@@ -483,10 +482,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">ترمیم شروع کریں</string>
   <string name="description_edit_tutorial_promise">شروع کرنے سے قبل میں وعدہ کرتا ہوں کہ اس سہولت کا غلط استعمال نہیں کروں گا۔</string>
   <string name="description_edit_revert_subtitle">ویکیپیڈیا میں ترمیم کا شکریہ!</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">ایک منٹ باقی ہے</item>
-    <item quantity="other">%d منٹ باقی ہیں</item>
-  </plurals>
   <string name="onboarding_skip">چھوڑیں</string>
   <string name="onboarding_continue">جاری رکھیں</string>
   <string name="onboarding_get_started">شروع کریں</string>

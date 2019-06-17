@@ -117,7 +117,12 @@
   <string name="reset_password_button">Guardar y aniciar sesión</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Desconeutáu</string>
-  <string name="logout_prompt">¿De xuru que quies zarrar la sesión?</string>
+  <string name="logout_prompt">Esto zarrará les sesiones en tolos preseos que la tengan aniciada. ¿Quies siguir?</string>
+  <string name="logout_dialog_cancel_button_text">Encaboxar</string>
+  <string name="logged_out_in_background_title">Sesión acabada</string>
+  <string name="logged_out_in_background_dialog">Finalizasti la sesión de Wikipedia. ¿Quiés volver a aniciar sesión nuevamente?</string>
+  <string name="logged_out_in_background_login">Aniciar sesión</string>
+  <string name="logged_out_in_background_cancel">Encaboxar</string>
   <string name="history_empty_title">Nun hai artículos vistos recien</string>
   <string name="history_empty_message">Siguir lo que tuvisti lleyendo equí.</string>
   <string name="history_offline_articles_toast">Ye posible que dellos artículos del historial nun apaezan al tar ensin conexón.</string>
@@ -252,7 +257,7 @@
   <string name="preference_summary_show_images">Activar o desactivar la carga d\'imaxes nes páxines. Desmarca esta opción si la conexón a Internet va lenta, o si\'l to plan de datos tien llendes.</string>
   <string name="preference_title_download_only_over_wifi">Descargar solo per Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">¿Confirmes la descarga al traviés de datos móviles?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Activasti «Descargar solo per Wi-Fi» na configuración. ¿Quies permitir usar el plan de datos móviles solamente pa esta descarga?</string>
+  <string name="dialog_text_download_only_over_wifi">Activasti «Descargar solo per Wi-Fi» na configuración. ¿Quies permitir usar el plan de datos móviles solamente pa esta descarga?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Lleer más</string>
   <string name="about_article_section">Tocante a esti artículu</string>
@@ -284,8 +289,11 @@
   <string name="tab_item_closed">Zarróse %s.</string>
   <string name="all_tab_items_closed">Zarráronse toles llingüetes.</string>
   <string name="tool_tip_bookmark_icon_title">Añadir a llista de llectura</string>
+  <string name="tool_tip_bookmark_icon_text">Toca l\'iconu de marcadores para guardar l\'artículu nuna llista de llectura.</string>
   <string name="tool_tip_share">Tres resaltar una información interesante, ¡intenta compartila nes tos redes favorites!</string>
   <string name="page_view_in_browser">Ver la páxina nel navegador</string>
+  <string name="tool_tip_toc_title">Accesu rápidu a la tabla de conteníu</string>
+  <string name="tool_tip_toc_text">Agora pués esmucir a la izquierda p\'abrir la tabla de conteníu, y tamién tocar y abasnar esti botón de desplazamientu para saltar rápido a distintes secciones d\'un artículu.</string>
   <string name="tool_tip_lang_button">Agora puedes buscar y lleer Wikipedia en distintos idiomes na app.\n\n\nToca l\'iconu p\'añadir más idiomes.</string>
   <string name="error_response_malformed">La respuesta del sirvidor nun tenía un formatu correutu.</string>
   <string name="error_unknown">Hebo un error desconocíu.</string>
@@ -339,6 +347,7 @@
   <string name="color_theme_light">Claru</string>
   <string name="color_theme_dark">Escuru</string>
   <string name="color_theme_black">Prietu</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Testu d\'amuesa</string>
   <string name="color_theme_test_text">Abasna l\'eslizador pa camudar el tamañu del testu que s\'usa pa lleer los artículos. Pa configurar el tamañu del testu de tola aplicación, cambia\'l tamañu de testu del sistema.</string>
   <string name="preference_title_app_theme">Tema de l\'aplicación</string>
@@ -377,6 +386,7 @@
   <string name="reading_list_description_hint">Descripción (opcional)</string>
   <string name="reading_list_item_deleted">%s desaniciáu de la llista</string>
   <string name="reading_list_items_deleted">%d artículos desaniciaos de la llista</string>
+  <string name="reading_lists_item_deleted">%s desaniciáu de les llistes</string>
   <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s desaniciada</string>
   <string name="saved_list_empty_title">Entá nun hai llistes de llectura.</string>
@@ -393,6 +403,7 @@
   <string name="reading_list_add_to_other_list">Añadir a otra llista de llectura</string>
   <string name="reading_list_remove_from_list">Quitar de %s</string>
   <string name="reading_list_remove_from_lists">Quitar de llistes de llectura</string>
+  <string name="reading_list_select_item">Seleicionar</string>
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de les llistes sin conexón</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'artículu apaez en delles llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s yá nun tará disponible sin conexón pa nenguna llista de llectura:</string>
@@ -451,6 +462,14 @@
     <item quantity="other">Estos artículos yá nun tarán disponibles sin conexón.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Les llistes de llectura sincronizáronse correutamente</string>
+  <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">Aceutar</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Aceutar</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Encaboxar</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Encaboxar</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Encaboxar</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Encaboxar</string>
+  <string name="reading_list_split_dialog_ok_button_text">Aceutar</string>
   <string name="user_option_sync_label">Preferencies</string>
   <string name="notification_reverted_title">Edición revertida</string>
   <string name="notification_channel_description">Progresu de la descarga</string>
@@ -500,6 +519,7 @@
   <string name="notifications_empty_message">Tas al día colos avisos</string>
   <string name="notifications_view_archived_button_text">Ver los avisos archivaos</string>
   <string name="notification_preferences_title">Preferencies d\'avisos</string>
+  <string name="notifications_mark_unread">Marcar como non lleíu</string>
   <string name="preference_title_notification_poll">Comprobar avisos</string>
   <string name="preference_summary_notification_poll">Permitir a la app consumir datos pa buscar avisos nuevos en segundu planu.</string>
   <string name="preference_category_notification_types">Tipos d\'avisos na app</string>
@@ -509,7 +529,8 @@
   <string name="preference_summary_notification_milestone">Algamóse un númberu d\'ediciones</string>
   <string name="preference_title_notification_thanks">Agradecimientos</string>
   <string name="preference_summary_notification_thanks">Dalguién agradecióte una edición</string>
-  <string name="view_continue_reading_card_title">Siguir lleyendo</string>
+  <string name="preference_title_notification_revert">Revertir</string>
+  <string name="preference_summary_notification_revert">Una de les tos contribuciones revirtióse</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
   <string name="view_random_card_subtitle">Echar una güeyada per artículos al debalu de Wikipedia pa lleer.</string>
@@ -536,9 +557,11 @@
   <string name="view_continue_reading_card_subtitle_today">güei</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lleíu %s</string>
   <string name="view_announcement_card_negative_action">Non, gracies</string>
+  <string name="onboarding_negative_action">Non, gracies</string>
   <string name="view_offline_card_text">Nun puede cargase conteníu cuando nun hai conexón</string>
   <string name="view_featured_article_card_title">Artículu destacáu</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
+  <string name="view_static_card_save_button_label">Guardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardáu</string>
   <string name="feed_configure_activity_title">Personalizar la canal</string>
   <string name="feed_configure_menu_reset">Restaurar la vista predeterminada</string>
@@ -553,14 +576,24 @@
   <string name="feed_item_type_featured_image">Imaxe destacada del día en Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Páxina principal de Wikipedia col conteníu destacáu del día</string>
   <string name="feed_item_type_randomizer">Xenerar artículos al debalu pa lleer</string>
+  <string name="feed_item_type_suggested_edits">Suxerencies p\'añadir conteníu a Wikipedia</string>
   <string name="feed_empty_message">Nun hai nada na canal Esplorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">Aceutar</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Encaboxar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar la canal Esplorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora puedes esbillar lo que desees ver na to canal, y tamién dar prioridá a les tos tribes de conteníu favorites.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Aceutar</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Encaboxar</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
+  <string name="description_edit_text_hint_per_language">Descripción en %s</string>
   <string name="description_edit_save">Espublizar</string>
   <string name="description_edit_article">Artículu</string>
+  <string name="description_edit_read">Lleer</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
+  <string name="description_edit_add_description_v2">Amestar descripción</string>
+  <string name="description_edit_translate_description">Traducir descripción</string>
   <string name="description_edit_edit_description">Editar la descripción</string>
+  <string name="add_translation">Amestar traducción al %s</string>
   <string name="description_edit_cancel_hint">Encaboxar</string>
   <string name="description_edit_help_title">Ayuda: descripción de títulos</string>
   <string name="description_edit_help_about_wikidata">Tocante a Wikidata</string>
@@ -569,6 +602,7 @@
   <string name="description_edit_anon_limit">¡Gracies pol to interés continuáu na edición de descripciones! Pa realizar más cambeos, anicia sesión na to cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al camudar la descripción del títulu, aceptes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y a lliberar ensin torgues les tos contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Espublizóse la descripción</string>
+  <string name="description_edit_success_saved_snackbar">Espublizóse la descripción</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>
@@ -579,22 +613,52 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente, una llinia; ente dos y doce palabres</string>
   <string name="description_edit_tutorial_button_label_start_editing">Principiar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, prometo a nun faer mal usu d\'esta carauterística.</string>
+  <string name="suggested_edits_add_descriptions">Amestar descripciones</string>
+  <string name="suggested_edits_translate_descriptions">Traducir descripciones</string>
+  <string name="suggested_edits_review_description">Revisar descripción</string>
+  <string name="suggested_edits_add_description_button">Amestar descripción</string>
+  <string name="suggested_edits_my_contributions">Les mios contribuciones</string>
+  <string name="suggested_edits_added_by_you">Amestada por ti:</string>
+  <string name="suggested_edits_translated_by_you">Traducida por ti:</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Desbloquiasti la xera «Amestar descripciones»</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracies por toles contribuciones! Yá que yes un editor perbonu, tenemos compilada una llista d\'artículos a los que-yos falten descripciones. ¿Ayudaríesnos a ameyorar Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloquiasti la xera «Traducir descripciones»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">¡Norabona poles munches contribuciones, tamos impresionaos!  Tas utilizando l\'aplicación en múltiples idiomes,  asina que compilamos una llista de los artículos que precisen traducciones de la descripción. ¿Podríes  siguir ayudándonos a ameyorar Wikipedia?</string>
+  <string name="suggested_edits_unlock_dialog_no">Quiciabes más tarde</string>
+  <string name="suggested_edits_unlock_dialog_yes">Sí, vamos</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Desbloquiasti «Amestar descripciones»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Desbloquiasti «Traducir descripciones»</string>
+  <string name="suggested_edits_unlock_notification_text">Ediciones suxeríes</string>
+  <string name="suggested_edits_menu_info">Información</string>
+  <string name="suggested_edits_tasks_activity_title">Ediciones suxeríes</string>
+  <string name="suggested_edits_task_add_description_title">Amestar descripciones</string>
+  <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
+  <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
+  <string name="suggested_edits_task_translate_caption_title">Traducir pies d\'imaxe</string>
+  <string name="suggested_edits_task_translate_caption_description">Traducir los pies a otres llingües</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 contribución</item>
+    <item quantity="other">%d contribuciones</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">Ediciones suxeríes</string>
+  <string name="suggested_edits_tutorial_message">Dámoste la bienvenida a la nueva páxina d\'entamu d\'edición rápida na app de Wikipedia. Apreciamos enforma les tos contribuciones. ¡Feliz edición!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
+  <string name="suggested_edits_add_translation_button_label">Amestar traducción</string>
+  <string name="suggested_edits_edit_translation_button_label">Editar traducción</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la to contribución paecía un esperimentu o vandalismu.</string>
   <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Encaboxar</string>
   <string name="offline_read_permission_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón.</string>
   <string name="offline_read_final_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa usar la Biblioteca ensin conexón.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">falta 1 minutu</item>
-    <item quantity="other">falten %d minutos</item>
-  </plurals>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Siguir</string>
   <string name="onboarding_get_started">Primeros pasos</string>
+  <string name="onboarding_maybe_later">Quiciabes más tarde</string>
   <string name="onboarding_explore_title">Nueves maneres d\'esplorar</string>
   <string name="onboarding_explore_text">Bucea nel universu de Wikipedia cola canal Esplorar, siempres anovándose.&lt;br&gt;&lt;b&gt;Personaliza&lt;/b&gt; la canal colo que t\'interese (por casu, conocer los acontecimientos históricos n\'&lt;b&gt;Un día como güei&lt;/b&gt;, o xugar a los daos con &lt;b&gt;Al debalu&lt;/b&gt;).</string>
   <string name="onboarding_reading_list_sync_title">Llistes de llectura con sincronización</string>
@@ -644,6 +708,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora tienes definíos tanto\'l chinu tradicional como\'l simplificáu nos idiomes de l\'aplicación. ¿Anovar la configuración llingüística de la app?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar llingües</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non, gracies</string>
+  <string name="remove_language_dialog_cancel_button_text">Encaboxar</string>
+  <string name="remove_language_dialog_ok_button_text">Aceutar</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Aceutar</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Aceutar</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">Aceutar</string>
+  <string name="edit_conflict_dialog_ok_button_text">Aceutar</string>
+  <string name="reverted_edit_dialog_ok_button_text">Aceutar</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Encaboxar</string>
   <string name="wikitext_bold">Negrina</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enllaz</string>
@@ -656,4 +728,8 @@
   <string name="main_drawer_close">Zarrar</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Aniciar sesión / xunise a Wikipedia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">Aceutar</string>
+  <string name="text_input_dialog_ok_button_text">Aceutar</string>
+  <string name="text_input_dialog_cancel_button_text">Encaboxar</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Encaboxar</string>
 </resources>

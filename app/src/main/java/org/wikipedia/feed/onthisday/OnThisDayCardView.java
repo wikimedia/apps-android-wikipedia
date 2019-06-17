@@ -47,6 +47,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_BODY;
+import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_FOOTER;
 
 public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements ItemTouchHelperSwipeAdapter.SwipeableView, OnThisDayActionsDialog.Callback {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
@@ -179,7 +181,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                OnThisDayActivity.INVOKE_SOURCE_CARD_BODY), options.toBundle());
+                ON_THIS_DAY_CARD_BODY), options.toBundle());
     }
 
     @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
@@ -187,7 +189,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER), options.toBundle());
+                ON_THIS_DAY_CARD_FOOTER), options.toBundle());
     }
 
     private void setPagesRecycler(OnThisDayCard card) {

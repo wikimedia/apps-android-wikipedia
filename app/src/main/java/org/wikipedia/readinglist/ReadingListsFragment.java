@@ -2,7 +2,6 @@ package org.wikipedia.readinglist;
 
 import android.animation.LayoutTransition;
 import android.content.Context;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -57,7 +56,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
-import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
@@ -135,16 +133,6 @@ public class ReadingListsFragment extends Fragment implements
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
         readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
-        readingListView.addItemDecoration(new MarginItemDecoration(0, 0, 0, DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.floating_queue_container_height))) {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1
-                        && ((MainActivity) requireActivity()).isFloatingQueueEnabled()
-                        && displayedLists.size() > 1) {
-                    super.getItemOffsets(outRect, view, parent, state);
-                }
-            }
-        });
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -214,6 +202,11 @@ public class ReadingListsFragment extends Fragment implements
     public void onAddItemToOther(@NonNull ReadingListPage page) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), READING_LIST_ACTIVITY));
+    }
+
+    @Override
+    public void onSelectItem(@NonNull ReadingListPage page) {
+        // ignore
     }
 
     @Override
@@ -444,12 +437,9 @@ public class ReadingListsFragment extends Fragment implements
             getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
-            getView().setImageUrl(page.thumbUrl());
             getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
+            getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
-            getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
-            getView().setActionTint(R.attr.secondary_text_color);
-            getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
@@ -593,13 +583,18 @@ public class ReadingListsFragment extends Fragment implements
                     ReadingListDbHelper.instance().updatePage(page);
                 }).subscribeOn(Schedulers.io()).subscribe();
 
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+                startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
             }
         }
 
         @Override
-        public boolean onLongClick(@Nullable ReadingListPage item) {
-            return false;
+        public boolean onLongClick(@Nullable ReadingListPage page) {
+            if (page == null) {
+                return false;
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
+            return true;
         }
 
         @Override
@@ -613,7 +608,7 @@ public class ReadingListsFragment extends Fragment implements
                 return;
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page));
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
         }
 
         @Override

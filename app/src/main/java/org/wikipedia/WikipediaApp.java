@@ -374,10 +374,15 @@ public class WikipediaApp extends Application {
         updateCrashReportProps();
     }
 
+    @SuppressLint("CheckResult")
     public void logOut() {
-        L.v("logging out");
+        L.d("Logging out");
         AccountUtil.removeAccount();
-        SharedPreferenceCookieManager.getInstance().clearAllCookies();
+        ServiceFactory.get(getWikiSite()).getCsrfToken()
+                .subscribeOn(Schedulers.io())
+                .flatMap(response -> ServiceFactory.get(getWikiSite()).postLogout(response.query().csrfToken()).subscribeOn(Schedulers.io()))
+                .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
+                .subscribe(response -> L.d("Logout complete."), L::e);
     }
 
     private void initExceptionHandling() {

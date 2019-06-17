@@ -5,6 +5,7 @@
 * George Animal
 * Ghybu
 * Kur
+* Mirzali
 -->
 <resources>
   <string name="app_name_prod">Wîkîpediya</string>
@@ -209,6 +210,7 @@
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
   <string name="reading_list_item_delete_undo">Betal bike</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
+  <string name="reading_list_select_item">Bibijêre</string>
   <string name="reading_lists_confirm_remote_delete_yes">Erê</string>
   <string name="reading_lists_confirm_remote_delete_no">Na</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Betal bike</string>
@@ -216,7 +218,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Mîheng</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Têkeve / xwe qeyd bike</string>
   <string name="notification_syncing_cancel_button">Betal bike</string>
-  <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
@@ -232,6 +233,13 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyan zêde bikin\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Tu vekirî ye \"kelepên wêneyan zêde bike\"</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyên bişkojk\" vekirî ne</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Spas, ji bo hemû beşdariyên te! Tu sepanê di gelek zimanan de bi kar tînî, lewma em lîsteyeke wêneyên ku wergerandina sernavan ji bo wan pêwîst e berhev kirin. Gelo tu yê berdewam bî alîkirkina me, da ku em Wîkîpediyayê çêtir bikin?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Ji bo hemû beşdariya spas! Hûn di gelek zimanan de bi kar tîne ziman, da ku em hewceyek lîsteyek pêdivî ye ku hewceyê wergeran çêbikin. Ma hûn berdewam bikin ku alîkariya me bi Wîkîpediyayê çêtir bikin?</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>

@@ -103,8 +103,12 @@
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
     <string name="preference_key_suggested_edits_add_descriptions_unlocked">suggestedEditsAddDescriptionsUnlocked</string>
     <string name="preference_key_suggested_edits_translate_descriptions_unlocked">suggestedEditsTranslateDescriptionsUnlocked</string>
+    <string name="preference_key_suggested_edits_add_captions_unlocked">suggestedEditsAddCaptionsUnlocked</string>
+    <string name="preference_key_suggested_edits_translate_captions_unlocked">suggestedEditsTranslateCaptionsUnlocked</string>
     <string name="preference_key_show_edit_menu_option_indicator">showEditMenuOptionIndicator</string>
     <string name="preference_key_show_action_feed_indicator">showActionFeedIndicator</string>
     <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
-    <string name="preference_key_show_multilingual_task">showMultilingualTask</string>
+    <string name="preference_key_show_suggested_edits_multilingual_teaser_task">showSuggestedEditsMultilingualTeaserTask</string>
+    <string name="preference_key_show_suggested_edits_cards_testing">showSuggestedEditsCardsTesting</string>
+    <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
 </resources>

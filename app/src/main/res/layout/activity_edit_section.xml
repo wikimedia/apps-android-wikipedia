@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,9 +9,9 @@
 
     <ProgressBar
         android:id="@+id/edit_section_load_progress"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:indeterminate="true" />
 
     <FrameLayout
@@ -29,28 +28,29 @@
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
             android:paddingBottom="48dp">
+
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
                 android:gravity="top|start"
-                android:inputType="textMultiLine"
                 android:imeOptions="actionNone|flagNoExtractUi"
+                android:inputType="textMultiLine"
                 android:scrollbars="vertical"
                 android:textColor="?attr/primary_text_color"
-                android:textColorHighlight="#FF9632"/>
+                android:textColorHighlight="#FF9632" />
         </ScrollView>
 
         <HorizontalScrollView
             android:id="@+id/edit_keyboard_overlay_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:elevation="12dp"
+            android:layout_gravity="bottom"
             android:background="?android:attr/colorBackground"
-            android:layout_gravity="bottom">
+            android:elevation="12dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
             <org.wikipedia.views.WikiTextKeyboardView
                 android:id="@+id/edit_keyboard_overlay"
@@ -65,25 +65,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <fragment
             android:id="@+id/edit_section_preview_fragment"
+            class="org.wikipedia.edit.preview.EditPreviewFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            class="org.wikipedia.edit.preview.EditPreviewFragment"
-            tools:layout="@layout/fragment_preview_edit"/>
+            tools:layout="@layout/fragment_preview_edit" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <fragment
             android:id="@+id/edit_section_summary_fragment"
+            class="org.wikipedia.edit.summaries.EditSummaryFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            class="org.wikipedia.edit.summaries.EditSummaryFragment"
-            tools:layout="@layout/fragment_preview_summary"/>
+            tools:layout="@layout/fragment_preview_summary" />
     </LinearLayout>
 
     <include layout="@layout/group_captcha" />
@@ -95,37 +97,42 @@
         android:background="?android:windowBackground"
         android:visibility="gone"
         tools:visibility="visible">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?android:windowBackground">
+                android:background="?android:windowBackground"
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/edit_section_abusefilter_image"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_margin="24dp"
                     android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/ic_abusefilter_warn"
-                    android:contentDescription="@null"/>
+                    android:layout_margin="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_abusefilter_warn" />
             </LinearLayout>
+
             <TextView
                 android:id="@+id/edit_section_abusefilter_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/abusefilter_title_warn"/>
+                android:text="@string/abusefilter_title_warn"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
             <TextView
                 android:id="@+id/edit_section_abusefilter_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="@string/abusefilter_text_warn"/>
+                android:text="@string/abusefilter_text_warn" />
         </LinearLayout>
     </ScrollView>
 
@@ -136,6 +143,6 @@
         android:layout_gravity="center"
         android:background="?android:windowBackground"
         android:orientation="vertical"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </FrameLayout>

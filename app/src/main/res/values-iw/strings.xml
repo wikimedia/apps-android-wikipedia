@@ -6,6 +6,7 @@
 * Deborahjay
 * Envlh
 * Eraab
+* Erelon
 * Guycn2
 * Inkbug
 * Matanya
@@ -127,7 +128,12 @@
   <string name="reset_password_button">שמירה וכניסה לחשבון</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
-  <string name="logout_prompt">האם ברצונך באמת לצאת מהחשבון?</string>
+  <string name="logout_prompt">פעולה זו תוציא אותך מהחשבון בכל המכשירים בהם נכנסת לחשבון. להמשיך?</string>
+  <string name="logout_dialog_cancel_button_text">ביטול</string>
+  <string name="logged_out_in_background_title">יצאת</string>
+  <string name="logged_out_in_background_dialog">יצאת מוויקיפדיה. להיכנס בחזרה?</string>
+  <string name="logged_out_in_background_login">כניסה לחשבון</string>
+  <string name="logged_out_in_background_cancel">ביטול</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
   <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
@@ -408,6 +414,7 @@
   <string name="reading_list_add_to_other_list">הוספה לרשימת קריאה אחרת</string>
   <string name="reading_list_remove_from_list">הסרה מהרשימה %s</string>
   <string name="reading_list_remove_from_lists">הסרה מרשימות קריאה</string>
+  <string name="reading_list_select_item">בחירה</string>
   <string name="reading_list_confirm_remove_article_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע במספר רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
@@ -467,6 +474,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו בהצלחה</string>
   <string name="reading_list_menu_last_sync">סנכרון אחרון: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">אישור</string>
+  <string name="reading_list_delete_dialog_ok_button_text">אישור</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">ביטול</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">ביטול</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">ביטול</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">ביטול</string>
+  <string name="reading_list_split_dialog_ok_button_text">אישור</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
   <string name="notification_channel_description">התקדמות הורדה</string>
@@ -479,11 +493,11 @@
     <item quantity="other">מתבצעת הורדה של ערכים</item>
   </plurals>
   <plurals name="notification_syncing_title">
-    <item quantity="one">מתבצעת הורדה של ערך אחד…</item>
+    <item quantity="one">מתבצעת הורדה של %1$d אחד…</item>
     <item quantity="other">מתבצעת הורדה של %1$d ערכים…</item>
   </plurals>
   <plurals name="notification_syncing_description">
-    <item quantity="one">נשאר ערך אחד</item>
+    <item quantity="one">נשאר %1$d אחד</item>
     <item quantity="other">נשארו %1$d ערכים</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
@@ -491,11 +505,11 @@
     <item quantity="other">סנכרון רשימות קריאה</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="one">מתבצע סנכרון של רשימה אחת…</item>
+    <item quantity="one">מתבצע סנכרון של %1$d אחת…</item>
     <item quantity="other">מתבצע סנכרון של %1$d רשימות…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">נשארה רשימה אחת</item>
+    <item quantity="one">נשארה %1$d אחת</item>
     <item quantity="other">נשארו %1$d רשימות</item>
   </plurals>
   <string name="notification_echo_channel_description">הודעות ויקיפדיה</string>
@@ -528,7 +542,6 @@
   <string name="preference_summary_notification_thanks">מישהו מודה לך על עריכה</string>
   <string name="preference_title_notification_revert">שחזור</string>
   <string name="preference_summary_notification_revert">אחת מהתרומות שלך שוחזרה</string>
-  <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_card_subtitle">עלעול בערכים אקראיים מוויקיפדיה.</string>
@@ -577,7 +590,11 @@
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
   <string name="feed_configure_onboarding_action">התאמה אישית</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">אישור</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="description_edit_text_hint">תיאור הכותרת</string>
   <string name="description_edit_text_hint_per_language">תיאור (%s)</string>
   <string name="description_edit_save">פרסום</string>
@@ -594,7 +611,7 @@
   <string name="description_edit_help_wikidata_guide">מדריך ויקינתונים לכתיבת תיאורים</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
-  <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">התיאור פורסם!</string>
   <string name="description_edit_success_saved_snackbar">התיאור פורסם!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
@@ -626,9 +643,9 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">עריכות מוצעות\n\nתודה על כל התרומות שלך. מכיוון שהצטיינת בעריכה, בנינו בשבילך רשימת ערכים שחסרים להם תיאורים. אפשר לבקש ממך לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">עריכות מוצעות\n\nברכות על התרומות הרבות שלך, התרשמנו! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של ערכים שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_notification_button">כן, נעשה את זה</string>
-  <string name="suggested_edits_license_notice">הוספת תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">הוספת תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">מידע</string>
-  <string name="suggested_edits_tasks_activity_title">משימות לעורכים</string>
+  <string name="suggested_edits_tasks_activity_title">עריכות מוצעות</string>
   <string name="suggested_edits_task_add_description_title">הוספת תיאורים</string>
   <string name="suggested_edits_task_add_description_description">תרומה לערכים חסרי תיאורים</string>
   <string name="suggested_edits_task_image_caption_title">הוספת כיתובים לתמונות</string>
@@ -650,19 +667,18 @@
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
+  <string name="suggested_edits_add_translation_button_label">הוספת תרגום</string>
+  <string name="suggested_edits_edit_translation_button_label">עריכת תרגום</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">העריכה שלך נראתה כמו ניסוי או השחתה.</string>
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">ביטול</string>
   <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת.</string>
   <string name="offline_read_final_rationale">השראה לגשת לאחסון במכשיר שלך נדרשת לשימוש בספרייה הלא־מקוונת שלך.</string>
   <string name="size_gb">%.2f ג\"ב</string>
   <string name="size_mb">%.2f מ\"ב</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">נשארה דקה</item>
-    <item quantity="other">נשארו %d דקות</item>
-  </plurals>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>
@@ -685,7 +701,7 @@
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
   <string name="more_trending_text">עוד דברים דומים</string>
-  <string name="top_on_this_day">מובילים ב{{GRAMMAR:תחילית|%1$s}}</string>
+  <string name="top_on_this_day">מובילים ב %1$s</string>
   <string name="on_this_day_card_title">היום בהיסטוריה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
@@ -693,7 +709,7 @@
   <string name="back_to_top">חזרה למעלה</string>
   <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
-    <item quantity="other">שנתיים</item>
+    <item quantity="other">שנתיים %d</item>
   </plurals>
   <string name="languages_list_activity_title">הוספת שפה</string>
   <string name="languages_list_suggested_text">מוצעות</string>
@@ -716,6 +732,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">כרגע מוגדרות גם סינית מסורתית וגם סינית מפושטת בהגדרות השפה של היישום שלך. האם ברצונך לעדכן את הגדרות השפה של היישום?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">עריכת השפות</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">לא, תודה</string>
+  <string name="remove_language_dialog_cancel_button_text">ביטול</string>
+  <string name="remove_language_dialog_ok_button_text">אישור</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">אישור</string>
+  <string name="protected_page_warning_dialog_ok_button_text">אישור</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">אישור</string>
+  <string name="edit_conflict_dialog_ok_button_text">אישור</string>
+  <string name="reverted_edit_dialog_ok_button_text">אישור</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">ביטול</string>
   <string name="wikitext_bold">בולט</string>
   <string name="wikitext_italic">נטוי</string>
   <string name="wikitext_link">קישור</string>
@@ -728,4 +752,8 @@
   <string name="main_drawer_close">סגירה</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
+  <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
+  <string name="text_input_dialog_ok_button_text">אישור</string>
+  <string name="text_input_dialog_cancel_button_text">ביטול</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">ביטול</string>
 </resources>

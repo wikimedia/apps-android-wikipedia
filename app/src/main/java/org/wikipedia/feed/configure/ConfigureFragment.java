@@ -40,6 +40,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+
 public class ConfigureFragment extends Fragment implements ConfigureItemView.Callback {
     @BindView(R.id.content_types_recycler) RecyclerView recyclerView;
     private Unbinder unbinder;
@@ -59,7 +61,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         setupRecyclerView();
 
         funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
-                requireActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
+                requireActivity().getIntent().getIntExtra(INTENT_EXTRA_INVOKE_SOURCE, -1));
 
         disposables.add(ServiceFactory.getRest(new WikiSite("wikimedia.org")).getFeedAvailability()
                 .subscribeOn(Schedulers.io())

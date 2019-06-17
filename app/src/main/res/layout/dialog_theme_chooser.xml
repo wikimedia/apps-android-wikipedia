@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="?attr/material_theme_border_color" />
 
     <ProgressBar
+        android:id="@+id/font_change_progress_bar"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="top|end"
-        android:layout_margin="8dp"
-        android:id="@+id/font_change_progress_bar"/>
+        android:layout_margin="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:gravity="center_vertical"
             android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
             android:text="@string/text_size_select"
             android:textColor="?attr/section_title_color" />
 
@@ -39,9 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="16sp"
             android:textColor="?attr/secondary_text_color"
-            tools:text="100% (Default)"/>
+            android:textSize="16sp"
+            tools:text="100% (Default)" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,45 +53,44 @@
                 android:id="@+id/buttonDecreaseTextSize"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:paddingBottom="4dp"
                 android:layout_gravity="center_vertical"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:contentDescription="@string/text_size_decrease"
                 android:gravity="center_horizontal|bottom"
+                android:paddingBottom="4dp"
                 android:text="T"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:contentDescription="@string/text_size_decrease"
                 tools:ignore="HardcodedText" />
 
             <org.wikipedia.views.DiscreteSeekBar
                 android:id="@+id/text_size_seek_bar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:max="@integer/maxTextSizeMultiplier"
-                app:min="@integer/minTextSizeMultiplier"
                 android:progressBackgroundTint="?attr/chart_shade5"
-                app:tickDrawable="@drawable/ic_seek_bar_tick"
                 app:centerDrawable="@drawable/ic_seek_bar_center"
-                />
+                app:min="@integer/minTextSizeMultiplier"
+                app:tickDrawable="@drawable/ic_seek_bar_tick" />
 
             <TextView
                 android:id="@+id/buttonIncreaseTextSize"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:paddingBottom="2dp"
                 android:layout_gravity="center_vertical"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:contentDescription="@string/text_size_increase"
                 android:gravity="center_horizontal|bottom"
+                android:paddingBottom="2dp"
                 android:text="T"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:contentDescription="@string/text_size_increase"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
@@ -99,8 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="?attr/material_theme_border_color" />
 
         <TextView
@@ -114,11 +114,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:clipChildren="false"
-            android:layout_marginLeft="-4dp"
-            android:layout_marginRight="-4dp"
+            android:layout_marginStart="-4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="-4dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp">
+            android:clipChildren="false">
 
             <FrameLayout
                 android:layout_width="0dp"
@@ -137,12 +137,12 @@
                     android:id="@+id/button_theme_light_highlight"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginStart="4dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_marginBottom="6dp"
-                    android:elevation="4dp"
-                    android:background="?attr/button_highlight_border_shape"/>
+                    android:background="?attr/button_highlight_border_shape"
+                    android:elevation="4dp" />
 
             </FrameLayout>
 
@@ -157,19 +157,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="0dp"
-                    app:backgroundTint="@color/papyrus"
-                    android:text="@string/color_theme_sepia" />
+                    android:text="@string/color_theme_sepia"
+                    app:backgroundTint="@color/papyrus" />
 
                 <View
                     android:id="@+id/button_theme_sepia_highlight"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginStart="4dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_marginBottom="6dp"
-                    android:elevation="4dp"
-                    android:background="?attr/button_highlight_border_shape"/>
+                    android:background="?attr/button_highlight_border_shape"
+                    android:elevation="4dp" />
 
             </FrameLayout>
 
@@ -190,12 +190,12 @@
                     android:id="@+id/button_theme_dark_highlight"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginStart="4dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_marginBottom="6dp"
-                    android:elevation="4dp"
-                    android:background="?attr/button_highlight_border_shape"/>
+                    android:background="?attr/button_highlight_border_shape"
+                    android:elevation="4dp" />
 
             </FrameLayout>
 
@@ -216,12 +216,12 @@
                     android:id="@+id/button_theme_black_highlight"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginStart="4dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_marginBottom="6dp"
-                    android:elevation="4dp"
-                    android:background="?attr/button_highlight_border_shape"/>
+                    android:background="?attr/button_highlight_border_shape"
+                    android:elevation="4dp" />
 
             </FrameLayout>
 

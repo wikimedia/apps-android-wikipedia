@@ -1,5 +1,4 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,8 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="64dp"
             android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
             android:background="?attr/paper_color" />
 
 
@@ -39,70 +38,70 @@
             android:id="@+id/random_item_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:background="?attr/selectableItemBackground">
+            android:orientation="vertical">
 
             <org.wikipedia.views.FaceAndColorDetectImageView
-                style="@style/SimpleDraweeViewPlaceholder"
                 android:id="@+id/view_random_article_card_image"
+                style="@style/SimpleDraweeViewPlaceholder"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/randomizer_image_view_height"
-                app:fadeDuration="0"
-                app:actualImageScaleType="focusCrop" />
+                app:actualImageScaleType="focusCrop"
+                app:fadeDuration="0" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?attr/material_theme_border_color"/>
+                android:background="?attr/material_theme_border_color" />
 
             <LinearLayout
                 android:id="@+id/view_random_article_card_text_container"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/randomizer_text_view_height"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <TextView
                     android:id="@+id/view_random_article_card_article_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="4dp"
-                    android:textSize="24sp"
+                    android:ellipsize="end"
                     android:fontFamily="serif"
-                    android:textColor="?attr/primary_text_color"
                     android:lineSpacingMultiplier="0.9"
                     android:maxLines="2"
-                    android:ellipsize="end"
-                    tools:text="Lorem ipsum"/>
+                    android:paddingTop="12dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.GoneIfEmptyTextView
                     android:id="@+id/view_random_article_card_article_subtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="?attr/secondary_text_color"
+                    android:ellipsize="end"
+                    android:maxLines="3"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
+                    android:textColor="?attr/secondary_text_color"
                     android:textSize="12sp"
-                    android:maxLines="3"
-                    android:ellipsize="end"
-                    tools:text="Lorem ipsum"/>
+                    tools:text="Lorem ipsum" />
 
                 <TextView
                     android:id="@+id/view_random_article_card_extract"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="16dp"
-                    android:maxLines="4"
                     android:ellipsize="end"
                     android:lineSpacingMultiplier="1.4"
-                    android:textSize="14sp"
+                    android:maxLines="4"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
                     android:textColor="?attr/primary_text_color"
-                    tools:text="Lorem ipsum"/>
+                    android:textSize="14sp"
+                    tools:text="Lorem ipsum" />
 
             </LinearLayout>
 

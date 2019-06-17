@@ -468,7 +468,6 @@
   <string name="preference_summary_notification_welcome">Kontu bat sortu da</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
-  <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>
   <string name="view_random_card_subtitle">Irakurri Wikipediako ausazko artikulu bat</string>
@@ -545,10 +544,6 @@
   <string name="offline_read_final_rationale">Offline liburutegia erabiltzeko zeure gailuko memorian konexiorik gabe sartzeko baimena eman behar duzu.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 min left</item>
-    <item quantity="other">%d mins left</item>
-  </plurals>
   <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>

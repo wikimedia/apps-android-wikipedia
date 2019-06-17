@@ -115,7 +115,7 @@
   <string name="reset_password_button">Simpen lan mlebu log</string>
   <string name="preference_title_logout">Metu log</string>
   <string name="toast_logout_complete">Wis metu log</string>
-  <string name="logout_prompt">Apa panjenengan yakin arep metu log?</string>
+  <string name="logout_prompt" fuzzy="true">Apa panjenengan yakin arep metu log?</string>
   <string name="history_empty_title">Ora ana artikel sing bubar didelok</string>
   <string name="history_empty_message">Lacak apa-apa sing wis kokwaca ing kéné.</string>
   <string name="search_empty_message">Golék lan waca bauwarna bébas ing basané panjenengan</string>
@@ -228,7 +228,7 @@
   <string name="search_did_you_mean">Kersané panjenengan \"%s\"?</string>
   <string name="search_recent_header">Golèkan mentas waé:</string>
   <string name="button_clear_all_recent_searches">Busak golèkan mentas waé</string>
-  <string name="clear_recent_searches_confirm">Panjenengan yakin arep mbusak sajarah golèkané panjenengan?</string>
+  <string name="clear_recent_searches_confirm">Kowé yakin arep mbusek sajarahing golèkanmu?</string>
   <string name="clear_recent_searches_confirm_yes">Iya</string>
   <string name="clear_recent_searches_confirm_no">Ora</string>
   <string name="error_browser_not_found">Ora bisa mbukak kaca jaringan (ora ana aplikasi pangluruné).</string>
@@ -492,7 +492,6 @@
   <string name="preference_summary_notification_welcome">Akun wis kagawé</string>
   <string name="preference_title_notification_thanks">Nuwun</string>
   <string name="preference_summary_notification_thanks">Ana wong kang matur nuwun awit saka pambesuté panjenengan</string>
-  <string name="view_continue_reading_card_title">Bacutaké maca</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_card_subtitle">Waca sembarang artikelé Wikipédia.</string>
@@ -596,10 +595,6 @@
   <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">kari 1 menit</item>
-    <item quantity="other">kari %d menit</item>
-  </plurals>
   <string name="onboarding_skip">Lumpati</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>

@@ -122,6 +122,8 @@
   <string name="reset_password_button">Запазване и влизане</string>
   <string name="preference_title_logout">Излизане</string>
   <string name="toast_logout_complete">Излезли сте от системата</string>
+  <string name="logout_dialog_cancel_button_text">Отказ</string>
+  <string name="logged_out_in_background_cancel">Отказ</string>
   <string name="history_empty_title">Няма скорошно преглеждани статии</string>
   <string name="history_empty_message">Следете какво сте чели тук.</string>
   <string name="history_offline_articles_toast">Някои статии в историята може да са недостъпни офлайн.</string>
@@ -457,6 +459,10 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Списъците за четене са синхронизирани успешно</string>
   <string name="reading_list_menu_last_sync">Последно синхронизиране: %s</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Отказ</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Отказ</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Отказ</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Отказ</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_reverted_title">Отменена редакция</string>
   <string name="notification_channel_description">Напредък на изтеглянето</string>
@@ -516,7 +522,6 @@
   <string name="preference_summary_notification_milestone">Достигнат е определен брой редакции</string>
   <string name="preference_title_notification_thanks">Благодарност</string>
   <string name="preference_summary_notification_thanks">Някой Ви благодари за редакция</string>
-  <string name="view_continue_reading_card_title">Продължаване на четенето</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
   <string name="view_random_card_subtitle">Прелиствайте случайни статии от Уикипедия</string>
@@ -564,7 +569,9 @@
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
   <string name="feed_empty_message">Няма нищо във вашата хранилка за Откриване</string>
   <string name="feed_configure_onboarding_action">Персонализиране</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="description_edit_text_hint">Описание на заглавието</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_article">Статия</string>
@@ -599,7 +606,7 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Превод на описания“</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Поздравления за Вашите 50 приноса, впечатлени сме! Ползвате приложението в повече езици, затова съставихме списък от статии, които се нуждаят от превод на описанията. Бихте ли продължили да ни помагате, подобрявайки Уикипедия?</string>
   <string name="suggested_edits_unlock_dialog_no">Може би после</string>
-  <string name="suggested_edits_tasks_activity_title">Задачи за приложния редактор</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задачи за приложния редактор</string>
   <string name="suggested_edits_task_add_description_title">Добавяне на описания</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
   <string name="suggested_edits_task_image_caption_title">Описания на картини</string>
@@ -625,14 +632,11 @@
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашият принос изглеждаше като експеримент или вандализъм.</string>
   <string name="description_edit_revert_history">Ако се интересувате, прегледайте &lt;a href=\"%1$s\"&gt;историята на редакциите&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Отказ</string>
   <string name="offline_read_permission_rationale">Нужно е разрешение за достъп на съхранението на устройството Ви за офлайн разглеждане.</string>
   <string name="offline_read_final_rationale">Нужно е разрешение за достъп на съхранението на устройството Ви за използване на Офлайн Библиотеката.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">остава 1 минута</item>
-    <item quantity="other">остават %d минути</item>
-  </plurals>
   <string name="onboarding_skip">Пропускане</string>
   <string name="onboarding_continue">Продължаване</string>
   <string name="onboarding_get_started">Започване</string>
@@ -686,8 +690,12 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Към момента имате както традиционен, така и опростен китайски вариант в езиците на приложението. Промяна на езиковите Ви настройки на приложението?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Редактиране на езици</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не, благодаря</string>
+  <string name="remove_language_dialog_cancel_button_text">Отказ</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Отказ</string>
   <string name="main_drawer_open">Отваряне</string>
   <string name="main_drawer_close">Затваряне</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
+  <string name="text_input_dialog_cancel_button_text">Отказ</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Отказ</string>
 </resources>

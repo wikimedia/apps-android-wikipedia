@@ -521,7 +521,6 @@
   <string name="preference_summary_notification_milestone">Достигнут је одређени број измена</string>
   <string name="preference_title_notification_thanks">Захвала</string>
   <string name="preference_summary_notification_thanks">Неко вам се захвалио на измени</string>
-  <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">На основу прочитаног</string>
   <string name="view_random_card_title">Случајни чланак</string>
   <string name="view_random_card_subtitle">Прелистајте случајне чланке са Википедије.</string>
@@ -617,10 +616,6 @@
   <string name="offline_read_final_rationale">Потребна је дозвола за приступ меморијском простору уређаја ради коришћења офлајн-библиотеке.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Преостао је 1 минут</item>
-    <item quantity="other">Преостала су %d минута</item>
-  </plurals>
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>
   <string name="onboarding_get_started">Започните</string>

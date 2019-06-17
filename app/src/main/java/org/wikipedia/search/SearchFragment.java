@@ -55,13 +55,15 @@ import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.Constants.InvokeSource.INTENT_PROCESS_TEXT;
+import static org.wikipedia.Constants.InvokeSource.INTENT_SHARE;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class SearchFragment extends Fragment implements SearchResultsFragment.Callback,
         RecentSearchesFragment.Callback, LanguageScrollView.Callback {
 
-    private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_QUERY = "lastQuery";
 
     private static final int PANEL_RECENT_SEARCHES = 0;
@@ -79,7 +81,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
     private WikipediaApp app;
     private SearchFunnel funnel;
-    private SearchInvokeSource invokeSource;
+    private InvokeSource invokeSource;
     private String searchLanguageCode;
     private String tempLangCodeHolder;
     private boolean langBtnClicked = false;
@@ -132,12 +134,12 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         }
     };
 
-    @NonNull public static SearchFragment newInstance(int source,
+    @NonNull public static SearchFragment newInstance(InvokeSource source,
                                                       @Nullable String query) {
         SearchFragment fragment = new SearchFragment();
 
         Bundle args = new Bundle();
-        args.putInt(ARG_INVOKE_SOURCE, source);
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         args.putString(ARG_QUERY, query);
 
         fragment.setArguments(args);
@@ -153,7 +155,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             handleIntent(requireActivity().getIntent());
         }
 
-        invokeSource = SearchInvokeSource.of(getArguments().getInt(ARG_INVOKE_SOURCE, SearchInvokeSource.TOOLBAR.code()));
+        invokeSource = (InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
         query = getArguments().getString(ARG_QUERY);
         funnel = new SearchFunnel(app, invokeSource);
     }
@@ -213,13 +215,13 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             intentFunnel.logShareIntent();
             getArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT));
-            getArguments().putInt(ARG_INVOKE_SOURCE, SearchInvokeSource.INTENT_SHARE.code());
+            getArguments().putSerializable(INTENT_EXTRA_INVOKE_SOURCE, INTENT_SHARE);
         } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             intentFunnel.logProcessTextIntent();
             getArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT));
-            getArguments().putInt(ARG_INVOKE_SOURCE, SearchInvokeSource.INTENT_PROCESS_TEXT.code());
+            getArguments().putSerializable(INTENT_EXTRA_INVOKE_SOURCE, INTENT_PROCESS_TEXT);
         }
     }
 

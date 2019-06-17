@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
@@ -55,6 +56,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
@@ -146,7 +148,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         Calendar today = DateUtil.getDefaultDateFor(age);
         requestEvents(today.get(Calendar.MONTH), today.get(Calendar.DATE));
         funnel = new OnThisDayFunnel(WikipediaApp.getInstance(), wiki,
-                requireActivity().getIntent().getIntExtra(OnThisDayActivity.INVOKE_SOURCE_EXTRA, 0));
+                (InvokeSource) requireActivity().getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
     }
 
     private void requestEvents(int month, int date) {

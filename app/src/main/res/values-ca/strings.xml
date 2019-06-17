@@ -76,7 +76,7 @@
   <string name="nav_item_nearby">A prop</string>
   <string name="nearby_zoom_to_location">Zoom a una ubicació del mapa</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Col·laborades de l\'&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
-  <string name="last_updated_text">Última actualització %1$s</string>
+  <string name="last_updated_text">Última actualització %s</string>
   <string name="talk_page_link_text">Mostra la pàgina de discussió</string>
   <string name="edit_history_link_text">Mostra l\'historial de modificacions</string>
   <string name="map_view_link_text">Mostra al mapa</string>
@@ -130,7 +130,12 @@
   <string name="reset_password_button">Desa-la i inicia-hi una sessió</string>
   <string name="preference_title_logout">Finalitza la sessió</string>
   <string name="toast_logout_complete">Sessió finalitzada</string>
-  <string name="logout_prompt">Segur que voleu finalitzar la vostra sessió?</string>
+  <string name="logout_prompt">Això farà que finalitzi la sessió de tots els dispositius d\'on l\'heu iniciada. Esteu segur que voleu continuar?</string>
+  <string name="logout_dialog_cancel_button_text">Cancel·la</string>
+  <string name="logged_out_in_background_title">Sessió finalitzada</string>
+  <string name="logged_out_in_background_dialog">Heu finalitzat la sessió de la Viquipèdia. Voleu provar d\'iniciar la sessió de nou?</string>
+  <string name="logged_out_in_background_login">Inicia una sessió</string>
+  <string name="logged_out_in_background_cancel">Cancel·la</string>
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="history_offline_articles_toast">Alguns articles de l\'historial potser no són visibles quan s\'és fora de línia.</string>
@@ -203,6 +208,7 @@
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ca</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_translators_heading">Traductors</string>
@@ -409,6 +415,7 @@
   <string name="reading_list_add_to_other_list">Afegeix a una altra llista de lectura</string>
   <string name="reading_list_remove_from_list">Suprimeix de %s</string>
   <string name="reading_list_remove_from_lists">Suprimeix de les llistes de seguiment</string>
+  <string name="reading_list_select_item">Selecciona</string>
   <string name="reading_list_confirm_remove_article_from_offline">Suprimeix del mode fora de línia</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
@@ -468,6 +475,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Les llistes de lectura s’han sincronitzat correctament</string>
   <string name="reading_list_menu_last_sync">Darrera sincronització: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">D’acord</string>
+  <string name="reading_list_delete_dialog_ok_button_text">D’acord</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel·la</string>
+  <string name="reading_list_split_dialog_ok_button_text">D’acord</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_reverted_title">Modificació revertida</string>
   <string name="notification_channel_description">Progrés de la baixada</string>
@@ -496,7 +510,7 @@
     <item quantity="other">S\'estan sincronitzant %1$d llistes…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
-    <item quantity="one">%queda 1$d llista</item>
+    <item quantity="one">queda %1$d llista</item>
     <item quantity="other">queden %1$d llistes</item>
   </plurals>
   <string name="notification_echo_channel_description">Notificacions de la Viquipèdia</string>
@@ -529,7 +543,6 @@
   <string name="preference_summary_notification_thanks">Algú us ha agraït una modificació</string>
   <string name="preference_title_notification_revert">Reverteix</string>
   <string name="preference_summary_notification_revert">S\'ha revertit una de les vostres contribucions</string>
-  <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_card_subtitle">Volteu per articles a l\'atzar per llegir de la Viquipèdia</string>
@@ -575,11 +588,17 @@
   <string name="feed_item_type_featured_image">Imatge destacada del dia a Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Pàgina principal de la Viquipèdia amb contingut destacat del dia</string>
   <string name="feed_item_type_randomizer">Genera articles a l\'atzar per llegir</string>
+  <string name="feed_item_type_suggested_edits">Suggeriments per afegir contingut a la Viquipèdia</string>
   <string name="feed_empty_message">No hi ha res al canal Explora</string>
   <string name="feed_configure_onboarding_action">Personalitza</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">D’acord</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalitza el teu canal Explora&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ara pots escollir quin contingut veus al teu canal i configurar-lo al teu gust.</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">D’acord</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_text_hint_per_language">Descripció en %s</string>
+  <string name="description_edit_caption_hint_per_language">llegenda de %s</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_article">Article</string>
   <string name="description_edit_read">Llegeix</string>
@@ -587,6 +606,9 @@
   <string name="description_edit_add_description_v2">Afegeix una descripció</string>
   <string name="description_edit_translate_description">Tradueix la descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
+  <string name="description_edit_add_image_caption">Afegeix una llegenda a la imatge</string>
+  <string name="description_edit_edit_image_caption">Modifica la llegenda de la imatge</string>
+  <string name="description_edit_translate_image_caption">Tradueix la llegenda de la imatge</string>
   <string name="add_translation">Afegeix una traducció al %s</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>
   <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
@@ -597,6 +619,7 @@
   <string name="description_edit_license_notice">En canviar la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció.</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">S\'ha publicat la llegenda!</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
@@ -609,8 +632,11 @@
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="suggested_edits_add_descriptions">Afegeix descripcions</string>
   <string name="suggested_edits_translate_descriptions">Tradueix les descripcions</string>
+  <string name="suggested_edits_add_image_captions">Afegeix llegendes a les imatges</string>
+  <string name="suggested_edits_translate_image_captions">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_review_description">Revisa la descripció</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
+  <string name="suggested_edits_review_image_caption">Revisa la llegenda de la imatge</string>
   <string name="suggested_edits_my_contributions">Les meves contribucions</string>
   <string name="suggested_edits_added_by_you">Afegides per vós:</string>
   <string name="suggested_edits_translated_by_you">Traduïdes per vós:</string>
@@ -626,9 +652,14 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edicions suggerides\n\nGràcies per les vostres contribucions. Atès que ho feu molt bé editant, hem compilat una llista d\'articles que no tenen descripcions. Ens ajudeu a millorar la Viquipèdia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edicions suggerides\n\nEnhorabona per totes les contribucions que heu fet. Estem impressionats! Atès que feu servir l\'aplicació en més d\'una llengua, hem compilat una llista d\'articles que necessiten una traducció de les descripcions. Ens podeu continuar ajudant a millorar la Viquipèdia?</string>
   <string name="suggested_edits_unlock_notification_button">Sí, som-hi</string>
-  <string name="suggested_edits_license_notice">En afegir la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Heu desbloquejat la tasca «Afegeix llegendes a les imatges»</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Heu desbloquejat «Afegeix descripcions d\'imatges»</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Gràcies per les vostres contribucions! Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat un llistat d\'imatges que no en tenen. Ens ajudeu a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Heu desbloquejat la tasca «Tradueix llegendes de les imatges»</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Heu desbloquejat «Tradueix les llegendes de les imatges»</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">En afegir la descripció del títol, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
-  <string name="suggested_edits_tasks_activity_title">Tasques d\'editor</string>
+  <string name="suggested_edits_tasks_activity_title">Edicions suggerides</string>
   <string name="suggested_edits_task_add_description_title">Afegeix descripcions</string>
   <string name="suggested_edits_task_add_description_description">Contribuïu a articles sense descripcions</string>
   <string name="suggested_edits_task_image_caption_title">Afegeix llegendes a les imatges</string>
@@ -643,25 +674,30 @@
   <string name="suggested_edits_task_multilingual_positive">Afegeix llengües</string>
   <string name="suggested_edits_task_translate_caption_title">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_task_translate_caption_description">Tradueix les llegendes en altres llengües</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Font</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Llicència</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribució</item>
     <item quantity="other">%d contribucions</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Edicions suggerides</string>
   <string name="suggested_edits_tutorial_message">Us donem la benvinguda a la nova pàgina inicial d\'edició ràpida de l\'aplicació de la Viquipèdia. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primers passos</string>
+  <string name="suggested_edits_add_translation_button_label">Afegeix una traducció</string>
+  <string name="suggested_edits_edit_translation_button_label">Modifica la traducció</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Cancel·la</string>
   <string name="offline_read_permission_rationale">Cal permís per accedir a l\'emmagatzematge del vostre dispositiu per a navegar fora de línia.</string>
   <string name="offline_read_final_rationale">Cal permís per accedir a l\'emmagatzemament del vostre dispositiu per utilitzar la Biblioteca fora de línia.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">queda 1 min</item>
-    <item quantity="other">queden %d mins</item>
-  </plurals>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
@@ -715,6 +751,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Ara teniu les variants tradicional i simplificada del xinès a les llengües de l\'aplicació? Voleu actualitzar la configuració de llengües de l\'aplicació?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica les llengües</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, gràcies</string>
+  <string name="remove_language_dialog_cancel_button_text">Cancel·la</string>
+  <string name="remove_language_dialog_ok_button_text">D’acord</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">D’acord</string>
+  <string name="protected_page_warning_dialog_ok_button_text">D’acord</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">D’acord</string>
+  <string name="edit_conflict_dialog_ok_button_text">D’acord</string>
+  <string name="reverted_edit_dialog_ok_button_text">D’acord</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Cancel·la</string>
   <string name="wikitext_bold">Negreta</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enllaç</string>
@@ -727,4 +771,8 @@
   <string name="main_drawer_close">Tanca</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
+  <string name="custom_date_picker_dialog_ok_button_text">D’acord</string>
+  <string name="text_input_dialog_ok_button_text">D’acord</string>
+  <string name="text_input_dialog_cancel_button_text">Cancel·la</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Cancel·la</string>
 </resources>

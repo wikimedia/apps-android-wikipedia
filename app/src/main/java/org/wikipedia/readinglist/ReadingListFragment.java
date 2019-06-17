@@ -3,7 +3,6 @@ package org.wikipedia.readinglist;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,8 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -43,7 +40,6 @@ import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
-import org.wikipedia.main.floatingqueue.FloatingQueueView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageAvailableOfflineHandler;
@@ -62,7 +58,6 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
-import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
@@ -91,8 +86,7 @@ import static org.wikipedia.readinglist.ReadingListsFragment.ARTICLE_ITEM_IMAGE_
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
-public class ReadingListFragment extends Fragment implements
-        ReadingListItemActionsDialog.Callback, FloatingQueueView.Callback {
+public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
     @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
@@ -101,7 +95,6 @@ public class ReadingListFragment extends Fragment implements
     @BindView(R.id.reading_list_empty_text) TextView emptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
-    @BindView(R.id.floating_queue_view) FloatingQueueView floatingQueueView;
     private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -123,7 +116,6 @@ public class ReadingListFragment extends Fragment implements
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private SwipeableItemTouchHelperCallback touchCallback;
     private boolean toolbarExpanded = true;
-    private boolean transparentStatusBarEnabled = true;
 
     private List<Object> displayedLists = new ArrayList<>();
     private String currentSearchQuery;
@@ -164,32 +156,23 @@ public class ReadingListFragment extends Fragment implements
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
-        recyclerView.addItemDecoration(new MarginItemDecoration(0, 0, 0, DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.floating_queue_container_height))) {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (parent.getChildAdapterPosition(view) == adapter.getItemCount() - 1 && floatingQueueView.getVisibility() == View.VISIBLE) {
-                    super.getItemOffsets(outRect, view, parent, state);
-                }
-            }
-        });
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
         headerView.setClickable(false);
         headerView.setThumbnailVisible(false);
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
+        headerView.setOverflowViewVisibility(VISIBLE);
 
         readingListId = getArguments().getLong(EXTRA_READING_LIST_ID);
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
-        floatingQueueView.setCallback(this);
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> ReadingListsFragment.refreshSync(ReadingListFragment.this, swipeRefreshLayout));
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
-        appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> swipeRefreshLayout.setEnabled(verticalOffset == 0));
 
         return view;
     }
@@ -201,16 +184,9 @@ public class ReadingListFragment extends Fragment implements
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        floatingQueueView.animation(true);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         updateReadingListData();
-        floatingQueueView.update();
     }
 
     @Override public void onDestroyView() {
@@ -295,16 +271,9 @@ public class ReadingListFragment extends Fragment implements
         }
     }
 
-
-    @Override
-    public void onFloatingQueueClicked(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle(title));
-    }
-
-    private Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
-        return pageTitle.getThumbUrl() != null ? ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle() : null;
+    @Nullable private Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
+        // TODO: add future transition animations.
+        return null;
     }
 
     private AppCompatActivity getAppCompatActivity() {
@@ -528,6 +497,14 @@ public class ReadingListFragment extends Fragment implements
     }
 
     @Override
+    public void onSelectItem(@NonNull ReadingListPage page) {
+        if (actionMode == null || MultiSelectCallback.is(actionMode)) {
+            beginMultiSelect();
+            toggleSelectPage(page);
+        }
+    }
+
+    @Override
     public void onDeleteItem(@NonNull ReadingListPage page) {
         List<ReadingList> listsContainPage = TextUtils.isEmpty(currentSearchQuery) ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page);
         ReadingListBehaviorsUtil.INSTANCE.deletePages(requireActivity(), listsContainPage, page, this::updateReadingListData, () -> {
@@ -552,14 +529,9 @@ public class ReadingListFragment extends Fragment implements
                 toolbarExpanded = false;
             }
 
-            recyclerView.post(() -> {
-                if (isAdded()) {
-                    DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && transparentStatusBarEnabled);
-                    requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    requireActivity().getWindow().setStatusBarColor(transparentStatusBarEnabled
-                            ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
-                }
-            });
+            DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
+                    actionMode == null && (appBarLayout.getTotalScrollRange() + verticalOffset) > appBarLayout.getTotalScrollRange() / 2);
+
             // prevent swiping when collapsing the view
             swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
@@ -598,9 +570,6 @@ public class ReadingListFragment extends Fragment implements
             getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
-            getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
-            getView().setActionTint(R.attr.secondary_text_color);
-            getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
@@ -792,16 +761,18 @@ public class ReadingListFragment extends Fragment implements
                     ReadingListDbHelper.instance().updatePage(page);
                 }).subscribeOn(Schedulers.io()).subscribe();
 
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+                startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
             }
         }
 
         @Override
-        public boolean onLongClick(@Nullable ReadingListPage item) {
-            if (actionMode == null || MultiSelectCallback.is(actionMode)) {
-                beginMultiSelect();
-                toggleSelectPage(item);
+        public boolean onLongClick(@Nullable ReadingListPage page) {
+            if (page == null) {
+                return false;
             }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    ReadingListItemActionsDialog.newInstance(TextUtils.isEmpty(currentSearchQuery)
+                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
             return true;
         }
 
@@ -817,7 +788,7 @@ public class ReadingListFragment extends Fragment implements
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
                     ReadingListItemActionsDialog.newInstance(TextUtils.isEmpty(currentSearchQuery)
-                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page));
+                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
         }
 
         @Override
@@ -844,14 +815,20 @@ public class ReadingListFragment extends Fragment implements
         }
     }
 
+    private void setStatusBarActionMode(boolean inActionMode) {
+        DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && !inActionMode);
+        requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        requireActivity().getWindow().setStatusBarColor(!inActionMode
+                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
+    }
+
     private class SearchCallback extends SearchActionModeCallback {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
-            floatingQueueView.hide();
-            transparentStatusBarEnabled = false;
+            setStatusBarActionMode(true);
             ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
@@ -866,8 +843,7 @@ public class ReadingListFragment extends Fragment implements
             super.onDestroyActionMode(mode);
             actionMode = null;
             currentSearchQuery = null;
-            floatingQueueView.show();
-            transparentStatusBarEnabled = true;
+            setStatusBarActionMode(false);
             updateReadingListData();
         }
 
@@ -892,7 +868,7 @@ public class ReadingListFragment extends Fragment implements
             super.onCreateActionMode(mode, menu);
             mode.getMenuInflater().inflate(R.menu.menu_action_mode_reading_list, menu);
             actionMode = mode;
-            transparentStatusBarEnabled = false;
+            setStatusBarActionMode(true);
             return true;
         }
 
@@ -932,7 +908,7 @@ public class ReadingListFragment extends Fragment implements
         @Override public void onDestroyActionMode(ActionMode mode) {
             unselectAllPages();
             actionMode = null;
-            transparentStatusBarEnabled = true;
+            setStatusBarActionMode(false);
             super.onDestroyActionMode(mode);
         }
     }

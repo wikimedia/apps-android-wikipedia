@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingStart="@dimen/list_item_horizontal_padding"
     android:paddingTop="@dimen/list_item_vertical_padding"
-    android:paddingRight="@dimen/list_item_horizontal_padding"
-    android:paddingBottom="@dimen/list_item_vertical_padding"
-    android:paddingLeft="@dimen/list_item_horizontal_padding">
+    android:paddingEnd="@dimen/list_item_horizontal_padding"
+    android:paddingBottom="@dimen/list_item_vertical_padding">
 
     <ImageView
         android:id="@+id/issue_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:srcCompat="@drawable/ic_flag_black_24dp"
+        android:contentDescription="@null"
         android:tint="?attr/primary_text_color"
-        android:contentDescription="@null" />
+        app:srcCompat="@drawable/ic_flag_black_24dp" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="8dp">
+
         <TextView
             android:id="@+id/issue_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="16sp"
-            tools:text="Sample issue text"/>
+            tools:text="Sample issue text" />
+
         <TextView
             android:id="@+id/issue_subtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:textColor="?attr/material_theme_secondary_color"
             android:textAllCaps="true"
-            tools:text="Sample issue subtext"/>
+            android:textColor="?attr/material_theme_secondary_color"
+            android:textSize="12sp"
+            tools:text="Sample issue subtext" />
 
     </LinearLayout>
 

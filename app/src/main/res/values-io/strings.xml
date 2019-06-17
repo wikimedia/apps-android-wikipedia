@@ -338,6 +338,7 @@
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Posible pose</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Thanks for all your contributions! Since we think you like adding captions to images, we’ve compiled a list of images that are missing captions. Could you help us improve Wikipedia?</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>

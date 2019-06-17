@@ -5,6 +5,7 @@
 * Gitartha.bordoloi
 * Onubadok
 * Sagsag
+* Simbu123
 -->
 <resources>
   <string name="app_name_prod">ৱিকিপিডিয়া</string>
@@ -12,6 +13,7 @@
   <string name="app_name_alpha">ৱিকিপিডিয়া আল্‌ফা</string>
   <string name="wikimedia">ৱিকিমিডিয়া</string>
   <string name="nav_item_back">ঘূৰি যাওক</string>
+  <string name="page_tabs_back">পিছলৈ যাওক</string>
   <string name="nav_item_forward">আগলৈ যাওক</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
@@ -19,23 +21,32 @@
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই।</string>
   <string name="page_error_retry">পুনৰ চেষ্টা কৰক</string>
+  <string name="card_offline_error_retry">পুনৰ চেষ্টা কৰক</string>
+  <string name="storage_access_error_retry">পুনৰ চেষ্টা কৰক</string>
+  <string name="article_load_error_retry">পুনৰ চেষ্টা কৰক</string>
+  <string name="offline_load_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="page_error_back_to_main">ঘূৰি যাওক</string>
+  <string name="error_back">পাছলৈ যাওক</string>
   <string name="menu_clear_all_history">ইতিহাস মোহাৰক</string>
   <string name="history_item_deleted">ইতিহাসৰ পৰা %s আঁতৰোৱা হৈছে</string>
   <string name="history_items_deleted">ইতিহাসৰ পৰা %dটা প্ৰবন্ধ আঁতৰোৱা হৈছে</string>
   <string name="history_item_delete_undo">পূৰ্ববত কৰক</string>
+  <string name="notification_archive_undo">পূৰ্ববত কৰক</string>
   <string name="app_settings">এপ্‌ ছেটিং</string>
   <string name="dialog_title_clear_history">ব্ৰাউজিং ইতিহাস মচি পেলাওক</string>
   <string name="dialog_message_clear_history">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
   <string name="dialog_message_clear_history_yes">হয়</string>
   <string name="dialog_message_clear_history_no">নহয়</string>
   <string name="share_via">শ্বেয়াৰ</string>
+  <string name="image_share_via">শ্বেয়াৰ কৰক</string>
   <string name="search_redirect_from">%sৰ পৰা পুনঃনিৰ্দেশিত</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>
   <string name="menu_page_other_languages">ভাষা পৰিবৰ্তন কৰক</string>
   <string name="menu_page_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
+  <string name="edit_section_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
   <string name="menu_page_font_and_theme">ফ\'ণ্ট আৰু থীম</string>
   <string name="menu_page_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
+  <string name="feed_card_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
   <string name="menu_page_open_a_new_tab">নতুন টেব খোলক</string>
   <string name="menu_page_reading_lists">পঢ়াৰ তালিকা</string>
@@ -46,6 +57,9 @@
   <string name="menu_text_select_copy">প্ৰতিলিপি</string>
   <string name="menu_text_select_define">সংজ্ঞা</string>
   <string name="menu_text_select_share">ভাগবতৰা কৰক</string>
+  <string name="share">শ্বেয়াৰ কৰক</string>
+  <string name="on_this_day_page_share">শ্বেয়াৰ কৰক</string>
+  <string name="reading_list_page_share">শ্বেয়াৰ কৰক</string>
   <string name="menu_text_select_edit_here">ইয়াত সম্পাদনা কৰক</string>
   <string name="nav_item_nearby">কাষৰীয়া</string>
   <string name="nearby_zoom_to_location">মানচিত্ৰত এটা অৱস্থান ডাঙৰকৈ চাওক</string>
@@ -87,8 +101,11 @@
   <string name="nav_item_login">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_username_hint">সদস্যনাম</string>
   <string name="login_password_hint">গুপ্তশব্দ</string>
+  <string name="account_creation_password_hint">গুপ্তশব্দ</string>
   <string name="login_2fa_hint">দুই-স্তৰীয় প্ৰমাণীকৰণ সংকেত</string>
   <string name="login_2fa_other_workflow_error_msg">দুই-স্তৰীয় প্ৰমানীকৰণৰ আৱশ্যক! অনুগ্ৰহ কৰি মূল কাৰ্যলৈ গৈ আপোনাৰ 2FA ট\'কেন দি প্ৰৱেশ কৰক আৰু পুনৰ চেষ্টা কৰক।</string>
+  <string name="onboarding_card_login">প্ৰৱেশ</string>
+  <string name="page_editing_login">প্ৰৱেশ</string>
   <string name="menu_login">প্ৰৱেশ</string>
   <string name="login_activity_title">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
@@ -350,7 +367,6 @@
   <string name="preference_title_notification_welcome">স্বাগতম</string>
   <string name="preference_summary_notification_welcome">এটা একাউণ্ট সৃষ্টি কৰা হ\'ল</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
-  <string name="view_continue_reading_card_title">পঢ়া অব্যাহত ৰাখক</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_random_card_subtitle" fuzzy="true">ৱিকিপিডিয়াৰ যিকোনো এটা প্ৰবন্ধ পঢ়ক</string>

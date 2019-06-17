@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_my_contributions.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_contributions.*
 import kotlinx.android.synthetic.main.item_my_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -29,11 +29,11 @@ class SuggestedEditsContributionsFragment : Fragment() {
 
     private val adapter = MyContributionsItemAdapter()
     private val disposables = CompositeDisposable()
-    private var languageList = listOf<String>()
+    private var languageList = mutableSetOf<String>()
     private lateinit var editorTaskCounts: EditorTaskCounts
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_my_contributions, container, false)
+        return inflater.inflate(R.layout.fragment_suggested_edits_contributions, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -92,8 +92,10 @@ class SuggestedEditsContributionsFragment : Fragment() {
                 .subscribe({ response ->
                     editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts)
-                    val totalEdits = editorTaskCounts.descriptionEditsPerLanguage!!.values.sum()
-                    languageList = editorTaskCounts.descriptionEditsPerLanguage!!.keys.toList()
+                    val totalEdits = editorTaskCounts.descriptionEditsPerLanguage.values.sum() + editorTaskCounts.captionEditsPerLanguage.values.sum()
+                    languageList.clear()
+                    languageList.addAll(editorTaskCounts.descriptionEditsPerLanguage.keys)
+                    languageList.addAll(editorTaskCounts.captionEditsPerLanguage.keys)
                     contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
                     adapter.notifyDataSetChanged()
                 }, { throwable ->
@@ -114,7 +116,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ItemViewHolder, pos: Int) {
-            holder.bindItem(languageList[pos])
+            holder.bindItem(languageList.elementAt(pos))
         }
     }
 
@@ -123,7 +125,8 @@ class SuggestedEditsContributionsFragment : Fragment() {
             ViewUtil.formatLangButton(itemView.languageCode, langCode, LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.languageCode.text = langCode
             itemView.languageTitle.text = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(langCode)
-            itemView.editCount.text = editorTaskCounts.descriptionEditsPerLanguage!![langCode].toString()
+            itemView.editCount.text = ((editorTaskCounts.descriptionEditsPerLanguage[langCode] ?: 0)
+                    + (editorTaskCounts.captionEditsPerLanguage[langCode] ?: 0)).toString()
         }
     }
 
