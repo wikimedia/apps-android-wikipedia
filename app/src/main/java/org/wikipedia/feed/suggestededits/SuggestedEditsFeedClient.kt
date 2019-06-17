@@ -49,7 +49,7 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                         sourceSummary = SuggestedEditsSummary(
                                 source.title,
                                 source.lang,
-                                source.getPageTitle(WikiSite.forLanguageCode(source.lang)),
+                                source.getPageTitle(WikiSite.forLanguageCode(app.language().appLanguageCodes[0])),
                                 source.normalizedTitle,
                                 source.displayTitle,
                                 source.description,
@@ -62,7 +62,7 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                         targetSummary = SuggestedEditsSummary(
                                 target.title,
                                 target.lang,
-                                target.getPageTitle(WikiSite.forLanguageCode(target.lang)),
+                                target.getPageTitle(WikiSite.forLanguageCode(app.language().appLanguageCodes[1])),
                                 target.normalizedTitle,
                                 target.displayTitle,
                                 target.description,
@@ -91,7 +91,7 @@ class SuggestedEditsFeedClient(private var isTranslation: Boolean) : FeedClient 
                         sourceSummary = SuggestedEditsSummary(
                                 pageSummary.title,
                                 pageSummary.lang,
-                                pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
+                                pageSummary.getPageTitle(WikiSite.forLanguageCode(app.language().appLanguageCode)),
                                 pageSummary.normalizedTitle,
                                 pageSummary.displayTitle,
                                 pageSummary.description,
