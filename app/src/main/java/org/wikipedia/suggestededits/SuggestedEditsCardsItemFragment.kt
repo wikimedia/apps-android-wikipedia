@@ -79,11 +79,11 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribe({ pair ->
                             val source = pair.second
                             val target = pair.first
-                            
+
                             sourceSummary = SuggestedEditsSummary(
                                     source.title,
                                     source.lang,
-                                    source.getPageTitle(WikiSite.forLanguageCode(source.lang)),
+                                    source.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
                                     source.normalizedTitle,
                                     source.displayTitle,
                                     source.description,
@@ -96,7 +96,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             targetSummary = SuggestedEditsSummary(
                                     target.title,
                                     target.lang,
-                                    target.getPageTitle(WikiSite.forLanguageCode(target.lang)),
+                                    target.getPageTitle(WikiSite.forLanguageCode(parent().langToCode)),
                                     target.normalizedTitle,
                                     target.displayTitle,
                                     target.description,
@@ -136,7 +136,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                         ),
                                         StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
-                                        imageInfo.metadata!!.imageDescription()!!.value(),
+                                        if (imageInfo.metadata!!.imageDescription() != null)
+                                            imageInfo.metadata!!.imageDescription()!!.value() else getString(R.string.suggested_edits_no_description),
                                         imageInfo.thumbUrl,
                                         imageInfo.originalUrl,
                                         null,
