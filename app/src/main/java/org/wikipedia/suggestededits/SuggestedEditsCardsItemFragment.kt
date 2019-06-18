@@ -113,8 +113,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .flatMap { mwQueryResponse ->
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(mwQueryResponse.title())
+                        .flatMap { title ->
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(title)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -157,7 +157,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
                             fileCaption = pair.first
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second.title())
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }

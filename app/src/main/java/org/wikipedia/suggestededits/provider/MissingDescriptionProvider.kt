@@ -22,9 +22,9 @@ object MissingDescriptionProvider {
     private var articlesWithTranslatableDescriptionCacheFromLang : String = ""
     private var articlesWithTranslatableDescriptionCacheToLang : String = ""
 
-    private val imagesWithMissingCaptionsCache : Stack<MwQueryPage> = Stack()
+    private val imagesWithMissingCaptionsCache : Stack<String> = Stack()
     private var imagesWithMissingCaptionsCacheLang : String = ""
-    private val imagesWithTranslatableCaptionCache : Stack<Pair<String, MwQueryPage>> = Stack()
+    private val imagesWithTranslatableCaptionCache : Stack<Pair<String, String>> = Stack()
     private var imagesWithTranslatableCaptionCacheFromLang : String = ""
     private var imagesWithTranslatableCaptionCacheToLang : String = ""
 
@@ -178,9 +178,9 @@ object MissingDescriptionProvider {
                 BiFunction<RbPageSummary, RbPageSummary, Pair<RbPageSummary, RbPageSummary>> { source, target -> Pair(source, target) })
     }
 
-    fun getNextImageWithMissingCaption(lang: String): Observable<MwQueryPage> {
+    fun getNextImageWithMissingCaption(lang: String): Observable<String> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedTitle: MwQueryPage? = null
+            var cachedTitle: String? = null
             if (imagesWithMissingCaptionsCacheLang != lang) {
                 // evict the cache if the language has changed.
                 imagesWithMissingCaptionsCache.clear()
@@ -193,7 +193,7 @@ object MissingDescriptionProvider {
                 Observable.just(cachedTitle)
             } else {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
-                        .flatMap<Entities, MwQueryPage>({ result: MwQueryResponse ->
+                        .flatMap<Entities, String>({ result: MwQueryResponse ->
                             val pages = result.query()!!.pages()
                             val mNumbers = ArrayList<String>()
                             for (page in pages!!) {
@@ -213,11 +213,11 @@ object MissingDescriptionProvider {
                                 }
                                 for (page in mwQueryResponse.query()!!.pages()!!) {
                                     if (m == "M" + page.pageId()) {
-                                        imagesWithMissingCaptionsCache.push(page)
+                                        imagesWithMissingCaptionsCache.push(page.title())
                                     }
                                 }
                             }
-                            var item: MwQueryPage? = null
+                            var item: String? = null
                             if (!imagesWithMissingCaptionsCache.empty()) {
                                 item = imagesWithMissingCaptionsCache.pop()
                             }
@@ -231,9 +231,9 @@ object MissingDescriptionProvider {
         }.doFinally { mutex.release() }
     }
 
-    fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String): Observable<Pair<String, MwQueryPage>> {
+    fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String): Observable<Pair<String, String>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedPair: Pair<String, MwQueryPage>? = null
+            var cachedPair: Pair<String, String>? = null
             if (imagesWithTranslatableCaptionCacheFromLang != sourceLang
                     || imagesWithTranslatableCaptionCacheToLang != targetLang) {
                 // evict the cache if the language has changed.
@@ -247,7 +247,7 @@ object MissingDescriptionProvider {
                 Observable.just(cachedPair)
             } else {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
-                        .flatMap<Entities, Pair<String, MwQueryPage>>({ result: MwQueryResponse ->
+                        .flatMap<Entities, Pair<String, String>>({ result: MwQueryResponse ->
                             val pages = result.query()!!.pages()
                             val mNumbers = ArrayList<String>()
                             for (page in pages!!) {
@@ -270,11 +270,11 @@ object MissingDescriptionProvider {
                                 }
                                 for (page in mwQueryResponse.query()!!.pages()!!) {
                                     if (m == "M" + page.pageId()) {
-                                        imagesWithTranslatableCaptionCache.push(Pair(entities.entities()!![m]?.labels()!![sourceLang]!!.value(), page))
+                                        imagesWithTranslatableCaptionCache.push(Pair(entities.entities()!![m]?.labels()!![sourceLang]!!.value(), page.title()))
                                     }
                                 }
                             }
-                            var item: Pair<String, MwQueryPage>? = null
+                            var item: Pair<String, String>? = null
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()
                             }
