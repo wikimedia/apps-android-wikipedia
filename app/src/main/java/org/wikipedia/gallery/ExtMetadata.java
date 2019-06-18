@@ -5,71 +5,79 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
+
+@SuppressWarnings("unused")
 public class ExtMetadata {
-    @SuppressWarnings("unused") @SerializedName("DateTime") @Nullable private Values dateTime;
-    @SuppressWarnings("unused") @SerializedName("ObjectName") @Nullable private Values objectName;
-    @SuppressWarnings("unused") @SerializedName("CommonsMetadataExtension") @Nullable private Values commonsMetadataExtension;
-    @SuppressWarnings("unused") @SerializedName("Categories") @Nullable private Values categories;
-    @SuppressWarnings("unused") @SerializedName("Assessments") @Nullable private Values assessments;
-    @SuppressWarnings("unused") @SerializedName("ImageDescription") @Nullable private Values imageDescription;
-    @SuppressWarnings("unused") @SerializedName("DateTimeOriginal") @Nullable private Values dateTimeOriginal;
-    @SuppressWarnings("unused") @SerializedName("Artist") @Nullable private Values artist;
-    @SuppressWarnings("unused") @SerializedName("Credit") @Nullable private Values credit;
-    @SuppressWarnings("unused") @SerializedName("Permission") @Nullable private Values permission;
-    @SuppressWarnings("unused") @SerializedName("AuthorCount") @Nullable private Values authorCount;
-    @SuppressWarnings("unused") @SerializedName("LicenseShortName") @Nullable private Values licenseShortName;
-    @SuppressWarnings("unused") @SerializedName("UsageTerms") @Nullable private Values usageTerms;
-    @SuppressWarnings("unused") @SerializedName("LicenseUrl") @Nullable private Values licenseUrl;
-    @SuppressWarnings("unused") @SerializedName("AttributionRequired") @Nullable private Values attributionRequired;
-    @SuppressWarnings("unused") @SerializedName("Copyrighted") @Nullable private Values copyrighted;
-    @SuppressWarnings("unused") @SerializedName("Restrictions") @Nullable private Values restrictions;
-    @SuppressWarnings("unused") @SerializedName("License") @Nullable private Values license;
+    @SerializedName("DateTime") @Nullable private Values dateTime;
+    @SerializedName("ObjectName") @Nullable private Values objectName;
+    @SerializedName("CommonsMetadataExtension") @Nullable private Values commonsMetadataExtension;
+    @SerializedName("Categories") @Nullable private Values categories;
+    @SerializedName("Assessments") @Nullable private Values assessments;
+    @SerializedName("ImageDescription") @Nullable private Values imageDescription;
+    @SerializedName("DateTimeOriginal") @Nullable private Values dateTimeOriginal;
+    @SerializedName("Artist") @Nullable private Values artist;
+    @SerializedName("Credit") @Nullable private Values credit;
+    @SerializedName("Permission") @Nullable private Values permission;
+    @SerializedName("AuthorCount") @Nullable private Values authorCount;
+    @SerializedName("LicenseShortName") @Nullable private Values licenseShortName;
+    @SerializedName("UsageTerms") @Nullable private Values usageTerms;
+    @SerializedName("LicenseUrl") @Nullable private Values licenseUrl;
+    @SerializedName("AttributionRequired") @Nullable private Values attributionRequired;
+    @SerializedName("Copyrighted") @Nullable private Values copyrighted;
+    @SerializedName("Restrictions") @Nullable private Values restrictions;
+    @SerializedName("License") @Nullable private Values license;
 
-    @Nullable public Values licenseShortName() {
-        return licenseShortName;
+    @NonNull public String licenseShortName() {
+        return StringUtils.defaultString(licenseShortName == null ? null : licenseShortName.value());
     }
 
-    @Nullable public Values licenseUrl() {
-        return licenseUrl;
+    @NonNull public String licenseUrl() {
+        return StringUtils.defaultString(licenseUrl == null ? null : licenseUrl.value());
     }
 
-    @Nullable public Values license() {
-        return license;
+    @NonNull public String license() {
+        return StringUtils.defaultString(license == null ? null : license.value());
     }
 
-    @Nullable public Values imageDescription() {
-        return imageDescription;
+    @NonNull public String imageDescription() {
+        return StringUtils.defaultString(imageDescription == null ? null : imageDescription.value());
     }
 
-    @Nullable public Values objectName() {
-        return objectName;
+    @NonNull public String imageDescriptionSource() {
+        return StringUtils.defaultString(imageDescription == null ? null : imageDescription.source());
     }
 
-    @Nullable public Values usageTerms() {
-        return usageTerms;
-    }
-    @Nullable public Values dateTime() {
-        return dateTimeOriginal;
+    @NonNull public String objectName() {
+        return StringUtils.defaultString(objectName == null ? null : objectName.value());
     }
 
-    @Nullable public Values artist() {
-        return artist;
+    @NonNull public String usageTerms() {
+        return StringUtils.defaultString(usageTerms == null ? null : usageTerms.value());
     }
 
-    @Nullable public Values credit() {
-        return credit;
+    @NonNull public String dateTime() {
+        return StringUtils.defaultString(dateTimeOriginal == null ? null : dateTimeOriginal.value());
+    }
+
+    @NonNull public String artist() {
+        return StringUtils.defaultString(artist == null ? null : artist.value());
+    }
+
+    @NonNull public String credit() {
+        return StringUtils.defaultString(credit == null ? null : credit.value());
     }
 
     public class Values {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String value;
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String source;
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String hidden;
+        @Nullable private String value;
+        @Nullable private String source;
+        @Nullable private String hidden;
 
-        @NonNull public String value() {
+        @Nullable public String value() {
             return value;
         }
 
-        @NonNull public String source() {
+        @Nullable public String source() {
             return source;
         }
     }
