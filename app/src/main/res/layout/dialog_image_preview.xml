@@ -125,12 +125,14 @@
             </LinearLayout>
 
             <org.wikipedia.page.linkpreview.LinkPreviewErrorView
-                android:id="@+id/imageLinkErrorContainer"
+                android:id="@+id/errorView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

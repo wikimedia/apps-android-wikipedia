@@ -15,15 +15,13 @@ class DescriptionEditLicenseView  @JvmOverloads constructor(
 
     init {
         inflate(context, R.layout.view_description_edit_license, this)
-        licenseText!!.movementMethod = LinkMovementMethod()
-        buildLicenseNotice(true)
+        licenseText.movementMethod = LinkMovementMethod()
+        buildLicenseNotice(ARG_NOTICE_DEFAULT)
     }
 
-    fun buildLicenseNotice(isGeneralNotice: Boolean) {
-        licenseText!!.text = StringUtil.fromHtml(String
-                .format(context.getString(if (isGeneralNotice) { R.string.description_edit_license_notice } else { R.string.suggested_edits_license_notice }),
-                        context.getString(R.string.terms_of_use_url),
-                        context.getString(R.string.cc_0_url)))
+    fun buildLicenseNotice(arg: String) {
+        licenseText.text = StringUtil.fromHtml(context.getString(getLicenseTextRes(arg),
+                context.getString(R.string.terms_of_use_url), context.getString(R.string.cc_0_url)))
     }
 
     fun removeUnderlinesFromLinks() {
@@ -36,5 +34,18 @@ class DescriptionEditLicenseView  @JvmOverloads constructor(
         licenseText.setTextColor(white70)
         licenseText.setLinkTextColor(white70)
         licenseIcon.setColorFilter(white70, android.graphics.PorterDuff.Mode.SRC_IN)
+    }
+
+    private fun getLicenseTextRes(arg: String): Int =
+            when(arg) {
+                ARG_NOTICE_ARTICLE_DESCRIPTION -> R.string.suggested_edits_license_notice
+                ARG_NOTICE_IMAGE_CAPTION -> R.string.suggested_edits_image_caption_license_notice
+                else -> R.string.description_edit_license_notice
+            }
+
+    companion object {
+        const val ARG_NOTICE_DEFAULT = "defaultNotice"
+        const val ARG_NOTICE_IMAGE_CAPTION = "imageCaptionNotice"
+        const val ARG_NOTICE_ARTICLE_DESCRIPTION = "articleDescriptionNotice"
     }
 }
