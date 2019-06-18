@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits.provider
 
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
+import io.reactivex.functions.Function
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -192,30 +193,12 @@ object MissingDescriptionProvider {
             if (cachedTitle != null) {
                 Observable.just(cachedTitle)
             } else {
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
-                        .flatMap<Entities, String>({ result: MwQueryResponse ->
-                            val pages = result.query()!!.pages()
-                            val mNumbers = ArrayList<String>()
-                            for (page in pages!!) {
-                                if (page.imageInfo()?.mimeType == "image/jpeg") {
-                                    mNumbers.add("M" + page.pageId())
-                                }
-                            }
-                            if (mNumbers.isEmpty()) {
-                                throw ListEmptyException()
-                            }
-                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getWikidataLabelsAndDescriptions(mNumbers.joinToString("|"))
-                        }, { mwQueryResponse, entities ->
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL), SuggestedEditsServiceBeta.URL, SuggestedEditsServiceBeta::class.java)
+                        .getImagesWithoutCaptions(lang)
+                        .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
-                            for (m in entities.entities()!!.keys) {
-                                if (entities.entities()!![m]?.labels() != null && entities.entities()!![m]?.labels()!!.containsKey(lang)) {
-                                    continue
-                                }
-                                for (page in mwQueryResponse.query()!!.pages()!!) {
-                                    if (m == "M" + page.pageId()) {
-                                        imagesWithMissingCaptionsCache.push(page.title())
-                                    }
-                                }
+                            for (page in pages) {
+                                imagesWithMissingCaptionsCache.push(page.title)
                             }
                             var item: String? = null
                             if (!imagesWithMissingCaptionsCache.empty()) {
@@ -225,7 +208,7 @@ object MissingDescriptionProvider {
                                 throw ListEmptyException()
                             }
                             item
-                        })
+                        }
                         .retry { t: Throwable -> t is ListEmptyException }
             }
         }.doFinally { mutex.release() }
