@@ -248,6 +248,30 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     NotificationEditorTasksHandler.maybeShowTranslateDescriptionUnlockNotification(getActivity(), true);
                     return true;
                 });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_caption_dialog))
+                .setOnPreferenceClickListener(preference -> {
+                    SuggestedEditsCardsActivity.Companion.showEditCaptionUnlockDialog(getActivity());
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_caption_notification))
+                .setOnPreferenceClickListener(preference -> {
+                    NotificationEditorTasksHandler.maybeShowEditCaptionUnlockNotification(getActivity(), true);
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_caption_dialog))
+                .setOnPreferenceClickListener(preference -> {
+                    SuggestedEditsCardsActivity.Companion.showTranslateCaptionUnlockDialog(getActivity());
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_caption_notification))
+                .setOnPreferenceClickListener(preference -> {
+                    NotificationEditorTasksHandler.maybeShowTranslateCaptionUnlockNotification(getActivity(), true);
+                    return true;
+                });
     }
 
     private void setUpRestBaseCheckboxes() {
