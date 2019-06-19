@@ -13,6 +13,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DialogTitleWithImage
 
 class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
@@ -21,6 +22,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource))
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.suggestions_background_color))
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
