@@ -27,8 +27,8 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
     private val app = WikipediaApp.getInstance()
     private var sourceSummary: SuggestedEditsSummary? = null
     private var targetSummary: SuggestedEditsSummary? = null
-    val langFromCode: String = app.language().appLanguageCode
-    val langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
+    private val langFromCode: String = app.language().appLanguageCode
+    private val langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
@@ -61,7 +61,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                     sourceSummary = SuggestedEditsSummary(
                             pageSummary.title,
                             langFromCode,
-                            pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
+                            pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
                             pageSummary.normalizedTitle,
                             pageSummary.displayTitle,
                             pageSummary.description,
@@ -94,7 +94,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                     sourceSummary = SuggestedEditsSummary(
                             source.title,
                             langFromCode,
-                            source.getPageTitle(WikiSite.forLanguageCode(source.lang)),
+                            source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
                             source.normalizedTitle,
                             source.displayTitle,
                             source.description,
@@ -107,7 +107,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                     targetSummary = SuggestedEditsSummary(
                             target.title,
                             langToCode,
-                            target.getPageTitle(WikiSite.forLanguageCode(target.lang)),
+                            target.getPageTitle(WikiSite.forLanguageCode(langToCode)),
                             target.normalizedTitle,
                             target.displayTitle,
                             target.description,

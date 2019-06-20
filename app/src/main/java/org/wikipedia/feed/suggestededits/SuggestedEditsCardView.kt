@@ -29,7 +29,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     fun isTranslation(): Boolean {
-        return card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
+        return card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION
     }
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
@@ -64,7 +64,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun showAddDescriptionUI() {
         viewArticleTitle.text = card!!.sourceSummary!!.normalizedTitle
-        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) String.format(context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
+        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_add_description_button)
         showImageOrExtract()
     }
 
@@ -81,7 +81,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         divider.visibility = View.GONE
         viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
         viewArticleTitle.text = card!!.sourceSummary!!.title
-        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) String.format(context.getString(R.string.suggested_edits_feed_card_translate_image_caption), app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
+        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
     }
 
     private fun showTranslateImageCaptionUI() {
