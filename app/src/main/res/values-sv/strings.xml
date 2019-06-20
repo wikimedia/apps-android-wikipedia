@@ -281,7 +281,7 @@
   <string name="gallery_save_success">Filen har sparats.</string>
   <string name="gallery_error_video_failed">Kan inte spela upp video.</string>
   <string name="gallery_save_image_write_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att spara bilder.</string>
-  <string name="gallery_add_image_caption_in_language_button" fuzzy="true">Lägg till bildtexter</string>
+  <string name="gallery_add_image_caption_in_language_button" fuzzy="true">Lägg till bildtexter %s</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
   <string name="snippet_share_intro">\"%1$s\" på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryck för att expandera</string>
