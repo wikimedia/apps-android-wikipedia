@@ -355,9 +355,7 @@
         <item name="backgroundImage">@color/base30</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder.SuggestedEditsReview">
-        <item name="placeholderImage">@null</item>
-        <item name="failureImage">@null</item>
+    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits.Review">
         <item name="backgroundImage">@android:color/black</item>
     </style>
 
