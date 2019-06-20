@@ -356,7 +356,7 @@
   <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulukuluetteloon</string>
   <string name="article_menu_bar_share">Jaa linkki artikkeliin</string>
   <string name="article_header_edit_hint">Muokkaa…</string>
-  <string name="article_header_edit_description">Muokkaa otsikon kuvausta</string>
+  <string name="article_header_edit_description" fuzzy="true">Muokkaa otsikon kuvausta</string>
   <string name="article_header_edit_lead_section">Muokkaa johdantoa</string>
   <string name="color_theme_select">Teema</string>
   <string name="color_theme_light">Vaalea</string>
@@ -597,42 +597,38 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit nyt valita mitä haluat näyttää syötteessäsi, ja myös priorisoida suosikki sisältötyyppisi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
-  <string name="description_edit_text_hint">Otsikon kuvaus</string>
+  <string name="description_edit_text_hint" fuzzy="true">Otsikon kuvaus</string>
   <string name="description_edit_text_hint_per_language">Kuvaus kielellä %s</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_article">Artikkeli</string>
   <string name="description_edit_read">Lue</string>
-  <string name="description_edit_add_description">Lisää otsikon kuvaus</string>
-  <string name="description_edit_add_description_v2">Lisää kuvaus</string>
-  <string name="description_edit_translate_description">Käännä kuvaukset</string>
+  <string name="description_edit_add_description" fuzzy="true">Lisää otsikon kuvaus</string>
+  <string name="description_edit_translate_description" fuzzy="true">Käännä kuvaukset</string>
   <string name="description_edit_edit_description">Muokkaa kuvausta</string>
-  <string name="add_translation">Lisää %s käännös</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
-  <string name="description_edit_help_title">Ohje: otsikon kuvaukset</string>
+  <string name="description_edit_help_title" fuzzy="true">Ohje: otsikon kuvaukset</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_help_wikidata_guide">Opas Wikidata-kuvauksien kirjoittamiseen</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
-  <string name="description_edit_license_notice">Muuttamalla otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
-  <string name="description_edit_success_saved">Kuvaus julkaistu!</string>
-  <string name="description_edit_success_saved_snackbar">Kuvaus julkaistu!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Muuttamalla otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Kuvaus julkaistu!</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Kuvaus julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
   <string name="description_edit_success_article_edit_hint">Voit myös muokata artikkeleja tästä sovelluksesta käsin. Kokeile kirjoitusvirheiden ja lyhyiden lauseiden korjaamista ensi kerralla napauttamalla ^1-kuvaketta.</string>
-  <string name="description_edit_tutorial_title_descriptions">Otsikon kuvaukset</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Otsikon kuvaukset</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Artikkelin lyhyet kuvaukset auttavat lukijoita ymmärtämään aiheen nopeasti</string>
   <string name="description_edit_tutorial_keep_it_short">Pidä se lyhyenä</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
-  <string name="suggested_edits_add_descriptions">Lisää kuvaukset</string>
-  <string name="suggested_edits_translate_descriptions">Käännä kuvaukset</string>
-  <string name="suggested_edits_review_description">Esikatsele kuvausta</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Lisää kuvaukset</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Käännä kuvaukset</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Esikatsele kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
   <string name="suggested_edits_my_contributions">Omat muokkaukset</string>
-  <string name="suggested_edits_added_by_you">Sinun lisäämäsi:</string>
-  <string name="suggested_edits_translated_by_you">Sinun kääntämäsi:</string>
   <string name="suggested_edits_unlock_dialog_no">Ehkä myöhemmin</string>
   <string name="suggested_edits_unlock_dialog_yes">Kyllä, mennään</string>
   <string name="suggested_edits_unlock_notification_text">Ehdotetut muokkaukset</string>
@@ -641,11 +637,11 @@
   <string name="suggested_edits_license_notice" fuzzy="true">Lisäämällä otsikon kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_menu_info">Tiedot</string>
   <string name="suggested_edits_tasks_activity_title">Ehdotetut muokkaukset</string>
-  <string name="suggested_edits_task_add_description_title">Lisää kuvaukset</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Lisää kuvaukset</string>
   <string name="suggested_edits_task_image_caption_title">Kuvatekstit</string>
   <string name="suggested_edits_task_image_caption_description">Lisää kuvatekstejä</string>
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
-  <string name="suggested_edits_task_translation_title">Käännä kuvaukset</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Käännä kuvaukset</string>
   <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>

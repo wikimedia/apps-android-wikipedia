@@ -397,20 +397,20 @@
   <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
   <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
-  <string name="description_edit_text_hint">शीर्षकको विवरण</string>
+  <string name="description_edit_text_hint" fuzzy="true">शीर्षकको विवरण</string>
   <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
-  <string name="description_edit_add_description">शीर्षकको विवरण थप्नुहोस्</string>
+  <string name="description_edit_add_description" fuzzy="true">शीर्षकको विवरण थप्नुहोस्</string>
   <string name="description_edit_edit_description">विवरण सम्पादन गर्नुहोस्</string>
   <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
-  <string name="description_edit_success_saved">विवरण प्रकाशित भयो!</string>
+  <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
-  <string name="suggested_edits_add_descriptions">शिर्षकमा विवरण थप्नुहोस्</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">शिर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
-  <string name="suggested_edits_task_translation_title">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>
