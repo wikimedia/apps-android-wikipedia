@@ -155,7 +155,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                                 ),
                                 StringUtil.removeUnderscores(title),
                                 StringUtil.removeHTMLTags(title),
-                                imageInfo.metadata!!.imageDescription()!!.value(),
+                                imageInfo.metadata!!.imageDescription(),
                                 imageInfo.thumbUrl,
                                 imageInfo.originalUrl,
                                 null,
