@@ -338,7 +338,7 @@
   <string name="article_menu_bar_bookmark">Добавяне на статията в списъка за четене</string>
   <string name="article_menu_bar_share">Споделяне на връзка към статията</string>
   <string name="article_header_edit_hint">Редактиране...</string>
-  <string name="article_header_edit_description">Редактиране на описанието на заглавието</string>
+  <string name="article_header_edit_description" fuzzy="true">Редактиране на описанието на заглавието</string>
   <string name="article_header_edit_lead_section">Редактиране на увода</string>
   <string name="color_theme_select">Облик</string>
   <string name="color_theme_light">Светъл</string>
@@ -572,48 +572,47 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
-  <string name="description_edit_text_hint">Описание на заглавието</string>
+  <string name="description_edit_text_hint" fuzzy="true">Описание на заглавието</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_article">Статия</string>
   <string name="description_edit_read">Прочитане</string>
-  <string name="description_edit_add_description">Добавяне на описание на заглавието</string>
+  <string name="description_edit_add_description" fuzzy="true">Добавяне на описание на заглавието</string>
   <string name="description_edit_edit_description">Редактиране на описанието</string>
   <string name="description_edit_cancel_hint">Отказ</string>
-  <string name="description_edit_help_title">Помощ: описания на заглавието</string>
+  <string name="description_edit_help_title" fuzzy="true">Помощ: описания на заглавието</string>
   <string name="description_edit_help_about_wikidata">Относно Уикиданни</string>
   <string name="description_edit_help_wikidata_guide">Наръчник на Уикиданни за писане на описания</string>
-  <string name="description_edit_anon_limit">Благодарим ви за постоянния интерес за редактиране на описанията! За да редактирате още, моля, влезте във вашата сметка в Уикипедия.</string>
-  <string name="description_edit_license_notice">Променяйки описанието на заглавието, аз се съгласявам с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувам приносите си под лиценза &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Описанието е публикувано!</string>
-  <string name="description_edit_success_saved_snackbar">Описанието е публикувано!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Благодарим ви за постоянния интерес за редактиране на описанията! За да редактирате още, моля, влезте във вашата сметка в Уикипедия.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Променяйки описанието на заглавието, аз се съгласявам с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувам приносите си под лиценза &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Описанието е публикувано!</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Описанието е публикувано!</string>
   <string name="description_edit_success_encouragement">Току-що направихте Уикипедия по-добра за всички</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли, че?</string>
   <string name="description_edit_success_article_edit_hint">Редактирането на статии също е възможно с това приложение. Опитайте да коригирате правописни грешки и малки изречения, като натиснете на иконата ^1 следващият път.</string>
-  <string name="description_edit_tutorial_title_descriptions">Описание на заглавията</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Описание на заглавията</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Обобщава статията, за да помогне на читателите да добият представа за темата</string>
   <string name="description_edit_tutorial_keep_it_short">Трябва да е късо</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">По възможност един ред, от две до дванадесет думи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
-  <string name="suggested_edits_add_descriptions">Добавяне на описания</string>
-  <string name="suggested_edits_review_description">Преглед на описанието</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Добавяне на описания</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Преглед на описанието</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
   <string name="suggested_edits_my_contributions">Моите приноси</string>
-  <string name="suggested_edits_added_by_you">Добавено от вас:</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Добавяне на описания“</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Поздравления за Вашия трети принос! Понеже Вие сте изключително добър в редактирането, ние съставихме списък на статиите с липсващи описания. Бихте ли ни помогнали да подобрим Уикипедия?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Превод на описания“</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Поздравления за Вашите 50 приноса, впечатлени сме! Ползвате приложението в повече езици, затова съставихме списък от статии, които се нуждаят от превод на описанията. Бихте ли продължили да ни помагате, подобрявайки Уикипедия?</string>
   <string name="suggested_edits_unlock_dialog_no">Може би после</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задачи за приложния редактор</string>
-  <string name="suggested_edits_task_add_description_title">Добавяне на описания</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Добавяне на описания</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
   <string name="suggested_edits_task_image_caption_title">Описания на картини</string>
   <string name="suggested_edits_task_image_caption_description">Добавяне на описания на картини</string>
   <string name="suggested_edits_task_multilingual_title">Повече задачи за многоезични редактори</string>
   <string name="suggested_edits_task_multilingual_description">Има задачи за превод на расположение, ако четете и пишете на Уикипедия на повече от един език.</string>
-  <string name="suggested_edits_task_translation_title">Превод на описания</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Превод на описания</string>
   <string name="suggested_edits_task_translation_description">Превод на описания на други езици.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Заключено, докато не придобиете %d проверени редакции</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заключено, докато не придобиете %d проверени редакции</string>

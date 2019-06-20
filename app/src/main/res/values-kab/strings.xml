@@ -300,7 +300,7 @@
   <string name="article_menu_bar_bookmark">Rnu amagrad-agi a tebdart n tɣuri</string>
   <string name="article_menu_bar_share">Bdu aseɣwen n umagrad</string>
   <string name="article_header_edit_hint">Ẓreg...</string>
-  <string name="article_header_edit_description">Ẓreg aglam n uzwel</string>
+  <string name="article_header_edit_description" fuzzy="true">Ẓreg aglam n uzwel</string>
   <string name="article_header_edit_lead_section">Ẓreg tazwart</string>
   <string name="color_theme_select">Asentel</string>
   <string name="color_theme_light">Aceɛlal</string>
@@ -407,22 +407,22 @@
   <string name="view_featured_article_footer_saved_button_label">Yettwasekles</string>
   <string name="feed_configure_activity_title" fuzzy="true">Swel tikarḍiwin n usnirem</string>
   <string name="feed_configure_menu_reset" fuzzy="true">Ales awennez ar umezwer</string>
-  <string name="description_edit_text_hint">Aglam n uzwel</string>
+  <string name="description_edit_text_hint" fuzzy="true">Aglam n uzwel</string>
   <string name="description_edit_save">Suffeɣ-d</string>
-  <string name="description_edit_add_description">Rnu aglam n uzwel</string>
+  <string name="description_edit_add_description" fuzzy="true">Rnu aglam n uzwel</string>
   <string name="description_edit_edit_description">Ẓreg aglam</string>
   <string name="description_edit_cancel_hint">Sefsex</string>
-  <string name="description_edit_help_title">Tallelt: iglamen n izwal</string>
+  <string name="description_edit_help_title" fuzzy="true">Tallelt: iglamen n izwal</string>
   <string name="description_edit_help_about_wikidata">Ɣef Wikipedia</string>
   <string name="description_edit_help_wikidata_guide">Amnir n Wikidata  n tira n yeglamen</string>
-  <string name="description_edit_anon_limit">Tanemmirt imi turiḍ aglma amaynut ! Akken ad tisnifleḍ ugar, qqen ar umiḍan-ik Wikipedia.</string>
-  <string name="description_edit_license_notice">Ma bedleɣ aglam n uzwel, ad qebleɣ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec&lt;/a&gt; udiɣ ad erreɣ ilebda attekki-iw daw  n turagt &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Aglam yeffeɣ-d!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Tanemmirt imi turiḍ aglma amaynut ! Akken ad tisnifleḍ ugar, qqen ar umiḍan-ik Wikipedia.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Ma bedleɣ aglam n uzwel, ad qebleɣ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec&lt;/a&gt; udiɣ ad erreɣ ilebda attekki-iw daw  n turagt &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Aglam yeffeɣ-d!</string>
   <string name="description_edit_success_encouragement">Hatan akken kan i terriḍ Wikipedia yelha i yal yiwen</string>
   <string name="description_edit_success_done">Immed</string>
   <string name="description_edit_success_did_you_know">Tezriḍ?</string>
   <string name="description_edit_success_article_edit_hint">Tzemreḍ daɣen ad tesnifleḍ imagraden deg usnas. Ɛreḍ aseɣti n tuccḍiwin akked tifyar meẓẓiyen s usiti ɣeftignit ^1 tikelt-nniḍen.</string>
-  <string name="description_edit_tutorial_title_descriptions">Iglamen n uzwel</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Iglamen n uzwel</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Mudd-d agzul n umagrad akken ad gzun imeɣriyen asentel deg iwet n tmuɣli kan.</string>
   <string name="description_edit_tutorial_keep_it_short">Ili-ik d awezlan</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ma twalaḍ axiṛ, yiwen n izirig, gar sin ar mraw sin n wawalen</string>

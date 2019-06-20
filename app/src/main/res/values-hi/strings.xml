@@ -307,7 +307,7 @@
   <string name="article_menu_bar_bookmark">इस लेख को पढ़ने वाली सूची में जोड़ें</string>
   <string name="article_menu_bar_share">लेख कङी को साझा करें</string>
   <string name="article_header_edit_hint">सम्पादित करें</string>
-  <string name="article_header_edit_description">शीर्षक वर्णन को सम्पादित करें</string>
+  <string name="article_header_edit_description" fuzzy="true">शीर्षक वर्णन को सम्पादित करें</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>
   <string name="color_theme_select">विषय</string>
   <string name="color_theme_light">हल्का</string>
@@ -430,23 +430,23 @@
   <string name="view_featured_article_footer_saved_button_label">सहेजा गया</string>
   <string name="feed_configure_activity_title" fuzzy="true">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
   <string name="feed_configure_menu_reset" fuzzy="true">डिफ़ॉल्ट पर रिसेट करें</string>
-  <string name="description_edit_text_hint">शीर्षक विवरण</string>
+  <string name="description_edit_text_hint" fuzzy="true">शीर्षक विवरण</string>
   <string name="description_edit_save">प्रकाशित करें</string>
-  <string name="description_edit_add_description">शीर्षक विवरण जोड़ें</string>
+  <string name="description_edit_add_description" fuzzy="true">शीर्षक विवरण जोड़ें</string>
   <string name="description_edit_edit_description">वर्णन सम्पादित करें</string>
   <string name="description_edit_cancel_hint">रद्द करें</string>
-  <string name="description_edit_help_title">सहायता:शीर्षक वर्णन</string>
+  <string name="description_edit_help_title" fuzzy="true">सहायता:शीर्षक वर्णन</string>
   <string name="description_edit_help_about_wikidata">विकिडेटा के बारे में</string>
   <string name="description_edit_help_wikidata_guide">वर्णन लिखने के लिए विकिडेटा गाइड</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
-  <string name="description_edit_anon_limit">विवरण संपादन में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए कृपया अपने विकिपीडिया खाते में प्रवेश करें।</string>
-  <string name="description_edit_license_notice">शीर्षक विवरण बदलने पर मैं  &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt; से सहमत हूँ और  बिना परिवर्तन के अपने योगदानों को &lt;a href=\"%2$s\"&gt;क्रिएटिव कॉमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत रिलीज़ करता हूँ।</string>
-  <string name="description_edit_success_saved">वर्णन प्रकाशित किया गया!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">विवरण संपादन में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए कृपया अपने विकिपीडिया खाते में प्रवेश करें।</string>
+  <string name="description_edit_license_notice" fuzzy="true">शीर्षक विवरण बदलने पर मैं  &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt; से सहमत हूँ और  बिना परिवर्तन के अपने योगदानों को &lt;a href=\"%2$s\"&gt;क्रिएटिव कॉमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत रिलीज़ करता हूँ।</string>
+  <string name="description_edit_success_saved" fuzzy="true">वर्णन प्रकाशित किया गया!</string>
   <string name="description_edit_success_encouragement">आपने अभी विकिपीडिया को सभी के लिए और अच्छा बना दिया</string>
   <string name="description_edit_success_done">पूर्ण</string>
   <string name="description_edit_success_did_you_know">क्या आप जानते थे?</string>
   <string name="description_edit_success_article_edit_hint">आप इस एप में भी लेखों को सम्पादित कर सकते हैं। अगली बार ^1 आइकॉन पर क्लिक कर टाइपो और छोटे वाक्य सुधारने का प्रयास करें</string>
-  <string name="description_edit_tutorial_title_descriptions">शीर्षक वर्णन</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">शीर्षक वर्णन</string>
   <string name="description_edit_tutorial_title_descriptions_summary">लेख का सारांकन करें ताकि पाठक को विषय एक झलक में समझ आ जाये</string>
   <string name="description_edit_tutorial_keep_it_short">इसे छोटा रखें</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>

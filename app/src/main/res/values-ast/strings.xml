@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Enolp
 * Envlh
 * Fitoschido
@@ -341,7 +342,7 @@
   <string name="article_menu_bar_bookmark">Amestar esti artículu a una llista de llectura</string>
   <string name="article_menu_bar_share">Compartir l\'enllaz del artículu</string>
   <string name="article_header_edit_hint">Editar...</string>
-  <string name="article_header_edit_description">Editar la descripción del títulu</string>
+  <string name="article_header_edit_description" fuzzy="true">Editar la descripción del títulu</string>
   <string name="article_header_edit_lead_section">Editar l\'entamu</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claru</string>
@@ -584,54 +585,52 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar la canal Esplorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora puedes esbillar lo que desees ver na to canal, y tamién dar prioridá a les tos tribes de conteníu favorites.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Aceutar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Encaboxar</string>
-  <string name="description_edit_text_hint">Descripción del títulu</string>
+  <string name="description_edit_text_hint" fuzzy="true">Descripción del títulu</string>
   <string name="description_edit_text_hint_per_language">Descripción en %s</string>
   <string name="description_edit_save">Espublizar</string>
   <string name="description_edit_article">Artículu</string>
   <string name="description_edit_read">Lleer</string>
-  <string name="description_edit_add_description">Amestar una descripción del títulu</string>
-  <string name="description_edit_add_description_v2">Amestar descripción</string>
-  <string name="description_edit_translate_description">Traducir descripción</string>
+  <string name="description_edit_add_description" fuzzy="true">Amestar una descripción del títulu</string>
+  <string name="description_edit_translate_description" fuzzy="true">Traducir descripción</string>
   <string name="description_edit_edit_description">Editar la descripción</string>
-  <string name="add_translation">Amestar traducción al %s</string>
   <string name="description_edit_cancel_hint">Encaboxar</string>
-  <string name="description_edit_help_title">Ayuda: descripción de títulos</string>
+  <string name="description_edit_help_title" fuzzy="true">Ayuda: descripción de títulos</string>
   <string name="description_edit_help_about_wikidata">Tocante a Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata pa escribir descripciones</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">¡Gracies pol to interés continuáu na edición de descripciones! Pa realizar más cambeos, anicia sesión na to cuenta de Wikipedia.</string>
-  <string name="description_edit_license_notice">Al camudar la descripción del títulu, aceptes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y a lliberar ensin torgues les tos contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Espublizóse la descripción</string>
-  <string name="description_edit_success_saved_snackbar">Espublizóse la descripción</string>
+  <string name="description_edit_anon_limit" fuzzy="true">¡Gracies pol to interés continuáu na edición de descripciones! Pa realizar más cambeos, anicia sesión na to cuenta de Wikipedia.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Al camudar la descripción del títulu, aceptes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y a lliberar ensin torgues les tos contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Espublizóse la descripción</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Espublizóse la descripción</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>
   <string name="description_edit_success_article_edit_hint">Tamién puedes editar artículos dientro d\'esta aplicación. Tenta iguar la ortografía y frases pequeñes faciendo clic nel iconu ^1 la próxima vegada</string>
-  <string name="description_edit_tutorial_title_descriptions">Descripciones de títulos</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descripciones de títulos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículu p\'ayudar a los llectores a entender la tema nuna güeyada</string>
   <string name="description_edit_tutorial_keep_it_short">Que sía curtiu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente, una llinia; ente dos y doce palabres</string>
   <string name="description_edit_tutorial_button_label_start_editing">Principiar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, prometo a nun faer mal usu d\'esta carauterística.</string>
-  <string name="suggested_edits_add_descriptions">Amestar descripciones</string>
-  <string name="suggested_edits_translate_descriptions">Traducir descripciones</string>
-  <string name="suggested_edits_review_description">Revisar descripción</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Amestar descripciones</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Traducir descripciones</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Revisar descripción</string>
   <string name="suggested_edits_add_description_button">Amestar descripción</string>
+  <string name="suggested_edits_add_translation_button" fuzzy="true">Amestar traducción</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Editar traducción</string>
   <string name="suggested_edits_my_contributions">Les mios contribuciones</string>
-  <string name="suggested_edits_added_by_you">Amestada por ti:</string>
-  <string name="suggested_edits_translated_by_you">Traducida por ti:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Desbloquiasti la xera «Amestar descripciones»</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Desbloquiasti la xera «Amestar descripciones»</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracies por toles contribuciones! Yá que yes un editor perbonu, tenemos compilada una llista d\'artículos a los que-yos falten descripciones. ¿Ayudaríesnos a ameyorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloquiasti la xera «Traducir descripciones»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Desbloquiasti la xera «Traducir descripciones»</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">¡Norabona poles munches contribuciones, tamos impresionaos!  Tas utilizando l\'aplicación en múltiples idiomes,  asina que compilamos una llista de los artículos que precisen traducciones de la descripción. ¿Podríes  siguir ayudándonos a ameyorar Wikipedia?</string>
   <string name="suggested_edits_unlock_dialog_no">Quiciabes más tarde</string>
   <string name="suggested_edits_unlock_dialog_yes">Sí, vamos</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Desbloquiasti «Amestar descripciones»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Desbloquiasti «Traducir descripciones»</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Desbloquiasti «Amestar descripciones»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Desbloquiasti «Traducir descripciones»</string>
   <string name="suggested_edits_unlock_notification_text">Ediciones suxeríes</string>
   <string name="suggested_edits_menu_info">Información</string>
   <string name="suggested_edits_tasks_activity_title">Ediciones suxeríes</string>
-  <string name="suggested_edits_task_add_description_title">Amestar descripciones</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Amestar descripciones</string>
   <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
   <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
   <string name="suggested_edits_task_translate_caption_title">Traducir pies d\'imaxe</string>
@@ -643,8 +642,6 @@
   <string name="suggested_edits_feed_card_title">Ediciones suxeríes</string>
   <string name="suggested_edits_tutorial_message">Dámoste la bienvenida a la nueva páxina d\'entamu d\'edición rápida na app de Wikipedia. Apreciamos enforma les tos contribuciones. ¡Feliz edición!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
-  <string name="suggested_edits_add_translation_button_label">Amestar traducción</string>
-  <string name="suggested_edits_edit_translation_button_label">Editar traducción</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

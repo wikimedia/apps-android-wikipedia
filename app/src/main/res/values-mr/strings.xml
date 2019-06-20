@@ -270,7 +270,7 @@
   <string name="article_menu_bar_bookmark">हा लेख वाचनयादीत जोडा</string>
   <string name="article_menu_bar_share">लेखदुवा वाटा</string>
   <string name="article_header_edit_hint">संपादन...</string>
-  <string name="article_header_edit_description">शीर्षकाचे वर्णन संपादित करा</string>
+  <string name="article_header_edit_description" fuzzy="true">शीर्षकाचे वर्णन संपादित करा</string>
   <string name="article_header_edit_lead_section">प्रास्ताविक संपादित करा</string>
   <string name="color_theme_select">देखावा</string>
   <string name="color_theme_light">फिकट</string>
@@ -332,7 +332,7 @@
   <string name="description_edit_add_description" fuzzy="true">थोडक्यात वर्णन जोडा</string>
   <string name="description_edit_edit_description">वर्णन संपादित करा</string>
   <string name="description_edit_cancel_hint">रद्द करा</string>
-  <string name="description_edit_help_title">सहाय्य:शीर्षक वर्णन</string>
+  <string name="description_edit_help_title" fuzzy="true">सहाय्य:शीर्षक वर्णन</string>
   <string name="description_edit_help_about_wikidata">विकिडाटा बद्दल</string>
   <string name="description_edit_help_wikidata_guide">वर्णन लिहिण्यासाठी विकिडाटा मार्गदर्शक</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
@@ -340,7 +340,7 @@
   <string name="description_edit_success_encouragement">आपण नुकताच सर्वांसाठी विकिपीडिया सुधरविला आहे</string>
   <string name="description_edit_success_done">झाले</string>
   <string name="description_edit_success_did_you_know">आपणास माहित आहे का ?</string>
-  <string name="description_edit_tutorial_title_descriptions">शीर्षक वर्णन</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">शीर्षक वर्णन</string>
   <string name="description_edit_tutorial_keep_it_short">ते थोडक्यात ठेवा</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन चालू करा</string>
   <string name="description_edit_tutorial_promise">सुरुवात करण्याने, मी शपथ घेतो कि या फिचरचा गैरवापर करणार नाही.</string>

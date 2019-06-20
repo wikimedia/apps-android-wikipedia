@@ -267,17 +267,19 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
-  <string name="description_edit_text_hint">Şınasnayış sernamey</string>
+  <string name="description_edit_text_hint" fuzzy="true">Şınasnayış sernamey</string>
   <string name="description_edit_text_hint_per_language">arezekerdışê %s</string>
   <string name="description_edit_save">Bıweşane</string>
   <string name="description_edit_article">Meqale</string>
   <string name="description_edit_read">Bıwane</string>
-  <string name="description_edit_add_description">Şınasnayışê sernamey cı kerê</string>
+  <string name="description_edit_add_description" fuzzy="true">Şınasnayışê sernamey cı kerê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
-  <string name="suggested_edits_add_descriptions">Arezekerdış cı ke</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_add_description_button">Arezekerdış cı ke</string>
+  <string name="suggested_edits_add_translation_button" fuzzy="true">Açarnayış cı ke</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Çarnayışi bıvurne</string>
   <string name="suggested_edits_my_contributions">İştirakê mı</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
   <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
@@ -286,11 +288,9 @@
   <string name="suggested_edits_unlock_add_captions_notification_big_text">Seba iştiakanê şıma rê teşekur kem. A fıkıtyayım ke şıma qayılê resiman rê nuştey resimi cı kerê, ma lista resimanê ke nuştey resimi çıniyo ma ê arêday pêser. Şıma şenê marê seba Wikipedia ravêr berdışi rê peşti bıdê</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message"/>
   <string name="suggested_edits_menu_info">Melumat</string>
-  <string name="suggested_edits_task_add_description_title">Arezekerdış cı ke</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
-  <string name="suggested_edits_add_translation_button_label">Açarnayış cı ke</string>
-  <string name="suggested_edits_edit_translation_button_label">Çarnayışi bıvurne</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
