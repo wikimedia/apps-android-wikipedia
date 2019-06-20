@@ -385,17 +385,17 @@
   <string name="feed_item_type_trending">Najbóle čitane zapiski</string>
   <string name="feed_item_type_featured_image">Na Wikimedia Commons předstajeny wobraz</string>
   <string name="feed_item_type_main_page">Hłowna strona Wikipedije z aktualnym wobsahom</string>
-  <string name="description_edit_text_hint">Wopis titula</string>
+  <string name="description_edit_text_hint" fuzzy="true">Wopis titula</string>
   <string name="description_edit_save">Wozjewić</string>
-  <string name="description_edit_add_description">Wopis titula přidać</string>
+  <string name="description_edit_add_description" fuzzy="true">Wopis titula přidać</string>
   <string name="description_edit_edit_description">Wopis wobdźěłać</string>
   <string name="description_edit_cancel_hint">Přetorhnyć</string>
   <string name="description_edit_help_about_wikidata">Wo Wikidatach</string>
-  <string name="description_edit_success_saved">Wopis wozjewjeny!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Wopis wozjewjeny!</string>
   <string name="description_edit_success_encouragement">Sy Wikipediju runje za kóždeho polěpšił(a)</string>
   <string name="description_edit_success_done">Hotowo</string>
   <string name="description_edit_success_did_you_know">Hižo wědźał(a)?</string>
-  <string name="description_edit_tutorial_title_descriptions">Titulowe wopisy</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titulowe wopisy</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>
