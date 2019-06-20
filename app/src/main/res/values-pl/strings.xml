@@ -351,7 +351,7 @@
   <string name="article_menu_bar_bookmark">Dodaj ten artykuł do listy do przeczytania</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_header_edit_hint">Edytuj...</string>
-  <string name="article_header_edit_description">Edytuj opis tytułu</string>
+  <string name="article_header_edit_description">Edytuj opis artykułu</string>
   <string name="article_header_edit_lead_section">Edytuj wprowadzenie</string>
   <string name="color_theme_select">Skórka</string>
   <string name="color_theme_light">Jasna</string>
@@ -556,10 +556,10 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Anuluj</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
-  <string name="description_edit_text_hint">Opis tytułu</string>
+  <string name="description_edit_text_hint" fuzzy="true">Opis tytułu</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_article">Artykuł</string>
-  <string name="description_edit_add_description">Dodaj opis tytułu</string>
+  <string name="description_edit_add_description" fuzzy="true">Dodaj opis tytułu</string>
   <string name="description_edit_edit_description">Edytuj opis</string>
   <string name="description_edit_add_image_caption">Dodaj podpis obrazu</string>
   <string name="description_edit_edit_image_caption">Edytuj podpis obrazu</string>
@@ -567,31 +567,36 @@
   <string name="description_edit_help_about_wikidata">O Wikidanych</string>
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Opis opublikowany!</string>
-  <string name="description_edit_success_saved_snackbar">Opis opublikowany!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Opis opublikowany!</string>
+  <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
-  <string name="description_edit_tutorial_title_descriptions">Opis tytułu</string>
+  <string name="description_edit_tutorial_title_descriptions">Opis artykułu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
-  <string name="suggested_edits_add_descriptions">Dodaj opisy tytułów</string>
-  <string name="suggested_edits_translate_descriptions">Przetłumacz opisy tytułów</string>
+  <string name="suggested_edits_add_descriptions">Dodaj opisy artykułów</string>
+  <string name="suggested_edits_translate_descriptions">Przetłumacz opisy artykułów</string>
   <string name="suggested_edits_add_image_captions">Dodaj podpisy obrazu</string>
-  <string name="suggested_edits_review_description">Sprawdź opis</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Sprawdź opis</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
-  <string name="suggested_edits_added_by_you">Dodane przez Ciebie:</string>
-  <string name="suggested_edits_translated_by_you">Przetłumaczone przez Ciebie:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odblokowałeś zadanie „Dodaj opisy”</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odblokowałeś zadanie „Przetłumacz opisy”</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Odblokowałeś zadanie „Dodaj opisy”</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odblokowałeś zadanie „Przetłumacz opisy artykułów”</string>
   <string name="suggested_edits_unlock_dialog_no">Może później</string>
   <string name="suggested_edits_menu_info">Informacje</string>
-  <string name="suggested_edits_task_add_description_title">Dodaj opisy tytułów</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Dodaj opisy tytułów</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
+  <string name="suggested_edits_image_preview_dialog_caption_title">Podpisy obrazka</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
+  <string name="suggested_edits_image_preview_dialog_date">Data</string>
+  <string name="suggested_edits_image_preview_dialog_source">Źródło/Fotograf</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Więcej Informacji</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>

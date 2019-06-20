@@ -245,7 +245,7 @@
   <string name="article_menu_bar_bookmark">Ychwanegwch yr erthygl hon i\'ch rhestr ddarllen</string>
   <string name="article_menu_bar_share">Rhannwch ddolen yr erthygl hon</string>
   <string name="article_header_edit_hint">Golygu...</string>
-  <string name="article_header_edit_description">Golygu disgrifiad y teitl</string>
+  <string name="article_header_edit_description" fuzzy="true">Golygu disgrifiad y teitl</string>
   <string name="article_header_edit_lead_section">Golygu\'r rhan gyntaf</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Golau</string>
