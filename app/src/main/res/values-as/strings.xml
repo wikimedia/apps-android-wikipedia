@@ -308,7 +308,7 @@
   <string name="article_menu_bar_bookmark">এই প্ৰবন্ধটো পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="article_menu_bar_share">প্ৰবন্ধৰ লিংক শ্বেয়াৰ কৰক</string>
   <string name="article_header_edit_hint">সম্পাদনা...</string>
-  <string name="article_header_edit_description">শিৰোনামৰ বিৱৰণ সম্পাদনা কৰক</string>
+  <string name="article_header_edit_description" fuzzy="true">শিৰোনামৰ বিৱৰণ সম্পাদনা কৰক</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা কৰক</string>
   <string name="color_theme_select">থীম</string>
   <string name="color_theme_light">পাতল</string>
@@ -385,20 +385,20 @@
   <string name="view_announcement_card_negative_action">নালাগে। ধন্যবাদ</string>
   <string name="feed_configure_menu_select_all">সকলোবোৰ দেখুৱাওক</string>
   <string name="feed_configure_menu_deselect_all">সকলোবোৰ লুকুৱাওক</string>
-  <string name="description_edit_text_hint">শিৰোনামৰ বিৱৰণ</string>
+  <string name="description_edit_text_hint" fuzzy="true">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_save">প্ৰকাশ কৰক</string>
-  <string name="description_edit_add_description">শিৰোনামৰ বিৱৰণ যোগ দিয়ক</string>
+  <string name="description_edit_add_description" fuzzy="true">শিৰোনামৰ বিৱৰণ যোগ দিয়ক</string>
   <string name="description_edit_edit_description">বৰ্ণনা যোগ দিয়ক</string>
   <string name="description_edit_cancel_hint">বাতিল কৰক</string>
-  <string name="description_edit_help_title">সহায়: শিৰোনামৰ বৰ্ণনা</string>
+  <string name="description_edit_help_title" fuzzy="true">সহায়: শিৰোনামৰ বৰ্ণনা</string>
   <string name="description_edit_help_about_wikidata">ৱিকিপিডিয়াৰ বিষয়ে</string>
   <string name="description_edit_help_wikidata_guide">বিৱৰণ লিখাৰ বাবে ৱিকিপিডিয়াৰ নিৰ্দেশিকা</string>
-  <string name="description_edit_success_saved">বিৱৰণ প্ৰকাশ হৈছে!</string>
+  <string name="description_edit_success_saved" fuzzy="true">বিৱৰণ প্ৰকাশ হৈছে!</string>
   <string name="description_edit_success_encouragement">আপুনি সকলোৰে বাবে ৱিকিপিডিয়া উন্নত কৰি তুলিছে</string>
   <string name="description_edit_success_done">কৰা হ’ল</string>
   <string name="description_edit_success_did_you_know">আপুনি জানেনে?</string>
   <string name="description_edit_success_article_edit_hint">আপুনি এই এপ্‌টোত প্ৰবন্ধ সম্পদনাও কৰিব পাৰিব। বানান আৰু সৰু বাক্য ঠিক কৰিবলৈ ^1 আইকণটোত ক্লিক কৰিব</string>
-  <string name="description_edit_tutorial_title_descriptions">শিৰোনামৰ বিৱৰণ</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_tutorial_keep_it_short">সংক্ষিপ্ত ৰাখক</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা আৰম্ভ কৰক</string>
   <string name="suggested_edits_my_contributions">মোৰ বৰঙণিসমূহ</string>
