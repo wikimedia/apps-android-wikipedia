@@ -627,12 +627,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
-        captionEditButton.setVisibility(item.getFilePage().contains(Service.COMMONS_URL) ? View.VISIBLE : View.GONE);
+        boolean captionEditable = item.getFilePage().contains(Service.COMMONS_URL);
+        captionEditButton.setVisibility(captionEditable ? View.VISIBLE : View.GONE);
 
         boolean allowTranslate = false;
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
-        if (app.language().getAppLanguageCodes().size() > 1) {
+        if (app.language().getAppLanguageCodes().size() > 1 && captionEditable) {
             for (String lang : app.language().getAppLanguageCodes()) {
                 if (!item.getStructuredCaptions().containsKey(lang)) {
                     allowTranslate = true;
