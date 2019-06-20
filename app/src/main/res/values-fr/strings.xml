@@ -6,6 +6,7 @@
 * Crochet.david
 * Dbrant
 * DePlusJean
+* Derugon
 * Djiboun
 * Elodark
 * Envlh
@@ -14,6 +15,7 @@
 * Gomoko
 * Great11
 * Hydros
+* JeanPlu
 * Jgaignerot
 * KATRINE1992
 * Linedwell
@@ -297,6 +299,7 @@
   <string name="gallery_save_success">Fichier bien enregistré.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
   <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans l\'espace de stockage de votre appareil est nécessaire pour enregistrer des images.</string>
+  <string name="gallery_add_image_caption_in_language_button">Ajouter une légende (%s)</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
   <string name="snippet_share_intro">Fait intéressant sur @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Taper pour développer</string>
@@ -368,7 +371,7 @@
   <string name="article_menu_bar_bookmark">Ajouter cet article à une liste de lecture</string>
   <string name="article_menu_bar_share">Partager le lien vers la page</string>
   <string name="article_header_edit_hint">Modifier…</string>
-  <string name="article_header_edit_description">Modifier la description du titre</string>
+  <string name="article_header_edit_description">Modifier la description de l’article</string>
   <string name="article_header_edit_lead_section">Modifier l’introduction</string>
   <string name="color_theme_select">Thème</string>
   <string name="color_theme_light">Clair</string>
@@ -610,7 +613,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d’exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil, et aussi prioriser vos types de contenu favoris.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
-  <string name="description_edit_text_hint">Description du titre</string>
+  <string name="description_edit_text_hint">Description de l\'article</string>
   <string name="description_edit_text_hint_per_language">description de %s</string>
   <string name="description_edit_caption_hint_per_language">légende de %s</string>
   <string name="description_edit_caption_hint">Légende</string>
@@ -618,54 +621,56 @@
   <string name="description_edit_article">Article</string>
   <string name="description_edit_description">Description</string>
   <string name="description_edit_read">Lire</string>
-  <string name="description_edit_add_description">Ajouter une description du titre</string>
-  <string name="description_edit_add_description_v2">Ajouter une description</string>
-  <string name="description_edit_translate_description">Traduire la description du titre</string>
+  <string name="description_edit_add_description">Ajouter une description d\'article</string>
+  <string name="description_edit_translate_description">Traduire la description de l’article</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_add_image_caption">Ajouter la légende de l\'image</string>
   <string name="description_edit_edit_image_caption">Modifier la légende de l\'image</string>
   <string name="description_edit_translate_image_caption">Traduire la légende de l\'image</string>
-  <string name="add_translation">Ajouter la traduction %s</string>
   <string name="description_edit_cancel_hint">Annuler</string>
-  <string name="description_edit_help_title">Aide : descriptions des titres</string>
+  <string name="description_edit_help_title">Info : Descriptions de l’article</string>
   <string name="description_edit_help_about_wikidata">À propos de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guide de Wikidata pour écrire des descriptions</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier des descriptions ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
+  <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier des descriptions d’article ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Description publiée !</string>
-  <string name="description_edit_success_saved_snackbar">Description publiée !</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">Légende publiée !</string>
+  <string name="description_edit_success_saved">Description de l\'article publiée !</string>
+  <string name="description_edit_success_saved_snackbar">Description d\'article publiée !</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Description de l\'article publiée ! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Légende de l\'image publiée !</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Légende de l\'image publiée ! (%s)</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
   <string name="description_edit_success_article_edit_hint">Vous pouvez aussi modifier des articles dans cette application. Essayez de corriger des fautes et de petites phrases en cliquant sur l’icône ^1 la prochaine fois</string>
-  <string name="description_edit_tutorial_title_descriptions">Descriptions du titre</string>
+  <string name="description_edit_tutorial_title_descriptions">Descriptions de l’article</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Résume un article pour aider le lecteur à en comprendre le sujet d\'un coup d\'œil.</string>
   <string name="description_edit_tutorial_keep_it_short">Soyez bref</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
-  <string name="suggested_edits_add_descriptions">Ajouter des descriptions</string>
-  <string name="suggested_edits_translate_descriptions">Traduire les descriptions</string>
+  <string name="suggested_edits_add_descriptions">Ajouter des descriptions d\'articles</string>
+  <string name="suggested_edits_translate_descriptions">Traduire les descriptions de l’article</string>
   <string name="suggested_edits_add_image_captions">Ajouter les légendes aux images</string>
   <string name="suggested_edits_translate_image_captions">Traduire les légendes des images</string>
-  <string name="suggested_edits_review_description">Relire la description</string>
+  <string name="suggested_edits_review_description">Relire la description de l\'article</string>
   <string name="suggested_edits_add_description_button">Ajouter une description</string>
+  <string name="suggested_edits_edit_description_button">Modifier la description</string>
+  <string name="suggested_edits_add_translation_button">Ajouter la traduction</string>
+  <string name="suggested_edits_edit_translation_button">Modifier la traduction</string>
   <string name="suggested_edits_add_caption_button">Ajouter une légende</string>
   <string name="suggested_edits_edit_caption_button">Modifier la légende</string>
   <string name="suggested_edits_review_image_caption">Relire la légende de l’image</string>
   <string name="suggested_edits_my_contributions">Mes contributions</string>
-  <string name="suggested_edits_added_by_you">Ajouté par vous :</string>
-  <string name="suggested_edits_translated_by_you">Traduit par vous :</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vous avez déverrouillé la tâche «  Ajouter les descriptions  »</string>
+  <string name="suggested_edits_no_description">Pas de description</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vous avez déverrouillé la tâche « Ajouter les descriptions d\'articles »</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Merci pour toutes vos contributions ! Comme vous êtes super bon en édition, nous avons compilé une liste d’articles pour lesquels il manque les descriptions. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vous avez déverrouillé la tâche «  Traduire les descriptions  »</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vous avez déverrouillé la tâche « Traduire les descriptions d’article »</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Félicitations pour vos nombreuses contributions, cela nous impressionne ! Vous utilisez l’application dans diverses langues, aussi avons-nous compilé une liste d’articles pour lesquels il manque la traduction des descriptions. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_dialog_no">Peut-être plus tard</string>
   <string name="suggested_edits_unlock_dialog_yes">Oui, allons-y</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Vous avez débloqué «  Ajouter des descriptions  »</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Vous avez débloqué «  Traduire les descriptions  »</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Vous avez débloqué « Ajouter des descriptions d\'article »</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Vous avez débloqué « Traduire les descriptions d’article »</string>
   <string name="suggested_edits_unlock_notification_text">Modifications suggérées</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions !. Comme vous êtes très bon en édition, nous avons compilé une liste d’articles sans description. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Modifications suggérées\n\nFélicitations pour vos nombreuses contribution, nous sommes impressionnés ! Vous utilisez l’application dans plusieurs langues ; nous avons donc compilé une liste d’articles qui ont besoin de traduction de description. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
@@ -682,13 +687,13 @@
   <string name="suggested_edits_image_caption_license_notice">En ajoutant la légende de l’image, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de mettre irrévocablement mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
-  <string name="suggested_edits_task_add_description_title">Ajouter les descriptions</string>
+  <string name="suggested_edits_task_add_description_title">Ajouter des descriptions d\'article</string>
   <string name="suggested_edits_task_add_description_description">Contribuer aux articles sans description</string>
   <string name="suggested_edits_task_image_caption_title">Légender les images</string>
   <string name="suggested_edits_task_image_caption_description">Ajouter des légendes aux images</string>
   <string name="suggested_edits_task_multilingual_title">Plus de tâches pour les éditeurs multilingues</string>
   <string name="suggested_edits_task_multilingual_description">Les tâches de traduction sont disponibles si vous lisez et écrivez dans plus d’une langue de Wikipédia.</string>
-  <string name="suggested_edits_task_translation_title">Traduire les descriptions</string>
+  <string name="suggested_edits_task_translation_title">Traduire les descriptions d\'articles</string>
   <string name="suggested_edits_task_translation_description">Traduire les descriptions d\'après la langue des articles.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Verrouillé jusqu’à ce que vous ayez fait %d modifications vérifiées</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Verrouillé tant que vous n\'aurez pas fait %d contributions vérifiées</string>
@@ -706,17 +711,16 @@
     <item quantity="other">%d contributions</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Modifications suggérées</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Ajouter une description à l\'article (%s)</string>
   <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Commencer</string>
-  <string name="suggested_edits_add_translation_button_label">Ajouter la traduction</string>
-  <string name="suggested_edits_edit_translation_button_label">Modifier la traduction</string>
-  <string name="suggested_edits_image_caption_title">Légende des images</string>
-  <string name="suggested_edits_image_artist">Artiste</string>
-  <string name="suggested_edits_image_date">Date</string>
-  <string name="suggested_edits_image_source">Source/Photographe</string>
-  <string name="suggested_edits_image_licensing">Licence</string>
-  <string name="suggested_edits_image_more_info">Plus d’infos</string>
-  <string name="suggested_edits_image_file_page_link_text">Page du fichier sur Wikimédia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_caption_title">Légende des images</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Artiste</string>
+  <string name="suggested_edits_image_preview_dialog_date">Date</string>
+  <string name="suggested_edits_image_preview_dialog_source">Source/Photographe</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Licence</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Plus d’infos</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Page du fichier sur Wikimédia Commons</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

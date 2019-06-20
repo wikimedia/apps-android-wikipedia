@@ -238,7 +238,7 @@
   <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_header_edit_hint">რედაქტირება</string>
-  <string name="article_header_edit_description">სათაურის აღწერილობის რედაქტირება</string>
+  <string name="article_header_edit_description" fuzzy="true">სათაურის აღწერილობის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>
   <string name="color_theme_select">თემა</string>
   <string name="color_theme_light">ნათელი</string>
@@ -318,16 +318,16 @@
   <string name="view_featured_article_footer_saved_button_label">შენახულია</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">ყველას არჩევა</string>
   <string name="feed_configure_menu_deselect_all" fuzzy="true">არჩევის გაუქმება</string>
-  <string name="description_edit_text_hint">სათაურის აღწერა</string>
+  <string name="description_edit_text_hint" fuzzy="true">სათაურის აღწერა</string>
   <string name="description_edit_save">გამოქვეყნება</string>
-  <string name="description_edit_add_description">სათაურის აღწერის დამატება</string>
+  <string name="description_edit_add_description" fuzzy="true">სათაურის აღწერის დამატება</string>
   <string name="description_edit_edit_description">აღწერის რედაქტირება</string>
   <string name="description_edit_cancel_hint">გაუქმება</string>
   <string name="description_edit_help_about_wikidata">ვიკიმონაცემების შესახებ</string>
-  <string name="description_edit_success_saved">აღწერა გამოქვეყნდა!</string>
+  <string name="description_edit_success_saved" fuzzy="true">აღწერა გამოქვეყნდა!</string>
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
-  <string name="description_edit_tutorial_title_descriptions">სათაურის აღწერილობა</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">სათაურის აღწერილობა</string>
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
