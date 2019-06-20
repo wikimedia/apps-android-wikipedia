@@ -349,8 +349,8 @@
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.SuggestedEdits">
-        <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
-        <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
+        <item name="placeholderImage">?attr/material_theme_border_color</item>
+        <item name="failureImage">?attr/material_theme_border_color</item>
         <item name="backgroundImage">@color/base30</item>
     </style>
 
