@@ -96,10 +96,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     private fun setImageDetails() {
         addDetailPortion(R.string.suggested_edits_image_preview_dialog_caption_title, suggestedEditsSummary.description, false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_artist, suggestedEditsSummary.metadata!!.artist()!!.value(), false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_date, suggestedEditsSummary.metadata!!.dateTime()!!.value(), false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_source, suggestedEditsSummary.metadata!!.imageDescription()!!.source(), true)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_licensing, suggestedEditsSummary.metadata!!.licenseShortName()!!.value(), true)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_artist, suggestedEditsSummary.metadata!!.artist(), false)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_date, suggestedEditsSummary.metadata!!.dateTime(), false)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_source, suggestedEditsSummary.metadata!!.imageDescriptionSource(), true)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_licensing, suggestedEditsSummary.metadata!!.licenseShortName(), true)
         detailsHolder.requestLayout()
     }
 
