@@ -476,27 +476,21 @@
   <string name="notification_syncing_reading_list_channel_description">ယၢင်ႈၵၢၼ် လွင်ႈၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</string>
   <plurals name="notification_channel_name">
     <item quantity="one">လွင်ႈလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း</item>
-    <item quantity="other">လွင်ႈလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း</item>
   </plurals>
   <plurals name="notification_syncing_title">
-    <item quantity="one">တိုၵ်ႉလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း %1$d …</item>
-    <item quantity="other">တိုၵ်ႉလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း %1$d …</item>
+    <item quantity="one">တိုၵ်ႉလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း %1$d ...</item>
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
-    <item quantity="other">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">လွင်ႈၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</item>
-    <item quantity="other">လွင်ႈၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">တိုၵ်ႉၶူၼ်းၽဵၼ်ႇ သဵၼ်ႈမၢႆ %1$d…</item>
-    <item quantity="other">တိုၵ်ႉၶူၼ်းၽဵၼ်ႇ သဵၼ်ႈမၢႆ %1$d…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
-    <item quantity="other">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
   </plurals>
   <string name="notification_echo_channel_description">ၶေႃႈၽၢင်ႉပၼ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="notifications_activity_title">ၶေႃႈၽၢင်ႉ</string>
@@ -628,6 +622,7 @@
   <string name="suggested_edits_edit_caption_button">မႄးထတ်း ႁူဝ်ၶေႃႈ</string>
   <string name="suggested_edits_review_image_caption">ထတ်းသၢင် ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_my_contributions">လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ</string>
+  <string name="suggested_edits_no_description">ဢမ်ႇမီး ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">ၶွပ်ႈၸႂ်ထိုင် ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇတင်းသဵင်ႈ! ၸဝ်ႈၵဝ်ႇႁဵတ်းလႆႈ လွင်ႈမႄးထတ်း ၶိုၵ်ႉတွၼ်းလီၼႆလႄႈ ႁဝ်းၶႃႈလႆႈၵဵပ်းႁွမ်တွမ်ဝႆႉ သဵၼ်ႈမၢႆပွင်ႈၵႂၢမ်း ဢၼ်ဢမ်ႇပႆႇမီးၶေႃႈသပ်းလႅင်းၼၼ်ႉ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၸွႆႈထႅမ်ႁဝ်းၶႃႈ တွၼ်ႈတႃႇ ႁဵတ်းႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶိုၼ်ႈယႂ်ႇၼၼ်ႉၶႃႈႁိုဝ်?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း\"</string>

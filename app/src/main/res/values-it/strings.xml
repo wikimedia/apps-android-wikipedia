@@ -632,6 +632,7 @@
   <string name="suggested_edits_edit_caption_button">Modifica didascalia</string>
   <string name="suggested_edits_review_image_caption">Rivedi didascalia immagine</string>
   <string name="suggested_edits_my_contributions">I miei contributi</string>
+  <string name="suggested_edits_no_description">Nessuna descrizione</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Hai sbloccato l\'attività \"Aggiungi descrizioni della voce\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grazie per tutti i tuoi contributi! Dato che sei molto bravo a modificare, abbiamo compilato un elenco di voci con descrizioni mancanti. Vuoi aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Hai sbloccato l\'attività \"Traduci descrizioni della voce\"</string>

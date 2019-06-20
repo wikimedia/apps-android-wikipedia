@@ -638,6 +638,7 @@
   <string name="suggested_edits_edit_caption_button">Redakti titolon de bildo</string>
   <string name="suggested_edits_review_image_caption">Revizii titolon de bildo</string>
   <string name="suggested_edits_my_contributions">Miaj kontribuoj</string>
+  <string name="suggested_edits_no_description">Neniu priskribo</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vi malŝlosis la taskon \"Aldoni priskribojn al artikoloj\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Dankon pro viaj kontribuoj. Ĉar vi bonege redaktas, ni kompilis liston de artikoloj malhavantaj priskribojn. Ĉu vi povas helpi nin per plibonigado de Vikipedio?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vi liberigis la taskon \"Traduki priskribojn de artikoloj\"</string>
