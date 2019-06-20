@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -32,11 +33,13 @@ import static org.wikipedia.util.GradientUtil.getPowerGradient;
 public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) FaceAndColorDetectImageView image;
     @BindView(R.id.view_page_header_image_gradient) View gradientView;
-    @BindView(R.id.callToActionContainer) View callToActionContainer;
+    @BindView(R.id.call_to_action_container) View callToActionContainer;
+    @BindView(R.id.call_to_action_text) TextView callToActionTextView;
     @Nullable private Callback callback;
 
     public interface Callback {
         void onImageClicked();
+        void onCallToActionContainerClicked();
     }
 
     public PageHeaderView(Context context) {
@@ -72,8 +75,13 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         this.callback = callback;
     }
 
-    public void setUpCallToAction(boolean shouldShowCallToAction) {
-        callToActionContainer.setVisibility(shouldShowCallToAction ? VISIBLE : GONE);
+    public void setUpCallToAction(String callToActionText) {
+        if (callToActionText == null) {
+            callToActionContainer.setVisibility(GONE);
+        } else {
+            callToActionContainer.setVisibility(VISIBLE);
+            callToActionTextView.setText(callToActionText);
+        }
     }
 
     public void loadImage(@Nullable String url) {
@@ -100,6 +108,12 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     @OnClick(R.id.view_page_header_image) void onImageClick() {
         if (callback != null) {
             callback.onImageClicked();
+        }
+    }
+
+    @OnClick(R.id.call_to_action_container) void onCallToActionContainerClicked() {
+        if (callback != null) {
+            callback.onCallToActionContainerClicked();
         }
     }
 

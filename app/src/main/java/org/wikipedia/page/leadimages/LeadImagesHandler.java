@@ -12,26 +12,33 @@ import androidx.fragment.app.FragmentActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.gallery.GalleryActivity;
+import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
-import java.util.Map;
+import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
@@ -54,6 +61,9 @@ public class LeadImagesHandler {
 
     private int displayHeightDp;
     private Disposable imageCaptionDisposable;
+    private CompositeDisposable disposables = new CompositeDisposable();
+
+
 
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
@@ -176,36 +186,52 @@ public class LeadImagesHandler {
     }
 
     private void loadLeadImage(@Nullable String url) {
-        String imageName = getPage().getPageProperties().getLeadImageName();
-        String filename = "File:" + imageName;
-
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
             pageHeaderView.show(isLeadImageEnabled());
             pageHeaderView.loadImage(url);
-            imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(filename)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::updateCallToAction,
-                            L::e);
+            updateCallToAction();
         } else {
             pageHeaderView.loadImage(null);
         }
     }
 
-    private void updateCallToAction(Map<String, String> captions) {
-        boolean allowTranslate = false;
-
-        WikipediaApp app = WikipediaApp.getInstance();
-        if (app.language().getAppLanguageCodes().size() > 1) {
-            for (String lang : app.language().getAppLanguageCodes()) {
-                if (!captions.containsKey(lang)) {
-                    allowTranslate = true;
-                    break;
-                }
-            }
+    private void updateCallToAction() {
+        if ((!Prefs.isSuggestedEditsAddCaptionsUnlocked() && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) || getPage() == null) {
+            return;
         }
-        pageHeaderView.setUpCallToAction(allowTranslate);
+        WikipediaApp app = WikipediaApp.getInstance();
+        String imageName = getPage().getPageProperties().getLeadImageName();
 
+        String filename = "File:" + imageName;
+        disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getMedia(getTitle().getConvertedText())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(gallery -> {
+                    List<GalleryItem> list = gallery.getItems("image");
+                    for (GalleryItem item : list) {
+                        if (getPage() != null && item.getFilePage().contains(getPage().getPageProperties().getLeadImageName())) {
+                            if (TextUtils.isEmpty(item.getStructuredCaptions().get(getTitle().getWikiSite().languageCode()))) {
+                                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
+                                return;
+                            }
+                        }
+                    }
+                    if (app.language().getAppLanguageCodes().size() > 1 && Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+                        imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(filename)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(captions -> {
+                                            for (String lang : app.language().getAppLanguageCodes()) {
+                                                if (!captions.containsKey(lang)) {
+                                                    pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), lang));
+                                                    break;
+                                                }
+                                            }
+                                        },
+                                        L::e);
+
+                    }
+                }, L::e));
     }
 
     @Nullable private String getLeadImageUrl() {
@@ -236,18 +262,27 @@ public class LeadImagesHandler {
     private void initArticleHeaderView() {
         pageHeaderView.addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
                                        int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
-        pageHeaderView.setCallback(() -> {
-            if (getPage() != null && isLeadImageEnabled()) {
-                String imageName = getPage().getPageProperties().getLeadImageName();
-                String imageUrl = getPage().getPageProperties().getLeadImageUrl();
-                if (imageName != null && imageUrl != null) {
-                    String filename = "File:" + imageName;
-                    WikiSite wiki = getTitle().getWikiSite();
-                    getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                            parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
-                            GalleryFunnel.SOURCE_LEAD_IMAGE),
-                            Constants.ACTIVITY_REQUEST_GALLERY);
+        pageHeaderView.setCallback(new PageHeaderView.Callback() {
+            @Override
+            public void onImageClicked() {
+                if (getPage() != null && isLeadImageEnabled()) {
+                    String imageName = getPage().getPageProperties().getLeadImageName();
+                    String imageUrl = getPage().getPageProperties().getLeadImageUrl();
+                    if (imageName != null && imageUrl != null) {
+                        String filename = "File:" + imageName;
+                        WikiSite wiki = getTitle().getWikiSite();
+                        getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
+                                parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
+                                GalleryFunnel.SOURCE_LEAD_IMAGE),
+                                Constants.ACTIVITY_REQUEST_GALLERY);
+                    }
                 }
+            }
+
+            @Override
+            public void onCallToActionContainerClicked() {
+                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), getTitle(), null, null, Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION),
+                        ACTIVITY_REQUEST_DESCRIPTION_EDIT);
             }
         });
     }
