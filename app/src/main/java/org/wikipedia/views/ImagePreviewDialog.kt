@@ -49,7 +49,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     Uri.parse(String.format(getString(R.string.suggested_edits_image_file_page_commons_link), suggestedEditsSummary.title)))
         }
 
-        titleText!!.text = StringUtil.fromHtml(suggestedEditsSummary.displayTitle)
+        titleText!!.text = StringUtil.removeHTMLTags(suggestedEditsSummary.displayTitle!!)
         loadImage(suggestedEditsSummary.thumbnailUrl)
         loadImageInfoIfNeeded()
     }
@@ -110,7 +110,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             if (shouldAddAccentTint) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
             }
-            view.detailTextView.text = StringUtil.fromHtml(detail)
+            view.detailTextView.text = StringUtil.removeHTMLTags(detail)
             detailsHolder.addView(view)
         }
     }
