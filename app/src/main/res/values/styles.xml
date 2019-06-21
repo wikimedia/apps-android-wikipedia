@@ -354,9 +354,9 @@
         <item name="backgroundImage">@color/base30</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder.SuggestedEditsReview">
-        <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
-        <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
+    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits.Review">
+        <item name="placeholderImage">@android:color/black</item>
+        <item name="failureImage">@android:color/black</item>
         <item name="backgroundImage">@android:color/black</item>
     </style>
 
