@@ -210,7 +210,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setUpBottomBar() {
-        bottomBarContainer.setSummary(suggestedEditsSummary, invokeSource);
+        bottomBarContainer.setSummary(suggestedEditsSummary);
         bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
