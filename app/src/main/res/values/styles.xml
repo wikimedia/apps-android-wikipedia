@@ -341,9 +341,7 @@
 
     <style name="SimpleDraweeViewPlaceholder">
         <item name="actualImageScaleType">centerCrop</item>
-        <item name="placeholderImageScaleType">fitCenter</item>
         <item name="failureImage">?android:colorBackground</item>
-        <item name="failureImageScaleType">fitCenter</item>
         <item name="fadeDuration">0</item>
         <item name="backgroundImage">?android:colorBackground</item>
     </style>
