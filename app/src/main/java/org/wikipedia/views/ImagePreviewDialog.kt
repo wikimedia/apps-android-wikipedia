@@ -34,7 +34,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
-        suggestedEditsSummary = GsonUnmarshaller.unmarshal<SuggestedEditsSummary>(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
+        suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         return rootView
     }
