@@ -16,9 +16,9 @@
             android:layout_height="match_parent"
             android:contentDescription="@null"
             app:actualImageScaleType="focusCrop"
+            app:backgroundImage="?android:colorBackground"
             app:failureImage="?lead_image_drawable"
             app:failureImageScaleType="centerCrop"
-            app:placeholderImage="?lead_image_drawable"
             app:placeholderImageScaleType="centerCrop" />
 
         <View

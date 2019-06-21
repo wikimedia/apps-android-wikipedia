@@ -270,7 +270,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
         viewImageSummaryContainer.visibility = GONE
 
-        viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
+        viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummary!!.extractHtml!!)
         if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
@@ -284,13 +284,13 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     private fun updateCaptionContents() {
         viewArticleTitle.text = sourceSummary!!.normalizedTitle
         viewArticleSubtitleContainer.visibility = VISIBLE
-        viewArticleSubtitle.text = StringUtil.strip(StringUtil.fromHtml((if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description!!).capitalize()))
+        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags((if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description!!).capitalize()))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
             viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
             viewImageArtist!!.setDetailText(sourceSummary!!.user)
         } else {
-            viewImageArtist!!.titleText.text = StringUtil.fromHtml(sourceSummary!!.metadata!!.artist())
+            viewImageArtist!!.titleText.text = StringUtil.removeHTMLTags(sourceSummary!!.metadata!!.artist())
         }
 
         viewImageDate!!.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!))
