@@ -33,7 +33,6 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -63,12 +62,8 @@ public class LeadImagesHandler {
 
     private int displayHeightDp;
     private Disposable imageCaptionDisposable;
-    private CompositeDisposable disposables = new CompositeDisposable();
     private SuggestedEditsSummary sourceSummary, targetSummary;
     private boolean isTranslation;
-
-
-
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
@@ -219,8 +214,6 @@ public class LeadImagesHandler {
                                             sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), null, getLeadImageUrl(), ImageUrlUtil.getUrlForPreferredSize(getLeadImageUrl(), Constants.PREFERRED_GALLERY_IMAGE_SIZE), null, null, null, null);
 
                                     return;
-
-
                                 }
                             }
                             if (!Prefs.isSuggestedEditsTranslateCaptionsUnlocked() && app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
@@ -231,11 +224,9 @@ public class LeadImagesHandler {
                                         sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
                                                 sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), null, getLeadImageUrl(), ImageUrlUtil.getUrlForPreferredSize(getLeadImageUrl(), Constants.PREFERRED_GALLERY_IMAGE_SIZE),
                                                 null, null, null, null);
-
                                         targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
                                                 targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, getLeadImageUrl(), ImageUrlUtil.getUrlForPreferredSize(getLeadImageUrl(), Constants.PREFERRED_GALLERY_IMAGE_SIZE),
                                                 null, null, null, null);
-
                                         pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), app.language().getAppLanguageCanonicalName(lang)));
                                         break;
                                     }
@@ -272,7 +263,7 @@ public class LeadImagesHandler {
 
     private void initArticleHeaderView() {
         pageHeaderView.addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
-                                       int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
+                                                  int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onImageClicked() {
@@ -317,5 +308,11 @@ public class LeadImagesHandler {
 
     private FragmentActivity getActivity() {
         return parentFragment.getActivity();
+    }
+
+    public void dispose() {
+        if (imageCaptionDisposable != null && !imageCaptionDisposable.isDisposed()) {
+            imageCaptionDisposable.dispose();
+        }
     }
 }

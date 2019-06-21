@@ -316,6 +316,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
+        leadImagesHandler.dispose();
         super.onDestroyView();
     }
 
