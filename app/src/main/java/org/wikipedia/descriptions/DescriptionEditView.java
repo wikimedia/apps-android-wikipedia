@@ -38,7 +38,9 @@ import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 import static org.wikipedia.Constants.InvokeSource;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
@@ -127,7 +129,7 @@ public class DescriptionEditView extends LinearLayout {
     private int getHeaderTextRes(boolean inReview) {
         if (TextUtils.isEmpty(originalDescription)) {
             if (inReview) {
-                if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+                if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
                     return R.string.suggested_edits_review_image_caption;
                 } else {
                     return R.string.suggested_edits_review_description;
@@ -135,9 +137,9 @@ public class DescriptionEditView extends LinearLayout {
             } else {
                 if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
                     return R.string.description_edit_translate_description;
-                } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+                } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
                     return R.string.description_edit_add_image_caption;
-                } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+                } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
                     return R.string.description_edit_translate_image_caption;
                 } else {
                     return R.string.description_edit_add_description;
@@ -156,10 +158,10 @@ public class DescriptionEditView extends LinearLayout {
         if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
             return getContext().getString(R.string.description_edit_text_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             return getContext().getString(R.string.description_edit_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             return getContext().getString(R.string.description_edit_description);
         } else {
             return getContext().getString(R.string.description_edit_article);
@@ -167,10 +169,10 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private CharSequence getHintText(@NonNull String lang) {
-        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             return getContext().getString(R.string.description_edit_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageCanonicalName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             return getContext().getString(R.string.description_edit_caption_hint);
         } else {
             return getContext().getString(R.string.description_edit_text_hint_per_language,
@@ -183,7 +185,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setDarkReviewScreen(boolean enabled) {
-        if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             int whiteRes = getResources().getColor(android.R.color.white);
             toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color));
             saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
@@ -201,14 +203,14 @@ public class DescriptionEditView extends LinearLayout {
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
         labelText.setText(getLabelText(sourceSummary.getLang()));
-        pageSummaryText.setText(StringUtil.strip(StringUtil.fromHtml(StringUtils.capitalize(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION
+        pageSummaryText.setText(StringUtil.strip(StringUtil.fromHtml(StringUtils.capitalize(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
                 ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
         setUpBottomBar();
     }
 
     private void setUpBottomBar() {
-        bottomBarContainer.setSummary(suggestedEditsSummary, invokeSource);
+        bottomBarContainer.setSummary(suggestedEditsSummary);
         bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
@@ -223,7 +225,7 @@ public class DescriptionEditView extends LinearLayout {
 
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION);
+            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
             pageReviewContainer.show();
             bottomBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
@@ -344,6 +346,6 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setInvokeSource(InvokeSource source) {
         invokeSource = source;
-        isTranslationEdit = (source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION);
+        isTranslationEdit = (source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION);
     }
 }

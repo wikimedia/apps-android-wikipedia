@@ -34,7 +34,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
-        suggestedEditsSummary = GsonUnmarshaller.unmarshal<SuggestedEditsSummary>(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
+        suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         return rootView
     }
@@ -49,7 +49,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     Uri.parse(String.format(getString(R.string.suggested_edits_image_file_page_commons_link), suggestedEditsSummary.title)))
         }
 
-        titleText!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(suggestedEditsSummary.title))
+        titleText!!.text = StringUtil.fromHtml(suggestedEditsSummary.displayTitle)
         loadImage(suggestedEditsSummary.thumbnailUrl)
         loadImageInfoIfNeeded()
     }

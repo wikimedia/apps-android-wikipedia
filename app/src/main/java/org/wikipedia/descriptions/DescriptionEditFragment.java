@@ -54,6 +54,10 @@ import io.reactivex.schedulers.Schedulers;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
 import static org.wikipedia.Constants.InvokeSource;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
@@ -244,7 +248,7 @@ public class DescriptionEditFragment extends Fragment {
 
                 cancelCalls();
 
-                if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+                if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
                     csrfClient = new CsrfTokenClient(wikiCommons, wikiCommons);
                 } else {
                     csrfClient = new CsrfTokenClient(wikiData, pageTitle.getWikiSite());
@@ -327,19 +331,19 @@ public class DescriptionEditFragment extends Fragment {
         }
 
         private Observable<MwPostResponse> getPostObservable(@NonNull String editToken, @Nullable String languageCode) {
-            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
                 return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
                         pageTitle.getWikiSite().languageCode(), commonsDbName,
                         pageTitle.getConvertedText(), editView.getDescription(),
-                        invokeSource == SUGGESTED_EDITS_ADD_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                                : invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
+                        invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                : invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
             } else {
                 return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                         pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
                         pageTitle.getConvertedText(), editView.getDescription(),
-                        invokeSource == SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                                : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
+                        invokeSource == SUGGESTED_EDITS_ADD_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
             }
         }
