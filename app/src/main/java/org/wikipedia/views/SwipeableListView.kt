@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.ListView
+import kotlin.math.abs
 
 class SwipeableListView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ListView(context, attrs, defStyle) {
@@ -34,8 +35,8 @@ class SwipeableListView @JvmOverloads constructor(
 
         override fun onFling(event1: MotionEvent, event2: MotionEvent,
                              velocityX: Float, velocityY: Float): Boolean {
-            if (swipeDetected(event1, event2) && Math.abs(velocityX) > SWIPE_MIN_X_VELOCITY
-                    && Math.abs(velocityY) < SWIPE_MAX_Y_VELOCITY) {
+            if (swipeDetected(event1, event2) && abs(velocityX) > SWIPE_MIN_X_VELOCITY
+                    && abs(velocityY) < SWIPE_MAX_Y_VELOCITY) {
                 listener?.onSwipeOut()
             }
             return false
