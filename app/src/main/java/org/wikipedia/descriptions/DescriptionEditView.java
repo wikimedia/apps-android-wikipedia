@@ -306,8 +306,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     public void setDescription(@Nullable String text) {
-        if (invokeSource != SUGGESTED_EDITS_ADD_CAPTION && invokeSource !=
-                SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        if (invokeSource != SUGGESTED_EDITS_ADD_CAPTION && invokeSource != SUGGESTED_EDITS_TRANSLATE_CAPTION) {
             pageDescriptionText.setText(text);
         }
     }
