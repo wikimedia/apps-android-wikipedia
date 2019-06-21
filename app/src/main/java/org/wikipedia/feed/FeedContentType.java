@@ -92,7 +92,9 @@ public enum FeedContentType implements EnumCode {
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             if (ReleaseUtil.isPreBetaRelease() && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
                 List<InvokeSource> unlockedTypes = getUnlockedEditingPrivileges();
-                return new SuggestedEditsFeedClient(unlockedTypes.get(age % unlockedTypes.size()));
+                if (unlockedTypes.size() > 0) {
+                    return new SuggestedEditsFeedClient(unlockedTypes.get(age % unlockedTypes.size()));
+                }
             }
             return null;
         }
