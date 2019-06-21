@@ -226,7 +226,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
                     displayedTasks.add(translateImageCaptionsTask);
                     translateImageCaptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateCaptions));
                     translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
-                    translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
+                    translateImageCaptionsTask.setDisabled(Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
                 }
             }
 

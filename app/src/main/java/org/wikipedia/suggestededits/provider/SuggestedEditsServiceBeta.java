@@ -2,8 +2,6 @@ package org.wikipedia.suggestededits.provider;
 
 import androidx.annotation.NonNull;
 
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
-
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -15,11 +13,19 @@ public interface SuggestedEditsServiceBeta {
 
     @GET("/commons.wikimedia.org/v1/caption/addition/{lang}")
     @NonNull
-    Observable<List<RbPageSummary>> getImagesWithoutCaptions(@NonNull @Path("lang") String lang);
+    Observable<List<SuggestedEditItem>> getImagesWithoutCaptions(@NonNull @Path("lang") String lang);
 
     @GET("/commons.wikimedia.org/v1/caption/translation/from/{fromLang}/to/{toLang}")
     @NonNull
-    Observable<List<RbPageSummary>> getImagesWithTranslatableCaptions(@NonNull @Path("fromLang") String fromLang,
-                                                                      @NonNull @Path("toLang") String toLang);
+    Observable<List<SuggestedEditItem>> getImagesWithTranslatableCaptions(@NonNull @Path("fromLang") String fromLang,
+                                                                          @NonNull @Path("toLang") String toLang);
 
+    @GET("/www.wikidata.org/v1/description/addition/{lang}")
+    @NonNull
+    Observable<List<SuggestedEditItem>> getArticlesWithoutDescriptions(@NonNull @Path("lang") String lang);
+
+    @GET("/www.wikidata.org/v1/description/translation/from/{fromLang}/to/{toLang}")
+    @NonNull
+    Observable<List<SuggestedEditItem>> getArticlesWithTranslatableDescriptions(@NonNull @Path("fromLang") String fromLang,
+                                                                                @NonNull @Path("toLang") String toLang);
 }
