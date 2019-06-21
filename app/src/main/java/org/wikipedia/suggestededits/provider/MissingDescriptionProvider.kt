@@ -32,7 +32,6 @@ object MissingDescriptionProvider {
 
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
-    @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<RbPageSummary> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedTitle = ""
@@ -68,7 +67,6 @@ object MissingDescriptionProvider {
                 .doFinally { mutex.release() }
     }
 
-    @Deprecated("Remove when the new API is deployed to production.")
     fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<RbPageSummary, RbPageSummary>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             val targetWiki = WikiSite.forLanguageCode(targetLang)
