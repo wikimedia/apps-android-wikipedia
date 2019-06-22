@@ -16,13 +16,13 @@ import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.Constants.PREFERRED_TABLET_THUMBNAIL_SIZE
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
@@ -257,7 +257,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             return
         }
 
-        thumbnailUrl = if (DeviceUtil.isTablet(requireContext()))
+        thumbnailUrl = if (WikipediaApp.getInstance().isTablet && !sourceSummary!!.thumbnailUrl.isNullOrEmpty())
             ImageUrlUtil.getUrlForPreferredSize(sourceSummary!!.thumbnailUrl!!, PREFERRED_TABLET_THUMBNAIL_SIZE) else sourceSummary!!.thumbnailUrl
 
         if (parent().source == SUGGESTED_EDITS_ADD_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {

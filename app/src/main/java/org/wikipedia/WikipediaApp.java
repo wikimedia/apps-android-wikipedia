@@ -48,6 +48,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -88,6 +89,7 @@ public class WikipediaApp extends Application {
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
+    private boolean isTablet;
 
     private static WikipediaApp INSTANCE;
 
@@ -179,6 +181,7 @@ public class WikipediaApp extends Application {
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
         database = new Database(this);
+        isTablet = DeviceUtil.isTablet(this);
 
         initTabs();
 
@@ -354,6 +357,10 @@ public class WikipediaApp extends Application {
 
     public boolean isOnline() {
         return connectivityReceiver.isOnline();
+    }
+
+    public boolean isTablet() {
+        return isTablet;
     }
 
     /**
