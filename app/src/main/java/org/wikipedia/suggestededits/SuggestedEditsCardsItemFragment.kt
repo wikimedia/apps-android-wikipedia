@@ -14,6 +14,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
 import org.wikipedia.Constants.InvokeSource.*
+import org.wikipedia.Constants.PREFERRED_TABLET_THUMBNAIL_SIZE
 import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -21,12 +22,15 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class SuggestedEditsCardsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
+    private var thumbnailUrl: String? = ""
     var sourceSummary: SuggestedEditsSummary? = null
     var targetSummary: SuggestedEditsSummary? = null
     var addedContribution: String = ""
@@ -253,6 +257,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             return
         }
 
+        thumbnailUrl = if (DeviceUtil.isTablet(requireContext()))
+            ImageUrlUtil.getUrlForPreferredSize(sourceSummary!!.thumbnailUrl!!, PREFERRED_TABLET_THUMBNAIL_SIZE) else sourceSummary!!.thumbnailUrl
+
         if (parent().source == SUGGESTED_EDITS_ADD_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             updateDescriptionContents()
         } else {
@@ -276,7 +283,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+            viewArticleImage.loadImage(Uri.parse(thumbnailUrl))
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
@@ -297,7 +304,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         viewImageSource!!.setDetailText(sourceSummary!!.metadata!!.credit())
         viewImageLicense!!.setDetailText(sourceSummary!!.metadata!!.licenseShortName())
 
-        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+        viewArticleImage.loadImage(Uri.parse(thumbnailUrl))
         viewArticleExtract.visibility = GONE
     }
 
