@@ -272,6 +272,7 @@
   <string name="gallery_save_success">Ойуу сөпкө харалынна.</string>
   <string name="gallery_error_video_failed">Видеону көрдөрөр табыллыбата.</string>
   <string name="gallery_save_image_write_permission_rationale">Ойуулары хаалларарга ҕааддьытыҥ долоҕойугар суруйар көҥүл биэриэхтэххин.</string>
+  <string name="gallery_add_image_caption_in_language_button">Ойуу туһунан суруйарга (%s)</string>
   <string name="err_cannot_save_file">Билэни харайар табыллыбата</string>
   <string name="snippet_share_intro">«%1$s» @Wikipedia-ҕа: %2$s</string>
   <string name="expand_refs">Тэнитэргэ баттаа</string>
@@ -343,7 +344,7 @@
   <string name="article_menu_bar_bookmark">Ыстатыйаны ааҕыы тиһилигэр киллэр</string>
   <string name="article_menu_bar_share">Ыстатыйа сигэтин тарҕат</string>
   <string name="article_header_edit_hint">Уларыт...</string>
-  <string name="article_header_edit_description" fuzzy="true">Бас туһунан суругу уларыт</string>
+  <string name="article_header_edit_description">Ыстатыйа туһунан суругу уларыт</string>
   <string name="article_header_edit_lead_section">Киириини уларыт</string>
   <string name="color_theme_select">Тас көстүүтэ</string>
   <string name="color_theme_light">Сырдык</string>
@@ -572,21 +573,27 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Салҕаама</string>
   <string name="description_edit_text_hint" fuzzy="true">Ойуулааһын</string>
   <string name="description_edit_text_hint_per_language">%s быһаарыыта</string>
+  <string name="description_edit_caption_hint">Ойуулааһын</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_article">Ыстатыйа</string>
+  <string name="description_edit_description">Кылгастык</string>
   <string name="description_edit_read">Ааҕыы</string>
-  <string name="description_edit_add_description" fuzzy="true">Кылгас быһаарыы эбии</string>
-  <string name="description_edit_translate_description" fuzzy="true">Быһаарыыны тылбаастааһын</string>
+  <string name="description_edit_add_description">Кылгас быһаарыыны эбии</string>
+  <string name="description_edit_translate_description">Быһаарыыны тылбаастааһын</string>
   <string name="description_edit_edit_description">Быһаарыыны уларытыы</string>
+  <string name="description_edit_add_image_caption">Ойуу туһунан суруйарга</string>
+  <string name="description_edit_edit_image_caption">Ойуу туһунан суругу уларытарга</string>
+  <string name="description_edit_translate_image_caption">Ойуу туһунан суругу тылбаастыырга</string>
   <string name="description_edit_cancel_hint">Таҕыс</string>
-  <string name="description_edit_help_title" fuzzy="true">Көмө: баһы ойуулааһын</string>
+  <string name="description_edit_help_title">Көмө: ыстатыйалар тустарынан суруйуу</string>
   <string name="description_edit_help_about_wikidata">Биики-Билии туһунан</string>
   <string name="description_edit_help_wikidata_guide">Биики-Билиигэ ойуулааһыны оҥоруу туһунан ыйыы-кэрдии</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit" fuzzy="true">Ойуулааһыны уларытыыга болҕомтоҥ иһин махтанабыт! Салгыы уларытарга Бикипиэдьийэҕэ бэлиэ-ааккынан киириэхтээххин.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Бигэргэттэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Бигэргэтилиннэ!</string>
-  <string name="description_edit_success_saved_snackbar" fuzzy="true">Бигэргэтилиннэ!</string>
+  <string name="description_edit_anon_limit">Ойуулааһыны уларытыыга болҕомтоҥ иһин махтанабыт! Салгыы уларытарга Бикипиэдьийэҕэ бэлиэ-ааккынан киириэхтээххин.</string>
+  <string name="description_edit_license_notice">Бигэргэттэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
+  <string name="description_edit_success_saved">Бигэргэтилиннэ!</string>
+  <string name="description_edit_success_saved_snackbar">Бигэргэтилиннэ!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Бигэргэтилиннэ! (%s)</string>
   <string name="description_edit_success_encouragement">Бикипиэдьийэни тупсаҕай гынан биэрдиҥ</string>
   <string name="description_edit_success_done">Оҥоһулунна</string>
   <string name="description_edit_success_did_you_know">Билэҕин дуо?</string>
