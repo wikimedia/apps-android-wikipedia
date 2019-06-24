@@ -354,6 +354,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencizo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Plusa informi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagino dil arkivo che Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Adjuntez expliko</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez expliko (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
   <string name="this_year">Cayare</string>

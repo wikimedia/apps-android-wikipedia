@@ -713,6 +713,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
   <string name="suggested_edits_image_preview_dialog_more_info">詳細情報</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
+  <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">キャプションを追加 (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>

@@ -261,7 +261,7 @@
   <string name="preference_summary_show_images">စာမျက်နှာများရှိ ပုံများပေါ်စေရန် ခွင့်ပြု သို့ ပိတ်ပါ။ သင့်အင်တာနက် ဆက်သွယ်မှုသည် နှေးကွေးပါက သို့ သင့်ဒေတာအစီအစဉ်သည် ကန့်သတ်မှုရှိပါက ဤအပြင်အဆင်ကို ဖြုတ်ထားပါ။</string>
   <string name="preference_title_download_only_over_wifi">ဝိုင်ဖိုင်ပေါ်မှသာ ဒေါင်းလုဒ်ဆွဲရန်</string>
   <string name="dialog_title_download_only_over_wifi">မိုလ်ဘိုင်းဒေတာဖြင့် ဒေါင်းလုဒ်ဆွဲရန် အတည်ပြုပါသလား</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">သင်သည် အပြင်အဆင်များရှိ “ဝိုင်ဖိုင်ပေါ်မှသာ ဒေါင်းလုဒ်ဆွဲရန်” ကိုဖွင့်ထားသည်။ ဤဒေါင်းလုတ်တစ်ခုတည်းအတွက်သာ သင်၏ မိုလ်ဘိုင်းဒေတာအစီအစဉ်ကို ခွင့်ပြုပေးလိုပါသလား။</string>
+  <string name="dialog_text_download_only_over_wifi">သင်သည် အပြင်အဆင်များရှိ “ဝိုင်ဖိုင်ပေါ်မှသာ ဒေါင်းလုဒ်ဆွဲရန်” ကိုဖွင့်ထားသည်။ ဤဒေါင်းလုတ်တစ်ခုတည်းအတွက်သာ သင်၏ မိုလ်ဘိုင်းဒေတာအစီအစဉ်ကို ခွင့်ပြုပေးလိုပါသလား။</string>
   <string name="dialog_title_download_only_over_wifi_allow">ခွင့်ပြုရန်</string>
   <string name="read_more_section">ဆက်လက်ဖတ်ရှု</string>
   <string name="about_article_section">ဤဆောင်းပါးအကြောင်း</string>
@@ -603,9 +603,9 @@
   <string name="description_edit_help_wikidata_guide">ဖော်ပြချက်များ ရေးသားရန်အတွက် ဝီကီဒေတာ လမ်းညွှန်</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ဖော်ပြချက်တည်းဖြတ်မှုကို ဆက်တိုက်စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်၊ ထပ်တိုးတည်းဖြတ်မှုများ လုပ်ဆောင်ရန် ကျေးဇူးပြု၍ ဝီကီပီးဒီးယားအကောင့်ထဲသို့ ဝင်ရောက်ပါ။</string>
-  <string name="description_edit_license_notice" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
-  <string name="description_edit_success_saved" fuzzy="true">ဖော်ပြချက် လွှင့်တင်ပြီး!</string>
-  <string name="description_edit_success_saved_snackbar" fuzzy="true">ဖော်ပြချက် လွှင့်တင်ပြီး!</string>
+  <string name="description_edit_license_notice">ဆောင်းပါးဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
+  <string name="description_edit_success_saved">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
+  <string name="description_edit_success_saved_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">ရုပ်ပုံ ပုံစာ လွှင့်တင်ပြီးပြီ</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ရုပ်ပုံ ပုံစာ လွှင့်တင်ပြီးပြီ (%s)</string>
@@ -626,8 +626,8 @@
   <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_edit_description_button">ဖော်ပြချက် တည်းဖြတ်ရန်</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">ဘာသာပြန် ပေါင်းထည့်ရန်</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">ဘာသာပြန်ကို ပြင်ဆင်ရန်</string>
+  <string name="suggested_edits_add_translation_button">ဘာသာပြန် ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_edit_translation_button">ဘာသာပြန်ကို ပြင်ဆင်ရန်</string>
   <string name="suggested_edits_add_caption_button">ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_edit_caption_button">ပုံစာ ပြင်ဆင်ရန်</string>
   <string name="suggested_edits_review_image_caption">ရုပ်ပုံ ပုံစာ ပြန်လည်ဆန်းစစ်ရန်</string>
@@ -670,6 +670,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">လိုင်စင်သတ်မှတ်ခြင်း</string>
   <string name="suggested_edits_image_preview_dialog_more_info">အချက်အလက် ပို၍</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ဝီကီပီးဒီးယား ကွန်မွန်းစ်ရှိ ဖိုင်စာမျက်နှာ</string>
+  <string name="suggested_edits_feed_card_add_image_caption">ပုံစာ ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>
   <string name="description_edit_revert_reason1">သင်၏ပံပိုးမှုသည် &lt;a href=\"%1$s\"&gt;လမ်းညွှန်များ&lt;/a&gt;များထဲကတစ်ခုနှင့် မကိုက်ညီပါ။</string>

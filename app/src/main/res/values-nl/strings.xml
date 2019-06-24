@@ -700,6 +700,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licentie</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Meer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_description_button">Artikelbeschrijving toevoegen</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
