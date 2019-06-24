@@ -569,7 +569,7 @@
   <string name="feed_empty_message">Ваш фид „Истражи“ је празан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодите фид „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Сада можете да изаберете шта желите да се приказује у фиду, као и да дате предност вашем омиљеном типу садржаја.</string>
-  <string name="description_edit_text_hint">Опис наслова чланка</string>
+  <string name="description_edit_text_hint">Опис чланка</string>
   <string name="description_edit_text_hint_per_language">опис на %s</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_article">Чланак</string>
@@ -588,7 +588,7 @@
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Да ли сте знали?</string>
   <string name="description_edit_success_article_edit_hint">У овој апликацији можете и да уређујете чланке. Следећи пут пробајте да исправите грешке у куцању и мање реченице притиском на икону ^1.</string>
-  <string name="description_edit_tutorial_title_descriptions">Описи чланка</string>
+  <string name="description_edit_tutorial_title_descriptions">Описи чланака</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Резимира чланак како би читаоци на први поглед разумели његову тему</string>
   <string name="description_edit_tutorial_keep_it_short">Будите концизни</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>

@@ -617,6 +617,7 @@
   <string name="description_edit_license_notice">문서 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
@@ -663,7 +664,7 @@
   <string name="suggested_edits_unlock_translate_captions_notification_title">\"이미지 설명 번역하기\"의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">모든 기여에 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
   <string name="suggested_edits_unlock_translate_captions_notification_big_text">편집 제한\n\n모든 기여에 감사드립니다. 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">제목 설명을 추가함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
+  <string name="suggested_edits_license_notice">설명을 추가함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="suggested_edits_menu_info">정보</string>
   <string name="suggested_edits_tasks_activity_title">편집 제안</string>
   <string name="suggested_edits_task_add_description_title">문서 설명 추가</string>
@@ -682,6 +683,7 @@
   <string name="suggested_edits_task_translate_caption_description">설명을 다른 언어로 번역하기</string>
   <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
   <string name="suggested_edits_image_caption_summary_title_author">만든이</string>
+  <string name="suggested_edits_image_caption_summary_title_source">출처</string>
   <string name="suggested_edits_image_caption_summary_title_license">라이선스</string>
   <string name="suggested_edits_image_caption_summary_title_date">날짜</string>
   <plurals name="suggested_edits_contribution_count">
@@ -692,6 +694,16 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
   <string name="suggested_edits_tutorial_message">위키백과 앱의 빠른 편집의 새 터전에 오신 것을 환영합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
+  <string name="suggested_edits_image_preview_dialog_caption_title">이미지 설명</string>
+  <string name="suggested_edits_image_preview_dialog_artist">아티스트</string>
+  <string name="suggested_edits_image_preview_dialog_date">날짜</string>
+  <string name="suggested_edits_image_preview_dialog_source">출처/촬영자</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
+  <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
