@@ -40,12 +40,16 @@ public class EditorTaskCounts {
     public int getDescriptionEditTargetsPassedCount() {
         List<Integer> targetList = getDescriptionEditTargets();
         List<Integer> passedList = getDescriptionEditTargetsPassed();
+        int maxPassed = 0;
+        for (int passed : passedList) {
+            if (passed > maxPassed) {
+                maxPassed = passed;
+            }
+        }
         int count = 0;
-        if (!targetList.isEmpty() && !passedList.isEmpty()) {
-            for (int target : targetList) {
-                if (passedList.contains(target)) {
-                    count++;
-                }
+        for (int target : targetList) {
+            if (maxPassed >= target) {
+                count++;
             }
         }
         return count;
@@ -81,12 +85,16 @@ public class EditorTaskCounts {
     public int getCaptionEditTargetsPassedCount() {
         List<Integer> targetList = getCaptionEditTargets();
         List<Integer> passedList = getCaptionEditTargetsPassed();
+        int maxPassed = 0;
+        for (int passed : passedList) {
+            if (passed > maxPassed) {
+                maxPassed = passed;
+            }
+        }
         int count = 0;
-        if (!targetList.isEmpty() && !passedList.isEmpty()) {
-            for (int target : targetList) {
-                if (passedList.contains(target)) {
-                    count++;
-                }
+        for (int target : targetList) {
+            if (maxPassed >= target) {
+                count++;
             }
         }
         return count;
