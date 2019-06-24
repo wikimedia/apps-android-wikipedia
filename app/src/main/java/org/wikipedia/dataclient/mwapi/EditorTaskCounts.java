@@ -48,7 +48,7 @@ public class EditorTaskCounts {
         }
         int count = 0;
         for (int target : targetList) {
-            if (maxPassed > target) {
+            if (maxPassed >= target) {
                 count++;
             }
         }
@@ -93,7 +93,7 @@ public class EditorTaskCounts {
         }
         int count = 0;
         for (int target : targetList) {
-            if (maxPassed > target) {
+            if (maxPassed >= target) {
                 count++;
             }
         }
