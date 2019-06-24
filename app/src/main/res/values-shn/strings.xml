@@ -476,21 +476,27 @@
   <string name="notification_syncing_reading_list_channel_description">ယၢင်ႈၵၢၼ် လွင်ႈၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</string>
   <plurals name="notification_channel_name">
     <item quantity="one">လွင်ႈလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း</item>
+    <item quantity="other">လွင်ႈလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း</item>
   </plurals>
   <plurals name="notification_syncing_title">
-    <item quantity="one">တိုၵ်ႉလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း %1$d ...</item>
+    <item quantity="one">တိုၵ်ႉလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း %1$d …</item>
+    <item quantity="other">တိုၵ်ႉလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း %1$d …</item>
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
+    <item quantity="other">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">လွင်ႈၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</item>
+    <item quantity="other">လွင်ႈၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">တိုၵ်ႉၶူၼ်းၽဵၼ်ႇ သဵၼ်ႈမၢႆ %1$d…</item>
+    <item quantity="other">တိုၵ်ႉၶူၼ်းၽဵၼ်ႇ သဵၼ်ႈမၢႆ %1$d…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
+    <item quantity="other">ၵိုတ်းပွင်ႈၵႂၢမ်း %1$d</item>
   </plurals>
   <string name="notification_echo_channel_description">ၶေႃႈၽၢင်ႉပၼ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="notifications_activity_title">ၶေႃႈၽၢင်ႉ</string>

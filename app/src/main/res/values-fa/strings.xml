@@ -119,7 +119,7 @@
   <string name="search_reading_lists_no_results">نتیجه‌ای در فهرست مطالعه یافت نشد</string>
   <string name="search_history_no_results">نتیجه‌ای در تاریخچه یافت نشد</string>
   <string name="edit_section_captcha_message">برای محافظت در برابر اسپم لطفا کلمات زیر را وارد کنید</string>
-  <string name="edit_section_captcha_request_an_account_message">تصویر را نمی‌توانید ببینید؟ &lt;a href=\"https://fa.wikipedia.org/wiki/%D9%88%DB%8C%DA%A9%DB%8C%E2%80%8C%D9%BE%D8%AF%DB%8C%D8%A7:%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA_%D8%A7%DB%8C%D8%AC%D8%A7%D8%AF_%D8%AD%D8%B3%D8%A7%D8%A8_%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%DB%8C\"&gt;درخواست یک حساب&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">تصویر را نمی‌توانید ببینید؟ &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست ایجاد حساب کاربری\"&gt;درخواست یک حساب&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">تکرار کلمات بالا</string>
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
