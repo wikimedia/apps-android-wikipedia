@@ -736,6 +736,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лицензирование</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Подробнее</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница файла на Викискладе</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Добавить описание (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
