@@ -651,6 +651,7 @@
   <string name="suggested_edits_edit_caption_button">Editovat popis</string>
   <string name="suggested_edits_review_image_caption">Náhled popisu obrázku</string>
   <string name="suggested_edits_my_contributions">Moje příspěvky</string>
+  <string name="suggested_edits_no_description">Bez popisu</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odemkli jste přidávání popisů článků!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Děkujeme za všechny vaše příspěvky! Vzhledem k tomu, že jste v editaci dobří, nabízíme vám seznam článků, kterým chybí popisy. Pomůžete nám prosím vylepšit Wikipedii?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odemkli jste překládání popisů článků!</string>
@@ -710,6 +711,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencování</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Přidat popis obrázku</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Přidat popis obrázku (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
