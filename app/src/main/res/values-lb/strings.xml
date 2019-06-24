@@ -521,6 +521,7 @@
   <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="suggested_edits_add_translation_button">Iwwersetzung derbäisetzen</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Iwwersetzung änneren</string>
+  <string name="suggested_edits_no_description">Keng Beschreiwung</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
   <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>

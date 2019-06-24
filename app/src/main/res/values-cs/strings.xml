@@ -651,6 +651,7 @@
   <string name="suggested_edits_edit_caption_button">Editovat popis</string>
   <string name="suggested_edits_review_image_caption">Náhled popisu obrázku</string>
   <string name="suggested_edits_my_contributions">Moje příspěvky</string>
+  <string name="suggested_edits_no_description">Bez popisu</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odemkli jste přidávání popisů článků!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Děkujeme za všechny vaše příspěvky! Vzhledem k tomu, že jste v editaci dobří, nabízíme vám seznam článků, kterým chybí popisy. Pomůžete nám prosím vylepšit Wikipedii?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odemkli jste překládání popisů článků!</string>

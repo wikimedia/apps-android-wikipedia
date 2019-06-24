@@ -599,10 +599,15 @@
   <string name="description_edit_tutorial_promise">Саҕалыырбар бу кыаҕы сөпкө туһаныам диэн мэктиэлиибин.</string>
   <string name="suggested_edits_add_descriptions" fuzzy="true">Кылгас быһаарыы эбии</string>
   <string name="suggested_edits_translate_descriptions" fuzzy="true">Быһаарыыны тылбаастааһын</string>
+  <string name="suggested_edits_add_image_captions">Ойуу туһунан суруйарга</string>
+  <string name="suggested_edits_translate_image_captions">Ойуу суругун тылбааһа</string>
   <string name="suggested_edits_review_description" fuzzy="true">Быһаарыылары тургутуу</string>
   <string name="suggested_edits_add_description_button">Быһааран суруй</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">Тылбааһы эбэргэ</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">Тылбааһы уларытарга</string>
+  <string name="suggested_edits_edit_description_button">Ойуулааһыны уларытыы</string>
+  <string name="suggested_edits_add_translation_button">Тылбааһы эбэргэ</string>
+  <string name="suggested_edits_edit_translation_button">Тылбааһы уларытарга</string>
+  <string name="suggested_edits_add_caption_button">Ойуулааһыны эбэргэ</string>
+  <string name="suggested_edits_edit_caption_button">Ойуулааһыны уларытыы</string>
   <string name="suggested_edits_my_contributions">Бэйэм суруйуум</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"Быһаарыыны эбии\" диэни холбоотуҥ</string>
   <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
