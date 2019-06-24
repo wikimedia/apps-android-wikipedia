@@ -1,5 +1,6 @@
 package org.wikipedia.feed.suggestededits
 
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -9,7 +10,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(wiki: WikiSite,
-                         val isTranslation: Boolean,
+                         val invokeSource: InvokeSource,
                          val sourceSummary: SuggestedEditsSummary?,
                          val targetSummary: SuggestedEditsSummary?) : WikiSiteCard(wiki) {
 

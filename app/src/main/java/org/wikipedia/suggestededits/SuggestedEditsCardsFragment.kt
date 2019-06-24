@@ -253,7 +253,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     private fun updateFromLanguageSpinner() {
-        wikiFromLanguageSpinner.adapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageList)
+        wikiFromLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
     }
 
     private fun updateToLanguageSpinner(fromLanguageSpinnerPosition: Int) {
@@ -265,7 +265,7 @@ class SuggestedEditsCardsFragment : Fragment() {
             languageToList.add(getLanguageLocalName(it))
         }
 
-        val toAdapter = ArrayAdapter<String>(requireContext(), R.layout.item_language_spinner, languageToList)
+        val toAdapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageToList)
         wikiToLanguageSpinner.adapter = toAdapter
 
         val pos = languageCodesToList.indexOf(langToCode)
