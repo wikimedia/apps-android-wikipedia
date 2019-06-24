@@ -648,6 +648,7 @@
   <string name="suggested_edits_edit_caption_button">編輯說明</string>
   <string name="suggested_edits_review_image_caption">檢視語言說明</string>
   <string name="suggested_edits_my_contributions">我的貢獻</string>
+  <string name="suggested_edits_no_description">沒有描述</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">您解開了「添加條目描述」任務</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">感謝您做出的所有貢獻！因為您善於編輯的緣故，我們彙整出條目缺少描述的清單，您是否能協助我們來改善維基百科呢？</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">您解開了「翻譯條目描述」任務</string>
@@ -674,8 +675,8 @@
   <string name="suggested_edits_tasks_activity_title">建議編輯</string>
   <string name="suggested_edits_task_add_description_title">增加條目描述</string>
   <string name="suggested_edits_task_add_description_description">不帶描述來貢獻條目</string>
-  <string name="suggested_edits_task_image_caption_title">圖片說明</string>
-  <string name="suggested_edits_task_image_caption_description">新增圖片的說明</string>
+  <string name="suggested_edits_task_image_caption_title">說明圖片</string>
+  <string name="suggested_edits_task_image_caption_description">為圖片新增說明</string>
   <string name="suggested_edits_task_multilingual_title">更多多語言編者的任務</string>
   <string name="suggested_edits_task_multilingual_description">若您有在一種以上語言的維基百科做出讀寫，則可進行翻譯任務。</string>
   <string name="suggested_edits_task_translation_title">翻譯條目描述</string>

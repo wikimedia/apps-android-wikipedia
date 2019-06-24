@@ -374,7 +374,7 @@
   <string name="article_menu_bar_bookmark">Añadir este artículo a una lista de lectura</string>
   <string name="article_menu_bar_share">Compartir el enlace del artículo</string>
   <string name="article_header_edit_hint">Editar...</string>
-  <string name="article_header_edit_description" fuzzy="true">Editar la descripción del título</string>
+  <string name="article_header_edit_description">Editar descripción de artículo</string>
   <string name="article_header_edit_lead_section">Editar introducción</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
@@ -617,7 +617,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="description_edit_text_hint" fuzzy="true">Descripción de título</string>
+  <string name="description_edit_text_hint">Descripción de artículo</string>
   <string name="description_edit_text_hint_per_language">Descripción en %s</string>
   <string name="description_edit_caption_hint_per_language">Leyenda en %s</string>
   <string name="description_edit_caption_hint">Leyenda</string>
@@ -626,13 +626,13 @@
   <string name="description_edit_description">Descripción</string>
   <string name="description_edit_read">Leer</string>
   <string name="description_edit_add_description" fuzzy="true">Añade descripción de título</string>
-  <string name="description_edit_translate_description" fuzzy="true">Traducir descripción</string>
+  <string name="description_edit_translate_description">Traducir descripción de artículo</string>
   <string name="description_edit_edit_description">Editar descripción</string>
   <string name="description_edit_add_image_caption">Añadir leyenda de imagen</string>
   <string name="description_edit_edit_image_caption">Editar leyenda de imagen</string>
   <string name="description_edit_translate_image_caption">Traducir leyenda de imagen</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
-  <string name="description_edit_help_title" fuzzy="true">Ayuda: descripción de títulos</string>
+  <string name="description_edit_help_title">Información: descripción de artículos</string>
   <string name="description_edit_help_about_wikidata">Acerca de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir descripciones</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/es</string>
@@ -645,24 +645,26 @@
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
   <string name="description_edit_success_article_edit_hint">También puedes editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descripciones de títulos</string>
+  <string name="description_edit_tutorial_title_descriptions">Descripciones de artículos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema de un vistazo</string>
   <string name="description_edit_tutorial_keep_it_short">Que sea breve</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Añadir descripciones</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Traducir descripciones</string>
+  <string name="suggested_edits_add_descriptions">Añadir descripciones de artículos</string>
+  <string name="suggested_edits_translate_descriptions">Traducir descripciones de artículos</string>
   <string name="suggested_edits_add_image_captions">Añadir leyendas de imagen</string>
   <string name="suggested_edits_translate_image_captions">Traducir leyendas de imágenes</string>
   <string name="suggested_edits_review_description" fuzzy="true">Revisar descripción</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">Añadir traducción</string>
+  <string name="suggested_edits_edit_description_button">Editar descripción</string>
+  <string name="suggested_edits_add_translation_button">Añadir traducción</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Editar traducción</string>
   <string name="suggested_edits_add_caption_button">Añadir leyenda</string>
   <string name="suggested_edits_edit_caption_button">Editar leyenda</string>
   <string name="suggested_edits_review_image_caption">Revisar leyenda de imagen</string>
   <string name="suggested_edits_my_contributions">Mis contribuciones</string>
+  <string name="suggested_edits_no_description">Sin descripción</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Se desbloqueó la tarea de edición de descripciones</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracias por todas tus contribuciones! Ya que eres un editor fantástico, hemos compilado una lista de los artículos a los que les faltan descripciones. ¿Nos ayudarías a mejorar Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">La edición de traducciones de descripciones ha sido desbloqueada</string>
