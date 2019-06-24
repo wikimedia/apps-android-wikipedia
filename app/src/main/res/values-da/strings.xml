@@ -349,7 +349,7 @@
   <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>
   <string name="article_menu_bar_share">Del link til artiklen</string>
   <string name="article_header_edit_hint">Rediger…</string>
-  <string name="article_header_edit_description" fuzzy="true">Rediger titelbeskrivelsen</string>
+  <string name="article_header_edit_description">Rediger artikelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger introduktion</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Lys</string>
@@ -595,10 +595,10 @@
   <string name="description_edit_description">Beskrivelse</string>
   <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
-  <string name="description_edit_translate_description" fuzzy="true">Oversæt titelbeskrivelse</string>
+  <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
-  <string name="description_edit_help_title" fuzzy="true">Hjælp: Titelbeskrivelser</string>
+  <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide til at skrive beskrivelser</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
@@ -615,13 +615,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Tilføj beskrivelser</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Oversæt beskrivelser</string>
+  <string name="suggested_edits_add_descriptions">Tilføj artikelbeskrivelser</string>
+  <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
   <string name="suggested_edits_add_translation_button" fuzzy="true">Tilføj oversættelse</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
+  <string name="suggested_edits_no_description">Ingen beskrivelse</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Listen over opgaver vedrørende redigering af titelbeskrivelser er blevet låst op!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Vi har bemærket at du kan lide at redigere titelbeskrivelser, så vi har udformet en liste med flere artikler som mangler titelbeskrivelser for at hjælpe dig til at forsætte med at bidrage!</string>
   <string name="suggested_edits_unlock_dialog_no">Måske senere</string>

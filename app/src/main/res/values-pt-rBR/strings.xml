@@ -719,6 +719,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciando</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mais informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página de arquivo no Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
