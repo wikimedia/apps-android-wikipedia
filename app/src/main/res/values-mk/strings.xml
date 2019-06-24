@@ -634,6 +634,7 @@
   <string name="suggested_edits_edit_caption_button">Додај опис на содржината</string>
   <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
   <string name="suggested_edits_my_contributions">Мои придонеси</string>
+  <string name="suggested_edits_no_description">Нема опис</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи на статии“</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Ви благодариме на придонесите! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи на статии“</string>
@@ -692,6 +693,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

@@ -715,6 +715,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
   <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
+  <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">إضافة شرح (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
