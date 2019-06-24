@@ -16,6 +16,7 @@
 * Phenolla
 * Qiyue2001
 * Shizhao
+* SinonJZH
 * TianyinLee
 * Tonylianlong
 * WQL
@@ -675,6 +676,7 @@
   <string name="suggested_edits_feed_card_title">建议编辑</string>
   <string name="suggested_edits_tutorial_message">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
+  <string name="suggested_edits_feed_card_add_description_button">添加文章描述</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

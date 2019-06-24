@@ -9,6 +9,7 @@
 * Arash.pt
 * AzorAhai
 * Dalba
+* Dbrant
 * Ebraminio
 * FarsiNevis
 * Fatemi127
@@ -664,7 +665,7 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">شما امکان «افزودن توضیحات مقاله» را از قفل خارج کردید</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه در ویرایش بسیار عالی هستید، فهرستی از مقاله‌هایی که توضیحات ندارند را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">شما امکان «ترجمه توضیحات مقاله» را از قفل خارج کردید</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">برای همهٔ مشارکت‌های بسیارتان به شما تبریک می‌گوییم! با توجه به اینکه از اپلیکیشن چندزبانه استفاده می‌کنید، فهرستی از مقاله‌هایی که توضیحاتشان نیاز به ترجمه دارد را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">برای همهٔ مشارکت‌های بسیارتان به شما تبریک می‌گوییم! با توجه به این‌که از اپلیکیشن چندزبانه استفاده می‌کنید، فهرستی از مقاله‌هایی را تهیه کرده‌ایم که توضیحاتشان نیاز به ترجمه دارد. آیا امکانش هست که در بهبود ویکی‌پدیا کمک کنید؟</string>
   <string name="suggested_edits_unlock_dialog_no">شاید بعداً</string>
   <string name="suggested_edits_unlock_dialog_yes">بله؛ ادامه بده</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_title">«افزودن توضیحات مقاله» را از قفل خارج کردید</string>
