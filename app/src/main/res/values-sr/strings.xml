@@ -342,7 +342,7 @@
   <string name="article_menu_bar_bookmark">Додај овај чланак на листу за читање</string>
   <string name="article_menu_bar_share">Дели линк чланка</string>
   <string name="article_header_edit_hint">Уреди…</string>
-  <string name="article_header_edit_description" fuzzy="true">Уреди опис наслова</string>
+  <string name="article_header_edit_description">Уреди опис чланка</string>
   <string name="article_header_edit_lead_section">Уреди увод</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Светла</string>
@@ -569,38 +569,38 @@
   <string name="feed_empty_message">Ваш фид „Истражи“ је празан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодите фид „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Сада можете да изаберете шта желите да се приказује у фиду, као и да дате предност вашем омиљеном типу садржаја.</string>
-  <string name="description_edit_text_hint" fuzzy="true">Опис наслова</string>
+  <string name="description_edit_text_hint">Опис чланка</string>
   <string name="description_edit_text_hint_per_language">опис на %s</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_article">Чланак</string>
-  <string name="description_edit_add_description" fuzzy="true">Додај опис наслова</string>
-  <string name="description_edit_translate_description" fuzzy="true">Преведите опис наслова</string>
+  <string name="description_edit_add_description">Додај опис чланака</string>
+  <string name="description_edit_translate_description">Преведите опис чланка</string>
   <string name="description_edit_edit_description">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
-  <string name="description_edit_help_title" fuzzy="true">Помоћ: описи наслова</string>
+  <string name="description_edit_help_title">Помоћ: Описи чланака</string>
   <string name="description_edit_help_about_wikidata">О Википодацима</string>
   <string name="description_edit_help_wikidata_guide">Водич на Википодацима за писање описа</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit" fuzzy="true">Хвала вам на непрестаном интересу за уређивање описа. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Променом описа наслова, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Опис је објављен.</string>
+  <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа чланка. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
+  <string name="description_edit_license_notice">Променом описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">Опис чланка је објављен!</string>
   <string name="description_edit_success_encouragement">Управо сте побољшали Википедију за све</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Да ли сте знали?</string>
   <string name="description_edit_success_article_edit_hint">У овој апликацији можете и да уређујете чланке. Следећи пут пробајте да исправите грешке у куцању и мање реченице притиском на икону ^1.</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Описи наслова</string>
+  <string name="description_edit_tutorial_title_descriptions">Описи чланака</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Резимира чланак како би читаоци на први поглед разумели његову тему</string>
   <string name="description_edit_tutorial_keep_it_short">Будите концизни</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Додавање описа</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Преглед описа</string>
+  <string name="suggested_edits_add_descriptions">Додавање описа чланка</string>
+  <string name="suggested_edits_review_description">Преглед описа чланака</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
   <string name="suggested_edits_my_contributions">Моји доприноси</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Можда касније</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Додавање описа</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Преведите описе</string>
+  <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
+  <string name="suggested_edits_task_translation_title">Преведите описе чланака</string>
   <string name="suggested_edits_task_translation_description">Преведите описе по језицима чланака.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Закључано док не направите (%d) проверених доприноса</string>
   <string name="suggested_edits_task_multilingual_negative">Није за мене</string>
