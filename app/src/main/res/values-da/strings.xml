@@ -595,10 +595,10 @@
   <string name="description_edit_description">Beskrivelse</string>
   <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
-  <string name="description_edit_translate_description" fuzzy="true">Oversæt titelbeskrivelse</string>
+  <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
-  <string name="description_edit_help_title" fuzzy="true">Hjælp: Titelbeskrivelser</string>
+  <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide til at skrive beskrivelser</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
@@ -615,8 +615,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Tilføj beskrivelser</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Oversæt beskrivelser</string>
+  <string name="suggested_edits_add_descriptions">Tilføj artikelbeskrivelser</string>
+  <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
   <string name="suggested_edits_add_translation_button" fuzzy="true">Tilføj oversættelse</string>

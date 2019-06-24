@@ -374,8 +374,8 @@
   <string name="reading_list_added_to_named">Lades till i %s.</string>
   <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artiklar, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
@@ -684,7 +684,7 @@
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
   <string name="suggested_edits_task_translate_caption_title">Översätt bildtexter</string>
   <string name="suggested_edits_task_translate_caption_description">Översätt bildtexter till andra språk</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">\nKonstnär</string>
   <string name="suggested_edits_image_caption_summary_title_author">Författare</string>
   <string name="suggested_edits_image_caption_summary_title_source">Källa</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
@@ -704,6 +704,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
