@@ -23,6 +23,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
         fun updateCardContent(card: SuggestedEditsCard)
     }
 
+    private var age: Int = 0
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
     private var sourceSummary: SuggestedEditsSummary? = null
@@ -31,6 +32,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
     private val langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
+        this.age = age
         cancel()
         fetchSuggestedEditForType(cb, null)
     }
@@ -40,7 +42,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
     }
 
     private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, invokeSource, sourceSummary, targetSummary)
+        return SuggestedEditsCard(wiki, invokeSource, sourceSummary, targetSummary, age)
     }
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
