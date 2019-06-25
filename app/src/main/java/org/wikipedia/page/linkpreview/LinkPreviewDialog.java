@@ -53,6 +53,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         void onLinkPreviewShareLink(@NonNull PageTitle title);
     }
 
+    private static final String ARG_ENTRY = "entry";
+    private static final String ARG_LOCATION = "location";
+    private static final String ARG_FULL_WIDTH = "fullWidth";
+
     private boolean navigateSuccess = false;
 
     private LinearLayout dialogContainer;
@@ -73,23 +77,32 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
+    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location, boolean fullWidth) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
         Bundle args = new Bundle();
-        args.putParcelable("entry", entry);
+        args.putParcelable(ARG_ENTRY, entry);
         if (location != null) {
-            args.putParcelable("location", location);
+            args.putParcelable(ARG_LOCATION, location);
         }
+        args.putBoolean(ARG_FULL_WIDTH, fullWidth);
         dialog.setArguments(args);
         return dialog;
+    }
+
+    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
+        return newInstance(entry, location, false);
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         WikipediaApp app = WikipediaApp.getInstance();
-        historyEntry = getArguments().getParcelable("entry");
+        historyEntry = getArguments().getParcelable(ARG_ENTRY);
         pageTitle = historyEntry.getTitle();
-        location = getArguments().getParcelable("location");
+        location = getArguments().getParcelable(ARG_LOCATION);
+
+        if (getArguments().getBoolean(ARG_FULL_WIDTH)) {
+            enableFullWidthDialog();
+        }
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         dialogContainer = rootView.findViewById(R.id.dialog_link_preview_container);

@@ -708,7 +708,7 @@
     <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
     <string name="suggested_edits_task_translation_title">Translate article descriptions</string>
     <string name="suggested_edits_task_translation_description">Translate descriptions across article languages.</string>
-    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
+    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve edited %d image captions</string>
     <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
