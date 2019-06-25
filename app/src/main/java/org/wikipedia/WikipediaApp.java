@@ -48,7 +48,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
