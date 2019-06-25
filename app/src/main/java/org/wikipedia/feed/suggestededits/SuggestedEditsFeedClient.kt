@@ -134,8 +134,8 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
         disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { mwQueryResponse ->
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(mwQueryResponse.title())
+                .flatMap { title ->
+                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(title)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -183,7 +183,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
                     fileCaption = pair.first
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(pair.second.title())
+                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(pair.second)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
