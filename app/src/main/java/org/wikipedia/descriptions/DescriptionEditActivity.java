@@ -92,7 +92,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                     LinkPreviewDialog.newInstance(new HistoryEntry(summary.getPageTitle(),
                                     getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
                                             ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                            null));
+                            null, true));
         }
     }
 
