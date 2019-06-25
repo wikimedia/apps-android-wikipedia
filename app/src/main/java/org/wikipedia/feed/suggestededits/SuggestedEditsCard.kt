@@ -12,7 +12,8 @@ import org.wikipedia.util.DateUtil
 class SuggestedEditsCard(wiki: WikiSite,
                          val invokeSource: InvokeSource,
                          val sourceSummary: SuggestedEditsSummary?,
-                         val targetSummary: SuggestedEditsSummary?) : WikiSiteCard(wiki) {
+                         val targetSummary: SuggestedEditsSummary?,
+                         val age: Int) : WikiSiteCard(wiki) {
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
@@ -23,6 +24,6 @@ class SuggestedEditsCard(wiki: WikiSite,
     }
 
     override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(0)
+        return DateUtil.getFeedCardDateString(DateUtil.getDefaultDateFor(age))
     }
 }
