@@ -23,6 +23,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
         fun updateCardContent(card: SuggestedEditsCard)
     }
 
+    private var age: Int = 0
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
     private var sourceSummary: SuggestedEditsSummary? = null
@@ -31,6 +32,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
     private val langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
+        this.age = age
         cancel()
         fetchSuggestedEditForType(cb, null)
     }
@@ -40,7 +42,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
     }
 
     private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, invokeSource, sourceSummary, targetSummary)
+        return SuggestedEditsCard(wiki, invokeSource, sourceSummary, targetSummary, age)
     }
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
@@ -132,8 +134,8 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
         disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { mwQueryResponse ->
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(mwQueryResponse.title())
+                .flatMap { title ->
+                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(title)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -181,7 +183,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
                     fileCaption = pair.first
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(pair.second.title())
+                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(pair.second)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
