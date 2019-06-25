@@ -92,7 +92,6 @@ class SuggestedEditsCardsFragment : Fragment() {
         wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
 
         cardsViewPager.offscreenPageLimit = 2
-        cardsViewPager.setPageTransformer(true, AnimationUtil.PagerTransformerWithoutPreviews())
         cardsViewPager.addOnPageChangeListener(viewPagerListener)
 
         resetTitleDescriptionItemAdapter()

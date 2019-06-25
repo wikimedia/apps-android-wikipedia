@@ -203,13 +203,7 @@ public class SuggestedEditsTasksFragment extends Fragment {
             displayedTasks.add(addDescriptionsTask);
             addDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsAddDescriptionsUnlocked());
 
-            if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                if (Prefs.showSuggestedEditsMultilingualTeaserTask()) {
-                    displayedTasks.add(multilingualTeaserTask);
-                    multilingualTeaserTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
-                    multilingualTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
-                }
-            } else {
+            if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 displayedTasks.add(translateDescriptionsTask);
                 translateDescriptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions));
                 translateDescriptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
@@ -228,6 +222,13 @@ public class SuggestedEditsTasksFragment extends Fragment {
                     translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
                     translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
                 }
+            }
+
+            if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
+                    && Prefs.showSuggestedEditsMultilingualTeaserTask()) {
+                displayedTasks.add(multilingualTeaserTask);
+                multilingualTeaserTask.setShowActionLayout(Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
+                multilingualTeaserTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
             }
 
         } catch (Exception e) {
