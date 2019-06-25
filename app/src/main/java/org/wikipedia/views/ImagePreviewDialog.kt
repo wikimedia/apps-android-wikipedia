@@ -36,6 +36,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
         suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
+        enableFullWidthDialog()
         return rootView
     }
 
