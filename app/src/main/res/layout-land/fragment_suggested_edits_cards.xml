@@ -32,7 +32,8 @@
                     android:id="@+id/wikiFromLanguageSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    android:backgroundTint="?attr/colorAccent"/>
             </LinearLayout>
 
 
@@ -61,7 +62,8 @@
                     android:id="@+id/wikiToLanguageSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_gravity="center_vertical"
+                    android:backgroundTint="?attr/colorAccent"/>
 
             </LinearLayout>
 
