@@ -198,9 +198,12 @@ public class SuggestedEditsTasksFragment extends Fragment {
                 return;
             }
 
+            int targetForAddDescriptions = editorTaskCounts.getDescriptionEditTargets().get(0);
             int targetForTranslateDescriptions = editorTaskCounts.getDescriptionEditTargets().get(1);
 
             displayedTasks.add(addDescriptionsTask);
+            addDescriptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForAddDescriptions));
+            addDescriptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsAddDescriptionsUnlocked());
             addDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsAddDescriptionsUnlocked());
 
             if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
@@ -210,18 +213,20 @@ public class SuggestedEditsTasksFragment extends Fragment {
                 translateDescriptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateDescriptionsUnlocked());
             }
 
+            int targetForAddCaptions = editorTaskCounts.getCaptionEditTargets().get(0);
             int targetForTranslateCaptions = editorTaskCounts.getCaptionEditTargets().get(1);
 
-            if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
-                displayedTasks.add(addImageCaptionsTask);
-                addImageCaptionsTask.setDisabled(false);
+            displayedTasks.add(addImageCaptionsTask);
+            addImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsAddCaptionsUnlocked());
+            addImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsAddCaptionsUnlocked());
+            addImageCaptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForAddCaptions));
 
-                if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                    displayedTasks.add(translateImageCaptionsTask);
-                    translateImageCaptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateCaptions));
-                    translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
-                    translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
-                }
+            if (Prefs.isSuggestedEditsAddCaptionsUnlocked()
+                    && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                displayedTasks.add(translateImageCaptionsTask);
+                translateImageCaptionsTask.setUnlockMessageText(String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForTranslateCaptions));
+                translateImageCaptionsTask.setShowActionLayout(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
+                translateImageCaptionsTask.setDisabled(!Prefs.isSuggestedEditsTranslateCaptionsUnlocked());
             }
 
             if (WikipediaApp.getInstance().language().getAppLanguageCodes().size() < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
