@@ -50,7 +50,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         }
 
         titleText!!.text = StringUtil.removeHTMLTags(suggestedEditsSummary.displayTitle!!)
-        loadImage(suggestedEditsSummary.thumbnailUrl)
+        loadImage(suggestedEditsSummary.getPreferredSizeThumbnailUrl())
         loadImageInfoIfNeeded()
     }
 

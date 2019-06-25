@@ -89,7 +89,6 @@ public class WikipediaApp extends Application {
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
-    private boolean isTablet;
 
     private static WikipediaApp INSTANCE;
 
@@ -181,7 +180,6 @@ public class WikipediaApp extends Application {
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
         database = new Database(this);
-        isTablet = DeviceUtil.isTablet(this);
 
         initTabs();
 
@@ -357,10 +355,6 @@ public class WikipediaApp extends Application {
 
     public boolean isOnline() {
         return connectivityReceiver.isOnline();
-    }
-
-    public boolean isTablet() {
-        return isTablet;
     }
 
     /**

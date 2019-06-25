@@ -32,7 +32,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.Constants.PREFERRED_TABLET_THUMBNAIL_SIZE;
+import static org.wikipedia.Constants.PREFERRED_CARD_THUMBNAIL_SIZE;
 
 public class RandomItemFragment extends Fragment {
     @BindView(R.id.random_item_container) ViewGroup containerView;
@@ -143,10 +143,8 @@ public class RandomItemFragment extends Fragment {
             }
         });
 
-        imageView.loadImage(TextUtils.isEmpty(summary.getThumbnailUrl()) ? null
-                : Uri.parse((WikipediaApp.getInstance().isTablet()
-                ? ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_TABLET_THUMBNAIL_SIZE)
-                : summary.getThumbnailUrl())));
+        imageView.loadImage(TextUtils.isEmpty(summary.getThumbnailUrl())
+                ? null : Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_CARD_THUMBNAIL_SIZE)));
     }
 
     @Nullable public PageTitle getTitle() {
