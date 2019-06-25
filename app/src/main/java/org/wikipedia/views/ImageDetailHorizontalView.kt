@@ -21,6 +21,8 @@ class ImageDetailHorizontalView @JvmOverloads constructor(context: Context, attr
     }
 
     fun setDetailText(detail: String?) {
-        detailText!!.text = StringUtil.fromHtml(detail)
+        if (!detail.isNullOrEmpty()) {
+            detailText!!.text = StringUtil.removeHTMLTags(detail)
+        }
     }
 }
