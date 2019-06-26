@@ -33,6 +33,8 @@
             android:layout_gravity="bottom"
             android:paddingStart="12dp"
             android:paddingBottom="12dp"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
             android:visibility="gone">
 
             <ImageView
@@ -40,7 +42,7 @@
                 android:layout_height="@dimen/app_shortcut_icon_size"
                 android:contentDescription="@null"
                 android:tint="?attr/paper_color"
-                app:srcCompat="@drawable/ic_add_gray_themed_24dp" />
+                app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
             <TextView
                 android:id="@+id/call_to_action_text"
