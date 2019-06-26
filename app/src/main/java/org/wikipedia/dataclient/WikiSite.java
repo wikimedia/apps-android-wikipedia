@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.language.AppLanguageLookUpTable;
+import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 
 /**
  * The base URL and Wikipedia language code for a MediaWiki site. Examples:
@@ -85,6 +87,9 @@ public class WikiSite implements Parcelable {
             languageCode = langVariant;
         } else {
             languageCode = authorityToLanguageCode(authority);
+        }
+        if (languageCode.equals(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+            languageCode = LanguageUtil.getFirstSelectedChineseVariant();
         }
         this.uri = new Uri.Builder()
                 .scheme(tempUri.getScheme())

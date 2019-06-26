@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.os.LocaleListCompat;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.StringUtil;
 
@@ -20,11 +21,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
+import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
+
 public final class LanguageUtil {
     private static final String HONG_KONG_COUNTRY_CODE = "HK";
     private static final String MACAU_COUNTRY_CODE = "MO";
     private static final List<String> TRADITIONAL_CHINESE_COUNTRY_CODES = Arrays.asList(
             Locale.TAIWAN.getCountry(), HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE);
+    private static String firstZhLangCode = null;
 
     /**
      * Gets a list of language codes currently enabled by the user.
@@ -126,19 +131,34 @@ public final class LanguageUtil {
         String script = locale.getScript();
         switch (script) {
             case "Hans": return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
-            case "Hant": return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
+            case "Hant": return TRADITIONAL_CHINESE_LANGUAGE_CODE;
             default: break;
         }
 
         // Guess based on country. If the guess is incorrect, the user must explicitly choose the
         // dialect in the app settings.
         return isTraditionalChinesePredominantInCountry(locale.getCountry())
-                ? AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
+                ? TRADITIONAL_CHINESE_LANGUAGE_CODE
                 : AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
     }
 
     private static boolean isTraditionalChinesePredominantInCountry(@Nullable String country) {
         return TRADITIONAL_CHINESE_COUNTRY_CODES.contains(country);
+    }
+
+    @NonNull
+    public static String getFirstSelectedChineseVariant() {
+        if (firstZhLangCode == null) {
+            for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
+                if (langCode.contains(CHINESE_LANGUAGE_CODE)) {
+                    firstZhLangCode = langCode;
+                    break;
+                }
+            }
+            firstZhLangCode =  StringUtils.defaultString(firstZhLangCode, TRADITIONAL_CHINESE_LANGUAGE_CODE);
+        }
+
+        return firstZhLangCode;
     }
 
     private LanguageUtil() { }
