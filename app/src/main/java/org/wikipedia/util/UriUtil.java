@@ -130,7 +130,7 @@ public final class UriUtil {
         return removeFragment(removeLinkPrefix(url)).replace("_", " ");
     }
 
-    /** Get language variant code from a Uri, e.g. "zh-*", otherwise returns empty string. */
+    /** Get language variant code from a Uri, e.g. "zh*", otherwise returns empty string. */
     @NonNull
     public static String getLanguageVariantFromUri(@NonNull Uri uri) {
         if (TextUtils.isEmpty(uri.getPath())) {
@@ -143,7 +143,7 @@ public final class UriUtil {
     /** For internal links only */
     @NonNull
     public static String removeInternalLinkPrefix(@NonNull String link) {
-        return link.replaceFirst("/wiki/|/zh-.*/", "");
+        return link.replaceFirst("/wiki/|/zh.*/", "");
     }
 
     /** For links that could be internal or external links */
