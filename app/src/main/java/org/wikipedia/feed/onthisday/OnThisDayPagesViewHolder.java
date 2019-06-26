@@ -63,7 +63,12 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setImage(@Nullable String url) {
-        pageItemImageView.loadImage(url == null ? null : Uri.parse(url));
+        if (url == null) {
+            pageItemImageView.setVisibility(View.GONE);
+        } else {
+            pageItemImageView.setVisibility(View.VISIBLE);
+            pageItemImageView.loadImage(Uri.parse(url));
+        }
     }
 
     @NonNull public OnThisDayPagesViewHolder setCallback(@Nullable ItemCallBack itemCallback) {
@@ -76,7 +81,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
-        activity.startActivity(PageActivity.newIntentForNewTab(activity, entry, pageTitle));
+        activity.startActivity(PageActivity.newIntentForCurrentTab(activity, entry, pageTitle));
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {

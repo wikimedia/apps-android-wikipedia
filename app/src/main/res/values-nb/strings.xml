@@ -129,7 +129,7 @@
   <string name="reset_password_button">Lagre og logg inn</string>
   <string name="preference_title_logout">Logg ut</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="logout_prompt">Er du sikker på at du vil logge ut?</string>
+  <string name="logout_prompt" fuzzy="true">Er du sikker på at du vil logge ut?</string>
   <string name="logout_dialog_cancel_button_text">Avbryt</string>
   <string name="history_empty_title">Ingen nylig besøkte sider</string>
   <string name="history_empty_message">Finn igjen det du har lest her.</string>
@@ -349,7 +349,7 @@
   <string name="article_menu_bar_bookmark">Legg til denne artikkelen i en leseliste</string>
   <string name="article_menu_bar_share">Del lenke til artikkelen</string>
   <string name="article_header_edit_hint">Rediger…</string>
-  <string name="article_header_edit_description">Rediger tittelbeskrivelsen</string>
+  <string name="article_header_edit_description" fuzzy="true">Rediger tittelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger innledning</string>
   <string name="color_theme_select">Drakt</string>
   <string name="color_theme_light">Lys</string>
@@ -440,7 +440,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei takk</string>
   <string name="reading_list_login_option_reminder_dialog_title">Leselister funnet</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Du har leselister med artikler som ble opprettet mens du ikke var logget inn. Ønsker du å beholde disse og knytte dem til kontoen din?</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Du har leselister med artikler som ble lagret mens du ikke var innlogget. Ønsker du å legge til disse i leselistene på kontoen din?</string>
   <string name="reading_list_login_option_reminder_dialog_yes">Ja, knytt dem til kontoen min</string>
   <string name="reading_list_login_option_reminder_dialog_no">Nei, slett listene</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Behold lagrede artikler i appen?</string>
@@ -590,64 +590,60 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpass utforskingssiden&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan tilpasse og prioritere hvilke typer innhold som skal vises.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
-  <string name="description_edit_text_hint">Tittelbeskrivelse</string>
+  <string name="description_edit_text_hint" fuzzy="true">Tittelbeskrivelse</string>
   <string name="description_edit_text_hint_per_language">Beskrivelse på %s</string>
   <string name="description_edit_save">Publiser</string>
   <string name="description_edit_article">Artikkel</string>
   <string name="description_edit_read">Les</string>
-  <string name="description_edit_add_description">Legg til en tittelbeskrivelse</string>
-  <string name="description_edit_add_description_v2">Legg til beskrivelse</string>
-  <string name="description_edit_translate_description">Oversett beskrivelse</string>
+  <string name="description_edit_add_description" fuzzy="true">Legg til en tittelbeskrivelse</string>
+  <string name="description_edit_translate_description" fuzzy="true">Oversett beskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
-  <string name="add_translation">Legg til oversettelse til %s</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
-  <string name="description_edit_help_title">Hjelp: Tittelbeskrivelser</string>
+  <string name="description_edit_help_title" fuzzy="true">Hjelp: Tittelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide for å skrive beskrivelser</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Takk for at du fortsetter med å legge inn beskrivelser! Logg inn med Wikipedia-kontoen din om du ønsker å gjøre flere redigeringer.</string>
-  <string name="description_edit_license_notice">Ved å endre tittelbeskrivelsen aksepterer jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
-  <string name="description_edit_success_saved">Beskrivelsen ble publisert!</string>
-  <string name="description_edit_success_saved_snackbar">Beskrivelse publisert!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Takk for at du fortsetter med å legge inn beskrivelser! Logg inn med Wikipedia-kontoen din om du ønsker å gjøre flere redigeringer.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Ved å endre tittelbeskrivelsen aksepterer jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Beskrivelsen ble publisert!</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Beskrivelse publisert!</string>
   <string name="description_edit_success_encouragement">Du har akkurat bidratt til å gjøre Wikipedia litt bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>
   <string name="description_edit_success_did_you_know">Visste du at?</string>
   <string name="description_edit_success_article_edit_hint">Du kan også redigere artikler med denne appen. Prøv gjerne å fikse skrivefeil og korte setninger ved å trykke på ^1-ikonet neste gang</string>
-  <string name="description_edit_tutorial_title_descriptions">Tittelbeskrivelser</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Tittelbeskrivelser</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Gir et sammendrag av en artikkel for at leserne raskt skal se hva den handler om</string>
   <string name="description_edit_tutorial_keep_it_short">Hold det kort</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
-  <string name="suggested_edits_add_descriptions">Om tittelbeskrivelser</string>
-  <string name="suggested_edits_translate_descriptions">Oversett beskrivelser</string>
-  <string name="suggested_edits_review_description">Korrekturles tittelbeskrivelser</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Om tittelbeskrivelser</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Oversett beskrivelser</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Korrekturles tittelbeskrivelser</string>
   <string name="suggested_edits_add_description_button">Legg til beskrivelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
-  <string name="suggested_edits_added_by_you">Lagt til av deg:</string>
-  <string name="suggested_edits_translated_by_you">Oversatt av deg:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Du låste opp oppgaven «Legg til beskrivelser»</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Du låste opp oppgaven «Legg til beskrivelser»</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Takk for alle bidragene dine så langt! Siden du er så aktiv, har vi laget en liste med artikler som mangler beskrivelser. Er det noe du kunne tenke deg å se på?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Du har låst opp oppgaven «Oversett beskrivelser»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Du har låst opp oppgaven «Oversett beskrivelser»</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Gratulerer med alle bidragene dine, imponerende! Siden du bruker appen med flere språk, har vi laget en liste med artikkelbeskrivelser som trenger oversettelse. Er det noe du kunne tenke deg å se på?</string>
   <string name="suggested_edits_unlock_dialog_no">Kanskje senere</string>
   <string name="suggested_edits_unlock_dialog_yes">Ja, la meg se på den</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Du har låst opp «Legg til beskrivelser»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Du har låst opp «Oversett beskrivelser»</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Du har låst opp «Legg til beskrivelser»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du har låst opp «Oversett beskrivelser»</string>
   <string name="suggested_edits_unlock_notification_text">Foreslåtte redigeringer</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Foreslåtte redigeringer\n\nTakk for alle bidragene dine. Siden du er så aktiv, har vi laget en liste med artikler som mangler beskrivelser. Er det noe du kunne tenke deg å se på?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Foreslåtte redigeringer\n\nGratulerer med alle bidragene dine, imponerende! Siden du bruker appen med flere språk, har vi laget en liste med artikkelbeskrivelser som trenger oversettelse. Er det noe du kunne tenke deg å se på?</string>
   <string name="suggested_edits_unlock_notification_button">Ja, la meg se på den</string>
-  <string name="suggested_edits_license_notice">Ved å legge til en beskrivelse, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">Ved å legge til en beskrivelse, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
-  <string name="suggested_edits_task_add_description_title">Legg til tittelbeskrivelser</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Legg til tittelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
   <string name="suggested_edits_task_image_caption_title">Bildetekster</string>
   <string name="suggested_edits_task_image_caption_description">Legg til bildetekster til bilder</string>
   <string name="suggested_edits_task_multilingual_title">Flere oppgaver for flerspråklige bidragsytere</string>
   <string name="suggested_edits_task_multilingual_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
-  <string name="suggested_edits_task_translation_title">Oversett beskrivelser</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Oversett beskrivelser</string>
   <string name="suggested_edits_task_translation_description">Oversett beskrivelser mellom artikkelspråk</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst inntil du har gjort %d godkjente bidrag</string>

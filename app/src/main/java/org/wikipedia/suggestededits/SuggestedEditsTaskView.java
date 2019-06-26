@@ -26,11 +26,11 @@ class SuggestedEditsTaskView extends FrameLayout {
     @BindView(R.id.description) TextView description;
     @BindView(R.id.image) ImageView image;
     @BindView(R.id.action_layout) View actionLayout;
-    @BindView(R.id.disabled_action_layout) View disabledActionLayout;
-    @BindView(R.id.enabled_action_layout) View enabledActionLayout;
-    @BindView(R.id.disabled_text) TextView disabledTextView;
-    @BindView(R.id.positive_button) TextView enabledPositiveActionButton;
-    @BindView(R.id.negative_button) TextView enabledNegativeActionButton;
+    @BindView(R.id.unlock_message_container) View unlockMessageContainer;
+    @BindView(R.id.unlock_message_text) TextView unlockMessageText;
+    @BindView(R.id.unlock_actions_container) View unlockActionContainer;
+    @BindView(R.id.unlock_action_positive_button) TextView unlockActionPositiveButton;
+    @BindView(R.id.unlock_action_negative_button) TextView unlockActionNegativeButton;
     private SuggestedEditsTask task;
     private Callback callback;
 
@@ -51,25 +51,25 @@ class SuggestedEditsTaskView extends FrameLayout {
         this.callback = callback;
         title.setText(suggestedEditsTask.getTitle());
         description.setText(suggestedEditsTask.getDescription());
-        image.setVisibility(suggestedEditsTask.getImagePlaceHolderShown() ? VISIBLE : GONE);
+        image.setVisibility(suggestedEditsTask.getShowImagePlaceholder() ? VISIBLE : GONE);
         image.setImageDrawable(suggestedEditsTask.getImageDrawable());
         taskInfoLayout.setAlpha(suggestedEditsTask.getDisabled() ? 0.56f : 1.0f);
-        enabledActionLayout.setVisibility(suggestedEditsTask.getDisabled() ? GONE : VISIBLE);
-        disabledActionLayout.setVisibility(suggestedEditsTask.getDisabled() ? VISIBLE : GONE);
-        disabledTextView.setText(suggestedEditsTask.getDisabledDescriptionText());
-        enabledPositiveActionButton.setText(suggestedEditsTask.getEnabledPositiveActionString());
-        enabledNegativeActionButton.setText(suggestedEditsTask.getEnabledNegativeActionString());
-        actionLayout.setVisibility(suggestedEditsTask.getNoActionLayout() ? GONE : VISIBLE);
+        unlockMessageContainer.setVisibility(suggestedEditsTask.getDisabled() ? VISIBLE : GONE);
+        unlockMessageText.setText(suggestedEditsTask.getUnlockMessageText());
+        unlockActionContainer.setVisibility(suggestedEditsTask.getDisabled() ? GONE : VISIBLE);
+        unlockActionPositiveButton.setText(suggestedEditsTask.getUnlockActionPositiveButtonString());
+        unlockActionNegativeButton.setText(suggestedEditsTask.getUnlockActionNegativeButtonString());
+        actionLayout.setVisibility(suggestedEditsTask.getShowActionLayout() ? VISIBLE : GONE);
     }
 
-    @OnClick(R.id.positive_button)
+    @OnClick(R.id.unlock_action_positive_button)
     void onPositiveClick(View v) {
         if (callback != null) {
             callback.onPositiveActionClick(task);
         }
     }
 
-    @OnClick(R.id.negative_button)
+    @OnClick(R.id.unlock_action_negative_button)
     void onNegativeClick(View v) {
         if (callback != null) {
             callback.onNegativeActionClick(task);

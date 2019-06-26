@@ -15,8 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 
 import com.google.android.material.tabs.TabLayout;
@@ -100,7 +100,7 @@ public class LanguageScrollView extends ConstraintLayout {
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.colorAccent);
                 @ColorInt int paperColor = getThemedColor(getContext(), R.attr.paper_color);
-                Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.lang_button_shape);
+                Drawable drawable = AppCompatResources.getDrawable(getContext(), R.drawable.lang_button_shape);
                 updateTabLanguageCode(view, null, paperColor, drawable, color);
                 updateTabLanguageLabel(view, null, color);
             }
@@ -112,7 +112,7 @@ public class LanguageScrollView extends ConstraintLayout {
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color);
                 updateTabLanguageLabel(view, null, color);
-                updateTabLanguageCode(view, null, color, ContextCompat.getDrawable(getContext(), R.drawable.lang_button_shape_border), color);
+                updateTabLanguageCode(view, null, color, AppCompatResources.getDrawable(getContext(), R.drawable.lang_button_shape_border), color);
             }
         }
     }

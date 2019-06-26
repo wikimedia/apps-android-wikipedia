@@ -32,14 +32,11 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
-        <item name="toc_item_background">@drawable/toc_item_background_light</item>
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="lead_image_drawable">@drawable/lead_default</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
-        <item name="tab_item_selector">@drawable/tab_item_selector_light</item>
-        <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
@@ -60,7 +57,6 @@
         <item name="material_theme_secondary_color">@color/black54</item>
         <item name="material_theme_de_emphasised_color">@color/black38</item>
         <item name="material_theme_border_color">@color/black12</item>
-        <item name="material_theme_shadow">@color/black26</item>
         <item name="primary_text_color">@color/base10</item>
         <item name="secondary_text_color">@color/base30</item>
         <item name="section_title_color">@color/base20</item>
@@ -70,21 +66,19 @@
         <item name="chart_shade7">@color/base100</item>
         <item name="green_highlight_color">@color/green30</item>
         <item name="randomizer_dice_icon_color">@android:color/white</item>
-        <item name="tab_counts_shape_border">@drawable/tab_counts_shape_border_light</item>
         <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_light</item>
         <item name="thumb_off_color">@color/base90</item>
         <item name="track_off_color">@color/base0</item>
         <item name="toc_h1_h2_color">@color/base0</item>
         <item name="toc_scroller_button_color">@color/base100</item>
         <item name="button_background_color">@color/base100</item>
-        <item name="text_highlight_color">@color/yellow50</item>
         <item name="tab_placeholder_text_color">@color/base80</item>
-        <item name="thumbnail_image_placeholder">@drawable/ic_image_gray_light_24dp</item>
         <item name="chip_background_color">@color/base80</item>
         <item name="chip_text_color">@color/base20</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>
+        <item name="suggestions_background_color">@color/base90</item>
 
     </style>
 

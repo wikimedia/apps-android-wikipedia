@@ -186,7 +186,9 @@ public class LangLinksActivity extends BaseActivity {
         List<PageTitle> list = new ArrayList<>();
 
         for (PageTitle entry : languageEntries) {
-            if (app.language().getAppLanguageCodes().contains(entry.getWikiSite().languageCode())) {
+            if ((entry.getWikiSite().languageCode().equals(AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE)
+                    && app.language().getAppLanguageCodes().contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE))
+                    || app.language().getAppLanguageCodes().contains(entry.getWikiSite().languageCode())) {
                 list.add(entry);
             }
         }

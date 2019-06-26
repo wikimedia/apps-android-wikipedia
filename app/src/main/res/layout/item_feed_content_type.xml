@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:descendantFocusability="afterDescendants"
     android:background="?android:colorBackground"
+    android:descendantFocusability="afterDescendants"
     android:orientation="vertical">
 
     <LinearLayout
@@ -18,36 +17,36 @@
             android:id="@+id/feed_content_type_drag_handle"
             android:layout_width="56dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_draggable"
+            android:contentDescription="@null"
             android:scaleType="center"
-            app:tint="?attr/material_theme_de_emphasised_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_draggable"
+            app:tint="?attr/material_theme_de_emphasised_color" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
             android:orientation="vertical"
-            android:layout_gravity="center_vertical">
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
             <TextView
                 android:id="@+id/feed_content_type_title"
+                style="@style/MaterialListTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/MaterialListTitle"
-                tools:text="Lorem ipsum"/>
+                tools:text="Lorem ipsum" />
 
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/feed_content_type_subtitle"
+                style="@style/MaterialListSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                style="@style/MaterialListSubtitle"
-                tools:text="Lorem ipsum"/>
+                tools:text="Lorem ipsum" />
 
         </LinearLayout>
 
@@ -55,8 +54,8 @@
             android:id="@+id/feed_content_type_checkbox"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginEnd="12dp"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="12dp" />
 
     </LinearLayout>
 
@@ -69,16 +68,16 @@
             android:id="@+id/feed_content_type_lang_list"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:paddingTop="12dp"
-            android:paddingStart="70dp"/>
+            android:paddingStart="70dp"
+            android:paddingTop="12dp" />
 
         <TextView
             android:id="@+id/feed_content_type_lang_list_click_target"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground"/>
+            android:focusable="true" />
 
     </FrameLayout>
 

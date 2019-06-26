@@ -205,6 +205,11 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     @Override
+    public void onSelectItem(@NonNull ReadingListPage page) {
+        // ignore
+    }
+
+    @Override
     public void onDeleteItem(@NonNull ReadingListPage page) {
         ReadingListBehaviorsUtil.INSTANCE.deletePages(requireActivity(), ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, this::updateLists, this::updateLists);
     }
@@ -432,12 +437,9 @@ public class ReadingListsFragment extends Fragment implements
             getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
-            getView().setImageUrl(page.thumbUrl());
             getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
+            getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
-            getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
-            getView().setActionTint(R.attr.secondary_text_color);
-            getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
@@ -581,13 +583,18 @@ public class ReadingListsFragment extends Fragment implements
                     ReadingListDbHelper.instance().updatePage(page);
                 }).subscribeOn(Schedulers.io()).subscribe();
 
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+                startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
             }
         }
 
         @Override
-        public boolean onLongClick(@Nullable ReadingListPage item) {
-            return false;
+        public boolean onLongClick(@Nullable ReadingListPage page) {
+            if (page == null) {
+                return false;
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
+            return true;
         }
 
         @Override
@@ -601,7 +608,7 @@ public class ReadingListsFragment extends Fragment implements
                 return;
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page));
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
         }
 
         @Override

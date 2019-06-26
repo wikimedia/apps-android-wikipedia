@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,49 +9,49 @@
         android:id="@+id/view_static_card_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         android:baselineAligned="false"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:clickable="true"
-        android:gravity="center_vertical"
-        android:foreground="?attr/selectableItemBackground">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <TextView
                 android:id="@+id/view_static_card_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="14sp"
                 android:textColor="@android:color/white"
-                tools:text="Title of card"/>
+                android:textSize="14sp"
+                tools:text="Title of card" />
 
             <TextView
                 android:id="@+id/view_static_card_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textSize="12sp"
-                android:textColor="@android:color/white"
                 android:alpha="0.87"
                 android:lineSpacingExtra="2dp"
-                tools:text="Subtitle of card that will surely overflow onto multiple lines."/>
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                tools:text="Subtitle of card that will surely overflow onto multiple lines." />
 
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp">
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp">
 
             <ImageView
                 android:id="@+id/view_static_card_icon"
@@ -61,13 +60,13 @@
                 android:layout_gravity="center"
                 android:contentDescription="@string/view_static_card_icon_content_description"
                 android:tint="@android:color/white"
-                tools:src="@drawable/ic_casino_accent50_24dp"/>
+                tools:src="@drawable/ic_casino_accent50_24dp" />
 
             <ProgressBar
                 android:id="@+id/view_static_card_progress"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center" />
 
         </FrameLayout>
 
@@ -77,11 +76,11 @@
         android:id="@+id/view_static_card_action_container"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_static_card_container">
 
         <ImageView
@@ -89,9 +88,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"
-            tools:src="@drawable/ic_casino_accent50_24dp"/>
+            android:tint="?attr/secondary_text_color"
+            tools:src="@drawable/ic_casino_accent50_24dp" />
 
         <TextView
             android:id="@+id/view_static_card_action_text"
@@ -99,10 +98,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="8dp"
-            android:text="@string/view_static_card_save_button_label"
             android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/secondary_text_color"
-            android:textAllCaps="true"/>
+            android:text="@string/view_static_card_save_button_label"
+            android:textAllCaps="true"
+            android:textColor="?attr/secondary_text_color" />
 
     </LinearLayout>
 
@@ -115,8 +114,8 @@
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:padding="8dp"
         android:tint="?attr/secondary_text_color"
-        app:layout_constraintTop_toBottomOf="@id/view_static_card_container"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_static_card_container"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

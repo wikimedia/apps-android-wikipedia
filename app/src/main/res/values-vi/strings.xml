@@ -305,7 +305,7 @@
   <string name="article_menu_bar_bookmark">Thêm bài này vào một danh sách đọc</string>
   <string name="article_menu_bar_share">Chia sẻ liên kết đến bài</string>
   <string name="article_header_edit_hint">Sửa đổi…</string>
-  <string name="article_header_edit_description">Sửa miêu tả tiêu đề</string>
+  <string name="article_header_edit_description" fuzzy="true">Sửa miêu tả tiêu đề</string>
   <string name="article_header_edit_lead_section">Sửa lời đầu</string>
   <string name="color_theme_select">Thiết kế</string>
   <string name="color_theme_light">Sáng</string>
@@ -527,23 +527,23 @@
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
   <string name="feed_configure_onboarding_action">Tùy chỉnh</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tùy chỉnh Bảng tin khám phá&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Bây giờ, bạn đã có thể chọn thứ bạn muốn thấy trên bảng tin, đồng thời tập trung vào những dạng nội dung mà bạn yêu thích.</string>
-  <string name="description_edit_text_hint">Miêu tả tiêu đề</string>
+  <string name="description_edit_text_hint" fuzzy="true">Miêu tả tiêu đề</string>
   <string name="description_edit_save">Đăng</string>
-  <string name="description_edit_add_description">Thêm miêu tả tiêu đề</string>
+  <string name="description_edit_add_description" fuzzy="true">Thêm miêu tả tiêu đề</string>
   <string name="description_edit_edit_description">Sửa miêu tả</string>
   <string name="description_edit_cancel_hint">Hủy bỏ</string>
-  <string name="description_edit_help_title">Trợ giúp: miêu tả tiêu đề</string>
+  <string name="description_edit_help_title" fuzzy="true">Trợ giúp: miêu tả tiêu đề</string>
   <string name="description_edit_help_about_wikidata">Giới thiệu về Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Hướng dẫn viết miêu tả tại Wikidata</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Cảm ơn bạn vì sự quan tâm đến việc sửa miêu tả! Để thực hiện thêm sửa đổi nữa, xin hãy đăng nhập vào tài khoản Wikipedia của bạn.</string>
-  <string name="description_edit_license_notice">Với việc lưu trang, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Đã đăng miêu tả!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Cảm ơn bạn vì sự quan tâm đến việc sửa miêu tả! Để thực hiện thêm sửa đổi nữa, xin hãy đăng nhập vào tài khoản Wikipedia của bạn.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Với việc lưu trang, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Đã đăng miêu tả!</string>
   <string name="description_edit_success_encouragement">Bạn vừa cải thiện Wikipedia cho mọi người</string>
   <string name="description_edit_success_done">Xong</string>
   <string name="description_edit_success_did_you_know">Bạn có biết?</string>
   <string name="description_edit_success_article_edit_hint">Bạn cũng có thể sửa đổi các bài viết dùng ứng dụng này. Hãy bấm nút ^1 lần sau để sửa các lỗi chính tả và câu ngắn.</string>
-  <string name="description_edit_tutorial_title_descriptions">Miêu tả tiêu đề</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Miêu tả tiêu đề</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Tóm lược bài để giúp độc giả dễ dàng hiểu đề tài</string>
   <string name="description_edit_tutorial_keep_it_short">Làm ngắn gọn</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Cố gắng viết một dòng có 2–12 từ mà thôi</string>
@@ -558,7 +558,6 @@
   <string name="offline_read_final_rationale">Cần có quyền truy cập lưu trữ trên thiết bị của bạn để sử dụng Thư viện Ngoài tuyến.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <string name="offline_compilation_download_time_remaining">còn %d phút</string>
   <string name="onboarding_skip">Bỏ qua</string>
   <string name="onboarding_continue">Tiếp tục</string>
   <string name="onboarding_get_started">Bắt đầu</string>

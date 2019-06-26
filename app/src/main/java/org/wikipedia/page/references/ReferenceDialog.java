@@ -35,7 +35,6 @@ public class ReferenceDialog extends BottomSheetDialog {
     @BindView(R.id.reference_pager) WrapContentViewPager referencesViewPager;
     @BindView(R.id.pageIndicatorView) PageIndicatorView pageIndicatorView;
     @BindView(R.id.indicator_divider) View pageIndicatorDivider;
-    @BindView(R.id.reference_title_text) TextView singleCitationTitleText;
     private LinkHandler referenceLinkHandler;
 
     public ReferenceDialog(@NonNull Context context, int selectedIndex, List<References.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {

@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
-    tools:layout_width="match_parent"
+    tools:background="?attr/paper_color"
     tools:layout_height="@dimen/list_item_default_height"
-    tools:background="?attr/paper_color">
+    tools:layout_width="match_parent"
+    tools:parentTag="android.widget.LinearLayout">
 
     <TextView
         android:id="@+id/wiki_language_order"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="6dp"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textAlignment="center"
-        android:fontFamily="sans-serif-medium"
-        tools:text="1"/>
+        android:textColor="?attr/colorPrimary"
+        android:textSize="14sp"
+        tools:text="1" />
 
     <CheckBox
         android:id="@+id/wiki_language_checkbox"
@@ -28,15 +27,15 @@
         android:layout_marginEnd="-8dp"
         android:gravity="center"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/wiki_language_code"
         style="@style/TextViewCentered"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="24dp"
         android:layout_gravity="center_vertical"
+        android:layout_marginStart="24dp"
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
@@ -44,22 +43,22 @@
 
     <TextView
         android:id="@+id/wiki_language_title"
+        style="@style/MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:layout_gravity="center_vertical"
-        style="@style/MaterialListTitle"
-        tools:text="Lorem ipsum"/>
+        android:layout_weight="1"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        tools:text="Lorem ipsum" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/wiki_language_drag_handle"
         android:layout_width="56dp"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_draggable"
+        android:contentDescription="@null"
         android:scaleType="center"
-        app:tint="?attr/material_theme_de_emphasised_color"
-        android:contentDescription="@null"/>
+        app:srcCompat="@drawable/ic_draggable"
+        app:tint="?attr/material_theme_de_emphasised_color" />
 
 </merge>

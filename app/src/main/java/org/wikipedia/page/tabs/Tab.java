@@ -59,4 +59,19 @@ public class Tab extends BaseModel {
         backStack.add(item);
         backStackPosition = backStack.size() - 1;
     }
+
+    public void clearBackstack() {
+        backStack.clear();
+        backStackPosition = -1;
+    }
+
+    public void squashBackstack() {
+        if (backStack.isEmpty()) {
+            return;
+        }
+        PageBackStackItem item = backStack.get(backStack.size() - 1);
+        backStack.clear();
+        backStack.add(item);
+        backStackPosition = 0;
+    }
 }

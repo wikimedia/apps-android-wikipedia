@@ -11,7 +11,7 @@ import android.widget.SeekBar;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
 
@@ -20,6 +20,7 @@ public class DiscreteSeekBar extends SeekBar {
     private int min;
     @Nullable private Drawable tickDrawable;
     @Nullable private Drawable centerDrawable;
+    private boolean isRtl;
 
     public DiscreteSeekBar(Context context) {
         super(context);
@@ -52,14 +53,15 @@ public class DiscreteSeekBar extends SeekBar {
             setMax(getMax() - min);
             int id = array.getResourceId(R.styleable.DiscreteSeekBar_tickDrawable, 0);
             if (id != 0) {
-                tickDrawable = ContextCompat.getDrawable(getContext(), id);
+                tickDrawable = AppCompatResources.getDrawable(getContext(), id);
             }
             id = array.getResourceId(R.styleable.DiscreteSeekBar_centerDrawable, 0);
             if (id != 0) {
-                centerDrawable = ContextCompat.getDrawable(getContext(), id);
+                centerDrawable = AppCompatResources.getDrawable(getContext(), id);
             }
             array.recycle();
         }
+        isRtl = getResources().getConfiguration().getLayoutDirection() == LAYOUT_DIRECTION_RTL;
     }
 
     @Override
@@ -90,6 +92,9 @@ public class DiscreteSeekBar extends SeekBar {
         }
         float tickSpacing = (float) (getWidth() - getPaddingLeft() - getPaddingRight()) / (float) (max - min);
         canvas.save();
+        if (isRtl) {
+            canvas.scale(-1, 1, getWidth() / 2, getHeight() / 2);
+        }
         canvas.translate((float) getPaddingLeft(), (float) (getHeight() / 2));
         for (int i = min; i <= max; ++i) {
             if (drawOther && tickDrawable != null && i > value) {

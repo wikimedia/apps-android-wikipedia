@@ -28,7 +28,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        fragment.openInNewBackgroundTabFromMenu(title, entry);
+        fragment.openInNewBackgroundTab(title, entry);
     }
 
     @Override

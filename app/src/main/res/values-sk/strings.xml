@@ -340,7 +340,7 @@
   <string name="article_menu_bar_bookmark">Pridať tento článok do zoznamu na prečítanie</string>
   <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
   <string name="article_header_edit_hint">Upraviť...</string>
-  <string name="article_header_edit_description">Upraviť popis</string>
+  <string name="article_header_edit_description" fuzzy="true">Upraviť popis</string>
   <string name="article_header_edit_lead_section">Upraviť úvod</string>
   <string name="color_theme_select">Téma vzhľadu</string>
   <string name="color_theme_light">Svetlá</string>
@@ -563,36 +563,36 @@
   <string name="feed_empty_message">Nič nie je vo vašom kanále Objaviť</string>
   <string name="feed_configure_onboarding_action">Prispôsobiť</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prispôsobte si svoj kanál Objaviť&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Teraz si môžete vybrať, čo sa má zobrazovať na vašej stránke, a tiež uprednostňovať svoje obľúbené typy obsahu.</string>
-  <string name="description_edit_text_hint">Popis článku</string>
+  <string name="description_edit_text_hint" fuzzy="true">Popis článku</string>
   <string name="description_edit_save">Uverejniť</string>
-  <string name="description_edit_add_description">Pridať popis článku</string>
+  <string name="description_edit_add_description" fuzzy="true">Pridať popis článku</string>
   <string name="description_edit_edit_description">Upraviť popis</string>
   <string name="description_edit_cancel_hint">Zrušiť</string>
-  <string name="description_edit_help_title">Pomocník: popis</string>
+  <string name="description_edit_help_title" fuzzy="true">Pomocník: popis</string>
   <string name="description_edit_help_about_wikidata">O Wikiúdajoch</string>
   <string name="description_edit_help_wikidata_guide">Návod na písanie popisov na Wikiúdajoch</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Ďakujeme za Váš pokračujúci záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
-  <string name="description_edit_license_notice">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Popis bol uverejnený!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Ďakujeme za Váš pokračujúci záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Popis bol uverejnený!</string>
   <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>
   <string name="description_edit_success_article_edit_hint">Články môžete upravovať priamo v tejto aplikácii. Skúste opraviť preklepy kliknutím na ikonu ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Popis</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Popis</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Sumarizuje článok, čím pomáha čitateľom ľahšie mu porozumieť</string>
   <string name="description_edit_tutorial_keep_it_short">Píšte stručne</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
-  <string name="suggested_edits_add_descriptions">Pridať popis článku</string>
-  <string name="suggested_edits_review_description">Náhľad popisu článku</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Pridať popis článku</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Náhľad popisu článku</string>
   <string name="suggested_edits_add_description_button">Pridať popis</string>
   <string name="suggested_edits_my_contributions">Moje príspevky</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Tipy pre popisy článkov boli odomknuté!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Všimli sme si, že sa vám páči úprava popisov článkov a preto sme zostavili zoznam „Úlohy pre upravovanie z aplikácie“ s článkami, ktorým chýbajú popisy. Úlohy vám pomôžu prispievať do Wikipédie!</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Úlohy pre upravovanie z aplikácie</string>
-  <string name="suggested_edits_task_add_description_title">Pridať popis článku</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Pridať popis článku</string>
   <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
   <string name="suggested_edits_task_image_caption_title">Popisy obrázkov</string>
   <string name="suggested_edits_task_image_caption_description">Pridať popisy k obrázkom</string>

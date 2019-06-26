@@ -16,6 +16,7 @@
 * Phenolla
 * Qiyue2001
 * Shizhao
+* SinonJZH
 * TianyinLee
 * Tonylianlong
 * WQL
@@ -24,6 +25,8 @@
 * Zjzengdongyang
 * 佛壁灯
 * 水獭很懒
+* 神樂坂秀吉
+* 科劳
 -->
 <resources>
   <string name="app_name_prod">维基百科</string>
@@ -37,7 +40,7 @@
   <string name="search_hint_search_history">搜索历史</string>
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
-  <string name="nav_item_history">历史</string>
+  <string name="nav_item_history">历史记录</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -47,15 +50,15 @@
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
   <string name="menu_clear_all_history">清除历史</string>
-  <string name="history_item_deleted">%s已从历史中移除</string>
-  <string name="history_items_deleted">%d个条目已从历史中移除</string>
+  <string name="history_item_deleted">%s的历史记录已删除</string>
+  <string name="history_items_deleted">%d个条目的历史记录已删除</string>
   <string name="history_item_delete_undo">撤销</string>
   <string name="notification_archive_undo">撤销</string>
   <string name="app_settings">应用设置</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
-  <string name="dialog_message_clear_history">这将删除您所有的浏览历史，并关闭任何当前打开的标签。您确定要这样做么？</string>
-  <string name="dialog_message_clear_history_yes">是</string>
-  <string name="dialog_message_clear_history_no">否</string>
+  <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
+  <string name="dialog_message_clear_history_yes">确认</string>
+  <string name="dialog_message_clear_history_no">不</string>
   <string name="share_via">分享到…</string>
   <string name="image_share_via">分享到…</string>
   <string name="search_redirect_from">重定向自%s</string>
@@ -74,92 +77,96 @@
   <string name="menu_long_press_open_in_new_tab">在新标签页打开链接</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
   <string name="menu_text_select_copy">复制</string>
-  <string name="menu_text_select_define">定义</string>
+  <string name="menu_text_select_define">编辑定义</string>
   <string name="menu_text_select_share">分享</string>
   <string name="share">分享</string>
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此编辑</string>
   <string name="nav_item_nearby">附近</string>
-  <string name="nearby_zoom_to_location">缩放至地图上的位置</string>
+  <string name="nearby_zoom_to_location">找到地图上的位置</string>
   <string name="nearby_osm_license">&amp;copy;&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;贡献者</string>
   <string name="last_updated_text">最后更新于%s</string>
   <string name="talk_page_link_text">查看讨论页</string>
   <string name="edit_history_link_text">查看编辑历史</string>
   <string name="map_view_link_text">在地图上查看</string>
-  <string name="other_languages_indication_text">以另一语言阅读</string>
-  <string name="language_count_link_text">在%d种其他语言中可用</string>
+  <string name="other_languages_indication_text">其他语言</string>
+  <string name="language_count_link_text">在其他%d种语言中可用</string>
   <string name="content_license_html">除非另有声明，内容采用&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议发表。</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
-  <string name="preference_title_language">维基百科语言</string>
+  <string name="preference_title_language">添加维基百科语言</string>
   <string name="langlinks_filter_hint">搜索</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
-  <string name="langlinks_no_match">找不到语言</string>
-  <string name="langlinks_activity_title">其他语言</string>
-  <string name="langlinks_your_wikipedia_languages">您的维基百科语言</string>
-  <string name="menu_save_changes">发布更改</string>
-  <string name="dialog_saving_in_progress">正在发布…</string>
-  <string name="edit_saved_successfully">编辑已发布！</string>
-  <string name="dialog_message_edit_failed">编辑失败！</string>
+  <string name="langlinks_no_match">没有符合条件的语言版本</string>
+  <string name="langlinks_activity_title">查看其他语言的版本</string>
+  <string name="langlinks_your_wikipedia_languages">添加维基百科语言</string>
+  <string name="menu_save_changes">保存更改</string>
+  <string name="dialog_saving_in_progress">正在保存更改…</string>
+  <string name="edit_saved_successfully">更改保存成功！</string>
+  <string name="dialog_message_edit_failed">更改保存失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
-  <string name="dialog_message_leaving_edit">您的修改还没有发布。您确认要离开该页面吗？</string>
-  <string name="dialog_message_leaving_edit_leave">离开</string>
-  <string name="dialog_message_leaving_edit_stay">留下</string>
+  <string name="dialog_message_leaving_edit">当前更改未保存，确认要离开该页面吗？</string>
+  <string name="dialog_message_leaving_edit_leave">确认</string>
+  <string name="dialog_message_leaving_edit_stay">取消</string>
   <string name="menu_show_toc">目录</string>
-  <string name="search_no_results_found">没有搜索结果</string>
+  <string name="search_no_results_found">未找到结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
-  <string name="edit_section_captcha_message">为了防止自动垃圾信息，请输入下面显示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">无法看到图片么？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号请求\"&gt;请求新账号&lt;/a&gt;</string>
+  <string name="edit_section_captcha_message">为了防止非法的自动更改，请输入下面显示的文字</string>
+  <string name="edit_section_captcha_request_an_account_message">无法显示图片？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号申请\"&gt;新账号申请&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">请输入验证码中的文字</string>
   <string name="title_captcha">输入验证码</string>
   <string name="edit_section_captcha_reload">点按验证码重新加载</string>
-  <string name="nav_item_login">登录至维基百科</string>
+  <string name="nav_item_login">登录维基百科</string>
   <string name="login_username_hint">用户名</string>
   <string name="login_password_hint">密码</string>
   <string name="account_creation_password_hint">密码</string>
-  <string name="login_2fa_hint">双因素验证代码</string>
-  <string name="login_2fa_other_workflow_error_msg">需要双因素验证！请返回主活动页面，并通过您的2FA令牌登录，然后重试。</string>
+  <string name="login_2fa_hint">输入二元验证码</string>
+  <string name="login_2fa_other_workflow_error_msg">需要二元验证，请返回主活动页面使用2FA Token登录后重试。</string>
   <string name="onboarding_card_login">登录</string>
   <string name="page_editing_login">登录</string>
   <string name="reading_lists_sync_login">登录</string>
   <string name="create_account_login">登录</string>
   <string name="menu_login">登录</string>
-  <string name="login_activity_title">登录至维基百科</string>
+  <string name="login_activity_title">登录维基百科</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
   <string name="login_success_toast">登录成功！</string>
-  <string name="reset_password_title">设置您的密码</string>
-  <string name="reset_password_description">您已通过临时密码登录。要完成登录，请在此设置您的新密码。</string>
+  <string name="reset_password_title">重设密码</string>
+  <string name="reset_password_description">您使用了通过电子邮件发送的临时密码登录。要完成登录，您必须在此设置一个新密码：</string>
   <string name="reset_password_hint">新密码</string>
   <string name="reset_password_button">保存并登录</string>
   <string name="preference_title_logout">退出</string>
-  <string name="toast_logout_complete">已退出登录</string>
-  <string name="logout_prompt">确定要注销吗？</string>
+  <string name="toast_logout_complete">已退出</string>
+  <string name="logout_prompt">您的账号将在当前登录的所有设备下线。要继续吗？</string>
   <string name="logout_dialog_cancel_button_text">取消</string>
+  <string name="logged_out_in_background_title">已退出登录</string>
+  <string name="logged_out_in_background_dialog">您已退出登录。现在要登录吗？</string>
+  <string name="logged_out_in_background_login">登录</string>
+  <string name="logged_out_in_background_cancel">取消</string>
   <string name="history_empty_title">没有最近查看的条目</string>
   <string name="history_empty_message">在此跟踪您阅读过的东西。</string>
-  <string name="history_offline_articles_toast">部分历史文章可能在离线状态下无法显示。</string>
-  <string name="search_empty_message">以您的语言搜索并阅读自由的百科全书</string>
-  <string name="search_empty_message_multilingual_upgrade">在更多语言中搜索维基百科</string>
-  <string name="delete_selected_items">删除选定项目</string>
+  <string name="history_offline_articles_toast">历史记录中的部分条目在离线状态下无法显示。</string>
+  <string name="search_empty_message">以您的语言查阅自由的百科全书</string>
+  <string name="search_empty_message_multilingual_upgrade">在更多语言中搜索</string>
+  <string name="delete_selected_items">删除选项</string>
   <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
-  <string name="login_dont_have_account">没有账户？</string>
+  <string name="login_dont_have_account">新用户？</string>
   <string name="login_join_wikipedia">加入维基百科</string>
-  <string name="login_forgot_password">忘记了您的密码？</string>
-  <string name="create_account_already_have">已经拥有账户？</string>
-  <string name="create_account_activity_title">创建账户</string>
+  <string name="login_forgot_password">忘记密码</string>
+  <string name="create_account_already_have">已有帐户？请登录。</string>
+  <string name="create_account_activity_title">注册</string>
   <string name="dialog_create_account_checking_progress">正在验证</string>
-  <string name="create_account_email_hint">电子邮件地址（可选）</string>
-  <string name="create_account_password_repeat_hint">确认密码</string>
-  <string name="create_account_passwords_mismatch_error">两次密码不一致</string>
-  <string name="create_account_email_error">无效的电子邮件地址</string>
-  <string name="create_account_username_error">用户名中包含无效字符</string>
-  <string name="create_account_password_error">密码无效</string>
-  <string name="create_account_generic_error">无法创建账户</string>
+  <string name="create_account_email_hint">电子邮件（可选）</string>
+  <string name="create_account_password_repeat_hint">重新输入密码</string>
+  <string name="create_account_passwords_mismatch_error">密码不匹配</string>
+  <string name="create_account_email_error">电子邮件地址无效</string>
+  <string name="create_account_username_error">用户名中包含非法字符</string>
+  <string name="create_account_password_error">密码格式无效</string>
+  <string name="create_account_generic_error">无法注册</string>
   <string name="create_account_next">下一步</string>
   <string name="email_recommendation_dialog_title">创建账户而不填写电子邮件地址么？</string>
   <string name="email_recommendation_dialog_message">虽然电子邮件地址是可选项，但&lt;b&gt;强烈建议您填写&lt;/b&gt;，因为当您忘记您的密码时，需要电子邮件才能找回账户。</string>
@@ -356,7 +363,7 @@
   <string name="article_menu_bar_bookmark">添加此条目至阅读列表</string>
   <string name="article_menu_bar_share">分享条目链接</string>
   <string name="article_header_edit_hint">编辑…</string>
-  <string name="article_header_edit_description">编辑标题描述</string>
+  <string name="article_header_edit_description">编辑条目描述</string>
   <string name="article_header_edit_lead_section">编辑介绍</string>
   <string name="color_theme_select">主题</string>
   <string name="color_theme_light">日间</string>
@@ -418,6 +425,7 @@
   <string name="reading_list_add_to_other_list">添加到另一个阅读列表</string>
   <string name="reading_list_remove_from_list">从%s中移除</string>
   <string name="reading_list_remove_from_lists">从阅读列表中移除</string>
+  <string name="reading_list_select_item">选择</string>
   <string name="reading_list_confirm_remove_article_from_offline">从离线内容中移除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">出现在多个列表中的条目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s将不再用于所有阅读列表中的离线内容：</string>
@@ -482,6 +490,8 @@
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">取消</string>
   <string name="reading_list_delete_dialog_cancel_button_text">取消</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
+  <string name="reading_list_split_dialog_ok_button_text">确定</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_reverted_title">回退的编辑</string>
   <string name="notification_channel_description">下载过程</string>
@@ -541,6 +551,7 @@
   <string name="preference_summary_notification_milestone">已达成某个编辑数</string>
   <string name="preference_title_notification_thanks">感谢</string>
   <string name="preference_summary_notification_thanks">有人感谢了您的一次编辑</string>
+  <string name="preference_title_notification_revert">回退</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
   <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
@@ -590,54 +601,67 @@
   <string name="feed_empty_message">在您的探索订阅源中没有任何东西</string>
   <string name="feed_configure_onboarding_action">自定义</string>
   <string name="customize_lang_selection_dialog_ok_button_text">好</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;自定义您的浏览订阅源&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您现在可以选择在您的订阅源上显示什么，并可以排序您感兴趣的内容类型。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">确认</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
-  <string name="description_edit_text_hint">标题描述</string>
+  <string name="description_edit_text_hint">条目描述</string>
   <string name="description_edit_text_hint_per_language">%s 描述</string>
+  <string name="description_edit_caption_hint">说明</string>
   <string name="description_edit_save">发布</string>
-  <string name="description_edit_add_description">添加标题描述</string>
-  <string name="description_edit_add_description_v2">添加描述</string>
-  <string name="description_edit_translate_description" fuzzy="true">翻译标题描述</string>
+  <string name="description_edit_article">条目</string>
+  <string name="description_edit_description">描述</string>
+  <string name="description_edit_read">阅读</string>
+  <string name="description_edit_add_description">添加条目描述</string>
+  <string name="description_edit_translate_description">翻译条目描述</string>
   <string name="description_edit_edit_description">编辑描述</string>
-  <string name="add_translation">添加%s翻译</string>
+  <string name="description_edit_add_image_caption">添加图像说明</string>
+  <string name="description_edit_edit_image_caption">编辑图像说明</string>
+  <string name="description_edit_translate_image_caption">翻译图片描述</string>
   <string name="description_edit_cancel_hint">取消</string>
-  <string name="description_edit_help_title">帮助：标题描述</string>
+  <string name="description_edit_help_title">帮助：条目描述</string>
   <string name="description_edit_help_about_wikidata">关于维基数据</string>
   <string name="description_edit_help_wikidata_guide">维基数据写描述的指引</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
-  <string name="description_edit_anon_limit">感谢您对继续编辑描述感兴趣！要做出额外编辑，请登录您的维基百科账户。</string>
-  <string name="description_edit_license_notice">通过更改标题描述，表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
+  <string name="description_edit_anon_limit">感谢您对继续编辑条目描述感兴趣！要做出额外编辑，请登录您的维基百科账户。</string>
+  <string name="description_edit_license_notice">通过更改条目描述，表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
   <string name="description_edit_success_saved">描述已发布！</string>
+  <string name="description_edit_success_saved_snackbar">描述已发布！</string>
   <string name="description_edit_success_encouragement">您只是让维基百科更好地服务大家</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道吗？</string>
   <string name="description_edit_success_article_edit_hint">您也可以通过该应用编辑条目。下次可通过点击^1图标尝试修复错别字和短句</string>
-  <string name="description_edit_tutorial_title_descriptions">标题描述</string>
+  <string name="description_edit_tutorial_title_descriptions">条目描述</string>
   <string name="description_edit_tutorial_title_descriptions_summary">对条目作概括以帮助读者一眼就能理解主题</string>
   <string name="description_edit_tutorial_keep_it_short">保持简短</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">一般应为一行，2~12个字之间</string>
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">通过开始，我承诺不会滥用该功能。</string>
-  <string name="suggested_edits_add_descriptions">添加标题描述</string>
-  <string name="suggested_edits_review_description">巡查标题描述</string>
+  <string name="suggested_edits_add_descriptions">添加条目描述</string>
+  <string name="suggested_edits_translate_descriptions">翻译条目描述</string>
+  <string name="suggested_edits_add_image_captions">添加说明文字</string>
+  <string name="suggested_edits_translate_image_captions">翻译图片描述</string>
+  <string name="suggested_edits_review_description">巡查条目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>
+  <string name="suggested_edits_edit_description_button">编辑描述</string>
+  <string name="suggested_edits_add_translation_button">添加翻译</string>
+  <string name="suggested_edits_edit_translation_button">编辑翻译</string>
+  <string name="suggested_edits_add_caption_button">添加说明文字</string>
   <string name="suggested_edits_my_contributions">我的贡献</string>
-  <string name="suggested_edits_added_by_you">由您添加：</string>
-  <string name="suggested_edits_translated_by_you">由您翻译：</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">“词条描述”编辑任务列表已解锁！</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">我们注意到您偏好编辑条目描述，故我们汇编了一个内含缺少标题描述的条目的“应用程序编者任务”列表来助你持续贡献！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">编辑标题描述功能已解锁！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">我们注意到您喜欢编辑标题描述，同时也常阅读多种语言版本的维基百科词条。欢迎查看此列表并帮助我们翻译更多的标题描述。</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">以后再说</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">我们整理了一份缺少字幕的图片清单。您能帮我们改进维基百科吗？</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">编者任务</string>
-  <string name="suggested_edits_task_add_description_title">添加标题描述</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">添加标题描述</string>
   <string name="suggested_edits_task_add_description_description">跳过概述并直接编辑文章</string>
   <string name="suggested_edits_task_image_caption_title">图片描述</string>
   <string name="suggested_edits_task_image_caption_description">为图片添加描述</string>
   <string name="suggested_edits_task_multilingual_title">更多语言 更多任务</string>
   <string name="suggested_edits_task_multilingual_description">如果你掌握多种语言，那么你可以接收更多的翻译任务。</string>
-  <string name="suggested_edits_task_translation_title">翻译标题描述</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">翻译标题描述</string>
   <string name="suggested_edits_task_translation_description">将标题说明翻译成其他语言。</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">在应用内完成%d次经验证的编辑后方可解锁</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">完成%d次词条概述后方可解锁</string>
@@ -652,6 +676,7 @@
   <string name="suggested_edits_feed_card_title">建议编辑</string>
   <string name="suggested_edits_tutorial_message">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
+  <string name="suggested_edits_feed_card_add_description_button">添加文章描述</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

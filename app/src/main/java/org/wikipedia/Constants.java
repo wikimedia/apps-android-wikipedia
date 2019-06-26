@@ -32,7 +32,6 @@ public final class Constants {
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
 
     public static final String INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading";
-    public static final String INTENT_APP_SHORTCUT_RANDOM = "appShortcutRandom";
 
     public static final String INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber";
     public static final String INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList";
@@ -47,6 +46,7 @@ public final class Constants {
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
 
+    public static final int PREFERRED_CARD_THUMBNAIL_SIZE = 800;
     public static final int PREFERRED_GALLERY_IMAGE_SIZE = 1280;
 
     public static final int MAX_TABS = 100;
@@ -69,10 +69,14 @@ public final class Constants {
         ON_THIS_DAY_ACTIVITY,
         READ_MORE_BOOKMARK_BUTTON,
         BOOKMARK_BUTTON,
-        EDIT_FEED_TITLE_DESC,
-        EDIT_FEED_TRANSLATE_TITLE_DESC,
+        SUGGESTED_EDITS_ADD_DESC,
+        SUGGESTED_EDITS_TRANSLATE_DESC,
+        SUGGESTED_EDITS_ADD_CAPTION,
+        SUGGESTED_EDITS_TRANSLATE_CAPTION,
         FEED_CARD_SUGGESTED_EDITS_ADD_DESC,
         FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC,
+        FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION,
+        FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION,
         SUGGESTED_EDITS_ONBOARDING,
         ONBOARDING_DIALOG,
         FEED,

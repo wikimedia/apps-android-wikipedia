@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/view_link_preview_error_icon"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_margin="16dp"
         android:layout_gravity="center_horizontal"
-        app:tint="?attr/material_theme_secondary_color"
+        android:layout_margin="16dp"
+        android:contentDescription="@null"
         app:srcCompat="@drawable/ic_error_black_24dp"
-        android:contentDescription="@null"/>
+        app:tint="?attr/material_theme_secondary_color" />
+
     <TextView
         android:id="@+id/view_link_preview_error_text"
+        style="@style/MaterialMediumSecondaryCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        style="@style/MaterialMediumSecondaryCaption"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:textAlignment="center"
-        android:text="@string/error_message_generic"/>
+        android:text="@string/error_message_generic"
+        android:textAlignment="center" />
 </merge>

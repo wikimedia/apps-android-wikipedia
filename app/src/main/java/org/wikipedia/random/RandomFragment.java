@@ -151,7 +151,7 @@ public class RandomFragment extends Fragment {
     }
 
     public void onSelectPage(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForNewTab(requireActivity(),
+        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(),
                 new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title));
     }
 

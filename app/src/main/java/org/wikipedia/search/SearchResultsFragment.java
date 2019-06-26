@@ -16,6 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
@@ -454,7 +456,7 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private final class SearchResultAdapter extends BaseAdapter {
+    private final class SearchResultAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener {
         private final LayoutInflater inflater;
 
         SearchResultAdapter(LayoutInflater inflater) {
@@ -480,10 +482,13 @@ public class SearchResultsFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item_search_result, parent, false);
+                convertView.setOnClickListener(this);
+                convertView.setOnLongClickListener(this);
             }
             TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = (SearchResult) getItem(position);
 
+            SimpleDraweeView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
             GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
             TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
             View redirectArrow = convertView.findViewById(R.id.page_list_item_redirect_arrow);
@@ -501,7 +506,8 @@ public class SearchResultsFragment extends Fragment {
             // highlight search term within the text
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
-            ViewUtil.loadImageUrlInto(convertView.findViewById(R.id.page_list_item_image),
+            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
+            ViewUtil.loadImageUrlInto(searchResultItemImage,
                     result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
@@ -516,17 +522,22 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
 
-            convertView.setOnClickListener((view) -> {
-                Callback callback = callback();
-                if (callback != null) {
-                    PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-                    callback.navigateToTitle(item, false, position);
-                }
-            });
-
-            convertView.setOnLongClickListener(view -> false);
-
+            convertView.setTag(position);
             return convertView;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Callback callback = callback();
+            int position = (int) v.getTag();
+            if (callback != null && position < totalResults.size()) {
+                callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+            }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            return false;
         }
     }
 

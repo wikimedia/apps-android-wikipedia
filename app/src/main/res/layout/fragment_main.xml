@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_main_container"
     android:layout_width="match_parent"
@@ -9,8 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="?attr/actionBarSize">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/fragment_main_coordinator"
@@ -21,7 +20,7 @@
             <org.wikipedia.readinglist.NoSwipeViewPager
                 android:id="@+id/fragment_main_view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -30,11 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="bottom"
-            android:elevation="6dp"
             android:background="?attr/nav_tab_background_color"
-            app:tabGravity="fill"
+            android:elevation="6dp"
             app:itemIconTint="?attr/nav_tab_item_color_state"
             app:itemTextColor="?attr/nav_tab_item_color_state"
+            app:tabGravity="fill"
             app:tabIndicatorColor="@android:color/transparent" />
 
     </LinearLayout>

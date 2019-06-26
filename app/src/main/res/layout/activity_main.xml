@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.WikiDrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.WikiDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_drawer"
@@ -16,7 +15,7 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/single_fragment_toolbar"
@@ -55,11 +54,11 @@
                         android:layout_width="8dp"
                         android:layout_height="8dp"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginStart="8dp"
+                        android:layout_marginBottom="8dp"
                         android:contentDescription="@null"
-                        android:visibility="gone"
                         android:tint="?attr/colorAccent"
+                        android:visibility="gone"
                         app:srcCompat="@drawable/shape_circle" />
                 </FrameLayout>
 
@@ -80,5 +79,5 @@
         android:layout_width="288dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="?attr/paper_color"/>
+        android:background="?attr/paper_color" />
 </org.wikipedia.views.WikiDrawerLayout>

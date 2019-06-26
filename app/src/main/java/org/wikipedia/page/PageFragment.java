@@ -495,32 +495,36 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return app.getTabList().get(app.getTabList().size() - 1);
     }
 
-    private void setCurrentTab(int position) {
+    private void setCurrentTabAndReset(int position) {
         // move the selected tab to the bottom of the list, and navigate to it!
         // (but only if it's a different tab than the one currently in view!
         if (position < app.getTabList().size() - 1) {
             Tab tab = app.getTabList().remove(position);
             app.getTabList().add(tab);
             pageFragmentLoadState.setTab(tab);
+        }
+        if (app.getTabCount() > 0) {
+            app.getTabList().get(app.getTabList().size() - 1).squashBackstack();
             pageFragmentLoadState.loadFromBackStack();
         }
     }
 
-    public void openInNewBackgroundTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
+    public void openInNewBackgroundTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         if (app.getTabCount() == 0) {
-            openInNewForegroundTabFromMenu(title, entry);
+            openInNewTab(title, entry, getForegroundTabPosition());
+            pageFragmentLoadState.loadFromBackStack();
         } else {
-            openInNewTabFromMenu(title, entry, getBackgroundTabPosition());
+            openInNewTab(title, entry, getBackgroundTabPosition());
             ((PageActivity) requireActivity()).animateTabsButton();
         }
     }
 
-    public void openInNewForegroundTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        openInNewTabFromMenu(title, entry, getForegroundTabPosition());
+    public void openInNewForegroundTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
+        openInNewTab(title, entry, getForegroundTabPosition());
         pageFragmentLoadState.loadFromBackStack();
     }
 
-    private void openInNewTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
+    private void openInNewTab(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
         int selectedTabPosition = -1;
         for (Tab tab : app.getTabList()) {
             if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().equals(title)) {
@@ -528,15 +532,32 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 break;
             }
         }
-        if (selectedTabPosition == -1) {
-            openInNewTab(title, entry, position);
-            tabFunnel.logOpenInNew(app.getTabList().size());
+        if (selectedTabPosition >= 0) {
+            setCurrentTabAndReset(selectedTabPosition);
             return;
         }
-        if (selectedTabPosition == app.getTabList().size() - 1) {
-            pageFragmentLoadState.loadFromBackStack();
+
+        tabFunnel.logOpenInNew(app.getTabList().size());
+
+        if (shouldCreateNewTab()) {
+            // create a new tab
+            Tab tab = new Tab();
+            boolean isForeground = position == getForegroundTabPosition();
+            // if the requested position is at the top, then make its backstack current
+            if (isForeground) {
+                pageFragmentLoadState.setTab(tab);
+            }
+            // put this tab in the requested position
+            app.getTabList().add(position, tab);
+            trimTabCount();
+            // add the requested page to its backstack
+            tab.getBackStack().add(new PageBackStackItem(title, entry));
+            if (!isForeground) {
+                loadIntoCache(title);
+            }
+            requireActivity().invalidateOptionsMenu();
         } else {
-            setCurrentTab(selectedTabPosition);
+            getCurrentTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
     }
 
@@ -550,17 +571,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         }
         if (selectedTabPosition == -1) {
-            loadPage(title, entry, true);
+            loadPage(title, entry, true, true);
             return;
         }
-        if (selectedTabPosition == app.getTabList().size() - 1) {
-            pageFragmentLoadState.loadFromBackStack();
-        } else {
-            setCurrentTab(selectedTabPosition);
-        }
+        setCurrentTabAndReset(selectedTabPosition);
     }
 
-    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean pushBackStack) {
+    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean pushBackStack, boolean squashBackstack) {
         //is the new title the same as what's already being displayed?
         if (!getCurrentTab().getBackStack().isEmpty()
                 && getCurrentTab().getBackStack().get(getCurrentTab().getBackStackPosition()).getTitle().equals(title)) {
@@ -571,7 +588,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             return;
         }
-
+        if (squashBackstack) {
+            if (app.getTabCount() > 0) {
+                app.getTabList().get(app.getTabList().size() - 1).clearBackstack();
+            }
+        }
         loadPage(title, entry, pushBackStack, 0);
     }
 
@@ -668,7 +689,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             pageFragmentLoadState.backFromEditing(data);
             FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully);
             // and reload the page...
-            loadPage(model.getTitleOriginal(), model.getCurEntry(), false);
+            loadPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
                 && resultCode == RESULT_OK) {
             Prefs.setDescriptionEditTutorialEnabled(false);
@@ -861,29 +882,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         FragmentActivity currentActivity = requireActivity();
         if (currentActivity instanceof PageActivity) {
             ((PageActivity) currentActivity).clearActionBarTitle();
-        }
-    }
-
-    private void openInNewTab(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
-        if (shouldCreateNewTab()) {
-            // create a new tab
-            Tab tab = new Tab();
-            boolean isForeground = position == getForegroundTabPosition();
-            // if the requested position is at the top, then make its backstack current
-            if (isForeground) {
-                pageFragmentLoadState.setTab(tab);
-            }
-            // put this tab in the requested position
-            app.getTabList().add(position, tab);
-            trimTabCount();
-            // add the requested page to its backstack
-            tab.getBackStack().add(new PageBackStackItem(title, entry));
-            if (!isForeground) {
-                loadIntoCache(title);
-            }
-            requireActivity().invalidateOptionsMenu();
-        } else {
-            getCurrentTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
     }
 

@@ -48,7 +48,6 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
-import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
@@ -68,7 +67,6 @@ import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
-import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
@@ -207,9 +205,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void handleIntent(Intent intent) {
-        if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), APP_SHORTCUTS));
-        } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
+        if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 && !((tabLayout.getSelectedItemId() == NavTab.EXPLORE.code())
@@ -234,7 +230,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override public void onFeedSelectPageFromExistingTab(HistoryEntry entry) {
@@ -333,7 +329,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override public void onClearHistory() {
@@ -341,7 +337,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        if (inNewTab) {
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        } else {
+            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        }
     }
 
     @Override

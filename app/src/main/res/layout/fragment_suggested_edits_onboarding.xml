@@ -1,6 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/edit_onboarding_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,14 +8,14 @@
     tools:context="org.wikipedia.onboarding.SuggestedEditsOnboardingFragment">
 
     <org.wikipedia.onboarding.OnboardingPageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
         app:centeredImage="@drawable/ic_editor_onboarding"
         app:imageSize="207dp"
         app:primaryText="@string/suggested_edits_tasks_activity_title"
         app:secondaryText="@string/suggested_edits_tutorial_message"
-        app:tertiaryText="@string/description_edit_tutorial_promise"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible" />
+        app:tertiaryText="@string/description_edit_tutorial_promise" />
 
     <View
         android:layout_width="match_parent"

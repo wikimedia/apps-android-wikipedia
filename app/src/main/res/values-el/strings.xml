@@ -124,6 +124,10 @@
   <string name="reset_password_button">Αποθήκευση και σύνδεση</string>
   <string name="preference_title_logout">Αποσύνδεση</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
+  <string name="logged_out_in_background_title">Αποσύνδεση</string>
+  <string name="logged_out_in_background_dialog">Αποσυνδεθήκατε από τη Wikipedia. Θα θέλατε να ξανασυνδεθείτε;</string>
+  <string name="logged_out_in_background_login">Σύνδεση</string>
+  <string name="logged_out_in_background_cancel">Ακύρωση</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Ιχνηλατήστε τι έχετε διαβάσει εδώ.</string>
   <string name="history_offline_articles_toast">Μερικά άρθρα στο ιστορικό μπορεί να μην είναι προσβάσιμα όταν είστε offline.</string>
@@ -323,7 +327,7 @@
   <string name="article_menu_bar_bookmark">Προσθέστε αυτό το λήμμα  σε λίστα ανάγνωσης</string>
   <string name="article_menu_bar_share">Κοινοποιήστε τον σύνδεσμο του λήμματος</string>
   <string name="article_header_edit_hint">Επεξεργασία...</string>
-  <string name="article_header_edit_description">Επεξεργασία περιγραφής τίτλου</string>
+  <string name="article_header_edit_description" fuzzy="true">Επεξεργασία περιγραφής τίτλου</string>
   <string name="article_header_edit_lead_section">Εισαγωγή επεξεργασίας</string>
   <string name="color_theme_select">Θέμα</string>
   <string name="color_theme_light">Φωτεινό</string>
@@ -423,7 +427,7 @@
     <item quantity="one">Αυτό το λήμμα δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα δεν θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Τελευταίος συγχρονισμός</string>
+  <string name="reading_list_toast_last_sync">Τελευταίος συγχρονισμός</string>
   <string name="reading_list_menu_last_sync">Τελευταίος συγχρονισμός: %s</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>
@@ -507,22 +511,22 @@
   <string name="feed_empty_message">Δεν υπάρχει τίποτα στην ροή εξερεύνησής σας</string>
   <string name="feed_configure_onboarding_action">Προσαρμογή</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Εξατομικεύστε την ροή εξερεύνησής σας&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Τώρα μπορείτε να επιλέξετε τι θα δείξετε στην ροή σας, καθώς και να βάλετε σε προτεραιότητα τους αγαπημένους τύπους περιεχομένου σας.</string>
-  <string name="description_edit_text_hint">Περιγραφή τίτλου</string>
+  <string name="description_edit_text_hint" fuzzy="true">Περιγραφή τίτλου</string>
   <string name="description_edit_save">Δημοσίευση</string>
-  <string name="description_edit_add_description">Προσθήκη περιγραφής τίτλου</string>
+  <string name="description_edit_add_description" fuzzy="true">Προσθήκη περιγραφής τίτλου</string>
   <string name="description_edit_edit_description">Επεξεργασία περιγραφής</string>
   <string name="description_edit_cancel_hint">Ακύρωση</string>
-  <string name="description_edit_help_title">Βοήθεια: περιγραφές τίτλων</string>
+  <string name="description_edit_help_title" fuzzy="true">Βοήθεια: περιγραφές τίτλων</string>
   <string name="description_edit_help_about_wikidata">Σχετικά με τα Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Οδηγός των Wikidata για περιγραφές συγγραφής</string>
-  <string name="description_edit_anon_limit">Ευχαριστούμε για το συνεχιζόμενο ενδιαφέρον σας στις περιγραφές επεξεργασίας! Για να κάνετε πρόσθετες επεξεργασίες, παρακαλώ συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια.</string>
-  <string name="description_edit_license_notice">Αλλάζοντας την περιγραφή τίτλου, συμφωνώ με τιυς &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και χωρίς δημοσιεύω τις συνεισφορές μου υπό την άδεια &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;</string>
-  <string name="description_edit_success_saved">Η περιγραφή δημοσιεύτηκε</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Ευχαριστούμε για το συνεχιζόμενο ενδιαφέρον σας στις περιγραφές επεξεργασίας! Για να κάνετε πρόσθετες επεξεργασίες, παρακαλώ συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Αλλάζοντας την περιγραφή τίτλου, συμφωνώ με τιυς &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και χωρίς δημοσιεύω τις συνεισφορές μου υπό την άδεια &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;</string>
+  <string name="description_edit_success_saved" fuzzy="true">Η περιγραφή δημοσιεύτηκε</string>
   <string name="description_edit_success_encouragement">Μόλις κάνατε την Βικιπαίδεια καλύτερη για τον καθένα</string>
   <string name="description_edit_success_done">Έγινε</string>
   <string name="description_edit_success_did_you_know">Γνωρίζατε ότι...;</string>
   <string name="description_edit_success_article_edit_hint">Μπορείτε να επεξεργαστείτε επίσης λήμματα με αυτή την εφαρμογή. Προσπαθήστε να διορθώσετε ορθογραφικά λάθη και μικρές προτάσεις κλικάροντας στην εικόνα ^1 την επόμενη φορά</string>
-  <string name="description_edit_tutorial_title_descriptions">Περιγραφές τίτλου</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Περιγραφές τίτλου</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Συνοψίζει ένα λήμμα για να βοηθήσουν αναγνώστες να κατανοήσουν το θέμα με μια ματιά</string>
   <string name="description_edit_tutorial_keep_it_short">Κρατήστε το σύντομο</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ιδανικά μια γραμμή, μεταξύ δύο και δώδεκα λέξεων</string>
