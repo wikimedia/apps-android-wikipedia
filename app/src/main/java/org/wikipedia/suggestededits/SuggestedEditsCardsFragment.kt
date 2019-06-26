@@ -74,6 +74,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+        source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
 
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
         SuggestedEditsFunnel.get().impression(source)
@@ -81,7 +82,6 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
         return inflater.inflate(R.layout.fragment_suggested_edits_cards, container, false)
     }
 
