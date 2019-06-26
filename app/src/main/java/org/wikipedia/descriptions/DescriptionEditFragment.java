@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
+import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -88,7 +90,6 @@ public class DescriptionEditFragment extends Fragment {
     private PageTitle pageTitle;
     private SuggestedEditsSummary sourceSummary;
     private SuggestedEditsSummary targetSummary;
-    private boolean reviewEnabled;
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
@@ -111,9 +112,10 @@ public class DescriptionEditFragment extends Fragment {
                 return;
             }
             editView.setSaveState(false);
-            if (!reviewEnabled) {
+            if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == PAGE_ACTIVITY) {
                 startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+                Prefs.shouldShowDescriptionEditSuccessPrompt(false);
             } else {
                 requireActivity().setResult(RESULT_OK,
                         new Intent().putExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION, editView.getDescription()));
@@ -148,7 +150,6 @@ public class DescriptionEditFragment extends Fragment {
                 : DescriptionEditFunnel.Type.EXISTING;
         highlightText = getArguments().getString(ARG_HIGHLIGHT_TEXT);
         invokeSource = (InvokeSource) getArguments().getSerializable(ARG_INVOKE_SOURCE);
-        reviewEnabled = invokeSource != PAGE_ACTIVITY;
 
         if (getArguments().getString(ARG_SOURCE_SUMMARY) != null) {
             sourceSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getArguments().getString(ARG_SOURCE_SUMMARY));
@@ -168,18 +169,7 @@ public class DescriptionEditFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
-        editView.setInvokeSource(invokeSource);
-        editView.setPageTitle(pageTitle);
-        editView.setHighlightText(highlightText);
-        editView.setCallback(new EditViewCallback());
-        editView.editTaskEnabled(reviewEnabled);
-        if (reviewEnabled) {
-            editView.setSummaries(requireActivity(), sourceSummary, targetSummary);
-            if (savedInstanceState != null) {
-                editView.setDescription(savedInstanceState.getString(ARG_DESCRIPTION));
-                editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
-            }
-        }
+        loadPageSummaryIfNeeded(savedInstanceState);
 
         if (funnel != null) {
             funnel.logReady();
@@ -204,7 +194,7 @@ public class DescriptionEditFragment extends Fragment {
     @Override public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(ARG_DESCRIPTION, editView.getDescription());
-        outState.putBoolean(ARG_REVIEWING, reviewEnabled && editView.showingReviewContent());
+        outState.putBoolean(ARG_REVIEWING, editView.showingReviewContent());
     }
 
     @Override
@@ -229,6 +219,31 @@ public class DescriptionEditFragment extends Fragment {
         disposables.clear();
     }
 
+    private void loadPageSummaryIfNeeded(Bundle savedInstanceState) {
+        if (invokeSource == PAGE_ACTIVITY && TextUtils.isEmpty(sourceSummary.getExtractHtml())) {
+            disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
+                    .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doFinally(() -> setUpEditView(savedInstanceState))
+                    .subscribe(summary -> sourceSummary.setExtractHtml(summary.getExtractHtml()), L::e));
+        } else {
+            setUpEditView(savedInstanceState);
+        }
+    }
+
+    private void setUpEditView(Bundle savedInstanceState) {
+        editView.setInvokeSource(invokeSource);
+        editView.setPageTitle(pageTitle);
+        editView.setHighlightText(highlightText);
+        editView.setCallback(new EditViewCallback());
+        editView.setSummaries(requireActivity(), sourceSummary, targetSummary);
+        if (savedInstanceState != null) {
+            editView.setDescription(savedInstanceState.getString(ARG_DESCRIPTION));
+            editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
+        }
+    }
+
     private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
@@ -240,7 +255,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onSaveClick() {
-            if (reviewEnabled && !editView.showingReviewContent()) {
+            if (!editView.showingReviewContent()) {
                 editView.loadReviewContent(true);
             } else {
                 editView.setError(null);
@@ -367,7 +382,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onCancelClick() {
-            if (reviewEnabled && editView.showingReviewContent()) {
+            if (editView.showingReviewContent()) {
                 editView.loadReviewContent(false);
             } else {
                 hideSoftKeyboard(requireActivity());

@@ -49,22 +49,15 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
+                                   @Nullable SuggestedEditsSummary sourceSummary,
+                                   @Nullable SuggestedEditsSummary targetSummary,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
-    }
-
-
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull PageTitle title,
-                                   @Nullable SuggestedEditsSummary sourceSummary,
-                                   @Nullable SuggestedEditsSummary targetSummary,
-                                   @NonNull InvokeSource invokeSource) {
-        return newIntent(context, title, null, invokeSource)
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
-                .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary));
+                .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary))
+                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
     @Override
