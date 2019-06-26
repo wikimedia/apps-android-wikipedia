@@ -130,7 +130,7 @@ public final class UriUtil {
         return removeFragment(removeLinkPrefix(url)).replace("_", " ");
     }
 
-    /** Get language variant code from a Uri, e.g. "zh*", otherwise returns empty string. */
+    /** Get language variant code from a Uri, e.g. "zh.*", otherwise returns empty string. */
     @NonNull
     public static String getLanguageVariantFromUri(@NonNull Uri uri) {
         if (TextUtils.isEmpty(uri.getPath())) {
