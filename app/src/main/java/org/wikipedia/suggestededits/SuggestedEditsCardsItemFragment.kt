@@ -276,7 +276,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
@@ -297,7 +297,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         viewImageSource!!.setDetailText(sourceSummary!!.metadata!!.credit())
         viewImageLicense!!.setDetailText(sourceSummary!!.metadata!!.licenseShortName())
 
-        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
         viewArticleExtract.visibility = GONE
     }
 
