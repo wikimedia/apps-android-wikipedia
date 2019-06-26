@@ -865,10 +865,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, enabled);
     }
 
-    public static boolean shouldShowSuggestedEditsCardsForTesting() {
-        return getBoolean(R.string.preference_key_show_suggested_edits_cards_testing, false);
-    }
-
     public static boolean wasLoggedOutInBackground() {
         return getBoolean(R.string.preference_key_logged_out_in_background, false);
     }
