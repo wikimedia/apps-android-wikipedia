@@ -303,10 +303,6 @@
             android:key="@string/preference_key_suggested_edits_translate_descriptions_unlocked"
             android:title="@string/preference_key_suggested_edits_translate_descriptions_unlocked" />
 
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_suggested_edits_cards_testing"
-            android:title="@string/preference_key_show_suggested_edits_cards_testing" />
-
         <Preference
             android:key="@string/preferences_developer_suggested_edits_add_description_dialog"
             android:title="@string/preferences_developer_suggested_edits_add_description_dialog"/>
