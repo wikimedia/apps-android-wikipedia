@@ -303,7 +303,7 @@ public class LeadImagesHandler {
 
             @Override
             public void onCallToActionContainerClicked() {
-                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), getTitle(), sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
+                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), getTitle(), null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT);
             }
         });
