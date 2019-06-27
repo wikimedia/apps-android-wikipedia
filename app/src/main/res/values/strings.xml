@@ -690,7 +690,7 @@
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
     <string name="suggested_edits_unlock_add_captions_dialog_title">You unlocked the "Add image captions" task</string>
     <string name="suggested_edits_unlock_add_captions_notification_title">You unlocked "Add image captions"</string>
-    <string name="suggested_edits_unlock_add_captions_dialog_message"> Thanks for all your image caption edits! Since we see you like adding captions to images, we’ve compiled a list of images missing captions. Could you help us improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_add_captions_dialog_message">Thanks for all your image caption edits! Since we see you like adding captions to images, we’ve compiled a list of images missing captions. Could you help us improve Wikipedia?</string>
     <string name="suggested_edits_unlock_add_captions_notification_big_text">Suggested edits\n\n Thanks for all your image caption edits! Since we see you like adding captions to images, we’ve compiled a list of images missing captions. Could you help us improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_captions_dialog_title">You unlocked the "Translate image captions" task</string>
     <string name="suggested_edits_unlock_translate_captions_notification_title">You unlocked "Translate image captions"</string>
