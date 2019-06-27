@@ -4,6 +4,7 @@
     android:id="@+id/suggestedEditsItemRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="4dp"
     android:paddingBottom="20dp">
 
     <androidx.cardview.widget.CardView
@@ -13,7 +14,6 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
@@ -50,8 +50,9 @@
                 android:id="@+id/viewArticleImage"
                 style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                 android:layout_width="match_parent"
-                android:layout_height="201dp"
+                android:layout_height="wrap_content"
                 app:actualImageScaleType="focusCrop"
+                app:viewAspectRatio="1.77"
                 app:fadeDuration="0" />
 
             <LinearLayout

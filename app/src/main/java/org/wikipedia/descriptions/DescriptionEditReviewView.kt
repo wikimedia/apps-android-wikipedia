@@ -53,7 +53,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             articleImage.visibility = VISIBLE
-            articleImage.loadImage(Uri.parse(summary.thumbnailUrl))
+            articleImage.loadImage(Uri.parse(summary.getPreferredSizeThumbnailUrl()))
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
         licenseView.removeUnderlinesFromLinks()
@@ -67,7 +67,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
             galleryImage.visibility = GONE
         } else {
             galleryImage.visibility = VISIBLE
-            galleryImage.loadImage(Uri.parse(summary.thumbnailUrl))
+            galleryImage.loadImage(Uri.parse(summary.getPreferredSizeThumbnailUrl()))
         }
         licenseView.darkLicenseView()
     }
