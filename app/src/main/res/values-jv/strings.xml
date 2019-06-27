@@ -539,9 +539,7 @@
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
   <string name="description_edit_text_hint" fuzzy="true">Wedharaning sesirah</string>
-  <string name="description_edit_text_hint_per_language">%s wedharan</string>
   <string name="description_edit_save">Babar</string>
-  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Waca</string>
   <string name="description_edit_add_description" fuzzy="true">Wuwuh wedharaning sesirah</string>
   <string name="description_edit_translate_description" fuzzy="true">Pertal wedharan</string>

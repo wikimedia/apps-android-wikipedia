@@ -582,12 +582,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
   <string name="description_edit_text_hint">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
-  <string name="description_edit_text_hint_per_language">ၶေႃႈသပ်းလႅင်း %s</string>
-  <string name="description_edit_caption_hint_per_language">ႁူဝ်ၶေႃႈ %s</string>
-  <string name="description_edit_caption_hint">ႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_save">ပိုၼ်ဢွၵ်ႇ</string>
-  <string name="description_edit_article">ပွင်ႈၵႂၢမ်း</string>
-  <string name="description_edit_description">ၶေႃႈသပ်းလႅင်း</string>
   <string name="description_edit_read">လူတူၺ်း</string>
   <string name="description_edit_add_description">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်းႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_translate_description">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
@@ -662,7 +657,7 @@
   <string name="suggested_edits_task_multilingual_description">ပေႃးဝႃႈၸဝ်ႈၵဝ်ႇ လူ လႄႈ တႅမ်ႈ တီႈ ၽႃႇသႃႇၵႂၢမ်းဝီႇၶီႇၽီးတီးယႃး လိူဝ်ဢၼ်ၼိုင်ႈၼႆၸိုင် ၵၢၼ်ပိၼ်ႇၽႃႇသႃႇၼႆႉ ၸႂ်ႉလႆႈယဝ်ႉ။</string>
   <string name="suggested_edits_task_translation_title">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_task_translation_description">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း တီႈ ၽႃႇသႃႇပွင်ႈၵႂၢမ်း လၢႆဢၼ်</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">ၶတ်းသေႃးဝႆႉ ႁၢၼ်ႉတေႃႇထိုင် ၸဝ်ႈၵဝ်ႇ ၼႄႉၼွၼ်းလွင်ႈၶဝ်ႈႁူမ်ႈ %d ၼၼ်ႉ</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">ၶတ်းသေႃးဝႆႉ ႁၢၼ်ႉတေႃႇထိုင် ၸဝ်ႈၵဝ်ႇ ၼႄႉၼွၼ်းလွင်ႈၶဝ်ႈႁူမ်ႈ %d ၼၼ်ႉ</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">ၶတ်းသေႃးဝႆႉ ႁၢၼ်ႉတေႃႇထိုင် ၸဝ်ႈၵဝ်ႇ ၼႄႉၼွၼ်းလွင်ႈၶဝ်ႈႁူမ်ႈ %d ၼၼ်ႉ</string>
   <string name="suggested_edits_task_multilingual_negative">ဢမ်ႇၸႂ်ႈတႃႇၵဝ်ၶႃႈ</string>
   <string name="suggested_edits_task_multilingual_positive">ထႅမ်သႂ်ၢႇ ၽႃႇသႃႇၵႂၢမ်း</string>

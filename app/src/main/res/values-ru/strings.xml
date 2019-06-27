@@ -629,12 +629,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="description_edit_text_hint">Описание статьи</string>
-  <string name="description_edit_text_hint_per_language">%s описание</string>
-  <string name="description_edit_caption_hint_per_language">описание (%s)</string>
-  <string name="description_edit_caption_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
-  <string name="description_edit_article">Статья</string>
-  <string name="description_edit_description">Краткое описание</string>
   <string name="description_edit_read">Читать</string>
   <string name="description_edit_add_description">Добавить описание статьи</string>
   <string name="description_edit_translate_description">Перевод описаний статей</string>
@@ -710,7 +705,7 @@
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="suggested_edits_task_translation_title">Перевод описаний статей</string>
   <string name="suggested_edits_task_translation_description">Перевод кратких описаний на другие языки.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>

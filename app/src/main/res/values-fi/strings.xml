@@ -598,9 +598,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="description_edit_text_hint" fuzzy="true">Otsikon kuvaus</string>
-  <string name="description_edit_text_hint_per_language">Kuvaus kielellä %s</string>
   <string name="description_edit_save">Julkaise</string>
-  <string name="description_edit_article">Artikkeli</string>
   <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description" fuzzy="true">Lisää otsikon kuvaus</string>
   <string name="description_edit_translate_description" fuzzy="true">Käännä kuvaukset</string>
@@ -643,7 +641,7 @@
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Käännä kuvaukset</string>
   <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>
