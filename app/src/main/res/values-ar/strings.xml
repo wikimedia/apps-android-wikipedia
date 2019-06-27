@@ -608,12 +608,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">حسنا</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
   <string name="description_edit_text_hint">وصف المقالة</string>
-  <string name="description_edit_text_hint_per_language">وصف %s</string>
-  <string name="description_edit_caption_hint_per_language">شرح %s</string>
-  <string name="description_edit_caption_hint">تعليق</string>
   <string name="description_edit_save">انشر</string>
-  <string name="description_edit_article">مقالة</string>
-  <string name="description_edit_description">الوصف</string>
   <string name="description_edit_read">قراءة</string>
   <string name="description_edit_add_description">إضافة وصف المقالة</string>
   <string name="description_edit_translate_description">ترجمة وصف المقالة</string>

@@ -613,12 +613,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">تأیید</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">لغو</string>
   <string name="description_edit_text_hint">توضیحات مقاله</string>
-  <string name="description_edit_text_hint_per_language">%s توضیح</string>
-  <string name="description_edit_caption_hint_per_language">%s عنوان</string>
-  <string name="description_edit_caption_hint">عنوان</string>
   <string name="description_edit_save">منتشر</string>
-  <string name="description_edit_article">مقاله</string>
-  <string name="description_edit_description">توضیح</string>
   <string name="description_edit_read">خواندن</string>
   <string name="description_edit_add_description">افزودن توضیحات مقاله</string>
   <string name="description_edit_translate_description">ترجمه توضیحات مقاله</string>

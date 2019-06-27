@@ -614,12 +614,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="description_edit_text_hint">Description de l\'article</string>
-  <string name="description_edit_text_hint_per_language">description de %s</string>
-  <string name="description_edit_caption_hint_per_language">légende de %s</string>
-  <string name="description_edit_caption_hint">Légende</string>
   <string name="description_edit_save">Publier</string>
-  <string name="description_edit_article">Article</string>
-  <string name="description_edit_description">Description</string>
   <string name="description_edit_read">Lire</string>
   <string name="description_edit_add_description">Ajouter une description d\'article</string>
   <string name="description_edit_translate_description">Traduire la description de l’article</string>

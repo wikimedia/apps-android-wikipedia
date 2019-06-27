@@ -629,12 +629,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
   <string name="description_edit_text_hint">Описание статьи</string>
-  <string name="description_edit_text_hint_per_language">%s описание</string>
-  <string name="description_edit_caption_hint_per_language">описание (%s)</string>
-  <string name="description_edit_caption_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
-  <string name="description_edit_article">Статья</string>
-  <string name="description_edit_description">Краткое описание</string>
   <string name="description_edit_read">Читать</string>
   <string name="description_edit_add_description">Добавить описание статьи</string>
   <string name="description_edit_translate_description">Перевод описаний статей</string>
