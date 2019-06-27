@@ -681,7 +681,7 @@
   <string name="suggested_edits_task_multilingual_description">若您有在一種以上語言的維基百科做出讀寫，則可進行翻譯任務。</string>
   <string name="suggested_edits_task_translation_title">翻譯條目描述</string>
   <string name="suggested_edits_task_translation_description">跨條目語言翻譯描述。</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">直到您達成 %d 次經過驗證的貢獻才會解開</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">直到您達成 %d 次經過驗證的貢獻才會解開</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">直到您達成 %d 次經過驗證的編輯才會解開</string>
   <string name="suggested_edits_task_multilingual_negative">不適合我</string>
   <string name="suggested_edits_task_multilingual_positive">新增語言</string>

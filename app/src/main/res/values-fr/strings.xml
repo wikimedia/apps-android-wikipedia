@@ -695,7 +695,7 @@
   <string name="suggested_edits_task_multilingual_description">Les tâches de traduction sont disponibles si vous lisez et écrivez dans plus d’une langue de Wikipédia.</string>
   <string name="suggested_edits_task_translation_title">Traduire les descriptions d\'articles</string>
   <string name="suggested_edits_task_translation_description">Traduire les descriptions d\'après la langue des articles.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Verrouillé jusqu’à ce que vous ayez fait %d modifications vérifiées</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Verrouillé jusqu’à ce que vous ayez fait %d modifications vérifiées</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Verrouillé tant que vous n\'aurez pas fait %d contributions vérifiées</string>
   <string name="suggested_edits_task_multilingual_negative">Pas pour moi</string>
   <string name="suggested_edits_task_multilingual_positive">Ajouter des langues</string>

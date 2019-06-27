@@ -657,7 +657,7 @@
   <string name="suggested_edits_task_multilingual_description">Завдання перекладу доступні, якщо ви читаєте і пишете більше, ніж однією мовою, якою існує Вікіпедія.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Перекласти описи</string>
   <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами, якими є стаття.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Заблоковано, поки ви не зробите %d перевірених редагувань</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заблоковано, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблоковане, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_multilingual_negative">Не для мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додати мови</string>

@@ -682,7 +682,7 @@
   <string name="suggested_edits_task_multilingual_description">Há tarefas de tradução disponíveis se lê e escreve em mais do que uma língua da Wikipédia.</string>
   <string name="suggested_edits_task_translation_title">Traduzir descrições de artigos</string>
   <string name="suggested_edits_task_translation_description">Traduzir descrições nas línguas dos artigos.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Trancadas até que tenha feito na aplicação %d contribuições verificadas</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Trancadas até que tenha feito na aplicação %d contribuições verificadas</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Trancada até ter feito %d contribuições verificadas</string>
   <string name="suggested_edits_task_multilingual_negative">Não é para mim</string>
   <string name="suggested_edits_task_multilingual_positive">Adicionar línguas</string>
@@ -708,6 +708,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciamento</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mais informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página do ficheiro na wiki Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>

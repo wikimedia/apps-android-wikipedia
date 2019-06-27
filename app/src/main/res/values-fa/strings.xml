@@ -694,7 +694,7 @@
   <string name="suggested_edits_task_multilingual_description">اگر می‌توانید بیش از یک زبان ویکی‌پدیا را بخوانید و بنویسید، امکان ترجمه وجود دارد.</string>
   <string name="suggested_edits_task_translation_title">ترجمه توضیحات مقاله</string>
   <string name="suggested_edits_task_translation_description">ترجمه توضیحات بین زبان‌های مقاله</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_multilingual_negative">برای شما نیست</string>
   <string name="suggested_edits_task_multilingual_positive">افزودن زبان</string>
@@ -720,6 +720,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">اجازه‌نامه</string>
   <string name="suggested_edits_image_preview_dialog_more_info">اطلاعات بیشتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحهٔ این پرونده در ویکی‌انبار</string>
+  <string name="suggested_edits_feed_card_add_image_caption">افزودن توضیح</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">افزودن توضیح (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="description_edit_revert_subtitle">از بابت ویرایش در ویکی‌پدیا ممنونیم!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>

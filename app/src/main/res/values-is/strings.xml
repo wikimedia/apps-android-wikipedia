@@ -656,7 +656,7 @@
   <string name="suggested_edits_task_multilingual_description">Þýðingaverkefni eru tiltæk ef þú lest og skrifar á fleiri en einu Wikipedia-tungumáli.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Þýða lýsingar</string>
   <string name="suggested_edits_task_translation_description">Þýða lýsingar yfir á önnur tungumál.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
   <string name="suggested_edits_task_multilingual_negative">Ekkert fyrir mig</string>
   <string name="suggested_edits_task_multilingual_positive">Bæta við tungumálum</string>

@@ -675,7 +675,7 @@
   <string name="suggested_edits_task_multilingual_title">Meer taken voor meertalige bewerkers</string>
   <string name="suggested_edits_task_multilingual_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
   <string name="suggested_edits_task_translation_title">Artikelbeschrijvingen vertalen</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Vergrendeld totdat u %d afbeeldingsbijschriften hebt bewerkt</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
   <string name="suggested_edits_task_multilingual_negative">Niet voor mij</string>
   <string name="suggested_edits_task_multilingual_positive">Talen toevoegen</string>

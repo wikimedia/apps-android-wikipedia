@@ -687,7 +687,7 @@
   <string name="suggested_edits_task_multilingual_description">2言語以上で読み書きができる編集者向けに編集タスクがあります。</string>
   <string name="suggested_edits_task_translation_title">記事の説明を翻訳</string>
   <string name="suggested_edits_task_translation_description">説明文を他の言語に翻訳する。</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">最低%d件の有効な編集が完了するまでロックされています</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">最低%d件の有効な編集が完了するまでロックされています</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">最低%d件の有効な編集をするまでロックされています</string>
   <string name="suggested_edits_task_multilingual_negative">私向けではありません</string>
   <string name="suggested_edits_task_multilingual_positive">言語を追加</string>
