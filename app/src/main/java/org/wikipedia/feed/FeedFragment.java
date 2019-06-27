@@ -253,7 +253,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         PageTitle pageTitle = (invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION)
                 ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
                 : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
-        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,
+        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
                 suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
                 suggestedEditsCardView.getCard().getInvokeSource()),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);

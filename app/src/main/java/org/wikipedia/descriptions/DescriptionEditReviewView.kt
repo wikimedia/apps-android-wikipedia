@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
 import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_ARTICLE_DESCRIPTION
+import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_DEFAULT
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil
@@ -38,7 +39,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
             licenseView.buildLicenseNotice(ARG_NOTICE_IMAGE_CAPTION)
         } else {
             setDescriptionReviewView(summary, description)
-            licenseView.buildLicenseNotice(ARG_NOTICE_ARTICLE_DESCRIPTION)
+            licenseView.buildLicenseNotice(if (summary.description.isNullOrEmpty()) ARG_NOTICE_ARTICLE_DESCRIPTION else ARG_NOTICE_DEFAULT)
         }
     }
 
@@ -56,7 +57,6 @@ class DescriptionEditReviewView @JvmOverloads constructor(
             articleImage.loadImage(Uri.parse(summary.getPreferredSizeThumbnailUrl()))
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
-        licenseView.removeUnderlinesFromLinks()
     }
 
     private fun setGalleryReviewView(summary: SuggestedEditsSummary, description: String) {
