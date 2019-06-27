@@ -72,8 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/bottomButtonContainer"
-            app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer"
-            app:layout_constraintVertical_weight="1" />
+            app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottomButtonContainer"
@@ -82,7 +81,7 @@
             android:clipChildren="false"
             android:clipToPadding="false"
             android:paddingTop="8dp"
-            android:paddingBottom="16dp"
+            android:paddingBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -108,8 +107,6 @@
                 android:background="@drawable/button_shape_gray"
                 android:backgroundTint="?attr/colorAccent"
                 android:elevation="4dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +117,9 @@
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="20dp">
 
                     <ImageView
                         android:id="@+id/addContributionImage"
@@ -136,8 +135,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/suggested_edits_add_description_button"
+                        android:fontFamily="sans-serif-medium"
                         android:textAllCaps="true"
-                        android:textColor="@color/base100" />
+                        android:textColor="@color/base100"/>
                 </LinearLayout>
             </FrameLayout>
 

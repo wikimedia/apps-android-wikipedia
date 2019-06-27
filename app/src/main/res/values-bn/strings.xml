@@ -521,7 +521,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="description_edit_text_hint" fuzzy="true">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
-  <string name="description_edit_article">নিবন্ধ</string>
   <string name="description_edit_read">পড়ুন</string>
   <string name="description_edit_add_description" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
   <string name="description_edit_translate_description" fuzzy="true">বিবরণ অনুবাদ করুন</string>

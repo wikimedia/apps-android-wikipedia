@@ -311,7 +311,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 title.getDisplayText(), title.getDisplayText(), StringUtil.fromHtml(item.getDescription().getHtml()).toString(), item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
                 null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, title, summary, null, Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -335,7 +335,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
                 null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, sourceSummary, targetSummary, Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary, Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 

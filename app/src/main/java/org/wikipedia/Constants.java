@@ -46,6 +46,7 @@ public final class Constants {
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
 
+    public static final int PREFERRED_CARD_THUMBNAIL_SIZE = 800;
     public static final int PREFERRED_GALLERY_IMAGE_SIZE = 1280;
 
     public static final int MAX_TABS = 100;

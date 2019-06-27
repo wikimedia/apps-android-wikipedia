@@ -187,7 +187,6 @@
   <string name="view_featured_article_footer_save_button_label">Հիշել</string>
   <string name="view_static_card_save_button_label">Հիշել</string>
   <string name="description_edit_save" fuzzy="true">Հիշել</string>
-  <string name="description_edit_article">Հոդված</string>
   <string name="description_edit_read">Կարդալ</string>
   <string name="description_edit_add_description" fuzzy="true">Ավելացնել նկարագրություն</string>
   <string name="description_edit_cancel_hint">Չեղարկել</string>

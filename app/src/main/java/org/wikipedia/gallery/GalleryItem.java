@@ -195,7 +195,11 @@ public class GalleryItem implements Serializable {
         }
     }
 
-    private static class StructuredData implements Serializable {
+    public static class StructuredData implements Serializable {
         @Nullable private HashMap<String, String> captions;
+
+        @Nullable public HashMap<String, String> getCaptions() {
+            return captions;
+        }
     }
 }
