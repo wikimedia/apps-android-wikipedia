@@ -598,12 +598,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">D’acord</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
-  <string name="description_edit_text_hint_per_language">Descripció en %s</string>
-  <string name="description_edit_caption_hint_per_language">llegenda de %s</string>
-  <string name="description_edit_caption_hint">Llegenda</string>
   <string name="description_edit_save">Publica</string>
-  <string name="description_edit_article">Article</string>
-  <string name="description_edit_description">Descripció</string>
   <string name="description_edit_read">Llegeix</string>
   <string name="description_edit_add_description">Afegeix una descripció d\'article</string>
   <string name="description_edit_translate_description">Tradueix la descripció de l\'article</string>
@@ -679,7 +674,7 @@
   <string name="suggested_edits_task_multilingual_description">Les tasques de traducció són disponibles si llegiu i escriviu en més d\'una llengua de la Viquipèdia.</string>
   <string name="suggested_edits_task_translation_title">Tradueix descripcions d\'article</string>
   <string name="suggested_edits_task_translation_description">Tradueix les descripcions en les diferents llengües de l\'article.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
   <string name="suggested_edits_task_multilingual_negative">No per a mi</string>
   <string name="suggested_edits_task_multilingual_positive">Afegeix llengües</string>

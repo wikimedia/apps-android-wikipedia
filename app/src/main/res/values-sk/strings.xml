@@ -598,7 +598,7 @@
   <string name="suggested_edits_task_image_caption_description">Pridať popisy k obrázkom</string>
   <string name="suggested_edits_task_multilingual_title">Viac úkolov pre viacjazyčné editory</string>
   <string name="suggested_edits_task_multilingual_description">Tipy na preklad sú k dispozícii, ak čítate a píšete vo viac ako jednom jazyku Wikipédie.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>
   <string name="suggested_edits_task_multilingual_negative">Nie je pre mňa</string>
   <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
   <plurals name="suggested_edits_contribution_count">

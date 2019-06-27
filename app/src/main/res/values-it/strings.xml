@@ -587,12 +587,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
-  <string name="description_edit_text_hint_per_language">descrizione in %s</string>
-  <string name="description_edit_caption_hint_per_language">didascalia in %s</string>
-  <string name="description_edit_caption_hint">Didascalia</string>
   <string name="description_edit_save">Pubblica</string>
-  <string name="description_edit_article">Voce</string>
-  <string name="description_edit_description">Descrizione</string>
   <string name="description_edit_read">Leggi</string>
   <string name="description_edit_add_description">Aggiungi una descrizione della voce</string>
   <string name="description_edit_translate_description">Traduci la descrizione della voce</string>
@@ -661,7 +656,7 @@
   <string name="suggested_edits_task_multilingual_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
   <string name="suggested_edits_task_translation_title">Traduci descrizioni della voce</string>
   <string name="suggested_edits_task_translation_description">Traduci le descrizioni attraverso le lingue della voce.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloccato fino a quando non avrai modificato %d didascalie di immagini</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
   <string name="suggested_edits_task_multilingual_negative">Non per me</string>
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>

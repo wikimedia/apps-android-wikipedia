@@ -542,7 +542,7 @@
   <string name="preference_summary_notification_poll">Povolit aplikaci používaní dat ke kontrole nových upozornění na pozadí.</string>
   <string name="preference_category_notification_types">Typy upozornění v aplikaci</string>
   <string name="preference_title_notification_welcome">Vítejte</string>
-  <string name="preference_summary_notification_welcome">Účet byl vytvořen</string>
+  <string name="preference_summary_notification_welcome">Vytvoření účtu</string>
   <string name="preference_title_notification_milestone">Milník</string>
   <string name="preference_summary_notification_milestone">Dosáhli jste určitého počtu editací</string>
   <string name="preference_title_notification_thanks">Poděkování</string>
@@ -603,12 +603,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
   <string name="description_edit_text_hint">Popis článku</string>
-  <string name="description_edit_text_hint_per_language">popis v jazyce %s</string>
-  <string name="description_edit_caption_hint_per_language">popis v jazyce %s</string>
-  <string name="description_edit_caption_hint">Popis</string>
   <string name="description_edit_save">Zveřejnit</string>
-  <string name="description_edit_article">Článek</string>
-  <string name="description_edit_description">Popis</string>
   <string name="description_edit_read">Číst</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
   <string name="description_edit_translate_description">Přeložit popis článku</string>
@@ -684,7 +679,7 @@
   <string name="suggested_edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="suggested_edits_task_translation_title">Přeložit popisy článků</string>
   <string name="suggested_edits_task_translation_description">Přeložit popisy článků napříč jazyky.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuto, dokud neprovedete %d prověřených příspěvků</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuto, dokud needitujete %d popisů obrázků</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zamčeno, dokud neprovedete %d ověřené příspěvky</string>
   <string name="suggested_edits_task_multilingual_negative">Není pro mě</string>
   <string name="suggested_edits_task_multilingual_positive">Přidat jazyky</string>

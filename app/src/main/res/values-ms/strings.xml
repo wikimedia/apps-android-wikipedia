@@ -604,7 +604,7 @@
   <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemah penerangan tajuk</string>
   <string name="suggested_edits_task_translation_description">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>

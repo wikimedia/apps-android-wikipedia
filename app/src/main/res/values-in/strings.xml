@@ -620,7 +620,7 @@
   <string name="suggested_edits_task_multilingual_description">Tugas terjemahan tersedia jika Anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemahkan deskripsi</string>
   <string name="suggested_edits_task_translation_description">Terjemahkan deskripsi artikel lintas bahasa.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>

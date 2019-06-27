@@ -586,12 +586,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
-  <string name="description_edit_text_hint_per_language">Опис на %s</string>
-  <string name="description_edit_caption_hint_per_language">%s опис</string>
-  <string name="description_edit_caption_hint">Опис на сликата</string>
   <string name="description_edit_save">Објави</string>
-  <string name="description_edit_article">Статија</string>
-  <string name="description_edit_description">Опис на содржината</string>
   <string name="description_edit_read">Прочитај</string>
   <string name="description_edit_add_description">Додај опис на статијата</string>
   <string name="description_edit_translate_description">Преведи опис на статијата</string>
@@ -667,7 +662,7 @@
   <string name="suggested_edits_task_multilingual_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
   <string name="suggested_edits_task_translation_title">Превод на описи на статии</string>
   <string name="suggested_edits_task_translation_description">Превод на описи на други јазици</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Заклучено додека не направите %d проверени уредувања</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заклучено додека не направите %d проверени уредувања</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заклучено додека не уредите %d проверени описи</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>

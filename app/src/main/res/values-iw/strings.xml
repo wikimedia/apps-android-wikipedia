@@ -598,12 +598,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
-  <string name="description_edit_text_hint_per_language">תיאור (%s)</string>
-  <string name="description_edit_caption_hint_per_language">כיתוב %s</string>
-  <string name="description_edit_caption_hint">כיתוב</string>
   <string name="description_edit_save">פרסום</string>
-  <string name="description_edit_article">ערך</string>
-  <string name="description_edit_description">תיאור</string>
   <string name="description_edit_read">לקרוא</string>
   <string name="description_edit_add_description">הוספת תיאור ערך</string>
   <string name="description_edit_translate_description">תרגום תיאור ערך</string>
@@ -679,7 +674,7 @@
   <string name="suggested_edits_task_multilingual_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
   <string name="suggested_edits_task_translation_title">תרגום תיאורי ערכים</string>
   <string name="suggested_edits_task_translation_description">תרגום תיאורים לשפות אחרות.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">נעול עד לביצוע %d תרומות שנבדקו</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
   <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
   <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>

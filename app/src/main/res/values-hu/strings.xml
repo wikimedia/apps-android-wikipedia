@@ -598,9 +598,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="description_edit_text_hint" fuzzy="true">Cím leírása</string>
-  <string name="description_edit_text_hint_per_language">%s leírás</string>
   <string name="description_edit_save">Közzététel</string>
-  <string name="description_edit_article">Szócikk</string>
   <string name="description_edit_read">Olvasás</string>
   <string name="description_edit_add_description" fuzzy="true">Adj meg egy címleírást</string>
   <string name="description_edit_translate_description" fuzzy="true">Leírás fordítása</string>
@@ -655,7 +653,7 @@
   <string name="suggested_edits_task_multilingual_description">A fordítási feladatok akkor érhetőek el, ha több mint egy Wikipédia nyelven olvasol és írsz.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Leírások fordítása</string>
   <string name="suggested_edits_task_translation_description">Leírások lefordítása több nyelvre.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
   <string name="suggested_edits_task_multilingual_negative">Nem nekem való</string>
   <string name="suggested_edits_task_multilingual_positive">Nyelvek hozzáadása</string>

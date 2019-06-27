@@ -591,9 +591,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="description_edit_text_hint" fuzzy="true">Tittelbeskrivelse</string>
-  <string name="description_edit_text_hint_per_language">Beskrivelse på %s</string>
   <string name="description_edit_save">Publiser</string>
-  <string name="description_edit_article">Artikkel</string>
   <string name="description_edit_read">Les</string>
   <string name="description_edit_add_description" fuzzy="true">Legg til en tittelbeskrivelse</string>
   <string name="description_edit_translate_description" fuzzy="true">Oversett beskrivelse</string>
@@ -645,7 +643,7 @@
   <string name="suggested_edits_task_multilingual_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Oversett beskrivelser</string>
   <string name="suggested_edits_task_translation_description">Oversett beskrivelser mellom artikkelspråk</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst inntil du har gjort %d godkjente bidrag</string>
   <string name="suggested_edits_task_multilingual_negative">Passer ikke for meg</string>
   <string name="suggested_edits_task_multilingual_positive">Legg til språk</string>
