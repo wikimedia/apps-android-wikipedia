@@ -13,9 +13,9 @@ transformer.register( "hideImages", function( content ) {
     switch(window.theme){
         case 1:
         case 2: img.parentElement.style.backgroundColor = "#27292d";
-            break;
+                break;
         case 3: img.parentElement.style.backgroundColor = "#f0e6d6";
-                        break;
+                break;
         default: img.parentElement.style.backgroundColor = "#f8f9fa";
         }
         img.srcset = "";
