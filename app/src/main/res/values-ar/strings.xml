@@ -684,7 +684,7 @@
   <string name="suggested_edits_task_multilingual_description">مهام الترجمة متاحة إذا كنت تقرأ وتكتب في أكثر من لغة ويكيبيديا واحدة.</string>
   <string name="suggested_edits_task_translation_title">ترجمة أوصاف المقالات</string>
   <string name="suggested_edits_task_translation_description">ترجمة الأوصاف عبر لغات المقالة.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">مقفلة حتى قيامك بـ%d تعديلًا مؤكدًا</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">مقفلة حتى قيامك بـ%d تعديلًا مؤكدًا</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">مغلق حتى تقوم ب%d تعديلا مؤكدا</string>
   <string name="suggested_edits_task_multilingual_negative">ليس لي</string>
   <string name="suggested_edits_task_multilingual_positive">أضف لغات</string>

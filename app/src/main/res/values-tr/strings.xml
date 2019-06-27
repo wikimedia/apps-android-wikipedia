@@ -672,7 +672,7 @@
   <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Açıklamaları çevir</string>
   <string name="suggested_edits_task_translation_description">Madde dillerinde açıklamaları çevirin.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">%d doğrulanmış katkı yapana kadar kilitlendi</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>

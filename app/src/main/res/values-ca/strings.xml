@@ -674,7 +674,7 @@
   <string name="suggested_edits_task_multilingual_description">Les tasques de traducció són disponibles si llegiu i escriviu en més d\'una llengua de la Viquipèdia.</string>
   <string name="suggested_edits_task_translation_title">Tradueix descripcions d\'article</string>
   <string name="suggested_edits_task_translation_description">Tradueix les descripcions en les diferents llengües de l\'article.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
   <string name="suggested_edits_task_multilingual_negative">No per a mi</string>
   <string name="suggested_edits_task_multilingual_positive">Afegeix llengües</string>

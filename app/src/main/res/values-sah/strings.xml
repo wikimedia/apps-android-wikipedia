@@ -631,17 +631,23 @@
   <string name="suggested_edits_task_multilingual_description">Тылбаастыырга сорудах Бикипиэдьийэҕэ соҕотох тылтан элбэҕинэн ааҕар эбэтэр суруйар буоллаххына көстүөҕэ.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Кылгас быһаарыы тылбааһа</string>
   <string name="suggested_edits_task_translation_description">Быһаарыы суругун атын тылларга тылбааһа.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">%d бигэргэтиллибит дьайыыны оҥордоххуна аһыллыа</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">%d бигэргэтиллибит дьайыыны оҥордоххуна аһыллыа</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d кылгас ойуулааһыны уларыта иликкинэ бүөлэнэн турар</string>
   <string name="suggested_edits_task_multilingual_negative">Миэхэ буолбатах</string>
   <string name="suggested_edits_task_multilingual_positive">Тылы эбии</string>
   <string name="suggested_edits_task_translate_caption_title">Ойуу суругун тылбааһа</string>
   <string name="suggested_edits_task_translate_caption_description">Ойуу суругун атын тылларга тылбааһа</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Худуоһунньук</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Ааптар</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Төрүтэ</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Лиссиэнсийэ</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Күнэ-дьыла</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">уларытыы</item>
     <item quantity="other">%d уларытыылар</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Уларытар туһунан этиилэр</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Кылгас быһаарыыны эбии (%s)</string>
   <string name="suggested_edits_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Саҕалыырга</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>

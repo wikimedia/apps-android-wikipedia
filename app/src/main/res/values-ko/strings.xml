@@ -670,7 +670,7 @@
   <string name="suggested_edits_task_multilingual_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
   <string name="suggested_edits_task_translation_title">문서 설명 번역하기</string>
   <string name="suggested_edits_task_translation_description">문서 언어별로 설명을 번역합니다.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
   <string name="suggested_edits_task_multilingual_negative">제게는 해당되지 않습니다</string>
   <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
