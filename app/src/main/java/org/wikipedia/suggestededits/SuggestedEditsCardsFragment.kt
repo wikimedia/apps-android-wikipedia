@@ -32,7 +32,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
-import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
@@ -202,7 +201,7 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.sourceSummary, topChild!!.targetSummary, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild!!.sourceSummary, topChild!!.targetSummary, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }

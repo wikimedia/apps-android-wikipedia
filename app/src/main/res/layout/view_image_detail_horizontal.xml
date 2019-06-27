@@ -12,7 +12,7 @@
         android:textStyle="bold"
         android:textAllCaps="true"
         android:letterSpacing="0.04"
-        android:lineSpacingExtra="6sp"
+        android:lineSpacingExtra="8sp"
         android:textAlignment="textEnd"
         android:paddingTop="6dp"
         android:paddingBottom="6dp"

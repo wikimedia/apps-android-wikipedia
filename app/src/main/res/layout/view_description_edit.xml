@@ -29,38 +29,21 @@
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_cancel_hint"
                 android:padding="12dp"
-                app:srcCompat="@drawable/ic_close_main_themed_24dp" />
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/view_description_edit_header"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:id="@+id/view_description_edit_header"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif-medium"
-                    android:maxLines="1"
-                    android:text="@string/description_edit_edit_description"
-                    android:textColor="?attr/main_toolbar_title_color"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/view_description_edit_page_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textColor="?attr/main_toolbar_title_color"
-                    android:textSize="14sp"
-                    tools:text="Lorem ipsum" />
-
-            </LinearLayout>
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:text="@string/description_edit_edit_description"
+                android:textColor="?attr/main_toolbar_title_color"
+                android:textSize="20sp"
+                android:padding="16dp" />
 
             <ImageView
                 android:id="@+id/view_description_edit_help_button"
@@ -84,7 +67,7 @@
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_save"
                 android:padding="12dp"
-                android:tint="?attr/main_toolbar_title_color"
+                android:tint="?attr/themed_icon_color"
                 app:srcCompat="@drawable/ic_check_black_24dp" />
 
         </LinearLayout>
@@ -188,9 +171,9 @@
                             android:id="@+id/view_description_edit_text_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="12dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="12dp"
                             android:gravity="start"
                             android:textAlignment="viewStart"
                             app:counterEnabled="true"
@@ -226,14 +209,6 @@
                             app:tint="?attr/material_theme_secondary_color" />
 
                     </FrameLayout>
-
-                    <org.wikipedia.descriptions.DescriptionEditLicenseView
-                        android:id="@+id/view_description_edit_license_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="16dp" />
                 </LinearLayout>
             </ScrollView>
 
