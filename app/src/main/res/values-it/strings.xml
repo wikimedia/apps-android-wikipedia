@@ -587,12 +587,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
-  <string name="description_edit_text_hint_per_language">descrizione in %s</string>
-  <string name="description_edit_caption_hint_per_language">didascalia in %s</string>
-  <string name="description_edit_caption_hint">Didascalia</string>
   <string name="description_edit_save">Pubblica</string>
-  <string name="description_edit_article">Voce</string>
-  <string name="description_edit_description">Descrizione</string>
   <string name="description_edit_read">Leggi</string>
   <string name="description_edit_add_description">Aggiungi una descrizione della voce</string>
   <string name="description_edit_translate_description">Traduci la descrizione della voce</string>
