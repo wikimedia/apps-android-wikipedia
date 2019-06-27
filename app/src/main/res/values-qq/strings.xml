@@ -798,6 +798,8 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="description_edit_article_description_label_per_language">Article (%s)</string>
-
+  <string name="description_edit_article_description_label_per_language">Label that prompts the user that the summary of the article shows under the label. %s represents the language of the description.</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Hint text that is shown when the description field is empty. %s represents the language of the description.</string>
+  <string name="description_edit_add_caption_label_per_language">Label that prompts the user that the caption of the image shows under the label. %s represents the language of the caption.</string>
+  <string name="description_edit_translate_caption_hint_per_language">Hint text that is shown when the image caption field is empty. %s represents the language of the caption.</string>
 </resources>
