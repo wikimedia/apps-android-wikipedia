@@ -705,7 +705,7 @@
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="suggested_edits_task_translation_title">Перевод описаний статей</string>
   <string name="suggested_edits_task_translation_description">Перевод кратких описаний на другие языки.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>

@@ -659,7 +659,7 @@
   <string name="suggested_edits_task_multilingual_description">如果你掌握多种语言，那么你可以接收更多的翻译任务。</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">翻译标题描述</string>
   <string name="suggested_edits_task_translation_description">将标题说明翻译成其他语言。</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">在应用内完成%d次经验证的编辑后方可解锁</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">在应用内完成%d次经验证的编辑后方可解锁</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">完成%d次词条概述后方可解锁</string>
   <string name="suggested_edits_task_multilingual_negative">还是算了</string>
   <string name="suggested_edits_task_multilingual_positive">添加语言</string>

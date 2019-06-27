@@ -662,7 +662,7 @@
   <string name="suggested_edits_task_multilingual_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
   <string name="suggested_edits_task_translation_title">Превод на описи на статии</string>
   <string name="suggested_edits_task_translation_description">Превод на описи на други јазици</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Заклучено додека не направите %d проверени уредувања</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заклучено додека не направите %d проверени уредувања</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заклучено додека не уредите %d проверени описи</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>

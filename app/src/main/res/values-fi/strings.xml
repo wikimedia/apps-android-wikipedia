@@ -641,7 +641,7 @@
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Käännä kuvaukset</string>
   <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>

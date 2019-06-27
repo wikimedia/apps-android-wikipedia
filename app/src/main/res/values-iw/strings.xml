@@ -674,7 +674,7 @@
   <string name="suggested_edits_task_multilingual_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
   <string name="suggested_edits_task_translation_title">תרגום תיאורי ערכים</string>
   <string name="suggested_edits_task_translation_description">תרגום תיאורים לשפות אחרות.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">נעול עד לביצוע %d תרומות שנבדקו</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
   <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
   <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>

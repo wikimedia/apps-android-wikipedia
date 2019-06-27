@@ -653,7 +653,7 @@
   <string name="suggested_edits_task_multilingual_description">Übersetzungsaufgaben sind verfügbar, wenn du in mehr als einer Wikipedia-Sprache liest und schreibst.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Beschreibungen übersetzen</string>
   <string name="suggested_edits_task_translation_description">Beschreibungen in andere Artikelsprachen übersetzen.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast</string>
   <string name="suggested_edits_task_multilingual_negative">Nicht für mich</string>
   <string name="suggested_edits_task_multilingual_positive">Sprachen hinzufügen</string>
