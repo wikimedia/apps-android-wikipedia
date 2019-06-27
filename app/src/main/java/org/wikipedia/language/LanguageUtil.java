@@ -21,9 +21,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
-import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
-
 public final class LanguageUtil {
     private static final String HONG_KONG_COUNTRY_CODE = "HK";
     private static final String MACAU_COUNTRY_CODE = "MO";
@@ -155,7 +152,7 @@ public final class LanguageUtil {
                     break;
                 }
             }
-            firstZhLangCode =  StringUtils.defaultString(firstZhLangCode, TRADITIONAL_CHINESE_LANGUAGE_CODE);
+            firstZhLangCode =  StringUtils.defaultString(firstZhLangCode, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
         }
 
         return firstZhLangCode;
