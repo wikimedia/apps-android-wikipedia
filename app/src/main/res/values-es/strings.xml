@@ -619,7 +619,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
   <string name="description_edit_text_hint_per_language">Descripción en %s</string>
-  <string name="description_edit_caption_hint">Leyenda</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_article">Artículo</string>
   <string name="description_edit_description">Descripción</string>

@@ -613,7 +613,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
   <string name="description_edit_text_hint_per_language">Descrição em %s</string>
-  <string name="description_edit_caption_hint">Legenda</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_article">Artigo</string>
   <string name="description_edit_description">Descrição</string>

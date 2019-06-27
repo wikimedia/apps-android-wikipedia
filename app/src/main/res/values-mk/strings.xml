@@ -587,7 +587,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
   <string name="description_edit_text_hint_per_language">Опис на %s</string>
-  <string name="description_edit_caption_hint">Опис на сликата</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_article">Статија</string>
   <string name="description_edit_description">Опис на содржината</string>

@@ -583,7 +583,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
   <string name="description_edit_text_hint">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_text_hint_per_language">ၶေႃႈသပ်းလႅင်း %s</string>
-  <string name="description_edit_caption_hint">ႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_save">ပိုၼ်ဢွၵ်ႇ</string>
   <string name="description_edit_article">ပွင်ႈၵႂၢမ်း</string>
   <string name="description_edit_description">ၶေႃႈသပ်းလႅင်း</string>

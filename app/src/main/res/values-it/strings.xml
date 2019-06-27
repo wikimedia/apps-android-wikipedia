@@ -588,7 +588,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
   <string name="description_edit_text_hint_per_language">descrizione in %s</string>
-  <string name="description_edit_caption_hint">Didascalia</string>
   <string name="description_edit_save">Pubblica</string>
   <string name="description_edit_article">Voce</string>
   <string name="description_edit_description">Descrizione</string>

@@ -585,7 +585,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
   <string name="description_edit_text_hint_per_language">%s ဖော်ပြချက်</string>
-  <string name="description_edit_caption_hint">ပုံစာ</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
   <string name="description_edit_article">ဆောင်းပါး</string>
   <string name="description_edit_description">ဖော်ပြချက်</string>

@@ -607,7 +607,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
   <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
-  <string name="description_edit_caption_hint">Label that prompts the user to add a caption to an image that does not yet have one.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_description">Label that prompts the user that the summary of the description of the image shows under the label.\n{{Identical|Description}}</string>

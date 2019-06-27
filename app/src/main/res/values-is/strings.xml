@@ -585,7 +585,6 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Hætta við</string>
   <string name="description_edit_text_hint">Lýsing á grein</string>
   <string name="description_edit_text_hint_per_language">%s lýsing</string>
-  <string name="description_edit_caption_hint">Myndatexti</string>
   <string name="description_edit_save">Birta</string>
   <string name="description_edit_article">Grein</string>
   <string name="description_edit_description">Lýsing</string>
