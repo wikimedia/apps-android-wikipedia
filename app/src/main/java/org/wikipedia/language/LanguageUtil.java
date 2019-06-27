@@ -147,7 +147,7 @@ public final class LanguageUtil {
     public static String getFirstSelectedChineseVariant() {
         if (firstZhLangCode == null) {
             for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
-                if (langCode.contains(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+                if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
                     firstZhLangCode = langCode;
                     break;
                 }
