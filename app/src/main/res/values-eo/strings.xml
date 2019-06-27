@@ -591,7 +591,6 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Bone</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Nuligi</string>
   <string name="description_edit_text_hint">Priskribo de artikolo</string>
-  <string name="description_edit_text_hint_per_language">priskribo en %s</string>
   <string name="description_edit_save">Publikigi</string>
   <string name="description_edit_read">Legi</string>
   <string name="description_edit_add_description">Aldoni priskribon de artikolo</string>

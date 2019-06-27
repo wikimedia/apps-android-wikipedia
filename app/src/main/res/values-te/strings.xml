@@ -248,7 +248,6 @@
   <string name="feed_lang_selection_dialog_ok_button_text">సరే</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="description_edit_text_hint" fuzzy="true">శీర్షిక వివరణ</string>
-  <string name="description_edit_text_hint_per_language">%s వివరణ</string>
   <string name="description_edit_save">ప్రచురించు</string>
   <string name="description_edit_edit_description">వివరణను మార్చు</string>
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>

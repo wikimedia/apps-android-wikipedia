@@ -598,7 +598,6 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="description_edit_text_hint" fuzzy="true">Otsikon kuvaus</string>
-  <string name="description_edit_text_hint_per_language">Kuvaus kielellä %s</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description" fuzzy="true">Lisää otsikon kuvaus</string>

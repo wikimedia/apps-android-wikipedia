@@ -572,7 +572,6 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Сөп</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Салҕаама</string>
   <string name="description_edit_text_hint" fuzzy="true">Ойуулааһын</string>
-  <string name="description_edit_text_hint_per_language">%s быһаарыыта</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_read">Ааҕыы</string>
   <string name="description_edit_add_description">Кылгас быһаарыыны эбии</string>

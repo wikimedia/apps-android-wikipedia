@@ -606,7 +606,6 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for feed card language selection.\n{{Identical|OK}}</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
-  <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.\n{{Identical|Read}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a article description to an article that does not yet have one.</string>
@@ -799,4 +798,6 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+
 </resources>

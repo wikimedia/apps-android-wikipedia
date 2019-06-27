@@ -606,7 +606,6 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="description_edit_text_hint">Artikelbeschrijving</string>
-  <string name="description_edit_text_hint_per_language">%s beschrijving</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Artikelbeschrijving toevoegen</string>

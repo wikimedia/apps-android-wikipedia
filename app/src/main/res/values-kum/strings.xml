@@ -211,7 +211,6 @@
   <string name="feed_configure_menu_deselect_all">Тюмюн яшырмакъ</string>
   <string name="feed_configure_onboarding_action">Кюйлемек</string>
   <string name="description_edit_text_hint" fuzzy="true">Къысгъа тасвири</string>
-  <string name="description_edit_text_hint_per_language">%s тасвир</string>
   <string name="description_edit_save">Сакъламакъ</string>
   <string name="description_edit_read">Охумакъ</string>
   <string name="description_edit_edit_description">Тасвирин тюзлемек</string>
