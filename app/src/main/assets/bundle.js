@@ -296,6 +296,7 @@ function setWindowAttributes( payload ) {
     window.showImages = payload.showImages;
     window.collapseTables = payload.collapseTables;
     window.dimImages = payload.dimImages;
+    window.theme = payload.theme;
 }
 
 function setTitleElement( parentNode, section ) {
@@ -608,8 +609,16 @@ transformer.register( "hideImages", function( content ) {
         if (img.width < minImageSize && img.height < minImageSize) {
             continue;
         }
-        // Just replace the src of the image with a placeholder image from our assets.
-        img.src = "file:///android_asset/image_placeholder.png";
+        // Just replace the src of the image with a background color
+        img.src = "";
+    switch(window.theme){
+        case 1:
+        case 2: img.parentElement.style.backgroundColor = "#27292d";
+            break;
+        case 3: img.parentElement.style.backgroundColor = "#f0e6d6";
+                        break;
+        default: img.parentElement.style.backgroundColor = "#f8f9fa";
+        }
         img.srcset = "";
     }
 } );
