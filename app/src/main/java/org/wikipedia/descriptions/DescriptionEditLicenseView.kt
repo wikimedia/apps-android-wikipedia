@@ -22,9 +22,6 @@ class DescriptionEditLicenseView  @JvmOverloads constructor(
     fun buildLicenseNotice(arg: String) {
         licenseText.text = StringUtil.fromHtml(context.getString(getLicenseTextRes(arg),
                 context.getString(R.string.terms_of_use_url), context.getString(R.string.cc_0_url)))
-    }
-
-    fun removeUnderlinesFromLinks() {
         RichTextUtil.removeUnderlinesFromLinks(licenseText)
     }
 
