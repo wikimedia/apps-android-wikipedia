@@ -726,7 +726,8 @@
     <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
-    <string name="suggested_edits_image_preview_dialog_caption_title">Image captions</string>
+    <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
+    <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
     <string name="suggested_edits_image_preview_dialog_date">Date</string>
     <string name="suggested_edits_image_preview_dialog_source">Source/Photographer</string>

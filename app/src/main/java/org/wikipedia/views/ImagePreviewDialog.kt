@@ -14,7 +14,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonMarshaller
@@ -30,11 +32,13 @@ import org.wikipedia.util.log.L
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
+    private lateinit var invokeSource: Constants.InvokeSource
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
         suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
+        invokeSource = arguments!!.getSerializable(ARG_INVOKE_SOURCE) as Constants.InvokeSource
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         enableFullWidthDialog()
         return rootView
@@ -96,22 +100,33 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun setImageDetails() {
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_caption_title, suggestedEditsSummary.description, false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_artist, suggestedEditsSummary.metadata!!.artist(), false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_date, suggestedEditsSummary.metadata!!.dateTime(), false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_source, suggestedEditsSummary.metadata!!.imageDescriptionSource(), true)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_licensing, suggestedEditsSummary.metadata!!.licenseShortName(), true)
+        if ((invokeSource == Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION || invokeSource == Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION)
+                && suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) {
+            // Show the image description when a structured caption does not exist.
+            addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
+                    suggestedEditsSummary.description, false)
+        } else {
+            addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
+                    if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
+                    else suggestedEditsSummary.pageTitle.description, false)
+        }
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artist(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime(), false)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescriptionSource(), true)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), true)
         detailsHolder.requestLayout()
     }
 
-    private fun addDetailPortion(titleRes: Int, @Nullable detail: String?, shouldAddAccentTint: Boolean) {
+    private fun addDetailPortion(titleString: String, @Nullable detail: String?, shouldAddAccentTint: Boolean) {
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(requireContext())
-            view.titleTextView.text = getString(titleRes)
+            view.titleTextView.text = titleString
             if (shouldAddAccentTint) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
             }
-            view.detailTextView.text = StringUtil.removeHTMLTags(detail)
+            view.detailTextView.text = StringUtil.strip(StringUtil.removeHTMLTags(detail))
             detailsHolder.addView(view)
         }
     }
@@ -125,11 +140,13 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     companion object {
         private const val ARG_SUMMARY = "summary"
+        private const val ARG_INVOKE_SOURCE = "invokeSource"
 
-        fun newInstance(suggestedEditsSummary: SuggestedEditsSummary): ImagePreviewDialog {
+        fun newInstance(suggestedEditsSummary: SuggestedEditsSummary, invokeSource: Constants.InvokeSource): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
             args.putString(ARG_SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
+            args.putSerializable(ARG_INVOKE_SOURCE, invokeSource)
             dialog.arguments = args
             return dialog
         }
