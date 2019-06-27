@@ -32,7 +32,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
-import org.wikipedia.util.AnimationUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
@@ -74,6 +73,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+        source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
 
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
         SuggestedEditsFunnel.get().impression(source)
@@ -81,7 +81,6 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
         return inflater.inflate(R.layout.fragment_suggested_edits_cards, container, false)
     }
 
@@ -202,7 +201,7 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, topChild!!.sourceSummary, topChild!!.targetSummary, source),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild!!.sourceSummary, topChild!!.targetSummary, source),
                     ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }

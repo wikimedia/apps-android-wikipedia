@@ -710,7 +710,7 @@
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
     <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
     <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
+    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve edited %d image captions</string>
     <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
