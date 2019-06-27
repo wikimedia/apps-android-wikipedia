@@ -26,7 +26,6 @@ public final class LanguageUtil {
     private static final String MACAU_COUNTRY_CODE = "MO";
     private static final List<String> TRADITIONAL_CHINESE_COUNTRY_CODES = Arrays.asList(
             Locale.TAIWAN.getCountry(), HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE);
-    private static String FIRST_SELECTED_ZH_LANG_CODE = null;
 
     /**
      * Gets a list of language codes currently enabled by the user.
@@ -145,16 +144,14 @@ public final class LanguageUtil {
 
     @NonNull
     public static String getFirstSelectedChineseVariant() {
-        if (FIRST_SELECTED_ZH_LANG_CODE == null) {
-            for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
-                if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
-                    FIRST_SELECTED_ZH_LANG_CODE = langCode;
-                    break;
-                }
+        String firstSelectedChineseLangCode = null;
+        for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
+            if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+                firstSelectedChineseLangCode = langCode;
+                break;
             }
-            FIRST_SELECTED_ZH_LANG_CODE =  StringUtils.defaultString(FIRST_SELECTED_ZH_LANG_CODE, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
         }
-        return FIRST_SELECTED_ZH_LANG_CODE;
+        return StringUtils.defaultString(firstSelectedChineseLangCode, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
     }
 
     private LanguageUtil() { }
