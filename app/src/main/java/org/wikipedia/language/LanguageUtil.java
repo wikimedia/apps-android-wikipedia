@@ -131,14 +131,14 @@ public final class LanguageUtil {
         String script = locale.getScript();
         switch (script) {
             case "Hans": return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
-            case "Hant": return TRADITIONAL_CHINESE_LANGUAGE_CODE;
+            case "Hant": return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
             default: break;
         }
 
         // Guess based on country. If the guess is incorrect, the user must explicitly choose the
         // dialect in the app settings.
         return isTraditionalChinesePredominantInCountry(locale.getCountry())
-                ? TRADITIONAL_CHINESE_LANGUAGE_CODE
+                ? AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
                 : AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
     }
 
@@ -150,7 +150,7 @@ public final class LanguageUtil {
     public static String getFirstSelectedChineseVariant() {
         if (firstZhLangCode == null) {
             for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
-                if (langCode.contains(CHINESE_LANGUAGE_CODE)) {
+                if (langCode.contains(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
                     firstZhLangCode = langCode;
                     break;
                 }
