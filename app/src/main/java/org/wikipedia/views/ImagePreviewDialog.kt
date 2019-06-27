@@ -14,7 +14,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
-import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -32,13 +32,13 @@ import org.wikipedia.util.log.L
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
-    private lateinit var invokeSource: Constants.InvokeSource
+    private lateinit var invokeSource: InvokeSource
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
         suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
-        invokeSource = arguments!!.getSerializable(ARG_INVOKE_SOURCE) as Constants.InvokeSource
+        invokeSource = arguments!!.getSerializable(ARG_INVOKE_SOURCE) as InvokeSource
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         enableFullWidthDialog()
         return rootView
@@ -99,7 +99,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun setImageDetails() {
-        if ((invokeSource == Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION || invokeSource == Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION)
+        if ((invokeSource == InvokeSource.SUGGESTED_EDITS_ADD_CAPTION || invokeSource == InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION)
                 && suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
@@ -141,7 +141,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         private const val ARG_SUMMARY = "summary"
         private const val ARG_INVOKE_SOURCE = "invokeSource"
 
-        fun newInstance(suggestedEditsSummary: SuggestedEditsSummary, invokeSource: Constants.InvokeSource): ImagePreviewDialog {
+        fun newInstance(suggestedEditsSummary: SuggestedEditsSummary, invokeSource: InvokeSource): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
             args.putString(ARG_SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
