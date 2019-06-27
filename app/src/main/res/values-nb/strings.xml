@@ -593,7 +593,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Tittelbeskrivelse</string>
   <string name="description_edit_text_hint_per_language">Beskrivelse på %s</string>
   <string name="description_edit_save">Publiser</string>
-  <string name="description_edit_article">Artikkel</string>
   <string name="description_edit_read">Les</string>
   <string name="description_edit_add_description" fuzzy="true">Legg til en tittelbeskrivelse</string>
   <string name="description_edit_translate_description" fuzzy="true">Oversett beskrivelse</string>

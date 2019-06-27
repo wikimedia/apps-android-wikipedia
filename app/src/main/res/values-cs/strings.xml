@@ -605,8 +605,6 @@
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_text_hint_per_language">popis v jazyce %s</string>
   <string name="description_edit_save">Zveřejnit</string>
-  <string name="description_edit_article">Článek</string>
-  <string name="description_edit_description">Popis</string>
   <string name="description_edit_read">Číst</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
   <string name="description_edit_translate_description">Přeložit popis článku</string>

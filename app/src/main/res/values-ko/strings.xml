@@ -597,8 +597,6 @@
   <string name="description_edit_text_hint">문서 설명</string>
   <string name="description_edit_text_hint_per_language">%s 설명</string>
   <string name="description_edit_save">게시</string>
-  <string name="description_edit_article">문서</string>
-  <string name="description_edit_description">설명</string>
   <string name="description_edit_read">읽기</string>
   <string name="description_edit_add_description">문서 설명 추가</string>
   <string name="description_edit_translate_description">문서 설명 번역하기</string>

@@ -600,7 +600,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Cím leírása</string>
   <string name="description_edit_text_hint_per_language">%s leírás</string>
   <string name="description_edit_save">Közzététel</string>
-  <string name="description_edit_article">Szócikk</string>
   <string name="description_edit_read">Olvasás</string>
   <string name="description_edit_add_description" fuzzy="true">Adj meg egy címleírást</string>
   <string name="description_edit_translate_description" fuzzy="true">Leírás fordítása</string>

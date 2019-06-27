@@ -599,8 +599,6 @@
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_text_hint_per_language">Beskrivning på %s</string>
   <string name="description_edit_save">Publicera</string>
-  <string name="description_edit_article">Artikel</string>
-  <string name="description_edit_description">Beskrivning</string>
   <string name="description_edit_read">Läs</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
   <string name="description_edit_translate_description">Översätt titelbeskrivning</string>

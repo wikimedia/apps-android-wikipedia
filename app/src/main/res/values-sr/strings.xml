@@ -572,7 +572,6 @@
   <string name="description_edit_text_hint">Опис чланка</string>
   <string name="description_edit_text_hint_per_language">опис на %s</string>
   <string name="description_edit_save">Објави</string>
-  <string name="description_edit_article">Чланак</string>
   <string name="description_edit_add_description">Додај опис чланака</string>
   <string name="description_edit_translate_description">Преведите опис чланка</string>
   <string name="description_edit_edit_description">Уреди опис</string>

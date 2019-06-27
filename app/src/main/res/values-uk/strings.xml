@@ -603,7 +603,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Опис назви</string>
   <string name="description_edit_text_hint_per_language">опис мовою: %s</string>
   <string name="description_edit_save">Опублікувати</string>
-  <string name="description_edit_article">Стаття</string>
   <string name="description_edit_read">Читати</string>
   <string name="description_edit_add_description" fuzzy="true">Додати опис назви</string>
   <string name="description_edit_translate_description" fuzzy="true">Перекласти опис</string>

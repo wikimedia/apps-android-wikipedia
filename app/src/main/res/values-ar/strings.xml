@@ -610,8 +610,6 @@
   <string name="description_edit_text_hint">وصف المقالة</string>
   <string name="description_edit_text_hint_per_language">وصف %s</string>
   <string name="description_edit_save">انشر</string>
-  <string name="description_edit_article">مقالة</string>
-  <string name="description_edit_description">الوصف</string>
   <string name="description_edit_read">قراءة</string>
   <string name="description_edit_add_description">إضافة وصف المقالة</string>
   <string name="description_edit_translate_description">ترجمة وصف المقالة</string>

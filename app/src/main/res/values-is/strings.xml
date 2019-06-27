@@ -586,8 +586,6 @@
   <string name="description_edit_text_hint">Lýsing á grein</string>
   <string name="description_edit_text_hint_per_language">%s lýsing</string>
   <string name="description_edit_save">Birta</string>
-  <string name="description_edit_article">Grein</string>
-  <string name="description_edit_description">Lýsing</string>
   <string name="description_edit_read">Lesa</string>
   <string name="description_edit_add_description">Bæta við lýsingu á grein</string>
   <string name="description_edit_translate_description">Þýða lýsingu á grein</string>

@@ -593,8 +593,6 @@
   <string name="description_edit_text_hint">Priskribo de artikolo</string>
   <string name="description_edit_text_hint_per_language">priskribo en %s</string>
   <string name="description_edit_save">Publikigi</string>
-  <string name="description_edit_article">Artikolo</string>
-  <string name="description_edit_description">Priskribo</string>
   <string name="description_edit_read">Legi</string>
   <string name="description_edit_add_description">Aldoni priskribon de artikolo</string>
   <string name="description_edit_translate_description">Traduki priskribon de artikolo</string>

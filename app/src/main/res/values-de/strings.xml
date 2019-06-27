@@ -593,7 +593,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreibung</string>
   <string name="description_edit_text_hint_per_language">Beschreibung auf %s</string>
   <string name="description_edit_save">Veröffentlichen</string>
-  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Lesen</string>
   <string name="description_edit_add_description" fuzzy="true">Titelbeschreibung hinzufügen</string>
   <string name="description_edit_translate_description" fuzzy="true">Beschreibung übersetzen</string>

@@ -612,7 +612,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Başlık tanımı</string>
   <string name="description_edit_text_hint_per_language">%s açıklaması</string>
   <string name="description_edit_save">Yayımla</string>
-  <string name="description_edit_article">Madde</string>
   <string name="description_edit_read">Oku</string>
   <string name="description_edit_add_description" fuzzy="true">Başlık tanımı ekle</string>
   <string name="description_edit_translate_description" fuzzy="true">Açıklamayı çevir</string>

@@ -602,8 +602,6 @@
   <string name="description_edit_text_hint">條目描述</string>
   <string name="description_edit_text_hint_per_language">%s描述</string>
   <string name="description_edit_save">發佈</string>
-  <string name="description_edit_article">條目</string>
-  <string name="description_edit_description">描述</string>
   <string name="description_edit_read">閱讀</string>
   <string name="description_edit_add_description">新增條目描述</string>
   <string name="description_edit_translate_description">翻譯條目描述</string>

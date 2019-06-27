@@ -600,7 +600,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Otsikon kuvaus</string>
   <string name="description_edit_text_hint_per_language">Kuvaus kielellä %s</string>
   <string name="description_edit_save">Julkaise</string>
-  <string name="description_edit_article">Artikkeli</string>
   <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description" fuzzy="true">Lisää otsikon kuvaus</string>
   <string name="description_edit_translate_description" fuzzy="true">Käännä kuvaukset</string>

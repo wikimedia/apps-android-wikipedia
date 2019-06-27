@@ -600,8 +600,6 @@
   <string name="description_edit_text_hint">Descripció de l\'article</string>
   <string name="description_edit_text_hint_per_language">Descripció en %s</string>
   <string name="description_edit_save">Publica</string>
-  <string name="description_edit_article">Article</string>
-  <string name="description_edit_description">Descripció</string>
   <string name="description_edit_read">Llegeix</string>
   <string name="description_edit_add_description">Afegeix una descripció d\'article</string>
   <string name="description_edit_translate_description">Tradueix la descripció de l\'article</string>

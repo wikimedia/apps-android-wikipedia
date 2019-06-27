@@ -588,7 +588,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Descripción del títulu</string>
   <string name="description_edit_text_hint_per_language">Descripción en %s</string>
   <string name="description_edit_save">Espublizar</string>
-  <string name="description_edit_article">Artículu</string>
   <string name="description_edit_read">Lleer</string>
   <string name="description_edit_add_description" fuzzy="true">Amestar una descripción del títulu</string>
   <string name="description_edit_translate_description" fuzzy="true">Traducir descripción</string>

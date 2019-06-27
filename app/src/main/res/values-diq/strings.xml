@@ -270,7 +270,6 @@
   <string name="description_edit_text_hint" fuzzy="true">Şınasnayış sernamey</string>
   <string name="description_edit_text_hint_per_language">arezekerdışê %s</string>
   <string name="description_edit_save">Bıweşane</string>
-  <string name="description_edit_article">Meqale</string>
   <string name="description_edit_read">Bıwane</string>
   <string name="description_edit_add_description" fuzzy="true">Şınasnayışê sernamey cı kerê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>

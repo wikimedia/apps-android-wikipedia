@@ -584,8 +584,6 @@
   <string name="description_edit_text_hint">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_text_hint_per_language">ၶေႃႈသပ်းလႅင်း %s</string>
   <string name="description_edit_save">ပိုၼ်ဢွၵ်ႇ</string>
-  <string name="description_edit_article">ပွင်ႈၵႂၢမ်း</string>
-  <string name="description_edit_description">ၶေႃႈသပ်းလႅင်း</string>
   <string name="description_edit_read">လူတူၺ်း</string>
   <string name="description_edit_add_description">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်းႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_translate_description">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
