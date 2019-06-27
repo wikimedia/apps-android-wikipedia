@@ -110,4 +110,5 @@
     <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
     <string name="preference_key_show_suggested_edits_multilingual_teaser_task">showSuggestedEditsMultilingualTeaserTask</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
+    <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
 </resources>

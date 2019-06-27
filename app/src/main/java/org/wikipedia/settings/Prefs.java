@@ -873,5 +873,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_logged_out_in_background, loggedOut);
     }
 
+    public static boolean shouldShowDescriptionEditSuccessPrompt() {
+        return getBoolean(R.string.preference_key_show_description_edit_success_prompt, true);
+    }
+
+    public static void shouldShowDescriptionEditSuccessPrompt(boolean enabled) {
+        setBoolean(R.string.preference_key_show_description_edit_success_prompt, enabled);
+    }
+
+
     private Prefs() { }
 }
