@@ -618,7 +618,11 @@
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
+    <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+    <string name="description_edit_translate_article_description_hint_per_language">Article description (%s)</string>
     <string name="description_edit_text_hint_per_language">%s description</string>
+    <string name="description_edit_add_caption_label_per_language">Image description (%s)</string>
+    <string name="description_edit_translate_caption_hint_per_language">Image caption (%s)</string>
     <string name="description_edit_caption_hint_per_language">%s caption</string>
     <string name="description_edit_caption_hint">Caption</string>
     <string name="description_edit_save">Publish</string>
