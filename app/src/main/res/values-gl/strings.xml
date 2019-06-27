@@ -592,9 +592,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint" fuzzy="true">Descrición de título</string>
-  <string name="description_edit_text_hint_per_language">Descrición en %s</string>
   <string name="description_edit_save">Publicar</string>
-  <string name="description_edit_article">Artigo</string>
   <string name="description_edit_read">Ler</string>
   <string name="description_edit_add_description" fuzzy="true">Engadir unha descrición de título</string>
   <string name="description_edit_translate_description" fuzzy="true">Traducir descrición</string>
@@ -653,7 +651,7 @@
   <string name="suggested_edits_task_multilingual_description">Hai tarefas de tradución se vostede le e escribe en máis dunha lingua de Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Traducir descricións</string>
   <string name="suggested_edits_task_translation_description">Traducir descricións nas linguas dos artigos.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Bloqueado ata que teña feito %d contribucións verificadas</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
   <string name="suggested_edits_task_multilingual_negative">Non é para min</string>
   <string name="suggested_edits_task_multilingual_positive">Engadir linguas</string>

@@ -601,9 +601,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
   <string name="description_edit_text_hint" fuzzy="true">Опис назви</string>
-  <string name="description_edit_text_hint_per_language">опис мовою: %s</string>
   <string name="description_edit_save">Опублікувати</string>
-  <string name="description_edit_article">Стаття</string>
   <string name="description_edit_read">Читати</string>
   <string name="description_edit_add_description" fuzzy="true">Додати опис назви</string>
   <string name="description_edit_translate_description" fuzzy="true">Перекласти опис</string>
@@ -657,7 +655,7 @@
   <string name="suggested_edits_task_multilingual_description">Завдання перекладу доступні, якщо ви читаєте і пишете більше, ніж однією мовою, якою існує Вікіпедія.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Перекласти описи</string>
   <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами, якими є стаття.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Заблоковано, поки ви не зробите %d перевірених редагувань</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заблоковано, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблоковане, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_multilingual_negative">Не для мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додати мови</string>

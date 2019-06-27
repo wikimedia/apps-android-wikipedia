@@ -560,7 +560,7 @@
   <string name="suggested_edits_task_multilingual_description">An trevelloù treiñ a c\'haller kaout ma lennit ha ma skrivit en ouzhpenn ur yezh eus Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Treiñ deskrivadurioù an titloù</string>
   <string name="suggested_edits_task_translation_description">Treuzkas deskrivadurioù an titloù e yezhoù all.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Prennit betek m\'ho po lakaet %d kemm da wiriañ en arload</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Prennit betek m\'ho po lakaet %d kemm da wiriañ en arload</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Prennit keit ha ma n\'ho po ket kemmet %d deskrivadur eus an titloù</string>
   <string name="suggested_edits_task_multilingual_negative">Ket evidon</string>
   <string name="suggested_edits_task_multilingual_positive">Ouzhpennañ yezhoù</string>

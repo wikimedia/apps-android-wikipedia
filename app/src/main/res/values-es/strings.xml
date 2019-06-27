@@ -618,12 +618,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
-  <string name="description_edit_text_hint_per_language">Descripción en %s</string>
-  <string name="description_edit_caption_hint_per_language">Leyenda en %s</string>
-  <string name="description_edit_caption_hint">Leyenda</string>
   <string name="description_edit_save">Publicar</string>
-  <string name="description_edit_article">Artículo</string>
-  <string name="description_edit_description">Descripción</string>
   <string name="description_edit_read">Leer</string>
   <string name="description_edit_add_description" fuzzy="true">Añade descripción de título</string>
   <string name="description_edit_translate_description">Traducir descripción de artículo</string>
@@ -688,7 +683,7 @@
   <string name="suggested_edits_task_multilingual_description">Las tareas de traducción estarán disponibles si lees y escribes en más de un idioma de Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Traducir descripciones de titulo</string>
   <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Deshabilitado hasta que hayas hecho %d ediciones verificadas desde la aplicación.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Deshabilitado hasta que hayas hecho %d ediciones verificadas desde la aplicación.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Deshabilitado hasta que hayas editado %d descripciones de titulo</string>
   <string name="suggested_edits_task_multilingual_negative">No para mí</string>
   <string name="suggested_edits_task_multilingual_positive">Añadir idiomas</string>
@@ -711,6 +706,9 @@
   <string name="suggested_edits_image_preview_dialog_source">Fuente/fotógrafo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Más información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página del archivo en Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

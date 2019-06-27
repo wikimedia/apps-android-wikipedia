@@ -606,12 +606,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for feed card language selection.\n{{Identical|OK}}</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
-  <string name="description_edit_text_hint_per_language">Language specified hint text that is shown when the description field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
-  <string name="description_edit_caption_hint_per_language">Language specified hint text that is shown when the caption field is empty. The \"%s\" symbol is replaced with the name of the current selected language.</string>
-  <string name="description_edit_caption_hint">Label that prompts the user to add a caption to an image that does not yet have one.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
-  <string name="description_edit_article">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
-  <string name="description_edit_description">Label that prompts the user that the summary of the description of the image shows under the label.\n{{Identical|Description}}</string>
   <string name="description_edit_read">Label that prompts the user to click and open a preview dialog of the article.\n{{Identical|Read}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a article description to an article that does not yet have one.</string>
   <string name="description_edit_translate_description">Label that prompts the user to translate a article description to an article that does not yet have a description.</string>
@@ -805,4 +800,8 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="suggested_edits_article_cta_add_image_caption">Text for call to action button on article lead image, prompting the user to add a caption to the image.</string>
   <string name="suggested_edits_article_cta_translate_image_caption">Text for call to action button on article lead image, prompting the user to translate caption into their language. The language into which the caption needs to be translated into, is indicated by  %s . </string>
+  <string name="description_edit_article_description_label_per_language">Label that prompts the user that the summary of the article shows under the label. %s represents the language of the description.</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Hint text that is shown when the description field is empty. %s represents the language of the description.</string>
+  <string name="description_edit_add_caption_label_per_language">Label that prompts the user that the caption of the image shows under the label. %s represents the language of the caption.</string>
+  <string name="description_edit_translate_caption_hint_per_language">Hint text that is shown when the image caption field is empty. %s represents the language of the caption.</string>
 </resources>

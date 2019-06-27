@@ -591,12 +591,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Bone</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Nuligi</string>
   <string name="description_edit_text_hint">Priskribo de artikolo</string>
-  <string name="description_edit_text_hint_per_language">priskribo en %s</string>
-  <string name="description_edit_caption_hint_per_language">titolo en %s</string>
-  <string name="description_edit_caption_hint">Titolo de Bildo</string>
   <string name="description_edit_save">Publikigi</string>
-  <string name="description_edit_article">Artikolo</string>
-  <string name="description_edit_description">Priskribo</string>
   <string name="description_edit_read">Legi</string>
   <string name="description_edit_add_description">Aldoni priskribon de artikolo</string>
   <string name="description_edit_translate_description">Traduki priskribon de artikolo</string>
@@ -671,7 +666,7 @@
   <string name="suggested_edits_task_multilingual_description">Tradukaj taskoj estas haveblaj se vi legas kaj skribas plurajn Vikipediajn lingvojn.</string>
   <string name="suggested_edits_task_translation_title">Traduki priskribojn de artikoloj</string>
   <string name="suggested_edits_task_translation_description">Traduki priskribojn tra artikolaj lingvoj.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Ŝlosita ĝis kiam vi faros %d konfirmitajn kontribuojn</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d titolojn de bildoj</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Ŝlosita ĝis kiam vi faros %d konfirmitajn kontribuojn</string>
   <string name="suggested_edits_task_multilingual_negative">Ne por mi</string>
   <string name="suggested_edits_task_multilingual_positive">Aldoni lingvojn</string>
@@ -697,6 +692,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Permesilo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Pli da Informo</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Paĝo de dosiero ĉe Vikimedia Komunejo</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Aldoni titolon</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Aldoni titolon (je %s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>
