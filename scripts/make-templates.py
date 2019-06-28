@@ -53,8 +53,9 @@ class WikiList(object):
         }
         data.update(kwargs)
         rendered = self.template_env.get_template(template).render(**data)
-        out = codecs.open(class_name + u".java", u"w", u"utf-8")
+        out = codecs.open(u"../app/src/main/java/org/wikipedia/staticdata/" + class_name + u".java", u"w", u"utf-8")
         out.write(rendered)
+        out.write("\n")
         out.close()
 
 
