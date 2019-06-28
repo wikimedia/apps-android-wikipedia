@@ -296,6 +296,7 @@ function setWindowAttributes( payload ) {
     window.showImages = payload.showImages;
     window.collapseTables = payload.collapseTables;
     window.dimImages = payload.dimImages;
+    window.imagePlaceholderBackgroundColor = payload.imagePlaceholderBackgroundColor;
 }
 
 function setTitleElement( parentNode, section ) {
@@ -608,9 +609,9 @@ transformer.register( "hideImages", function( content ) {
         if (img.width < minImageSize && img.height < minImageSize) {
             continue;
         }
-        // Just replace the src of the image with a placeholder image from our assets.
-        img.src = "file:///android_asset/image_placeholder.png";
+        img.src = "";
         img.srcset = "";
+        img.parentElement.style.backgroundColor = window.imagePlaceholderBackgroundColor;
     }
 } );
 

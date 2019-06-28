@@ -111,26 +111,32 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private int getHeaderTextRes(boolean inReview) {
-        if (TextUtils.isEmpty(originalDescription)) {
-            if (inReview) {
-                if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
-                    return R.string.suggested_edits_review_image_caption;
-                } else {
-                    return R.string.suggested_edits_review_description;
-                }
+        if (inReview) {
+            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION
+                    || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION
+                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
+                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+                return R.string.suggested_edits_review_image_caption;
             } else {
-                if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
-                    return R.string.description_edit_translate_description;
-                } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
-                    return R.string.description_edit_add_image_caption;
-                } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
-                    return R.string.description_edit_translate_image_caption;
-                } else {
-                    return R.string.description_edit_add_description;
-                }
+                return R.string.suggested_edits_review_description;
+            }
+        }
+
+        if (TextUtils.isEmpty(originalDescription)) {
+            if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+                return R.string.description_edit_translate_description;
+            } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+                return R.string.description_edit_add_image_caption;
+            } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+                return R.string.description_edit_translate_image_caption;
+            } else {
+                return R.string.description_edit_add_description;
             }
         } else {
-            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION) {
+            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION
+                    || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION
+                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
+                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
                 return R.string.description_edit_edit_image_caption;
             } else {
                 return R.string.description_edit_edit_description;
