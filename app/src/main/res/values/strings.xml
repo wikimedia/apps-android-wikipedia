@@ -626,7 +626,7 @@
     <string name="description_edit_read">Read</string>
     <string name="description_edit_add_description">Add article description</string>
     <string name="description_edit_translate_description">Translate article description</string>
-    <string name="description_edit_edit_description">Edit description</string>
+    <string name="description_edit_edit_description">Edit article description</string>
     <string name="description_edit_add_image_caption">Add image caption</string>
     <string name="description_edit_edit_image_caption">Edit image caption</string>
     <string name="description_edit_translate_image_caption">Translate image caption</string>
