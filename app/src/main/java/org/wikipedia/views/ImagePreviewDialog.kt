@@ -13,6 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
+import kotlinx.android.synthetic.main.view_image_detail.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
@@ -44,12 +45,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         super.onViewCreated(view, savedInstanceState)
         progressBar!!.visibility = VISIBLE
         toolbarView.setOnClickListener { dismiss() }
-        imagePageCommonsLinkContainer.setOnClickListener {
-            dismiss()
-            UriUtil.visitInExternalBrowser(context,
-                    Uri.parse(String.format(getString(R.string.suggested_edits_image_file_page_commons_link), suggestedEditsSummary.title)))
-        }
-
         titleText!!.text = StringUtil.removeHTMLTags(suggestedEditsSummary.displayTitle!!)
         loadImage(suggestedEditsSummary.getPreferredSizeThumbnailUrl())
         loadImageInfoIfNeeded()
@@ -67,7 +62,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         progressBar.visibility = GONE
         detailsHolder.visibility = GONE
         galleryImage.visibility = GONE
-        moreInfoContainer.visibility = GONE
         errorView.visibility = VISIBLE
         errorView.setError(caught)
     }
@@ -77,7 +71,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageExtMetadata(suggestedEditsSummary.title)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally{ setImageDetails() }
+                    .doFinally { setImageDetails() }
                     .subscribe({ response ->
                         val page = response.query()!!.pages()!![0]
                         if (page.imageInfo() != null) {
@@ -96,20 +90,23 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun setImageDetails() {
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_caption_title, suggestedEditsSummary.description, false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_artist, suggestedEditsSummary.metadata!!.artist(), false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_date, suggestedEditsSummary.metadata!!.dateTime(), false)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_source, suggestedEditsSummary.metadata!!.imageDescriptionSource(), true)
-        addDetailPortion(R.string.suggested_edits_image_preview_dialog_licensing, suggestedEditsSummary.metadata!!.licenseShortName(), true)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_caption_title, suggestedEditsSummary.description, null)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_artist, suggestedEditsSummary.metadata!!.artist(), null)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_date, suggestedEditsSummary.metadata!!.dateTime(), null)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_source, suggestedEditsSummary.metadata!!.imageDescriptionSource(), null)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_licensing, suggestedEditsSummary.metadata!!.licenseShortName(), null)
+        addDetailPortion(R.string.suggested_edits_image_preview_dialog_more_info, getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), getClickListenerFor(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
         detailsHolder.requestLayout()
     }
 
-    private fun addDetailPortion(titleRes: Int, @Nullable detail: String?, shouldAddAccentTint: Boolean) {
+    private fun addDetailPortion(titleRes: Int, @Nullable detail: String?, linkClickListener: View.OnClickListener?) {
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(requireContext())
             view.titleTextView.text = getString(titleRes)
-            if (shouldAddAccentTint) {
+            if (linkClickListener != null) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
+                externalLinkView.visibility = VISIBLE
+                detailsContainer.setOnClickListener(linkClickListener)
             }
             view.detailTextView.text = StringUtil.removeHTMLTags(detail)
             detailsHolder.addView(view)
@@ -121,6 +118,14 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         galleryImage.visibility = VISIBLE
         L.v("Loading image from url: $url")
         ViewUtil.loadImageUrlInto(galleryImage, url)
+    }
+
+    private fun getClickListenerFor(url: String?): View.OnClickListener {
+        return View.OnClickListener {
+            dismiss()
+            UriUtil.visitInExternalBrowser(context,
+                    Uri.parse(url))
+        }
     }
 
     companion object {
