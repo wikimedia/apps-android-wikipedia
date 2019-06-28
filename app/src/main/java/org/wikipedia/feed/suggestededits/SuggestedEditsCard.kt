@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.suggestededits.SuggestedEditsSummary
-import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(wiki: WikiSite,
                          val invokeSource: InvokeSource,
@@ -21,9 +20,5 @@ class SuggestedEditsCard(wiki: WikiSite,
 
     override fun title(): String {
         return WikipediaApp.getInstance().getString(R.string.suggested_edits_feed_card_title)
-    }
-
-    override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(DateUtil.getDefaultDateFor(age))
     }
 }
