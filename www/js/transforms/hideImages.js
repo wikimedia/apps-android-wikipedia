@@ -8,16 +8,8 @@ transformer.register( "hideImages", function( content ) {
         if (img.width < minImageSize && img.height < minImageSize) {
             continue;
         }
-        // Just replace the src of the image with a background color
         img.src = "";
-    switch(window.theme){
-        case 1:
-        case 2: img.parentElement.style.backgroundColor = "#27292d";
-                break;
-        case 3: img.parentElement.style.backgroundColor = "#f0e6d6";
-                break;
-        default: img.parentElement.style.backgroundColor = "#f8f9fa";
-        }
         img.srcset = "";
+        img.parentElement.style.backgroundColor = window.imagePlaceholderBackgroundColor;
     }
 } );
