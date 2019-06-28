@@ -42,8 +42,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     private val app = WikipediaApp.getInstance()
     private var siteMatrix: SiteMatrix? = null
     private var languageList: MutableList<String> = mutableListOf()
-    private var languageToList: MutableList<String> = mutableListOf()
-    private var languageCodesToList: MutableList<String> = arrayListOf()
+    private var languageSpinnersSwapping: Boolean = false
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: InvokeSource = SUGGESTED_EDITS_ADD_DESC
@@ -87,32 +86,21 @@ class SuggestedEditsCardsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setInitialUiState()
-        wikiFromLanguageSpinner.onItemSelectedListener = OnFromSpinnerItemSelectedListener()
-        wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
-
         cardsViewPager.offscreenPageLimit = 2
         cardsViewPager.addOnPageChangeListener(viewPagerListener)
+        resetViewPagerItemAdapter()
 
-        resetTitleDescriptionItemAdapter()
-
-        if (languageList.isEmpty()) {
-            // Fragment is created for the first time.
-            requestLanguagesAndBuildSpinner()
-        } else {
-            // Fragment already exists, so just update the UI.
-            updateFromLanguageSpinner()
-        }
-
-        arrow.setOnClickListener {
-            val pos = languageList.indexOf(languageToList[wikiToLanguageSpinner.selectedItemPosition])
-            val prevFromLang = languageList[wikiFromLanguageSpinner.selectedItemPosition]
-            wikiFromLanguageSpinner.setSelection(pos)
-            val postDelay: Long = 100
-            wikiToLanguageSpinner.postDelayed({
-                if (isAdded) {
-                    wikiToLanguageSpinner.setSelection(languageToList.indexOf(prevFromLang))
-                }
-            }, postDelay)
+        if (wikiLanguageDropdownContainer.visibility == VISIBLE) {
+            if (languageList.isEmpty()) {
+                // Fragment is created for the first time.
+                requestLanguagesAndBuildSpinner()
+            } else {
+                // Fragment already exists, so just update the UI.
+                initLanguageSpinners()
+            }
+            wikiFromLanguageSpinner.onItemSelectedListener = OnFromSpinnerItemSelectedListener()
+            wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
+            arrow.setOnClickListener { wikiFromLanguageSpinner.setSelection(wikiToLanguageSpinner.selectedItemPosition) }
         }
 
         backButton.setOnClickListener { previousPage() }
@@ -122,10 +110,7 @@ class SuggestedEditsCardsFragment : Fragment() {
             }
             nextPage()
         }
-        updateBackButton(0)
-
         addContributionButton.setOnClickListener { onSelectPage() }
-
         updateActionButton()
     }
 
@@ -211,7 +196,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { siteMatrix = it; }
-                .doFinally { updateFromLanguageSpinner() }
+                .doFinally { initLanguageSpinners() }
                 .subscribe({
                     app.language().appLanguageCodes.forEach {
                         languageList.add(getLanguageLocalName(it))
@@ -236,52 +221,51 @@ class SuggestedEditsCardsFragment : Fragment() {
         return name ?: code
     }
 
-    private fun resetTitleDescriptionItemAdapter() {
+    private fun resetViewPagerItemAdapter() {
         val postDelay: Long = 250
-        wikiToLanguageSpinner.postDelayed({
+        cardsViewPager.postDelayed({
             if (isAdded) {
                 cardsViewPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
+                updateBackButton(0)
             }
         }, postDelay)
     }
 
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && (source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION)) VISIBLE else GONE
+                && (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION)) VISIBLE else GONE
     }
 
-    private fun updateFromLanguageSpinner() {
+    private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {
+        if (!languageSpinnersSwapping) {
+            languageSpinnersSwapping = true
+            val preLangPosition = app.language().appLanguageCodes.indexOf(if (isFromLang) langFromCode else langToCode)
+            if (isFromLang) {
+                wikiToLanguageSpinner.setSelection(preLangPosition)
+            } else {
+                wikiFromLanguageSpinner.setSelection(preLangPosition)
+            }
+            languageSpinnersSwapping = false
+        }
+    }
+
+    private fun initLanguageSpinners() {
         wikiFromLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
-    }
-
-    private fun updateToLanguageSpinner(fromLanguageSpinnerPosition: Int) {
-        languageCodesToList.clear()
-        languageCodesToList.addAll(app.language().appLanguageCodes)
-        languageCodesToList.removeAt(fromLanguageSpinnerPosition)
-        languageToList.clear()
-        languageCodesToList.forEach {
-            languageToList.add(getLanguageLocalName(it))
-        }
-
-        val toAdapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageToList)
-        wikiToLanguageSpinner.adapter = toAdapter
-
-        val pos = languageCodesToList.indexOf(langToCode)
-        if (pos < 0) {
-            langToCode = languageCodesToList[0]
-        } else {
-            wikiToLanguageSpinner.setSelection(pos)
-        }
+        wikiToLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
+        langFromCode = app.language().appLanguageCodes[0]
+        wikiToLanguageSpinner.setSelection(1)
     }
 
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-            if (langFromCode != app.language().appLanguageCodes[position]) {
-                langFromCode = app.language().appLanguageCodes[position]
-                resetTitleDescriptionItemAdapter()
+            if (langToCode == app.language().appLanguageCodes[position]) {
+                swapLanguageSpinnerSelection(true)
             }
-            updateToLanguageSpinner(position)
-            updateBackButton(0)
+
+            if (!languageSpinnersSwapping) {
+                langFromCode = app.language().appLanguageCodes[position]
+                resetViewPagerItemAdapter()
+            }
         }
 
         override fun onNothingSelected(parent: AdapterView<*>) {
@@ -290,9 +274,13 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     private inner class OnToSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-            if (langToCode != languageCodesToList[position]) {
-                langToCode = languageCodesToList[position]
-                resetTitleDescriptionItemAdapter()
+            if (langFromCode == app.language().appLanguageCodes[position]) {
+                swapLanguageSpinnerSelection(false)
+            }
+
+            if (!languageSpinnersSwapping) {
+                langToCode = app.language().appLanguageCodes[position]
+                resetViewPagerItemAdapter()
             }
         }
         override fun onNothingSelected(parent: AdapterView<*>) {
