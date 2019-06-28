@@ -42,8 +42,8 @@ class SuggestedEditsCardsFragment : Fragment() {
     private val app = WikipediaApp.getInstance()
     private var siteMatrix: SiteMatrix? = null
     private var languageList: MutableList<String> = mutableListOf()
-    private var languageSpinnersSwapping: Boolean = false
-    private var viewPagerResetting: Boolean = false
+    private var swappingLanguageSpinners: Boolean = false
+    private var resettingViewPager: Boolean = false
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: InvokeSource = SUGGESTED_EDITS_ADD_DESC
@@ -224,13 +224,13 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     private fun resetViewPagerItemAdapter() {
-        if (!viewPagerResetting) {
-            viewPagerResetting = true
+        if (!resettingViewPager) {
+            resettingViewPager = true
             val postDelay: Long = 250
             cardsViewPager.postDelayed({
                 if (isAdded) {
                     cardsViewPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
-                    viewPagerResetting = false
+                    resettingViewPager = false
                 }
             }, postDelay)
         }
@@ -242,15 +242,15 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {
-        if (!languageSpinnersSwapping) {
-            languageSpinnersSwapping = true
+        if (!swappingLanguageSpinners) {
+            swappingLanguageSpinners = true
             val preLangPosition = app.language().appLanguageCodes.indexOf(if (isFromLang) langFromCode else langToCode)
             if (isFromLang) {
                 wikiToLanguageSpinner.setSelection(preLangPosition)
             } else {
                 wikiFromLanguageSpinner.setSelection(preLangPosition)
             }
-            languageSpinnersSwapping = false
+            swappingLanguageSpinners = false
         }
     }
 
@@ -266,7 +266,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                 swapLanguageSpinnerSelection(true)
             }
 
-            if (!languageSpinnersSwapping && langFromCode != app.language().appLanguageCodes[position]) {
+            if (!swappingLanguageSpinners && langFromCode != app.language().appLanguageCodes[position]) {
                 langFromCode = app.language().appLanguageCodes[position]
                 resetViewPagerItemAdapter()
                 updateBackButton(0)
@@ -283,7 +283,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                 swapLanguageSpinnerSelection(false)
             }
 
-            if (!languageSpinnersSwapping && langToCode != app.language().appLanguageCodes[position]) {
+            if (!swappingLanguageSpinners && langToCode != app.language().appLanguageCodes[position]) {
                 langToCode = app.language().appLanguageCodes[position]
                 resetViewPagerItemAdapter()
                 updateBackButton(0)
