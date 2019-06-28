@@ -55,7 +55,7 @@
                 app:fadeDuration="0"
                 app:actualImageScaleType="focusCrop" />
 
-            <LinearLayout
+            <org.wikipedia.views.InterceptTouchEventLinearLayout
                 android:id="@+id/viewArticleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,10 +116,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:paddingBottom="16dp"
+                    android:paddingBottom="11dp"
                     android:requiresFadingEdge="vertical"
                     android:fadingEdge="vertical"
-                    android:fadingEdgeLength="6dp"
+                    android:fadingEdgeLength="14dp"
                     android:scrollbars="none">
 
                     <FrameLayout
@@ -173,7 +173,7 @@
                         </LinearLayout>
                     </FrameLayout>
                 </ScrollView>
-            </LinearLayout>
+            </org.wikipedia.views.InterceptTouchEventLinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </FrameLayout>
