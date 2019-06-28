@@ -43,6 +43,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     private var siteMatrix: SiteMatrix? = null
     private var languageList: MutableList<String> = mutableListOf()
     private var languageSpinnersSwapping: Boolean = false
+    private var viewPagerResetting: Boolean = false
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var source: InvokeSource = SUGGESTED_EDITS_ADD_DESC
@@ -110,6 +111,7 @@ class SuggestedEditsCardsFragment : Fragment() {
             }
             nextPage()
         }
+        updateBackButton(0)
         addContributionButton.setOnClickListener { onSelectPage() }
         updateActionButton()
     }
@@ -222,13 +224,16 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     private fun resetViewPagerItemAdapter() {
-        val postDelay: Long = 250
-        cardsViewPager.postDelayed({
-            if (isAdded) {
-                cardsViewPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
-                updateBackButton(0)
-            }
-        }, postDelay)
+        if (!viewPagerResetting) {
+            viewPagerResetting = true
+            val postDelay: Long = 250
+            cardsViewPager.postDelayed({
+                if (isAdded) {
+                    cardsViewPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
+                    viewPagerResetting = false
+                }
+            }, postDelay)
+        }
     }
 
     private fun setInitialUiState() {
@@ -252,8 +257,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     private fun initLanguageSpinners() {
         wikiFromLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
         wikiToLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
-        langFromCode = app.language().appLanguageCodes[0]
-        wikiToLanguageSpinner.setSelection(1)
+        wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
     }
 
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
@@ -262,9 +266,10 @@ class SuggestedEditsCardsFragment : Fragment() {
                 swapLanguageSpinnerSelection(true)
             }
 
-            if (!languageSpinnersSwapping) {
+            if (!languageSpinnersSwapping && langFromCode != app.language().appLanguageCodes[position]) {
                 langFromCode = app.language().appLanguageCodes[position]
                 resetViewPagerItemAdapter()
+                updateBackButton(0)
             }
         }
 
@@ -278,9 +283,10 @@ class SuggestedEditsCardsFragment : Fragment() {
                 swapLanguageSpinnerSelection(false)
             }
 
-            if (!languageSpinnersSwapping) {
+            if (!languageSpinnersSwapping && langToCode != app.language().appLanguageCodes[position]) {
                 langToCode = app.language().appLanguageCodes[position]
                 resetViewPagerItemAdapter()
+                updateBackButton(0)
             }
         }
         override fun onNothingSelected(parent: AdapterView<*>) {
