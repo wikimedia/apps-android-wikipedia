@@ -96,6 +96,6 @@ resources = x.resources(
     getattr(x, 'string-array')(*eng_names, name='preference_language_canonical_names'))
 resources.set(TOOLS + 'ignore', 'MissingTranslation')
 
-with open('languages_list.xml', 'wb') as f:
+with open('../app/src/main/res/values/languages_list.xml', 'wb') as f:
     f.write(lxml.etree.tostring(resources, pretty_print=True,
                                 xml_declaration=True, encoding='utf-8'))
