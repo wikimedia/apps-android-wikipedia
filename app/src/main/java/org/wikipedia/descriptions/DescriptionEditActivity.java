@@ -79,7 +79,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION
                 || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             bottomSheetPresenter.show(getSupportFragmentManager(),
-                    ImagePreviewDialog.Companion.newInstance(summary));
+                    ImagePreviewDialog.Companion.newInstance(summary, invokeSource));
         } else {
             bottomSheetPresenter.show(getSupportFragmentManager(),
                     LinkPreviewDialog.newInstance(new HistoryEntry(summary.getPageTitle(),

@@ -47,7 +47,7 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:fontFamily="serif"
-                    android:lineSpacingMultiplier="0.9"
+                    android:lineSpacingExtra="6sp"
                     android:maxLines="3"
                     android:paddingBottom="4dp"
                     android:textColor="?attr/primary_text_color"

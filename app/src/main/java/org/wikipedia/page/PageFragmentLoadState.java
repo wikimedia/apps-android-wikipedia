@@ -398,6 +398,7 @@ public class PageFragmentLoadState {
         L.d("Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private JSONObject setLeadSectionMetadata(@NonNull JSONObject obj,
                                               @NonNull Page page) throws JSONException {
         SparseArray<String> localizedStrings = localizedStrings(page);
@@ -421,6 +422,7 @@ public class PageFragmentLoadState {
                 .put("showImages", Prefs.isImageDownloadEnabled())
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())
                 .put("theme", app.getCurrentTheme().getMarshallingId())
+                .put("imagePlaceholderBackgroundColor", "#" + Integer.toHexString(ResourceUtil.getThemedColor(fragment.requireContext(), android.R.attr.colorBackground) & 0xFFFFFF))
                 .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages());
     }
 
