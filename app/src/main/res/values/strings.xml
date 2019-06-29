@@ -674,7 +674,7 @@
     <string name="suggested_edits_edit_caption_button">Edit caption</string>
     <string name="suggested_edits_review_image_caption">Review image caption</string>
     <string name="suggested_edits_my_contributions">My contributions</string>
-    <string name="suggested_edits_no_description">No description</string>
+    <string name="suggested_edits_no_description">This file does not have description</string>
     <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the "Add article descriptions" task</string>
     <string name="suggested_edits_unlock_add_descriptions_dialog_message">Thanks for all your contributions! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the "Translate article descriptions" task</string>
