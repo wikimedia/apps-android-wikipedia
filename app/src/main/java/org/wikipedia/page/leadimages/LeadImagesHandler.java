@@ -202,6 +202,7 @@ public class LeadImagesHandler {
 
     private void updateCallToAction() {
         if ((!Prefs.isSuggestedEditsAddCaptionsUnlocked() && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) || !getLeadImageUrl().contains(COMMONS_IMAGE_URL) || getPage() == null) {
+            pageHeaderView.setUpCallToAction(null);
             return;
         }
         WikipediaApp app = WikipediaApp.getInstance();

@@ -76,8 +76,12 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     }
 
     public void setUpCallToAction(String callToActionText) {
-        callToActionContainer.setVisibility(VISIBLE);
-        callToActionTextView.setText(callToActionText);
+        if (callToActionText != null) {
+            callToActionContainer.setVisibility(VISIBLE);
+            callToActionTextView.setText(callToActionText);
+        } else {
+            callToActionContainer.setVisibility(GONE);
+        }
     }
 
     public void loadImage(@Nullable String url) {
