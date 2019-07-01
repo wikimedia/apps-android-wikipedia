@@ -533,7 +533,7 @@
   <string name="description_edit_text_hint" fuzzy="true">က္ဍိုပ်လိက် ပရူပရာ</string>
   <string name="description_edit_save">တြးပတိတ်</string>
   <string name="description_edit_add_description" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="description_edit_edit_description">ပလေဝ်ဒါန် ပရူပရာ</string>
+  <string name="description_edit_edit_description" fuzzy="true">ပလေဝ်ဒါန် ပရူပရာ</string>
   <string name="description_edit_cancel_hint">တးပဲါ</string>
   <string name="description_edit_help_title" fuzzy="true">ရီု - က္ဍိုပ်လိက် ပရူပရာ</string>
   <string name="description_edit_help_about_wikidata">ပရူ ဝဳကဳဒါတာ</string>
@@ -557,8 +557,8 @@
   <string name="suggested_edits_my_contributions">အရာ အဲ မကၠောန်လဝ်ဂမၠိုင်</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
   <string name="suggested_edits_task_add_description_description">တြးပ္တိတ် လိက်ပရေင် မဟွံမဲ ကုက္ဍိုပ်လိက်</string>
-  <string name="suggested_edits_task_image_caption_title">ပရူ ဗီုရုပ်</string>
-  <string name="suggested_edits_task_image_caption_description">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">ပရူ ဗီုရုပ်</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
   <string name="suggested_edits_task_multilingual_title">ထပ်စုတ် မဒါန်ပလေဝ် ဘာသာနာနာ</string>
   <string name="suggested_edits_task_multilingual_description">အရာမကၠာဲစၠောအ်ဘာသာဂှ် သၟဟ်အစောံ ယဝ်ရ မၞိဟ်ဗှ် ကေုာံ ချူပ္ဍဲဘာသာဝဳကဳ ဂၠိုင်နူမွဲဘာသာမ္ဂး၊၊</string>
   <string name="description_edit_revert_subtitle">တင်ဂုန်ရ ဟိုတ် မပလေဝ်ဒါန်လဝ် ဝဳကဳပဳဒဳယာ!</string>

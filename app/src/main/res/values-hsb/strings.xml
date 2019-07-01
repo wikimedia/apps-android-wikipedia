@@ -388,7 +388,7 @@
   <string name="description_edit_text_hint" fuzzy="true">Wopis titula</string>
   <string name="description_edit_save">Wozjewić</string>
   <string name="description_edit_add_description" fuzzy="true">Wopis titula přidać</string>
-  <string name="description_edit_edit_description">Wopis wobdźěłać</string>
+  <string name="description_edit_edit_description" fuzzy="true">Wopis wobdźěłać</string>
   <string name="description_edit_cancel_hint">Přetorhnyć</string>
   <string name="description_edit_help_about_wikidata">Wo Wikidatach</string>
   <string name="description_edit_success_saved" fuzzy="true">Wopis wozjewjeny!</string>

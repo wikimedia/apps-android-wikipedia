@@ -566,7 +566,7 @@
   <string name="description_edit_text_hint" fuzzy="true">Popis článku</string>
   <string name="description_edit_save">Uverejniť</string>
   <string name="description_edit_add_description" fuzzy="true">Pridať popis článku</string>
-  <string name="description_edit_edit_description">Upraviť popis</string>
+  <string name="description_edit_edit_description" fuzzy="true">Upraviť popis</string>
   <string name="description_edit_cancel_hint">Zrušiť</string>
   <string name="description_edit_help_title" fuzzy="true">Pomocník: popis</string>
   <string name="description_edit_help_about_wikidata">O Wikiúdajoch</string>
@@ -594,8 +594,8 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Úlohy pre upravovanie z aplikácie</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Pridať popis článku</string>
   <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
-  <string name="suggested_edits_task_image_caption_title">Popisy obrázkov</string>
-  <string name="suggested_edits_task_image_caption_description">Pridať popisy k obrázkom</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Popisy obrázkov</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Pridať popisy k obrázkom</string>
   <string name="suggested_edits_task_multilingual_title">Viac úkolov pre viacjazyčné editory</string>
   <string name="suggested_edits_task_multilingual_description">Tipy na preklad sú k dispozícii, ak čítate a píšete vo viac ako jednom jazyku Wikipédie.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>

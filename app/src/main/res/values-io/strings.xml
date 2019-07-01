@@ -333,6 +333,7 @@
   <string name="view_featured_article_footer_saved_button_label">Salvita</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">Selektar omno</string>
   <string name="feed_configure_menu_deselect_all" fuzzy="true">Desselektar omno</string>
+  <string name="description_edit_translate_caption_hint_per_language">Deskripto-texto por imaji (%s)</string>
   <string name="description_edit_save">Publikigar</string>
   <string name="description_edit_add_image_caption">Adjuntez informo pri l\'imajo</string>
   <string name="description_edit_cancel_hint">Nihiligar</string>
@@ -341,13 +342,12 @@
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
   <string name="suggested_edits_add_image_captions">Adjuntez informi pri l\'imaji</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Posible pose</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Thanks for all your contributions! Since we think you like adding captions to images, we’ve compiled a list of images that are missing captions. Could you help us improve Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Thanks for all your contributions! Since we think you like adding captions to images, we’ve compiled a list of images that are missing captions. Could you help us improve Wikipedia?</string>
   <string name="suggested_edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Deskripto-texto por imaji</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>

@@ -500,7 +500,7 @@
   <string name="description_edit_read">Baca</string>
   <string name="description_edit_add_description" fuzzy="true">Tambahkeun pedaran judul</string>
   <string name="description_edit_translate_description" fuzzy="true">Tarjamahkeun pedaran</string>
-  <string name="description_edit_edit_description">Édit pedaran</string>
+  <string name="description_edit_edit_description" fuzzy="true">Édit pedaran</string>
   <string name="description_edit_cancel_hint">Bolay</string>
   <string name="description_edit_help_title" fuzzy="true">Pitulung: pedaran judul</string>
   <string name="description_edit_help_about_wikidata">Ngeunaan Wikipédia</string>

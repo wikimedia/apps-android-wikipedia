@@ -321,7 +321,7 @@
   <string name="description_edit_text_hint" fuzzy="true">სათაურის აღწერა</string>
   <string name="description_edit_save">გამოქვეყნება</string>
   <string name="description_edit_add_description" fuzzy="true">სათაურის აღწერის დამატება</string>
-  <string name="description_edit_edit_description">აღწერის რედაქტირება</string>
+  <string name="description_edit_edit_description" fuzzy="true">აღწერის რედაქტირება</string>
   <string name="description_edit_cancel_hint">გაუქმება</string>
   <string name="description_edit_help_about_wikidata">ვიკიმონაცემების შესახებ</string>
   <string name="description_edit_success_saved" fuzzy="true">აღწერა გამოქვეყნდა!</string>
