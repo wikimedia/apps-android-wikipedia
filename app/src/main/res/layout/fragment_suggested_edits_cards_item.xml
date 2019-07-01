@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="?attr/selectableItemBackground"
+                android:foreground="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <org.wikipedia.views.FaceAndColorDetectImageView
