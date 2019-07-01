@@ -6,6 +6,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.*
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -23,6 +24,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
         fun updateCardContent(card: SuggestedEditsCard)
     }
 
+    private lateinit var context: Context
     private var age: Int = 0
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
@@ -33,6 +35,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         this.age = age
+        this.context = context
         cancel()
         fetchSuggestedEditForType(cb, null)
     }
@@ -157,7 +160,8 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                                 ),
                                 StringUtil.removeUnderscores(title),
                                 StringUtil.removeHTMLTags(title),
-                                imageInfo.metadata!!.imageDescription(),
+                                if (imageInfo.metadata!!.imageDescription().isNotEmpty())
+                                    imageInfo.metadata!!.imageDescription() else context.getString(R.string.suggested_edits_no_description),
                                 imageInfo.thumbUrl,
                                 imageInfo.originalUrl,
                                 null,
