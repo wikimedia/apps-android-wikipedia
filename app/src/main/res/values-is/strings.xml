@@ -584,7 +584,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Í lagi</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Hætta við</string>
   <string name="description_edit_text_hint">Lýsing á grein</string>
-  <string name="description_edit_translate_caption_hint_per_language">Myndatextar</string>
+  <string name="description_edit_translate_caption_hint_per_language">Myndatextar (%s)</string>
   <string name="description_edit_save">Birta</string>
   <string name="description_edit_read">Lesa</string>
   <string name="description_edit_add_description">Bæta við lýsingu á grein</string>

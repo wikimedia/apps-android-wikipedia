@@ -594,7 +594,7 @@
   <string name="description_edit_article_description_label_per_language">Artikolo (je %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Priskribo de artikolo (je %s)</string>
   <string name="description_edit_add_caption_label_per_language">Priskribo de bildo (je %s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Titoloj de bildo</string>
+  <string name="description_edit_translate_caption_hint_per_language">Titoloj de bildo (je %s)</string>
   <string name="description_edit_save">Publikigi</string>
   <string name="description_edit_read">Legi</string>
   <string name="description_edit_add_description">Aldoni priskribon de artikolo</string>

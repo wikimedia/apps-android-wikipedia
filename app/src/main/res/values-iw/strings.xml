@@ -598,7 +598,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
-  <string name="description_edit_translate_caption_hint_per_language">כיתובי תמונות</string>
+  <string name="description_edit_translate_caption_hint_per_language">כיתובי תמונות (%s)</string>
   <string name="description_edit_save">פרסום</string>
   <string name="description_edit_read">לקרוא</string>
   <string name="description_edit_add_description">הוספת תיאור ערך</string>

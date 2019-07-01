@@ -611,7 +611,7 @@
   <string name="description_edit_article_description_label_per_language">مقالة (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">وصف المقالة (%s)</string>
   <string name="description_edit_add_caption_label_per_language">وصف الصورة (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">تعليقات الصور</string>
+  <string name="description_edit_translate_caption_hint_per_language">تعليقات الصور (%s)</string>
   <string name="description_edit_save">انشر</string>
   <string name="description_edit_read">قراءة</string>
   <string name="description_edit_add_description">إضافة وصف المقالة</string>

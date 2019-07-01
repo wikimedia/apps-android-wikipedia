@@ -610,7 +610,7 @@
   <string name="description_edit_article_description_label_per_language">記事 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">記事の説明 (%s)</string>
   <string name="description_edit_add_caption_label_per_language">画像の説明 (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">画像の説明</string>
+  <string name="description_edit_translate_caption_hint_per_language">画像の説明 (%s)</string>
   <string name="description_edit_save">公開</string>
   <string name="description_edit_read">閲覧</string>
   <string name="description_edit_add_description">記事の説明を追加</string>

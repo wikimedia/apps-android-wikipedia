@@ -614,7 +614,7 @@
   <string name="description_edit_article_description_label_per_language">Madde (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Madde açıklaması (%s)</string>
   <string name="description_edit_add_caption_label_per_language">Resim açıklaması (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Resim altyazısı</string>
+  <string name="description_edit_translate_caption_hint_per_language">Resim altyazısı (%s)</string>
   <string name="description_edit_save">Yayımla</string>
   <string name="description_edit_read">Oku</string>
   <string name="description_edit_add_description">Madde açıklaması ekle</string>

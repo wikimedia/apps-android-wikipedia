@@ -603,7 +603,7 @@
   <string name="description_edit_article_description_label_per_language">條目（%s）</string>
   <string name="description_edit_translate_article_description_hint_per_language">條目描述（%s）</string>
   <string name="description_edit_add_caption_label_per_language">圖片描述（%s）</string>
-  <string name="description_edit_translate_caption_hint_per_language">圖片說明</string>
+  <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_read">閱讀</string>
   <string name="description_edit_add_description">新增條目描述</string>

@@ -584,7 +584,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">အိုကေ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
-  <string name="description_edit_translate_caption_hint_per_language">ရုပ်ပုံ ပုံစာများ</string>
+  <string name="description_edit_translate_caption_hint_per_language">ရုပ်ပုံ ပုံစာများ (%s)</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
   <string name="description_edit_read">ဖတ်ရန်</string>
   <string name="description_edit_add_description">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>

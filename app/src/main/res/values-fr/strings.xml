@@ -617,7 +617,7 @@
   <string name="description_edit_article_description_label_per_language">Article (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Description de l\'article (%s)</string>
   <string name="description_edit_add_caption_label_per_language">Description de l\'image (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Légende des images</string>
+  <string name="description_edit_translate_caption_hint_per_language">Légende des images (%s)</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_read">Lire</string>
   <string name="description_edit_add_description">Ajouter une description d\'article</string>
