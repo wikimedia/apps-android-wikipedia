@@ -146,7 +146,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                         val imageInfo = page.imageInfo()!!
 
                         sourceSummary = SuggestedEditsSummary(
-                                StringUtil.removeNamespace(title),
+                                title,
                                 langFromCode,
                                 PageTitle(
                                         Namespace.FILE.name,
@@ -194,7 +194,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                         val imageInfo = page.imageInfo()!!
 
                         sourceSummary = SuggestedEditsSummary(
-                                StringUtil.removeNamespace(title),
+                                title,
                                 langFromCode,
                                 PageTitle(
                                         Namespace.FILE.name,
