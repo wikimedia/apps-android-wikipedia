@@ -388,7 +388,7 @@
   <string name="description_edit_text_hint" fuzzy="true">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_save">প্ৰকাশ কৰক</string>
   <string name="description_edit_add_description" fuzzy="true">শিৰোনামৰ বিৱৰণ যোগ দিয়ক</string>
-  <string name="description_edit_edit_description">বৰ্ণনা যোগ দিয়ক</string>
+  <string name="description_edit_edit_description" fuzzy="true">বৰ্ণনা যোগ দিয়ক</string>
   <string name="description_edit_cancel_hint">বাতিল কৰক</string>
   <string name="description_edit_help_title" fuzzy="true">সহায়: শিৰোনামৰ বৰ্ণনা</string>
   <string name="description_edit_help_about_wikidata">ৱিকিপিডিয়াৰ বিষয়ে</string>

@@ -291,7 +291,7 @@
   <string name="description_edit_text_hint" fuzzy="true">തലക്കെട്ട് വിവരണം</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>
   <string name="description_edit_add_description" fuzzy="true">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
-  <string name="description_edit_edit_description">വിവരണം തിരുത്തുക</string>
+  <string name="description_edit_edit_description" fuzzy="true">വിവരണം തിരുത്തുക</string>
   <string name="description_edit_cancel_hint">റദ്ദാക്കുക</string>
   <string name="description_edit_success_done">ചെയ്തു</string>
   <string name="description_edit_success_did_you_know">താങ്കൾക്കറിയാമോ?</string>
@@ -300,7 +300,7 @@
   <string name="suggested_edits_review_description" fuzzy="true">തലക്കെട്ട് വിവരണം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_my_contributions">എന്റെ സംഭാവനകൾ</string>
   <string name="suggested_edits_task_add_description_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
-  <string name="suggested_edits_task_image_caption_description">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_multilingual_title">ബഹുഭാഷ എഡിറ്റർമാർക്കുള്ള കൂടുതൽ ജോലികൾ</string>
   <string name="suggested_edits_task_multilingual_negative">എനിക്കു വേണ്ടിയല്ല</string>
 </resources>
