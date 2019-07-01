@@ -125,7 +125,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                 val imageInfo = page.imageInfo()!!
 
                                 sourceSummary = SuggestedEditsSummary(
-                                        StringUtil.removeNamespace(title),
+                                        title,
                                         parent().langFromCode,
                                         PageTitle(
                                                 Namespace.FILE.name,
@@ -168,7 +168,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                 val imageInfo = page.imageInfo()!!
 
                                 sourceSummary = SuggestedEditsSummary(
-                                        StringUtil.removeNamespace(title),
+                                        title,
                                         parent().langFromCode,
                                         PageTitle(
                                                 Namespace.FILE.name,
