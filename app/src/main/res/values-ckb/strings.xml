@@ -372,7 +372,7 @@
   <string name="description_edit_text_hint" fuzzy="true">وەسفی سەرناو</string>
   <string name="description_edit_save">پاشەکەوت</string>
   <string name="description_edit_add_description" fuzzy="true">زیادکردنی وەسفی سەرناو</string>
-  <string name="description_edit_edit_description">دەستکاریی وەسف</string>
+  <string name="description_edit_edit_description" fuzzy="true">دەستکاریی وەسف</string>
   <string name="description_edit_cancel_hint">ھەڵوەشاندنەوە</string>
   <string name="description_edit_help_title" fuzzy="true">یارمەتی: وەسفەکانی سەرناو</string>
   <string name="description_edit_help_about_wikidata">دەربارەی ویکیداتا</string>

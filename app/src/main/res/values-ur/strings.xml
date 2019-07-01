@@ -463,7 +463,7 @@
   <string name="description_edit_text_hint" fuzzy="true">عنوان کی وضاحت</string>
   <string name="description_edit_save">شائع کریں</string>
   <string name="description_edit_add_description" fuzzy="true">عنوان کی وضاحت درج کریں</string>
-  <string name="description_edit_edit_description">وضاحت میں ترمیم کریں</string>
+  <string name="description_edit_edit_description" fuzzy="true">وضاحت میں ترمیم کریں</string>
   <string name="description_edit_cancel_hint">منسوخ کریں</string>
   <string name="description_edit_help_title" fuzzy="true">معاونت:عنوان کی وضاحتیں</string>
   <string name="description_edit_help_about_wikidata">ویکی ڈیٹا کا تعارف</string>

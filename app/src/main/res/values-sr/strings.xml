@@ -573,7 +573,7 @@
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис чланака</string>
   <string name="description_edit_translate_description">Преведите опис чланка</string>
-  <string name="description_edit_edit_description">Уреди опис</string>
+  <string name="description_edit_edit_description" fuzzy="true">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
   <string name="description_edit_help_title">Помоћ: Описи чланака</string>
   <string name="description_edit_help_about_wikidata">О Википодацима</string>
@@ -600,11 +600,11 @@
   <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
   <string name="suggested_edits_task_translation_title">Преведите описе чланака</string>
   <string name="suggested_edits_task_translation_description">Преведите описе по језицима чланака.</string>
+  <string name="suggested_edits_task_translate_caption_title">Превођење натписа слика</string>
+  <string name="suggested_edits_task_translate_caption_description">Преведите натписе на друге језике</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Закључано док не направите (%d) проверених доприноса</string>
   <string name="suggested_edits_task_multilingual_negative">Није за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај језике</string>
-  <string name="suggested_edits_task_translate_caption_title">Превођење натписа слика</string>
-  <string name="suggested_edits_task_translate_caption_description">Преведите натписе на друге језике</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;.</string>

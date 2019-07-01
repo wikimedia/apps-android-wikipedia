@@ -543,7 +543,7 @@
   <string name="description_edit_read">Waca</string>
   <string name="description_edit_add_description" fuzzy="true">Wuwuh wedharaning sesirah</string>
   <string name="description_edit_translate_description" fuzzy="true">Pertal wedharan</string>
-  <string name="description_edit_edit_description">Besut wedharan</string>
+  <string name="description_edit_edit_description" fuzzy="true">Besut wedharan</string>
   <string name="description_edit_cancel_hint">Wurung</string>
   <string name="description_edit_help_title" fuzzy="true">Pitulung: wedharaning sesirah</string>
   <string name="description_edit_help_about_wikidata">Ngenani Wikidata</string>
@@ -572,10 +572,10 @@
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Pertal wedharan</string>
   <string name="suggested_edits_task_translation_description">Pertal wedharan ing akèh basa.</string>
-  <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>
-  <string name="suggested_edits_task_multilingual_positive">Wuwuh basa</string>
   <string name="suggested_edits_task_translate_caption_title">Pertal katerangan gambar</string>
   <string name="suggested_edits_task_translate_caption_description">Pertal katerangan menyang basa liya</string>
+  <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>
+  <string name="suggested_edits_task_multilingual_positive">Wuwuh basa</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 pasumbang</item>
     <item quantity="other">%d pasumbang</item>

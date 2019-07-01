@@ -603,11 +603,14 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
   <string name="description_edit_text_hint">Popis článku</string>
+  <string name="description_edit_article_description_label_per_language">Článek (v jazyce %s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Popis článku (v jazyce %s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Popis obrázku</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_read">Číst</string>
   <string name="description_edit_add_description">Přidat popis článku</string>
   <string name="description_edit_translate_description">Přeložit popis článku</string>
-  <string name="description_edit_edit_description">Editovat popis</string>
+  <string name="description_edit_edit_description">Editovat popis článku</string>
   <string name="description_edit_add_image_caption">Přidat popisek obrázku</string>
   <string name="description_edit_edit_image_caption">Editovat popis obrázku</string>
   <string name="description_edit_translate_image_caption">Přeložit popis obrázku</string>
@@ -661,30 +664,30 @@
   <string name="suggested_edits_unlock_notification_button">Ano, chci</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Odemkli jste přidávání popisů obrázků!</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Odemkli jste přidávání popisů obrázků!</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Děkujeme za všechny vaše příspěvky! Vzhledem k tomu, že si myslíme, že vás přidávání popisů k obrázkům baví, nabízíme vám seznam obrázků, kterým chybí popisy. Pomůžete nám vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Navrhování editací\n\nDěkujeme za všechny vaše příspěvky! Vzhledem k tomu, že si myslíme, že vás přidávání popisů k obrázkům baví, nabízíme vám seznam obrázků, kterým chybí popisy. Pomůžete nám vylepšit Wikipedii?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Děkujeme za všechny vaše příspěvky! Vzhledem k tomu, že si myslíme, že vás přidávání popisů k obrázkům baví, nabízíme vám seznam obrázků, kterým chybí popisy. Pomůžete nám vylepšit Wikipedii?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Navrhování editací\n\nDěkujeme za všechny vaše příspěvky! Vzhledem k tomu, že si myslíme, že vás přidávání popisů k obrázkům baví, nabízíme vám seznam obrázků, kterým chybí popisy. Pomůžete nám vylepšit Wikipedii?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Odemkli jste překládání popisů obrázků!</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Odemkli jste překládání popisů obrázků!</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Děkujeme za všechny vaše příspěvky! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady popisu obrázků. Mohli byste nám i nadále pomáhat vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Navrhování editací\n\nDěkujeme za všechny vaše příspěvky! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady popisu obrázků. Mohli byste nám i nadále pomáhat vylepšit Wikipedii?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Děkujeme za všechny vaše příspěvky! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady popisu obrázků. Mohli byste nám i nadále pomáhat vylepšit Wikipedii?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Navrhování editací\n\nDěkujeme za všechny vaše příspěvky! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady popisu obrázků. Mohli byste nám i nadále pomáhat vylepšit Wikipedii?</string>
   <string name="suggested_edits_license_notice">Přidáním popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Přidáním popisu obrázku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informace</string>
   <string name="suggested_edits_tasks_activity_title">Navrhování editací</string>
   <string name="suggested_edits_task_add_description_title">Přidat popisy článků</string>
   <string name="suggested_edits_task_add_description_description">Přispět článkům bez popisu</string>
-  <string name="suggested_edits_task_image_caption_title">Popisy obrázků</string>
-  <string name="suggested_edits_task_image_caption_description">Přidat popisy k obrázkům</string>
-  <string name="suggested_edits_task_multilingual_title">Více úkolů pro vícejazyčné editory</string>
-  <string name="suggested_edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="suggested_edits_task_translation_title">Přeložit popisy článků</string>
   <string name="suggested_edits_task_translation_description">Přeložit popisy článků napříč jazyky.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Popisy obrázků</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Přidat popisy k obrázkům</string>
+  <string name="suggested_edits_task_translate_caption_title">Přeložit popisy obrázků</string>
+  <string name="suggested_edits_task_translate_caption_description">Přeložit popisy obrázků do jiných jazyků</string>
+  <string name="suggested_edits_task_multilingual_title">Více úkolů pro vícejazyčné editory</string>
+  <string name="suggested_edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuto, dokud needitujete %d popisů obrázků</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zamčeno, dokud neprovedete %d ověřené příspěvky</string>
   <string name="suggested_edits_task_multilingual_negative">Není pro mě</string>
   <string name="suggested_edits_task_multilingual_positive">Přidat jazyky</string>
-  <string name="suggested_edits_task_translate_caption_title">Přeložit popisy obrázků</string>
-  <string name="suggested_edits_task_translate_caption_description">Přeložit popisy obrázků do jiných jazyků</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umělec</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
@@ -699,7 +702,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Přidat popis článku (v jazyce %s)</string>
   <string name="suggested_edits_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Popis obrázku</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umělec</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Zdroj/Fotograf</string>

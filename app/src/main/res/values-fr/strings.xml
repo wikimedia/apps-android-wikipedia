@@ -299,7 +299,7 @@
   <string name="gallery_save_success">Fichier bien enregistré.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
   <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans l\'espace de stockage de votre appareil est nécessaire pour enregistrer des images.</string>
-  <string name="gallery_add_image_caption_in_language_button">Ajouter une légende (%s)</string>
+  <string name="gallery_add_image_caption_in_language_button">Ajouter la légende de l\'image (%s)</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
   <string name="snippet_share_intro">Fait intéressant sur @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Taper pour développer</string>
@@ -614,11 +614,15 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="description_edit_text_hint">Description de l\'article</string>
+  <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Description de l\'article (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Description de l\'image (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Légende des images</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_read">Lire</string>
   <string name="description_edit_add_description">Ajouter une description d\'article</string>
   <string name="description_edit_translate_description">Traduire la description de l’article</string>
-  <string name="description_edit_edit_description">Modifier la description</string>
+  <string name="description_edit_edit_description">Modifier la description de l\'article</string>
   <string name="description_edit_add_image_caption">Ajouter la légende de l\'image</string>
   <string name="description_edit_edit_image_caption">Modifier la légende de l\'image</string>
   <string name="description_edit_translate_image_caption">Traduire la légende de l\'image</string>
@@ -627,8 +631,8 @@
   <string name="description_edit_help_about_wikidata">À propos de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guide de Wikidata pour écrire des descriptions</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier des descriptions d’article ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
-  <string name="description_edit_license_notice">En modifiant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier les descriptions d’article ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
+  <string name="description_edit_license_notice">En modifiant la description de l\'article, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Description de l\'article publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description d\'article publiée !</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l\'article publiée ! (%s)</string>
@@ -672,30 +676,30 @@
   <string name="suggested_edits_unlock_notification_button">Oui, allons-y</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Vous avez débloqué la tâche « Ajouter des légendes d’image »</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Vous avez débloqué « Ajouter les légendes aux images »</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Merci pour toutes vos contributions ! Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légende. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions. Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légende. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Merci pour toutes vos mises à jour des légendes d\'images ! Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légendes. Pourriez-vous nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos mises à jour des légendes. Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légende. Pourriez-vous nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Vous avez débloqué la tâche « Traduire les légendes d’image »</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Vous avez débloqué « Traduire les légendes d’image »</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Merci pour toutes vos contributions ! Vous avez utilisé l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions. Vous utilisez l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Bravo pour vos nombreuses mises à jour des légendes d\'images - nous en sommes ravis ! Vous avez utilisé l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin d\'une traduction de leur légendes. Pourriez-vous continuer à nous aider à améliorer Wikipédia ?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Modifications suggérées\n\nMerci pour toutes vos contributions. Vous utilisez l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Voulez-vous continuer à nous aider à améliorer Wikipédia ?</string>
   <string name="suggested_edits_license_notice">En ajoutant la description, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">En ajoutant la légende de l’image, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de mettre irrévocablement mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
   <string name="suggested_edits_task_add_description_title">Ajouter des descriptions d\'article</string>
   <string name="suggested_edits_task_add_description_description">Contribuer aux articles sans description</string>
-  <string name="suggested_edits_task_image_caption_title">Légender les images</string>
-  <string name="suggested_edits_task_image_caption_description">Ajouter des légendes aux images</string>
-  <string name="suggested_edits_task_multilingual_title">Plus de tâches pour les éditeurs multilingues</string>
-  <string name="suggested_edits_task_multilingual_description">Les tâches de traduction sont disponibles si vous lisez et écrivez dans plus d’une langue de Wikipédia.</string>
   <string name="suggested_edits_task_translation_title">Traduire les descriptions d\'articles</string>
   <string name="suggested_edits_task_translation_description">Traduire les descriptions d\'après la langue des articles.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Verrouillé jusqu’à ce que vous ayez fait %d modifications vérifiées</string>
+  <string name="suggested_edits_task_image_caption_title">Ajouter les légendes aux images</string>
+  <string name="suggested_edits_task_image_caption_description">Ajouter de courtes légendes aux images qui n\'en n\'ont pas</string>
+  <string name="suggested_edits_task_translate_caption_title">Traduire les légendes des images</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduire les légendes dans d\'autres langues</string>
+  <string name="suggested_edits_task_multilingual_title">Plus de tâches pour les éditeurs multilingues</string>
+  <string name="suggested_edits_task_multilingual_description">Les tâches de traduction sont disponibles si vous lisez et écrivez dans plus d’une langue de Wikipédia.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Verrouillé jusqu’à ce que vous ayez modifié %d légendes d\'images</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Verrouillé tant que vous n\'aurez pas fait %d contributions vérifiées</string>
   <string name="suggested_edits_task_multilingual_negative">Pas pour moi</string>
   <string name="suggested_edits_task_multilingual_positive">Ajouter des langues</string>
-  <string name="suggested_edits_task_translate_caption_title">Traduire les légendes des images</string>
-  <string name="suggested_edits_task_translate_caption_description">Traduire les légendes dans d\'autres langues</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiste</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source</string>
@@ -709,7 +713,8 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Ajouter une description à l\'article (%s)</string>
   <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Commencer</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Légende des images</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Légende de l\'image (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Description de l\'image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiste</string>
   <string name="suggested_edits_image_preview_dialog_date">Date</string>
   <string name="suggested_edits_image_preview_dialog_source">Source/Photographe</string>

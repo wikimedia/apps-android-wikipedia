@@ -604,9 +604,10 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
   <string name="description_edit_text_hint" fuzzy="true">Opis tytułu</string>
+  <string name="description_edit_translate_caption_hint_per_language">Podpisy obrazka</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_add_description" fuzzy="true">Dodaj opis tytułu</string>
-  <string name="description_edit_edit_description">Edytuj opis</string>
+  <string name="description_edit_edit_description" fuzzy="true">Edytuj opis</string>
   <string name="description_edit_add_image_caption">Dodaj podpis obrazu</string>
   <string name="description_edit_edit_image_caption">Edytuj podpis obrazu</string>
   <string name="description_edit_cancel_hint">Anuluj</string>
@@ -636,7 +637,6 @@
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Podpisy obrazka</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Źródło/Fotograf</string>

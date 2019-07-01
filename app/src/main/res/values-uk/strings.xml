@@ -605,7 +605,7 @@
   <string name="description_edit_read">Читати</string>
   <string name="description_edit_add_description" fuzzy="true">Додати опис назви</string>
   <string name="description_edit_translate_description" fuzzy="true">Перекласти опис</string>
-  <string name="description_edit_edit_description">Редагувати опис</string>
+  <string name="description_edit_edit_description" fuzzy="true">Редагувати опис</string>
   <string name="description_edit_cancel_hint">Скасувати</string>
   <string name="description_edit_help_title" fuzzy="true">Довідка: описи назв</string>
   <string name="description_edit_help_about_wikidata">Про Вікідані</string>
@@ -649,18 +649,18 @@
   <string name="suggested_edits_tasks_activity_title">Пропоновані редагування</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Додати описи</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
-  <string name="suggested_edits_task_image_caption_title">Підписати зображення</string>
-  <string name="suggested_edits_task_image_caption_description">Додати підписи до зображень</string>
-  <string name="suggested_edits_task_multilingual_title">Більше завдань для багатомовних редакторів</string>
-  <string name="suggested_edits_task_multilingual_description">Завдання перекладу доступні, якщо ви читаєте і пишете більше, ніж однією мовою, якою існує Вікіпедія.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Перекласти описи</string>
   <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами, якими є стаття.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Підписати зображення</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Додати підписи до зображень</string>
+  <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>
+  <string name="suggested_edits_task_translate_caption_description">Перекласти підписи іншими мовами</string>
+  <string name="suggested_edits_task_multilingual_title">Більше завдань для багатомовних редакторів</string>
+  <string name="suggested_edits_task_multilingual_description">Завдання перекладу доступні, якщо ви читаєте і пишете більше, ніж однією мовою, якою існує Вікіпедія.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заблоковано, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблоковане, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_multilingual_negative">Не для мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додати мови</string>
-  <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>
-  <string name="suggested_edits_task_translate_caption_description">Перекласти підписи іншими мовами</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 редагування</item>
     <item quantity="other">%d редагування</item>
