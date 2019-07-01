@@ -61,9 +61,9 @@ object MissingDescriptionProvider {
                             }
                             title
                         }
+                        .retry { t: Throwable -> t is ListEmptyException }
             }
         }.flatMap { title -> ServiceFactory.getRest(wiki).getSummary(null, title) }
-                .retry { t: Throwable -> t is ListEmptyException }
                 .doFinally { mutex.release() }
     }
 
@@ -108,9 +108,9 @@ object MissingDescriptionProvider {
                             }
                             sourceAndTargetPageTitles
                         }
+                        .retry { t: Throwable -> t is ListEmptyException }
             }
         }.flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
-                .retry { t: Throwable -> t is ListEmptyException }
                 .doFinally { mutex.release() }
     }
 
