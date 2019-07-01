@@ -340,7 +340,7 @@
   <string name="feed_configure_menu_deselect_all">លាក់ទាំង​អស់​</string>
   <string name="description_edit_save">បោះផ្សាយ</string>
   <string name="description_edit_add_description" fuzzy="true">បន្ថែមការពណ៌នាអំពីចំណងជើង</string>
-  <string name="description_edit_edit_description">កែប្រែការពណ៌នាអំពីចំណងជើង</string>
+  <string name="description_edit_edit_description" fuzzy="true">កែប្រែការពណ៌នាអំពីចំណងជើង</string>
   <string name="description_edit_cancel_hint">បោះបង់</string>
   <string name="description_edit_success_done">រួចរាល់</string>
   <string name="description_edit_success_did_you_know">តើអ្នកដឹងទេ?</string>

@@ -282,9 +282,9 @@
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
   <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
   <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message"/>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Seba iştiakanê şıma rê teşekur kem. A fıkıtyayım ke şıma qayılê resiman rê nuştey resimi cı kerê, ma lista resimanê ke nuştey resimi çıniyo ma ê arêday pêser. Şıma şenê marê seba Wikipedia ravêr berdışi rê peşti bıdê</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message"/>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true"/>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Seba iştiakanê şıma rê teşekur kem. A fıkıtyayım ke şıma qayılê resiman rê nuştey resimi cı kerê, ma lista resimanê ke nuştey resimi çıniyo ma ê arêday pêser. Şıma şenê marê seba Wikipedia ravêr berdışi rê peşti bıdê</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true"/>
   <string name="suggested_edits_menu_info">Melumat</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>

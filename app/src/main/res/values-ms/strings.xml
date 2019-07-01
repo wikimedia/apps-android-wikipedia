@@ -567,7 +567,7 @@
   <string name="description_edit_text_hint" fuzzy="true">Huraian tajuk</string>
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_add_description" fuzzy="true">Tambah huraian tajuk</string>
-  <string name="description_edit_edit_description">Sunting keterangan</string>
+  <string name="description_edit_edit_description" fuzzy="true">Sunting keterangan</string>
   <string name="description_edit_cancel_hint">Batalkan</string>
   <string name="description_edit_help_title" fuzzy="true">Bantuan: huraian tajuk</string>
   <string name="description_edit_help_about_wikidata">Mengenai Wikidata</string>
@@ -598,18 +598,18 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
-  <string name="suggested_edits_task_image_caption_title">Keterangan imej</string>
-  <string name="suggested_edits_task_image_caption_description">Tambah kapsyen ke imej</string>
-  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
-  <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemah penerangan tajuk</string>
   <string name="suggested_edits_task_translation_description">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
+  <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
+  <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
+  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
+  <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
-  <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
-  <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">sumbangan dalam apl</item>
     <item quantity="other">%d sumbangan dalam apl</item>
