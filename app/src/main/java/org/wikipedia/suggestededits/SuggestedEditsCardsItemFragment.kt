@@ -57,7 +57,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        cardView.setOnClickListener {
+        cardClickArea.setOnClickListener {
             if (sourceSummary != null) {
                 parent().onSelectPage()
             }

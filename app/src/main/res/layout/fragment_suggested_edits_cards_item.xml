@@ -14,9 +14,6 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="?attr/button_background_color"
         app:cardUseCompatPadding="true">
 
@@ -40,10 +37,18 @@
             android:background="?attr/button_background_color"
             android:visibility="gone" />
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/cardItemContainer"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/cardClickArea"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
             android:orientation="vertical">
 
             <org.wikipedia.views.FaceAndColorDetectImageView
@@ -178,5 +183,8 @@
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
     </androidx.cardview.widget.CardView>
 </FrameLayout>
