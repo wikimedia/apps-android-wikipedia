@@ -24,7 +24,6 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
         fun updateCardContent(card: SuggestedEditsCard)
     }
 
-    private lateinit var context: Context
     private var age: Int = 0
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
@@ -35,7 +34,6 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         this.age = age
-        this.context = context
         cancel()
         fetchSuggestedEditForType(cb, null)
     }
@@ -161,7 +159,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                                 StringUtil.removeUnderscores(title),
                                 StringUtil.removeHTMLTags(title),
                                 if (imageInfo.metadata!!.imageDescription().isNotEmpty())
-                                    imageInfo.metadata!!.imageDescription() else context.getString(R.string.suggested_edits_no_description),
+                                    imageInfo.metadata!!.imageDescription() else WikipediaApp.getInstance().getString(R.string.suggested_edits_no_description),
                                 imageInfo.thumbUrl,
                                 imageInfo.originalUrl,
                                 null,
