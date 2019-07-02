@@ -29,7 +29,7 @@ class DescriptionEditBottomBarView @JvmOverloads constructor(
 
     fun setSummary(summary: SuggestedEditsSummary) {
         setConditionalLayoutDirection(this, summary.lang)
-        viewArticleTitle!!.text = StringUtil.removeNamespace(summary.displayTitle!!)
+        viewArticleTitle!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(summary.displayTitle!!))
         if (summary.thumbnailUrl.isNullOrEmpty()) {
             viewImageThumbnail.visibility = GONE
         } else {
