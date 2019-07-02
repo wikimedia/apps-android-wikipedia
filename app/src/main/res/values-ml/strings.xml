@@ -255,7 +255,7 @@
   <string name="article_menu_bar_bookmark">ഈ ലേഖനം വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="article_menu_bar_share">ലേഖനത്തിന്റെ കണ്ണി പങ്കുവയ്ക്കുക</string>
   <string name="article_header_edit_hint">തിരുത്തുക...</string>
-  <string name="article_header_edit_description">തലക്കെട്ടിന്റെ വിവരണം തിരുത്തുക</string>
+  <string name="article_header_edit_description" fuzzy="true">തലക്കെട്ടിന്റെ വിവരണം തിരുത്തുക</string>
   <string name="article_header_edit_lead_section">ആമുഖം തിരുത്തുക</string>
   <string name="color_theme_select">ദൃശ്യരൂപം</string>
   <string name="color_theme_light">തെളിച്ചം</string>
@@ -288,19 +288,19 @@
   <string name="reading_lists_onboarding_for_example">ഉദാഹരണത്തിന്</string>
   <string name="user_option_sync_label">ക്രമീകരണങ്ങൾ</string>
   <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
-  <string name="description_edit_text_hint">തലക്കെട്ട് വിവരണം</string>
+  <string name="description_edit_text_hint" fuzzy="true">തലക്കെട്ട് വിവരണം</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>
-  <string name="description_edit_add_description">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
-  <string name="description_edit_edit_description">വിവരണം തിരുത്തുക</string>
+  <string name="description_edit_add_description" fuzzy="true">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
+  <string name="description_edit_edit_description" fuzzy="true">വിവരണം തിരുത്തുക</string>
   <string name="description_edit_cancel_hint">റദ്ദാക്കുക</string>
   <string name="description_edit_success_done">ചെയ്തു</string>
   <string name="description_edit_success_did_you_know">താങ്കൾക്കറിയാമോ?</string>
   <string name="description_edit_tutorial_button_label_start_editing">തിരുത്തി തുടങ്ങുക</string>
-  <string name="suggested_edits_add_descriptions">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
-  <string name="suggested_edits_review_description">തലക്കെട്ട് വിവരണം അവലോകനം ചെയ്യുക</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
+  <string name="suggested_edits_review_description" fuzzy="true">തലക്കെട്ട് വിവരണം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_my_contributions">എന്റെ സംഭാവനകൾ</string>
   <string name="suggested_edits_task_add_description_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
-  <string name="suggested_edits_task_image_caption_description">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_multilingual_title">ബഹുഭാഷ എഡിറ്റർമാർക്കുള്ള കൂടുതൽ ജോലികൾ</string>
   <string name="suggested_edits_task_multilingual_negative">എനിക്കു വേണ്ടിയല്ല</string>
 </resources>

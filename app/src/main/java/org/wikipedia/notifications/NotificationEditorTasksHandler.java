@@ -27,7 +27,7 @@ public final class NotificationEditorTasksHandler {
     public static void dispatchEditorTaskResults(@NonNull Context context, @NonNull EditorTaskCounts results) {
         Object eventToDispatch = null;
 
-        int descriptionTargetsPassed = results.getDescriptionEditTargetsPassed().size();
+        int descriptionTargetsPassed = results.getDescriptionEditTargetsPassedCount();
         if (descriptionTargetsPassed > 1) {
             if (!Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
                 Prefs.setSuggestedEditsAddDescriptionsUnlocked(true);
@@ -63,7 +63,7 @@ public final class NotificationEditorTasksHandler {
             }
         }
 
-        int captionTargetsPassed = results.getCaptionEditTargetsPassed().size();
+        int captionTargetsPassed = results.getCaptionEditTargetsPassedCount();
         if (captionTargetsPassed > 1) {
             if (!Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
                 Prefs.setSuggestedEditsAddCaptionsUnlocked(true);

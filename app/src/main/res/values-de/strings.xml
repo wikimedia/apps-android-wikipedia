@@ -347,7 +347,7 @@
   <string name="article_menu_bar_bookmark">Füge diesen Artikel zu einer Leseliste hinzu</string>
   <string name="article_menu_bar_share">Artikellink teilen</string>
   <string name="article_header_edit_hint">Bearbeiten …</string>
-  <string name="article_header_edit_description">Titelbeschreibung bearbeiten</string>
+  <string name="article_header_edit_description" fuzzy="true">Titelbeschreibung bearbeiten</string>
   <string name="article_header_edit_lead_section">Einführung bearbeiten</string>
   <string name="color_theme_select">Farbschema</string>
   <string name="color_theme_light">Hell</string>
@@ -590,79 +590,75 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Passe deinen Entdecken-Feed an&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kannst jetzt auswählen, was auf deinem Feed angezeigt werden soll und auch deine Lieblingsinhalte priorisieren.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
-  <string name="description_edit_text_hint">Titelbeschreibung</string>
-  <string name="description_edit_text_hint_per_language">Beschreibung auf %s</string>
+  <string name="description_edit_text_hint" fuzzy="true">Titelbeschreibung</string>
   <string name="description_edit_save">Veröffentlichen</string>
-  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Lesen</string>
-  <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>
-  <string name="description_edit_add_description_v2">Beschreibung hinzufügen</string>
-  <string name="description_edit_translate_description">Beschreibung übersetzen</string>
-  <string name="description_edit_edit_description">Beschreibung bearbeiten</string>
-  <string name="add_translation">Übersetzung auf %s hinzufügen</string>
+  <string name="description_edit_add_description" fuzzy="true">Titelbeschreibung hinzufügen</string>
+  <string name="description_edit_translate_description" fuzzy="true">Beschreibung übersetzen</string>
+  <string name="description_edit_edit_description" fuzzy="true">Beschreibung bearbeiten</string>
   <string name="description_edit_cancel_hint">Abbrechen</string>
-  <string name="description_edit_help_title">Hilfe: Titelbeschreibungen</string>
+  <string name="description_edit_help_title" fuzzy="true">Hilfe: Titelbeschreibungen</string>
   <string name="description_edit_help_about_wikidata">Über Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-Anleitung zum Verfassen von Beschreibungen</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
-  <string name="description_edit_anon_limit">Vielen Dank für dein fortwährendes Interesse an der Bearbeitung von Beschreibungen! Um zusätzliche Bearbeitungen durchzuführen, melde dich bitte bei deinem Wikipedia-Benutzerkonto an.</string>
-  <string name="description_edit_license_notice">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
-  <string name="description_edit_success_saved">Beschreibung veröffentlicht!</string>
-  <string name="description_edit_success_saved_snackbar">Beschreibung veröffentlicht!</string>
-  <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Vielen Dank für dein fortwährendes Interesse an der Bearbeitung von Beschreibungen! Um zusätzliche Bearbeitungen durchzuführen, melde dich bitte bei deinem Wikipedia-Benutzerkonto an.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Beschreibung veröffentlicht!</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Beschreibung veröffentlicht!</string>
+  <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für alle besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>
   <string name="description_edit_success_did_you_know">Schon gewusst?</string>
   <string name="description_edit_success_article_edit_hint">Du kannst auch Artikel innerhalb dieser App bearbeiten. Korrigiere Tippfehler und kleine Sätze, indem du das nächste Mal auf das Symbol ^1 klickst.</string>
-  <string name="description_edit_tutorial_title_descriptions">Titelbeschreibungen</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titelbeschreibungen</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Fasst einen Artikel zusammen, um Lesern im Überblick beim Verstehen des Themas zu helfen</string>
   <string name="description_edit_tutorial_keep_it_short">Halte sie kurz</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweise eine Zeile, zwischen zwei und zwölf Wörtern</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
-  <string name="suggested_edits_add_descriptions">Beschreibungen hinzufügen</string>
-  <string name="suggested_edits_translate_descriptions">Beschreibungen übersetzen</string>
-  <string name="suggested_edits_review_description">Beschreibung überprüfen</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Beschreibungen hinzufügen</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Beschreibungen übersetzen</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Beschreibung überprüfen</string>
   <string name="suggested_edits_add_description_button">Beschreibung hinzufügen</string>
+  <string name="suggested_edits_add_translation_button" fuzzy="true">Übersetzung hinzufügen</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Übersetzung bearbeiten</string>
   <string name="suggested_edits_my_contributions">Meine Beiträge</string>
-  <string name="suggested_edits_added_by_you">Von dir hinzugefügt:</string>
-  <string name="suggested_edits_translated_by_you">Von dir übersetzt:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Du hast die Aufgabe „Beschreibungen hinzufügen“ freigegeben</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Du hast die Aufgabe „Beschreibungen hinzufügen“ freigegeben</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Vielen Dank für all deine Beiträge! Da du im Bearbeiten supergut bist, haben wir eine Liste der Artikel zusammengestellt, denen Beschreibungen fehlen. Kannst du uns bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Du hast die Aufgabe „Beschreibungen übersetzen“ freigegeben</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Du hast die Aufgabe „Beschreibungen übersetzen“ freigegeben</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Herzlichen Glückwunsch für deine vielen Beiträge. Wir sind beeindruckt! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
   <string name="suggested_edits_unlock_dialog_no">Vielleicht später</string>
   <string name="suggested_edits_unlock_dialog_yes">Ja, auf geht’s!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Du hast „Beschreibungen hinzufügen“ freigegeben</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Du hast „Beschreibungen übersetzen“ freigegeben</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Du hast „Beschreibungen hinzufügen“ freigegeben</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du hast „Beschreibungen übersetzen“ freigegeben</string>
   <string name="suggested_edits_unlock_notification_text">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Vorgeschlagene Bearbeitungen\n\nVielen Dank für all deine Beiträge. Da du supergut im Bearbeiten bist, haben wir eine Liste der Artikel zusammengestellt, denen Beschreibungen fehlen. Könntest du uns bei der Verbesserung von Wikipedia helfen?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Vorgeschlagene Bearbeitungen\n\nHerzlichen Glückwunsch für deine vielen Beiträge. Wir sind beeindruckt! Du benutzt die App in mehreren Sprachen, deshalb haben wir eine Liste der Artikel zusammengestellt, die Übersetzungen der Beschreibung benötigen. Könntest du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
   <string name="suggested_edits_unlock_notification_button">Ja, auf geht’s!</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Du hast die Aufgabe \"Bildunterschriften hinzufügen\" freigeschaltet</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Du hast \"Bildunterschriften hinzufügen\" freigeschaltet</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Vielen Dank für alle deine Beiträge! Da wir glauben, dass du Bildunterschriften hinzufügen möchtest, haben wir eine Liste der Bilder zusammengestellt, in denen Bildunterschriften fehlen. Könntest du uns helfen, Wikipedia zu verbessern?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Vielen Dank für alle deine Beiträge. Da wir glauben, dass du Bildunterschriften hinzufügen möchtest, haben wir eine Liste der Bilder zusammengestellt, in denen Bildunterschriften fehlen. Könntest du uns helfen, Wikipedia zu verbessern?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Vielen Dank für alle deine Beiträge! Da wir glauben, dass du Bildunterschriften hinzufügen möchtest, haben wir eine Liste der Bilder zusammengestellt, in denen Bildunterschriften fehlen. Könntest du uns helfen, Wikipedia zu verbessern?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Vielen Dank für alle deine Beiträge. Da wir glauben, dass du Bildunterschriften hinzufügen möchtest, haben wir eine Liste der Bilder zusammengestellt, in denen Bildunterschriften fehlen. Könntest du uns helfen, Wikipedia zu verbessern?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Du hast die Aufgabe \"Bildunterschriften übersetzen\" freigeschaltet</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Du hast \"Bildunterschriften übersetzen\" freigeschaltet</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Vielen Dank für deine kontinuierlichen Beiträge! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Vielen Dank für deine kontinuierlichen Beiträge! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_license_notice">Durch das Hinzufügen der Titelbeschreibung stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der Lizenz &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; zu.</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Vielen Dank für deine kontinuierlichen Beiträge! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Vielen Dank für deine kontinuierlichen Beiträge! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">Durch das Hinzufügen der Titelbeschreibung stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der Lizenz &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; zu.</string>
   <string name="suggested_edits_menu_info">Information</string>
   <string name="suggested_edits_tasks_activity_title">Vorgeschlagene Bearbeitungen</string>
-  <string name="suggested_edits_task_add_description_title">Beschreibungen hinzufügen</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Beschreibungen hinzufügen</string>
   <string name="suggested_edits_task_add_description_description">Zu Artikeln ohne Beschreibungen beitragen</string>
-  <string name="suggested_edits_task_image_caption_title">Beschreibungsbilder</string>
-  <string name="suggested_edits_task_image_caption_description">Den Bildern Beschreibungen hinzufügen</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Beschreibungen übersetzen</string>
+  <string name="suggested_edits_task_translation_description">Beschreibungen in andere Artikelsprachen übersetzen.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Beschreibungsbilder</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Den Bildern Beschreibungen hinzufügen</string>
+  <string name="suggested_edits_task_translate_caption_title">Bildbeschreibungen übersetzen</string>
+  <string name="suggested_edits_task_translate_caption_description">Beschreibungen in andere Sprachen übersetzen</string>
   <string name="suggested_edits_task_multilingual_title">Weitere Aufgaben für mehrsprachige Autoren</string>
   <string name="suggested_edits_task_multilingual_description">Übersetzungsaufgaben sind verfügbar, wenn du in mehr als einer Wikipedia-Sprache liest und schreibst.</string>
-  <string name="suggested_edits_task_translation_title">Beschreibungen übersetzen</string>
-  <string name="suggested_edits_task_translation_description">Beschreibungen in andere Artikelsprachen übersetzen.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast</string>
   <string name="suggested_edits_task_multilingual_negative">Nicht für mich</string>
   <string name="suggested_edits_task_multilingual_positive">Sprachen hinzufügen</string>
-  <string name="suggested_edits_task_translate_caption_title">Bildbeschreibungen übersetzen</string>
-  <string name="suggested_edits_task_translate_caption_description">Beschreibungen in andere Sprachen übersetzen</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">Ein Beitrag</item>
     <item quantity="other">%d Beiträge</item>
@@ -670,8 +666,6 @@
   <string name="suggested_edits_feed_card_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
-  <string name="suggested_edits_add_translation_button_label">Übersetzung hinzufügen</string>
-  <string name="suggested_edits_edit_translation_button_label">Übersetzung bearbeiten</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>

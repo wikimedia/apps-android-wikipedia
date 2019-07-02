@@ -247,17 +247,15 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="feed_lang_selection_dialog_ok_button_text">సరే</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
-  <string name="description_edit_text_hint">శీర్షిక వివరణ</string>
-  <string name="description_edit_text_hint_per_language">%s వివరణ</string>
+  <string name="description_edit_text_hint" fuzzy="true">శీర్షిక వివరణ</string>
   <string name="description_edit_save">ప్రచురించు</string>
-  <string name="description_edit_article">వ్యాసం</string>
-  <string name="description_edit_edit_description">వివరణను మార్చు</string>
+  <string name="description_edit_edit_description" fuzzy="true">వివరణను మార్చు</string>
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>
   <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
   <string name="description_edit_success_saved" fuzzy="true">వివరణ భద్రమయ్యింది!</string>
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
-  <string name="description_edit_tutorial_title_descriptions">శీర్షిక వివరణలు</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">శీర్షిక వివరణలు</string>
   <string name="suggested_edits_menu_info">సమాచారం</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_login_cancel_button_text">రద్దుచేయి</string>

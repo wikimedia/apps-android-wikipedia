@@ -11,24 +11,15 @@
     android:paddingEnd="@dimen/list_item_horizontal_padding"
     android:paddingBottom="@dimen/list_item_vertical_padding">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/page_list_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="2dp" />
-
     <TextView
         android:id="@+id/page_list_item_title"
         style="@style/MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/page_list_item_redirect"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/page_list_item_image"
+        app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -70,4 +61,13 @@
         app:layout_constraintTop_toBottomOf="@+id/page_list_item_redirect"
         tools:text="Lorem ipsum" />
 
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/page_list_item_image"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/page_list_item_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCornerRadius="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.AttrRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.TextViewCompat;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -56,7 +54,6 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
-    @BindView(R.id.page_list_item_action_primary) ImageView primaryActionView;
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
@@ -67,6 +64,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
+    @Nullable private String imageUrl;
     private boolean selected;
 
     public PageItemView(@NonNull Context context) {
@@ -107,20 +105,8 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
-        ViewUtil.loadImageUrlInto(imageView, url);
-    }
-
-    public void setActionIcon(@DrawableRes int id) {
-        primaryActionView.setImageResource(id);
-        primaryActionView.setVisibility(VISIBLE);
-    }
-
-    public void setActionHint(@StringRes int id) {
-        primaryActionView.setContentDescription(getContext().getString(id));
-    }
-
-    public void setActionTint(@AttrRes int tint) {
-        DrawableCompat.setTint(primaryActionView.getDrawable(), ResourceUtil.getThemedColor(getContext(), tint));
+        imageUrl = url;
+        updateSelectedState();
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
@@ -205,12 +191,6 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.page_list_item_action_primary) void onActionClick(View v) {
-        if (callback != null) {
-            callback.onActionClick(item, v);
-        }
-    }
-
     @OnClick(R.id.page_list_item_action_secondary) void onSecondaryActionClick() {
         if (callback != null) {
             callback.onSecondaryActionClick(item, this);
@@ -226,19 +206,23 @@ public class PageItemView<T> extends ConstraintLayout {
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
 
-        FeedbackUtil.setToolbarButtonLongPressToast(primaryActionView);
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
     private void updateSelectedState() {
-        imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
-        imageView.setVisibility(selected ? INVISIBLE : VISIBLE);
-        // TODO: animate?
-        setBackgroundColor(getThemedColor(getContext(),
-                selected ? R.attr.multi_select_background_color : R.attr.paper_color));
+        if (selected) {
+            imageSelectedView.setVisibility(VISIBLE);
+            imageView.setVisibility(GONE);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
+        } else {
+            imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, imageUrl);
+            imageSelectedView.setVisibility(GONE);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

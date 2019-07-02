@@ -281,7 +281,7 @@
   <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ شامل ڪريو</string>
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_header_edit_hint">سنواريو...</string>
-  <string name="article_header_edit_description">عنوان جي تشريح سنواريو</string>
+  <string name="article_header_edit_description" fuzzy="true">عنوان جي تشريح سنواريو</string>
   <string name="article_header_edit_lead_section">تعارف سنواريو</string>
   <string name="color_theme_select">نظارو</string>
   <string name="color_theme_light">هلڪو</string>
@@ -459,23 +459,23 @@
   <string name="feed_item_type_randomizer">پڙھن لاءِ بلاترتيب مضمون پيدا ڪريو</string>
   <string name="feed_configure_onboarding_action">پنھنجايو</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;پنھنجي کوجنا پھچ کي پنھنجايو&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;توھان ھاڻي اھو چونڊي سگھو ٿا تہ توھان جي پھچ تي ڇا ڏيکاريو وڃي، ۽ پنھنجي مواد جي پسنديده قسمن کي ترجيح پڻ ڏئي سگھو ٿا.</string>
-  <string name="description_edit_text_hint">عنوان  جي تشريح</string>
+  <string name="description_edit_text_hint" fuzzy="true">عنوان  جي تشريح</string>
   <string name="description_edit_save">ڇاپيو</string>
-  <string name="description_edit_add_description">عنوان جي تشريح شامل ڪريو</string>
-  <string name="description_edit_edit_description">تشريح سنواريو</string>
+  <string name="description_edit_add_description" fuzzy="true">عنوان جي تشريح شامل ڪريو</string>
+  <string name="description_edit_edit_description" fuzzy="true">تشريح سنواريو</string>
   <string name="description_edit_cancel_hint">رد</string>
-  <string name="description_edit_help_title">مدد:عنوان جي تشريح</string>
+  <string name="description_edit_help_title" fuzzy="true">مدد:عنوان جي تشريح</string>
   <string name="description_edit_help_about_wikidata">وڪيڊيٽا بابت</string>
   <string name="description_edit_help_wikidata_guide">تشريحون لکڻ لاءِ وڪيڊيٽا رھنما (گائيڊ)</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">تشريحن کي ترميم ڪرڻ واري توھان جي لاڳيتي دلچسپيءَ لاءِ مھرباني! وڌيڪ ترميمون ڪرڻ لاءِ، پنھنجي وڪيپيڊيا کاتي ۾ داخل ٿيو.</string>
-  <string name="description_edit_license_notice">تشريح تبديل ڪرڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون اريووڪيبلي &lt;a href=\"%2$s\"&gt;ڪريئيٽوِ ڪامنز سيسيزيرو&lt;/a&gt; لائسنس تحت ڏيان ٿو.</string>
-  <string name="description_edit_success_saved">تشريح ڇپجي وئي!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">تشريحن کي ترميم ڪرڻ واري توھان جي لاڳيتي دلچسپيءَ لاءِ مھرباني! وڌيڪ ترميمون ڪرڻ لاءِ، پنھنجي وڪيپيڊيا کاتي ۾ داخل ٿيو.</string>
+  <string name="description_edit_license_notice" fuzzy="true">تشريح تبديل ڪرڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون اريووڪيبلي &lt;a href=\"%2$s\"&gt;ڪريئيٽوِ ڪامنز سيسيزيرو&lt;/a&gt; لائسنس تحت ڏيان ٿو.</string>
+  <string name="description_edit_success_saved" fuzzy="true">تشريح ڇپجي وئي!</string>
   <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
   <string name="description_edit_success_done">ٿي ويو</string>
   <string name="description_edit_success_did_you_know">ڇا توهان کي ڄاڻ هئي؟</string>
   <string name="description_edit_success_article_edit_hint">توھان ھن ايپ ۾ بہ مضمون سنواري سگھو ٿا. مٿين دفعي ^1 تي ٽڙڪ ڪرڻ سان توھان ھجي جو غلطيون ۽ ننڍا جملا ٺيڪ ڪري سگھو ٿا</string>
-  <string name="description_edit_tutorial_title_descriptions">فائيل جون تشريحون</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">فائيل جون تشريحون</string>
   <string name="description_edit_tutorial_title_descriptions_summary">پڙھندڙن کي پھرين جھلڪ ۾ موضوع سمجھڻ ۾ مدد ڪرڻ لاءِ مضمون جو تت ڪري ٿو</string>
   <string name="description_edit_tutorial_keep_it_short">ان کي ننڍو رکو</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>

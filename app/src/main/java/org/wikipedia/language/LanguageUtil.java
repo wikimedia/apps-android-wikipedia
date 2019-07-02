@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.os.LocaleListCompat;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.StringUtil;
 
@@ -139,6 +140,18 @@ public final class LanguageUtil {
 
     private static boolean isTraditionalChinesePredominantInCountry(@Nullable String country) {
         return TRADITIONAL_CHINESE_COUNTRY_CODES.contains(country);
+    }
+
+    @NonNull
+    public static String getFirstSelectedChineseVariant() {
+        String firstSelectedChineseLangCode = null;
+        for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
+            if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+                firstSelectedChineseLangCode = langCode;
+                break;
+            }
+        }
+        return StringUtils.defaultString(firstSelectedChineseLangCode, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
     }
 
     private LanguageUtil() { }

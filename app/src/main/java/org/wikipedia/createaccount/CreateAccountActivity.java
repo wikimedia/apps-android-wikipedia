@@ -353,6 +353,7 @@ public class CreateAccountActivity extends BaseActivity {
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+        L.logRemoteErrorIfProd(caught);
     }
 
     private class UserNameTextWatcher implements TextWatcher {

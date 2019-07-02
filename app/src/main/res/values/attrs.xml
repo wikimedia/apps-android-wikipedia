@@ -22,7 +22,6 @@
 
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />
-    <attr name="thumbnail_image_placeholder" format="reference"/>
 
     <attr name="material_theme_primary_color" format="color" />
     <attr name="material_theme_secondary_color" format="color" />
@@ -100,5 +99,10 @@
 
     <declare-styleable name="AppTextView">
         <attr name="html" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageDetailHorizontalView">
+        <attr name="title" format="string" />
+        <attr name="detail" format="string" />
     </declare-styleable>
 </resources>

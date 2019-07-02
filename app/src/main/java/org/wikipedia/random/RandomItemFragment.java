@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -30,6 +31,8 @@ import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+
+import static org.wikipedia.Constants.PREFERRED_CARD_THUMBNAIL_SIZE;
 
 public class RandomItemFragment extends Fragment {
     @BindView(R.id.random_item_container) ViewGroup containerView;
@@ -139,8 +142,9 @@ public class RandomItemFragment extends Fragment {
                 extractView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
-        imageView.loadImage(TextUtils.isEmpty(summary.getThumbnailUrl()) ? null
-                : Uri.parse(summary.getThumbnailUrl()));
+
+        imageView.loadImage(TextUtils.isEmpty(summary.getThumbnailUrl())
+                ? null : Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_CARD_THUMBNAIL_SIZE)));
     }
 
     @Nullable public PageTitle getTitle() {

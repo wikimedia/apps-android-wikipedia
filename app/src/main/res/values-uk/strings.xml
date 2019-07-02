@@ -355,7 +355,7 @@
   <string name="article_menu_bar_bookmark">Додати цю статтю до списку для читання</string>
   <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_header_edit_hint">Редагувати...</string>
-  <string name="article_header_edit_description">Редагувати опис заголовоку</string>
+  <string name="article_header_edit_description" fuzzy="true">Редагувати опис заголовоку</string>
   <string name="article_header_edit_lead_section">Редагувати вступ</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Світла</string>
@@ -600,71 +600,67 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці, і налаштувати пріоритетність улюблених типів матеріалів.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
-  <string name="description_edit_text_hint">Опис назви</string>
-  <string name="description_edit_text_hint_per_language">опис мовою: %s</string>
+  <string name="description_edit_text_hint" fuzzy="true">Опис назви</string>
   <string name="description_edit_save">Опублікувати</string>
-  <string name="description_edit_article">Стаття</string>
   <string name="description_edit_read">Читати</string>
-  <string name="description_edit_add_description">Додати опис назви</string>
-  <string name="description_edit_add_description_v2">Додати опис</string>
-  <string name="description_edit_translate_description">Перекласти опис</string>
-  <string name="description_edit_edit_description">Редагувати опис</string>
-  <string name="add_translation">Додати переклад мовою: %s</string>
+  <string name="description_edit_add_description" fuzzy="true">Додати опис назви</string>
+  <string name="description_edit_translate_description" fuzzy="true">Перекласти опис</string>
+  <string name="description_edit_edit_description" fuzzy="true">Редагувати опис</string>
   <string name="description_edit_cancel_hint">Скасувати</string>
-  <string name="description_edit_help_title">Довідка: описи назв</string>
+  <string name="description_edit_help_title" fuzzy="true">Довідка: описи назв</string>
   <string name="description_edit_help_about_wikidata">Про Вікідані</string>
   <string name="description_edit_help_wikidata_guide">Посібник Вікіданих з написання описів</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Дякуємо за Ваш незмінний інтерес до редагування описів! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
-  <string name="description_edit_license_notice">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt;, і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Опис опубліковано!</string>
-  <string name="description_edit_success_saved_snackbar">Опис опубліковано!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Дякуємо за Ваш незмінний інтерес до редагування описів! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt;, і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Опис опубліковано!</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Опис опубліковано!</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>
   <string name="description_edit_success_article_edit_hint">Ви також можете редагувати статті з цього додатка. Спробуйте виправити невеличкі помилки друку та невеликі речення, натиснувши на іконку ^1 наступного разу</string>
-  <string name="description_edit_tutorial_title_descriptions">Описи назви</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Описи назви</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Резюмує статтю, щоб допомогти читачам зрозуміти тему з першого погляду</string>
   <string name="description_edit_tutorial_keep_it_short">Будьте лаконічні</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
-  <string name="suggested_edits_add_descriptions">Додати описи</string>
-  <string name="suggested_edits_translate_descriptions">Перекласти описи</string>
-  <string name="suggested_edits_review_description">Перевірити опис</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Додати описи</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Перекласти описи</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Перевірити опис</string>
   <string name="suggested_edits_add_description_button">Додати опис</string>
+  <string name="suggested_edits_add_translation_button" fuzzy="true">Додати переклад</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Редагувати переклад</string>
   <string name="suggested_edits_my_contributions">Мій внесок</string>
-  <string name="suggested_edits_added_by_you">Додане вами:</string>
-  <string name="suggested_edits_translated_by_you">Перекладене вами:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ви розблокувати завдання «Додати описи»</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Ви розблокувати завдання «Додати описи»</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Дякуємо за ваш внесок! Оскільки ви чудово редагуєте, ми підготували для вас список статей, яким бракує описів. Допоможете нам покращити Вікіпедію?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ви розблокували завдання «Перекласти описи»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Ви розблокували завдання «Перекласти описи»</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Вітаємо вас зі значним внеском, ми вражені! Ви використовуєте застосунок багатьма мовами, тож ми склали список статей, що потребують перекладу описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
   <string name="suggested_edits_unlock_dialog_no">Можливо, пізніше</string>
   <string name="suggested_edits_unlock_dialog_yes">Гаразд, почнімо</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Ви розблокувати «Додати описи»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Ви розблокували «Перекласти описи»</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Ви розблокувати «Додати описи»</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Ви розблокували «Перекласти описи»</string>
   <string name="suggested_edits_unlock_notification_text">Пропоновані редагування</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Пропоновані редагування\n\nДякуємо за ваш внесок! Оскільки ви чудово редагуєте, ми підготували для вас список статей, яким бракує описів. Допоможете нам покращити Вікіпедію?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Пропоновані редагування\n\nВітаємо вас зі значним внеском, ми вражені! Ви використовуєте застосунок багатьма мовами, тож ми склали список статей, що потребують перекладу описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
   <string name="suggested_edits_unlock_notification_button">Гаразд, почнімо</string>
-  <string name="suggested_edits_license_notice">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt; і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice" fuzzy="true">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt; і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Інфо</string>
   <string name="suggested_edits_tasks_activity_title">Пропоновані редагування</string>
-  <string name="suggested_edits_task_add_description_title">Додати описи</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Додати описи</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
-  <string name="suggested_edits_task_image_caption_title">Підписати зображення</string>
-  <string name="suggested_edits_task_image_caption_description">Додати підписи до зображень</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Перекласти описи</string>
+  <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами, якими є стаття.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Підписати зображення</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Додати підписи до зображень</string>
+  <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>
+  <string name="suggested_edits_task_translate_caption_description">Перекласти підписи іншими мовами</string>
   <string name="suggested_edits_task_multilingual_title">Більше завдань для багатомовних редакторів</string>
   <string name="suggested_edits_task_multilingual_description">Завдання перекладу доступні, якщо ви читаєте і пишете більше, ніж однією мовою, якою існує Вікіпедія.</string>
-  <string name="suggested_edits_task_translation_title">Перекласти описи</string>
-  <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами, якими є стаття.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Заблоковано, поки ви не зробите %d перевірених редагувань</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заблоковано, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблоковане, поки ви не зробите %d перевірених редагувань</string>
   <string name="suggested_edits_task_multilingual_negative">Не для мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додати мови</string>
-  <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>
-  <string name="suggested_edits_task_translate_caption_description">Перекласти підписи іншими мовами</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 редагування</item>
     <item quantity="other">%d редагування</item>
@@ -672,8 +668,6 @@
   <string name="suggested_edits_feed_card_title">Пропоновані редагування</string>
   <string name="suggested_edits_tutorial_message">Ласкаво просимо до нової домівки швидкого редагування у застосунку Вікіпедії. Ваш внесок дуже цінний. Приємного редагування!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Розпочати</string>
-  <string name="suggested_edits_add_translation_button_label">Додати переклад</string>
-  <string name="suggested_edits_edit_translation_button_label">Редагувати переклад</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>

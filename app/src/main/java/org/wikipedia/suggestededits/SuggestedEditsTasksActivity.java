@@ -41,7 +41,7 @@ public class SuggestedEditsTasksActivity extends SingleFragmentActivity<Suggeste
 
             if (startImmediately && (source == SUGGESTED_EDITS_ADD_DESC || source == SUGGESTED_EDITS_TRANSLATE_DESC)) {
                 startImmediately = false;
-                startActivity(SuggestedEditsAddDescriptionsActivity.Companion.newIntent(this, source));
+                startActivity(SuggestedEditsCardsActivity.Companion.newIntent(this, source));
             }
 
         } else {

@@ -162,6 +162,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerView.setClickable(false);
         headerView.setThumbnailVisible(false);
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
+        headerView.setOverflowViewVisibility(VISIBLE);
 
         readingListId = getArguments().getLong(EXTRA_READING_LIST_ID);
 
@@ -569,9 +570,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setDescription(StringUtils.capitalize(page.description()));
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
-            getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
-            getView().setActionTint(R.attr.secondary_text_color);
-            getView().setActionHint(R.string.abc_action_menu_overflow_description);
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);

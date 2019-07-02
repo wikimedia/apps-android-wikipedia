@@ -295,7 +295,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         ReadingListItemHolder(ReadingListItemView itemView) {
             super(itemView);
             this.itemView = itemView;
-            itemView.setOverflowButtonVisible(false);
         }
 
         void bindItem(ReadingList readingList) {

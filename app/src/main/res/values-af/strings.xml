@@ -264,7 +264,7 @@
   <string name="article_menu_bar_bookmark">Voeg hierdie artikel toe tot leeslys</string>
   <string name="article_menu_bar_share">Deel die artikelskakel</string>
   <string name="article_header_edit_hint">Wysig…</string>
-  <string name="article_header_edit_description">Wysig titelbeskrywing</string>
+  <string name="article_header_edit_description" fuzzy="true">Wysig titelbeskrywing</string>
   <string name="article_header_edit_lead_section">Wysig inleiding</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Lig</string>
@@ -336,7 +336,7 @@
   <string name="description_edit_save">Publiseer</string>
   <string name="description_edit_cancel_hint">Kanselleer</string>
   <string name="description_edit_success_did_you_know">Het u geweet?</string>
-  <string name="description_edit_tutorial_title_descriptions">Titelbeskrywings</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titelbeskrywings</string>
   <string name="description_edit_tutorial_keep_it_short">Hou dit kort</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin redigeer</string>
   <string name="description_edit_revert_subtitle">Dankie dat u bydra tot Wikipedia!</string>

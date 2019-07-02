@@ -89,8 +89,10 @@
 
             <ImageView
                 android:id="@+id/gallery_caption_edit_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:padding="6dp"
+                android:layout_marginTop="-6dp"
                 app:srcCompat="@drawable/ic_mode_edit_white_24dp"
                 app:tint="@color/base90"
                 android:background="?attr/selectableItemBackgroundBorderless"
@@ -115,9 +117,10 @@
 
             <LinearLayout
                 android:id="@+id/gallery_caption_translate_button"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -128,10 +131,10 @@
                     android:contentDescription="@null"/>
 
                 <TextView
+                    android:id="@+id/gallery_caption_translate_button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="4dp"
-                    android:text="@string/description_edit_translate_description"
                     android:textColor="?attr/colorAccent"
                     android:layout_gravity="center_vertical"/>
 

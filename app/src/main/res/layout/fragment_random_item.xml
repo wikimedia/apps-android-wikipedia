@@ -46,8 +46,9 @@
                 android:id="@+id/view_random_article_card_image"
                 style="@style/SimpleDraweeViewPlaceholder"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/randomizer_image_view_height"
+                android:layout_height="wrap_content"
                 app:actualImageScaleType="focusCrop"
+                app:viewAspectRatio="1.77"
                 app:fadeDuration="0" />
 
             <View

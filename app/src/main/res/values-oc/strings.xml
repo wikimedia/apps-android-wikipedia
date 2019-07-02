@@ -203,7 +203,7 @@
   <string name="article_menu_bar_bookmark">Apondre aqueste article a una lista de lectura</string>
   <string name="article_menu_bar_share">Partejar lo ligam cap a la pagina</string>
   <string name="article_header_edit_hint">Modificar...</string>
-  <string name="article_header_edit_description">Modificar la descripcion del títol</string>
+  <string name="article_header_edit_description" fuzzy="true">Modificar la descripcion del títol</string>
   <string name="article_header_edit_lead_section">Modificar l\'introduccion</string>
   <string name="color_theme_select">Tèma</string>
   <string name="color_theme_light">Clar</string>
@@ -257,19 +257,19 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Uèi</string>
   <string name="view_announcement_card_negative_action">Non mercé</string>
-  <string name="description_edit_text_hint">Descripcion del títol</string>
+  <string name="description_edit_text_hint" fuzzy="true">Descripcion del títol</string>
   <string name="description_edit_save">Publicar</string>
-  <string name="description_edit_add_description">Apondre una descripcion del títol</string>
-  <string name="description_edit_edit_description">Modificar la descripcion</string>
+  <string name="description_edit_add_description" fuzzy="true">Apondre una descripcion del títol</string>
+  <string name="description_edit_edit_description" fuzzy="true">Modificar la descripcion</string>
   <string name="description_edit_cancel_hint">Anullar</string>
-  <string name="description_edit_help_title">Ajuda : descripcions dels títols</string>
+  <string name="description_edit_help_title" fuzzy="true">Ajuda : descripcions dels títols</string>
   <string name="description_edit_help_about_wikidata">A prepaus de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Descripcion publicada !</string>
+  <string name="description_edit_success_saved" fuzzy="true">Descripcion publicada !</string>
   <string name="description_edit_success_done">Fait</string>
   <string name="description_edit_success_did_you_know">O sabiatz ?</string>
-  <string name="description_edit_tutorial_title_descriptions">Descripcions del títol</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descripcions del títol</string>
   <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
 </resources>

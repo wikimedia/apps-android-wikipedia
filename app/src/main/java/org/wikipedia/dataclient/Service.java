@@ -36,7 +36,6 @@ public interface Service {
     String WIKIPEDIA_URL = "https://wikipedia.org/";
     String WIKIDATA_URL = "https://www.wikidata.org/";
     String COMMONS_URL = "https://commons.wikimedia.org/";
-    String META_URL = "https://meta.wikimedia.org/";
 
     String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=plaintext&";
 
@@ -158,7 +157,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description")
     @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=extmetadata")
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname")
@@ -173,7 +172,7 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=50"
-            + "&prop=description|imageinfo&iiprop=timestamp|user|url&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+            + "&prop=description|imageinfo&iiprop=timestamp|user|url|mime&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
 
     @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")

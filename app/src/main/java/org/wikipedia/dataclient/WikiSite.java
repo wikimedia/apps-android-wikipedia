@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.language.AppLanguageLookUpTable;
+import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.UriUtil;
 
@@ -74,15 +75,25 @@ public class WikiSite implements Parcelable {
 
     public WikiSite(@NonNull Uri uri) {
         Uri tempUri = ensureScheme(uri);
+        String authority = tempUri.getAuthority();
+        if (("wikipedia.org".equals(authority) || "www.wikipedia.org".equals(authority))
+                && tempUri.getPath() != null && tempUri.getPath().startsWith("/wiki")) {
+            // Special case for Wikipedia only: assume English subdomain when none given.
+            authority = "en.wikipedia.org";
+        }
         String langVariant = UriUtil.getLanguageVariantFromUri(tempUri);
         if (!TextUtils.isEmpty(langVariant)) {
             languageCode = langVariant;
         } else {
-            languageCode = authorityToLanguageCode(tempUri.getAuthority());
+            languageCode = authorityToLanguageCode(authority);
+        }
+        // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
+        if (languageCode.equals(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+            languageCode = LanguageUtil.getFirstSelectedChineseVariant();
         }
         this.uri = new Uri.Builder()
                 .scheme(tempUri.getScheme())
-                .encodedAuthority(tempUri.getAuthority())
+                .encodedAuthority(authority)
                 .build();
     }
 

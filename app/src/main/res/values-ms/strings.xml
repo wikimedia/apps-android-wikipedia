@@ -337,7 +337,7 @@
   <string name="article_menu_bar_bookmark">Tambahkan rencana ini ke dalam senarai bacaan</string>
   <string name="article_menu_bar_share">Kongsi pautan rencana</string>
   <string name="article_header_edit_hint">Sunting...</string>
-  <string name="article_header_edit_description">Sunting huraian tajuk</string>
+  <string name="article_header_edit_description" fuzzy="true">Sunting huraian tajuk</string>
   <string name="article_header_edit_lead_section">Sunting pengenalan</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
@@ -564,30 +564,30 @@
   <string name="feed_empty_message">Tiada apa-apa pada suapan Jelajah anda</string>
   <string name="feed_configure_onboarding_action">Ubah suai</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Ubahsuai suapan Jelajah anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda kini boleh memilih apa yang akan dipaparkan pada suapan anda, dan juga mengutamakan jenis kandungan kegemaran anda.</string>
-  <string name="description_edit_text_hint">Huraian tajuk</string>
+  <string name="description_edit_text_hint" fuzzy="true">Huraian tajuk</string>
   <string name="description_edit_save">Terbitkan</string>
-  <string name="description_edit_add_description">Tambah huraian tajuk</string>
-  <string name="description_edit_edit_description">Sunting keterangan</string>
+  <string name="description_edit_add_description" fuzzy="true">Tambah huraian tajuk</string>
+  <string name="description_edit_edit_description" fuzzy="true">Sunting keterangan</string>
   <string name="description_edit_cancel_hint">Batalkan</string>
-  <string name="description_edit_help_title">Bantuan: huraian tajuk</string>
+  <string name="description_edit_help_title" fuzzy="true">Bantuan: huraian tajuk</string>
   <string name="description_edit_help_about_wikidata">Mengenai Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Bimbingan Wikidata untuk menulis penerangan</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Terima kasih kerana minat anda terus dalam menyunting huraian! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
-  <string name="description_edit_license_notice">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Huraian diterbitkan!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Terima kasih kerana minat anda terus dalam menyunting huraian! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Huraian diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru sahaja menciptakan Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Siap</string>
   <string name="description_edit_success_did_you_know">Tahukah anda?</string>
   <string name="description_edit_success_article_edit_hint">Anda juga boleh menyunting rencana dalam aplikasi ini. Cuba betulkan kesilapan menaip dan ayat kecil dengan klik pada ikon ^1 lain kali</string>
-  <string name="description_edit_tutorial_title_descriptions">Huraian tajuk</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Huraian tajuk</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Meringkaskan rencana untuk membantu pembaca memahami subjek dengan pantas</string>
   <string name="description_edit_tutorial_keep_it_short">Mengekalkannya pendek</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
-  <string name="suggested_edits_add_descriptions">Tambah penerangan tajuk</string>
-  <string name="suggested_edits_review_description">Kaji penerangan tajuk</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Senarai tugasan penyuntingan tajuk telah dibuka kunci!</string>
@@ -596,20 +596,20 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Lain kalilah</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
-  <string name="suggested_edits_task_add_description_title">Tambah penerangan tajuk</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
-  <string name="suggested_edits_task_image_caption_title">Keterangan imej</string>
-  <string name="suggested_edits_task_image_caption_description">Tambah kapsyen ke imej</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemah penerangan tajuk</string>
+  <string name="suggested_edits_task_translation_description">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
+  <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
+  <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
   <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
   <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
-  <string name="suggested_edits_task_translation_title">Terjemah penerangan tajuk</string>
-  <string name="suggested_edits_task_translation_description">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
-  <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
-  <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">sumbangan dalam apl</item>
     <item quantity="other">%d sumbangan dalam apl</item>

@@ -46,6 +46,7 @@ public final class Constants {
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
 
+    public static final int PREFERRED_CARD_THUMBNAIL_SIZE = 800;
     public static final int PREFERRED_GALLERY_IMAGE_SIZE = 1280;
 
     public static final int MAX_TABS = 100;
@@ -70,8 +71,12 @@ public final class Constants {
         BOOKMARK_BUTTON,
         SUGGESTED_EDITS_ADD_DESC,
         SUGGESTED_EDITS_TRANSLATE_DESC,
+        SUGGESTED_EDITS_ADD_CAPTION,
+        SUGGESTED_EDITS_TRANSLATE_CAPTION,
         FEED_CARD_SUGGESTED_EDITS_ADD_DESC,
         FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC,
+        FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION,
+        FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION,
         SUGGESTED_EDITS_ONBOARDING,
         ONBOARDING_DIALOG,
         FEED,
@@ -84,9 +89,7 @@ public final class Constants {
         FEED_BAR,
         VOICE,
         ON_THIS_DAY_CARD_BODY,
-        ON_THIS_DAY_CARD_FOOTER,
-        SUGGESTED_EDITS_ADD_CAPTION,
-        SUGGESTED_EDITS_TRANSLATE_CAPTION
+        ON_THIS_DAY_CARD_FOOTER
     }
 
     private Constants() { }

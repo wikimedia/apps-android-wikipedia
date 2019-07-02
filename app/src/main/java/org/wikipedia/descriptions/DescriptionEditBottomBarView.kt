@@ -1,16 +1,17 @@
 package org.wikipedia.descriptions
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
 import org.wikipedia.R
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ViewUtil
 
-class DescriptionEditReadArticleBarView @JvmOverloads constructor(
+
+class DescriptionEditBottomBarView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ConstraintLayout(context, attrs, defStyle) {
 
     init {
@@ -26,18 +27,15 @@ class DescriptionEditReadArticleBarView @JvmOverloads constructor(
         visibility = GONE
     }
 
-    fun setPageSummary(pageSummary: RbPageSummary) {
-        setConditionalLayoutDirection(this, pageSummary.lang)
-        viewArticleTitle!!.text = StringUtil.fromHtml(pageSummary.displayTitle)
-
-        if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
-            viewArticleImage!!.visibility = GONE
+    fun setSummary(summary: SuggestedEditsSummary) {
+        setConditionalLayoutDirection(this, summary.lang)
+        viewArticleTitle!!.text = StringUtil.removeNamespace(summary.displayTitle!!)
+        if (summary.thumbnailUrl.isNullOrEmpty()) {
+            viewImageThumbnail.visibility = GONE
         } else {
-            viewArticleImage!!.visibility = VISIBLE
-            viewArticleImage!!.loadImage(Uri.parse(pageSummary.thumbnailUrl))
+            viewImageThumbnail.visibility = VISIBLE
+            ViewUtil.loadImageUrlInto(viewImageThumbnail, summary.thumbnailUrl)
         }
-
         show()
     }
-
 }

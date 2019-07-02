@@ -259,7 +259,7 @@
   <string name="article_menu_bar_bookmark">Dodaj ovaj članak na spisak za čitanje</string>
   <string name="article_menu_bar_share">Podijeli link ovog članka</string>
   <string name="article_header_edit_hint">Uredi...</string>
-  <string name="article_header_edit_description">Uredi opis naslova</string>
+  <string name="article_header_edit_description" fuzzy="true">Uredi opis naslova</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Svijetla</string>
@@ -398,23 +398,23 @@
   <string name="feed_item_type_randomizer">Daje nasumične stranice za čitanje</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite stranicu \"Istraži\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Možete izabrati šta će se prikazati na stranici i dati prednost Vašim omiljenim vrstama sadržaja.</string>
-  <string name="description_edit_text_hint">Napišite opis!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Napišite opis!</string>
   <string name="description_edit_save">Objavi</string>
-  <string name="description_edit_add_description">Dodaj opis naslova</string>
-  <string name="description_edit_edit_description">Uredi opis</string>
+  <string name="description_edit_add_description" fuzzy="true">Dodaj opis naslova</string>
+  <string name="description_edit_edit_description" fuzzy="true">Uredi opis</string>
   <string name="description_edit_cancel_hint">Odustani</string>
-  <string name="description_edit_help_title">Pomoć: opis naslova</string>
+  <string name="description_edit_help_title" fuzzy="true">Pomoć: opis naslova</string>
   <string name="description_edit_help_about_wikidata">O Wikipodacima</string>
   <string name="description_edit_help_wikidata_guide">Vodič o pisanju opisa na Wikipodacima</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
-  <string name="description_edit_license_notice">Mijenjanjem opisa naslova prihvatam &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažem da svoj doprinos objavim pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Opis je objavljen!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Mijenjanjem opisa naslova prihvatam &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažem da svoj doprinos objavim pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Opis je objavljen!</string>
   <string name="description_edit_success_encouragement">Upravo ste svima poboljšali Wikipediju</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>
   <string name="description_edit_success_article_edit_hint">Aplikacijom možete i uređivati članke. Sljedeći put pokušajte popraviti tipfelere ili dodati kraće rečenice tako što ćete dodirnuti ikonu ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Opisi naslova</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Opisi naslova</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Sažima članak da bi čitaoci na prvi pogled mogli razumjeti o čemu se radi</string>
   <string name="description_edit_tutorial_keep_it_short">Neka bude kratko</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno da bude 1 red, od 2 do 12 riječi</string>

@@ -13,7 +13,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.mwapi.MwException;
@@ -69,7 +69,7 @@ public class WikiErrorView extends LinearLayout {
     public void setError(@Nullable Throwable caught) {
         Resources resources = getContext().getResources();
         ErrorType errorType = getErrorType(caught);
-        icon.setImageDrawable(ContextCompat.getDrawable(getContext(), errorType.icon()));
+        icon.setImageDrawable(AppCompatResources.getDrawable(getContext(), errorType.icon()));
         if (caught instanceof MwException) {
             errorText.setText(caught.getMessage());
         } else {

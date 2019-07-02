@@ -19,12 +19,13 @@ public class EditorTaskCounts {
     @Nullable @SerializedName("targets_passed") private JsonElement targetsPassed;
     @Nullable private JsonElement targets;
 
-    @Nullable
+    @NonNull
     public Map<String, Integer> getDescriptionEditsPerLanguage() {
+        Map<String, Integer> editsPerLanguage = null;
         if (counts != null && !(counts instanceof JsonArray)) {
-            return GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDescriptionEdits;
+            editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDescriptionEdits;
         }
-        return Collections.emptyMap();
+        return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
     }
 
     @NonNull
@@ -36,20 +37,40 @@ public class EditorTaskCounts {
         return passedList == null ? Collections.emptyList() : passedList;
     }
 
-    @Nullable
-    public List<Integer> getDescriptionEditTargets() {
-        if (targets != null && !(targets instanceof JsonArray)) {
-            return GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appDescriptionEdits;
+    public int getDescriptionEditTargetsPassedCount() {
+        List<Integer> targetList = getDescriptionEditTargets();
+        List<Integer> passedList = getDescriptionEditTargetsPassed();
+        int maxPassed = 0;
+        for (int passed : passedList) {
+            if (passed > maxPassed) {
+                maxPassed = passed;
+            }
         }
-        return Collections.emptyList();
+        int count = 0;
+        for (int target : targetList) {
+            if (maxPassed >= target) {
+                count++;
+            }
+        }
+        return count;
     }
 
-    @Nullable
-    public Map<String, Integer> getCaptionEditsPerLanguage() {
-        if (counts != null && !(counts instanceof JsonArray)) {
-            return GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appCaptionEdits;
+    @NonNull
+    public List<Integer> getDescriptionEditTargets() {
+        List<Integer> targetList = null;
+        if (targets != null && !(targets instanceof JsonArray)) {
+            targetList = GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appDescriptionEdits;
         }
-        return Collections.emptyMap();
+        return targetList == null ? Collections.emptyList() : targetList;
+    }
+
+    @NonNull
+    public Map<String, Integer> getCaptionEditsPerLanguage() {
+        Map<String, Integer> editsPerLanguage = null;
+        if (counts != null && !(counts instanceof JsonArray)) {
+            editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appCaptionEdits;
+        }
+        return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
     }
 
     @NonNull
@@ -61,12 +82,31 @@ public class EditorTaskCounts {
         return passedList == null ? Collections.emptyList() : passedList;
     }
 
-    @Nullable
-    public List<Integer> getCaptionEditTargets() {
-        if (targets != null && !(targets instanceof JsonArray)) {
-            return GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appCaptionEdits;
+    public int getCaptionEditTargetsPassedCount() {
+        List<Integer> targetList = getCaptionEditTargets();
+        List<Integer> passedList = getCaptionEditTargetsPassed();
+        int maxPassed = 0;
+        for (int passed : passedList) {
+            if (passed > maxPassed) {
+                maxPassed = passed;
+            }
         }
-        return Collections.emptyList();
+        int count = 0;
+        for (int target : targetList) {
+            if (maxPassed >= target) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @NonNull
+    public List<Integer> getCaptionEditTargets() {
+        List<Integer> targetList = null;
+        if (targets != null && !(targets instanceof JsonArray)) {
+            targetList = GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appCaptionEdits;
+        }
+        return targetList == null ? Collections.emptyList() : targetList;
     }
 
     public class Counts {

@@ -301,7 +301,7 @@
   <string name="article_menu_bar_bookmark">Artikulu hau gehitu irakurtze zerrendara</string>
   <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_header_edit_hint">Aldatu...</string>
-  <string name="article_header_edit_description">Izenburuko deskribapena aldatu</string>
+  <string name="article_header_edit_description" fuzzy="true">Izenburuko deskribapena aldatu</string>
   <string name="article_header_edit_lead_section">Sarrera aldatu</string>
   <string name="color_theme_select">Gaia</string>
   <string name="color_theme_light">Argia</string>
@@ -514,22 +514,22 @@
   <string name="feed_empty_message">Ez dago ezer zure Arakatze-jarioan</string>
   <string name="feed_configure_onboarding_action">Pertsonalizatu</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pertsonalizatu zure Arakatze jarioa&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Orain zure jarioan zer erakutsi behar den aukeratu dezakezu eta, era berean, zure eduki mota gogokoenak lehentasunez ezarri.</string>
-  <string name="description_edit_text_hint">Izenburuaren deskribapena</string>
+  <string name="description_edit_text_hint" fuzzy="true">Izenburuaren deskribapena</string>
   <string name="description_edit_save">Argitaratu</string>
-  <string name="description_edit_add_description">Gehitu izenburuaren deskribapena</string>
-  <string name="description_edit_edit_description">Aldatu deskribapena</string>
+  <string name="description_edit_add_description" fuzzy="true">Gehitu izenburuaren deskribapena</string>
+  <string name="description_edit_edit_description" fuzzy="true">Aldatu deskribapena</string>
   <string name="description_edit_cancel_hint">Utzi</string>
-  <string name="description_edit_help_title">Laguntza: izenburuen deskribapenak</string>
+  <string name="description_edit_help_title" fuzzy="true">Laguntza: izenburuen deskribapenak</string>
   <string name="description_edit_help_about_wikidata">Wikidatari buruz</string>
   <string name="description_edit_help_wikidata_guide">Wikidata gida idatzitako deskribapenentzat</string>
-  <string name="description_edit_anon_limit">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
-  <string name="description_edit_license_notice">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
-  <string name="description_edit_success_saved">Deskribapea argiraratu da!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Deskribapea argiraratu da!</string>
   <string name="description_edit_success_encouragement">Wikipedia askoz hobea egin duzu gu denontzat</string>
   <string name="description_edit_success_done">Egina</string>
   <string name="description_edit_success_did_you_know">Ba al zenekien?</string>
   <string name="description_edit_success_article_edit_hint">Aplikazio honetatik ere artikuluak alda ditzakezu. Saia zaitez tipoak eta esaldi laburrak konpontzen ^1 ikonoaren bitartez hurrengo batean</string>
-  <string name="description_edit_tutorial_title_descriptions">Izenburuaren deskribapenak</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Izenburuaren deskribapenak</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Artikulu bat laburbiltzen du, irakurleek gai bat begirada batez uler ditzaten</string>
   <string name="description_edit_tutorial_keep_it_short">Labur mantendu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideala, lerro bakarra, bi eta hamabi hitz artean</string>
