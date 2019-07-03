@@ -591,12 +591,10 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
-  <string name="description_edit_article">Artikel</string>
-  <string name="description_edit_description">Beskrivelse</string>
   <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
   <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
-  <string name="description_edit_edit_description">Rediger beskrivelse</string>
+  <string name="description_edit_edit_description" fuzzy="true">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
   <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
@@ -634,12 +632,12 @@
   <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
-  <string name="suggested_edits_task_image_caption_title">Billedtekstning</string>
-  <string name="suggested_edits_task_image_caption_description">Tilføj billedtekster til billeder</string>
-  <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
-  <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Oversæt beskrivelser</string>
   <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Billedtekstning</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
+  <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
+  <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
   <string name="suggested_edits_task_multilingual_negative">Ikke noget for mig</string>
   <string name="suggested_edits_task_multilingual_positive">Tilføj sprog</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>

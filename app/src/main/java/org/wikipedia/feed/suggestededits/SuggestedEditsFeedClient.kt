@@ -6,6 +6,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.*
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -146,7 +147,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                         val imageInfo = page.imageInfo()!!
 
                         sourceSummary = SuggestedEditsSummary(
-                                StringUtil.removeNamespace(title),
+                                title,
                                 langFromCode,
                                 PageTitle(
                                         Namespace.FILE.name,
@@ -157,7 +158,8 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                                 ),
                                 StringUtil.removeUnderscores(title),
                                 StringUtil.removeHTMLTags(title),
-                                imageInfo.metadata!!.imageDescription(),
+                                if (imageInfo.metadata!!.imageDescription().isNotEmpty())
+                                    imageInfo.metadata!!.imageDescription() else WikipediaApp.getInstance().getString(R.string.suggested_edits_no_description),
                                 imageInfo.thumbUrl,
                                 imageInfo.originalUrl,
                                 null,
@@ -194,7 +196,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                         val imageInfo = page.imageInfo()!!
 
                         sourceSummary = SuggestedEditsSummary(
-                                StringUtil.removeNamespace(title),
+                                title,
                                 langFromCode,
                                 PageTitle(
                                         Namespace.FILE.name,

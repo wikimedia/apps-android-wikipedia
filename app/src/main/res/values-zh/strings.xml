@@ -606,15 +606,11 @@
   <string name="feed_lang_selection_dialog_ok_button_text">确认</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="description_edit_text_hint">条目描述</string>
-  <string name="description_edit_text_hint_per_language">%s 描述</string>
-  <string name="description_edit_caption_hint">说明</string>
   <string name="description_edit_save">发布</string>
-  <string name="description_edit_article">条目</string>
-  <string name="description_edit_description">描述</string>
   <string name="description_edit_read">阅读</string>
   <string name="description_edit_add_description">添加条目描述</string>
   <string name="description_edit_translate_description">翻译条目描述</string>
-  <string name="description_edit_edit_description">编辑描述</string>
+  <string name="description_edit_edit_description" fuzzy="true">编辑描述</string>
   <string name="description_edit_add_image_caption">添加图像说明</string>
   <string name="description_edit_edit_image_caption">编辑图像说明</string>
   <string name="description_edit_translate_image_caption">翻译图片描述</string>
@@ -653,22 +649,22 @@
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">编辑标题描述功能已解锁！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">我们注意到您喜欢编辑标题描述，同时也常阅读多种语言版本的维基百科词条。欢迎查看此列表并帮助我们翻译更多的标题描述。</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">以后再说</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">我们整理了一份缺少字幕的图片清单。您能帮我们改进维基百科吗？</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">我们整理了一份缺少字幕的图片清单。您能帮我们改进维基百科吗？</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">编者任务</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">添加标题描述</string>
   <string name="suggested_edits_task_add_description_description">跳过概述并直接编辑文章</string>
-  <string name="suggested_edits_task_image_caption_title">图片描述</string>
-  <string name="suggested_edits_task_image_caption_description">为图片添加描述</string>
-  <string name="suggested_edits_task_multilingual_title">更多语言 更多任务</string>
-  <string name="suggested_edits_task_multilingual_description">如果你掌握多种语言，那么你可以接收更多的翻译任务。</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">翻译标题描述</string>
   <string name="suggested_edits_task_translation_description">将标题说明翻译成其他语言。</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">在应用内完成%d次经验证的编辑后方可解锁</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">图片描述</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">为图片添加描述</string>
+  <string name="suggested_edits_task_translate_caption_title">翻译图片描述</string>
+  <string name="suggested_edits_task_translate_caption_description">将描述翻译为其他语言</string>
+  <string name="suggested_edits_task_multilingual_title">更多语言 更多任务</string>
+  <string name="suggested_edits_task_multilingual_description">如果你掌握多种语言，那么你可以接收更多的翻译任务。</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">在应用内完成%d次经验证的编辑后方可解锁</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">完成%d次词条概述后方可解锁</string>
   <string name="suggested_edits_task_multilingual_negative">还是算了</string>
   <string name="suggested_edits_task_multilingual_positive">添加语言</string>
-  <string name="suggested_edits_task_translate_caption_title">翻译图片描述</string>
-  <string name="suggested_edits_task_translate_caption_description">将描述翻译为其他语言</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 次贡献</item>
     <item quantity="other">%d 次贡献</item>

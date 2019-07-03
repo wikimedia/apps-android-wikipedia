@@ -606,16 +606,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="description_edit_text_hint">Artikelbeschrijving</string>
-  <string name="description_edit_text_hint_per_language">%s beschrijving</string>
-  <string name="description_edit_caption_hint_per_language">%s bijschrift</string>
-  <string name="description_edit_caption_hint">Bijschrift</string>
+  <string name="description_edit_translate_caption_hint_per_language">Afbeeldingsbijschriften (%s)</string>
   <string name="description_edit_save">Publiceren</string>
-  <string name="description_edit_article">Artikel</string>
-  <string name="description_edit_description">Beschrijving</string>
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Artikelbeschrijving toevoegen</string>
   <string name="description_edit_translate_description">Artikelbeschrijving vertalen</string>
-  <string name="description_edit_edit_description">Beschrijving bewerken</string>
+  <string name="description_edit_edit_description" fuzzy="true">Beschrijving bewerken</string>
   <string name="description_edit_add_image_caption">Afbeeldingsbijschrift toevoegen</string>
   <string name="description_edit_edit_image_caption">Afbeeldingsbijschrift bewerken</string>
   <string name="description_edit_translate_image_caption">Afbeeldingsbijschrift vertalen</string>
@@ -670,17 +666,17 @@
   <string name="suggested_edits_tasks_activity_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
-  <string name="suggested_edits_task_image_caption_title">Titelfoto\'s</string>
-  <string name="suggested_edits_task_image_caption_description">Voeg titels toe aan plaatjes</string>
+  <string name="suggested_edits_task_translation_title">Artikelbeschrijvingen vertalen</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Titelfoto\'s</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Voeg titels toe aan plaatjes</string>
+  <string name="suggested_edits_task_translate_caption_title">Afbeeldingsbijschriften vertalen</string>
+  <string name="suggested_edits_task_translate_caption_description">Onderschriften vertalen in andere talen</string>
   <string name="suggested_edits_task_multilingual_title">Meer taken voor meertalige bewerkers</string>
   <string name="suggested_edits_task_multilingual_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
-  <string name="suggested_edits_task_translation_title">Artikelbeschrijvingen vertalen</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Vergrendeld totdat u %d afbeeldingsbijschriften hebt bewerkt</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
   <string name="suggested_edits_task_multilingual_negative">Niet voor mij</string>
   <string name="suggested_edits_task_multilingual_positive">Talen toevoegen</string>
-  <string name="suggested_edits_task_translate_caption_title">Afbeeldingsbijschriften vertalen</string>
-  <string name="suggested_edits_task_translate_caption_description">Onderschriften vertalen in andere talen</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiest</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Bron</string>
@@ -693,7 +689,6 @@
   <string name="suggested_edits_feed_card_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschrijving toevoegen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Afbeeldingsbijschriften</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiest</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Bron/fotograaf</string>

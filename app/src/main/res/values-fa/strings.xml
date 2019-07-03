@@ -613,16 +613,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">تأیید</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">لغو</string>
   <string name="description_edit_text_hint">توضیحات مقاله</string>
-  <string name="description_edit_text_hint_per_language">%s توضیح</string>
-  <string name="description_edit_caption_hint_per_language">%s عنوان</string>
-  <string name="description_edit_caption_hint">عنوان</string>
+  <string name="description_edit_translate_caption_hint_per_language">توضیح تصویر (%s)</string>
   <string name="description_edit_save">منتشر</string>
-  <string name="description_edit_article">مقاله</string>
-  <string name="description_edit_description">توضیح</string>
   <string name="description_edit_read">خواندن</string>
   <string name="description_edit_add_description">افزودن توضیحات مقاله</string>
   <string name="description_edit_translate_description">ترجمه توضیحات مقاله</string>
-  <string name="description_edit_edit_description">ویرایش توضیحات</string>
+  <string name="description_edit_edit_description" fuzzy="true">ویرایش توضیحات</string>
   <string name="description_edit_add_image_caption">افزودن توضیح تصویر</string>
   <string name="description_edit_edit_image_caption">ویرایش توضیح تصویر</string>
   <string name="description_edit_translate_image_caption">ترجمه توضیحات تصویر</string>
@@ -676,30 +672,30 @@
   <string name="suggested_edits_unlock_notification_button">بله؛ ادامه بده</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">شما امکان «افزودن توضیحات تصویر» را از قفل خارج کردید</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">«افزودن توضیحات تصویر» را از قفل خارج کردید</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه در ویرایش بسیار عالی هستید، فهرستی از تصویرهایی که توضیحات ندارند را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه در ویرایش بسیار عالی هستید، فهرستی از تصویرهایی که توضیحات ندارند را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه در ویرایش بسیار عالی هستید، فهرستی از تصویرهایی که توضیحات ندارند را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه در ویرایش بسیار عالی هستید، فهرستی از تصویرهایی که توضیحات ندارند را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">شما امکان «ترجمه توضیحات تصویر» را از قفل خارج کردید</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">«ترجمه توضیحات تصویر» را از قفل خارج کردید</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه از اپلیکیشن چندزبانه استفاده می‌کنید، فهرستی از تصویرهایی که توضیحاتشان نیاز به ترجمه دارد را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه از اپلیکیشن چندزبانه استفاده می‌کنید، فهرستی از تصویرهایی که توضیحاتشان نیاز به ترجمه دارد را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه از اپلیکیشن چندزبانه استفاده می‌کنید، فهرستی از تصویرهایی که توضیحاتشان نیاز به ترجمه دارد را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه از اپلیکیشن چندزبانه استفاده می‌کنید، فهرستی از تصویرهایی که توضیحاتشان نیاز به ترجمه دارد را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
   <string name="suggested_edits_license_notice">با افزودن توضیحات، موافق &lt;a href=\"%1$s\"&gt;نحوه استفاده&lt;/a&gt; و منتشر کردن ویرایش‌های من تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; هستم.</string>
   <string name="suggested_edits_image_caption_license_notice">با افزودن توضیحات تصویر، موافق &lt;a href=\"%1$s\"&gt;نحوه استفاده&lt;/a&gt; و منتشر کردن ویرایش‌های من تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; هستم.</string>
   <string name="suggested_edits_menu_info">اطلاعات</string>
   <string name="suggested_edits_tasks_activity_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات مقاله</string>
   <string name="suggested_edits_task_add_description_description">مشارکت در مقالات بدون توضیحات</string>
-  <string name="suggested_edits_task_image_caption_title">زیر نویس تصویر</string>
-  <string name="suggested_edits_task_image_caption_description">افزودن توضیح به تصویر</string>
-  <string name="suggested_edits_task_multilingual_title">وظایف بیشتر برای ویرایشگران چندزبانه</string>
-  <string name="suggested_edits_task_multilingual_description">اگر می‌توانید بیش از یک زبان ویکی‌پدیا را بخوانید و بنویسید، امکان ترجمه وجود دارد.</string>
   <string name="suggested_edits_task_translation_title">ترجمه توضیحات مقاله</string>
   <string name="suggested_edits_task_translation_description">ترجمه توضیحات بین زبان‌های مقاله</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">زیر نویس تصویر</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">افزودن توضیح به تصویر</string>
+  <string name="suggested_edits_task_translate_caption_title">ترجمه توضیحات تصویر</string>
+  <string name="suggested_edits_task_translate_caption_description">ترجمه توضیحات تصویر به زبان های دیگر</string>
+  <string name="suggested_edits_task_multilingual_title">وظایف بیشتر برای ویرایشگران چندزبانه</string>
+  <string name="suggested_edits_task_multilingual_description">اگر می‌توانید بیش از یک زبان ویکی‌پدیا را بخوانید و بنویسید، امکان ترجمه وجود دارد.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_multilingual_negative">برای شما نیست</string>
   <string name="suggested_edits_task_multilingual_positive">افزودن زبان</string>
-  <string name="suggested_edits_task_translate_caption_title">ترجمه توضیحات تصویر</string>
-  <string name="suggested_edits_task_translate_caption_description">ترجمه توضیحات تصویر به زبان های دیگر</string>
   <string name="suggested_edits_image_caption_summary_title_artist">نام هنرمند</string>
   <string name="suggested_edits_image_caption_summary_title_author">پدیدآورنده</string>
   <string name="suggested_edits_image_caption_summary_title_source">منبع</string>
@@ -713,13 +709,15 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
   <string name="suggested_edits_tutorial_message">خوش آمدید به بخش جدیدی که برای ویرایش سریع در اپلیکیشن ویکی‌پدیا ایجاد کرده‌ایم. قدر مشارکت شما را می‌دانیم. ویرایشتان مبارک!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع شد</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">توضیح تصویر</string>
   <string name="suggested_edits_image_preview_dialog_artist">نام هنرمند</string>
   <string name="suggested_edits_image_preview_dialog_date">تاریخ</string>
   <string name="suggested_edits_image_preview_dialog_source">منبع/عکاس</string>
   <string name="suggested_edits_image_preview_dialog_licensing">اجازه‌نامه</string>
   <string name="suggested_edits_image_preview_dialog_more_info">اطلاعات بیشتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحهٔ این پرونده در ویکی‌انبار</string>
+  <string name="suggested_edits_feed_card_add_image_caption">افزودن توضیح</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">افزودن توضیح (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="description_edit_revert_subtitle">از بابت ویرایش در ویکی‌پدیا ممنونیم!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>

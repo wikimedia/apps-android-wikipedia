@@ -514,7 +514,7 @@
   <string name="description_edit_text_hint" fuzzy="true">Περιγραφή τίτλου</string>
   <string name="description_edit_save">Δημοσίευση</string>
   <string name="description_edit_add_description" fuzzy="true">Προσθήκη περιγραφής τίτλου</string>
-  <string name="description_edit_edit_description">Επεξεργασία περιγραφής</string>
+  <string name="description_edit_edit_description" fuzzy="true">Επεξεργασία περιγραφής</string>
   <string name="description_edit_cancel_hint">Ακύρωση</string>
   <string name="description_edit_help_title" fuzzy="true">Βοήθεια: περιγραφές τίτλων</string>
   <string name="description_edit_help_about_wikidata">Σχετικά με τα Wikidata</string>

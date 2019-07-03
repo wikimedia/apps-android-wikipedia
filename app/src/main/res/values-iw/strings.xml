@@ -598,16 +598,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
-  <string name="description_edit_text_hint_per_language">תיאור (%s)</string>
-  <string name="description_edit_caption_hint_per_language">כיתוב %s</string>
-  <string name="description_edit_caption_hint">כיתוב</string>
+  <string name="description_edit_translate_caption_hint_per_language">כיתובי תמונות (%s)</string>
   <string name="description_edit_save">פרסום</string>
-  <string name="description_edit_article">ערך</string>
-  <string name="description_edit_description">תיאור</string>
   <string name="description_edit_read">לקרוא</string>
   <string name="description_edit_add_description">הוספת תיאור ערך</string>
   <string name="description_edit_translate_description">תרגום תיאור ערך</string>
-  <string name="description_edit_edit_description">עריכת התיאור</string>
+  <string name="description_edit_edit_description" fuzzy="true">עריכת התיאור</string>
   <string name="description_edit_add_image_caption">הוספת כיתוב תמונה</string>
   <string name="description_edit_edit_image_caption">עריכת כיתוב תמונה</string>
   <string name="description_edit_translate_image_caption">תרגום כיתוב תמונה</string>
@@ -661,30 +657,30 @@
   <string name="suggested_edits_unlock_notification_button">כן, נעשה את זה</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">פתחת את המשימה \"הוספת כיתובי תמונות\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">פתחת את \"הוספת כיתובי תמונות\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">תודה על כל התרומות שלך! מאחר ואנחנו חושבים שאתה אוהב להוסיף תיאורים לתמונות, בנינו בשבילך רשימה שלך תמונות שחסרות להן תיאורים. האם תוכל לעזור לנו לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">עריכות מוצעות\n\nתודה על כל התרומות שלך. מאחר ואנחנו חושבים שאתה אוהב להוסיף כיתובים לתמונות, בנינו בשבילך רשימה של תמונות שחסרות להן תיאורים. האם תוכל לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">תודה על כל התרומות שלך! מאחר ואנחנו חושבים שאתה אוהב להוסיף תיאורים לתמונות, בנינו בשבילך רשימה שלך תמונות שחסרות להן תיאורים. האם תוכל לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">עריכות מוצעות\n\nתודה על כל התרומות שלך. מאחר ואנחנו חושבים שאתה אוהב להוסיף כיתובים לתמונות, בנינו בשבילך רשימה של תמונות שחסרות להן תיאורים. האם תוכל לעזור לנו לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">פתחת את המשימה \"תרגום כיתובי תמונות\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">פתחת את \"תרגום כיתובי תמונות\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">תודה על כל התרומות שלך! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של תמונות שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">עריכות מוצעות\n\nתודה על כל התרומות שלך! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של תמונות שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">תודה על כל התרומות שלך! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של תמונות שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">עריכות מוצעות\n\nתודה על כל התרומות שלך! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של תמונות שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_license_notice">הוספת התיאור מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">הוספת תיאור התמונה מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">מידע</string>
   <string name="suggested_edits_tasks_activity_title">עריכות מוצעות</string>
   <string name="suggested_edits_task_add_description_title">הוספת תיאורי ערכים</string>
   <string name="suggested_edits_task_add_description_description">תרומה לערכים חסרי תיאורים</string>
-  <string name="suggested_edits_task_image_caption_title">הוספת כיתובים לתמונות</string>
-  <string name="suggested_edits_task_image_caption_description">הוספת תיאורים לתמונות</string>
-  <string name="suggested_edits_task_multilingual_title">עוד משימות לעורכים רב־לשוניים</string>
-  <string name="suggested_edits_task_multilingual_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
   <string name="suggested_edits_task_translation_title">תרגום תיאורי ערכים</string>
   <string name="suggested_edits_task_translation_description">תרגום תיאורים לשפות אחרות.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">הוספת כיתובים לתמונות</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">הוספת תיאורים לתמונות</string>
+  <string name="suggested_edits_task_translate_caption_title">תרגום כיתובי תמונה</string>
+  <string name="suggested_edits_task_translate_caption_description">תרגום כיתובים לשפות אחרות</string>
+  <string name="suggested_edits_task_multilingual_title">עוד משימות לעורכים רב־לשוניים</string>
+  <string name="suggested_edits_task_multilingual_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">נעול עד לביצוע %d תרומות שנבדקו</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
   <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
   <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>
-  <string name="suggested_edits_task_translate_caption_title">תרגום כיתובי תמונה</string>
-  <string name="suggested_edits_task_translate_caption_description">תרגום כיתובים לשפות אחרות</string>
   <string name="suggested_edits_image_caption_summary_title_artist">יוצר</string>
   <string name="suggested_edits_image_caption_summary_title_author">מחבר</string>
   <string name="suggested_edits_image_caption_summary_title_source">מקור</string>
@@ -698,7 +694,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">הוספת תיאור ערך (%s)</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">כיתובי תמונות</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
   <string name="suggested_edits_image_preview_dialog_source">מקור/צלם</string>

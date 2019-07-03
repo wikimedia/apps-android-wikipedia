@@ -574,10 +574,9 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="description_edit_text_hint" fuzzy="true">Описание на заглавието</string>
   <string name="description_edit_save">Публикуване</string>
-  <string name="description_edit_article">Статия</string>
   <string name="description_edit_read">Прочитане</string>
   <string name="description_edit_add_description" fuzzy="true">Добавяне на описание на заглавието</string>
-  <string name="description_edit_edit_description">Редактиране на описанието</string>
+  <string name="description_edit_edit_description" fuzzy="true">Редактиране на описанието</string>
   <string name="description_edit_cancel_hint">Отказ</string>
   <string name="description_edit_help_title" fuzzy="true">Помощ: описания на заглавието</string>
   <string name="description_edit_help_about_wikidata">Относно Уикиданни</string>
@@ -608,18 +607,18 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задачи за приложния редактор</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Добавяне на описания</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
-  <string name="suggested_edits_task_image_caption_title">Описания на картини</string>
-  <string name="suggested_edits_task_image_caption_description">Добавяне на описания на картини</string>
-  <string name="suggested_edits_task_multilingual_title">Повече задачи за многоезични редактори</string>
-  <string name="suggested_edits_task_multilingual_description">Има задачи за превод на расположение, ако четете и пишете на Уикипедия на повече от един език.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Превод на описания</string>
   <string name="suggested_edits_task_translation_description">Превод на описания на други езици.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Заключено, докато не придобиете %d проверени редакции</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Описания на картини</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Добавяне на описания на картини</string>
+  <string name="suggested_edits_task_translate_caption_title">Превод на описания на картини</string>
+  <string name="suggested_edits_task_translate_caption_description">Превод на описания на други езици</string>
+  <string name="suggested_edits_task_multilingual_title">Повече задачи за многоезични редактори</string>
+  <string name="suggested_edits_task_multilingual_description">Има задачи за превод на расположение, ако четете и пишете на Уикипедия на повече от един език.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заключено, докато не придобиете %d проверени редакции</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заключено, докато не придобиете %d проверени редакции</string>
   <string name="suggested_edits_task_multilingual_negative">Не за мен</string>
   <string name="suggested_edits_task_multilingual_positive">Добавяне на езици</string>
-  <string name="suggested_edits_task_translate_caption_title">Превод на описания на картини</string>
-  <string name="suggested_edits_task_translate_caption_description">Превод на описания на други езици</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 принос</item>
     <item quantity="other">%d приноса</item>

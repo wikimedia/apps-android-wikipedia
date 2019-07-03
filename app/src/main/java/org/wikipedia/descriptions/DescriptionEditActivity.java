@@ -49,22 +49,15 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
+                                   @Nullable SuggestedEditsSummary sourceSummary,
+                                   @Nullable SuggestedEditsSummary targetSummary,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
-    }
-
-
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull PageTitle title,
-                                   @Nullable SuggestedEditsSummary sourceSummary,
-                                   @Nullable SuggestedEditsSummary targetSummary,
-                                   @NonNull InvokeSource invokeSource) {
-        return newIntent(context, title, null, invokeSource)
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
-                .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary));
+                .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary))
+                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
     @Override
@@ -86,7 +79,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION
                 || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             bottomSheetPresenter.show(getSupportFragmentManager(),
-                    ImagePreviewDialog.Companion.newInstance(summary));
+                    ImagePreviewDialog.Companion.newInstance(summary, invokeSource));
         } else {
             bottomSheetPresenter.show(getSupportFragmentManager(),
                     LinkPreviewDialog.newInstance(new HistoryEntry(summary.getPageTitle(),

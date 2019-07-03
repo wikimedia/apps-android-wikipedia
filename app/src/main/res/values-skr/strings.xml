@@ -260,11 +260,9 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">منسوخ</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">منسوخ</string>
-  <string name="description_edit_caption_hint">عنوان</string>
   <string name="description_edit_save">شائع کرو</string>
-  <string name="description_edit_description">تفصیل</string>
   <string name="description_edit_add_description" fuzzy="true">عنوان دی تفصیل لکھو</string>
-  <string name="description_edit_edit_description">تفصیل لکھو</string>
+  <string name="description_edit_edit_description" fuzzy="true">تفصیل لکھو</string>
   <string name="description_edit_cancel_hint">منسوخ</string>
   <string name="description_edit_help_about_wikidata">وکیڈیٹا بارے</string>
   <string name="description_edit_success_done">مکمل</string>

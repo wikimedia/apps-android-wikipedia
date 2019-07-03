@@ -31,6 +31,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -308,10 +309,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         title.setDescription(currentCaption);
 
         SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), app.getAppOrSystemLanguageCode(), title,
-                title.getDisplayText(), title.getDisplayText(), StringUtil.fromHtml(item.getDescription().getHtml()).toString(), item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
-                null, null, null, null);
+                title.getDisplayText(), title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getDescription().getHtml()).toString(), getString(R.string.suggested_edits_no_description)),
+                item.getThumbnailUrl(), item.getPreferredSizedImageUrl(), null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, title, summary, null, Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -335,7 +336,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
                 null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, sourceSummary, targetSummary, Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary, Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -651,9 +652,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         if (descriptionStr.length() > 0) {
             descriptionText.setText(strip(descriptionStr));
-            descriptionText.setVisibility(View.VISIBLE);
         } else {
-            descriptionText.setVisibility(View.INVISIBLE);
+            descriptionText.setText(R.string.suggested_edits_no_description);
             allowTranslate = false;
         }
         captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);

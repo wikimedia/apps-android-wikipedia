@@ -582,7 +582,7 @@
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_add_description" fuzzy="true">Tambah deskripsi judul</string>
   <string name="description_edit_translate_description" fuzzy="true">Terjemahkan deskripsi judul</string>
-  <string name="description_edit_edit_description">Sunting deskripsi</string>
+  <string name="description_edit_edit_description" fuzzy="true">Sunting deskripsi</string>
   <string name="description_edit_cancel_hint">Batal</string>
   <string name="description_edit_help_title" fuzzy="true">Bantuan: deskripsi judul</string>
   <string name="description_edit_help_about_wikidata">Tentang Wikidata</string>
@@ -614,18 +614,18 @@
   <string name="suggested_edits_tasks_activity_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambahkan deskripsi judul</string>
   <string name="suggested_edits_task_add_description_description">Menyumbang ke artikel tanpa deskripsi judul</string>
-  <string name="suggested_edits_task_image_caption_title">Keterangan gambar</string>
-  <string name="suggested_edits_task_image_caption_description">Tambahkan keterangan ke gambar</string>
-  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk penyunting multibahasa</string>
-  <string name="suggested_edits_task_multilingual_description">Tugas terjemahan tersedia jika Anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemahkan deskripsi</string>
   <string name="suggested_edits_task_translation_description">Terjemahkan deskripsi artikel lintas bahasa.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan gambar</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambahkan keterangan ke gambar</string>
+  <string name="suggested_edits_task_translate_caption_title">Terjemahkan keterangan gambar</string>
+  <string name="suggested_edits_task_translate_caption_description">Terjemahkan keterangan ke bahasa lain</string>
+  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk penyunting multibahasa</string>
+  <string name="suggested_edits_task_multilingual_description">Tugas terjemahan tersedia jika Anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Terkunci hingga Anda membuat %d kontribusi yang terverifikasi</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>
-  <string name="suggested_edits_task_translate_caption_title">Terjemahkan keterangan gambar</string>
-  <string name="suggested_edits_task_translate_caption_description">Terjemahkan keterangan ke bahasa lain</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 kontribusi dalam aplikasi</item>
     <item quantity="other">%d kontribusi dalam aplikasi</item>

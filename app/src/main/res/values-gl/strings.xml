@@ -592,13 +592,11 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint" fuzzy="true">Descrición de título</string>
-  <string name="description_edit_text_hint_per_language">Descrición en %s</string>
   <string name="description_edit_save">Publicar</string>
-  <string name="description_edit_article">Artigo</string>
   <string name="description_edit_read">Ler</string>
   <string name="description_edit_add_description" fuzzy="true">Engadir unha descrición de título</string>
   <string name="description_edit_translate_description" fuzzy="true">Traducir descrición</string>
-  <string name="description_edit_edit_description">Editar a descrición</string>
+  <string name="description_edit_edit_description" fuzzy="true">Editar a descrición</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title" fuzzy="true">Axudaː descricións dos títulos</string>
   <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
@@ -639,26 +637,26 @@
   <string name="suggested_edits_unlock_notification_button">Si, continuar</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Desbloqueou a tarefa \"Engadir pés de imaxes\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Desbloqueou \"Engadir pés de imaxes\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Grazas por tódalas súas contribuciónsǃ Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha alista de imaxes ás que lles falta o pé. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Edicións suxeridas\n\nGrazas por tódalas súas contribucións. Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha lista de imaxes que non teñen o pé. Quere axudarnos a mellorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Grazas por tódalas súas contribuciónsǃ Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha alista de imaxes ás que lles falta o pé. Pode axudarnos a mellorar a Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Edicións suxeridas\n\nGrazas por tódalas súas contribucións. Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha lista de imaxes que non teñen o pé. Quere axudarnos a mellorar a Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Desbloqueou a tarefa \"Traducir pés de imaxe\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Desbloqueou \"Traducir pés de imaxe\"</string>
   <string name="suggested_edits_menu_info">Información</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tarefas de editor</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Engadir descricións</string>
   <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
-  <string name="suggested_edits_task_image_caption_title">Engadir pés ás imaxes</string>
-  <string name="suggested_edits_task_image_caption_description">Engadir pés ás imaxes</string>
-  <string name="suggested_edits_task_multilingual_title">Máis tarefas para editores multilingües</string>
-  <string name="suggested_edits_task_multilingual_description">Hai tarefas de tradución se vostede le e escribe en máis dunha lingua de Wikipedia.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Traducir descricións</string>
   <string name="suggested_edits_task_translation_description">Traducir descricións nas linguas dos artigos.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Engadir pés ás imaxes</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Engadir pés ás imaxes</string>
+  <string name="suggested_edits_task_translate_caption_title">Traducir pés de imaxe</string>
+  <string name="suggested_edits_task_translate_caption_description">Traducir pés a outras linguas</string>
+  <string name="suggested_edits_task_multilingual_title">Máis tarefas para editores multilingües</string>
+  <string name="suggested_edits_task_multilingual_description">Hai tarefas de tradución se vostede le e escribe en máis dunha lingua de Wikipedia.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Bloqueado ata que teña feito %d contribucións verificadas</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
   <string name="suggested_edits_task_multilingual_negative">Non é para min</string>
   <string name="suggested_edits_task_multilingual_positive">Engadir linguas</string>
-  <string name="suggested_edits_task_translate_caption_title">Traducir pés de imaxe</string>
-  <string name="suggested_edits_task_translate_caption_description">Traducir pés a outras linguas</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribucións</item>

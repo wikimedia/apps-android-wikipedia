@@ -489,14 +489,11 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreiwung</string>
-  <string name="description_edit_text_hint_per_language">%s Beschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
-  <string name="description_edit_article">Artikel</string>
-  <string name="description_edit_description">Beschreiwung</string>
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description" fuzzy="true">Beschreiwung vum Titel derbäisetzen</string>
   <string name="description_edit_translate_description" fuzzy="true">Titelbeschreiwung iwwersetzen</string>
-  <string name="description_edit_edit_description">Beschreiwung änneren</string>
+  <string name="description_edit_edit_description" fuzzy="true">Beschreiwung änneren</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
   <string name="description_edit_help_title" fuzzy="true">Hëllef:Titelbeschreiwungen</string>
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>

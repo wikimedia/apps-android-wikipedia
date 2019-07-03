@@ -521,18 +521,17 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="description_edit_text_hint" fuzzy="true">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
-  <string name="description_edit_article">নিবন্ধ</string>
   <string name="description_edit_read">পড়ুন</string>
   <string name="description_edit_add_description" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
   <string name="description_edit_translate_description" fuzzy="true">বিবরণ অনুবাদ করুন</string>
-  <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
+  <string name="description_edit_edit_description" fuzzy="true">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title" fuzzy="true">সাহায্য: শিরোনামের বিবরণ</string>
   <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
   <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
-  <string name="description_edit_anon_limit" fuzzy="true">বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
-  <string name="description_edit_license_notice" fuzzy="true">শিরোনামের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
+  <string name="description_edit_anon_limit">নিবন্ধের বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
+  <string name="description_edit_license_notice">নিবন্ধের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
   <string name="description_edit_success_saved" fuzzy="true">বিবরণ প্রকাশিত হয়েছে!</string>
   <string name="description_edit_success_encouragement">আপনি এইমাত্র সবার জন্য উইকিপিডিয়াকে আরো উত্তম করলেন</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
@@ -545,10 +544,10 @@
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
   <string name="suggested_edits_add_descriptions" fuzzy="true">বিবরণ যোগ করুন</string>
-  <string name="suggested_edits_review_description" fuzzy="true">বিবরণ পর্যালোচনা করুন</string>
+  <string name="suggested_edits_review_description">নিবন্ধের বিবরণ পর্যালোচনা করুন</string>
   <string name="suggested_edits_add_description_button">বিবরণ যোগ করুন</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">অনুবাদ করুন</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">অনুবাদ সম্পাদনা করুন</string>
+  <string name="suggested_edits_add_translation_button">অনুবাদ করুন</string>
+  <string name="suggested_edits_edit_translation_button">অনুবাদ সম্পাদনা করুন</string>
   <string name="suggested_edits_my_contributions">আমার অবদান</string>
   <string name="suggested_edits_unlock_notification_button">হ্যাঁ, চলুন</string>
   <string name="suggested_edits_menu_info">তথ্য</string>

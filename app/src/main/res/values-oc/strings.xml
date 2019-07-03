@@ -260,7 +260,7 @@
   <string name="description_edit_text_hint" fuzzy="true">Descripcion del títol</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description" fuzzy="true">Apondre una descripcion del títol</string>
-  <string name="description_edit_edit_description">Modificar la descripcion</string>
+  <string name="description_edit_edit_description" fuzzy="true">Modificar la descripcion</string>
   <string name="description_edit_cancel_hint">Anullar</string>
   <string name="description_edit_help_title" fuzzy="true">Ajuda : descripcions dels títols</string>
   <string name="description_edit_help_about_wikidata">A prepaus de Wikidata</string>

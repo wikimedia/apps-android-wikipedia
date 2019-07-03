@@ -591,13 +591,11 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="description_edit_text_hint" fuzzy="true">Tittelbeskrivelse</string>
-  <string name="description_edit_text_hint_per_language">Beskrivelse på %s</string>
   <string name="description_edit_save">Publiser</string>
-  <string name="description_edit_article">Artikkel</string>
   <string name="description_edit_read">Les</string>
   <string name="description_edit_add_description" fuzzy="true">Legg til en tittelbeskrivelse</string>
   <string name="description_edit_translate_description" fuzzy="true">Oversett beskrivelse</string>
-  <string name="description_edit_edit_description">Rediger beskrivelse</string>
+  <string name="description_edit_edit_description" fuzzy="true">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
   <string name="description_edit_help_title" fuzzy="true">Hjelp: Tittelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
@@ -639,18 +637,18 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Legg til tittelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
-  <string name="suggested_edits_task_image_caption_title">Bildetekster</string>
-  <string name="suggested_edits_task_image_caption_description">Legg til bildetekster til bilder</string>
-  <string name="suggested_edits_task_multilingual_title">Flere oppgaver for flerspråklige bidragsytere</string>
-  <string name="suggested_edits_task_multilingual_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Oversett beskrivelser</string>
   <string name="suggested_edits_task_translation_description">Oversett beskrivelser mellom artikkelspråk</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Bildetekster</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Legg til bildetekster til bilder</string>
+  <string name="suggested_edits_task_translate_caption_title">Oversett bildebeskrivelser</string>
+  <string name="suggested_edits_task_translate_caption_description">Oversett beskrivelser til andre språk</string>
+  <string name="suggested_edits_task_multilingual_title">Flere oppgaver for flerspråklige bidragsytere</string>
+  <string name="suggested_edits_task_multilingual_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst inntil du har gjort %d godkjente bidrag</string>
   <string name="suggested_edits_task_multilingual_negative">Passer ikke for meg</string>
   <string name="suggested_edits_task_multilingual_positive">Legg til språk</string>
-  <string name="suggested_edits_task_translate_caption_title">Oversett bildebeskrivelser</string>
-  <string name="suggested_edits_task_translate_caption_description">Oversett beskrivelser til andre språk</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">bidrag fra appen</item>
     <item quantity="other">%d bidrag fra appen</item>

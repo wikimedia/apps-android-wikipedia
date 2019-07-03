@@ -77,6 +77,7 @@ function setWindowAttributes( payload ) {
     window.showImages = payload.showImages;
     window.collapseTables = payload.collapseTables;
     window.dimImages = payload.dimImages;
+    window.imagePlaceholderBackgroundColor = payload.imagePlaceholderBackgroundColor;
 }
 
 function setTitleElement( parentNode, section ) {

@@ -57,7 +57,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        cardView.setOnClickListener {
+        cardClickArea.setOnClickListener {
             if (sourceSummary != null) {
                 parent().onSelectPage()
             }
@@ -125,7 +125,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                 val imageInfo = page.imageInfo()!!
 
                                 sourceSummary = SuggestedEditsSummary(
-                                        StringUtil.removeNamespace(title),
+                                        title,
                                         parent().langFromCode,
                                         PageTitle(
                                                 Namespace.FILE.name,
@@ -168,7 +168,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                 val imageInfo = page.imageInfo()!!
 
                                 sourceSummary = SuggestedEditsSummary(
-                                        StringUtil.removeNamespace(title),
+                                        title,
                                         parent().langFromCode,
                                         PageTitle(
                                                 Namespace.FILE.name,
@@ -261,7 +261,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun updateDescriptionContents() {
-        viewArticleTitle.text = sourceSummary!!.normalizedTitle
+        viewArticleTitle.text = StringUtil.fromHtml(sourceSummary!!.displayTitle)
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
@@ -282,7 +282,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun updateCaptionContents() {
-        viewArticleTitle.text = sourceSummary!!.normalizedTitle
+        viewArticleTitle.text = StringUtil.removeNamespace(sourceSummary!!.displayTitle!!)
         viewArticleSubtitleContainer.visibility = VISIBLE
         viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags((if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description!!).capitalize()))
 

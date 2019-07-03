@@ -584,16 +584,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">အိုကေ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
-  <string name="description_edit_text_hint_per_language">%s ဖော်ပြချက်</string>
-  <string name="description_edit_caption_hint_per_language">%s ပုံစာ</string>
-  <string name="description_edit_caption_hint">ပုံစာ</string>
+  <string name="description_edit_translate_caption_hint_per_language">ရုပ်ပုံ ပုံစာများ (%s)</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
-  <string name="description_edit_article">ဆောင်းပါး</string>
-  <string name="description_edit_description">ဖော်ပြချက်</string>
   <string name="description_edit_read">ဖတ်ရန်</string>
   <string name="description_edit_add_description">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
   <string name="description_edit_translate_description">ဆောင်းပါးဖော်ပြချက်ကို ဘာသာပြန်ရန်</string>
-  <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
+  <string name="description_edit_edit_description" fuzzy="true">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_add_image_caption">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="description_edit_edit_image_caption">ရုပ်ပုံ ပုံစာ ပြင်ဆင်ရန်</string>
   <string name="description_edit_translate_image_caption">ရုပ်ပုံ ပုံစာကို ဘာသာပြန်ရန်</string>
@@ -642,15 +638,15 @@
   <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_task_add_description_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
-  <string name="suggested_edits_task_image_caption_title">ရုပ်ပုံများကို ပုံစာရေးရန်</string>
-  <string name="suggested_edits_task_image_caption_description">ရုပ်ပုံများသို့ ပုံစာပေါင်းထည့်ရန်</string>
-  <string name="suggested_edits_task_multilingual_description">သင်သည် ဘာသာစကားတစ်ခုထက် ဖတ်ရှု၊ ရေးသားသူဆိုပါက ဘာသာပြန်လုပ်ငန်းများကို ရရှိနိုင်ပါသည်။</string>
   <string name="suggested_edits_task_translation_title">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_task_translation_description">ဆောင်းပါးဘာသာစကားများအနှံ့ ဖော်ပြချက်များကို ဘာသာပြန်ဆိုပါ</string>
-  <string name="suggested_edits_task_multilingual_negative">မိမိအတွက် မဟုတ်ပါ</string>
-  <string name="suggested_edits_task_multilingual_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">ရုပ်ပုံများကို ပုံစာရေးရန်</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">ရုပ်ပုံများသို့ ပုံစာပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_translate_caption_title">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_task_translate_caption_description">ပုံစာများကို အခြားဘာသာသို့ ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_task_multilingual_description">သင်သည် ဘာသာစကားတစ်ခုထက် ဖတ်ရှု၊ ရေးသားသူဆိုပါက ဘာသာပြန်လုပ်ငန်းများကို ရရှိနိုင်ပါသည်။</string>
+  <string name="suggested_edits_task_multilingual_negative">မိမိအတွက် မဟုတ်ပါ</string>
+  <string name="suggested_edits_task_multilingual_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
   <string name="suggested_edits_image_caption_summary_title_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_caption_summary_title_author">စာရေးသူ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ရင်းမြစ်</string>
@@ -663,7 +659,6 @@
   <string name="suggested_edits_feed_card_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">ရုပ်ပုံ ပုံစာများ</string>
   <string name="suggested_edits_image_preview_dialog_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>
   <string name="suggested_edits_image_preview_dialog_source">ရင်းမြစ်/ဓါတ်ပုံဆရာ</string>

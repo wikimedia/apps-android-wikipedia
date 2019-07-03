@@ -269,12 +269,10 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Atcelt</string>
   <string name="description_edit_text_hint" fuzzy="true">Uzraksti aprakstu!</string>
   <string name="description_edit_save">Publicēt</string>
-  <string name="description_edit_article">Raksts</string>
-  <string name="description_edit_description">Apraksts</string>
   <string name="description_edit_read">Lasīt</string>
   <string name="description_edit_add_description" fuzzy="true">Pievieno īsu aprakstu!</string>
   <string name="description_edit_translate_description" fuzzy="true">Tulkot aprakstu</string>
-  <string name="description_edit_edit_description">Labot aprakstu</string>
+  <string name="description_edit_edit_description" fuzzy="true">Labot aprakstu</string>
   <string name="description_edit_cancel_hint">Atcelt</string>
   <string name="description_edit_help_about_wikidata">Par Vikidatiem</string>
   <string name="description_edit_success_saved" fuzzy="true">Apraksts publicēts!</string>
