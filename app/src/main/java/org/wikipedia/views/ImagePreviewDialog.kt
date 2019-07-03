@@ -13,7 +13,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
-import kotlinx.android.synthetic.main.view_image_detail.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -106,10 +105,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
                     else suggestedEditsSummary.pageTitle.description, null)
         }
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artist(), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()).toString(), getClickListenerFor(suggestedEditsSummary.metadata!!.artistUrl()))
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime(), null)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescriptionSource(), null)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescriptionSource(), getClickListenerFor(suggestedEditsSummary.metadata!!.creditUrl()))
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), getClickListenerFor(suggestedEditsSummary.metadata!!.licenseUrl()))
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info), getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), getClickListenerFor(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
         detailsHolder.requestLayout()
     }
