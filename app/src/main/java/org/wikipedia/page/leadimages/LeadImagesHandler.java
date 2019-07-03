@@ -243,7 +243,7 @@ public class LeadImagesHandler {
                                                     targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
                                                             targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
                                                             null, null, null, null);
-                                                    pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), lang));
+                                                    pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), app.language().getAppLanguageLocalizedName(lang)));
                                                     break;
                                                 }
                                             }

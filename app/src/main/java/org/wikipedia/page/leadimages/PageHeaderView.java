@@ -111,7 +111,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         }
     }
 
-    @OnClick(R.id.call_to_action_container) void onCallToActionContainerClicked() {
+    @OnClick(R.id.call_to_action_container) void onCallToActionClicked() {
         if (callback != null) {
             callback.onCallToActionContainerClicked();
         }
