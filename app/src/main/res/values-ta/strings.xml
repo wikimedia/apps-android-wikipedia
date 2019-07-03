@@ -482,7 +482,7 @@
   <string name="description_edit_text_hint" fuzzy="true">தலைப்பு விவரம்</string>
   <string name="description_edit_save">பதிப்பிடு</string>
   <string name="description_edit_add_description" fuzzy="true">தலைப்பு விவரத்தைக் கொடுக்கவும்</string>
-  <string name="description_edit_edit_description">குறிப்பை தொகுக்க</string>
+  <string name="description_edit_edit_description" fuzzy="true">குறிப்பை தொகுக்க</string>
   <string name="description_edit_cancel_hint">கைவிடுக</string>
   <string name="description_edit_help_title" fuzzy="true">உதவி: தலைப்பு விவரங்கள்</string>
   <string name="description_edit_help_about_wikidata">விக்கிதரவைப் பற்றி</string>

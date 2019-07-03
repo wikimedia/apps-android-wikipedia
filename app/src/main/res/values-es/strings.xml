@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Amaia
+* Anarhistička Maca
 * Athena in Wonderland
 * Codynguyen1116
 * Csbotero
@@ -618,11 +619,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
+  <string name="description_edit_add_caption_label_per_language">Descripción de imagen (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Leer</string>
-  <string name="description_edit_add_description" fuzzy="true">Añade descripción de título</string>
+  <string name="description_edit_add_description">Añade descripción de artículo</string>
   <string name="description_edit_translate_description">Traducir descripción de artículo</string>
-  <string name="description_edit_edit_description">Editar descripción</string>
+  <string name="description_edit_edit_description">Editar descripción de artículo</string>
   <string name="description_edit_add_image_caption">Añadir leyenda de imagen</string>
   <string name="description_edit_edit_image_caption">Editar leyenda de imagen</string>
   <string name="description_edit_translate_image_caption">Traducir leyenda de imagen</string>
@@ -631,11 +633,11 @@
   <string name="description_edit_help_about_wikidata">Acerca de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir descripciones</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/es</string>
-  <string name="description_edit_anon_limit" fuzzy="true">¡Gracias por tu continuo interés en la edición de descripciones! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Al cambiar la descripción del título, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Descripción publicada</string>
-  <string name="description_edit_success_saved_snackbar" fuzzy="true">¡Descripción publicada!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">Se publicó la leyenda.</string>
+  <string name="description_edit_anon_limit">¡Gracias por tu continuo interés en la edición de descripciones de artículos! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
+  <string name="description_edit_license_notice">Al cambiar la descripción del artículo, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">Descripción de artículo publicada</string>
+  <string name="description_edit_success_saved_snackbar">Se publicó la descripción del artículo.</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
@@ -650,45 +652,45 @@
   <string name="suggested_edits_translate_descriptions">Traducir descripciones de artículos</string>
   <string name="suggested_edits_add_image_captions">Añadir leyendas de imagen</string>
   <string name="suggested_edits_translate_image_captions">Traducir leyendas de imágenes</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Revisar descripción</string>
+  <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>
   <string name="suggested_edits_edit_description_button">Editar descripción</string>
   <string name="suggested_edits_add_translation_button">Añadir traducción</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">Editar traducción</string>
+  <string name="suggested_edits_edit_translation_button">Editar traducción</string>
   <string name="suggested_edits_add_caption_button">Añadir leyenda</string>
   <string name="suggested_edits_edit_caption_button">Editar leyenda</string>
   <string name="suggested_edits_review_image_caption">Revisar leyenda de imagen</string>
   <string name="suggested_edits_my_contributions">Mis contribuciones</string>
   <string name="suggested_edits_no_description">Sin descripción</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Se desbloqueó la tarea de edición de descripciones</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Se desbloqueó la tarea de \"Edición de descripciones\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracias por todas tus contribuciones! Ya que eres un editor fantástico, hemos compilado una lista de los artículos a los que les faltan descripciones. ¿Nos ayudarías a mejorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">La edición de traducciones de descripciones ha sido desbloqueada</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloqueaste la tarea de traducción de descripciones de artículo</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">¡Felicitaciones por realizar muchas contribuciones, estamos impresionados!  Estás utilizando la aplicación en múltiples idiomas, así que  hemos compilado una lista de los artículos que necesitan traducciones de descripción. ¿Podrías  continuar ayudándonos a mejorar Wikipedia?</string>
   <string name="suggested_edits_unlock_dialog_no">Quizás más tarde</string>
   <string name="suggested_edits_unlock_dialog_yes">Sí, vamos</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Se desbloqueó la edición de descripciones</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Se desbloqueó la traducción de descripciones</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Desbloqueaste la adición de descripciones de artículo</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Se desbloqueó \"La Traducción de descripciones de artículos\"</string>
   <string name="suggested_edits_unlock_notification_text">Edición sugerida</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">¡Gracias por todas tus contribuciones! Ya que eres un editor fantástico, hemos compilado una lista de los artículos a los que les faltan descripciones. ¿Nos ayudarías a mejorar Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">¡Felicitaciones por realizar muchas contribuciones, estamos impresionados!  Estás utilizando la aplicación en múltiples idiomas, así que  hemos compilado una lista de los artículos que necesitan traducciones de descripción. ¿Podrías  continuar ayudándonos a mejorar Wikipedia?</string>
   <string name="suggested_edits_unlock_notification_button">Sí, vamos</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">Al cambiar la descripción del título, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Al cambiar la descripción, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
   <string name="suggested_edits_tasks_activity_title">Ediciones sugeridas</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Añadir descripciones</string>
+  <string name="suggested_edits_task_add_description_title">Añade descripciones de artículos</string>
   <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
+  <string name="suggested_edits_task_translation_title">Traducir descripciones de artículos</string>
+  <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
   <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>
-  <string name="suggested_edits_task_image_caption_description">Añadir títulos a imágenes</string>
+  <string name="suggested_edits_task_image_caption_description">Añadir títulos faltados a imágenes</string>
+  <string name="suggested_edits_task_translate_caption_title">Traduce la leyenda de la imagen</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduce las leyendas a otros idiomas</string>
   <string name="suggested_edits_task_multilingual_title">Más tareas para editores plurilingües</string>
   <string name="suggested_edits_task_multilingual_description">Las tareas de traducción estarán disponibles si lees y escribes en más de un idioma de Wikipedia.</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Traducir descripciones de titulo</string>
-  <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Deshabilitado hasta que hayas hecho %d ediciones verificadas desde la aplicación.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Deshabilitado hasta que hayas edito %d leyendas imágenes</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Deshabilitado hasta que hayas editado %d descripciones de titulo</string>
   <string name="suggested_edits_task_multilingual_negative">No para mí</string>
   <string name="suggested_edits_task_multilingual_positive">Añadir idiomas</string>
-  <string name="suggested_edits_task_translate_caption_title">Traduce la leyenda de la imagen</string>
-  <string name="suggested_edits_task_translate_caption_description">Traduce las leyendas a otros idiomas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fuente</string>

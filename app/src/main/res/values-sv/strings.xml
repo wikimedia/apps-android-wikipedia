@@ -597,11 +597,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
+  <string name="description_edit_translate_caption_hint_per_language">Bildtexter (%s)</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_read">Läs</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
   <string name="description_edit_translate_description">Översätt titelbeskrivning</string>
-  <string name="description_edit_edit_description">Redigera beskrivningen</string>
+  <string name="description_edit_edit_description" fuzzy="true">Redigera beskrivningen</string>
   <string name="description_edit_add_image_caption">Lägg till bildtext</string>
   <string name="description_edit_edit_image_caption">Redigera bildtext</string>
   <string name="description_edit_translate_image_caption">Översätt bildtext</string>
@@ -655,31 +656,31 @@
   <string name="suggested_edits_unlock_notification_button">Ja, nu kör vi</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Du låste upp uppgiften \"Lägg till bildtexter\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Du låste upp \"Lägg till bildtexter\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Tack för alla dina bidrag! Eftersom vi tror att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Föreslagna redigeringar\n\nTack för alla dina bidrag! Eftersom vi tror att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Tack för alla dina bidrag! Eftersom vi tror att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Föreslagna redigeringar\n\nTack för alla dina bidrag! Eftersom vi tror att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Du låste upp uppgiften \"Översätt bildtexter\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Du låste upp \"Översätt bildtexter\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Tack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Föreslagna redigeringar\n\nTack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Tack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Föreslagna redigeringar\n\nTack för alla dina bidrag! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_license_notice">Genom att lägga till beskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Genom att lägga till bildtexten samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
   <string name="suggested_edits_tasks_activity_title">Föreslagna redigeringar</string>
   <string name="suggested_edits_task_add_description_title">Lägg till beskrivningar</string>
   <string name="suggested_edits_task_add_description_description">Bidra på artiklar utan beskrivningar</string>
-  <string name="suggested_edits_task_image_caption_title">Bildtexter</string>
-  <string name="suggested_edits_task_image_caption_description">Lägg till bildtexter för bilder</string>
-  <string name="suggested_edits_task_multilingual_title">Fler uppgifter för flerspråkiga redigerare</string>
-  <string name="suggested_edits_task_multilingual_description">Översättningsuppgifter finns tillgängliga om du läser och skriver på fler än ett Wikipedia-språk.</string>
   <string name="suggested_edits_task_translation_title">Översätt beskrivningar</string>
   <string name="suggested_edits_task_translation_description">Översätt beskrivningar över artikelspråk.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Bildtexter</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Lägg till bildtexter för bilder</string>
+  <string name="suggested_edits_task_translate_caption_title">Översätt bildtexter</string>
+  <string name="suggested_edits_task_translate_caption_description">Översätt bildtexter till andra språk</string>
+  <string name="suggested_edits_task_multilingual_title">Fler uppgifter för flerspråkiga redigerare</string>
+  <string name="suggested_edits_task_multilingual_description">Översättningsuppgifter finns tillgängliga om du läser och skriver på fler än ett Wikipedia-språk.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Låst tills du har redigerat %d bildtexter</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst tills du har gjort %d verifierade bidrag</string>
   <string name="suggested_edits_task_multilingual_negative">Ingenting för mig</string>
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
-  <string name="suggested_edits_task_translate_caption_title">Översätt bildtexter</string>
-  <string name="suggested_edits_task_translate_caption_description">Översätt bildtexter till andra språk</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">\nKonstnär</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
   <string name="suggested_edits_image_caption_summary_title_author">Författare</string>
   <string name="suggested_edits_image_caption_summary_title_source">Källa</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
@@ -692,7 +693,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lägg till beskrivningar %s</string>
   <string name="suggested_edits_tutorial_message">Välkommen till den nya startsidan för att snabbredigera i Wikipedia-appen. Dina bidrag uppskattas. Ha det så roligt!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Bildtexter</string>
   <string name="suggested_edits_image_preview_dialog_artist">Konstnär</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Källa/fotograf</string>

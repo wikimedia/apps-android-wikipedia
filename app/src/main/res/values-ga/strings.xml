@@ -555,7 +555,7 @@
   <string name="description_edit_text_hint" fuzzy="true">Sainchuntas teidil</string>
   <string name="description_edit_save">Foilsigh</string>
   <string name="description_edit_add_description" fuzzy="true">Cuir sainchuntas teidil leis</string>
-  <string name="description_edit_edit_description">Cuir sainchuntas in eagar</string>
+  <string name="description_edit_edit_description" fuzzy="true">Cuir sainchuntas in eagar</string>
   <string name="description_edit_cancel_hint">Cealaigh</string>
   <string name="description_edit_help_title" fuzzy="true">Cabhair: sainchuntais theideal</string>
   <string name="description_edit_help_about_wikidata">Maidir le Wikidata</string>
@@ -579,8 +579,8 @@
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Thugamar faoi deara gur maith leat sainchuntais theideal a chur ar eagar. Dá thoradh sin táimid tar éis liosta de \"Thascanna d\'eagarthóirí aipe\" a chur le chéile, ina gheobhaidh tú a thuilleadh alt atá sainchuntais theideal in easnamh orthu, mar chabhair le do chuid eagarthóireachta!</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tascanna d\'eagarthóirí aipe</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>
-  <string name="suggested_edits_task_image_caption_title">Fotheidil íomhánna</string>
-  <string name="suggested_edits_task_image_caption_description">Cuir fotheidil le híomhánna</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Fotheidil íomhánna</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Cuir fotheidil le híomhánna</string>
   <string name="suggested_edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
   <string name="suggested_edits_task_multilingual_negative">Ní domsa é</string>
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>

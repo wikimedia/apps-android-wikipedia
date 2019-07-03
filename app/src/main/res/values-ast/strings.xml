@@ -590,7 +590,7 @@
   <string name="description_edit_read">Lleer</string>
   <string name="description_edit_add_description" fuzzy="true">Amestar una descripción del títulu</string>
   <string name="description_edit_translate_description" fuzzy="true">Traducir descripción</string>
-  <string name="description_edit_edit_description">Editar la descripción</string>
+  <string name="description_edit_edit_description" fuzzy="true">Editar la descripción</string>
   <string name="description_edit_cancel_hint">Encaboxar</string>
   <string name="description_edit_help_title">Información: descripciones d\'artículos</string>
   <string name="description_edit_help_about_wikidata">Tocante a Wikidata</string>
@@ -629,10 +629,10 @@
   <string name="suggested_edits_menu_info">Información</string>
   <string name="suggested_edits_tasks_activity_title">Ediciones suxeríes</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Amestar descripciones</string>
-  <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
-  <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
   <string name="suggested_edits_task_translate_caption_title">Traducir pies d\'imaxe</string>
   <string name="suggested_edits_task_translate_caption_description">Traducir los pies a otres llingües</string>
+  <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
+  <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribuciones</item>

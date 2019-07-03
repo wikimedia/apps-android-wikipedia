@@ -400,7 +400,7 @@
   <string name="description_edit_text_hint" fuzzy="true">शीर्षकको विवरण</string>
   <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
   <string name="description_edit_add_description" fuzzy="true">शीर्षकको विवरण थप्नुहोस्</string>
-  <string name="description_edit_edit_description">विवरण सम्पादन गर्नुहोस्</string>
+  <string name="description_edit_edit_description" fuzzy="true">विवरण सम्पादन गर्नुहोस्</string>
   <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>

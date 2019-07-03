@@ -219,11 +219,13 @@ public class DescriptionEditView extends LinearLayout {
             pageReviewContainer.show();
             bottomBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
+            helpButton.setVisibility(GONE);
             hideSoftKeyboard(pageReviewContainer);
         } else {
             pageReviewContainer.hide();
             bottomBarContainer.show();
             descriptionEditContainer.setVisibility(VISIBLE);
+            helpButton.setVisibility(VISIBLE);
         }
         setReviewHeaderText(enabled);
         setDarkReviewScreen(enabled);

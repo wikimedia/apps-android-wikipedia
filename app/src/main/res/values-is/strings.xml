@@ -584,11 +584,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Í lagi</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Hætta við</string>
   <string name="description_edit_text_hint">Lýsing á grein</string>
+  <string name="description_edit_translate_caption_hint_per_language">Myndatextar (%s)</string>
   <string name="description_edit_save">Birta</string>
   <string name="description_edit_read">Lesa</string>
   <string name="description_edit_add_description">Bæta við lýsingu á grein</string>
   <string name="description_edit_translate_description">Þýða lýsingu á grein</string>
-  <string name="description_edit_edit_description">Breyta lýsingu</string>
+  <string name="description_edit_edit_description" fuzzy="true">Breyta lýsingu</string>
   <string name="description_edit_add_image_caption">Bæta við myndatexta</string>
   <string name="description_edit_edit_image_caption">Breyta myndatexta</string>
   <string name="description_edit_translate_image_caption">Þýða myndatexta</string>
@@ -645,18 +646,18 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Verkefni fyrir ritstýringu</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Bæta við lýsingum</string>
   <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
-  <string name="suggested_edits_task_image_caption_title">Setja myndatexta</string>
-  <string name="suggested_edits_task_image_caption_description">Bæta texta við myndir</string>
-  <string name="suggested_edits_task_multilingual_title">Fleiri verkefni fyrir margtyngda ritara</string>
-  <string name="suggested_edits_task_multilingual_description">Þýðingaverkefni eru tiltæk ef þú lest og skrifar á fleiri en einu Wikipedia-tungumáli.</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Þýða lýsingar</string>
   <string name="suggested_edits_task_translation_description">Þýða lýsingar yfir á önnur tungumál.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Setja myndatexta</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Bæta texta við myndir</string>
+  <string name="suggested_edits_task_translate_caption_title">Þýða myndatexta</string>
+  <string name="suggested_edits_task_translate_caption_description">Þýða myndatexta yfir á önnur tungumál</string>
+  <string name="suggested_edits_task_multilingual_title">Fleiri verkefni fyrir margtyngda ritara</string>
+  <string name="suggested_edits_task_multilingual_description">Þýðingaverkefni eru tiltæk ef þú lest og skrifar á fleiri en einu Wikipedia-tungumáli.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
   <string name="suggested_edits_task_multilingual_negative">Ekkert fyrir mig</string>
   <string name="suggested_edits_task_multilingual_positive">Bæta við tungumálum</string>
-  <string name="suggested_edits_task_translate_caption_title">Þýða myndatexta</string>
-  <string name="suggested_edits_task_translate_caption_description">Þýða myndatexta yfir á önnur tungumál</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Listamaður</string>
   <string name="suggested_edits_image_caption_summary_title_author">Höfundur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Uppruni</string>
@@ -669,7 +670,6 @@
   <string name="suggested_edits_feed_card_title">Tillögur að breytingum</string>
   <string name="suggested_edits_tutorial_message">Velkomin í nýju miðstöðina fyrir flýtibreytingar í Wikipedia-forritinu. Við kunnum vel að meta öll þín framlög. Skemmtu þér vel!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komast í gang</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Myndatextar</string>
   <string name="suggested_edits_image_preview_dialog_artist">Listamaður</string>
   <string name="suggested_edits_image_preview_dialog_date">Dagsetning</string>
   <string name="suggested_edits_image_preview_dialog_source">Heimild/Ljósmyndari</string>
