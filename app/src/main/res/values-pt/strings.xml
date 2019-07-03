@@ -601,11 +601,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
+  <string name="description_edit_translate_caption_hint_per_language">Legendas da imagem (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
   <string name="description_edit_add_description">Adicionar descrição do artigo</string>
   <string name="description_edit_translate_description">Traduzir descrição do artigo</string>
-  <string name="description_edit_edit_description">Editar descrição</string>
+  <string name="description_edit_edit_description" fuzzy="true">Editar descrição</string>
   <string name="description_edit_add_image_caption">Adicionar legenda à imagem</string>
   <string name="description_edit_edit_image_caption">Editar legenda da imagem</string>
   <string name="description_edit_translate_image_caption">Traduzir legenda da imagem</string>
@@ -659,30 +660,30 @@
   <string name="suggested_edits_unlock_notification_button">Sim, continuar</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Destrancou a tarefa \"Adicionar legendas a imagens\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Destrancou \"Adicionar legendas a imagens\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Agradecemos todas as suas contribuições! Como parece que gosta de adicionar legendas às imagens, compilámos uma lista de imagens a que falta legenda. Pode ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Edições sugeridas\n\nAgradecemos todas as suas contribuições. Como parece que gosta de adicionar legendas às imagens, compilámos uma lista de imagens a que falta legenda. Pode ajudar-nos a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Agradecemos todas as suas contribuições! Como parece que gosta de adicionar legendas às imagens, compilámos uma lista de imagens a que falta legenda. Pode ajudar-nos a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Edições sugeridas\n\nAgradecemos todas as suas contribuições. Como parece que gosta de adicionar legendas às imagens, compilámos uma lista de imagens a que falta legenda. Pode ajudar-nos a melhorar a Wikipédia?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Destrancou a tarefa \"Traduzir legendas de imagens\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Destrancou \"Traduzir legendas de imagens\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Agradecemos todas as suas contribuições! Está a usar a aplicação em várias línguas, por isso compilámos uma lista de imagens a que falta a tradução da legenda. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Edições sugeridas\n\nAgradecemos todas as suas contribuições. Está a usar a aplicação em várias línguas, por isso compilámos uma lista de imagens a que falta a tradução da legenda. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Agradecemos todas as suas contribuições! Está a usar a aplicação em várias línguas, por isso compilámos uma lista de imagens a que falta a tradução da legenda. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Edições sugeridas\n\nAgradecemos todas as suas contribuições. Está a usar a aplicação em várias línguas, por isso compilámos uma lista de imagens a que falta a tradução da legenda. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
   <string name="suggested_edits_license_notice">Ao adicionar a descrição, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Ao adicionar a legenda da imagem, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informação</string>
   <string name="suggested_edits_tasks_activity_title">Edições sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Adicionar descrições de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuir para os artigos a que falta a descrição</string>
-  <string name="suggested_edits_task_image_caption_title">Legendar imagens</string>
-  <string name="suggested_edits_task_image_caption_description">Adicionar legendas às imagens</string>
-  <string name="suggested_edits_task_multilingual_title">Mais tarefas para editores multilingues</string>
-  <string name="suggested_edits_task_multilingual_description">Há tarefas de tradução disponíveis se lê e escreve em mais do que uma língua da Wikipédia.</string>
   <string name="suggested_edits_task_translation_title">Traduzir descrições de artigos</string>
   <string name="suggested_edits_task_translation_description">Traduzir descrições nas línguas dos artigos.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Legendar imagens</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Adicionar legendas às imagens</string>
+  <string name="suggested_edits_task_translate_caption_title">Traduzir legendas de imagem</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduzir legendas para outras línguas</string>
+  <string name="suggested_edits_task_multilingual_title">Mais tarefas para editores multilingues</string>
+  <string name="suggested_edits_task_multilingual_description">Há tarefas de tradução disponíveis se lê e escreve em mais do que uma língua da Wikipédia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Trancadas até que tenha feito na aplicação %d contribuições verificadas</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Trancada até ter feito %d contribuições verificadas</string>
   <string name="suggested_edits_task_multilingual_negative">Não é para mim</string>
   <string name="suggested_edits_task_multilingual_positive">Adicionar línguas</string>
-  <string name="suggested_edits_task_translate_caption_title">Traduzir legendas de imagem</string>
-  <string name="suggested_edits_task_translate_caption_description">Traduzir legendas para outras línguas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
@@ -696,7 +697,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
   <string name="suggested_edits_tutorial_message">Bem-vindo(a) à nova página principal para edição rápida na aplicação da Wikipédia. As suas contribuições são muito bem-vindas. Boas edições!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
-  <string name="suggested_edits_image_preview_dialog_caption_title">Legendas da imagem</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotógrafo</string>
