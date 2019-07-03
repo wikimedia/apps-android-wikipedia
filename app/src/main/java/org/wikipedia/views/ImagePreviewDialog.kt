@@ -120,8 +120,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             view.titleTextView.text = titleString
             if (linkClickListener != null) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
-                externalLinkView.visibility = VISIBLE
-                detailsContainer.setOnClickListener(linkClickListener)
+                view.externalLinkView.visibility = VISIBLE
+                view.detailsContainer.setOnClickListener(linkClickListener)
             }
             view.detailTextView.text = StringUtil.removeHTMLTags(detail)
             detailsHolder.addView(view)
