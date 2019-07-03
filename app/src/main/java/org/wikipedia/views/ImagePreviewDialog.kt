@@ -102,11 +102,9 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         if ((invokeSource == InvokeSource.SUGGESTED_EDITS_ADD_CAPTION || invokeSource == InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION)
                 && suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
-            if (!suggestedEditsSummary.description.equals(getString(R.string.suggested_edits_no_description))) {
-                addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
-                        WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
-                        suggestedEditsSummary.description, false)
-            }
+            addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
+                    suggestedEditsSummary.description, false)
         } else {
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
