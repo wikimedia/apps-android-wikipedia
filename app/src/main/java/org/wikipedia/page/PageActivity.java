@@ -332,7 +332,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 finish();
                 return;
             }
-            loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
+            loadPage(title, historyEntry, intent.getCategories().contains(Intent.CATEGORY_BROWSABLE) ? TabPosition.NEW_TAB_FOREGROUND : TabPosition.EXISTING_TAB);
         } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
                 || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
