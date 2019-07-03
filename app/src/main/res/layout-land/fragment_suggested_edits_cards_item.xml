@@ -59,9 +59,10 @@
                     style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                     android:id="@+id/viewArticleImage"
                     android:layout_width="match_parent"
-                    android:layout_height="136dp"
-                    app:fadeDuration="0"
-                    app:actualImageScaleType="focusCrop" />
+                    android:layout_height="wrap_content"
+                    app:actualImageScaleType="focusCrop"
+                    app:viewAspectRatio="3.8"
+                    app:fadeDuration="0" />
 
                 <LinearLayout
                     android:id="@+id/viewArticleContainer"

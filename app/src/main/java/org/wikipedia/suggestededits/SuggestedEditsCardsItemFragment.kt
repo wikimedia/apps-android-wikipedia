@@ -261,7 +261,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun updateDescriptionContents() {
-        viewArticleTitle.text = sourceSummary!!.displayTitle
+        viewArticleTitle.text = StringUtil.fromHtml(sourceSummary!!.displayTitle)
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
