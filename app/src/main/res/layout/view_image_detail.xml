@@ -32,8 +32,8 @@
         android:id="@+id/detailsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="12dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="12dp">
 
         <TextView
             android:id="@+id/detailTextView"
@@ -57,6 +57,4 @@
             android:visibility="gone"
             app:srcCompat="@drawable/ic_open_in_new_black_24px" />
     </LinearLayout>
-
-
 </LinearLayout>

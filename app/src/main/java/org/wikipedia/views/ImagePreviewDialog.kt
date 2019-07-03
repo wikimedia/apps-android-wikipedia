@@ -122,7 +122,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                 view.externalLinkView.visibility = VISIBLE
                 view.detailsContainer.setOnClickListener(linkClickListener)
             }
-            view.detailTextView.text = StringUtil.removeHTMLTags(detail)
+            view.detailTextView.text = StringUtil.strip(StringUtil.removeHTMLTags(detail))
             detailsHolder.addView(view)
         }
     }
