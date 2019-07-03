@@ -213,12 +213,9 @@ public class LeadImagesHandler {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(gallery -> {
-                    GalleryItem galleryItem = null;
-
                     List<GalleryItem> list = gallery.getItems("image");
                     for (GalleryItem item : list) {
                         if (getPage() != null && item.getFilePage().contains(getPage().getPageProperties().getLeadImageName())) {
-                            galleryItem = item;
                             if (TextUtils.isEmpty(item.getStructuredCaptions().get(getTitle().getWikiSite().languageCode()))) {
                                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
                                 sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), app.getAppOrSystemLanguageCode(), getTitle(),
@@ -230,7 +227,6 @@ public class LeadImagesHandler {
                         }
                     }
                     if (app.language().getAppLanguageCodes().size() > 1 && Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
-                        GalleryItem finalGalleryItem = galleryItem;
                         imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(filename)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
@@ -241,7 +237,7 @@ public class LeadImagesHandler {
                                                     PageTitle sourceTitle = new PageTitle(getTitle().getText(), new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
                                                     PageTitle targetTitle = new PageTitle(getTitle().getText(), new WikiSite(Service.COMMONS_URL, lang));
                                                     sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
-                                                            sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), null, finalGalleryItem.getThumbnailUrl(), finalGalleryItem.getPreferredSizedImageUrl(),
+                                                            sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
                                                             null, null, null, null);
 
                                                     targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
