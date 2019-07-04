@@ -123,7 +123,7 @@ public class GalleryItem implements Serializable {
     @NonNull
     public String getFilePage() {
         // return the base url of Wiki Commons for WikiSite() if the file_page is null.
-        return filePage == null ? Service.COMMONS_URL : StringUtils.defaultString(filePage);
+        return StringUtils.defaultString(filePage, Service.COMMONS_URL);
     }
 
     public void setFilePage(@NonNull String filePage) {

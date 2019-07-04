@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -205,26 +206,32 @@ public class LeadImagesHandler {
             return;
         }
         WikipediaApp app = WikipediaApp.getInstance();
+        GalleryItem[] galleryItem = {null};
+
         disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getMedia(getTitle().getConvertedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(gallery -> {
-                    GalleryItem galleryItem = null;
                     List<GalleryItem> list = gallery.getItems("image");
                     for (GalleryItem item : list) {
                         if (getPage() != null && item.getFilePage().contains(getPage().getPageProperties().getLeadImageName())) {
-                            galleryItem = item;
+                            galleryItem[0] = item;
                             if (TextUtils.isEmpty(item.getStructuredCaptions().get(getTitle().getWikiSite().languageCode()))) {
                                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
-                                sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), app.getAppOrSystemLanguageCode(), getTitle(),
-                                        getTitle().getDisplayText(), getTitle().getDisplayText(), StringUtil.fromHtml(item.getDescription().getHtml()).toString(), item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
-                                        null, null, null, null);
+                                PageTitle pageTitle = new PageTitle(item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage()), new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
+                                String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
+                                pageTitle.setDescription(currentCaption);
+
+                                sourceSummary = new SuggestedEditsSummary(pageTitle.getPrefixedText(), app.getAppOrSystemLanguageCode(), pageTitle,
+                                        pageTitle.getDisplayText(), pageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getDescription().getHtml()).toString(), getActivity().getString(R.string.suggested_edits_no_description)),
+                                        item.getThumbnailUrl(), item.getPreferredSizedImageUrl(), null, null, null, null);
+
                                 return null;
                             }
                         }
                     }
-                    if (galleryItem != null) {
-                        String title = galleryItem.getFilePage().equals(Service.COMMONS_URL) ? galleryItem.getTitles().getCanonical() : UriUtil.getTitleFromUrl(galleryItem.getFilePage());
+                    if (galleryItem[0] != null) {
+                        String title = galleryItem[0].getFilePage().equals(Service.COMMONS_URL) ? galleryItem[0].getTitles().getCanonical() : UriUtil.getTitleFromUrl(galleryItem[0].getFilePage());
 
                         return MediaHelper.INSTANCE.getImageCaptions(title);
                     } else {
@@ -238,8 +245,10 @@ public class LeadImagesHandler {
                                 for (String lang : app.language().getAppLanguageCodes()) {
                                     if (!captions.containsKey(lang)) {
                                         isTranslation = true;
-                                        PageTitle sourceTitle = new PageTitle(getTitle().getText(), new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
-                                        PageTitle targetTitle = new PageTitle(getTitle().getText(), new WikiSite(Service.COMMONS_URL, lang));
+                                        String title = galleryItem[0].getFilePage().equals(Service.COMMONS_URL) ? galleryItem[0].getTitles().getCanonical() : UriUtil.getTitleFromUrl(galleryItem[0].getFilePage());
+                                        PageTitle sourceTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
+                                        PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, lang));
+
                                         sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
                                                 sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
                                                 null, null, null, null);
