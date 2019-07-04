@@ -935,7 +935,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 for (int i = 0; i < referencesGroup.length(); i++) {
                     JSONObject reference = (JSONObject) referencesGroup.get(i);
                     String getReferenceText = StringUtils.defaultString(reference.optString("text"));
-                    String getReferenceId = StringUtils.defaultString(reference.optString("id")).replace("#cite_note-", "");
+                    String getReferenceId = StringUtils.defaultString(reference.optString("href")).replace("#cite_note-", "");
                     References.Reference getReference = referencesMap.get(getReferenceId);
                     if (getReference != null) {
                         getReference.setText(getReferenceText);

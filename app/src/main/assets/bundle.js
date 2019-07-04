@@ -22,23 +22,15 @@ bridge.registerListener( 'handleReference', function( payload ) {
 function handleReference( href, linkNode, linkText ) {
     var targetElem = document.getElementById(href.slice(1));
     if (linkNode && pagelib.ReferenceCollection.isCitation(href)){
-        var adjacentReferences = pagelib.ReferenceCollection.collectNearbyReferences(document, linkNode);
-        // TODO: remove this when the page-library returning ids that match the referencesMap.
-        var referencesGroup = [];
-        for (var i = 0; i < adjacentReferences.referencesGroup.length; i++) {
-            var getId = adjacentReferences.referencesGroup[i].id;
-            var getText = adjacentReferences.referencesGroup[i].text;
-            var getReferenceHref = document.getElementById(getId).getElementsByTagName("a")[0].getAttribute("href");
-            referencesGroup.push({"id": getReferenceHref, "text": getText});
-        }
-        bridge.sendMessage( 'referenceClicked', { "selectedIndex": adjacentReferences.selectedIndex, "referencesGroup": referencesGroup } );
+        var adjacentReferences = pagelib.ReferenceCollection.collectNearbyReferencesAsText(document, linkNode);
+        bridge.sendMessage( 'referenceClicked', adjacentReferences );
     } else if ( href.slice(1, 5).toLowerCase() === "cite" ) {
         try {
             var refTexts = targetElem.getElementsByClassName( "reference-text" );
             if ( refTexts.length > 0 ) {
                 targetElem = refTexts[0];
             }
-            bridge.sendMessage( 'referenceClicked', { "selectedIndex": 0, "referencesGroup": [ { "id": href, "text": linkText } ] });
+            bridge.sendMessage( 'referenceClicked', { "selectedIndex": 0, "referencesGroup": [ { "href": href, "text": linkText } ] });
         } catch (e) {
             targetElem.scrollIntoView();
         }
