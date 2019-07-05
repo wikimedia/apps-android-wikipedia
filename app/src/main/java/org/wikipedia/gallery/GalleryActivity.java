@@ -142,6 +142,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private GalleryItemAdapter galleryAdapter;
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
+    private String targetLanguageCode;
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
@@ -324,7 +325,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         GalleryItem item = getCurrentItem();
         String title = item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage());
         PageTitle sourceTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
-        PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(1)));
+        PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, targetLanguageCode == null ? app.language().getAppLanguageCodes().get(1) : targetLanguageCode));
         String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
         if (TextUtils.isEmpty(currentCaption)) {
             currentCaption = StringUtil.fromHtml(item.getDescription().getHtml()).toString();
@@ -640,6 +641,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             for (String lang : app.language().getAppLanguageCodes()) {
                 if (!item.getStructuredCaptions().containsKey(lang)) {
                     allowTranslate = true;
+                    targetLanguageCode = lang;
                     break;
                 }
             }
@@ -660,7 +662,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
         captionTranslateButtonText.setText(getString(R.string.gallery_add_image_caption_in_language_button,
-                app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1))));
+                app.language().getAppLanguageLocalizedName(targetLanguageCode)));
 
         // determine which icon to display...
         if (getLicenseIcon(item) == R.drawable.ic_license_by) {
