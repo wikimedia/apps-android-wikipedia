@@ -142,7 +142,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private GalleryItemAdapter galleryAdapter;
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
-    private String targetLanguageCode;
+    @Nullable private String targetLanguageCode;
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
@@ -325,7 +325,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         GalleryItem item = getCurrentItem();
         String title = item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage());
         PageTitle sourceTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
-        PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, targetLanguageCode == null ? app.language().getAppLanguageCodes().get(1) : targetLanguageCode));
+        PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1))));
         String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
         if (TextUtils.isEmpty(currentCaption)) {
             currentCaption = StringUtil.fromHtml(item.getDescription().getHtml()).toString();
