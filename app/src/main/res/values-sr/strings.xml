@@ -602,7 +602,7 @@
   <string name="suggested_edits_task_translation_description">Преведите описе по језицима чланака.</string>
   <string name="suggested_edits_task_translate_caption_title">Превођење натписа слика</string>
   <string name="suggested_edits_task_translate_caption_description">Преведите натписе на друге језике</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Закључано док не направите (%d) проверених доприноса</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Закључано док не направите (%d) проверених доприноса</string>
   <string name="suggested_edits_task_multilingual_negative">Није за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај језике</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>

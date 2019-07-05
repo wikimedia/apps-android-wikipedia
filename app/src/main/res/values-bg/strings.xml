@@ -616,7 +616,7 @@
   <string name="suggested_edits_task_multilingual_title">Повече задачи за многоезични редактори</string>
   <string name="suggested_edits_task_multilingual_description">Има задачи за превод на расположение, ако четете и пишете на Уикипедия на повече от един език.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Заключено, докато не придобиете %d проверени редакции</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Заключено, докато не придобиете %d проверени редакции</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Заключено, докато не придобиете %d проверени редакции</string>
   <string name="suggested_edits_task_multilingual_negative">Не за мен</string>
   <string name="suggested_edits_task_multilingual_positive">Добавяне на езици</string>
   <plurals name="suggested_edits_contribution_count">
