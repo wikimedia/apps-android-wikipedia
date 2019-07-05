@@ -70,6 +70,7 @@ public class LeadImagesHandler {
     private SuggestedEditsSummary sourceSummary, targetSummary;
     private boolean isTranslation;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private PageTitle captionSourcePageTitle, captionTargetPageTitle;
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
@@ -207,57 +208,51 @@ public class LeadImagesHandler {
         }
         WikipediaApp app = WikipediaApp.getInstance();
         GalleryItem[] galleryItem = {null};
-
+        String[] title = {null};
         disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getMedia(getTitle().getConvertedText())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(gallery -> {
                     List<GalleryItem> list = gallery.getItems("image");
                     for (GalleryItem item : list) {
                         if (getPage() != null && item.getFilePage().contains(getPage().getPageProperties().getLeadImageName())) {
                             galleryItem[0] = item;
-                            if (TextUtils.isEmpty(item.getStructuredCaptions().get(getTitle().getWikiSite().languageCode()))) {
-                                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
-                                PageTitle pageTitle = new PageTitle(item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage()), new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
-                                String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
-                                pageTitle.setDescription(currentCaption);
-
-                                sourceSummary = new SuggestedEditsSummary(pageTitle.getPrefixedText(), app.getAppOrSystemLanguageCode(), pageTitle,
-                                        pageTitle.getDisplayText(), pageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getDescription().getHtml()).toString(), getActivity().getString(R.string.suggested_edits_no_description)),
-                                        item.getThumbnailUrl(), item.getPreferredSizedImageUrl(), null, null, null, null);
-
-                                return null;
-                            }
+                            title[0] = item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage());
+                            return MediaHelper.INSTANCE.getImageCaptions(title[0]);
                         }
                     }
-                    if (galleryItem[0] != null) {
-                        String title = galleryItem[0].getFilePage().equals(Service.COMMONS_URL) ? galleryItem[0].getTitles().getCanonical() : UriUtil.getTitleFromUrl(galleryItem[0].getFilePage());
 
-                        return MediaHelper.INSTANCE.getImageCaptions(title);
-                    } else {
-                        return null;
-                    }
+                    return null;
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(captions -> {
-                            if (captions != null && app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
-                                for (String lang : app.language().getAppLanguageCodes()) {
-                                    if (!captions.containsKey(lang)) {
-                                        isTranslation = true;
-                                        String title = galleryItem[0].getFilePage().equals(Service.COMMONS_URL) ? galleryItem[0].getTitles().getCanonical() : UriUtil.getTitleFromUrl(galleryItem[0].getFilePage());
-                                        PageTitle sourceTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
-                                        PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, lang));
+                            if (galleryItem[0] != null) {
+                                captionSourcePageTitle = new PageTitle(title[0], new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
 
-                                        sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
-                                                sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
-                                                null, null, null, null);
+                                if (!captions.containsKey(app.getAppOrSystemLanguageCode())) {
+                                    pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
+                                    sourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), app.getAppOrSystemLanguageCode(), captionSourcePageTitle,
+                                            captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(galleryItem[0].getDescription().getHtml()).toString(), getActivity().getString(R.string.suggested_edits_no_description)),
+                                            galleryItem[0].getThumbnailUrl(), galleryItem[0].getPreferredSizedImageUrl(), null, null, null, null);
 
-                                        targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
-                                                targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
-                                                null, null, null, null);
-                                        pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), app.language().getAppLanguageLocalizedName(lang)));
-                                        break;
+                                    return;
+                                }
+                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+                                    for (String lang : app.language().getAppLanguageCodes()) {
+                                        if (!captions.containsKey(lang)) {
+                                            isTranslation = true;
+                                            captionTargetPageTitle = new PageTitle(title[0], new WikiSite(Service.COMMONS_URL, lang));
+                                            String currentCaption = captions.get(app.getAppOrSystemLanguageCode());
+                                            captionSourcePageTitle.setDescription(currentCaption);
+                                            sourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
+                                                    captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), currentCaption, getLeadImageUrl(), getLeadImageUrl(),
+                                                    null, null, null, null);
+
+                                            targetSummary = new SuggestedEditsSummary(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
+                                                    captionTargetPageTitle.getDisplayText(), captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
+                                                    null, null, null, null);
+                                            pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), app.language().getAppLanguageLocalizedName(lang)));
+                                            break;
+                                        }
                                     }
                                 }
                             }
@@ -313,7 +308,7 @@ public class LeadImagesHandler {
 
             @Override
             public void onArticleCTAClicked() {
-                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), getTitle(), null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
+                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), isTranslation ? captionTargetPageTitle : captionSourcePageTitle, null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT);
             }
         });

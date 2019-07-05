@@ -101,7 +101,9 @@ public class DescriptionEditView extends LinearLayout {
         this.pageTitle = pageTitle;
         originalDescription = pageTitle.getDescription();
         setHintText();
-        setDescription(originalDescription);
+        if (invokeSource != SUGGESTED_EDITS_ADD_CAPTION && invokeSource != SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+            setDescription(originalDescription);
+        }
         setReviewHeaderText(false);
     }
 
@@ -296,9 +298,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     public void setDescription(@Nullable String text) {
-        if (invokeSource != SUGGESTED_EDITS_ADD_CAPTION && invokeSource != SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-            pageDescriptionText.setText(text);
-        }
+        pageDescriptionText.setText(text);
     }
 
     public void setHighlightText(@Nullable String text) {
