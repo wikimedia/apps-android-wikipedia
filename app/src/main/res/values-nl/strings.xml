@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Dbrant
 * Elroy
 * Envlh
 * Festina90
@@ -649,7 +650,7 @@
   <string name="suggested_edits_add_caption_button">Bijschrift toevoegen</string>
   <string name="suggested_edits_edit_caption_button">Bijschrift bewerken</string>
   <string name="suggested_edits_my_contributions">Mijn bijdragen</string>
-  <string name="suggested_edits_no_description">Geen beschrijving</string>
+  <string name="suggested_edits_no_description">Dit bestand heeft geen beschrijving</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">U hebt de taak \"Artikelbeschrijvingen toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">U hebt de taak \"Artikelbeschrijvingen vertalen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_dialog_no">Misschien later</string>
@@ -667,14 +668,14 @@
   <string name="suggested_edits_task_add_description_title">Artikelbeschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
   <string name="suggested_edits_task_translation_title">Artikelbeschrijvingen vertalen</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Titelfoto\'s</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Voeg titels toe aan plaatjes</string>
+  <string name="suggested_edits_task_image_caption_title">Afbeeldingsbijschriften toevoegen</string>
+  <string name="suggested_edits_task_image_caption_description">Ontbrekende korte afbeeldingsbijschriften toevoegen</string>
   <string name="suggested_edits_task_translate_caption_title">Afbeeldingsbijschriften vertalen</string>
   <string name="suggested_edits_task_translate_caption_description">Onderschriften vertalen in andere talen</string>
   <string name="suggested_edits_task_multilingual_title">Meer taken voor meertalige bewerkers</string>
   <string name="suggested_edits_task_multilingual_description">Vertalingstaken zijn beschikbaar wanneer u kunt lezen en schrijven in meer dan een Wikipedia taal.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Vergrendeld totdat u %d afbeeldingsbijschriften hebt bewerkt</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
   <string name="suggested_edits_task_multilingual_negative">Niet voor mij</string>
   <string name="suggested_edits_task_multilingual_positive">Talen toevoegen</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiest</string>
