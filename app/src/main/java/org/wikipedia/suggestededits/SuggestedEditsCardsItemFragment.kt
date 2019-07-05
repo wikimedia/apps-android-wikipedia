@@ -136,8 +136,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                         ),
                                         StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
-                                        if (imageInfo.metadata!!.imageDescription().isNotEmpty())
-                                            imageInfo.metadata!!.imageDescription() else getString(R.string.suggested_edits_no_description),
+                                        imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
                                         imageInfo.originalUrl,
                                         null,
@@ -284,7 +283,14 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     private fun updateCaptionContents() {
         viewArticleTitle.text = StringUtil.removeNamespace(sourceSummary!!.displayTitle!!)
         viewArticleSubtitleContainer.visibility = VISIBLE
-        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags((if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description!!).capitalize()))
+
+        val descriptionText = when {
+            addedContribution.isNotEmpty() -> addedContribution
+            sourceSummary!!.description!!.isNotEmpty() -> sourceSummary!!.description!!
+            else -> getString(R.string.suggested_edits_no_description)
+        }
+
+        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText.capitalize()))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
             viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
