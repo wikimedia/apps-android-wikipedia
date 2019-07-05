@@ -27,6 +27,10 @@ styles with only the things which need tweaking.
   color: #36c;
 }
 
+.pagelib_theme_div_do_not_apply_baseline {
+  color: #000;
+}
+
 /* external anchor */
 .pagelib_theme_dark a.external,
 .pagelib_theme_sepia a.external,
