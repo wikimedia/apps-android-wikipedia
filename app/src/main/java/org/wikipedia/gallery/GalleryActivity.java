@@ -58,6 +58,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
@@ -304,7 +305,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
         GalleryItem item = getCurrentItem();
-        PageTitle title = new PageTitle(item.getTitles().getCanonical(), new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
+        PageTitle title = new PageTitle(item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage()), new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
         String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
         title.setDescription(currentCaption);
 
@@ -321,8 +322,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             return;
         }
         GalleryItem item = getCurrentItem();
-        PageTitle sourceTitle = new PageTitle(item.getTitles().getCanonical(), new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
-        PageTitle targetTitle = new PageTitle(item.getTitles().getCanonical(), new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(1)));
+        String title = item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage());
+        PageTitle sourceTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
+        PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(1)));
         String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
         if (TextUtils.isEmpty(currentCaption)) {
             currentCaption = StringUtil.fromHtml(item.getDescription().getHtml()).toString();
