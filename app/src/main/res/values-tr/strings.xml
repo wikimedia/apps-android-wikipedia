@@ -4,6 +4,7 @@
 * Abijeet Patro
 * Alidemirtas
 * Bulgu
+* Dbrant
 * Envlh
 * Fitoschido
 * Gambollar
@@ -658,7 +659,7 @@
   <string name="suggested_edits_edit_caption_button">Altyazıyı düzenle</string>
   <string name="suggested_edits_review_image_caption">Resim altyazısını incele</string>
   <string name="suggested_edits_my_contributions">Katkılarım</string>
-  <string name="suggested_edits_no_description">Açıklama yok</string>
+  <string name="suggested_edits_no_description" fuzzy="true">Açıklama yok</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Madde açıklamaları ekle\" görevinin kilidini açtınız</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tüm katkılarınız için teşekkürler! Düzenleme konusunda çok iyi olduğunuzdan açıklamaların eksik olduğu bir madde listesi hazırladık. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"Madde açıklamalarını çevir\" görevinin kilidini açtınız</string>
@@ -694,7 +695,7 @@
   <string name="suggested_edits_task_multilingual_title">Çok dilli editörler için daha fazla görev</string>
   <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">%d doğrulanmış katkı yapana kadar kilitlendi</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Sanatçı</string>

@@ -283,6 +283,7 @@
   <string name="gallery_save_success">A fájl sikeresen mentve.</string>
   <string name="gallery_error_video_failed">A videó lejátszása sikertelen.</string>
   <string name="gallery_save_image_write_permission_rationale">Képek elmentéséhez szükséges engedély az eszközöd tárhelyére íráshoz.</string>
+  <string name="gallery_add_image_caption_in_language_button">Képaláírás hozzáadása (%s)</string>
   <string name="err_cannot_save_file">Fájl mentése sikertelen</string>
   <string name="snippet_share_intro">„%1$s” a @Wikipedia szabad enciklopédiában: %2$s</string>
   <string name="expand_refs">Érintsd meg a kinyitáshoz</string>
@@ -598,11 +599,16 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="description_edit_text_hint" fuzzy="true">Cím leírása</string>
+  <string name="description_edit_add_caption_label_per_language">Képleírás (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Képaláírás (%s)</string>
   <string name="description_edit_save">Közzététel</string>
   <string name="description_edit_read">Olvasás</string>
   <string name="description_edit_add_description" fuzzy="true">Adj meg egy címleírást</string>
   <string name="description_edit_translate_description" fuzzy="true">Leírás fordítása</string>
   <string name="description_edit_edit_description" fuzzy="true">Leírás szerkesztése</string>
+  <string name="description_edit_add_image_caption">Képaláírás hozzáadása</string>
+  <string name="description_edit_edit_image_caption">Képaláírás szerkesztése</string>
+  <string name="description_edit_translate_image_caption">Képaláírás fordítása</string>
   <string name="description_edit_cancel_hint">Mégse</string>
   <string name="description_edit_help_title" fuzzy="true">Segítség: címleírások</string>
   <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
@@ -612,6 +618,8 @@
   <string name="description_edit_license_notice" fuzzy="true">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="description_edit_success_saved" fuzzy="true">Leírás közzétéve!</string>
   <string name="description_edit_success_saved_snackbar" fuzzy="true">Leírás közzétéve!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Képaláírás közzétéve! (%s)</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>
@@ -624,12 +632,18 @@
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
   <string name="suggested_edits_add_descriptions" fuzzy="true">Címleírások hozzáadása</string>
   <string name="suggested_edits_translate_descriptions" fuzzy="true">Leírások fordítása</string>
+  <string name="suggested_edits_add_image_captions">Képaláírások hozzáadása</string>
+  <string name="suggested_edits_translate_image_captions">Képaláírások fordítása</string>
   <string name="suggested_edits_review_description" fuzzy="true">Címleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">Fordítás hozzáadása</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">Fordítás szerkesztése</string>
+  <string name="suggested_edits_edit_description_button">Leírás szerkesztése</string>
+  <string name="suggested_edits_add_translation_button">Fordítás hozzáadása</string>
+  <string name="suggested_edits_edit_translation_button">Fordítás szerkesztése</string>
+  <string name="suggested_edits_add_caption_button">Képaláírás hozzáadása</string>
+  <string name="suggested_edits_edit_caption_button">Képaláírás szerkesztése</string>
   <string name="suggested_edits_review_image_caption">Képaláírások ellenőrzése</string>
   <string name="suggested_edits_my_contributions">Közreműködéseim</string>
+  <string name="suggested_edits_no_description">Ennek a fájlnak nincs leírása</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Feloldottad a „Leírások hozzáadása” feladatot</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Köszönjük a közreműködéseidet! Mivel szeretsz címleírásokat szerkeszteni, összeállítottunk számodra egy „Szerkesztői feladatok” listáját olyan cikkekkel, melyeknél hiányzik a címleírás. Tudsz ezekben segíteni?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Feloldottad a „Leírások fordítása” feladatot</string>
@@ -642,7 +656,12 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Javasolt szerkesztés\n\nKöszönjük a közreműködéseidet! Mivel jó vagy a szerkesztésben, összeállítottunk számodra egy listát olyan cikkekkel, melyeknél hiányzik a címleírás. Tudsz ezekben segíteni?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Javasolt szerkesztés\n\nKöszönjük az eddigi szerkesztéseidet! Az alkalmazást több nyelven is használod, ezért összeállítottunk egy listát, ahol a leírásoknál hiányzik a magyar fordítás. Volna kedved ebben segíteni?</string>
   <string name="suggested_edits_unlock_notification_button">Igen, kezdjük</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">A címleírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Feloldottad a „Képaláírások hozzáadása” feladatot</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Feloldottad a „Képaláírások hozzáadása” feladatot</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Feloldottad a „Képaláírások fordítása” feladatot</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Feloldottad a „Képaláírások fordítása” feladatot</string>
+  <string name="suggested_edits_license_notice">A leírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
+  <string name="suggested_edits_image_caption_license_notice">A képaláírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="suggested_edits_menu_info">Információ</string>
   <string name="suggested_edits_tasks_activity_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Címleírások hozzáadása</string>
@@ -650,12 +669,13 @@
   <string name="suggested_edits_task_translation_title" fuzzy="true">Leírások fordítása</string>
   <string name="suggested_edits_task_translation_description">Leírások lefordítása több nyelvre.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Képek feliratozása</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Adj feliratokat a képekhez</string>
+  <string name="suggested_edits_task_image_caption_description">Adj hiányzó rövid képaláírásokat a képekhez</string>
   <string name="suggested_edits_task_translate_caption_title">Képaláírások fordítása</string>
+  <string name="suggested_edits_task_translate_caption_description">Fordíts képaláírásokat más nyelvekre</string>
   <string name="suggested_edits_task_multilingual_title">További feladatok többnyelvű szerkesztőknek</string>
   <string name="suggested_edits_task_multilingual_description">A fordítási feladatok akkor érhetőek el, ha több mint egy Wikipédia nyelven olvasol és írsz.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Zárolva, amíg nem szerkesztesz az alkalmazáson belül %d képaláírást</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
   <string name="suggested_edits_task_multilingual_negative">Nem nekem való</string>
   <string name="suggested_edits_task_multilingual_positive">Nyelvek hozzáadása</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Művész</string>
@@ -670,12 +690,16 @@
   <string name="suggested_edits_feed_card_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_tutorial_message">Légy üdvözölve a Wikipédia app gyors szerkesztőjében. Hozzájárulásodat nagyon köszönjük. Kellemes szerkesztést!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kezdés</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Képaláírás (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Kép leírása (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Művész</string>
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>
   <string name="suggested_edits_image_preview_dialog_source">Forrás/fényképész</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
   <string name="suggested_edits_image_preview_dialog_more_info">További információk</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>

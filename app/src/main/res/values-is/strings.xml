@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Dbrant
 * Maxí
 * Sveinki
 * Sveinn í Felli
@@ -628,7 +629,7 @@
   <string name="suggested_edits_edit_caption_button">Breyta myndatexta</string>
   <string name="suggested_edits_review_image_caption">Yfirfara myndatexta</string>
   <string name="suggested_edits_my_contributions">Framlögin mín</string>
-  <string name="suggested_edits_no_description">Engin lýsing</string>
+  <string name="suggested_edits_no_description" fuzzy="true">Engin lýsing</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"Bæta við lýsingum\" hefur verið aflæst</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Við höfum tekið eftir að þú ert oft að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Þú aflæstir \"Þýða lýsingar\" verkinu</string>
@@ -655,7 +656,7 @@
   <string name="suggested_edits_task_multilingual_title">Fleiri verkefni fyrir margtyngda ritara</string>
   <string name="suggested_edits_task_multilingual_description">Þýðingaverkefni eru tiltæk ef þú lest og skrifar á fleiri en einu Wikipedia-tungumáli.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
   <string name="suggested_edits_task_multilingual_negative">Ekkert fyrir mig</string>
   <string name="suggested_edits_task_multilingual_positive">Bæta við tungumálum</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Listamaður</string>

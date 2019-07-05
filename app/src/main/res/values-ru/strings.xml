@@ -2,6 +2,7 @@
 <!-- Authors:
 * 4elovek12345
 * Abijeet Patro
+* Alexander Istomin
 * Alexey zakharenkov
 * Amire80
 * Batumski brodyaga
@@ -57,7 +58,7 @@
   <string name="nav_item_forward">Вперёд</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_search_history">История поиска</string>
-  <string name="search_hint_search_languages">Поиск на языке</string>
+  <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
@@ -677,7 +678,7 @@
   <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
   <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
-  <string name="suggested_edits_no_description">Нет описания</string>
+  <string name="suggested_edits_no_description">У этого файла отсутствует описание</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Спасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Вы разблокировали модуль \"Перевод описаний статей\"</string>
@@ -713,7 +714,7 @@
   <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>

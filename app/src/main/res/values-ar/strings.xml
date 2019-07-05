@@ -5,6 +5,7 @@
 * Aboulouei1
 * Alaa
 * Asaifm
+* Dbrant
 * Elbasyouny
 * Esraa Ismail
 * Haytham morsy
@@ -655,7 +656,7 @@
   <string name="suggested_edits_edit_caption_button">عدل الشرح</string>
   <string name="suggested_edits_review_image_caption">مراجعة تعليقات الصور</string>
   <string name="suggested_edits_my_contributions">مساهماتي</string>
-  <string name="suggested_edits_no_description">لا يوجد وصف</string>
+  <string name="suggested_edits_no_description" fuzzy="true">لا يوجد وصف</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"إضافة أوصاف المقالات\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">شكرا على جميع مساهماتك! لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"ترجمة أوصاف المقالات\"</string>
@@ -691,7 +692,7 @@
   <string name="suggested_edits_task_multilingual_title">مهام أكثر للمحررين متعددي اللغات</string>
   <string name="suggested_edits_task_multilingual_description">مهام الترجمة متاحة إذا كنت تقرأ وتكتب في أكثر من لغة ويكيبيديا واحدة.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">مقفلة حتى قيامك بـ%d تعديلًا مؤكدًا</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">مغلق حتى تقوم ب%d تعديلا مؤكدا</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">مغلق حتى تقوم ب%d تعديلا مؤكدا</string>
   <string name="suggested_edits_task_multilingual_negative">ليس لي</string>
   <string name="suggested_edits_task_multilingual_positive">أضف لغات</string>
   <string name="suggested_edits_image_caption_summary_title_artist">الفنان</string>
