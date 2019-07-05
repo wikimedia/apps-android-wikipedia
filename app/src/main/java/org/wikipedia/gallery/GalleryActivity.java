@@ -299,7 +299,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
-                    app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1))));
+                    app.language().getAppLanguageLocalizedName(StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1)))));
             layOutGalleryDescription();
         }
     }
