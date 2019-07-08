@@ -25,7 +25,9 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
-                android:minHeight="64dp">
+                android:minHeight="64dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
 
                 <ImageView
                     android:id="@+id/downChevron"
@@ -49,7 +51,6 @@
                     android:fontFamily="serif"
                     android:lineSpacingExtra="6sp"
                     android:maxLines="3"
-                    android:paddingBottom="4dp"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="14sp"
                     tools:text="Lorem ipsum" />

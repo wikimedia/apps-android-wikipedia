@@ -642,7 +642,7 @@
   <string name="suggested_edits_edit_caption_button">עריכת כיתוב</string>
   <string name="suggested_edits_review_image_caption">סקירת כיתוב תמונה</string>
   <string name="suggested_edits_my_contributions">התרומות שלי</string>
-  <string name="suggested_edits_no_description">אין תיאור</string>
+  <string name="suggested_edits_no_description" fuzzy="true">אין תיאור</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">פתחת לשימוש את המשימה \"הוספת תיאורי ערכים\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">תודה על כל התרומות שלך! מכיוון שהצטיינת בעריכה, בנינו בשבילך רשימת ערכים שחסרים להם תיאורים. אפשר לבקש ממך לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">פתחת את המשימה \"תרגום תיאורי ערכים\"</string>
@@ -678,7 +678,7 @@
   <string name="suggested_edits_task_multilingual_title">עוד משימות לעורכים רב־לשוניים</string>
   <string name="suggested_edits_task_multilingual_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">נעול עד לביצוע %d תרומות שנבדקו</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">נעול עד לביצוע %d תרומות שנבדקו</string>
   <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
   <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>
   <string name="suggested_edits_image_caption_summary_title_artist">יוצר</string>

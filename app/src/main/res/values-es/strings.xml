@@ -619,6 +619,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
+  <string name="description_edit_article_description_label_per_language">Artículo (%s)</string>
   <string name="description_edit_add_caption_label_per_language">Descripción de imagen (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Leer</string>
@@ -661,7 +662,7 @@
   <string name="suggested_edits_edit_caption_button">Editar leyenda</string>
   <string name="suggested_edits_review_image_caption">Revisar leyenda de imagen</string>
   <string name="suggested_edits_my_contributions">Mis contribuciones</string>
-  <string name="suggested_edits_no_description">Sin descripción</string>
+  <string name="suggested_edits_no_description" fuzzy="true">Sin descripción</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Se desbloqueó la tarea de \"Edición de descripciones\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracias por todas tus contribuciones! Ya que eres un editor fantástico, hemos compilado una lista de los artículos a los que les faltan descripciones. ¿Nos ayudarías a mejorar Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloqueaste la tarea de traducción de descripciones de artículo</string>
@@ -688,7 +689,7 @@
   <string name="suggested_edits_task_multilingual_title">Más tareas para editores plurilingües</string>
   <string name="suggested_edits_task_multilingual_description">Las tareas de traducción estarán disponibles si lees y escribes en más de un idioma de Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Deshabilitado hasta que hayas edito %d leyendas imágenes</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Deshabilitado hasta que hayas editado %d descripciones de titulo</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Deshabilitado hasta que hayas editado %d descripciones de titulo</string>
   <string name="suggested_edits_task_multilingual_negative">No para mí</string>
   <string name="suggested_edits_task_multilingual_positive">Añadir idiomas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>

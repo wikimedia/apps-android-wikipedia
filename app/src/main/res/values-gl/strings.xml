@@ -654,7 +654,7 @@
   <string name="suggested_edits_task_multilingual_title">Máis tarefas para editores multilingües</string>
   <string name="suggested_edits_task_multilingual_description">Hai tarefas de tradución se vostede le e escribe en máis dunha lingua de Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Bloqueado ata que teña feito %d contribucións verificadas</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado ata que teña feito %d contribucións verificadas</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Bloqueado ata que teña feito %d contribucións verificadas</string>
   <string name="suggested_edits_task_multilingual_negative">Non é para min</string>
   <string name="suggested_edits_task_multilingual_positive">Engadir linguas</string>
   <plurals name="suggested_edits_contribution_count">

@@ -642,7 +642,7 @@
   <string name="suggested_edits_edit_caption_button">설명 편집</string>
   <string name="suggested_edits_review_image_caption">이미지 설명 검토</string>
   <string name="suggested_edits_my_contributions">내 기여</string>
-  <string name="suggested_edits_no_description">설명 없음</string>
+  <string name="suggested_edits_no_description">파일에 설명이 없습니다</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"문서 설명 추가\" 작업의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">지금까지의 모든 기여에 감사드립니다! 편집이 대단히 능숙하시므로 저희는 설명이 존재하지 않는 문서 목록을 정리했습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"문서 설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
@@ -677,7 +677,7 @@
   <string name="suggested_edits_task_multilingual_title">다언어 편집자를 위한 더 많은 작업</string>
   <string name="suggested_edits_task_multilingual_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
   <string name="suggested_edits_task_multilingual_negative">제게는 해당되지 않습니다</string>
   <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
   <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
