@@ -1,9 +1,10 @@
 package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
@@ -31,6 +32,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         super.setCard(card);
         header(card);
         set(new RecyclerAdapter(card.items()));
+        setLayoutDirectionByWikiSite(card.wikiSite(), getLayoutDirectionView());
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {

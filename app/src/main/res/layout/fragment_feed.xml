@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/feed_swipe_refresh_layout"
@@ -23,41 +22,41 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            app:minColumnWidth="@dimen/view_feed_min_column_width"/>
+            app:minColumnWidth="@dimen/view_feed_min_column_width" />
 
         <LinearLayout
             android:id="@+id/fragment_feed_empty_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="128dp"
+            android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone"
-            tools:visibility="visible"
-            android:gravity="center">
+            tools:visibility="visible">
 
             <ImageView
                 android:layout_width="168dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_illustration_empty_feed"
-                android:contentDescription="@null"/>
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_illustration_empty_feed" />
 
             <TextView
+                style="@style/MaterialMediumSecondaryCaption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/MaterialMediumSecondaryCaption"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/feed_empty_message"/>
+                android:text="@string/feed_empty_message" />
 
             <TextView
                 android:id="@+id/fragment_feed_customize_button"
                 style="@style/App.Button"
-                app:backgroundTint="?attr/paper_color"
+                android:text="@string/feed_configure_onboarding_action"
                 android:textColor="?attr/secondary_text_color"
-                android:text="@string/feed_configure_onboarding_action"/>
+                app:backgroundTint="?attr/button_background_color" />
 
         </LinearLayout>
 
     </FrameLayout>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

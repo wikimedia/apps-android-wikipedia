@@ -2,10 +2,12 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.wikipedia.WikipediaApp;
 
@@ -38,7 +40,7 @@ public class NoDimBottomSheetDialog extends BottomSheetDialog {
         TODO: remove when this is improved in the library.
         */
         getWindow().getDecorView().post(() -> {
-            FrameLayout bottomSheet = getWindow().getDecorView().findViewById(android.support.design.R.id.design_bottom_sheet);
+            FrameLayout bottomSheet = getWindow().getDecorView().findViewById(com.google.android.material.R.id.design_bottom_sheet);
             BottomSheetBehavior<?> behavior = BottomSheetBehavior.from(bottomSheet);
             behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         });

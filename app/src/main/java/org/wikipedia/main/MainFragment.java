@@ -9,15 +9,15 @@ import android.graphics.Bitmap;
 import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
@@ -39,7 +39,6 @@ import org.wikipedia.gallery.MediaDownloadReceiver;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.main.floatingqueue.FloatingQueueView;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
@@ -49,11 +48,9 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
-import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
-import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -70,13 +67,15 @@ import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.FEED;
+import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
+import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, FloatingQueueView.Callback,
-        LinkPreviewDialog.Callback {
+        NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
-    @BindView(R.id.floating_queue_view) FloatingQueueView floatingQueueView;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
@@ -115,8 +114,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             return true;
         });
 
-        floatingQueueView.setCallback(this);
-
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
@@ -128,7 +125,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         super.onPause();
         downloadReceiver.setCallback(null);
         requireContext().unregisterReceiver(downloadReceiver);
-        floatingQueueView.animation(true);
     }
 
     @Override public void onResume() {
@@ -138,8 +134,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        // update after returning from PageActivity
-        floatingQueueView.update();
     }
 
     @Override public void onDestroyView() {
@@ -154,7 +148,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchActivity(SearchInvokeSource.VOICE, searchQuery);
+            openSearchActivity(VOICE, searchQuery);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
@@ -211,9 +205,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void handleIntent(Intent intent) {
-        if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), RandomActivity.INVOKE_SOURCE_SHORTCUT));
-        } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
+        if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             goToTab(NavTab.READING_LISTS);
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 && !((tabLayout.getSelectedItemId() == NavTab.EXPLORE.code())
@@ -221,12 +213,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())));
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().getTabCount() > 0) {
             startActivity(PageActivity.newIntent(requireContext()));
-            requireActivity().finish();
         }
     }
 
     @Override public void onFeedSearchRequested() {
-        openSearchActivity(SearchInvokeSource.FEED_BAR, null);
+        openSearchActivity(FEED_BAR, null);
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -239,7 +230,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override public void onFeedSelectPageFromExistingTab(HistoryEntry entry) {
@@ -248,8 +239,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(),
-                        AddToReadingListDialog.InvokeSource.FEED));
+                AddToReadingListDialog.newInstance(entry.getTitle(), FEED));
     }
 
     @Override
@@ -310,8 +300,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Nullable
     public Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
-        return pageTitle.getThumbUrl() != null ? ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                floatingQueueView.getImageView(), ViewCompat.getTransitionName(floatingQueueView.getImageView())).toBundle() : null;
+        // TODO: add future transition animations.
+        return null;
     }
 
     @Override
@@ -339,7 +329,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
     @Override public void onClearHistory() {
@@ -347,7 +337,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        if (inNewTab) {
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        } else {
+            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        }
     }
 
     @Override
@@ -358,19 +352,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void onLinkPreviewAddToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(title,
-                        AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU));
+                AddToReadingListDialog.newInstance(title, LINK_PREVIEW_MENU));
     }
 
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(requireContext(), title);
-    }
-
-    @Override
-    public void onFloatingQueueClicked(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_FLOATING_QUEUE), title), getTransitionAnimationBundle(title));
     }
 
     @Override
@@ -399,10 +386,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (fragment instanceof HistoryFragment) {
             ((HistoryFragment) fragment).refresh();
         }
-    }
-
-    public FloatingQueueView getFloatingQueueView() {
-        return floatingQueueView;
     }
 
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
@@ -441,8 +424,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    private void openSearchActivity(@NonNull SearchInvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(requireActivity(), source.code(), query);
+    private void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+        Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
         startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
     }
 

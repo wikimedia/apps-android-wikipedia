@@ -1,9 +1,9 @@
 package org.wikipedia.navtab;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedFragment;

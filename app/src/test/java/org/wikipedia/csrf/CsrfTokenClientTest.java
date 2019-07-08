@@ -1,6 +1,6 @@
 package org.wikipedia.csrf;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.gson.stream.MalformedJsonException;
 
@@ -58,7 +58,7 @@ public class CsrfTokenClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+        enqueueMalformed();
 
         Callback cb = mock(Callback.class);
         request(cb);

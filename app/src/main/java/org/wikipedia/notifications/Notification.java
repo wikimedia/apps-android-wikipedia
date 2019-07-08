@@ -1,7 +1,7 @@
 package org.wikipedia.notifications;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -11,7 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.wikidata.EntityClient;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -86,7 +85,7 @@ public class Notification {
     }
 
     public boolean isFromWikidata() {
-        return wiki().equals(EntityClient.WIKIDATA_WIKI);
+        return wiki().equals("wikidatawiki");
     }
 
     @Override public String toString() {
@@ -130,7 +129,7 @@ public class Notification {
 
         public Date date() {
             try {
-                return DateUtil.getIso8601DateFormat().parse(utciso8601);
+                return DateUtil.iso8601DateParse(utciso8601);
             } catch (ParseException e) {
                 L.e(e);
                 return new Date();

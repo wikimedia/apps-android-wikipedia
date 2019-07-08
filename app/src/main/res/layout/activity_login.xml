@@ -26,18 +26,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="?attr/material_theme_primary_color"
-                    android:text="@string/login_dont_have_account" />
+                    android:text="@string/login_dont_have_account"
+                    android:textColor="?attr/material_theme_primary_color" />
 
                 <TextView
                     android:id="@+id/login_create_account_button"
                     style="@style/TransparentButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="0dp"
                     android:layout_marginTop="-8dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
+                    android:layout_marginBottom="0dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:text="@string/login_join_wikipedia"
                     android:textColor="?attr/colorAccent" />
 
@@ -47,11 +47,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:clipToPadding="false"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/login_username_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -63,26 +64,26 @@
                         android:imeOptions="flagNoExtractUi"
                         android:inputType="textNoSuggestions"
                         android:maxLines="1" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/login_password_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:hint="@string/login_password_hint"
-                    app:passwordToggleTint="?android:textColorHint"
-                    app:passwordToggleEnabled="true">
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="?android:textColorHint">
 
                     <org.wikipedia.views.PlainPasteEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"
                         android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
                         android:maxLines="1" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/login_2fa_hint">
@@ -96,16 +97,16 @@
                         android:inputType="textVisiblePassword|textNoSuggestions"
                         android:maxLines="1"
                         android:visibility="gone" />
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/login_button"
                     style="@style/App.Button.Blue"
                     android:layout_width="match_parent"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
                     android:enabled="false"
-                    android:text="@string/menu_login"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="0dp"/>
+                    android:text="@string/menu_login" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -125,8 +126,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
                         android:text="•"
                         tools:ignore="HardcodedText" />
 
@@ -153,5 +154,5 @@
         android:layout_gravity="center"
         android:background="?android:windowBackground"
         android:orientation="vertical"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 </FrameLayout>

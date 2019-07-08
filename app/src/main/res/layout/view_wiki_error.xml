@@ -7,7 +7,7 @@
     tools:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -34,19 +34,19 @@
                     android:id="@+id/view_wiki_error_icon"
                     android:layout_width="72dp"
                     android:layout_height="72dp"
-                    android:layout_marginBottom="24dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"
                     android:contentDescription="@null"
                     android:tint="@color/base30"
                     app:srcCompat="@drawable/ic_error_black_24dp" />
 
                 <TextView
                     android:id="@+id/view_wiki_error_text"
+                    style="@style/TextViewCentered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.2"
                     android:text="@string/error_message_generic"
-                    style="@style/TextViewCentered"
                     android:textColor="@color/base30"
                     android:textSize="16sp" />
 
@@ -54,7 +54,7 @@
                     android:id="@+id/view_wiki_error_button"
                     style="@style/App.Button.White"
                     android:layout_margin="16dp"
-                    android:text="@string/page_error_back_to_main" />
+                    android:text="@string/error_back" />
             </LinearLayout>
 
             <LinearLayout
@@ -67,13 +67,13 @@
 
                 <TextView
                     android:id="@+id/view_wiki_error_footer_text"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    style="@style/TextViewCentered"
                     android:lineSpacingMultiplier="1.2"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:textColor="@color/base30"
                     android:textSize="14sp"
                     tools:text="Footer text, if any, appears here." />
@@ -85,5 +85,5 @@
                     android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </merge>

@@ -5,16 +5,16 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.TabCountsView;
 
@@ -25,72 +25,47 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private boolean fadeEnabled;
-    private boolean forceNoFade;
     @NonNull private PageFragment pageFragment;
     @NonNull private Toolbar toolbar;
     @NonNull private Drawable toolbarBackground;
-    @NonNull private TabCountsView tabsButton;
 
     @ColorInt private int themedIconColor;
     @ColorInt private int baseStatusBarColor;
     @ColorInt private int themedStatusBarColor;
 
-    public PageToolbarHideHandler(@NonNull PageFragment pageFragment, @NonNull View hideableView,
+    private int toolbarHeight;
+
+    PageToolbarHideHandler(@NonNull PageFragment pageFragment, @NonNull View hideableView,
                                   @NonNull Toolbar toolbar, @NonNull TabCountsView tabsButton) {
         super(hideableView, null, Gravity.TOP);
         this.pageFragment = pageFragment;
         this.toolbar = toolbar;
         this.toolbarBackground = hideableView.getBackground().mutate();
-        this.tabsButton = tabsButton;
-
         themedIconColor = getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color);
         baseStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_expanded_status_bar_color);
         themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
+        toolbarHeight = DimenUtil.getToolbarHeightPx(pageFragment.requireContext());
+        tabsButton.updateTabCount();
     }
 
     /**
      * Whether to enable fading in/out of the search bar when near the top of the article.
      * @param enabled True to enable fading, false otherwise.
      */
-    public void setFadeEnabled(boolean enabled) {
+    void setFadeEnabled(boolean enabled) {
         fadeEnabled = enabled;
-        update();
-    }
-
-    /**
-     * Whether to temporarily disable fading of the search bar, even if fading is enabled otherwise.
-     * May be used when displaying a temporary UI element that requires the search bar to be shown
-     * fully, e.g. when the ToC is pulled out.
-     * @param force True to temporarily disable fading, false otherwise.
-     */
-    public void setForceNoFade(boolean force) {
-        forceNoFade = force;
         update();
     }
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        tabsButton.setTabCount(WikipediaApp.getInstance().getTabCount());
-
-        int opacity = calculateScrollOpacity(scrollY);
+        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice() - toolbarHeight) ? 0 : FULL_OPACITY;
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             pageFragment.requireActivity().getWindow()
                     .setStatusBarColor(calculateStatusBarTintForOpacity(opacity));
         }
-    }
-
-    /** @return Alpha value between 0 and 0xff. */
-    private int calculateScrollOpacity(int scrollY) {
-        final int fadeHeight = 200;
-        int opacity = FULL_OPACITY;
-        if (fadeEnabled && !forceNoFade) {
-            opacity = scrollY * FULL_OPACITY / (int) (fadeHeight * DimenUtil.getDensityScalar());
-        }
-        opacity = Math.max(0, opacity);
-        opacity = Math.min(FULL_OPACITY, opacity);
-        return opacity;
     }
 
     private void updateChildIconTint(@NonNull ViewGroup viewGroup, float opacity) {
@@ -103,8 +78,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
                     icon.setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
                 }
             } else if (childView instanceof TabCountsView) {
-                ((TabCountsView) childView).setTextColor(iconColor);
-                childView.getBackground().setColorFilter(iconColor, PorterDuff.Mode.SRC_IN);
+                ((TabCountsView) childView).setColor(iconColor);
             } else if (childView instanceof ViewGroup) {
                 updateChildIconTint((ViewGroup) childView, opacity);
             }

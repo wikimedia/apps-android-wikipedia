@@ -1,7 +1,8 @@
 package org.wikipedia.page;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.page.PageClient;

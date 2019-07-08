@@ -5,11 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -22,6 +17,12 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.content.res.AppCompatResources;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -32,12 +33,12 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
-import org.wikipedia.edit.wikitext.WikitextClient;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
@@ -53,6 +54,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PlainPasteEditText;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 import org.wikipedia.views.WikiTextKeyboardView;
 
@@ -60,6 +62,9 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -115,6 +120,7 @@ public class EditSectionActivity extends BaseActivity {
     private ProgressDialog progressDialog;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private ActionMode actionMode;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
@@ -218,6 +224,7 @@ public class EditSectionActivity extends BaseActivity {
 
     @Override
     public void onDestroy() {
+        disposables.clear();
         captchaHandler.dispose();
         cancelCalls();
         if (progressDialog.isShowing()) {
@@ -400,7 +407,7 @@ public class EditSectionActivity extends BaseActivity {
             builder.setTitle(R.string.user_blocked_from_editing_title);
             if (AccountUtil.isLoggedIn()) {
                 builder.setMessage(R.string.user_logged_in_blocked_from_editing);
-                builder.setPositiveButton(android.R.string.ok, (dialog, i) -> dialog.dismiss());
+                builder.setPositiveButton(R.string.account_editing_blocked_dialog_ok_button_text, (dialog, i) -> dialog.dismiss());
             } else {
                 builder.setMessage(R.string.user_anon_blocked_from_editing);
                 builder.setPositiveButton(R.string.nav_item_login, (dialog, i) -> {
@@ -409,14 +416,14 @@ public class EditSectionActivity extends BaseActivity {
                             LoginFunnel.SOURCE_BLOCKED);
                     startActivity(loginIntent);
                 });
-                builder.setNegativeButton(android.R.string.cancel, (dialog, i) -> dialog.dismiss());
+                builder.setNegativeButton(R.string.account_editing_blocked_dialog_cancel_button_text, (dialog, i) -> dialog.dismiss());
             }
             builder.show();
         } else if ("editconflict".equals(code)) {
             new AlertDialog.Builder(EditSectionActivity.this)
                     .setTitle(R.string.edit_conflict_title)
                     .setMessage(R.string.edit_conflict_message)
-                    .setPositiveButton(android.R.string.ok, null)
+                    .setPositiveButton(R.string.edit_conflict_dialog_ok_button_text, null)
                     .show();
             resetToStart();
         } else {
@@ -430,12 +437,12 @@ public class EditSectionActivity extends BaseActivity {
         }
         if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
             funnel.logAbuseFilterError(abusefilterEditResult.getCode());
-            abuseFilterImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_abusefilter_disallow));
+            abuseFilterImage.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_abusefilter_disallow));
             abusefilterTitle.setText(getString(R.string.abusefilter_title_disallow));
             abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_disallow)));
         } else {
             funnel.logAbuseFilterWarning(abusefilterEditResult.getCode());
-            abuseFilterImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_abusefilter_warn));
+            abuseFilterImage.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_abusefilter_warn));
             abusefilterTitle.setText(getString(R.string.abusefilter_title_warn));
             abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_warn)));
         }
@@ -486,12 +493,6 @@ public class EditSectionActivity extends BaseActivity {
             case R.id.menu_save_section:
                 clickNextButton();
                 return true;
-            case R.id.menu_edit_undo:
-                sectionText.undo();
-                return true;
-            case R.id.menu_edit_redo:
-                sectionText.redo();
-                return true;
             case R.id.menu_edit_zoom_in:
                 Prefs.setEditingTextSizeExtra(Prefs.getEditingTextSizeExtra() + 1);
                 updateTextSize();
@@ -515,8 +516,7 @@ public class EditSectionActivity extends BaseActivity {
         item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
         menu.findItem(R.id.menu_edit_zoom_in).setVisible(!editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_zoom_out).setVisible(!editPreviewFragment.isActive());
-        menu.findItem(R.id.menu_edit_undo).setVisible(!editPreviewFragment.isActive());
-        menu.findItem(R.id.menu_edit_redo).setVisible(!editPreviewFragment.isActive());
+        menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
         if (abusefilterEditResult != null) {
             item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);
@@ -536,6 +536,15 @@ public class EditSectionActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public void onActionModeStarted(ActionMode mode) {
+        super.onActionModeStarted(mode);
+        if (mode.getTag() == null) {
+            // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
+            ViewUtil.setCloseButtonInActionMode(EditSectionActivity.this, mode);
+        }
+    }
+
     public void showError(@Nullable Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
@@ -548,7 +557,7 @@ public class EditSectionActivity extends BaseActivity {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 actionMode = mode;
-                MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
+                MenuItem menuItem = menu.add(R.string.edit_section_find_in_page);
                 menuItem.setActionProvider(new FindInEditorActionProvider(sectionScrollView, sectionText, syntaxHighlighter, actionMode));
                 menuItem.expandActionView();
                 return true;
@@ -608,23 +617,20 @@ public class EditSectionActivity extends BaseActivity {
 
     private void fetchSectionText() {
         if (sectionWikitext == null) {
-            new WikitextClient().request(title.getWikiSite(), title, sectionID, new WikitextClient.Callback() {
-                @Override
-                public void success(@NonNull Call<MwQueryResponse> call, @NonNull String normalizedTitle,
-                                    @NonNull String wikitext, @Nullable String timeStamp) {
-                    title = new PageTitle(normalizedTitle, title.getWikiSite());
-                    sectionWikitext = wikitext;
-                    baseTimeStamp = timeStamp;
-                    displaySectionText();
-                }
-
-                @Override
-                public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                    sectionProgress.setVisibility(View.GONE);
-                    showError(caught);
-                    L.e(caught);
-                }
-            });
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getWikiTextForSection(title.getConvertedText(), sectionID)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(response -> {
+                        MwQueryPage.Revision rev = response.query().firstPage().revisions().get(0);
+                        title = new PageTitle(response.query().firstPage().title(), title.getWikiSite());
+                        sectionWikitext = rev.content();
+                        baseTimeStamp = rev.timeStamp();
+                        displaySectionText();
+                    }, throwable -> {
+                        sectionProgress.setVisibility(View.GONE);
+                        showError(throwable);
+                        L.e(throwable);
+                    }));
         } else {
             displaySectionText();
         }

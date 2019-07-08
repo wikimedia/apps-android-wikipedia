@@ -1,7 +1,7 @@
 package org.wikipedia.descriptions;
 
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
 import org.wikipedia.R;
 import org.wikipedia.onboarding.OnboardingFragment;

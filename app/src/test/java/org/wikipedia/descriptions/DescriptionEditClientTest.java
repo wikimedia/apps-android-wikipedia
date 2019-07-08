@@ -1,6 +1,6 @@
 package org.wikipedia.descriptions;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.gson.stream.MalformedJsonException;
 
@@ -73,8 +73,8 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
 
         TestObserver<MwPostResponse> observer = new TestObserver<>();
         request(observer);
@@ -121,7 +121,7 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         final PageTitle pageTitle = new PageTitle("foo", WikiSite.forLanguageCode("en"));
         getApiService().postDescriptionEdit(pageTitle.getWikiSite().languageCode(),
                 pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                pageTitle.getPrefixedText(), "some new description", MOCK_EDIT_TOKEN, null)
+                pageTitle.getPrefixedText(), "some new description", "summary", MOCK_EDIT_TOKEN, null)
                 .subscribe(observer);
     }
 }

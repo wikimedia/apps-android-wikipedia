@@ -7,11 +7,12 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.widget.RemoteViews;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;

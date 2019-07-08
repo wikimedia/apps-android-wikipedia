@@ -1,7 +1,8 @@
 package org.wikipedia.database.column;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.model.CodeEnum;
 

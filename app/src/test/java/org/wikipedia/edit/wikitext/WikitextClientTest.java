@@ -1,90 +1,47 @@
 package org.wikipedia.edit.wikitext;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.Service;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.test.MockRetrofitTest;
 
-import retrofit2.Call;
+import io.reactivex.Observable;
+import io.reactivex.observers.TestObserver;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
-public class WikitextClientTest extends MockWebServerTest {
-    private WikitextClient subject = new WikitextClient();
-    private PageTitle title = new PageTitle(null, "TEST", WikiSite.forLanguageCode("test"));
+public class WikitextClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccessHasResults() throws Throwable {
         enqueueFromFile("wikitext.json");
+        TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getObservable().subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackSuccess(call, cb, "User:Mhollo/sandbox", "\\o/\n\ntest12\n\n3", "2018-03-18T18:10:54Z");
+        observer.assertComplete().assertNoErrors()
+                .assertValue(response -> response.query().firstPage().revisions().get(0).content().equals("\\o/\n\ntest12\n\n3")
+                        && response.query().firstPage().revisions().get(0).timeStamp().equals("2018-03-18T18:10:54Z"));
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
+        TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getObservable().subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MwException.class);
+        observer.assertError(MwException.class);
     }
 
-    @Test public void testRequestResponse404() throws Throwable {
-        enqueue404();
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
+        TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
+        getObservable().subscribe(observer);
 
-        server().takeRequest();
-        assertCallbackFailure(call, cb, HttpStatusException.class);
+        observer.assertError(MalformedJsonException.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("(-(-_(-_-)_-)-)");
-
-        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse> call = request(cb);
-
-        server().takeRequest();
-        assertCallbackFailure(call, cb, MalformedJsonException.class);
-    }
-
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
-                                       @NonNull WikitextClient.Callback cb,
-                                       @NonNull String expectedTitle,
-                                       @NonNull String expectedText,
-                                       @NonNull String expectedTimeStamp) {
-        verify(cb).success(eq(call), eq(expectedTitle), eq(expectedText), eq(expectedTimeStamp));
-        //noinspection unchecked
-        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
-    }
-
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
-                                       @NonNull WikitextClient.Callback cb,
-                                       @NonNull Class<? extends Throwable> throwable) {
-        //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(String.class), any(String.class), any(String.class));
-        verify(cb).failure(eq(call), isA(throwable));
-    }
-
-    private Call<MwQueryResponse> request(@NonNull WikitextClient.Callback cb) {
-        return subject.request(service(Service.class), title, 0, cb);
+    private Observable<MwQueryResponse> getObservable() {
+        return getApiService().getWikiTextForSection("User:Mhollo/sandbox", 0);
     }
 }

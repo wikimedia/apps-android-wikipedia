@@ -3,8 +3,9 @@ package org.wikipedia.edit.richtext;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.util.ResourceUtil;
@@ -59,10 +60,16 @@ public enum SyntaxRuleStyle {
         }
     },
     SEARCH_MATCHES {
-        @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
-        SyntaxRule syntaxItem) {
-            @ColorInt int foreColor = getThemedColor(ctx, R.attr.primary_text_color);
-            @ColorInt int backColor = getThemedColor(ctx, R.attr.text_highlight_color_translucent);
+        @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart, SyntaxRule syntaxItem) {
+            @ColorInt int foreColor = ctx.getResources().getColor(android.R.color.black);
+            @ColorInt int backColor = ctx.getResources().getColor(R.color.find_in_page);
+            return new ColorSpanEx(foreColor, backColor, spanStart, syntaxItem);
+        }
+    },
+    SEARCH_MATCH_SELECTED {
+        @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart, SyntaxRule syntaxItem) {
+            @ColorInt int foreColor = ctx.getResources().getColor(android.R.color.black);
+            @ColorInt int backColor = ctx.getResources().getColor(R.color.find_in_page_active);
             return new ColorSpanEx(foreColor, backColor, spanStart, syntaxItem);
         }
     };

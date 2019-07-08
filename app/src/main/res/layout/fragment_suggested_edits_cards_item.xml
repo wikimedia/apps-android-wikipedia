@@ -1,0 +1,192 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/suggestedEditsItemRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="4dp"
+    android:paddingBottom="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:cardBackgroundColor="?attr/button_background_color"
+        app:cardUseCompatPadding="true">
+
+        <ProgressBar
+            android:id="@+id/cardItemProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:background="?attr/button_background_color" />
+
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/cardItemErrorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="48dp"
+            android:background="?attr/button_background_color"
+            android:visibility="gone" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/cardItemContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/cardClickArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical">
+
+                <org.wikipedia.views.FaceAndColorDetectImageView
+                    android:id="@+id/viewArticleImage"
+                    style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:actualImageScaleType="focusCrop"
+                    app:viewAspectRatio="1.77"
+                    app:fadeDuration="0" />
+
+                <LinearLayout
+                    android:id="@+id/viewArticleContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="231dp"
+                    android:orientation="vertical"
+                    android:paddingTop="11dp">
+
+                    <TextView
+                        android:id="@+id/viewArticleTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="serif"
+                        android:lineSpacingExtra="8sp"
+                        android:maxLines="2"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:textColor="?attr/primary_text_color"
+                        android:textSize="24sp"
+                        tools:text="Lorem ipsum" />
+
+                    <LinearLayout
+                        android:id="@+id/viewArticleSubtitleContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <View
+                            android:id="@+id/accentSideBar"
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/accent50"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <org.wikipedia.views.GoneIfEmptyTextView
+                            android:id="@+id/viewArticleSubtitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?attr/multi_select_background_color"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="6sp"
+                            android:maxLines="3"
+                            android:paddingStart="13dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="10dp"
+                            android:textColor="?attr/material_theme_primary_color"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/accentSideBar"
+                            tools:text="Lorem ipsum" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/viewArticleExtract"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:ellipsize="end"
+                            android:lineSpacingExtra="12sp"
+                            android:minLines="3"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:textColor="?attr/primary_text_color"
+                            android:textSize="16sp"
+                            tools:text="Lorem ipsum" />
+
+                        <LinearLayout
+                            android:id="@+id/viewImageSummaryContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp">
+
+                            <org.wikipedia.views.ImageDetailHorizontalView
+                                android:id="@+id/viewImageArtist"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:title="@string/suggested_edits_image_caption_summary_title_artist" />
+
+                            <org.wikipedia.views.ImageDetailHorizontalView
+                                android:id="@+id/viewImageDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:title="@string/suggested_edits_image_caption_summary_title_date"/>
+
+                            <org.wikipedia.views.ImageDetailHorizontalView
+                                android:id="@+id/viewImageSource"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:title="@string/suggested_edits_image_caption_summary_title_source" />
+
+                            <org.wikipedia.views.ImageDetailHorizontalView
+                                android:id="@+id/viewImageLicense"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:title="@string/suggested_edits_image_caption_summary_title_license" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <View
+            android:layout_height="32dp"
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:background="@drawable/suggested_edits_card_bottom_gradient_background"/>
+
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

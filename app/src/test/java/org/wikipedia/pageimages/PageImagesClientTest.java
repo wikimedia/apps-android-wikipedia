@@ -1,5 +1,7 @@
 package org.wikipedia.pageimages;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
@@ -12,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
 public class PageImagesClientTest extends MockRetrofitTest {
@@ -26,9 +29,7 @@ public class PageImagesClientTest extends MockRetrofitTest {
         titles.add(PAGE_TITLE_OBAMA);
         titles.add(PAGE_TITLE_BIDEN);
 
-        getApiService().getPageImages("foo")
-                .map(response -> PageImage.imageMapFromPages(WIKISITE_TEST, titles, response.query().pages()))
-                .subscribe(observer);
+        getObservable(titles).subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(result -> {
@@ -44,33 +45,30 @@ public class PageImagesClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
         TestObserver<Map<PageTitle, PageImage>> observer = new TestObserver<>();
-
-        getApiService().getPageImages("foo")
-                .map(response -> PageImage.imageMapFromPages(WIKISITE_TEST, Collections.emptyList(), response.query().pages()))
-                .subscribe(observer);
+        getObservable(Collections.emptyList()).subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() throws Throwable {
+    @Test public void testRequestResponseFailure() {
         enqueue404();
         TestObserver<Map<PageTitle, PageImage>> observer = new TestObserver<>();
-
-        getApiService().getPageImages("foo")
-                .map(response -> PageImage.imageMapFromPages(WIKISITE_TEST, Collections.emptyList(), response.query().pages()))
-                .subscribe(observer);
+        getObservable(Collections.emptyList()).subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("'");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<Map<PageTitle, PageImage>> observer = new TestObserver<>();
 
-        getApiService().getPageImages("foo")
-                .map(response -> PageImage.imageMapFromPages(WIKISITE_TEST, Collections.emptyList(), response.query().pages()))
-                .subscribe(observer);
+        getObservable(Collections.emptyList()).subscribe(observer);
 
         observer.assertError(MalformedJsonException.class);
+    }
+
+    private Observable<Map<PageTitle, PageImage>> getObservable(@NonNull List<PageTitle> titles) {
+        return getApiService().getPageImages("foo")
+                .map(response -> PageImage.imageMapFromPages(WIKISITE_TEST, titles, response.query().pages()));
     }
 }

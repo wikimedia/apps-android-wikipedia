@@ -5,37 +5,48 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ShortcutManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.MenuItem;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
+import org.wikipedia.events.CaptionEditUnlockEvent;
+import org.wikipedia.events.DescriptionEditUnlockEvent;
+import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -44,6 +55,8 @@ import org.wikipedia.util.log.L;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static ExclusiveBusConsumer EXCLUSIVE_BUS_METHODS;
@@ -60,6 +73,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new NonExclusiveBusConsumer()));
         setTheme();
         removeSplashBackground();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
+                && AppShortcuts.ACTION_APP_SHORTCUT.equals(getIntent().getAction())) {
+            getIntent().putExtra(INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS);
+            String shortcutId = getIntent().getStringExtra("APP_SHORTCUT_ID");
+            if (!TextUtils.isEmpty(shortcutId)) {
+                getApplicationContext().getSystemService(ShortcutManager.class)
+                        .reportShortcutUsed(shortcutId);
+            }
+        }
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -78,6 +101,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(networkStateReceiver, filter);
 
         DeviceUtil.setLightSystemUiVisibility(this);
+
+        maybeShowLoggedOutInBackgroundDialog();
     }
 
     @Override protected void onDestroy() {
@@ -165,7 +190,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void showStoragePermissionSnackbar() {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.page_error_retry, (v) -> requestStoragePermission());
+        snackbar.setAction(R.string.storage_access_error_retry, (v) -> requestStoragePermission());
         snackbar.show();
     }
 
@@ -213,6 +238,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    private void maybeShowLoggedOutInBackgroundDialog() {
+        if (Prefs.wasLoggedOutInBackground()) {
+            Prefs.setLoggedOutInBackground(false);
+            new AlertDialog.Builder(this)
+                    .setCancelable(false)
+                    .setTitle(R.string.logged_out_in_background_title)
+                    .setMessage(R.string.logged_out_in_background_dialog)
+                    .setPositiveButton(R.string.logged_out_in_background_login, (dialog, which)
+                            -> startActivity(LoginActivity.newIntent(BaseActivity.this, LoginFunnel.SOURCE_LOGOUT_BACKGROUND)))
+                    .setNegativeButton(R.string.logged_out_in_background_cancel, null)
+                    .show();
+        }
+    }
+
     /**
      * Bus consumer that should be registered by all created activities.
      */
@@ -236,7 +275,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             } else if (event instanceof SplitLargeListsEvent) {
                 new AlertDialog.Builder(BaseActivity.this)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.getMaxPagesPerReadingList()))
-                        .setPositiveButton(android.R.string.ok, null)
+                        .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show();
             } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
                 ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);
@@ -244,6 +283,20 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
+            } else if (event instanceof DescriptionEditUnlockEvent) {
+                if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    SuggestedEditsCardsActivity.Companion.showEditDescriptionUnlockDialog(BaseActivity.this);
+                } else if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    SuggestedEditsCardsActivity.Companion.showTranslateDescriptionUnlockDialog(BaseActivity.this);
+                }
+            } else if (event instanceof CaptionEditUnlockEvent) {
+                if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    SuggestedEditsCardsActivity.Companion.showEditCaptionUnlockDialog(BaseActivity.this);
+                } else if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    SuggestedEditsCardsActivity.Companion.showTranslateCaptionUnlockDialog(BaseActivity.this);
+                }
+            } else if (event instanceof LoggedOutInBackgroundEvent) {
+                maybeShowLoggedOutInBackgroundDialog();
             }
         }
     }

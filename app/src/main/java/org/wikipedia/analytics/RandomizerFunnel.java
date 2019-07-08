@@ -1,8 +1,9 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.json.JSONObject;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 
@@ -10,13 +11,13 @@ public class RandomizerFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppRandomizer";
     private static final int REV_ID = 18118733;
 
-    private final int source;
+    private final InvokeSource source;
     private int numSwipesForward;
     private int numSwipesBack;
     private int numClicksForward;
     private int numClicksBack;
 
-    public RandomizerFunnel(WikipediaApp app, WikiSite wiki, int source) {
+    public RandomizerFunnel(WikipediaApp app, WikiSite wiki, InvokeSource source) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL, wiki);
         this.source = source;
     }
@@ -41,7 +42,7 @@ public class RandomizerFunnel extends TimedFunnel {
 
     public void done() {
         log(
-                "source", source,
+                "source", source.ordinal(),
                 "fingerSwipesForward", numSwipesForward,
                 "fingerSwipesBack", numSwipesBack,
                 "diceClicks", numClicksForward,

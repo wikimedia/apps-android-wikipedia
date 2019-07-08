@@ -175,7 +175,6 @@
   <string name="default_reading_list_name">Shranjeno</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_syncing_cancel_button">Prekliči</string>
-  <string name="view_continue_reading_card_title">Nadaljuj z branjem</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
   <string name="view_random_card_action">Vrzi kocko</string>
   <string name="view_main_page_card_title">Danes na Wikipediji</string>
@@ -190,9 +189,6 @@
   <string name="feed_configure_menu_select_all" fuzzy="true">Izberi vse</string>
   <string name="description_edit_cancel_hint">Prekliči</string>
   <string name="description_edit_success_saved">Opis objavljen!</string>
-  <string name="description_edit_help_tips_examples">Na primer:</string>
-  <string name="description_edit_help_tips_example2">najvišja gora na Zemlji</string>
-  <string name="description_edit_help_more_info">Več informacij</string>
   <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nadaljuj</string>
   <string name="onboarding_get_started">Prični</string>

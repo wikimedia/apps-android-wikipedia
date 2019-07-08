@@ -1,13 +1,14 @@
 package org.wikipedia.page.linkpreview;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
 
@@ -55,7 +56,7 @@ public class LinkPreviewErrorView extends LinearLayout {
 
     public void setError(@Nullable Throwable caught) {
         LinkPreviewErrorType errorType = LinkPreviewErrorType.get(caught);
-        icon.setImageDrawable(ContextCompat.getDrawable(getContext(), errorType.icon()));
+        icon.setImageDrawable(AppCompatResources.getDrawable(getContext(), errorType.icon()));
 
         // HACK: This message is delivered in one piece in a link preview but as a separate primary
         // message and subtitle in the full page view.  Figure out a good way to handle this.

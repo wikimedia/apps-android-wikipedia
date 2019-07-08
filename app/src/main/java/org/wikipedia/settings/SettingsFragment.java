@@ -1,10 +1,11 @@
 package org.wikipedia.settings;
 
 import android.os.Bundle;
-import android.support.v7.preference.SwitchPreferenceCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import androidx.preference.SwitchPreferenceCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;

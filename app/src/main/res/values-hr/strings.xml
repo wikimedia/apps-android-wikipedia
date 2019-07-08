@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Astrind
 * Bugoslav
 * Ex13
 * Ivi104
@@ -232,7 +233,6 @@
   <string name="reading_lists_onboarding_got_it">U redu</string>
   <string name="reading_list_delete_confirm">Želite li zaista pobrisati %s?</string>
   <string name="user_option_sync_label">Postavke</string>
-  <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>
   <string name="view_random_card_subtitle" fuzzy="true">Pročitajte slučajan članak s Wikipedije</string>
@@ -252,4 +252,19 @@
     <item quantity="other">prije %d dana</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">danas</string>
+  <string name="description_edit_article_description_label_per_language">Članak (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Opis slike (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Natpis slike (%s)</string>
+  <string name="description_edit_edit_description">Uredi opis članka</string>
+  <string name="suggested_edits_review_description">Pregledaj opis članka</string>
+  <string name="suggested_edits_edit_description_button">Uredi opis</string>
+  <string name="suggested_edits_add_translation_button">Dodaj prijevod</string>
+  <string name="suggested_edits_edit_translation_button">Uredi prijevod</string>
+  <string name="suggested_edits_task_add_description_title">Dodaj opise članka</string>
+  <string name="suggested_edits_task_image_caption_title">Dodajte natpis slike</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Zaključano dok ne uredite %d natpisa slika</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
 </resources>

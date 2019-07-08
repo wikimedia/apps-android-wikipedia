@@ -1,7 +1,7 @@
 package org.wikipedia.descriptions;
 
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.model.EnumCode;

@@ -1,6 +1,6 @@
 package org.wikipedia.test;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.junit.After;
 import org.junit.Before;
@@ -42,6 +42,10 @@ public abstract class MockWebServerTest {
     protected void enqueue404() {
         final int code = 404;
         server.enqueue(new MockResponse().setResponseCode(code).setBody("Not Found"));
+    }
+
+    protected void enqueueMalformed() {
+        server.enqueue("(╯°□°）╯︵ ┻━┻");
     }
 
     protected void enqueueEmptyJson() {

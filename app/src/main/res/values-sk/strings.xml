@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * AtonX
 * EditorPO
 * Hromoslav
@@ -9,6 +10,7 @@
 * Patriccck
 * Pmikolas44
 * Rudko
+* Spider 001757
 * Sudo77(new)
 * TomášPolonec
 -->
@@ -18,32 +20,40 @@
   <string name="app_name_alpha">Wikipédia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Späť</string>
+  <string name="page_tabs_back">Späť</string>
   <string name="nav_item_forward">Dopredu</string>
   <string name="search_hint">Hľadať</string>
   <string name="search_hint_search_history">Hľadať</string>
-  <string name="search_hint_search_my_lists">Hľadať</string>
-  <string name="search_hint_search_reading_list">Hľadať v zoznamu na prečítanie</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="nav_item_history">História</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
-  <string name="page_error_retry">Obnoviť</string>
+  <string name="page_error_retry">Zopakovať</string>
+  <string name="card_offline_error_retry">Zopakovať</string>
+  <string name="storage_access_error_retry">Zopakovať</string>
+  <string name="article_load_error_retry">Zopakovať</string>
+  <string name="offline_load_error_retry">Zopakovať</string>
   <string name="page_error_back_to_main">Späť</string>
+  <string name="error_back">Späť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="history_item_deleted">Článok %s bol odstránený z histórie</string>
   <string name="history_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="history_item_delete_undo">Vrátiť</string>
+  <string name="notification_archive_undo">Vrátiť</string>
   <string name="app_settings">Nastavenia aplikácie</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
   <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Zdieľať cez</string>
+  <string name="image_share_via">Zdieľať cez</string>
   <string name="search_redirect_from">Presmerované z %s</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
   <string name="menu_page_find_in_page">Nájsť na stránke</string>
+  <string name="edit_section_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
+  <string name="feed_card_add_to_list">Pridať do zoznamu na prečítanie</string>
   <string name="menu_page_share">Zdieľať</string>
   <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
   <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>
@@ -54,6 +64,9 @@
   <string name="menu_text_select_copy">Kopírovať</string>
   <string name="menu_text_select_define">Definícia</string>
   <string name="menu_text_select_share">Zdieľať</string>
+  <string name="share">Zdieľať</string>
+  <string name="on_this_day_page_share">Zdieľať</string>
+  <string name="reading_list_page_share">Zdieľať</string>
   <string name="menu_text_select_edit_here">Upraviť tu</string>
   <string name="nav_item_nearby">V okolí</string>
   <string name="nearby_zoom_to_location">Priblížte sa k polohe na mape</string>
@@ -95,8 +108,13 @@
   <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
+  <string name="account_creation_password_hint">Heslo</string>
   <string name="login_2fa_hint">Kód pre dvojstupňové overenie</string>
   <string name="login_2fa_other_workflow_error_msg">Vyžaduje sa dvojstupňové overenie. Prosím, vráťte sa a prihláste sa pomocou dvojstupňového overenia a skúste to znova.</string>
+  <string name="onboarding_card_login">Prihlásiť sa</string>
+  <string name="page_editing_login">Prihlásiť sa</string>
+  <string name="reading_lists_sync_login">Prihlásiť sa</string>
+  <string name="create_account_login">Log in</string>
   <string name="menu_login">Prihlásiť sa</string>
   <string name="login_activity_title">Prihlásiť sa na Wikipédiu</string>
   <string name="login_in_progress_dialog_message">Prihlasujem…</string>
@@ -107,6 +125,10 @@
   <string name="reset_password_button">Uložiť a prihlásiť sa</string>
   <string name="preference_title_logout">Odhlásiť sa</string>
   <string name="toast_logout_complete">Ste odhlásený.</string>
+  <string name="logout_dialog_cancel_button_text">Zrušiť</string>
+  <string name="logged_out_in_background_title">Odhlásili ste sa</string>
+  <string name="logged_out_in_background_login">Prihlásiť sa</string>
+  <string name="logged_out_in_background_cancel">Zrušiť</string>
   <string name="history_empty_title">Žiadne nedávno zobrazené články</string>
   <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="history_offline_articles_toast">Niektoré články v histórii nemusia byť zobrazené, keď je zariadenie offline.</string>
@@ -180,6 +202,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_translators_heading">Prekladatelia</string>
@@ -198,10 +221,14 @@
   <string name="edit_next">Ďalej</string>
   <string name="edit_done">Uverejniť</string>
   <string name="edit_preview">Náhľad</string>
+  <string name="edit_undo">Späť</string>
+  <string name="edit_redo">Znova</string>
+  <string name="edit_zoom_in">Priblížiť</string>
+  <string name="edit_zoom_out">Oddialiť</string>
   <string name="edit_summary_tag_typo">Opravený preklep</string>
   <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
   <string name="edit_summary_tag_links">Pridané odkazy</string>
-  <string name="edit_summary_tag_other">Inak</string>
+  <string name="edit_summary_tag_other">Iná úprava</string>
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste vylepšili túto stránku</string>
   <string name="edit_conflict_title">Konflikt pri upravovaní</string>
   <string name="edit_conflict_message">Táto stránka bola upravená iným používateľom a jeho úprava je v konflikte s tou vašou. Prosím, skopírujte svoju úpravu, obnovte článok a skúste to znova.</string>
@@ -249,6 +276,7 @@
   <string name="gallery_save_success">Súbor bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="gallery_save_image_write_permission_rationale">Na uloženie obrázkov je nutné povolenie na zápis údajov do zariadenia.</string>
+  <string name="gallery_add_image_caption_in_language_button">Pridať popis obrázka (%s)</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
   <string name="expand_refs">Ťuknutím rozšírite</string>
@@ -319,7 +347,7 @@
   <string name="article_menu_bar_bookmark">Pridať tento článok do zoznamu na prečítanie</string>
   <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
   <string name="article_header_edit_hint">Upraviť...</string>
-  <string name="article_header_edit_description">Upraviť popis</string>
+  <string name="article_header_edit_description" fuzzy="true">Upraviť popis</string>
   <string name="article_header_edit_lead_section">Upraviť úvod</string>
   <string name="color_theme_select">Téma vzhľadu</string>
   <string name="color_theme_light">Svetlá</string>
@@ -478,7 +506,7 @@
   <plurals name="notification_archive_message">
     <item quantity="one">Notifikácia bola archivovaná</item>
     <item quantity="two">2 notifikácie boli archivované</item>
-    <item quantity="other">three=3 notifikácie boli archivované</item>
+    <item quantity="other">%d notifikácie boli archivované</item>
   </plurals>
   <string name="notifications_poll_enable_title">Povoliť upozornenia</string>
   <string name="notifications_poll_enable_positive">Povoliť</string>
@@ -496,7 +524,6 @@
   <string name="preference_summary_notification_milestone">Dosiahli ste určitého počtu úprav</string>
   <string name="preference_title_notification_thanks">Ďakujeme</string>
   <string name="preference_summary_notification_thanks">Niekto vám poďakoval za úpravu</string>
-  <string name="view_continue_reading_card_title">Pokračujte v čítaní</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Randomizér</string>
   <string name="view_random_card_subtitle">Prečítajte si náhodný článok z Wikipédie.</string>
@@ -527,7 +554,6 @@
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
   <string name="view_featured_article_footer_saved_button_label">Uložené</string>
-  <string name="edit_tasks_activity_title">Úlohy pre upravovanie z aplikácie</string>
   <string name="feed_configure_activity_title">Prispôsobiť kanál Objaviť</string>
   <string name="feed_configure_menu_reset">Obnoviť predvolené zobrazenie</string>
   <string name="feed_configure_menu_select_all">Zobraziť všetko</string>
@@ -544,48 +570,48 @@
   <string name="feed_empty_message">Nič nie je vo vašom kanále Objaviť</string>
   <string name="feed_configure_onboarding_action">Prispôsobiť</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prispôsobte si svoj kanál Objaviť&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Teraz si môžete vybrať, čo sa má zobrazovať na vašej stránke, a tiež uprednostňovať svoje obľúbené typy obsahu.</string>
-  <string name="description_edit_text_hint">Popis článku</string>
+  <string name="description_edit_text_hint" fuzzy="true">Popis článku</string>
   <string name="description_edit_save">Uverejniť</string>
-  <string name="description_edit_add_description">Pridať popis článku</string>
-  <string name="description_edit_edit_description">Upraviť popis</string>
+  <string name="description_edit_add_description" fuzzy="true">Pridať popis článku</string>
+  <string name="description_edit_edit_description" fuzzy="true">Upraviť popis</string>
   <string name="description_edit_cancel_hint">Zrušiť</string>
-  <string name="description_edit_help_title">Pomocník: popis</string>
+  <string name="description_edit_help_title" fuzzy="true">Pomocník: popis</string>
   <string name="description_edit_help_about_wikidata">O Wikiúdajoch</string>
   <string name="description_edit_help_wikidata_guide">Návod na písanie popisov na Wikiúdajoch</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/sk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Ďakujeme za Váš pokračujúci záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
-  <string name="description_edit_license_notice">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_task_unlock_title">Tipy pre popisy článkov boli odomknuté!</string>
-  <string name="description_edit_task_unlock_body">Všimli sme si, že sa vám páči úprava popisov článkov a preto sme zostavili zoznam „Úlohy pre upravovanie z aplikácie“ s článkami, ktorým chýbajú popisy. Úlohy vám pomôžu prispievať do Wikipédie!</string>
-  <string name="description_edit_success_saved">Popis bol uverejnený!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Ďakujeme za Váš pokračujúci záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Popis bol uverejnený!</string>
   <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>
   <string name="description_edit_success_article_edit_hint">Články môžete upravovať priamo v tejto aplikácii. Skúste opraviť preklepy kliknutím na ikonu ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Popis</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Popis</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Sumarizuje článok, čím pomáha čitateľom ľahšie mu porozumieť</string>
   <string name="description_edit_tutorial_keep_it_short">Píšte stručne</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
-  <string name="description_edit_help_about_title">O popisoch</string>
-  <string name="description_edit_help_description">Popis prináša základné informácie o predmete článku kvôli jednoduchšiemu pochopeniu o čom je.</string>
-  <string name="description_edit_help_tips">Tipy na tvorbu popisov</string>
-  <string name="description_edit_help_tips_description">Popis by mal byť najviac len jeden riadok, 2 až 12 slov dlhý. Nezačína sa veľkým písmenom, iba ak je prvé slovo vlastné podstatné meno.</string>
-  <string name="description_edit_help_tips_examples">Napríklad:</string>
-  <string name="description_edit_help_tips_example1">obraz od Leonarda da Vinciho</string>
-  <string name="description_edit_help_tips_example1_hint">popis článku o Mone Lise</string>
-  <string name="description_edit_help_tips_example2">najvyššia hora na Zemi</string>
-  <string name="description_edit_help_tips_example2_hint">popis článku o Mont Evereste</string>
-  <string name="description_edit_help_more_info">Viac informácií</string>
-  <string name="description_edit_help_meta_info">Popisy sú uložené vo Wikiúdajoch, ktoré sú projektom Wikimedia Foundation, ktorý poskytuje slobodnú, spoločne vytváranú, viacjazyčnú sekundárnu databázu podporujúcu Wikipédiu a ďalšie projekty.</string>
-  <string name="editactionfeed_add_title_descriptions">Pridať popis článku</string>
-  <string name="editactionfeed_review_title_description">Náhľad popisu článku</string>
-  <string name="editactionfeed_add_description_button">Pridať popis</string>
-  <string name="editactionfeed_my_contributions">Moje príspevky</string>
-  <string name="editactionfeed_from_language">Z jazyka:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Viac informácií</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Pridať popis článku</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Náhľad popisu článku</string>
+  <string name="suggested_edits_add_description_button">Pridať popis</string>
+  <string name="suggested_edits_my_contributions">Moje príspevky</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Tipy pre popisy článkov boli odomknuté!</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Všimli sme si, že sa vám páči úprava popisov článkov a preto sme zostavili zoznam „Úlohy pre upravovanie z aplikácie“ s článkami, ktorým chýbajú popisy. Úlohy vám pomôžu prispievať do Wikipédie!</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Úlohy pre upravovanie z aplikácie</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Pridať popis článku</string>
+  <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Popisy obrázkov</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Pridať popisy k obrázkom</string>
+  <string name="suggested_edits_task_multilingual_title">Viac úkolov pre viacjazyčné editory</string>
+  <string name="suggested_edits_task_multilingual_description">Tipy na preklad sú k dispozícii, ak čítate a píšete vo viac ako jednom jazyku Wikipédie.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>
+  <string name="suggested_edits_task_multilingual_negative">Nie je pre mňa</string>
+  <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">príspevok v aplikácii</item>
+    <item quantity="other">%d príspevky v aplikácii</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>
@@ -595,10 +621,6 @@
   <string name="offline_read_final_rationale">Povolenie na prístup do úložného priestoru vášho zariadenia je požadované, aby ste mohli používať Offline Knižnicu</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Ostáva 1 minúta</item>
-    <item quantity="other">Ostávajú %d minúty</item>
-  </plurals>
   <string name="onboarding_skip">Preskočiť</string>
   <string name="onboarding_continue">Pokračovať</string>
   <string name="onboarding_get_started">Začíname</string>
@@ -616,7 +638,7 @@
   <string name="onboarding_got_it">Rozumiem</string>
   <string name="onboarding_multilingual_secondary_text">Na vašom zariadení sme našli nasledujúce jazyky:</string>
   <string name="onboarding_multilingual_add_language_text">Pridať alebo upraviť jazyky</string>
-  <string name="onboarding_welcome_title_v2">Slobodná encyklopédia\n…vo viac než 300 jazykoch</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Slobodná encyklopédia\n…vo viac než 300 jazykoch</string>
   <string name="app_shortcuts_random">Náhodný článok</string>
   <string name="app_shortcuts_continue_reading">Pokračovať v čítaní</string>
   <string name="app_shortcuts_search">Hľadať</string>
@@ -656,18 +678,4 @@
   <string name="main_drawer_close">Zavrieť</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
-  <string name="title_description_task_title">Pridať popis článku</string>
-  <string name="title_description_task_description">Prispieť článkom bez popisu</string>
-  <string name="image_caption_task_title">Popisy obrázkov</string>
-  <string name="image_caption_task_description">Pridať popisy k obrázkom</string>
-  <string name="multilingual_task_title">Viac úkolov pre viacjazyčné editory</string>
-  <string name="multilingual_task_description">Tipy na preklad sú k dispozícii, ak čítate a píšete vo viac ako jednom jazyku Wikipédie.</string>
-  <string name="image_caption_edit_disable_text">Zamknuté, kým neurobíte %d overených úprav v aplikácii</string>
-  <string name="multilingual_task_negative">Nie je pre mňa</string>
-  <string name="multilingual_task_positive">Pridať jazyky</string>
-  <string name="editing_level_text">LEVEL %d editora z aplikácie</string>
-  <plurals name="edit_action_contribution_count">
-    <item quantity="one">príspevok v aplikácii</item>
-    <item quantity="other">príspevky v aplikácii</item>
-  </plurals>
 </resources>

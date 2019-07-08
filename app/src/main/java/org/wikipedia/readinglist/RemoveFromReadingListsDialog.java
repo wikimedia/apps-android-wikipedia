@@ -1,27 +1,30 @@
 package org.wikipedia.readinglist;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class RemoveFromReadingListsDialog {
     public interface Callback {
-        void onDeleted(@NonNull ReadingListPage page);
+        void onDeleted(@NonNull List<ReadingList> lists, @NonNull ReadingListPage page);
     }
 
     @Nullable private List<ReadingList> listsContainingPage;
 
     public RemoveFromReadingListsDialog(@NonNull List<ReadingList> listsContainingPage) {
         this.listsContainingPage = listsContainingPage;
+        ReadingList.sort(listsContainingPage, ReadingList.SORT_BY_NAME_ASC);
     }
 
     public void deleteOrShowDialog(@NonNull Context context, @Nullable Callback callback) {
@@ -32,7 +35,7 @@ public class RemoveFromReadingListsDialog {
             ReadingListDbHelper.instance().markPagesForDeletion(listsContainingPage.get(0),
                     Collections.singletonList(listsContainingPage.get(0).pages().get(0)));
             if (callback != null) {
-                callback.onDeleted(listsContainingPage.get(0).pages().get(0));
+                callback.onDeleted(listsContainingPage, listsContainingPage.get(0).pages().get(0));
             }
             return;
         }
@@ -49,20 +52,22 @@ public class RemoveFromReadingListsDialog {
 
         new AlertDialog.Builder(context)
                 .setTitle(R.string.reading_list_remove_from_lists)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text, (dialog, which) -> {
                     boolean atLeastOneSelected = false;
+                    List<ReadingList> newLists = new ArrayList<>();
                     for (int i = 0; i < listNames.length; i++) {
                         if (selected[i]) {
                             atLeastOneSelected = true;
                             ReadingListDbHelper.instance().markPagesForDeletion(listsContainingPage.get(i),
                                     Collections.singletonList(listsContainingPage.get(i).pages().get(0)));
+                            newLists.add(listsContainingPage.get(i));
                         }
                     }
                     if (callback != null && atLeastOneSelected) {
-                        callback.onDeleted(listsContainingPage.get(0).pages().get(0));
+                        callback.onDeleted(newLists, listsContainingPage.get(0).pages().get(0));
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
                 .setMultiChoiceItems(listNames, selected, (dialog, which, checked) -> selected[which] = checked)
                 .create()
                 .show();

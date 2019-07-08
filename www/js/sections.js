@@ -1,6 +1,5 @@
 var bridge = require("./bridge");
 var transformer = require("./transformer");
-var theme = require("./theme");
 var pagelib = require("wikimedia-page-library");
 var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
 var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
@@ -14,8 +13,6 @@ bridge.registerListener( "clearContents", function() {
 
 bridge.registerListener( "setMargins", function( payload ) {
     document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
-    document.getElementById( "content" ).style.marginLeft = payload.marginLeft + "px";
-    document.getElementById( "content" ).style.marginRight = payload.marginRight + "px";
 });
 
 bridge.registerListener( "setPaddingTop", function( payload ) {
@@ -79,6 +76,8 @@ function setWindowAttributes( payload ) {
     window.siteLanguage = payload.siteLanguage;
     window.showImages = payload.showImages;
     window.collapseTables = payload.collapseTables;
+    window.dimImages = payload.dimImages;
+    window.imagePlaceholderBackgroundColor = payload.imagePlaceholderBackgroundColor;
 }
 
 function setTitleElement( parentNode, section ) {
@@ -101,7 +100,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     setWindowAttributes(payload);
     window.offline = false;
 
-    theme.applyTheme(payload);
+    pagelib.DimImagesTransform.dim( window, window.dimImages );
 
     var contentElem = document.getElementById( "content" );
     contentElem.setAttribute( "dir", window.directionality );
@@ -119,9 +118,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).appendChild( content );
 
     applySectionTransforms(content, true);
-
-    transformer.transform( "hideTables", document );
-    lazyLoadTransformer.loadPlaceholders();
 });
 
 function clearContents() {
@@ -203,9 +199,8 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
     remainingRequest.open('GET', payload.url);
     remainingRequest.sequence = payload.sequence;
     remainingRequest.fragment = payload.fragment;
-    if (window.apiLevel > 19 && window.responseType !== 'json') {
-        remainingRequest.responseType = 'json';
-    }
+    remainingRequest.responseType = 'json';
+
     remainingRequest.onreadystatechange = function() {
         if (this.readyState !== XMLHttpRequest.DONE || this.status === 0 || this.sequence !== window.sequence) {
             return;
@@ -215,9 +210,7 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
             return;
         }
         try {
-            // On API <20, the XMLHttpRequest does not support responseType = json,
-            // so we have to call JSON.parse() ourselves.
-            var sectionsObj = window.apiLevel > 19 ? this.response : JSON.parse(this.response);
+            var sectionsObj = this.response;
             if (sectionsObj.mobileview) {
                 // If it's a mobileview response, the "sections" object will be one level deeper.
                 sectionsObj = sectionsObj.mobileview;

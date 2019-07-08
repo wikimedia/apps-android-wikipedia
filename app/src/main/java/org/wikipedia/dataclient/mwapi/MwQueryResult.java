@@ -1,7 +1,7 @@
 package org.wikipedia.dataclient.mwapi;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -20,22 +20,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapter.PostProcessable {
-    @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
-    @SuppressWarnings("unused") @Nullable private List<MwQueryPage> categorymembers;
-    @SuppressWarnings("unused") @Nullable private List<Redirect> redirects;
-    @SuppressWarnings("unused") @Nullable private List<ConvertedTitle> converted;
-    @SuppressWarnings("unused") @SerializedName("userinfo") private UserInfo userInfo;
-    @SuppressWarnings("unused") @Nullable private List<ListUserResponse> users;
-    @SuppressWarnings("unused") @Nullable private Tokens tokens;
-    @SuppressWarnings("unused,NullableProblems") @SerializedName("authmanagerinfo")
-    @Nullable private MwAuthManagerInfo amInfo;
-    @SuppressWarnings("unused") @Nullable private MarkReadResponse echomarkread;
-    @SuppressWarnings("unused") @Nullable private MarkReadResponse echomarkseen;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private NotificationList notifications;
+    @Nullable private List<MwQueryPage> pages;
+    @Nullable private List<MwQueryPage> categorymembers;
+    @Nullable private List<Redirect> redirects;
+    @Nullable private List<ConvertedTitle> converted;
+    @SerializedName("userinfo") private UserInfo userInfo;
+    @Nullable private List<ListUserResponse> users;
+    @Nullable private Tokens tokens;
+    @SerializedName("authmanagerinfo") @Nullable private MwAuthManagerInfo amInfo;
+    @Nullable private MarkReadResponse echomarkread;
+    @Nullable private MarkReadResponse echomarkseen;
+    @Nullable private NotificationList notifications;
     @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
-    @SuppressWarnings("unused") @SerializedName("general")
-    @Nullable private SiteInfo generalSiteInfo;
+    @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
+    @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -156,6 +156,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @Nullable public SiteInfo siteInfo() {
         return generalSiteInfo;
+    }
+
+    @Nullable public EditorTaskCounts editorTaskCounts() {
+        return editorTaskCounts;
     }
 
     @Override

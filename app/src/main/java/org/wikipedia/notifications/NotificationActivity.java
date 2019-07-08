@@ -3,23 +3,25 @@ package org.wikipedia.notifications;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -326,7 +328,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
     private void showDeleteItemsUndoSnackbar(final List<NotificationListItemContainer> items) {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getResources().getQuantityString(R.plurals.notification_archive_message, items.size(), items.size()),
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.history_item_delete_undo, v -> deleteItems(items, true));
+        snackbar.setAction(R.string.notification_archive_undo, v -> deleteItems(items, true));
         snackbar.show();
     }
 
@@ -398,7 +400,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     @Override
     public void onActionPageTitle(@NonNull PageTitle pageTitle) {
-        startActivity(PageActivity.newIntentForNewTab(this,
+        startActivity(PageActivity.newIntentForCurrentTab(this,
                 new HistoryEntry(pageTitle, HistoryEntry.SOURCE_NOTIFICATION), pageTitle));
     }
 
@@ -641,6 +643,11 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         @Override
         protected boolean finishActionModeIfKeyboardHiding() {
             return true;
+        }
+
+        @Override
+        protected Context getParentContext() {
+            return NotificationActivity.this;
         }
     }
 

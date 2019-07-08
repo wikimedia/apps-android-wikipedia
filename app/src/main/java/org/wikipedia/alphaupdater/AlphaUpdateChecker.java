@@ -7,11 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+
 import org.wikipedia.R;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.recurring.RecurringTask;
@@ -28,8 +27,8 @@ public class AlphaUpdateChecker extends RecurringTask {
     private static final long RUN_INTERVAL_MILLI = TimeUnit.DAYS.toMillis(1);
 
     private static final String PREFERENCE_KEY_ALPHA_COMMIT = "alpha_last_checked_commit";
-    private static final String ALPHA_BUILD_APK_URL = "https://android-builds.wmflabs.org/runs/latest/wikipedia.apk";
-    private static final String ALPHA_BUILD_DATA_URL = "https://android-builds.wmflabs.org/runs/latest/meta.json";
+    private static final String ALPHA_BUILD_APK_URL = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk";
+    private static final String ALPHA_BUILD_DATA_URL = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/rev-hash.txt";
     private static final String CHANNEL_ID = "ALPHA_UPDATE_CHECKER_CHANNEL";
     @NonNull private final Context context;
 
@@ -45,13 +44,13 @@ public class AlphaUpdateChecker extends RecurringTask {
     @Override
     protected void run(Date lastRun) {
         // Check for updates!
-        JSONObject config;
+        String hashString;
         Response response = null;
         try {
             Request request = new Request.Builder().url(ALPHA_BUILD_DATA_URL).build();
             response = OkHttpConnectionFactory.getClient().newCall(request).execute();
-            config = new JSONObject(response.body().string());
-        } catch (IOException | JSONException e) {
+            hashString = response.body().string();
+        } catch (IOException e) {
             // It's ok, we can do nothing.
             return;
         } finally {
@@ -59,10 +58,10 @@ public class AlphaUpdateChecker extends RecurringTask {
                 response.close();
             }
         }
-        if (!PrefsIoUtil.getString(PREFERENCE_KEY_ALPHA_COMMIT, "").equals(config.optString("commit_hash", ""))) {
+        if (!PrefsIoUtil.getString(PREFERENCE_KEY_ALPHA_COMMIT, "").equals(hashString)) {
             showNotification();
         }
-        PrefsIoUtil.setString(PREFERENCE_KEY_ALPHA_COMMIT, config.optString("commit_hash"));
+        PrefsIoUtil.setString(PREFERENCE_KEY_ALPHA_COMMIT, hashString);
     }
 
     private void showNotification() {
@@ -82,11 +81,7 @@ public class AlphaUpdateChecker extends RecurringTask {
                 .setContentIntent(pintent)
                 .setAutoCancel(true);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
-        } else {
-            notificationBuilder.setSmallIcon(R.mipmap.launcher);
-        }
+        notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(1, notificationBuilder.build());

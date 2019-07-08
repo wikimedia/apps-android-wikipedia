@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Alex00728
 * Bluemersen
 * Dbrant
@@ -27,32 +28,41 @@
   <string name="app_name_alpha">위키백과 알파</string>
   <string name="wikimedia">위키미디어</string>
   <string name="nav_item_back">뒤로</string>
+  <string name="page_tabs_back">뒤로</string>
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="search_hint_search_history">역사 검색</string>
-  <string name="search_hint_search_my_lists">내 목록 검색</string>
-  <string name="search_hint_search_reading_list">읽기 목록 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
+  <string name="search_hint_search_my_lists_and_articles">내 목록 및 문서 검색</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
+  <string name="card_offline_error_retry">다시 시도</string>
+  <string name="storage_access_error_retry">다시 시도</string>
+  <string name="article_load_error_retry">다시 시도</string>
+  <string name="offline_load_error_retry">다시 시도</string>
   <string name="page_error_back_to_main">뒤로 가기</string>
+  <string name="error_back">돌아가기</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="history_item_deleted">%s 문서가 역사에서 제거되었습니다</string>
   <string name="history_items_deleted">%d개의 문서가 역사에서 제거되었습니다</string>
   <string name="history_item_delete_undo">실행 취소</string>
+  <string name="notification_archive_undo">실행 취소</string>
   <string name="app_settings">앱 설정</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
   <string name="dialog_message_clear_history_no">아니오</string>
   <string name="share_via">다음을 통해 공유</string>
+  <string name="image_share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
+  <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
+  <string name="feed_card_add_to_list">읽기 목록에 추가</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
@@ -63,11 +73,14 @@
   <string name="menu_text_select_copy">복사</string>
   <string name="menu_text_select_define">정의</string>
   <string name="menu_text_select_share">공유</string>
+  <string name="share">공유</string>
+  <string name="on_this_day_page_share">공유</string>
+  <string name="reading_list_page_share">공유</string>
   <string name="menu_text_select_edit_here">여기를 편집</string>
   <string name="nav_item_nearby">근처</string>
   <string name="nearby_zoom_to_location">지도 상의 장소를 확대</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; 기여자</string>
-  <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
+  <string name="last_updated_text">%s에 마지막으로 업데이트됨</string>
   <string name="talk_page_link_text">토론 문서 보기</string>
   <string name="edit_history_link_text">편집 역사 보기</string>
   <string name="map_view_link_text">지도에서 보기</string>
@@ -104,8 +117,13 @@
   <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
+  <string name="account_creation_password_hint">비밀번호</string>
   <string name="login_2fa_hint">2요소 인증 코드</string>
   <string name="login_2fa_other_workflow_error_msg">2요소 인증이 필요합니다! 주요 활동으로 돌아간 다음 당신의 2FA 토큰으로 로그인하고 다시 시도하십시오.</string>
+  <string name="onboarding_card_login">로그인</string>
+  <string name="page_editing_login">로그인</string>
+  <string name="reading_lists_sync_login">로그인</string>
+  <string name="create_account_login">로그인</string>
   <string name="menu_login">로그인</string>
   <string name="login_activity_title">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>
@@ -116,6 +134,12 @@
   <string name="reset_password_button">저장하고 로그인</string>
   <string name="preference_title_logout">로그아웃</string>
   <string name="toast_logout_complete">로그아웃됨</string>
+  <string name="logout_prompt">현재 로그인 중인 모든 장치에서 로그아웃됩니다. 계속하시겠습니까?</string>
+  <string name="logout_dialog_cancel_button_text">취소</string>
+  <string name="logged_out_in_background_title">로그아웃됨</string>
+  <string name="logged_out_in_background_dialog">위키백과에서 로그아웃되었습니다. 다시 로그인하시겠습니까?</string>
+  <string name="logged_out_in_background_login">로그인</string>
+  <string name="logged_out_in_background_cancel">취소</string>
   <string name="history_empty_title">최근에 본 글이 없습니다</string>
   <string name="history_empty_message">당신이 읽고 계신 문서를 여기에서 추적하세요.</string>
   <string name="history_offline_articles_toast">오프라인 상태에서는 역사에서 일부 문서를 보지 못할 수 있습니다.</string>
@@ -187,6 +211,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
   <string name="about_translators_heading">번역자</string>
@@ -260,6 +285,7 @@
   <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다.</string>
+  <string name="gallery_add_image_caption_in_language_button">이미지 설명 추가 (%s)</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
   <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
@@ -277,6 +303,7 @@
   <string name="close_all_tabs_confirm_no">아니오</string>
   <string name="button_close_tab">탭 닫기</string>
   <string name="tab_item_closed">%s 닫힘.</string>
+  <string name="all_tab_items_closed">모든 탭이 닫혔습니다.</string>
   <string name="tool_tip_bookmark_icon_title">읽기 목록에 추가</string>
   <string name="tool_tip_bookmark_icon_text">읽기 목록에 글을 저장하려면 북마크 아이콘을 탭하십시오.</string>
   <string name="tool_tip_share">흥미로운 사실 하나를 강조한 다음, 즐겨쓰는 SNS에 공유해 보세요!</string>
@@ -330,7 +357,7 @@
   <string name="article_menu_bar_bookmark">이 문서를 읽기 목록에 추가하기</string>
   <string name="article_menu_bar_share">문서 링크 공유</string>
   <string name="article_header_edit_hint">편집...</string>
-  <string name="article_header_edit_description">제목 설명 편집</string>
+  <string name="article_header_edit_description">문서 설명 편집</string>
   <string name="article_header_edit_lead_section">도입부 편집</string>
   <string name="color_theme_select">테마</string>
   <string name="color_theme_light">밝음</string>
@@ -375,6 +402,7 @@
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
   <string name="reading_list_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
   <string name="reading_list_items_deleted">%d개의 문서가 목록에서 제거됨</string>
+  <string name="reading_lists_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
   <string name="saved_list_empty_title">아직 읽기 목록이 없습니다</string>
@@ -391,6 +419,7 @@
   <string name="reading_list_add_to_other_list">다른 읽기 목록에 추가하기</string>
   <string name="reading_list_remove_from_list">%s에서 제거하기</string>
   <string name="reading_list_remove_from_lists">읽기 목록에서 제거하기</string>
+  <string name="reading_list_select_item">선택</string>
   <string name="reading_list_confirm_remove_article_from_offline">오프라인에서 제거</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">글이 여러 목록으로 표시됩니다</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
@@ -450,6 +479,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">읽기 목록 동기화 성공</string>
   <string name="reading_list_menu_last_sync">마지막 동기시간: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">확인</string>
+  <string name="reading_list_delete_dialog_ok_button_text">확인</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">취소</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">취소</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">취소</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">취소</string>
+  <string name="reading_list_split_dialog_ok_button_text">확인</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_reverted_title">되돌려진 편집</string>
   <string name="notification_channel_description">다운로드 진척도</string>
@@ -503,7 +539,8 @@
   <string name="preference_summary_notification_milestone">특정 편집 수에 도달했습니다</string>
   <string name="preference_title_notification_thanks">감사 표현</string>
   <string name="preference_summary_notification_thanks">누군가가 편집에 대해 감사를 표했습니다</string>
-  <string name="view_continue_reading_card_title">계속 읽기</string>
+  <string name="preference_title_notification_revert">되돌리기</string>
+  <string name="preference_summary_notification_revert">내 기여 중 한 건이 되돌려졌습니다</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
   <string name="view_random_card_subtitle">카드를 넘겨 위키백과에서 임의의 문서를 읽어보세요.</string>
@@ -530,9 +567,11 @@
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s 읽음</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
+  <string name="onboarding_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
   <string name="view_featured_article_footer_save_button_label">저장</string>
+  <string name="view_static_card_save_button_label">저장</string>
   <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="feed_configure_activity_title">피드 사용자 지정</string>
   <string name="feed_configure_menu_reset">기본 보기로 복구</string>
@@ -547,62 +586,134 @@
   <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
   <string name="feed_item_type_main_page">오늘의 알찬글을 보여주는 위키백과의 대문</string>
   <string name="feed_item_type_randomizer">읽어볼 임의 문서를 만듭니다</string>
+  <string name="feed_item_type_suggested_edits">위키백과의 내용 추가 제안</string>
   <string name="feed_empty_message">탐색 피드에서 할 일이 없습니다</string>
   <string name="feed_configure_onboarding_action">사용자 지정</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">확인</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">취소</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;당신의 둘러보기 피드를 맞춤 관리하세요&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;이제 당신의 피드에 무엇을 표시할지 선택할 수 있고, 당신이 어떤 종류의 컨텐츠를 좋아하는지 우선순위를 매길 수 있습니다.</string>
-  <string name="description_edit_text_hint">제목 설명</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">확인</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
+  <string name="description_edit_text_hint">문서 설명</string>
+  <string name="description_edit_article_description_label_per_language">문서 (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">문서 설명 (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">이미지 설명 (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">이미지 설명 (%s)</string>
   <string name="description_edit_save">게시</string>
-  <string name="description_edit_add_description">제목 설명 추가</string>
-  <string name="description_edit_edit_description">설명 편집</string>
+  <string name="description_edit_read">읽기</string>
+  <string name="description_edit_add_description">문서 설명 추가</string>
+  <string name="description_edit_translate_description">문서 설명 번역하기</string>
+  <string name="description_edit_edit_description">문서 설명 편집</string>
+  <string name="description_edit_add_image_caption">이미지 설명 추가</string>
+  <string name="description_edit_edit_image_caption">이미지 설명 편집</string>
+  <string name="description_edit_translate_image_caption">이미지 설명 번역하기</string>
   <string name="description_edit_cancel_hint">취소</string>
-  <string name="description_edit_help_title">도움말: 제목 설명</string>
+  <string name="description_edit_help_title">정보: 문서 설명</string>
   <string name="description_edit_help_about_wikidata">위키데이터 정보</string>
   <string name="description_edit_help_wikidata_guide">설명 작성을 위한 위키데이터 안내서</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ko</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
-  <string name="description_edit_license_notice">제목 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
-  <string name="description_edit_success_saved">설명을 게시했습니다!</string>
+  <string name="description_edit_anon_limit">문서 설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
+  <string name="description_edit_license_notice">문서 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
+  <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
+  <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
   <string name="description_edit_success_article_edit_hint">이 앱 안에서 문서를 편집할 수도 있습니다. 다음에 ^1 아이콘을 클릭하여 오자와 짧은 문장들을 수정해보세요</string>
-  <string name="description_edit_tutorial_title_descriptions">제목 설명</string>
+  <string name="description_edit_tutorial_title_descriptions">문서 설명</string>
   <string name="description_edit_tutorial_title_descriptions_summary">독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다</string>
   <string name="description_edit_tutorial_keep_it_short">간략히 유지</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">2개부터 12개 사이의 단어에 한 줄이 적당합니다</string>
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
-  <string name="description_edit_help_about_title">정보</string>
-  <string name="description_edit_help_description">제목 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
-  <string name="description_edit_help_tips">설명 작성에 대한 도움말</string>
-  <string name="description_edit_help_tips_description">설명은 2개에서 12개 사이의 단어 길이의 한 줄에 맞추는 것이 이상적입니다. 처음 오는 단어가 고유 명사가 아니라면 대문자로 쓰지 않습니다.</string>
-  <string name="description_edit_help_tips_examples">예를 들어:</string>
-  <string name="description_edit_help_tips_example1">레오나르도 다 빈치의 그림</string>
-  <string name="description_edit_help_tips_example1_hint">모나리자에 관한 문서의 제목 설명</string>
-  <string name="description_edit_help_tips_example2">지구상에서 가장 높은 산</string>
-  <string name="description_edit_help_tips_example2_hint">에베레스트 산에 관한 문서의 제목 설명</string>
-  <string name="description_edit_help_more_info">자세한 정보</string>
-  <string name="description_edit_help_meta_info">설명은 위키백과와 다른 프로젝트를 지원하는 자유, 협업, 다언어, 2차 데이터베이스를 제공하는 위키미디어 재단의 프로젝트의 하나인 위키데이터에 저장되어 관리됩니다.</string>
-  <string name="editactionfeed_add_title_descriptions">제목 설명 추가</string>
-  <string name="editactionfeed_translate_descriptions">제목 설명 번역하기</string>
-  <string name="editactionfeed_review_title_description">이 설명 검토</string>
-  <string name="editactionfeed_add_description_button">설명 추가</string>
-  <string name="editactionfeed_my_contributions">내 기여</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">더 알아보기</string>
+  <string name="suggested_edits_add_descriptions">문서 설명 추가</string>
+  <string name="suggested_edits_translate_descriptions">문서 설명 번역하기</string>
+  <string name="suggested_edits_add_image_captions">이미지 설명 추가</string>
+  <string name="suggested_edits_translate_image_captions">이미지 설명 번역하기</string>
+  <string name="suggested_edits_review_description">문서 설명 검토</string>
+  <string name="suggested_edits_add_description_button">설명 추가</string>
+  <string name="suggested_edits_edit_description_button">설명 편집</string>
+  <string name="suggested_edits_add_translation_button">번역 추가</string>
+  <string name="suggested_edits_edit_translation_button">번역 편집</string>
+  <string name="suggested_edits_add_caption_button">설명 추가</string>
+  <string name="suggested_edits_edit_caption_button">설명 편집</string>
+  <string name="suggested_edits_review_image_caption">이미지 설명 검토</string>
+  <string name="suggested_edits_my_contributions">내 기여</string>
+  <string name="suggested_edits_no_description">파일에 설명이 없습니다</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"문서 설명 추가\" 작업의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">지금까지의 모든 기여에 감사드립니다! 편집이 대단히 능숙하시므로 저희는 설명이 존재하지 않는 문서 목록을 정리했습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"문서 설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">당신의 많은 기여를 축하합니다. 감사합니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 문서 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_dialog_no">나중에</string>
+  <string name="suggested_edits_unlock_dialog_yes">예, 시작합니다</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">\"문서 번역 추가\"의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">\"문서 설명 번역하기\"의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_notification_text">편집 제안</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">편집 제안\n\n지금까지의 모든 기여에 감사드립니다. 편집이 대단히 능숙하시므로 저희는 설명이 존재하지 않는 문서 목록을 정리했습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">편집 제안\n\n당신의 많은 기여를 축하합니다. 감사합니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 문서 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_notification_button">예, 시작합니다</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">\"이미지 설명 추가\" 작업의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">\"이미지 설명 추가\"의 잠금을 해제하였습니다.</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">모든 기여에 감사드립니다! 이미지에 설명을 추가하고 계신 것 같아 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">편집 제안\n\n모든 기여에 감사드립니다. 이미지에 설명을 추가하고 계신 것 같아 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">\"이미지 설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">\"이미지 설명 번역하기\"의 잠금을 해제하였습니다</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">모든 기여에 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">편집 제한\n\n모든 기여에 감사드립니다. 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_license_notice">설명을 추가함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
+  <string name="suggested_edits_menu_info">정보</string>
+  <string name="suggested_edits_tasks_activity_title">편집 제안</string>
+  <string name="suggested_edits_task_add_description_title">문서 설명 추가</string>
+  <string name="suggested_edits_task_add_description_description">설명 없이 문서에 기여</string>
+  <string name="suggested_edits_task_translation_title">문서 설명 번역하기</string>
+  <string name="suggested_edits_task_translation_description">문서 언어별로 설명을 번역합니다.</string>
+  <string name="suggested_edits_task_image_caption_title">이미지 설명 추가</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">이미지에 캡션 추가</string>
+  <string name="suggested_edits_task_translate_caption_title">이미지 설명 번역하기</string>
+  <string name="suggested_edits_task_translate_caption_description">설명을 다른 언어로 번역하기</string>
+  <string name="suggested_edits_task_multilingual_title">다언어 편집자를 위한 더 많은 작업</string>
+  <string name="suggested_edits_task_multilingual_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
+  <string name="suggested_edits_task_multilingual_negative">제게는 해당되지 않습니다</string>
+  <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
+  <string name="suggested_edits_image_caption_summary_title_author">만든이</string>
+  <string name="suggested_edits_image_caption_summary_title_source">출처</string>
+  <string name="suggested_edits_image_caption_summary_title_license">라이선스</string>
+  <string name="suggested_edits_image_caption_summary_title_date">날짜</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1개 기여</item>
+    <item quantity="other">%d개 기여</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">편집 제안</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
+  <string name="suggested_edits_tutorial_message">위키백과 앱의 빠른 편집의 새 터전에 오신 것을 환영합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">아티스트</string>
+  <string name="suggested_edits_image_preview_dialog_date">날짜</string>
+  <string name="suggested_edits_image_preview_dialog_source">출처/촬영자</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
+  <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
   <string name="description_edit_revert_reason2">당신의 기여는 실험적이거나 문서 훼손처럼 보입니다.</string>
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
+  <string name="description_edit_login_cancel_button_text">취소</string>
   <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
   <string name="offline_read_final_rationale">오프라인 라이브러리를 사용하려면 장치에서 저장소의 접근 권한이 필요합니다.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1분 남음</item>
-    <item quantity="other">%d분 남음</item>
-  </plurals>
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>
@@ -620,7 +731,7 @@
   <string name="onboarding_got_it">알겠습니다</string>
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
   <string name="onboarding_multilingual_add_language_text">언어 추가 또는 편집</string>
-  <string name="onboarding_welcome_title_v2">우리 모두의 백과사전\n...약 300개의 언어 지원</string>
+  <string name="onboarding_welcome_title_v2">우리 모두의 백과사전\n...300개 이상의 언어 지원</string>
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
@@ -655,27 +766,28 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">현재 앱 언어에서 정체 중국어와 간체 중국어가 설정되어 있습니다. 앱 언어 설정을 업데이트하시겠습니까?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">언어 편집</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">괜찮습니다</string>
+  <string name="remove_language_dialog_cancel_button_text">취소</string>
+  <string name="remove_language_dialog_ok_button_text">확인</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">확인</string>
+  <string name="protected_page_warning_dialog_ok_button_text">확인</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">확인</string>
+  <string name="edit_conflict_dialog_ok_button_text">확인</string>
+  <string name="reverted_edit_dialog_ok_button_text">확인</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">취소</string>
+  <string name="wikitext_bold">굵게</string>
+  <string name="wikitext_italic">기울임꼴</string>
+  <string name="wikitext_link">링크</string>
+  <string name="wikitext_bulleted_list">글머리 기호 목록</string>
+  <string name="wikitext_numbered_list">숫자 목록</string>
+  <string name="wikitext_template">틀</string>
+  <string name="wikitext_reference">각주</string>
+  <string name="wikitext_preview_link">이전 링크</string>
   <string name="main_drawer_open">열기</string>
   <string name="main_drawer_close">닫기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
-  <string name="title_description_task_title">제목 설명 추가</string>
-  <string name="title_description_task_description">제목 설명 없이 문서에 기여</string>
-  <string name="image_caption_task_description">이미지에 캡션 추가</string>
-  <string name="multilingual_task_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
-  <string name="translation_task_title">제목 설명 번역하기</string>
-  <string name="translation_task_description">제목 설명을 다른 언어로 번역합니다.</string>
-  <string name="multilingual_task_positive">언어 추가</string>
-  <string name="editing_level_text">레벨 %d 앱 편집기</string>
-  <string name="translation_source_description">%s 설명:</string>
-  <string name="translate_caption_task_title">이미지 설명 번역하기</string>
-  <string name="translate_caption_task_description">설명을 다른 언어로 번역하기</string>
-  <plurals name="edit_action_contribution_count">
-    <item quantity="one">인앱 기여</item>
-    <item quantity="other">인앱 기여</item>
-  </plurals>
-  <string name="add_title_descriptions_dialog_title">제목 설명 추가</string>
-  <string name="add_translate_descriptions_dialog_title">처음으로 제목 설명을 번역하고 있습니다</string>
-  <string name="add_translate_descriptions_dialog_message">지금 제목 설명을 번역함으로써 위키백과 개선을 도울 수 있습니다. 언제든지 언어를 구성하고 번역 방향을 설정할 수 있습니다.</string>
-  <string name="translation_description_edit_task_unlock_title">제목 설명 편집 번역의 잠금이 해제되었습니다!</string>
+  <string name="custom_date_picker_dialog_ok_button_text">확인</string>
+  <string name="text_input_dialog_ok_button_text">확인</string>
+  <string name="text_input_dialog_cancel_button_text">취소</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">취소</string>
 </resources>

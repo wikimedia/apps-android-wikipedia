@@ -11,8 +11,6 @@
   <string name="nav_item_forward">Prosledi</string>
   <string name="search_hint">Pretražite Vikipediju</string>
   <string name="search_hint_search_history">Istorija pretrage</string>
-  <string name="search_hint_search_my_lists">Pretražite po svojim listama</string>
-  <string name="search_hint_search_reading_list">Pretražite po listi za čitanje</string>
   <string name="search_hint_search_languages">Pretražite jezike</string>
   <string name="nav_item_history">Istorija</string>
   <string name="error_network_error">Nije moguće povezati se sa internetom.</string>
@@ -225,7 +223,7 @@
   <string name="preference_summary_show_images">Omogućite ili onemogućite učitavanje slika na stranicama. Uklonite oznaku sa ovog podešavanja ako je vaša veza sa internetom spora ili vam je ograničena tarifa za prenos podataka.</string>
   <string name="preference_title_download_only_over_wifi">Preuzimaj samo preko Wi-Fi-a</string>
   <string name="dialog_title_download_only_over_wifi">Potvrditi preuzimanje sa mobilnim podacima?</string>
-  <string name="dialog_text_download_only_over_wifi">U podešavanjima ste omogućili opciju „Preuzimaj samo preko Wi-Fi-a”. Želite li da dozvolite preuzimanje sa mobilnim podacima samo u ovom slučaju?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">U podešavanjima ste omogućili opciju „Preuzimaj samo preko Wi-Fi-a”. Želite li da dozvolite preuzimanje sa mobilnim podacima samo u ovom slučaju?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Dozvoli</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
@@ -308,7 +306,7 @@
   <string name="article_menu_bar_bookmark">Dodaj ovaj članak na listu za čitanje</string>
   <string name="article_menu_bar_share">Deli link članka</string>
   <string name="article_header_edit_hint">Uredi…</string>
-  <string name="article_header_edit_description">Uredi opis naslova</string>
+  <string name="article_header_edit_description" fuzzy="true">Uredi opis naslova</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Svetla</string>
@@ -486,7 +484,6 @@
   <string name="preference_summary_notification_milestone">Dostignut je određeni broj izmena</string>
   <string name="preference_title_notification_thanks">Zahvala</string>
   <string name="preference_summary_notification_thanks">Neko vam se zahvalio na izmeni</string>
-  <string name="view_continue_reading_card_title">Nastavi čitanje</string>
   <string name="view_because_you_read_card_title">Na osnovu pročitanog</string>
   <string name="view_random_card_title">Slučajni članak</string>
   <string name="view_random_card_subtitle">Prelistajte slučajne članke sa Vikipedije.</string>
@@ -533,40 +530,28 @@
   <string name="feed_empty_message">Vaš fid „Istraži“ je prazan</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite fid „Istraži“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Sada možete da izaberete šta želite da se prikazuje u fidu, kao i da date prednost vašem omiljenom tipu sadržaja.</string>
-  <string name="description_edit_text_hint">Opis naslova</string>
+  <string name="description_edit_text_hint" fuzzy="true">Opis naslova</string>
   <string name="description_edit_save">Objavi</string>
-  <string name="description_edit_add_description">Dodaj opis naslova</string>
-  <string name="description_edit_edit_description">Uredi opis</string>
+  <string name="description_edit_add_description" fuzzy="true">Dodaj opis naslova</string>
+  <string name="description_edit_edit_description" fuzzy="true">Uredi opis</string>
   <string name="description_edit_cancel_hint">Otkaži</string>
-  <string name="description_edit_help_title">Pomoć: opisi naslova</string>
+  <string name="description_edit_help_title" fuzzy="true">Pomoć: opisi naslova</string>
   <string name="description_edit_help_about_wikidata">O Vikipodacima</string>
   <string name="description_edit_help_wikidata_guide">Vodič na Vikipodacima za pisanje opisa</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Hvala vam na neprestanom interesu za uređivanje opisa. Da biste napravili još izmena, prijavite se na svoj nalog na Vikipediji.</string>
-  <string name="description_edit_license_notice">Promenom opisa naslova, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Opis je objavljen.</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Hvala vam na neprestanom interesu za uređivanje opisa. Da biste napravili još izmena, prijavite se na svoj nalog na Vikipediji.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Promenom opisa naslova, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Opis je objavljen.</string>
   <string name="description_edit_success_encouragement">Upravo ste poboljšali Vikipediju za sve</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Da li ste znali?</string>
   <string name="description_edit_success_article_edit_hint">U ovoj aplikaciji možete i da uređujete članke. Sledeći put probajte da ispravite greške u kucanju i manje rečenice pritiskom na ikonu ^1.</string>
-  <string name="description_edit_tutorial_title_descriptions">Opisi naslova</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Opisi naslova</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Rezimira članak kako bi čitaoci na prvi pogled razumeli njegovu temu</string>
   <string name="description_edit_tutorial_keep_it_short">Budite koncizni</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Po mogućstvu jedan red, od dve do dvanaest reči</string>
   <string name="description_edit_tutorial_button_label_start_editing">Započni uređivanje</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrebiti ovu funkciju.</string>
-  <string name="description_edit_help_about_title">O opisima</string>
-  <string name="description_edit_help_description">Opisi naslova rezimiraju članak kako bi čitaoci na prvi pogled razumeli njegovu temu.</string>
-  <string name="description_edit_help_tips">Saveti za pisanje opisa</string>
-  <string name="description_edit_help_tips_description">Opisi bi, po mogućstvu, trebalo da budu u jednom redu i da se sastoje od dve do dvanaest reči. Ne počinju velikim slovom osim ako je prva reč vlastita imenica.</string>
-  <string name="description_edit_help_tips_examples">Na primer:</string>
-  <string name="description_edit_help_tips_example1">slika Leonarda da Vinčija</string>
-  <string name="description_edit_help_tips_example1_hint">opis naslova za članak o Mona Lizi</string>
-  <string name="description_edit_help_tips_example2">najviša planina na Zemlji</string>
-  <string name="description_edit_help_tips_example2_hint">opis naslova za članak o Mont Everestu</string>
-  <string name="description_edit_help_more_info">Više informacija</string>
-  <string name="description_edit_help_meta_info">Opisi se smeštaju i održavaju na Vikipodacima, projektu Zadužbine Vikimedija, koji pruža slobodnu, kolaborativnu, višejezičku, sekundarnu bazu podataka, koja pomaže Vikipediji i drugim projektima.</string>
   <string name="description_edit_revert_subtitle">Hvala vam što uređujete Vikipediju.</string>
   <string name="description_edit_revert_intro">Znamo da ste dali sve od sebe, ali jedan od patrolera ima primedbu. Mogući razlozi zbog čega je vaša izmena poništena:</string>
   <string name="description_edit_revert_reason1">vaša izmena nije bila u skladu sa nekom od &lt;a href=\"%1$s\"&gt;smernica&lt;/a&gt;.</string>
@@ -576,10 +561,6 @@
   <string name="offline_read_final_rationale">Potrebna je dozvola za pristup memorijskom prostoru uređaja radi korišćenja oflajn-biblioteke.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Preostao je 1 minut</item>
-    <item quantity="other">Preostala su %d minuta</item>
-  </plurals>
   <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nastavi</string>
   <string name="onboarding_get_started">Započnite</string>
@@ -596,7 +577,7 @@
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sledeće na vašem uređaju:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ili uredi jezike</string>
-  <string name="onboarding_welcome_title_v2">Slobodna enciklopedija\nna gotovo 300 jezika</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Slobodna enciklopedija\nna gotovo 300 jezika</string>
   <string name="app_shortcuts_random">Slučajni</string>
   <string name="app_shortcuts_continue_reading">Nastavi čitanje</string>
   <string name="app_shortcuts_search">Pretraži</string>

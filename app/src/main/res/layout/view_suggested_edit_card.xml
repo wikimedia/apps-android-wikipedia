@@ -1,0 +1,116 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="?attr/paper_color"
+    app:cardUseCompatPadding="false">
+
+    <LinearLayout
+        android:id="@+id/cardItemContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <org.wikipedia.feed.view.CardHeaderView
+            android:id="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/viewArticleImage"
+            style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
+            android:layout_width="match_parent"
+            android:layout_height="201dp"
+            app:actualImageScaleType="focusCrop"
+            app:fadeDuration="0" />
+
+        <LinearLayout
+            android:id="@+id/viewArticleContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="11dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/viewArticleTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="serif"
+                android:lineSpacingExtra="4sp"
+                android:maxLines="2"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="24sp"
+                tools:text="Lorem ipsum" />
+
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/viewArticleSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="6sp"
+                android:maxLines="3"
+                android:textColor="?attr/secondary_text_color"
+                android:textSize="14sp"
+                tools:text="Lorem ipsum" />
+
+
+            <LinearLayout
+                android:id="@+id/viewAddDescriptionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="6dp"
+                    android:contentDescription="@null"
+                    android:tint="?attr/colorAccent"
+                    app:srcCompat="@drawable/ic_add_circle_black_24dp" />
+
+                <TextView
+                    android:id="@+id/callToActionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="6sp"
+                    android:text="@string/suggested_edits_add_description_button"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp"
+                    tools:text="Add description" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="@dimen/divider_width_for_article"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="?attr/material_theme_border_color" />
+
+            <TextView
+                android:id="@+id/viewArticleExtract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="10sp"
+                android:minLines="3"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="14sp"
+                tools:text="Lorem ipsum" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

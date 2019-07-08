@@ -4,15 +4,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_find_in_editor"
         android:icon="@drawable/ic_find_in_page_themed"
-        android:title="@string/edit_undo"
-        app:showAsAction="always" />
-    <item android:id="@+id/menu_edit_undo"
-        android:icon="@drawable/ic_undo_themed_24dp"
-        android:title="@string/edit_undo"
-        app:showAsAction="always" />
-    <item android:id="@+id/menu_edit_redo"
-        android:icon="@drawable/ic_redo_themed_24dp"
-        android:title="@string/edit_redo"
+        android:title="@string/menu_page_find_in_page"
         app:showAsAction="always" />
     <item android:id="@+id/menu_edit_zoom_in"
         android:icon="@drawable/ic_zoom_in_themed_24dp"

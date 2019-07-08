@@ -27,6 +27,10 @@ styles with only the things which need tweaking.
   color: #36c;
 }
 
+.pagelib_theme_div_do_not_apply_baseline {
+  color: #000;
+}
+
 /* external anchor */
 .pagelib_theme_dark a.external,
 .pagelib_theme_sepia a.external,
@@ -504,6 +508,7 @@ styles with only the things which need tweaking.
 table.infobox caption {
   text-align: center;
   font-weight: bold;
+  padding: 10px 10px 0px 10px;
 }
 
 div.pagelib_collapse_table_container {
@@ -605,7 +610,17 @@ div.pagelib_collapse_table_container {
    but only for tables we collapse. */
 .pagelib_collapse_table_container table {
     display: block;
-    width: 100% !important
+    width: 100% !important;
+    height: initial !important;
+}
+
+/* Fix for upstream CSS landscape tablet layout interfering with collapsible table width. */
+@media all and (min-width:720px) {
+  table.infobox {
+    margin: initial;
+    max-width: initial;
+    float: initial;
+  }
 }
 
 .pagelib_dim_images img {
@@ -785,46 +800,12 @@ html[dir="rtl"] #pagelib_edit_section_add_title_description:before {
     }
 }
 
-.pagelib_footer_container {
-  background-color: #eaecf0;
+.pagelib_footer_section {
+  padding-bottom: 1.5em;
 }
 
-.pagelib_theme_dark .pagelib_footer_container {
-  background-color: #222;
-}
-
-.pagelib_theme_sepia .pagelib_footer_container {
-  background-color: #e1dad1;
-}
-
-.pagelib_theme_black .pagelib_footer_container {
-  background-color: #101418;
-}
-
-.pagelib_footer_container_heading {
-  padding-top: 35px;
-  font-size: 0.8em;
-  line-height: 0.8em;
-  color: #72777D;
-}
-
-.pagelib_theme_sepia .pagelib_footer_container_heading {
-  color: #646059;
-}
-
-.pagelib_theme_dark .pagelib_footer_container_heading {
-  color: #C8CCD1;
-}
-
-.pagelib_theme_black .pagelib_footer_container_heading {
-  color: #F8F9FA;
-}
-
-#pagelib_footer_container_readmore_pages {
-}
-
-#pagelib_footer_container_menu_heading {
-  margin-bottom: 10px;
+.pagelib_footer_section a:hover {
+  text-decoration: none;
 }
 
 #pagelib_footer_container_menu_items {
@@ -935,11 +916,13 @@ html[dir='rtl'] .pagelib_footer_legal_contents,
   background-color: #222;
 }
 
-html[dir='ltr'] .pagelib_footer_menu_item {
+html[dir='ltr'] .pagelib_footer_menu_item,
+body[dir='ltr'] .pagelib_footer_menu_item {
   background-position: left center;
 }
 
-html[dir='rtl'] .pagelib_footer_menu_item {
+html[dir='rtl'] .pagelib_footer_menu_item,
+body[dir='rtl'] .pagelib_footer_menu_item {
   background-position: right center;
 }
 
@@ -953,11 +936,13 @@ html[dir='rtl'] .pagelib_footer_menu_item {
   color: #f8f9fa;
 }
 
-html[dir='ltr'] .pagelib_footer_menu_item_title {
+html[dir='ltr'] .pagelib_footer_menu_item_title,
+body[dir='ltr'] .pagelib_footer_menu_item_title {
   padding-left: 50px;
 }
 
-html[dir='rtl'] .pagelib_footer_menu_item_title {
+html[dir='rtl'] .pagelib_footer_menu_item_title,
+body[dir='rtl'] .pagelib_footer_menu_item_title {
   padding-right: 50px;
 }
 
@@ -971,11 +956,13 @@ html[dir='rtl'] .pagelib_footer_menu_item_title {
   color: #7c776e;
 }
 
-html[dir='ltr'] .pagelib_footer_menu_item_subtitle {
+html[dir='ltr'] .pagelib_footer_menu_item_subtitle,
+body[dir='ltr'] .pagelib_footer_menu_item_subtitle {
   padding-left: 50px;
 }
 
-html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
+html[dir='rtl'] .pagelib_footer_menu_item_subtitle,
+body[dir='rtl'] .pagelib_footer_menu_item_subtitle {
   padding-right: 50px;
 }
 
@@ -1086,10 +1073,6 @@ html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
 .pagelib_footer_readmore_page_container {
 }
 
-.pagelib_platform_android #pagelib_footer_container_readmore_heading {
-  font-size: 24px;
-}
-
 .pagelib_footer_readmore_page_title {
   color: #222;
   display: block;
@@ -1162,6 +1145,7 @@ html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
 }
 
 html[dir='rtl'] .pagelib_footer_readmore_page_save,
+body[dir='rtl'] .pagelib_footer_readmore_page_save,
 .content-rtl .pagelib_footer_readmore_page_save {
   background-position: right center;
 }
@@ -1181,6 +1165,7 @@ html[dir='rtl'] .pagelib_footer_readmore_page_save,
 }
 
 html[dir='rtl'] .pagelib_footer_readmore_page_image,
+body[dir='rtl'] .pagelib_footer_readmore_page_image
 .content-rtl .pagelib_footer_readmore_page_image {
   float: left;
   margin-right: 8px;
@@ -1362,6 +1347,11 @@ html[dir='rtl'] .pagelib_footer_readmore_page_image,
 .thumbinner, .gallerytext {
   text-align: center;
 }
+.content .thumb.tright,
+.content .thumb.tleft,
+.content figure.mw-default-size {
+  float: none;
+}
 
 /* Parsoid: center text beneath images now that images are centered. */
 figcaption {
@@ -1379,6 +1369,14 @@ li.gallerybox div.thumb > div {
 }
 div.gallerytext > p {
   margin-top: 0px !important;
+}
+/*
+Fix for upstream change: https://gerrit.wikimedia.org/r/#/c/mediawiki/skins/MinervaNeue/+/494374/3/resources/skins.minerva.content.styles/lists.less
+Which caused this clipping: https://phabricator.wikimedia.org/T150377#5019102
+*/
+.content ol {
+  list-style: decimal inside;
+  padding: 0;
 }
 
 /*# sourceMappingURL=wikimedia-page-library-transform.css.map*/

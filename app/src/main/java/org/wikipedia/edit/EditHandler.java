@@ -1,12 +1,13 @@
 package org.wikipedia.edit;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -66,7 +67,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 .setMessage(AccountUtil.isLoggedIn()
                         ? R.string.page_protected_can_not_edit
                         : R.string.page_protected_can_not_edit_anon)
-                .setPositiveButton(android.R.string.ok, null)
+                .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
                 .show();
         funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }

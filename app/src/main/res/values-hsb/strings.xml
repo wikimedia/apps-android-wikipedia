@@ -12,8 +12,6 @@
   <string name="nav_item_forward">Dale</string>
   <string name="search_hint">Wikipediju přepytać</string>
   <string name="search_hint_search_history">Pytanska historija</string>
-  <string name="search_hint_search_my_lists">Moje lisćiny přepytać</string>
-  <string name="search_hint_search_reading_list">Čitansku lisćinu přepytać</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
   <string name="nav_item_history">Historija</string>
   <string name="error_network_error">Njenamakam zwisk z internetom.</string>
@@ -211,7 +209,7 @@
   <string name="preference_summary_show_images">Zmóžń abo njezmóžń wobhladanje wobrazow na stronach. Njezmóžń, hdyž je twój zwisk do interneta słaby abo datowy wolumen wobmjezowany.</string>
   <string name="preference_title_download_only_over_wifi">Jenož přez WLAN sćahnyć</string>
   <string name="dialog_title_download_only_over_wifi">Chceš woprawdźe přez mobilne daty sćahnyć?</string>
-  <string name="dialog_text_download_only_over_wifi">Sy zmóžnił(a) sćehnjenje jenož přez WLAN w twojich nastajenjach. Chceš wužiwanje mobilnych datow jenož za tutón download dowolić?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Sy zmóžnił(a) sćehnjenje jenož přez WLAN w twojich nastajenjach. Chceš wužiwanje mobilnych datow jenož za tutón download dowolić?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Dowolić</string>
   <string name="read_more_section">Wjace čitać</string>
   <string name="about_article_section">Wo tutym zapisku</string>
@@ -355,7 +353,6 @@
   <string name="preference_summary_notification_milestone">Wěste wobdźěłanske ličby su so docpěli</string>
   <string name="preference_title_notification_thanks">Podźakowanja</string>
   <string name="preference_summary_notification_thanks">Něchtó je so tebi dźakował za změnu</string>
-  <string name="view_continue_reading_card_title">Dale čitać</string>
   <string name="view_because_you_read_card_title">Přetož sy tole čitał(a)</string>
   <string name="view_random_card_title">Připad</string>
   <string name="view_random_card_subtitle">Listować přez připadne zapiski z Wikipedije.</string>
@@ -388,26 +385,17 @@
   <string name="feed_item_type_trending">Najbóle čitane zapiski</string>
   <string name="feed_item_type_featured_image">Na Wikimedia Commons předstajeny wobraz</string>
   <string name="feed_item_type_main_page">Hłowna strona Wikipedije z aktualnym wobsahom</string>
-  <string name="description_edit_text_hint">Wopis titula</string>
+  <string name="description_edit_text_hint" fuzzy="true">Wopis titula</string>
   <string name="description_edit_save">Wozjewić</string>
-  <string name="description_edit_add_description">Wopis titula přidać</string>
-  <string name="description_edit_edit_description">Wopis wobdźěłać</string>
+  <string name="description_edit_add_description" fuzzy="true">Wopis titula přidać</string>
+  <string name="description_edit_edit_description" fuzzy="true">Wopis wobdźěłać</string>
   <string name="description_edit_cancel_hint">Přetorhnyć</string>
   <string name="description_edit_help_about_wikidata">Wo Wikidatach</string>
-  <string name="description_edit_success_saved">Wopis wozjewjeny!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Wopis wozjewjeny!</string>
   <string name="description_edit_success_encouragement">Sy Wikipediju runje za kóždeho polěpšił(a)</string>
   <string name="description_edit_success_done">Hotowo</string>
   <string name="description_edit_success_did_you_know">Hižo wědźał(a)?</string>
-  <string name="description_edit_tutorial_title_descriptions">Titulowe wopisy</string>
-  <string name="description_edit_help_about_title">Wo projekće</string>
-  <string name="description_edit_help_tips">Pokiwy za wutworjenje wopisow</string>
-  <string name="description_edit_help_tips_examples">Na přikład:</string>
-  <string name="description_edit_help_tips_example1">mólba Leonarda da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">wopisanje za zapisk wo Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">najwyša hora na swěće</string>
-  <string name="description_edit_help_tips_example2_hint">wopisanje za zapisk wo Mount Everest</string>
-  <string name="description_edit_help_more_info">Wjace informacijow</string>
-  <string name="description_edit_help_meta_info">Wopisanja so składuja a zarjaduja na Wikidatach, projekće załožby Wikimedija, kotryž poskići swobodnu, zhromadnu, wjacerěčnu datowu banku, podpěrujo Wikipediju a druhe projekty.</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titulowe wopisy</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>

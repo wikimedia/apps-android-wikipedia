@@ -2,14 +2,15 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.SearchView;
 import android.view.ActionProvider;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
@@ -65,10 +66,10 @@ public class FindInPageActionProvider extends ActionProvider {
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
         searchView.setSubmitButtonEnabled(false);
         // remove focus line from search plate
-        View searchEditPlate = searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
+        View searchEditPlate = searchView.findViewById(androidx.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
         // remove the close icon in search view
-        ImageView searchCloseButton = searchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
+        ImageView searchCloseButton = searchView.findViewById(androidx.appcompat.R.id.search_close_btn);
         searchCloseButton.setEnabled(false);
         searchCloseButton.setImageDrawable(null);
         return view;
@@ -76,6 +77,10 @@ public class FindInPageActionProvider extends ActionProvider {
 
     public void setListener(FindInPageListener listener) {
         this.listener = listener;
+    }
+
+    public void setSearchViewQuery(@NonNull String searchQuery) {
+        searchView.setQuery(searchQuery, true);
     }
 
     public void setMatchesResults(int activeMatchOrdinal, int numberOfMatches) {

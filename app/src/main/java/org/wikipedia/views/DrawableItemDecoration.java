@@ -4,11 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.wikipedia.util.ResourceUtil;
 
@@ -22,7 +23,7 @@ public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public DrawableItemDecoration(@NonNull Context context, @AttrRes int id, boolean drawEnd) {
-        this.drawable = ContextCompat.getDrawable(context,
+        this.drawable = AppCompatResources.getDrawable(context,
                 ResourceUtil.getThemedAttributeId(context, id));
         this.drawEnd = drawEnd;
     }

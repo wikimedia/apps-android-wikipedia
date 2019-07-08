@@ -1,12 +1,13 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
@@ -20,6 +21,7 @@ import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
+import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -29,7 +31,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
             ListCardItemView.Callback, CardHeaderView.Callback,  FeaturedImageCardView.Callback,
             SearchCardView.Callback, NewsListCardView.Callback, AnnouncementCardView.Callback,
-            RandomCardView.Callback, ListCardView.Callback, BecauseYouReadCardView.Callback {
+            RandomCardView.Callback, ListCardView.Callback, BecauseYouReadCardView.Callback, SuggestedEditsCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onRetryFromOffline();

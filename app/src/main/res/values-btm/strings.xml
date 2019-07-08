@@ -10,8 +10,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Jalaki Wikipedia</string>
   <string name="search_hint_search_history">Jalaki riwayat</string>
-  <string name="search_hint_search_my_lists">Jalaki daftarku</string>
-  <string name="search_hint_search_reading_list">Jalaki daftar bacaan</string>
   <string name="search_hint_search_languages">Jalaki i saro</string>
   <string name="nav_item_history">Riwayat</string>
   <string name="error_network_error">Inda bisa mamyambung tu internet</string>

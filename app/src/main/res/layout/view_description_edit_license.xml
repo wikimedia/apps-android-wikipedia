@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:parentTag="android.widget.LinearLayout"
+    tools:background="@android:color/white"
     tools:orientation="vertical"
-    tools:background="@android:color/white">
+    tools:parentTag="android.widget.LinearLayout">
 
     <ImageView
+        android:id="@+id/licenseIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        app:srcCompat="@drawable/ic_license_cc"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/cc_logo"
         android:tint="@color/base30"
-        android:contentDescription="@string/cc_logo" />
+        app:srcCompat="@drawable/ic_license_cc" />
 
     <TextView
         android:id="@+id/licenseText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        tools:text="Lorem ipsum"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:lineSpacingMultiplier="1.2"
         android:linksClickable="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:lineSpacingMultiplier="1.2"
-        android:textColor="@color/base30"/>
+        android:textColor="@color/base30"
+        tools:text="Lorem ipsum" />
 
 </merge>

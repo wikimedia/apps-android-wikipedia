@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Drjpoudel
 * Nirajan pant
 * Nirjal stha
@@ -18,13 +19,16 @@
   <string name="nav_item_forward">अगाडि</string>
   <string name="search_hint">विकिपिडियामा खोज्नुहोस्</string>
   <string name="search_hint_search_history">इतिहास खोज्नुहोस्</string>
-  <string name="search_hint_search_my_lists">मेरा सूचीहरू खोज्नुहोस्</string>
-  <string name="search_hint_search_reading_list">अध्ययन सूची खोज्नुहोस्</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
   <string name="page_error_retry">पुनः प्रयास गर्नुहोस्</string>
+  <string name="card_offline_error_retry">पून प्रयास गर्नुहोस्</string>
+  <string name="storage_access_error_retry">पून प्रयास गर्नुहोस्</string>
+  <string name="article_load_error_retry">पून प्रयास गर्नुहोस्</string>
+  <string name="offline_load_error_retry">पून प्रयास गर्नुहोस्</string>
   <string name="page_error_back_to_main">पछाडि जानुहोस्</string>
+  <string name="error_back">पछाडि पर्कनुहोस्</string>
   <string name="menu_clear_all_history">इतिहास खाली गर्नुहोस्</string>
   <string name="history_item_deleted">%s लाई इतिहासबाट हटाइयो</string>
   <string name="history_items_deleted">%d वटा लेखहरूलाई इतिहासबाट हटाइयो</string>
@@ -43,6 +47,8 @@
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="menu_page_share">लिङ्क आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_page_open_a_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
+  <string name="menu_page_reading_lists">पठन सूचीहरू</string>
+  <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">लिङ्कको ठेगाना प्रतिलिपि गर्नुहोस्</string>
@@ -89,8 +95,13 @@
   <string name="nav_item_login">विकिपिडियामा लग इन गर्नुहोस्</string>
   <string name="login_username_hint">प्रयोगकर्ताको नाम</string>
   <string name="login_password_hint">पासवर्ड</string>
+  <string name="account_creation_password_hint">प्रवेश</string>
   <string name="login_2fa_hint">दुई चरण प्रामाणिकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg">दुई चरण प्रामाणिकरण आवश्यक !  मुख्य एक्टिभिटीमा जानुहोस् र 2FA टोकन प्रयोग गरेर लग इन गर्नुहोस्, र पुन: प्रयास गर्नुहोस् ।</string>
+  <string name="onboarding_card_login">प्रवेश</string>
+  <string name="page_editing_login">प्रवेश</string>
+  <string name="reading_lists_sync_login">प्रवेश</string>
+  <string name="create_account_login">प्रवेश</string>
   <string name="menu_login">लग इन</string>
   <string name="login_activity_title">विकिपिडियामा लग इन गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईंलाई लग इन गर्दै…</string>
@@ -99,8 +110,12 @@
   <string name="reset_password_description">तपाईँ अस्थायी पासवर्ड प्रयोग गरेर लग इन गर्नुभएको छ । लग इन पूरा गर्न, यहाँ तपाईँले नयाँ पासवर्ड सेट गर्नुहोस् ।</string>
   <string name="reset_password_hint">नयाँ पासवर्ड</string>
   <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र लग इन गर्नुहोस्</string>
-  <string name="preference_title_logout">लग आउट गर्नुहोस्</string>
+  <string name="preference_title_logout">निर्गमन</string>
   <string name="toast_logout_complete">लग आउट गरियो</string>
+  <string name="logout_dialog_cancel_button_text">रद्द</string>
+  <string name="logged_out_in_background_title">निर्गमन भयो।</string>
+  <string name="logged_out_in_background_login">प्रवेग</string>
+  <string name="logged_out_in_background_cancel">रद्द</string>
   <string name="history_empty_title">भर्खरै हेरिएको कुनै पनि लेख छैन</string>
   <string name="history_empty_message">आफूले पढिरहेका कुराहरूलाई यहाँबाट पहिल्याउनुहोस्।</string>
   <string name="search_empty_message">स्वतन्त्र विश्वकोश आफ्नै भाषामा खोज्नुहोस् र पढ्नुहोस्</string>
@@ -123,6 +138,7 @@
   <string name="create_account_generic_error">खाता सिर्जना गर्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
   <string name="email_recommendation_dialog_title">इमेल ठेगाना विना नै खाता सिर्जना गर्ने हो?</string>
+  <string name="email_recommendation_dialog_message">इमेल ठेगाना वैकल्पिक भएता पनि, यो &lt;b&gt;अत्यधिक सिफारिश गरिएको छ&lt;/b&gt; ,किनकि तपाईले आफ्नो पासवर्ड गुमाउनु भयो भने इमेल खाता प्रयोग गरि पासवर्ड पुन प्राप्त गर्न सक्नुहुनेछ।</string>
   <string name="email_recommendation_message">सुझाव दिइएको किनभने किनभने खाता पुन: प्राप्तिको लागि इमेल आवश्यक हुन्छ ।</string>
   <string name="email_recommendation_dialog_create_without_email_action">इमेल बिना नै निरन्तरता दिनुहोस्</string>
   <string name="email_recommendation_dialog_create_with_email_action">इमेल ठेगाना थप्नुहोस्</string>
@@ -176,7 +192,7 @@
   <string name="user_blocked_from_editing_title">रोक लगाइएको</string>
   <string name="user_logged_in_blocked_from_editing">तपाईंको प्रयोगकर्ता खातालाई यो विकिमा सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
-  <string name="edit_how_page_improved">तपाईंले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
+  <string name="edit_how_page_improved">तपाईँले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
   <string name="edit_done">प्रकाशन गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>
@@ -353,7 +369,6 @@
   <string name="preference_title_notification_welcome">स्वागतम्</string>
   <string name="preference_title_notification_thanks">धन्यवाद</string>
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
-  <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
   <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएका कुनै लेखहरू पढ्नुहोस्</string>
@@ -382,24 +397,21 @@
   <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
   <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
-  <string name="description_edit_text_hint">शीर्षकको विवरण</string>
+  <string name="description_edit_text_hint" fuzzy="true">शीर्षकको विवरण</string>
   <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
-  <string name="description_edit_add_description">शीर्षकको विवरण थप्नुहोस्</string>
-  <string name="description_edit_edit_description">विवरण सम्पादन गर्नुहोस्</string>
+  <string name="description_edit_add_description" fuzzy="true">शीर्षकको विवरण थप्नुहोस्</string>
+  <string name="description_edit_edit_description" fuzzy="true">विवरण सम्पादन गर्नुहोस्</string>
   <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
-  <string name="description_edit_success_saved">विवरण प्रकाशित भयो!</string>
+  <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
-  <string name="description_edit_help_about_title">बारेमा</string>
-  <string name="description_edit_help_tips_examples">उदाहरणका लागि:</string>
-  <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
-  <string name="description_edit_help_more_info">थप जानकारी</string>
-  <string name="editactionfeed_add_title_descriptions">शिर्षकमा विवरण थप्नुहोस्</string>
-  <string name="editactionfeed_add_description_button">विवरण थप्नुहोस्</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">अझै बढी पढ्नुहोस्</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">शिर्षकमा विवरण थप्नुहोस्</string>
+  <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
+  <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>
   <string name="onboarding_continue">निरन्तरता दिनुहोस्</string>
@@ -408,6 +420,7 @@
   <string name="onboarding_explore_text">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
   <string name="onboarding_multilingual_add_language_text">भाषा थप वा सम्पादन गर्नुहोस्</string>
+  <string name="onboarding_welcome_title_v2">एक स्वतन्त्र विश्वकोश\n…३०० भन्दा बढी भाषामा उपलब्ध</string>
   <string name="app_shortcuts_random">कुनै पनि एक</string>
   <string name="app_shortcuts_continue_reading">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="app_shortcuts_search">खोज्नुहोस्</string>
@@ -436,7 +449,4 @@
   <string name="main_drawer_open">खुल्ला</string>
   <string name="main_drawer_close">बन्द</string>
   <string name="main_drawer_help">सहायता</string>
-  <string name="translation_task_title">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
-  <string name="multilingual_task_positive">भाषाहरू थप गर्नुहोस्</string>
-  <string name="add_title_descriptions_dialog_title">शीर्षकमा विवरण थप्नुहोस्</string>
 </resources>

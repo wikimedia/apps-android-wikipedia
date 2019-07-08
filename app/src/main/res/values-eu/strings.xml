@@ -20,8 +20,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_search_history">Bilatu historia</string>
-  <string name="search_hint_search_my_lists">Nire zerrendetan bilatu</string>
-  <string name="search_hint_search_reading_list">Irakurketa zerrenda bilatu</string>
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
@@ -229,7 +227,7 @@
   <string name="preference_summary_show_images">Gaitu edo ezgaitu irudien karga orrialdeetan. Kendu aukera hau Internet konexioa geldoa bada, edo zure datu plana mugatua bada.</string>
   <string name="preference_title_download_only_over_wifi">Jaitsi Wi-Fi sarea bakarrik erabilita</string>
   <string name="dialog_title_download_only_over_wifi">Datu mugikorren bidezko jaitsiera berresten duzu?</string>
-  <string name="dialog_text_download_only_over_wifi">\"Jaitsi Wi-Fi sarea bakarrik erabilita\" piztu duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, jaitsiera honetarako bakarrik?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">\"Jaitsi Wi-Fi sarea bakarrik erabilita\" piztu duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, jaitsiera honetarako bakarrik?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Baimendu</string>
   <string name="read_more_section">Irakurri gehiago</string>
   <string name="about_article_section">Artikulu honi buruz</string>
@@ -303,7 +301,7 @@
   <string name="article_menu_bar_bookmark">Artikulu hau gehitu irakurtze zerrendara</string>
   <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_header_edit_hint">Aldatu...</string>
-  <string name="article_header_edit_description">Izenburuko deskribapena aldatu</string>
+  <string name="article_header_edit_description" fuzzy="true">Izenburuko deskribapena aldatu</string>
   <string name="article_header_edit_lead_section">Sarrera aldatu</string>
   <string name="color_theme_select">Gaia</string>
   <string name="color_theme_light">Argia</string>
@@ -470,7 +468,6 @@
   <string name="preference_summary_notification_welcome">Kontu bat sortu da</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
-  <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>
   <string name="view_random_card_subtitle">Irakurri Wikipediako ausazko artikulu bat</string>
@@ -517,39 +514,27 @@
   <string name="feed_empty_message">Ez dago ezer zure Arakatze-jarioan</string>
   <string name="feed_configure_onboarding_action">Pertsonalizatu</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pertsonalizatu zure Arakatze jarioa&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Orain zure jarioan zer erakutsi behar den aukeratu dezakezu eta, era berean, zure eduki mota gogokoenak lehentasunez ezarri.</string>
-  <string name="description_edit_text_hint">Izenburuaren deskribapena</string>
+  <string name="description_edit_text_hint" fuzzy="true">Izenburuaren deskribapena</string>
   <string name="description_edit_save">Argitaratu</string>
-  <string name="description_edit_add_description">Gehitu izenburuaren deskribapena</string>
-  <string name="description_edit_edit_description">Aldatu deskribapena</string>
+  <string name="description_edit_add_description" fuzzy="true">Gehitu izenburuaren deskribapena</string>
+  <string name="description_edit_edit_description" fuzzy="true">Aldatu deskribapena</string>
   <string name="description_edit_cancel_hint">Utzi</string>
-  <string name="description_edit_help_title">Laguntza: izenburuen deskribapenak</string>
+  <string name="description_edit_help_title" fuzzy="true">Laguntza: izenburuen deskribapenak</string>
   <string name="description_edit_help_about_wikidata">Wikidatari buruz</string>
   <string name="description_edit_help_wikidata_guide">Wikidata gida idatzitako deskribapenentzat</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
-  <string name="description_edit_anon_limit">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
-  <string name="description_edit_license_notice">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
-  <string name="description_edit_success_saved">Deskribapea argiraratu da!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Deskribapea argiraratu da!</string>
   <string name="description_edit_success_encouragement">Wikipedia askoz hobea egin duzu gu denontzat</string>
   <string name="description_edit_success_done">Egina</string>
   <string name="description_edit_success_did_you_know">Ba al zenekien?</string>
   <string name="description_edit_success_article_edit_hint">Aplikazio honetatik ere artikuluak alda ditzakezu. Saia zaitez tipoak eta esaldi laburrak konpontzen ^1 ikonoaren bitartez hurrengo batean</string>
-  <string name="description_edit_tutorial_title_descriptions">Izenburuaren deskribapenak</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Izenburuaren deskribapenak</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Artikulu bat laburbiltzen du, irakurleek gai bat begirada batez uler ditzaten</string>
   <string name="description_edit_tutorial_keep_it_short">Labur mantendu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideala, lerro bakarra, bi eta hamabi hitz artean</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aldatzen hasi</string>
   <string name="description_edit_tutorial_promise">Hasteko, zin dagit ezarpen hau ez dudala gehiegikeriz erabiliko.</string>
-  <string name="description_edit_help_about_title">Honi buruz</string>
-  <string name="description_edit_help_description">Deskribapenak artikulua laburbiltzen du, irakurleek gaia begirada batez uler dezaten.</string>
-  <string name="description_edit_help_tips">Deskribapenak sortzeko aholkuak</string>
-  <string name="description_edit_help_tips_description">Deskribapenak lerro bakarrean egokitu beharko lirateke, eta bi edo hamabi hitz artean egokitu. Ez da letra larria erabiliko, lehen hitza izen propioa ez bada.</string>
-  <string name="description_edit_help_tips_examples">Adibidez:</string>
-  <string name="description_edit_help_tips_example1">Leonardo da Vinciren margolana</string>
-  <string name="description_edit_help_tips_example1_hint">Mona Lisaren inguruko artikulu batentzako deskribapena</string>
-  <string name="description_edit_help_tips_example2">Lurreko mendirik garaiena</string>
-  <string name="description_edit_help_tips_example2_hint">Everest Mendiari buruzko artikuluarentzako izenburu-deskribapena</string>
-  <string name="description_edit_help_more_info">Informazio gehiago</string>
-  <string name="description_edit_help_meta_info">Deskribapenak Wikidatan gorde eta mantentzen dira, Wikimedia Fundazioaren proiektua, doako, lankidetzarako, eleaniztasuneko eta bigarren mailako datu-baseak Wikipedia eta beste proiektu batzuk babesten dituena.</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="description_edit_revert_intro">Badakigu hoberen egiten saiatu zarela, baina gure berrikuskarietako batek arazo bat ikusi du. Zure aldaketa lehengoratzeko arrazoi posibleen artean hurrengoak daude:</string>
   <string name="description_edit_revert_reason1">zure ekarpenak ez du &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt;(e)tatik bat jarraitu.</string>
@@ -559,10 +544,6 @@
   <string name="offline_read_final_rationale">Offline liburutegia erabiltzeko zeure gailuko memorian konexiorik gabe sartzeko baimena eman behar duzu.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 min left</item>
-    <item quantity="other">%d mins left</item>
-  </plurals>
   <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>
@@ -579,7 +560,7 @@
   <string name="onboarding_got_it">Ulertuta</string>
   <string name="onboarding_multilingual_secondary_text">Hurrengoak aurkitu ditugu zure gailuan:</string>
   <string name="onboarding_multilingual_add_language_text">Hizkuntzak gehitu ala aldatu</string>
-  <string name="onboarding_welcome_title_v2">Entziklopedia Askea\n... ia 300 hizkuntzatan</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Entziklopedia Askea\n... ia 300 hizkuntzatan</string>
   <string name="app_shortcuts_random">Ausazkoa</string>
   <string name="app_shortcuts_continue_reading">Irakurtzen jarraitu</string>
   <string name="app_shortcuts_search">Bilatu</string>

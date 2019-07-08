@@ -1,7 +1,7 @@
 package org.wikipedia.database.contract;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.ArraySet;
+import androidx.annotation.NonNull;
+import androidx.collection.ArraySet;
 
 import org.wikipedia.database.column.CsvColumn;
 import org.wikipedia.database.column.IdColumn;

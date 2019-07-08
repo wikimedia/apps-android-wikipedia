@@ -5,9 +5,10 @@ import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -107,7 +108,6 @@ public final class AccountUtil {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
                 accountManager().removeAccountExplicitly(account);
             } else {
-                //noinspection deprecation
                 accountManager().removeAccount(account, null, null);
             }
         }

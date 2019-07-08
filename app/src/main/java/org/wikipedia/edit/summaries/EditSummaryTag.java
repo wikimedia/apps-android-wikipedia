@@ -2,12 +2,13 @@ package org.wikipedia.edit.summaries;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.AttrRes;
-import android.support.annotation.ColorInt;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.widget.LinearLayout.LayoutParams;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.res.ResourcesCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
