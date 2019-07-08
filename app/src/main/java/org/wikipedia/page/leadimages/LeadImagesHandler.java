@@ -42,6 +42,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
@@ -309,7 +310,7 @@ public class LeadImagesHandler {
             @Override
             public void onArticleCTAClicked() {
                 getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), isTranslation ? captionTargetPageTitle : captionSourcePageTitle, null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
-                        ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+                        ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT);
             }
         });
     }
