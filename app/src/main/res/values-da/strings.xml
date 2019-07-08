@@ -637,7 +637,7 @@
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Oversæt beskrivelser</string>
   <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Billedtekstning</string>
+  <string name="suggested_edits_task_image_caption_title">Tilføj billedtekstning</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
   <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
   <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
