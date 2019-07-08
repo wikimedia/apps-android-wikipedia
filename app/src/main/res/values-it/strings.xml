@@ -5,6 +5,7 @@
 * Albe Albe460
 * Beta16
 * Bsitzmann
+* Dbrant
 * Elitre
 * FRacco
 * Federico Mugnaini
@@ -587,12 +588,15 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
+  <string name="description_edit_article_description_label_per_language">Voce (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Descrizione voce (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Descrizione immagine (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Didascalia immagine (%s)</string>
   <string name="description_edit_save">Pubblica</string>
   <string name="description_edit_read">Leggi</string>
   <string name="description_edit_add_description">Aggiungi una descrizione della voce</string>
   <string name="description_edit_translate_description">Traduci la descrizione della voce</string>
-  <string name="description_edit_edit_description" fuzzy="true">Modifica descrizione</string>
+  <string name="description_edit_edit_description">Modifica la descrizione della voce</string>
   <string name="description_edit_add_image_caption">Aggiungi didascalia immagine</string>
   <string name="description_edit_edit_image_caption">Modifica didascalia immagine</string>
   <string name="description_edit_translate_image_caption">Traduci didascalia immagine</string>
@@ -628,7 +632,7 @@
   <string name="suggested_edits_edit_caption_button">Modifica didascalia</string>
   <string name="suggested_edits_review_image_caption">Rivedi didascalia immagine</string>
   <string name="suggested_edits_my_contributions">I miei contributi</string>
-  <string name="suggested_edits_no_description">Nessuna descrizione</string>
+  <string name="suggested_edits_no_description">Questo file non ha alcuna descrizione</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Hai sbloccato l\'attività \"Aggiungi descrizioni della voce\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grazie per tutti i tuoi contributi! Dato che sei molto bravo a modificare, abbiamo compilato un elenco di voci con descrizioni mancanti. Vuoi aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Hai sbloccato l\'attività \"Traduci descrizioni della voce\"</string>
@@ -645,6 +649,7 @@
   <string name="suggested_edits_unlock_add_captions_notification_title">Hai sbloccato \"Aggiungi didascalie immagini\"</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Hai sbloccato l\'attività \"Traduci didascalie immagini\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Hai sbloccato \"Traduci didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Congratulazioni per le tue numerose modifiche alle didascalie delle immagini, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di immagini che richiedono traduzioni delle didascalie. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
   <string name="suggested_edits_license_notice">Aggiungendo la descrizione, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Aggiungendo la didascalia all\'immagine, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informazioni</string>
@@ -653,14 +658,14 @@
   <string name="suggested_edits_task_add_description_description">Contribuire alle voci senza descrizioni</string>
   <string name="suggested_edits_task_translation_title">Traduci descrizioni della voce</string>
   <string name="suggested_edits_task_translation_description">Traduci le descrizioni attraverso le lingue della voce.</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Didascalia immagini</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Aggiungi didascalie alle immagini</string>
+  <string name="suggested_edits_task_image_caption_title">Aggiungi didascalie immagini</string>
+  <string name="suggested_edits_task_image_caption_description">Aggiungi brevi didascalie mancanti alle immagini</string>
   <string name="suggested_edits_task_translate_caption_title">Traduci didascalie immagini</string>
   <string name="suggested_edits_task_translate_caption_description">Traduci didascalie in altre lingue</string>
   <string name="suggested_edits_task_multilingual_title">Più attività per editori multilingue</string>
   <string name="suggested_edits_task_multilingual_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Bloccato fino a quando non avrai modificato %d didascalie di immagini</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
   <string name="suggested_edits_task_multilingual_negative">Non per me</string>
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
@@ -675,6 +680,8 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aggiungi descrizione della voce (%s)</string>
   <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotografo</string>

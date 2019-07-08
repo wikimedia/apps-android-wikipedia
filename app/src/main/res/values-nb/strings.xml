@@ -646,7 +646,7 @@
   <string name="suggested_edits_task_multilingual_title">Flere oppgaver for flerspråklige bidragsytere</string>
   <string name="suggested_edits_task_multilingual_description">Oversettelsesoppgaver er tilgjengelige hvis du leser eller skriver flere Wikipedia-språk.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Ikke tilgjengelig før du har gjort %d verifiserte redigeringer fra appen.</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Låst inntil du har gjort %d godkjente bidrag</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Låst inntil du har gjort %d godkjente bidrag</string>
   <string name="suggested_edits_task_multilingual_negative">Passer ikke for meg</string>
   <string name="suggested_edits_task_multilingual_positive">Legg til språk</string>
   <plurals name="suggested_edits_contribution_count">

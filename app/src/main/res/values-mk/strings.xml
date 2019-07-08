@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Bjankuloski06
+* Dbrant
 * Vlad5250
 * Монтехристо
 -->
@@ -633,7 +634,7 @@
   <string name="suggested_edits_edit_caption_button">Додај опис на содржината</string>
   <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
   <string name="suggested_edits_my_contributions">Мои придонеси</string>
-  <string name="suggested_edits_no_description">Нема опис</string>
+  <string name="suggested_edits_no_description" fuzzy="true">Нема опис</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи на статии“</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Ви благодариме на придонесите! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи на статии“</string>
@@ -669,7 +670,7 @@
   <string name="suggested_edits_task_multilingual_title">Повеќе задачи за повеќејазични уредници</string>
   <string name="suggested_edits_task_multilingual_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Заклучено додека не направите %d уредувања во описи на слики</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Заклучено додека не уредите %d проверени описи</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Заклучено додека не уредите %d проверени описи</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Уметник</string>

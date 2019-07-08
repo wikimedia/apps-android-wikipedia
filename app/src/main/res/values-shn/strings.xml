@@ -626,7 +626,7 @@
   <string name="suggested_edits_edit_caption_button">မႄးထတ်း ႁူဝ်ၶေႃႈ</string>
   <string name="suggested_edits_review_image_caption">ထတ်းသၢင် ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_my_contributions">လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ</string>
-  <string name="suggested_edits_no_description">ဢမ်ႇမီး ၶေႃႈသပ်းလႅင်း</string>
+  <string name="suggested_edits_no_description" fuzzy="true">ဢမ်ႇမီး ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">ၶွပ်ႈၸႂ်ထိုင် ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇတင်းသဵင်ႈ! ၸဝ်ႈၵဝ်ႇႁဵတ်းလႆႈ လွင်ႈမႄးထတ်း ၶိုၵ်ႉတွၼ်းလီၼႆလႄႈ ႁဝ်းၶႃႈလႆႈၵဵပ်းႁွမ်တွမ်ဝႆႉ သဵၼ်ႈမၢႆပွင်ႈၵႂၢမ်း ဢၼ်ဢမ်ႇပႆႇမီးၶေႃႈသပ်းလႅင်းၼၼ်ႉ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၸွႆႈထႅမ်ႁဝ်းၶႃႈ တွၼ်ႈတႃႇ ႁဵတ်းႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶိုၼ်ႈယႂ်ႇၼၼ်ႉၶႃႈႁိုဝ်?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း\"</string>
@@ -662,7 +662,7 @@
   <string name="suggested_edits_task_multilingual_title">ၼႃႈၵၢၼ်တၢင်ႇၸိူဝ်း တွၼ်ႈတႃႇ ၽူႈမႄးထတ်း ၽႃႇသႃႇလၢႆဢၼ်</string>
   <string name="suggested_edits_task_multilingual_description">ပေႃးဝႃႈၸဝ်ႈၵဝ်ႇ လူ လႄႈ တႅမ်ႈ တီႈ ၽႃႇသႃႇၵႂၢမ်းဝီႇၶီႇၽီးတီးယႃး လိူဝ်ဢၼ်ၼိုင်ႈၼႆၸိုင် ၵၢၼ်ပိၼ်ႇၽႃႇသႃႇၼႆႉ ၸႂ်ႉလႆႈယဝ်ႉ။</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">ၶတ်းသေႃးဝႆႉ ႁၢၼ်ႉတေႃႇထိုင် ၸဝ်ႈၵဝ်ႇ ၼႄႉၼွၼ်းလွင်ႈၶဝ်ႈႁူမ်ႈ %d ၼၼ်ႉ</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">ၶတ်းသေႃးဝႆႉ ႁၢၼ်ႉတေႃႇထိုင် ၸဝ်ႈၵဝ်ႇ ၼႄႉၼွၼ်းလွင်ႈၶဝ်ႈႁူမ်ႈ %d ၼၼ်ႉ</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ၶတ်းသေႃးဝႆႉ ႁၢၼ်ႉတေႃႇထိုင် ၸဝ်ႈၵဝ်ႇ ၼႄႉၼွၼ်းလွင်ႈၶဝ်ႈႁူမ်ႈ %d ၼၼ်ႉ</string>
   <string name="suggested_edits_task_multilingual_negative">ဢမ်ႇၸႂ်ႈတႃႇၵဝ်ၶႃႈ</string>
   <string name="suggested_edits_task_multilingual_positive">ထႅမ်သႂ်ၢႇ ၽႃႇသႃႇၵႂၢမ်း</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ၸဝ်ႈပၢႆးမွၼ်း</string>

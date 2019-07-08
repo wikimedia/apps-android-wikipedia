@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Dbrant
 * Juan Cuartas
 * KuboF
 * Luis Miguel Obando
@@ -637,7 +638,7 @@
   <string name="suggested_edits_edit_caption_button">Redakti titolon de bildo</string>
   <string name="suggested_edits_review_image_caption">Revizii titolon de bildo</string>
   <string name="suggested_edits_my_contributions">Miaj kontribuoj</string>
-  <string name="suggested_edits_no_description">Neniu priskribo</string>
+  <string name="suggested_edits_no_description" fuzzy="true">Neniu priskribo</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vi malŝlosis la taskon \"Aldoni priskribojn al artikoloj\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Dankon pro viaj kontribuoj. Ĉar vi bonege redaktas, ni kompilis liston de artikoloj malhavantaj priskribojn. Ĉu vi povas helpi nin per plibonigado de Vikipedio?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vi liberigis la taskon \"Traduki priskribojn de artikoloj\"</string>
@@ -673,7 +674,7 @@
   <string name="suggested_edits_task_multilingual_title">Pli da taskoj por plurlingvaj redaktanoj</string>
   <string name="suggested_edits_task_multilingual_description">Tradukaj taskoj estas haveblaj se vi legas kaj skribas plurajn Vikipediajn lingvojn.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d titolojn de bildoj</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Ŝlosita ĝis kiam vi faros %d konfirmitajn kontribuojn</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Ŝlosita ĝis kiam vi faros %d konfirmitajn kontribuojn</string>
   <string name="suggested_edits_task_multilingual_negative">Ne por mi</string>
   <string name="suggested_edits_task_multilingual_positive">Aldoni lingvojn</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Kreito de arto</string>

@@ -637,7 +637,7 @@
   <string name="suggested_edits_task_multilingual_title">Элбэх тылы билэр дьоҥҥо соруктар</string>
   <string name="suggested_edits_task_multilingual_description">Тылбаастыырга сорудах Бикипиэдьийэҕэ соҕотох тылтан элбэҕинэн ааҕар эбэтэр суруйар буоллаххына көстүөҕэ.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">%d бигэргэтиллибит дьайыыны оҥордоххуна аһыллыа</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">%d кылгас ойуулааһыны уларыта иликкинэ бүөлэнэн турар</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">%d кылгас ойуулааһыны уларыта иликкинэ бүөлэнэн турар</string>
   <string name="suggested_edits_task_multilingual_negative">Миэхэ буолбатах</string>
   <string name="suggested_edits_task_multilingual_positive">Тылы эбии</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Худуоһунньук</string>
