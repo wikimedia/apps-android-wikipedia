@@ -340,4 +340,8 @@ public class LeadImagesHandler {
             disposables.clear();
         }
     }
+
+    public String getLeadingImageEditLang() {
+        return isTranslation ? captionTargetPageTitle == null ? null : captionTargetPageTitle.getWikiSite().languageCode() : captionSourcePageTitle == null ? null : captionSourcePageTitle.getWikiSite().languageCode();
+    }
 }
