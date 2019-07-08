@@ -6,9 +6,6 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.util.StringUtil;
-
-import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 public class ExtMetadata {
@@ -60,7 +57,10 @@ public class ExtMetadata {
     }
 
     @NonNull public String dateTime() {
-        return StringUtils.defaultString(dateTimeOriginal == null ? null : dateTimeOriginal.value());
+        if (dateTimeOriginal == null || dateTimeOriginal.value() == null) {
+            return "";
+        }
+        return dateTimeOriginal.value();
     }
 
     @NonNull public String artist() {
@@ -69,20 +69,18 @@ public class ExtMetadata {
 
     @NonNull
     public String artistUrl() {
-        if (artist == null) {
+        if (artist == null || artist.value() == null) {
             return "";
         }
-        ArrayList<String> links = StringUtil.extractUrlsFromhtmlString(artist.value());
-        return StringUtils.defaultString(links.size() > 0 ? links.get(0) : null);
+        return artist.value();
     }
 
     @NonNull
     public String creditUrl() {
-        if (credit == null) {
+        if (credit == null || credit.value() == null) {
             return "";
         }
-        ArrayList<String> links = StringUtil.extractUrlsFromhtmlString(credit.value());
-        return StringUtils.defaultString(links.size() > 0 ? links.get(0) : null);
+        return credit.value();
     }
 
     @NonNull public String credit() {

@@ -24,12 +24,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
 import java.text.Normalizer;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
@@ -265,13 +262,4 @@ public final class StringUtil {
     private StringUtil() {
     }
 
-    public static ArrayList<String> extractUrlsFromhtmlString(String html) {
-        ArrayList<String> result = new ArrayList<>();
-        String regex = "(https)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-        Matcher matcher = Pattern.compile(regex).matcher(html);
-        while (matcher.find()) {
-            result.add(matcher.group());
-        }
-        return result;
-    }
 }

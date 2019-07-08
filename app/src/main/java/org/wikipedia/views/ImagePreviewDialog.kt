@@ -3,6 +3,8 @@ package org.wikipedia.views
 import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -23,11 +25,13 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.UriUtil.handleExternalLink
 import org.wikipedia.util.log.L
 
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
@@ -99,34 +103,37 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             // Show the image description when a structured caption does not exist.
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
-                    suggestedEditsSummary.description, null)
+                    SpannableString(suggestedEditsSummary.description), null)
         } else {
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
-                    if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
-                    else suggestedEditsSummary.pageTitle.description, null)
+                    SpannableString(if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
+                    else suggestedEditsSummary.pageTitle.description), null)
         }
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artist()).toString(), getClickListenerFor(suggestedEditsSummary.metadata!!.artistUrl()))
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime(), null)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescriptionSource(), getClickListenerFor(suggestedEditsSummary.metadata!!.creditUrl()))
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), getClickListenerFor(suggestedEditsSummary.metadata!!.licenseUrl()))
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info), getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), getClickListenerFor(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artistUrl()), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.dateTime()), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.creditUrl()), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), SpannableString(suggestedEditsSummary.metadata!!.licenseShortName()), getClickListenerFor(suggestedEditsSummary.metadata!!.licenseUrl()))
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info), SpannableString(getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text)), getClickListenerFor(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
         detailsHolder.requestLayout()
     }
 
-    private fun addDetailPortion(titleString: String, @Nullable detail: String?, linkClickListener: View.OnClickListener?) {
-        if (!detail.isNullOrEmpty()) {
+    private fun addDetailPortion(titleString: String, @Nullable detail: Spanned, linkClickListener: View.OnClickListener?) {
+        if (!detail.isEmpty()) {
             val view = ImageDetailView(requireContext())
             view.titleTextView.text = titleString
+            view.detailTextView.setMovementMethod(movementMethod)
             if (linkClickListener != null) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
                 view.externalLinkView.visibility = VISIBLE
                 view.detailsContainer.setOnClickListener(linkClickListener)
             }
-            view.detailTextView.text = StringUtil.strip(StringUtil.removeHTMLTags(detail))
+            view.detailTextView.text = detail
             detailsHolder.addView(view)
         }
     }
+
+    private val movementMethod = LinkMovementMethodExt { url: String -> handleExternalLink(context, Uri.parse(url)) }
 
     private fun loadImage(url: String?) {
         progressBar!!.visibility = GONE
@@ -136,7 +143,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun getClickListenerFor(url: String?): View.OnClickListener? {
-        if (!TextUtils.isEmpty(url)) {
+        if (TextUtils.isEmpty(url)) {
             return null
         }
         return View.OnClickListener {
