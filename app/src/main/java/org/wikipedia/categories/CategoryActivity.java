@@ -3,17 +3,19 @@ package org.wikipedia.categories;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.tabs.TabLayout;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -23,10 +25,10 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.Namespace;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -293,6 +295,10 @@ public class CategoryActivity extends BaseActivity {
 
         @Override
         public void onSecondaryActionClick(@Nullable PageTitle item, @NonNull View view) {
+        }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
         }
     }
 }

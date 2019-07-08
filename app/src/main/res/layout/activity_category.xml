@@ -6,24 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/category_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:tabMinWidth="80dp"
         app:tabMode="scrollable">
-        <android.support.design.widget.TabItem
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Articles"/>
 
-        <android.support.design.widget.TabItem
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subcategories"/>
-    </android.support.design.widget.TabLayout>
+    </com.google.android.material.tabs.TabLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
