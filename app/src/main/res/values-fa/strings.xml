@@ -657,7 +657,7 @@
   <string name="suggested_edits_edit_caption_button">ویرایش عنوان</string>
   <string name="suggested_edits_review_image_caption">بازبینی عنوان تصویر</string>
   <string name="suggested_edits_my_contributions">مشارکت های من</string>
-  <string name="suggested_edits_no_description">بدون توضیحات</string>
+  <string name="suggested_edits_no_description" fuzzy="true">بدون توضیحات</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">شما امکان «افزودن توضیحات مقاله» را از قفل خارج کردید</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">برای همهٔ مشارکت‌هایتان ممنون! با توجه به اینکه در ویرایش بسیار عالی هستید، فهرستی از مقاله‌هایی که توضیحات ندارند را تهیه کرده‌ایم. آیا امکانش هست در بهبود ویکی‌پدیا کمک کنید؟</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">شما امکان «ترجمه توضیحات مقاله» را از قفل خارج کردید</string>
@@ -693,7 +693,7 @@
   <string name="suggested_edits_task_multilingual_title">وظایف بیشتر برای ویرایشگران چندزبانه</string>
   <string name="suggested_edits_task_multilingual_description">اگر می‌توانید بیش از یک زبان ویکی‌پدیا را بخوانید و بنویسید، امکان ترجمه وجود دارد.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_multilingual_negative">برای شما نیست</string>
   <string name="suggested_edits_task_multilingual_positive">افزودن زبان</string>
   <string name="suggested_edits_image_caption_summary_title_artist">نام هنرمند</string>

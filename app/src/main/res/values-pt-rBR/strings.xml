@@ -8,6 +8,7 @@
 * BarbaraAckles
 * Cainamarques
 * Caçador de Palavras
+* Dbrant
 * Deskana
 * Dianakc
 * EVinente
@@ -659,7 +660,7 @@
   <string name="suggested_edits_edit_caption_button">Editar legenda</string>
   <string name="suggested_edits_review_image_caption">Rever legenda da imagem</string>
   <string name="suggested_edits_my_contributions">Minhas contribuições</string>
-  <string name="suggested_edits_no_description">Sem descrição</string>
+  <string name="suggested_edits_no_description">Este arquivo não possui uma descrição</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Você desbloqueou a tarefa \"Adicionar descrições de artigos\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Obrigado por todas as suas contribuições! Como você é muito bom em editar, compilamos uma lista de artigos com descrições ausentes. Você poderia nos ajudar a melhorar a Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Você desbloqueou a tarefa \"Traduzir descrições de artigos\"</string>
@@ -695,7 +696,7 @@
   <string name="suggested_edits_task_multilingual_title">Mais tarefas para editores multilíngues</string>
   <string name="suggested_edits_task_multilingual_description">As tarefas de tradução estão disponíveis se você ler e escrever em mais de um idioma da Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Bloqueado até você editar %d legendas de imagens</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado até que você tenha feito %d contribuições verificadas</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado até você editar %d descrições de artigos (verificadas)</string>
   <string name="suggested_edits_task_multilingual_negative">Não para mim</string>
   <string name="suggested_edits_task_multilingual_positive">Adicionar idiomas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>

@@ -589,12 +589,14 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
-  <string name="description_edit_text_hint" fuzzy="true">Titelbeskrivelse</string>
+  <string name="description_edit_text_hint">Artikelbeskrivelse</string>
+  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivelse (%s)</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
   <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
-  <string name="description_edit_edit_description" fuzzy="true">Rediger beskrivelse</string>
+  <string name="description_edit_edit_description">Rediger artikelbeskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
   <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
@@ -607,7 +609,7 @@
   <string name="description_edit_success_done">Færdig</string>
   <string name="description_edit_success_did_you_know">Vidste du at?</string>
   <string name="description_edit_success_article_edit_hint">Du kan også redigere artikler i denne app. Prøv at rette stavefejl og små sætninger ved at klikke på ^1-ikonet næste gang</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titelbeskrivelser</string>
+  <string name="description_edit_tutorial_title_descriptions">Artikelbeskrivelser</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Opsummerer en artikel for at hjælpe læsere med at forstå emnet på et øjeblik</string>
   <string name="description_edit_tutorial_keep_it_short">Hold det kort</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
@@ -617,10 +619,11 @@
   <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">Tilføj oversættelse</string>
+  <string name="suggested_edits_edit_description_button">Rediger besrkivelse</string>
+  <string name="suggested_edits_add_translation_button">Tilføj oversættelse</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
-  <string name="suggested_edits_no_description">Ingen beskrivelse</string>
+  <string name="suggested_edits_no_description">Denne fil har ingen beskrivelse</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Listen over opgaver vedrørende redigering af titelbeskrivelser er blevet låst op!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Vi har bemærket at du kan lide at redigere titelbeskrivelser, så vi har udformet en liste med flere artikler som mangler titelbeskrivelser for at hjælpe dig til at forsætte med at bidrage!</string>
   <string name="suggested_edits_unlock_dialog_no">Måske senere</string>

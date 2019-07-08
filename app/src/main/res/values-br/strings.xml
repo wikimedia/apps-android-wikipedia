@@ -562,7 +562,7 @@
   <string name="suggested_edits_task_multilingual_title">Muioc\'h a drevelloù evit an embannerien liesyezhek</string>
   <string name="suggested_edits_task_multilingual_description">An trevelloù treiñ a c\'haller kaout ma lennit ha ma skrivit en ouzhpenn ur yezh eus Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Prennit betek m\'ho po lakaet %d kemm da wiriañ en arload</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Prennit keit ha ma n\'ho po ket kemmet %d deskrivadur eus an titloù</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Prennit keit ha ma n\'ho po ket kemmet %d deskrivadur eus an titloù</string>
   <string name="suggested_edits_task_multilingual_negative">Ket evidon</string>
   <string name="suggested_edits_task_multilingual_positive">Ouzhpennañ yezhoù</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kregiñ</string>

@@ -195,6 +195,9 @@ public class DescriptionEditView extends LinearLayout {
         labelText.setText(getLabelText(sourceSummary.getLang()));
         pageSummaryText.setText(StringUtil.strip(StringUtils.capitalize(StringUtil.removeHTMLTags(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
                 ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
+        if (pageSummaryText.getText().toString().isEmpty()) {
+            pageSummaryContainer.setVisibility(GONE);
+        }
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
         setUpBottomBar();
     }
