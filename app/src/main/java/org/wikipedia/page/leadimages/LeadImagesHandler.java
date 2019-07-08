@@ -41,7 +41,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
@@ -237,7 +236,7 @@ public class LeadImagesHandler {
 
                                     return;
                                 }
-                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
                                     for (String lang : app.language().getAppLanguageCodes()) {
                                         if (!captions.containsKey(lang)) {
                                             isTranslation = true;

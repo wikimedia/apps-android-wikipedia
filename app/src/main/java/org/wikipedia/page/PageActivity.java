@@ -686,6 +686,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
                 && resultCode == RESULT_OK) {
+            pageFragment.refreshPage();
             FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
                     app.language().getAppLanguageLocalizedName(StringUtils.defaultString(pageFragment.getLeadingImageEditLang()))));
         } else {
