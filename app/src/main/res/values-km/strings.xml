@@ -2,10 +2,11 @@
 <!-- Authors:
 * Bsitzmann
 * Sovichet
+* Y.snsqr
 * គីមស៊្រុន
 -->
 <resources>
-  <string name="app_name_prod">វិគីភីឌា</string>
+  <string name="app_name_prod">វិគីភីឌៀ</string>
   <string name="app_name_beta">វិគីភីឌាបេតា</string>
   <string name="app_name_alpha">វិគីភីឌាអាល់ហ្វា</string>
   <string name="wikimedia">វិគីមេឌា</string>
