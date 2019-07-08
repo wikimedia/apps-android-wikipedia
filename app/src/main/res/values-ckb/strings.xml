@@ -6,6 +6,7 @@
 * Pirehelokan
 * Sarchia
 * Épine
+* ئارام بکر
 -->
 <resources>
   <string name="app_name_prod">ویکیپیدیا</string>
@@ -223,7 +224,7 @@
   <string name="license_title">مۆڵەتەکان بۆ %s</string>
   <string name="gallery_menu_share">هاوبەشی کردن</string>
   <string name="gallery_share_error">نەتوانرا وێنە ھاوبەش بکرێت: %s</string>
-  <string name="gallery_save_progress">دابەزاندنی فایل...</string>
+  <string name="gallery_save_progress">داگرتنی پەڕگە...</string>
   <string name="gallery_save_success">فایلەکە سەرکەوتووانە پاشەکەوت کرا.</string>
   <string name="gallery_error_video_failed">نەتوانرا ڤیدیۆکە بخوێنێتەوە.</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">پێویستە ڕێگە بە ئاپەکە بدەیت بۆ وەرگرتنی زانیارییەکانی خەزێنەکەت بۆ خەزن کردنی وێنەکان. تکایە ڕێگە بدە بەم داواکارییە.</string>
