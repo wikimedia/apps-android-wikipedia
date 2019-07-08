@@ -268,12 +268,10 @@ public final class StringUtil {
     public static ArrayList<String> extractUrlsFromhtmlString(String html) {
         ArrayList<String> result = new ArrayList<>();
         String regex = "(https)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(html);
+        Matcher matcher = Pattern.compile(regex).matcher(html);
         while (matcher.find()) {
             result.add(matcher.group());
         }
-
         return result;
     }
 }

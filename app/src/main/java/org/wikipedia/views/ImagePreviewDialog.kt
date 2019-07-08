@@ -3,6 +3,7 @@ package org.wikipedia.views
 import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -134,7 +135,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         ViewUtil.loadImageUrlInto(galleryImage, url)
     }
 
-    private fun getClickListenerFor(url: String?): View.OnClickListener {
+    private fun getClickListenerFor(url: String?): View.OnClickListener? {
+        if (!TextUtils.isEmpty(url)) {
+            return null
+        }
         return View.OnClickListener {
             dismiss()
             UriUtil.visitInExternalBrowser(context,
