@@ -57,28 +57,11 @@ public class ExtMetadata {
     }
 
     @NonNull public String dateTime() {
-        if (dateTimeOriginal == null || dateTimeOriginal.value() == null) {
-            return "";
-        }
-        return dateTimeOriginal.value();
+        return StringUtils.defaultString(dateTimeOriginal == null ? null : dateTimeOriginal.value());
     }
 
     @NonNull public String artist() {
         return StringUtils.defaultString(artist == null ? null : artist.value());
-    }
-
-    @Nullable public String artistUrl() {
-        if (artist == null || artist.value() == null) {
-            return null;
-        }
-        return artist.value();
-    }
-
-    @Nullable public String creditUrl() {
-        if (credit == null || credit.value() == null) {
-            return null;
-        }
-        return credit.value();
     }
 
     @NonNull public String credit() {

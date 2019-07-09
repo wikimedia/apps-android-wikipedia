@@ -107,9 +107,9 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
                     else suggestedEditsSummary.pageTitle.description, null)
         }
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artistUrl(), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artist(), null)
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime(), null)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.creditUrl(), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.credit(), null)
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), getClickListenerFor(suggestedEditsSummary.metadata!!.licenseUrl()))
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info), getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), getClickListenerFor(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
         detailsHolder.requestLayout()
@@ -130,7 +130,11 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         }
     }
 
-    private val movementMethod = LinkMovementMethodExt { url: String -> handleExternalLink(context, Uri.parse(url)) }
+    private val movementMethod = LinkMovementMethodExt { url: String ->
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            handleExternalLink(context, Uri.parse(url))
+        }
+    }
 
     private fun loadImage(url: String?) {
         progressBar!!.visibility = GONE
