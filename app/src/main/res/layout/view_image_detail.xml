@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
     android:layout_marginEnd="16dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginBottom="8dp"
     android:orientation="vertical">
 
     <TextView
@@ -27,16 +29,35 @@
         android:layout_height="1dp"
         android:background="?attr/chip_background_color" />
 
-    <TextView
-        android:id="@+id/detailTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="8sp"
-        android:textColor="?attr/primary_text_color"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
+        android:background="?android:selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
 
+        <TextView
+            android:id="@+id/detailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="8sp"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
+
+        <ImageView
+            android:id="@+id/externalLinkView"
+            android:layout_width="@dimen/app_shortcut_icon_size"
+            android:layout_height="@dimen/app_shortcut_icon_size"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@null"
+            android:tint="?attr/colorAccent"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_open_in_new_black_24px" />
+    </LinearLayout>
 </LinearLayout>
