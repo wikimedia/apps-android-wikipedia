@@ -101,9 +101,7 @@ public class DescriptionEditView extends LinearLayout {
         this.pageTitle = pageTitle;
         originalDescription = pageTitle.getDescription();
         setHintText();
-        if (invokeSource != SUGGESTED_EDITS_ADD_CAPTION && invokeSource != SUGGESTED_EDITS_TRANSLATE_CAPTION) {
-            setDescription(originalDescription);
-        }
+        setDescription(originalDescription);
         setReviewHeaderText(false);
     }
 
