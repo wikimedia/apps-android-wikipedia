@@ -147,7 +147,7 @@ dependencies {
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
     String okHttpVersion = '3.14.0'
-    String retrofitVersion = '2.5.0'
+    String retrofitVersion = '2.6.0'
     String espressoVersion = '3.1.1'
     String frescoVersion = '2.0.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
@@ -181,15 +181,15 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-    implementation "io.reactivex.rxjava2:rxjava:2.2.3"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.10"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.12.0'
     implementation "com.jakewharton:butterknife:10.1.0"
     implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:7.0.1"
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v7:0.4.0'
-    implementation 'net.hockeyapp.android:HockeySDK:5.1.1'
-    implementation 'org.apache.commons:commons-lang3:3.8.1'
-    implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'net.hockeyapp.android:HockeySDK:5.2.0'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.jsoup:jsoup:1.12.1'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:10.1.0"
 
