@@ -349,14 +349,14 @@ public class DescriptionEditFragment extends Fragment {
             if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
                 return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
                         pageTitle.getWikiSite().languageCode(), commonsDbName,
-                        pageTitle.getConvertedText(), editView.getDescription(),
+                        pageTitle.getRequestUrlText(), editView.getDescription(),
                         invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
             } else {
                 return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                         pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                        pageTitle.getConvertedText(), editView.getDescription(),
+                        pageTitle.getRequestUrlText(), editView.getDescription(),
                         invokeSource == SUGGESTED_EDITS_ADD_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
