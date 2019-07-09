@@ -612,7 +612,7 @@
   <string name="description_edit_read">Lezen</string>
   <string name="description_edit_add_description">Artikelbeschrijving toevoegen</string>
   <string name="description_edit_translate_description">Artikelbeschrijving vertalen</string>
-  <string name="description_edit_edit_description" fuzzy="true">Beschrijving bewerken</string>
+  <string name="description_edit_edit_description">Artikelbeschrijving bewerken</string>
   <string name="description_edit_add_image_caption">Afbeeldingsbijschrift toevoegen</string>
   <string name="description_edit_edit_image_caption">Afbeeldingsbijschrift bewerken</string>
   <string name="description_edit_translate_image_caption">Afbeeldingsbijschrift vertalen</string>

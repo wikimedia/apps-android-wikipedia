@@ -2,7 +2,7 @@ package org.wikipedia.suggestededits.provider
 
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
-import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.page.RbPageSummary
@@ -11,11 +11,6 @@ import java.util.*
 import java.util.concurrent.Semaphore
 
 object MissingDescriptionProvider {
-
-    // TODO: remove when backend is in production
-    private val service : SuggestedEditsServiceBeta = ServiceFactory.get(WikipediaApp.getInstance().wikiSite,
-            SuggestedEditsServiceBeta.URL, SuggestedEditsServiceBeta::class.java)
-
     private val mutex : Semaphore = Semaphore(1)
 
     private val articlesWithMissingDescriptionCache : Stack<String> = Stack()
@@ -46,7 +41,7 @@ object MissingDescriptionProvider {
             if (cachedTitle.isNotEmpty()) {
                 Observable.just(cachedTitle)
             } else {
-                service.getArticlesWithoutDescriptions(wiki.languageCode())
+                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithoutDescriptions(wiki.languageCode())
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
@@ -83,7 +78,7 @@ object MissingDescriptionProvider {
             if (cachedPair != null) {
                 Observable.just(cachedPair)
             } else {
-                service.getArticlesWithTranslatableDescriptions(sourceWiki.languageCode(), targetLang)
+                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(sourceWiki.languageCode(), targetLang)
                         .map { pages ->
                             var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
@@ -134,7 +129,7 @@ object MissingDescriptionProvider {
             if (cachedTitle != null) {
                 Observable.just(cachedTitle)
             } else {
-                service.getImagesWithoutCaptions(lang)
+                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithoutCaptions(lang)
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
                             for (page in pages) {
@@ -169,7 +164,7 @@ object MissingDescriptionProvider {
             if (cachedPair != null) {
                 Observable.just(cachedPair)
             } else {
-                service.getImagesWithTranslatableCaptions(sourceLang, targetLang)
+                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithTranslatableCaptions(sourceLang, targetLang)
                         .map { pages ->
                             imagesWithTranslatableCaptionCacheFromLang = sourceLang
                             imagesWithTranslatableCaptionCacheToLang = targetLang
