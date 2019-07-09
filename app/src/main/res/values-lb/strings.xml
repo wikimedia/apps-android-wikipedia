@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Envlh
 * Les Meloures
 * Robby
@@ -10,20 +11,24 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Zréck</string>
+  <string name="page_tabs_back">Zréck</string>
   <string name="nav_item_forward">Virun</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_history">Am Historique sichen</string>
-  <string name="search_hint_search_my_lists">A menge Lëschte sichen</string>
-  <string name="search_hint_search_reading_list">Lieslëscht duerchsichen</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
+  <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
+  <string name="article_load_error_retry">Nach eng Kéier probéieren</string>
+  <string name="offline_load_error_retry">Nach eng Kéier probéieren</string>
   <string name="page_error_back_to_main">Zréck goen</string>
+  <string name="error_back">Zréck goen</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
   <string name="history_items_deleted">%d Artikelen aus dem Verlaf vum Browser erausgeholl</string>
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
+  <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
@@ -33,6 +38,7 @@
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Op der Säit sichen</string>
+  <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="menu_page_share">Link deelen</string>
@@ -44,6 +50,9 @@
   <string name="menu_text_select_copy">Kopéieren</string>
   <string name="menu_text_select_define">Definéieren</string>
   <string name="menu_text_select_share">Deelen</string>
+  <string name="share">Deelen</string>
+  <string name="on_this_day_page_share">Deelen</string>
+  <string name="reading_list_page_share">Deelen</string>
   <string name="menu_text_select_edit_here">Hei änneren</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="nearby_zoom_to_location">Zoom op eng Plaz op der Kaart</string>
@@ -54,7 +63,7 @@
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Mam Späichere sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
+  <string name="edit_save_action_license_logged_in">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
@@ -67,7 +76,7 @@
   <string name="dialog_message_edit_failed">Feeler beim Änneren!</string>
   <string name="dialog_message_edit_failed_retry">Nach eng Kéier probéieren</string>
   <string name="dialog_message_edit_failed_cancel">Ofbriechen</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Är Ännerunge goufen nach net gespäichert. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
+  <string name="dialog_message_leaving_edit">Är Ännerunge goufen nach net verëffentlecht. Sidd Dir sécher datt Dir vun dëser Säit erofgoe wëllt?</string>
   <string name="dialog_message_leaving_edit_leave">Fortgoen</string>
   <string name="dialog_message_leaving_edit_stay">Bleiwen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>
@@ -82,7 +91,11 @@
   <string name="nav_item_login">Op Wikipedia aloggen</string>
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
+  <string name="account_creation_password_hint">Passwuert</string>
   <string name="login_2fa_hint">Code fir Authentifikatioun mat zwee Elementer</string>
+  <string name="page_editing_login">Aloggen</string>
+  <string name="reading_lists_sync_login">Aloggen</string>
+  <string name="create_account_login">Aloggen</string>
   <string name="menu_login">Aloggen</string>
   <string name="login_activity_title">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
@@ -92,6 +105,10 @@
   <string name="reset_password_button">Späicheren an aloggen</string>
   <string name="preference_title_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
+  <string name="logout_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="logged_out_in_background_title">Ausgeloggt</string>
+  <string name="logged_out_in_background_login">Aloggen</string>
+  <string name="logged_out_in_background_cancel">Ofbriechen</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
   <string name="history_empty_message">Markéiert dat wat Dir hei gelies hutt.</string>
   <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>
@@ -128,7 +145,7 @@
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="preferences_heading_syncing">Synchronisatioun</string>
   <string name="preferences_heading_experimental">Experimentell</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Synchronisatioun vun de Lieschlëschten aschalten</string>
+  <string name="preference_title_sync_reading_lists_from_account">Synchronisatioun vun de Lieschlëschten</string>
   <string name="preference_title_download_reading_list_articles">Artikele vun der Lieslëscht eroflueden</string>
   <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater duerch d\'Späichere dovun an Ärem Wikipedia-Benotzerkont</string>
   <string name="preferences_privacy_settings_heading">Dateschutz</string>
@@ -154,13 +171,14 @@
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_app_license_heading">Lizenz</string>
   <string name="about_app_license">Quellcode disponibel op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ënner der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lizenz&lt;/a&gt;. Wann e tnet anescht uginn ass ass den Inhalt disponibel ënner enger &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike Lizenz&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">E Produkt vun der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf">E Produkt vun der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
   <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd dir sécher datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
   <string name="edit_abandon_confirm_yes">Jo</string>
@@ -172,6 +190,9 @@
   <string name="edit_next">Weider</string>
   <string name="edit_done">Verëffentlechen</string>
   <string name="edit_preview">Kucken ouni ze späicheren</string>
+  <string name="edit_undo">Réckgängeg maachen</string>
+  <string name="edit_redo">Widderhuelen</string>
+  <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
   <string name="edit_summary_tag_links">Dobäigesat Linken</string>
@@ -276,7 +297,7 @@
   <string name="article_menu_bar_bookmark">Dësen Artikel op eng Lieslëscht derbäisetzen</string>
   <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
   <string name="article_header_edit_hint">Änneren...</string>
-  <string name="article_header_edit_description">Beschreiwung vum Titel änneren</string>
+  <string name="article_header_edit_description" fuzzy="true">Beschreiwung vum Titel änneren</string>
   <string name="article_header_edit_lead_section">Aféierung änneren</string>
   <string name="color_theme_select">Faarfschema</string>
   <string name="color_theme_light">Hell</string>
@@ -302,8 +323,8 @@
   <string name="reading_list_sort_ellipsis">Zortéieren no...</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">No de Rezentesten zortéieren</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">No den Eelsten zortéieren</string>
+  <string name="reading_list_sort_by_recent">Nom Datum vum derbäisetzen zortéieren (neisten)</string>
+  <string name="reading_list_sort_by_recent_desc">Nom Datum vum derbäisetzen zortéieren (eelsten)</string>
   <string name="reading_list_menu_delete">Lëscht läschen</string>
   <string name="reading_list_menu_rename">Numm/Beschreiwung änneren</string>
   <string name="reading_list_action_menu_remove_all_from_offline">All aus dem offline eraushuelen</string>
@@ -330,6 +351,7 @@
   <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
   <string name="reading_list_remove_from_list">Vu(n) %s erofhuelen</string>
   <string name="reading_list_remove_from_lists">Vu Lieslëschten erofhuelen</string>
+  <string name="reading_list_select_item">Eraussichen</string>
   <string name="reading_list_confirm_remove_article_from_offline">Aus der Offline-Lëscht eraushuelen</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel ass a verschiddene Lëschten</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
@@ -369,6 +391,13 @@
     <item quantity="one">Dësen Artikel ass net méi offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Ofbriechen</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
   <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
@@ -376,17 +405,29 @@
   <string name="notification_syncing_resume_button">Virufueren</string>
   <string name="notification_syncing_cancel_button">Ofbriechen</string>
   <string name="notification_syncing_reading_list_channel_description">Fortschrëtt vun der Synchronisatioun vu Lieslëschten</string>
-  <string name="notification_channel_name" fuzzy="true">Synchroniséieren</string>
-  <string name="notification_syncing_title" fuzzy="true">Erofluede vun %1$d Artikelen ....</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Artikel eroflueden</item>
+    <item quantity="other">Artikelen eroflueden</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">%1$d Artikel eroflueden…</item>
+    <item quantity="other">%1$d Artikelen eroflueden…</item>
+  </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">%1$d Artikel iwwreg</item>
     <item quantity="other">%1$d Artikelen iwwreg</item>
   </plurals>
-  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Synchronisatioun vu Lieslëscht(en)</string>
-  <string name="notification_syncing_reading_list_title" fuzzy="true">Synchronisatioun vun %1$d Lëscht(en)…</string>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Lieslëscht synchroniséieren</item>
+    <item quantity="other">Lieslëschte synchroniséieren</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">%1$d Lëscht synchroniséieren…</item>
+    <item quantity="other">%1$d Lëschte synchroniséieren…</item>
+  </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">nach %1$d Lëscht</item>
-    <item quantity="other">nach %1$d%1$d Lëschten</item>
+    <item quantity="other">nach %1$d Lëschten</item>
   </plurals>
   <string name="notification_echo_channel_description">Wikipedia Notifikatiounen</string>
   <string name="notifications_activity_title">Notifikatiounen</string>
@@ -407,7 +448,7 @@
   <string name="preference_title_notification_milestone">Meilesteen</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
-  <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
+  <string name="preference_title_notification_revert">Zrécksetzen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
@@ -432,8 +473,10 @@
   <string name="view_continue_reading_card_subtitle_today">haut</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelies</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
+  <string name="onboarding_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen INhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
+  <string name="view_static_card_save_button_label">Späicheren</string>
   <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>
   <string name="feed_configure_menu_reset">Standard- Ausgesinn restauréieren</string>
   <string name="feed_configure_menu_select_all">All weisen</string>
@@ -441,51 +484,69 @@
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
-  <string name="description_edit_text_hint">Titelbeschreiwung</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="description_edit_text_hint" fuzzy="true">Titelbeschreiwung</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Beschreiwung vum Artikel (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Beschreiwung vum Bild (%s)</string>
   <string name="description_edit_save">Verëffentlechen</string>
-  <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
-  <string name="description_edit_edit_description">Beschreiwung änneren</string>
+  <string name="description_edit_read">Liesen</string>
+  <string name="description_edit_add_description" fuzzy="true">Beschreiwung vum Titel derbäisetzen</string>
+  <string name="description_edit_translate_description" fuzzy="true">Titelbeschreiwung iwwersetzen</string>
+  <string name="description_edit_edit_description" fuzzy="true">Beschreiwung änneren</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
-  <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>
+  <string name="description_edit_help_title" fuzzy="true">Hëllef:Titelbeschreiwungen</string>
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikipedia-Guide fir d\'Schreiwe vu Beschreiwungen</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
-  <string name="description_edit_anon_limit">Merci fir Ären Interessi fir Beschreiwungen z\'änneren! Fir méi Ännerungen ze maache loggt Iech w.e.g. mat Ärem Wikipedia-Benotzerkont an.</string>
-  <string name="description_edit_success_saved">Beschreiwung verëffentlecht!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Merci fir Ären Interessi fir Beschreiwungen z\'änneren! Fir méi Ännerungen ze maache loggt Iech w.e.g. mat Ärem Wikipedia-Benotzerkont an.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Beschreiwung verëffentlecht!</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Beschreiwung verëffentlecht!</string>
   <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
   <string name="description_edit_success_done">Fäerdeg</string>
   <string name="description_edit_success_did_you_know">Wousst Dir?</string>
   <string name="description_edit_success_article_edit_hint">Dir kënnt och Artikele mat dëser App änneren. Probéiert déi nächste Kéier fir Tippfeeler a kuerz Sätz duerch klicken op d\'Symbol ^1 ze verbesseren</string>
-  <string name="description_edit_tutorial_title_descriptions">Beschreiwung vum Titel</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Beschreiwung vum Titel</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resuméiert en Artikel fir de Lieser ze hëllefen de Sujet op ee Bléck ze verstoen.</string>
   <string name="description_edit_tutorial_keep_it_short">Haalt se kuerz</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
-  <string name="description_edit_help_about_title">Iwwer</string>
-  <string name="description_edit_help_description">D\'Beschreiwunge vun engem Titel resüméieren en Artikel fir de LIeser ze hëllefe fir de Sujet op ee Bléck ze verstoen.</string>
-  <string name="description_edit_help_tips">Tuyaue fir d\'Uleeë vu Beschreiwungen</string>
-  <string name="description_edit_help_tips_description">Beschreiwunge sollten an eng Zeil passen an tëscht zwee an zwielef Wierder laang sinn. Si sinn net a grousse Buschtawen et sief dat éischt Wuert ass een Numm.</string>
-  <string name="description_edit_help_tips_examples">Zum Beispill:</string>
-  <string name="description_edit_help_tips_example1">Bild vum Leonardo da vinci</string>
-  <string name="description_edit_help_tips_example1_hint">Titelbeschreiwung fir en Artikel iwwer d\'Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Héchste Bierg vun der Welt</string>
-  <string name="description_edit_help_tips_example2_hint">Titelbeschreiwung fir en Artikel iwwer de Mount Everest</string>
-  <string name="description_edit_help_more_info">Méi Informatiounen</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Beschreiwungen derbäisetzen</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Beschreiwungen iwwersetzen</string>
+  <string name="suggested_edits_review_description">Artikel-Beschreiwung iwwerliesen</string>
+  <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
+  <string name="suggested_edits_add_translation_button">Iwwersetzung derbäisetzen</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Iwwersetzung änneren</string>
+  <string name="suggested_edits_no_description" fuzzy="true">Keng Beschreiwung</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
+  <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
+  <string name="suggested_edits_menu_info">Informatioun</string>
+  <string name="suggested_edits_tasks_activity_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_task_add_description_title">Artikel-Beschreiwungen derbäisetzen</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Beschreiwungen iwwersetzen</string>
+  <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
+  <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Kënschtler</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Quell</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lizenz</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
+  <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Ofbriechen</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Nach eng Minutt</item>
-    <item quantity="other">Nach %d Minutten</item>
-  </plurals>
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
   <string name="onboarding_get_started">Fir unzefänken</string>
-  <string name="onboarding_reading_list_sync_title" fuzzy="true">Lieslëschten mat Synchroniséierung</string>
+  <string name="onboarding_maybe_later">Vläicht méi spéit</string>
+  <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
   <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
   <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
   <string name="onboarding_create_account_preferences">Späichert Är Astellungen</string>
@@ -525,7 +586,25 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo esouwuel déi traditionell wéi déi vereinfacht chinesesch Variante an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
+  <string name="remove_language_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="wikitext_bold">Fett</string>
+  <string name="wikitext_italic">Kursiv</string>
+  <string name="wikitext_link">Link</string>
+  <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
+  <string name="wikitext_template">Schabloun</string>
+  <string name="wikitext_reference">Referenz</string>
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
 </resources>

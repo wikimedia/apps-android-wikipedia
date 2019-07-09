@@ -1,7 +1,7 @@
 package org.wikipedia.dataclient.mwapi;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -25,6 +25,7 @@ public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") @Nullable private List<LangLink> langlinks;
     @SuppressWarnings("unused") @Nullable private List<Revision> revisions;
     @SuppressWarnings("unused") @Nullable private List<Coordinates> coordinates;
+    @SuppressWarnings("unused") @Nullable private List<Category> categories;
     @SuppressWarnings("unused") @Nullable private PageProps pageprops;
     @SuppressWarnings("unused") @Nullable private String extract;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
@@ -54,6 +55,10 @@ public class MwQueryPage extends BaseModel {
 
     @Nullable public List<Revision> revisions() {
         return revisions;
+    }
+
+    @Nullable public List<Category> categories() {
+        return categories;
     }
 
     @Nullable public List<Coordinates> coordinates() {
@@ -188,6 +193,24 @@ public class MwQueryPage extends BaseModel {
 
         public boolean isDisambiguation() {
             return disambiguation != null;
+        }
+    }
+
+    public static class Category {
+        @SuppressWarnings("unused") private int ns;
+        @SuppressWarnings("unused,NullableProblems") @Nullable private String title;
+        @SuppressWarnings("unused") private boolean hidden;
+
+        public int ns() {
+            return ns;
+        }
+
+        @NonNull public String title() {
+            return StringUtils.defaultString(title);
+        }
+
+        public boolean hidden() {
+            return hidden;
         }
     }
 }

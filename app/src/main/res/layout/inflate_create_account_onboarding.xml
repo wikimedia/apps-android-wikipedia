@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
     android:background="?android:windowBackground"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="8dp">
 
     <LinearLayout
         android:id="@+id/create_account_onboarding_container"
@@ -18,17 +17,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
-                app:tint="?attr/material_theme_secondary_color"/>
+                app:tint="?attr/material_theme_secondary_color" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -40,17 +39,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
-                app:tint="?attr/material_theme_secondary_color"/>
+                app:tint="?attr/material_theme_secondary_color" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -62,17 +61,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_check_black_24dp"
-                app:tint="?attr/material_theme_secondary_color"/>
+                app:tint="?attr/material_theme_secondary_color" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -92,19 +91,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/material_theme_primary_color"
-        android:text="@string/create_account_already_have" />
+        android:text="@string/create_account_already_have"
+        android:textColor="?attr/material_theme_primary_color" />
 
     <TextView
         android:id="@+id/create_account_login_button"
         style="@style/TransparentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
         android:layout_marginTop="-8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="@string/menu_login"
+        android:layout_marginBottom="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/create_account_login"
         android:textColor="?attr/colorAccent" />
 
 </LinearLayout>

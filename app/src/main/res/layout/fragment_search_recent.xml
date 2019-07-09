@@ -30,20 +30,20 @@
             style="@style/MaterialMediumSecondaryCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
             android:text="@string/search_empty_message" />
 
         <TextView
             android:id="@+id/add_languages_button"
+            style="@style/App.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            style="@style/App.Button"
-            app:backgroundTint="?attr/paper_color"
             android:text="@string/add_wikipedia_languages_text"
             android:textColor="?attr/secondary_text_color"
+            app:backgroundTint="?attr/button_background_color"
             tools:text="Add Wikipedia languages" />
     </LinearLayout>
 
@@ -66,8 +66,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="10sp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:text="@string/search_recent_header"
                 android:textColor="?attr/material_theme_secondary_color"
                 android:textSize="14sp" />

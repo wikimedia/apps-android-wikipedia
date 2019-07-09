@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:parentTag="android.widget.LinearLayout"
+    tools:background="@android:color/white"
     tools:orientation="vertical"
-    tools:background="@android:color/white">
+    tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
+        android:id="@+id/view_description_edit_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/main_toolbar_color"
@@ -23,197 +23,207 @@
                 android:id="@+id/view_description_edit_cancel_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="4dp"
-                android:padding="12dp"
                 android:layout_gravity="center_vertical"
-                android:contentDescription="@string/description_edit_cancel_hint"
-                app:srcCompat="@drawable/ic_close_main_themed_24dp"
+                android:layout_margin="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
+                android:contentDescription="@string/description_edit_cancel_hint"
+                android:padding="12dp"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
-            <LinearLayout
-                android:id="@+id/view_description_edit_header_container"
+            <TextView
+                android:id="@+id/view_description_edit_header"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:text="@string/description_edit_edit_description"
+                android:textColor="?attr/main_toolbar_title_color"
+                android:textSize="20sp"
+                android:padding="16dp" />
 
-                <TextView
-                    android:id="@+id/view_description_edit_header"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:textSize="20sp"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textColor="?attr/main_toolbar_title_color"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/description_edit_edit_description"/>
-
-                <TextView
-                    android:id="@+id/view_description_edit_page_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textColor="?attr/main_toolbar_title_color"
-                    tools:text="Lorem ipsum"/>
-
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/view_description_edit_help_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/description_edit_help_title"
+                android:padding="12dp"
+                app:srcCompat="@drawable/ic_info_outline_black_24dp"
+                app:tint="?attr/material_theme_secondary_color" />
 
             <ImageView
                 android:id="@+id/view_description_edit_save_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="4dp"
-                android:padding="12dp"
                 android:layout_gravity="center_vertical"
-                android:contentDescription="@string/description_edit_save"
-                app:srcCompat="@drawable/ic_check_black_24dp"
-                android:tint="?attr/main_toolbar_title_color"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginEnd="4dp"
                 android:clickable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
+                android:contentDescription="@string/description_edit_save"
+                android:padding="12dp"
+                android:tint="?attr/themed_icon_color"
+                app:srcCompat="@drawable/ic_check_black_24dp" />
 
         </LinearLayout>
 
         <ProgressBar
             android:id="@+id/view_description_edit_progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="-7dp"
             android:indeterminate="true"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:visibility="gone"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
     </FrameLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <org.wikipedia.descriptions.DescriptionEditReviewView
+            android:id="@+id/view_description_edit_review_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
-            <org.wikipedia.descriptions.DescriptionEditReviewView
-                android:id="@+id/view_description_edit_review_container"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/view_description_edit_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:id="@+id/view_description_edit_scrollview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone" />
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/view_description_edit_read_article_bar_container"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="1">
 
-            <LinearLayout
-                android:id="@+id/view_description_edit_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <android.support.constraint.ConstraintLayout
-                    android:id="@+id/view_description_edit_page_summary_container"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/list_item_vertical_padding"
-                    android:paddingEnd="@dimen/list_item_horizontal_padding"
-                    android:paddingBottom="@dimen/list_item_vertical_padding"
-                    android:paddingStart="@dimen/list_item_horizontal_padding"
-                    android:background="?attr/selectableItemBackground"
-                    android:visibility="gone">
+                    android:orientation="vertical">
 
-                    <org.wikipedia.views.FaceAndColorDetectImageView
-                        style="@style/SimpleDraweeViewPlaceholder.Article"
-                        android:id="@+id/view_description_edit_page_image"
-                        android:layout_width="@dimen/view_list_card_item_image"
-                        android:layout_height="@dimen/view_list_card_item_image"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:roundedCornerRadius="2dp"
-                        app:backgroundImage="@color/base100" />
-
-                    <!-- TODO: confirm with designer about the maxLines or make it scrollable-->
-                    <TextView
-                        android:id="@+id/view_description_edit_page_summary"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:maxLines="4"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/view_description_edit_page_image"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:ellipsize="end"
-                        style="@style/MaterialListSubtitle"
-                        tools:text="Lorem ipsum"/>
-
-                </android.support.constraint.ConstraintLayout>
-
-                <View
-                    android:id="@+id/indicator_divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="?attr/material_theme_border_color"/>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp">
-
-                    <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
-                               adds another. try to collapse this group into others. the same change should
-                               probably be attempted for other TextInputLayout usages -->
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/view_description_edit_text_layout"
+                    <LinearLayout
+                        android:id="@+id/view_description_edit_page_summary_container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:textAlignment="viewStart"
-                        android:gravity="start"
-                        app:counterEnabled="true"
-                        app:counterMaxLength="@integer/description_max_chars"
-                        app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
-                        <org.wikipedia.views.PlainPasteEditText
-                            android:id="@+id/view_description_edit_text"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/list_item_horizontal_padding"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="@dimen/list_item_horizontal_padding"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/label_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="?attr/material_theme_de_emphasised_color"
+                            android:textSize="12sp"
+                            tools:text="Article" />
+
+                        <TextView
+                            android:id="@+id/view_description_edit_page_summary"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:imeOptions="actionDone"
-                            android:inputType="textMultiLine"
-                            android:textSize="16sp"
-                            android:hint="@string/description_edit_text_hint"/>
-                    </android.support.design.widget.TextInputLayout>
+                            android:layout_marginTop="8dp"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:lineSpacingExtra="6sp"
+                            android:maxLines="4"
+                            android:textColor="?attr/material_theme_primary_color"
+                            android:textSize="14sp"
+                            tools:text="Lorem ipsum" />
 
-                    <ImageView
-                        android:id="@+id/view_description_edit_help_button"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="4dp"
-                        android:padding="12dp"
-                        android:layout_gravity="end"
-                        android:contentDescription="@string/description_edit_help_title"
-                        app:srcCompat="@drawable/ic_help_black_24dp"
-                        android:tint="@color/base30"
-                        android:clickable="true"
-                        android:background="?attr/selectableItemBackgroundBorderless"/>
+                        <View
+                            android:layout_width="@dimen/divider_width_for_article"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="19dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="?attr/material_theme_border_color" />
 
-                </FrameLayout>
+                    </LinearLayout>
 
-                <org.wikipedia.descriptions.DescriptionEditLicenseView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"/>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp">
+                        <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
+                                   adds another. try to collapse this group into others. the same change should
+                                   probably be attempted for other TextInputLayout usages -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/view_description_edit_text_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="12dp"
+                            android:gravity="start"
+                            android:textAlignment="viewStart"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="@integer/description_max_chars"
+                            app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
 
-            </LinearLayout>
+                            <org.wikipedia.views.PlainPasteEditText
+                                android:id="@+id/view_description_edit_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/description_edit_text_hint"
+                                android:imeOptions="actionDone"
+                                android:inputType="textMultiLine"
+                                android:drawableEnd="@drawable/ic_spacer_24dp"
+                                android:textSize="16sp">
 
-        </LinearLayout>
+                                <requestFocus />
+                            </org.wikipedia.views.PlainPasteEditText>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-    </ScrollView>
+                        <ImageView
+                            android:id="@+id/view_description_edit_voice_input"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:contentDescription="@string/description_edit_help_title"
+                            android:padding="12dp"
+                            app:srcCompat="@drawable/ic_mic_black_24dp"
+                            app:tint="?attr/material_theme_secondary_color" />
+
+                    </FrameLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <org.wikipedia.descriptions.DescriptionEditBottomBarView
+                android:id="@+id/view_description_edit_read_article_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_description_edit_scrollview" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </merge>

@@ -1,28 +1,28 @@
 <vector android:autoMirrored="true" android:height="320dp"
     android:viewportHeight="12" android:viewportWidth="24"
     android:width="640dp" xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillAlpha="1" android:fillColor="#000000"
+    <path android:fillAlpha="1" android:fillColor="?attr/tab_placeholder_text_color"
         android:pathData="M0.0238,0.0638h22.4284v0.987h-22.4284z"
-        android:strokeAlpha="1" android:strokeColor="#000000"
+        android:strokeAlpha="1" android:strokeColor="?attr/tab_placeholder_text_color"
         android:strokeLineJoin="round" android:strokeWidth="0.08342192"/>
-    <path android:fillAlpha="1" android:fillColor="#000000"
+    <path android:fillAlpha="1" android:fillColor="?attr/tab_placeholder_text_color"
         android:pathData="M0.0251,1.9746h23.941v0.9843h-23.941z"
-        android:strokeAlpha="1" android:strokeColor="#000000"
+        android:strokeAlpha="1" android:strokeColor="?attr/tab_placeholder_text_color"
         android:strokeLineJoin="round" android:strokeWidth="0.08607319"/>
-    <path android:fillAlpha="1" android:fillColor="#000000"
+    <path android:fillAlpha="1" android:fillColor="?attr/tab_placeholder_text_color"
         android:pathData="M0.0217,3.8652h20.1597v0.9911h-20.1597z"
-        android:strokeAlpha="1" android:strokeColor="#000000"
+        android:strokeAlpha="1" android:strokeColor="?attr/tab_placeholder_text_color"
         android:strokeLineJoin="round" android:strokeWidth="0.07925702"/>
-    <path android:fillAlpha="1" android:fillColor="#000000"
+    <path android:fillAlpha="1" android:fillColor="?attr/tab_placeholder_text_color"
         android:pathData="M0.0553,7.1426h22.4284v0.987h-22.4284z"
-        android:strokeAlpha="1" android:strokeColor="#000000"
+        android:strokeAlpha="1" android:strokeColor="?attr/tab_placeholder_text_color"
         android:strokeLineJoin="round" android:strokeWidth="0.08342192"/>
-    <path android:fillAlpha="1" android:fillColor="#000000"
+    <path android:fillAlpha="1" android:fillColor="?attr/tab_placeholder_text_color"
         android:pathData="M0.0566,9.0533h23.941v0.9843h-23.941z"
-        android:strokeAlpha="1" android:strokeColor="#000000"
+        android:strokeAlpha="1" android:strokeColor="?attr/tab_placeholder_text_color"
         android:strokeLineJoin="round" android:strokeWidth="0.08607319"/>
-    <path android:fillAlpha="1" android:fillColor="#000000"
+    <path android:fillAlpha="1" android:fillColor="?attr/tab_placeholder_text_color"
         android:pathData="M0.0532,10.944h20.1597v0.9911h-20.1597z"
-        android:strokeAlpha="1" android:strokeColor="#000000"
+        android:strokeAlpha="1" android:strokeColor="?attr/tab_placeholder_text_color"
         android:strokeLineJoin="round" android:strokeWidth="0.07925702"/>
 </vector>

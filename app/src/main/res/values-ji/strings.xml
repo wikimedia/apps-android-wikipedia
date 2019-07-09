@@ -13,8 +13,6 @@
   <string name="nav_item_forward">ווײַטער</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="search_hint_search_history">זוך־היסטאריע</string>
-  <string name="search_hint_search_my_lists">זוכן מיינע ליסטעס</string>
-  <string name="search_hint_search_reading_list">זוכן ליין־ליסטע</string>
   <string name="search_hint_search_languages">זוכן א שפראך</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
@@ -208,7 +206,7 @@
   <string name="crash_report_relaunch">אנהייבן פונדאסניי</string>
   <string name="crash_report_quit">פֿארלאזן</string>
   <string name="article_header_edit_hint">רעדאַקטירן...</string>
-  <string name="article_header_edit_description">רעדאקטירן טיטל־באשרײבונג</string>
+  <string name="article_header_edit_description" fuzzy="true">רעדאקטירן טיטל־באשרײבונג</string>
   <string name="article_header_edit_lead_section">רעדאקטירן אריינפֿיר</string>
   <string name="color_theme_select">טעמע</string>
   <string name="color_theme_light">העל</string>
@@ -229,21 +227,17 @@
   <string name="default_reading_list_name">אויפֿגעהיטן</string>
   <string name="user_option_sync_label">פרעפֿערענצן</string>
   <string name="notification_syncing_cancel_button">אַנולירן</string>
-  <string name="view_continue_reading_card_title">לייענען ווײטער</string>
   <string name="view_featured_image_card_download">אַראָפלאָדן</string>
   <string name="menu_feed_card_dismiss">באהאלטן די קארטע</string>
   <string name="view_continue_reading_card_subtitle_today">הײנט</string>
   <string name="view_announcement_card_negative_action">ניין, א דאנק</string>
   <string name="description_edit_save">פֿאַרעפֿנטלעכן</string>
-  <string name="description_edit_add_description">צולייגן טיטל־באַשרייבונג</string>
-  <string name="description_edit_edit_description">רעדאקטירט באשרייבונג</string>
+  <string name="description_edit_add_description" fuzzy="true">צולייגן טיטל־באַשרייבונג</string>
+  <string name="description_edit_edit_description" fuzzy="true">רעדאקטירט באשרייבונג</string>
   <string name="description_edit_cancel_hint">אַנולירן</string>
-  <string name="description_edit_help_title">קעפל באַשרייבונגען</string>
+  <string name="description_edit_help_title" fuzzy="true">קעפל באַשרייבונגען</string>
   <string name="description_edit_help_about_wikidata">װעגן װיקידאַטן</string>
   <string name="description_edit_success_done">ערליידיקט</string>
-  <string name="description_edit_help_about_title">וועגן</string>
-  <string name="description_edit_help_tips_examples">צום ביישפיל:</string>
-  <string name="description_edit_help_more_info">נאך אינפֿאָרמאַציע</string>
-  <string name="onboarding_welcome_title_v2">די פֿרייע ענציקלאפעדיע</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">די פֿרייע ענציקלאפעדיע</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">רעדאקטירן שפראכן</string>
 </resources>

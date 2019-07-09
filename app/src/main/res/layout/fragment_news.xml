@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/news_app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/readingListLeadHeight"
         android:fitsSystemWindows="true">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/news_toolbar_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/main_toolbar_color">
+            app:contentScrim="?attr/main_toolbar_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -27,33 +26,33 @@
                 app:layout_collapseMode="parallax">
 
                 <org.wikipedia.views.FaceAndColorDetectImageView
-                    style="@style/SimpleDraweeViewPlaceholder"
                     android:id="@+id/view_news_fullscreen_header_image"
-                    app:actualImageScaleType="focusCrop"
-                    app:fadeDuration="0"
+                    style="@style/SimpleDraweeViewPlaceholder"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:transitionName="@string/transition_news_item"/>
+                    android:transitionName="@string/transition_news_item"
+                    app:actualImageScaleType="focusCrop"
+                    app:fadeDuration="0" />
 
                 <View
                     android:id="@+id/view_news_fullscreen_gradient"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent" />
 
             </FrameLayout>
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/view_news_fullscreen_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ToolbarTheme"
                 app:layout_collapseMode="pin" />
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
@@ -62,28 +61,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:fitsSystemWindows="true">
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
 
             <org.wikipedia.views.AppTextView
                 android:id="@+id/view_news_fullscreen_story_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:textSize="16sp"
+                android:background="?attr/paper_color"
                 android:fontFamily="serif"
                 android:lineSpacingMultiplier="1.2"
-                android:textIsSelectable="true"
+                android:padding="16dp"
                 android:textColor="?attr/section_title_color"
-                android:background="?attr/paper_color"/>
+                android:textIsSelectable="true"
+                android:textSize="16sp" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/view_news_fullscreen_link_card_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

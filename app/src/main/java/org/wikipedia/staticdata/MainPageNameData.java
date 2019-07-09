@@ -3,7 +3,7 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,10 +21,10 @@ public final class MainPageNameData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 294;
+        final int size = 296;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Ихадоу адаҟьа");
-        map.put("ace", "Ôn Keuë");
+        map.put("ace", "Ôn Keue");
         map.put("ady", "НэкӀубгъо шъхьаӀ");
         map.put("af", "Tuisblad");
         map.put("ak", "Krataafa Titiriw");
@@ -85,7 +85,7 @@ public final class MainPageNameData {
         map.put("dty", "मुख्य पन्ना");
         map.put("dv", "މައި ޞަފްޙާ");
         map.put("dz", "མ་ཤོག།");
-        map.put("ee", "Axa do Ŋgɔ");
+        map.put("ee", "Axa Gba͂tɔ");
         map.put("el", "Πύλη:Κύρια");
         map.put("eml", "PP");
         map.put("en", "Main Page");
@@ -127,6 +127,7 @@ public final class MainPageNameData {
         map.put("ht", "Paj Prensipal");
         map.put("hu", "Kezdőlap");
         map.put("hy", "Գլխավոր էջ");
+        map.put("hyw", "Գլխաւոր Էջ");
         map.put("ia", "Pagina principal");
         map.put("id", "Halaman Utama");
         map.put("ie", "Principal págine");
@@ -174,7 +175,7 @@ public final class MainPageNameData {
         map.put("lmo", "Pagina principala");
         map.put("ln", "Lokásá ya libosó");
         map.put("lo", "ໜ້າຫຼັກ");
-        map.put("lrc", "سرآسۊنٱ");
+        map.put("lrc", "سرآسونٱ");
         map.put("lt", "Pagrindinis puslapis");
         map.put("ltg", "Suoku puslopa");
         map.put("lv", "Sākumlapa");
@@ -251,6 +252,7 @@ public final class MainPageNameData {
         map.put("se", "Portála:Ovdasiidu");
         map.put("sg", "Gä nzönî");
         map.put("sh", "Glavna stranica");
+        map.put("shn", "ၼႃႈႁူဝ်ႁႅၵ်ႈ");
         map.put("si", "මුල් පිටුව");
         map.put("simple", "Main Page");
         map.put("sk", "Hlavná stránka");

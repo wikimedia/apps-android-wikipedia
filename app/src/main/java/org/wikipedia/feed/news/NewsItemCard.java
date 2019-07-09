@@ -2,10 +2,11 @@ package org.wikipedia.feed.news;
 
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;

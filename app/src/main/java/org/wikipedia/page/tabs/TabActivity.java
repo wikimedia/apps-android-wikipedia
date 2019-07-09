@@ -4,12 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,6 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -26,11 +28,16 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.TabCountsView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,7 +49,11 @@ import de.mrapp.android.tabswitcher.TabSwitcherDecorator;
 import de.mrapp.android.tabswitcher.TabSwitcherListener;
 import de.mrapp.android.util.logging.LogLevel;
 
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+
 public class TabActivity extends BaseActivity {
+    private static final String LAUNCHED_FROM_PAGE_ACTIVITY = "launchedFromPageActivity";
+
     public static final int RESULT_LOAD_FROM_BACKSTACK = 10;
     public static final int RESULT_NEW_TAB = 11;
 
@@ -50,13 +61,13 @@ public class TabActivity extends BaseActivity {
 
     @BindView(R.id.tab_switcher) TabSwitcher tabSwitcher;
     @BindView(R.id.tab_toolbar) Toolbar tabToolbar;
-    @BindView(R.id.tab_counts_view_container) View tabCountsViewContainer;
     @BindView(R.id.tab_counts_view) TabCountsView tabCountsView;
     private WikipediaApp app;
+    private boolean launchedFromPageActivity;
     private TabListener tabListener = new TabListener();
     private TabFunnel funnel = new TabFunnel();
     private boolean cancelled = true;
-    private long tabRemovedTimeMillis;
+    private long tabUpdatedTimeMillis;
 
     @Nullable private static Bitmap FIRST_TAB_BITMAP;
 
@@ -104,6 +115,11 @@ public class TabActivity extends BaseActivity {
         return new Intent(context, TabActivity.class);
     }
 
+    public static Intent newIntentFromPageActivity(@NonNull Context context) {
+        return new Intent(context, TabActivity.class)
+                .putExtra(LAUNCHED_FROM_PAGE_ACTIVITY, true);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,11 +127,12 @@ public class TabActivity extends BaseActivity {
         ButterKnife.bind(this);
         app = WikipediaApp.getInstance();
         funnel.logEnterList(app.getTabCount());
-        tabCountsView.setTabCount(app.getTabCount());
+        tabCountsView.updateTabCount();
+        launchedFromPageActivity = getIntent().hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsViewContainer);
+        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
 
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.windowBackground));
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.colorBackground));
         setSupportActionBar(tabToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
@@ -129,6 +146,8 @@ public class TabActivity extends BaseActivity {
                     view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     view.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     view.setImageBitmap(FIRST_TAB_BITMAP);
+                    view.setPadding(0, topTabLeadImageEnabled() ? 0 : -DimenUtil.getToolbarHeightPx(TabActivity.this), 0, 0);
+
                     return view;
                 }
                 return inflater.inflate(R.layout.item_tab_contents, parent, false);
@@ -152,6 +171,8 @@ public class TabActivity extends BaseActivity {
                     descriptionText.setText(title.getDescription());
                     descriptionText.setVisibility(View.VISIBLE);
                 }
+
+                setConditionalLayoutDirection(view, title.getWikiSite().languageCode());
             }
 
             @Override
@@ -189,8 +210,8 @@ public class TabActivity extends BaseActivity {
         tabSwitcher.showSwitcher();
     }
 
-    @OnClick(R.id.tab_counts_view_container) void onItemClick(View view) {
-        finish();
+    @OnClick(R.id.tab_counts_view) void onItemClick(View view) {
+        onBackPressed();
     }
 
     @Override
@@ -219,28 +240,24 @@ public class TabActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                cancelled = false;
-                funnel.logCreateNew(app.getTabCount());
-                setResult(RESULT_NEW_TAB);
-                finish();
+                openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setMessage(R.string.close_all_tabs_confirm);
                 alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {
                     tabSwitcher.clear();
-                    app.getTabList().clear();
                     cancelled = false;
-                    setResult(RESULT_LOAD_FROM_BACKSTACK);
-                    finish();
                 });
                 alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                 alert.create().show();
                 return true;
             case R.id.menu_open_a_new_tab:
-                cancelled = false;
-                funnel.logCreateNew(app.getTabCount());
-                setResult(RESULT_NEW_TAB);
+                openNewTab();
+                return true;
+            case R.id.menu_explore:
+                startActivity(MainActivity.newIntent(TabActivity.this)
+                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()));
                 finish();
                 return true;
             case R.id.menu_reading_lists:
@@ -248,9 +265,14 @@ public class TabActivity extends BaseActivity {
                         .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code()));
                 finish();
                 return true;
-            case R.id.menu_recently_viewed:
+            case R.id.menu_history:
                 startActivity(MainActivity.newIntent(TabActivity.this)
                         .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HISTORY.code()));
+                finish();
+                return true;
+            case R.id.menu_nearby:
+                startActivity(MainActivity.newIntent(TabActivity.this)
+                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.NEARBY.code()));
                 finish();
                 return true;
             default:
@@ -259,9 +281,23 @@ public class TabActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    private boolean topTabLeadImageEnabled() {
+        if (app.getTabCount() > 0) {
+            PageTitle pageTitle = app.getTabList().get(app.getTabCount() - 1).getBackStackPositionTitle();
+            return pageTitle != null && (!pageTitle.isMainPage() && !TextUtils.isEmpty(pageTitle.getThumbUrl()));
+        }
+        return false;
+    }
+
+    private void openNewTab() {
+        cancelled = false;
+        funnel.logCreateNew(app.getTabCount());
+        if (launchedFromPageActivity) {
+            setResult(RESULT_NEW_TAB);
+        } else {
+            startActivity(PageActivity.newIntentForNewTab(TabActivity.this));
+        }
+        finish();
     }
 
     private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
@@ -269,6 +305,16 @@ public class TabActivity extends BaseActivity {
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
             app.getTabList().add(appTabIndex, appTab);
             tabSwitcher.addTab(tab, index);
+        });
+        snackbar.show();
+    }
+
+    private void showUndoAllSnackbar(@NonNull final Tab[] tabs, @NonNull List<org.wikipedia.page.tabs.Tab> appTabs) {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.all_tab_items_closed), FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
+            app.getTabList().addAll(appTabs);
+            tabSwitcher.addAllTabs(tabs);
+            appTabs.clear();
         });
         snackbar.show();
     }
@@ -287,20 +333,25 @@ public class TabActivity extends BaseActivity {
                 org.wikipedia.page.tabs.Tab tab = app.getTabList().remove(tabIndex);
                 app.getTabList().add(tab);
             }
-            tabCountsView.setTabCount(app.getTabCount());
+            tabCountsView.updateTabCount();
             cancelled = false;
 
-            final int tabRemoveDebounceMillis = 250;
-            if (System.currentTimeMillis() - tabRemovedTimeMillis > tabRemoveDebounceMillis) {
+            final int tabUpdateDebounceMillis = 250;
+            if (System.currentTimeMillis() - tabUpdatedTimeMillis > tabUpdateDebounceMillis) {
                 funnel.logSelect(app.getTabCount(), tabIndex);
-                setResult(RESULT_LOAD_FROM_BACKSTACK);
+                if (launchedFromPageActivity) {
+                    setResult(RESULT_LOAD_FROM_BACKSTACK);
+                } else {
+                    startActivity(PageActivity.newIntent(TabActivity.this));
+                }
                 finish();
             }
         }
 
         @Override
         public void onTabAdded(@NonNull TabSwitcher tabSwitcher, int index, @NonNull Tab tab, @NonNull Animation animation) {
-            tabCountsView.setTabCount(app.getTabCount());
+            tabCountsView.updateTabCount();
+            tabUpdatedTimeMillis = System.currentTimeMillis();
         }
 
         @Override
@@ -309,15 +360,22 @@ public class TabActivity extends BaseActivity {
             org.wikipedia.page.tabs.Tab appTab = app.getTabList().remove(tabIndex);
 
             funnel.logClose(app.getTabCount(), tabIndex);
-            tabCountsView.setTabCount(app.getTabCount());
+            tabCountsView.updateTabCount();
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             showUndoSnackbar(tab, index, appTab, tabIndex);
-            tabRemovedTimeMillis = System.currentTimeMillis();
+            tabUpdatedTimeMillis = System.currentTimeMillis();
         }
 
         @Override
         public void onAllTabsRemoved(@NonNull TabSwitcher tabSwitcher, @NonNull Tab[] tabs, @NonNull Animation animation) {
             L.d("All tabs removed.");
+            List<org.wikipedia.page.tabs.Tab> appTabs = new ArrayList<>(app.getTabList());
+
+            app.getTabList().clear();
+            tabCountsView.updateTabCount();
+            setResult(RESULT_LOAD_FROM_BACKSTACK);
+            showUndoAllSnackbar(tabs, appTabs);
+            tabUpdatedTimeMillis = System.currentTimeMillis();
         }
     }
 }

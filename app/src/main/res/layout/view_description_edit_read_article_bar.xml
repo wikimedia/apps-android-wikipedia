@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@android:color/white"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/material_theme_border_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/viewDownChevron"
+        android:layout_width="@dimen/bottom_toolbar_icon_size"
+        android:layout_height="@dimen/bottom_toolbar_icon_size"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@null"
+        android:padding="@dimen/bottom_toolbar_item_padding"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:tint="?attr/main_toolbar_icon_color"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_keyboard_arrow_up_black_24dp"/>
+
+    <TextView
+        android:id="@+id/viewArticleTitle"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:fontFamily="serif"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="6sp"
+        android:textColor="?attr/material_theme_primary_color"
+        android:textSize="14sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewDownChevron"
+        app:layout_constraintEnd_toStartOf="@+id/viewImageThumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/viewImageThumbnail"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewArticleTitle"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+        app:layout_constraintVertical_weight="1" />
+
+</merge>

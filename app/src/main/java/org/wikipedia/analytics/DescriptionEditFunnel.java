@@ -1,6 +1,6 @@
 package org.wikipedia.analytics;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;

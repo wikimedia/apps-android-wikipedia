@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.restbase.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,12 +21,12 @@ public class RbPageLeadTest extends BasePageLeadTest {
         subject = new RbPageClient();
     }
 
-    @Test public void testEnglishMainPage() throws Exception {
+    @Test public void testEnglishMainPage() {
         RbPageLead props = unmarshal(RbPageLead.class, getEnglishMainPageJson());
         verifyEnglishMainPage(props);
     }
 
-    @Test public void testUnprotectedDisambiguationPage() throws Exception {
+    @Test public void testUnprotectedDisambiguationPage() {
         RbPageLead props = unmarshal(RbPageLead.class, getUnprotectedDisambiguationPageJson());
         verifyUnprotectedDisambiguationPage(props);
     }
@@ -35,7 +35,7 @@ public class RbPageLeadTest extends BasePageLeadTest {
      * Custom deserializer; um, yeah /o\.
      * An earlier version had issues with protection settings that don't include "edit" protection.
      */
-    @Test public void testProtectedButNoEditProtectionPage() throws Exception {
+    @Test public void testProtectedButNoEditProtectionPage() {
         RbPageLead props = unmarshal(RbPageLead.class, getProtectedButNoEditProtectionPageJson());
         verifyProtectedNoEditProtectionPage(props);
     }

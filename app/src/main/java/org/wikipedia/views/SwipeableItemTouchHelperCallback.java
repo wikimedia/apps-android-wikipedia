@@ -4,12 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
@@ -21,6 +22,7 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private Paint swipeIconPaint = new Paint();
     private Paint itemBackgroundPaint = new Paint();
     @NonNull private Bitmap swipeIcon;
+    private boolean swipeableEnabled;
 
     public interface Callback {
         void onSwipe();
@@ -38,6 +40,10 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
         this.swipeIcon = ResourceUtil.bitmapFromVectorDrawable(context, swipeIcon, swipeIconTint);
     }
 
+    public void setSwipeableEnabled(boolean enabled) {
+        swipeableEnabled = enabled;
+    }
+
     @Override
     public boolean isLongPressDragEnabled() {
         return false;
@@ -45,7 +51,7 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     @Override
     public boolean isItemViewSwipeEnabled() {
-        return true;
+        return swipeableEnabled;
     }
 
     @Override

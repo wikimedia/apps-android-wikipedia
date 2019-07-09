@@ -1,9 +1,7 @@
 package org.wikipedia.language;
 
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -39,7 +37,7 @@ public class LanguageUtilTest {
             super(input, expected);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) @Test public void test() {
+        @Test public void test() {
             Locale locale = Locale.forLanguageTag(input());
             test(locale, expected());
         }
@@ -59,7 +57,7 @@ public class LanguageUtilTest {
             super(input, expected);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) @Test public void test() {
+        @Test public void test() {
             test(input(), expected());
         }
     }

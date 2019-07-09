@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+openssl aes-256-cbc -K $encrypted_62eb76340444_key -iv $encrypted_62eb76340444_iv -in wikipedia.keystore.enc -out wikipedia.keystore -d
+
+declare START_TIME="$(date +"%Y-%m-%dT%H:%M:%S.%N")"
+./gradlew -q clean assembleAlphaRelease
+
+if [ -f "app/build/outputs/apk/alpha/release/app-alpha-release.apk" ]; then
+  cp app/build/outputs/apk/alpha/release/app-alpha-release.apk app/build/outputs/apk/alpha/release/app-alpha-universal-release.apk
+fi

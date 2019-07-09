@@ -1,12 +1,6 @@
 package org.wikipedia.feed.configure;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,12 +9,21 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedConfigureFunnel;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 
@@ -33,7 +36,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public class ConfigureFragment extends Fragment implements ConfigureItemView.Callback {
     @BindView(R.id.content_types_recycler) RecyclerView recyclerView;
@@ -41,6 +48,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     private ItemTouchHelper itemTouchHelper;
     private List<FeedContentType> orderedContentTypes = new ArrayList<>();
     @Nullable private FeedConfigureFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @NonNull public static ConfigureFragment newInstance() {
         return new ConfigureFragment();
@@ -53,59 +61,48 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         setupRecyclerView();
 
         funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
-                requireActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
+                requireActivity().getIntent().getIntExtra(INTENT_EXTRA_INVOKE_SOURCE, -1));
 
-        new FeedAvailabilityClient().request(new FeedAvailabilityClient.Callback() {
-            @Override
-            public void success(@NonNull Call<FeedAvailabilityClient.FeedAvailability> call, @NonNull FeedAvailabilityClient.FeedAvailability result) {
-                if (!isAdded()) {
-                    return;
-                }
-                // apply the new availability rules to our content types
-                FeedContentType.NEWS.getLangCodesSupported().clear();
-                if (isLimitedToDomains(result.news())) {
-                    addDomainNamesAsLangCodes(FeedContentType.NEWS.getLangCodesSupported(), result.news());
-                }
-                FeedContentType.ON_THIS_DAY.getLangCodesSupported().clear();
-                if (isLimitedToDomains(result.onThisDay())) {
-                    addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.getLangCodesSupported(), result.onThisDay());
-                }
-                FeedContentType.TRENDING_ARTICLES.getLangCodesSupported().clear();
-                if (isLimitedToDomains(result.mostRead())) {
-                    addDomainNamesAsLangCodes(FeedContentType.TRENDING_ARTICLES.getLangCodesSupported(), result.mostRead());
-                }
-                FeedContentType.FEATURED_ARTICLE.getLangCodesSupported().clear();
-                if (isLimitedToDomains(result.featuredArticle())) {
-                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.getLangCodesSupported(), result.featuredArticle());
-                }
-                FeedContentType.FEATURED_IMAGE.getLangCodesSupported().clear();
-                if (isLimitedToDomains(result.featuredPicture())) {
-                    addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.getLangCodesSupported(), result.featuredPicture());
-                }
-                FeedContentType.saveState();
-                prepareContentTypeList();
-            }
-
-            @Override
-            public void failure(@NonNull Call<FeedAvailabilityClient.FeedAvailability> call, @NonNull Throwable caught) {
-                if (!isAdded()) {
-                    return;
-                }
-                prepareContentTypeList();
-            }
-
-            private boolean isLimitedToDomains(@NonNull List<String> domainNames) {
-                return !domainNames.isEmpty() && !domainNames.get(0).contains("*");
-            }
-
-            private void addDomainNamesAsLangCodes(@NonNull List<String> outList, @NonNull List<String> domainNames) {
-                for (String domainName : domainNames) {
-                    outList.add(new WikiSite(domainName).languageCode());
-                }
-            }
-        });
+        disposables.add(ServiceFactory.getRest(new WikiSite("wikimedia.org")).getFeedAvailability()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(this::prepareContentTypeList)
+                .subscribe(result -> {
+                    // apply the new availability rules to our content types
+                    FeedContentType.NEWS.getLangCodesSupported().clear();
+                    if (isLimitedToDomains(result.news())) {
+                        addDomainNamesAsLangCodes(FeedContentType.NEWS.getLangCodesSupported(), result.news());
+                    }
+                    FeedContentType.ON_THIS_DAY.getLangCodesSupported().clear();
+                    if (isLimitedToDomains(result.onThisDay())) {
+                        addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.getLangCodesSupported(), result.onThisDay());
+                    }
+                    FeedContentType.TRENDING_ARTICLES.getLangCodesSupported().clear();
+                    if (isLimitedToDomains(result.mostRead())) {
+                        addDomainNamesAsLangCodes(FeedContentType.TRENDING_ARTICLES.getLangCodesSupported(), result.mostRead());
+                    }
+                    FeedContentType.FEATURED_ARTICLE.getLangCodesSupported().clear();
+                    if (isLimitedToDomains(result.featuredArticle())) {
+                        addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.getLangCodesSupported(), result.featuredArticle());
+                    }
+                    FeedContentType.FEATURED_IMAGE.getLangCodesSupported().clear();
+                    if (isLimitedToDomains(result.featuredPicture())) {
+                        addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.getLangCodesSupported(), result.featuredPicture());
+                    }
+                    FeedContentType.saveState();
+                }, L::e));
 
         return view;
+    }
+
+    private static boolean isLimitedToDomains(@NonNull List<String> domainNames) {
+        return !domainNames.isEmpty() && !domainNames.get(0).contains("*");
+    }
+
+    private static void addDomainNamesAsLangCodes(@NonNull List<String> outList, @NonNull List<String> domainNames) {
+        for (String domainName : domainNames) {
+            outList.add(new WikiSite(domainName).languageCode());
+        }
     }
 
     @Override
@@ -122,6 +119,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
         unbinder.unbind();
         unbinder = null;
         if (funnel != null && !orderedContentTypes.isEmpty()) {
@@ -173,7 +171,12 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         List<String> appLanguages = WikipediaApp.getInstance().language().getAppLanguageCodes();
         Iterator<FeedContentType> i = orderedContentTypes.iterator();
         while (i.hasNext()) {
-            List<String> supportedLanguages = i.next().getLangCodesSupported();
+            FeedContentType feedContentType = i.next();
+            if (!feedContentType.showInConfig()) {
+                i.remove();
+                continue;
+            }
+            List<String> supportedLanguages = feedContentType.getLangCodesSupported();
             if (supportedLanguages.isEmpty()) {
                 continue;
             }

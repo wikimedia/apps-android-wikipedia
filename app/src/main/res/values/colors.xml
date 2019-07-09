@@ -34,12 +34,18 @@
     <color name="yellow90">#fef6e7</color>
     <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
 
+    <color name="find_in_page">#FFFF00</color>
+    <color name="find_in_page_active">#FF9632</color>
+
     <!-- Sepia -->
     <color name="amate">#e1dad1</color>
     <color name="papyrus">#f0e6d6</color>
     <color name="kraft">#cbc8c1</color>
-    <color name="masi">#6c6760</color>
+    <color name="masi">#646059</color>
     <color name="osage">#ff9500</color>
+    <color name="osage_translucent">#80ff9500</color>
+    <color name="parchment">#f8f1e3</color>
+    <color name="dawn">#F2EBE1</color>
 
     <!-- Light and Dark mode consolidation-->
     <color name="black87">#DE000000</color>

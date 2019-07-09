@@ -1,16 +1,20 @@
 {
-  "error": {
-    "code": "no-such-entity",
-    "info": "Could not find such an entity. (Invalid id: User talk:Mhollo)",
-    "id": "User talk:Mhollo",
-    "messages": [
-      {
-        "name": "wikibase-api-no-such-entity",
-        "parameters": [],
-        "html": "Could not find such an entity."
-      }
-    ],
-    "docref": "See https://www.wikidata.org/w/api.php for API usage."
-  },
+  "errors": [
+    {
+      "code": "no-such-entity",
+      "text": "Could not find such an entity. (Invalid id: User talk:Mhollo)",
+      "data": {
+        "messages": [
+          {
+            "name": "wikibase-api-no-such-entity",
+            "parameters": [],
+            "html": "Could not find such an entity."
+          }
+        ]
+      },
+      "module": "main"
+    }
+  ],
+  "docref": "See https://www.wikidata.org/w/api.php for API usage",
   "servedby": "mw1202"
 }

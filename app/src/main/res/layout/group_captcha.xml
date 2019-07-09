@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/captcha_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="?attr/paper_color"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
     android:visibility="gone"
     tools:visibility="visible">
 
     <TextView
+        style="@style/MaterialMediumSecondaryCaption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="0dp"
         android:text="@string/edit_section_captcha_message"
-        style="@style/MaterialMediumSecondaryCaption"
-        android:textColor="?attr/primary_text_color"
-        android:layout_margin="0dp"/>
+        android:textColor="?attr/primary_text_color" />
 
     <TextView
         android:id="@+id/request_account_text"
+        style="@style/MaterialListSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/edit_section_captcha_request_an_account_message"
-        style="@style/MaterialListSubtitle"
-        android:textColor="?attr/primary_text_color"/>
+        android:textColor="?attr/primary_text_color" />
 
     <FrameLayout
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/captcha_image"
+            style="@style/SimpleDraweeViewPlaceholder"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:background="@null"
             android:layout_gravity="center_horizontal"
+            android:background="@null"
             android:contentDescription="@string/captcha_image"
-            app:actualImageScaleType="fitCenter"
-            style="@style/SimpleDraweeViewPlaceholder.Article"/>
+            app:actualImageScaleType="fitCenter" />
+
         <ProgressBar
             android:id="@+id/captcha_image_progress"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:indeterminate="true"
-            style="?android:attr/progressBarStyleHorizontal"
             android:visibility="gone"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
     </FrameLayout>
 
     <TextView
+        style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/edit_section_captcha_reload"
-        android:textAlignment="center"
-        style="?android:textAppearanceSmall"/>
+        android:textAlignment="center" />
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/captcha_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,25 +74,26 @@
         android:layout_marginBottom="8dp"
         android:focusedByDefault="false"
         android:hint="@string/edit_section_captcha_hint">
+
         <org.wikipedia.views.PlainPasteEditText
+            style="?android:textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="?android:textAppearanceMedium"
             android:layout_gravity="center_horizontal"
             android:imeOptions="actionDone|flagNoExtractUi"
             android:inputType="textVisiblePassword|textNoSuggestions"
             android:maxLines="1" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/captcha_submit_button"
-        android:layout_width="match_parent"
-        android:text="@string/create_account_button"
         style="@style/App.Button.Blue"
+        android:layout_width="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
         android:enabled="false"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
+        android:text="@string/create_account_button"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
 </LinearLayout>

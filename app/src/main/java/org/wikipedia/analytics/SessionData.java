@@ -19,6 +19,13 @@ public class SessionData {
     private int pagesFromDisambig;
     private int pagesFromBack;
     private int pagesWithNoDescription;
+    private int pagesFromSuggestedEdits;
+
+    public SessionData() {
+        long now = System.currentTimeMillis();
+        startTime = now;
+        lastTouchTime = now;
+    }
 
     public void addPageViewed(HistoryEntry entry) {
         switch (entry.getSource()) {
@@ -45,6 +52,9 @@ public class SessionData {
                 break;
             case HistoryEntry.SOURCE_DISAMBIG:
                 pagesFromDisambig++;
+                break;
+            case HistoryEntry.SOURCE_SUGGESTED_EDITS:
+                pagesFromSuggestedEdits++;
                 break;
             default:
                 pagesFromInternal++;
@@ -127,6 +137,10 @@ public class SessionData {
         return pagesWithNoDescription;
     }
 
+    public int getPagesFromSuggestedEdits() {
+        return pagesFromSuggestedEdits;
+    }
+
     public void addPageFromBack() {
         pagesFromBack++;
     }
@@ -138,6 +152,6 @@ public class SessionData {
     public int getTotalPages() {
         return pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal
                 + pagesFromExternal + pagesFromHistory + pagesFromReadingList + pagesFromNearby
-                + pagesFromDisambig;
+                + pagesFromDisambig + pagesFromSuggestedEdits;
     }
 }

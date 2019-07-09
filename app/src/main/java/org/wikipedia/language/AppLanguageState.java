@@ -1,9 +1,10 @@
 package org.wikipedia.language;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
@@ -15,18 +16,13 @@ import java.util.List;
 import java.util.Locale;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.language.AppLanguageLookUpTable.TEST_LANGUAGE_CODE;
 
 /** Language lookup and state management for the application language and most recently used article
  * and application languages. */
 public class AppLanguageState {
     @NonNull
     private final AppLanguageLookUpTable appLanguageLookUpTable;
-
-    // The language code used by the app when the article language is unspecified. It's possible for
-    // this code to be unsupported if the languages supported changes.
-    // TODO: Remove in April 2019
-    @Nullable
-    private String appLanguageCode;
 
     // Language codes that have been explicitly chosen by the user in most recently used order. This
     // list includes both app and article languages.
@@ -38,7 +34,6 @@ public class AppLanguageState {
 
     public AppLanguageState(@NonNull Context context) {
         appLanguageLookUpTable = new AppLanguageLookUpTable(context);
-        appLanguageCode = Prefs.getAppLanguageCode();
         mruLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getMruLanguageCodeCsv())));
         appLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getAppLanguageCodeCsv())));
         initAppLanguageCodes();
@@ -80,9 +75,7 @@ public class AppLanguageState {
 
     private void initAppLanguageCodes() {
         if (appLanguageCodes.isEmpty()) {
-            if (!TextUtils.isEmpty(appLanguageCode)) {
-                addAppLanguageCode(appLanguageCode);
-            } else if (Prefs.isInitialOnboardingEnabled()) {
+            if (Prefs.isInitialOnboardingEnabled()) {
                 setAppLanguageCodes(getRemainingAvailableLanguageCodes());
             } else {
                 // If user has never changed app language before
@@ -133,6 +126,9 @@ public class AppLanguageState {
                 codes.add(insertIndex, code);
                 ++insertIndex;
             }
+        }
+        if (!Prefs.isShowDeveloperSettingsEnabled()) {
+            codes.remove(TEST_LANGUAGE_CODE);
         }
         return codes;
     }

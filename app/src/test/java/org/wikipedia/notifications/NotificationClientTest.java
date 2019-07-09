@@ -10,6 +10,7 @@ import org.wikipedia.test.TestFileUtil;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,8 +22,7 @@ public class NotificationClientTest extends MockRetrofitTest {
         enqueueFromFile("notifications.json");
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        getApiService().getAllNotifications("*", "!read", null)
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(response -> {
@@ -33,12 +33,11 @@ public class NotificationClientTest extends MockRetrofitTest {
                 });
     }
 
-    @Test public void testRequestMalformed() throws Throwable {
-        server().enqueue("(╯°□°）╯︵ ┻━┻");
+    @Test public void testRequestMalformed() {
+        enqueueMalformed();
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        getApiService().getAllNotifications("*", "!read", null)
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(MalformedJsonException.class);
     }
@@ -50,5 +49,9 @@ public class NotificationClientTest extends MockRetrofitTest {
         assertThat(n.wiki(), is("wikidatawiki"));
         assertThat(n.agent().name(), is("User1"));
         assertThat(n.isFromWikidata(), is(true));
+    }
+
+    private Observable<MwQueryResponse> getObservable() {
+        return getApiService().getAllNotifications("*", "!read", null);
     }
 }

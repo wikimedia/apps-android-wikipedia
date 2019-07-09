@@ -1,9 +1,9 @@
 package org.wikipedia.page.linkpreview;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.text.Html;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.StringUtil;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class LinkPreviewContents {
         if (disambiguation) {
             extractStr = "<p>" + WikipediaApp.getInstance().getString(R.string.link_preview_disambiguation_description) + "</p>" + extractStr;
         }
-        extract = Html.fromHtml(extractStr);
+        extract = StringUtil.fromHtml(extractStr);
         title.setThumbUrl(pageSummary.getThumbnailUrl());
     }
 

@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
@@ -97,6 +97,5 @@ public abstract class BasePageLeadTest extends BasePageClientTest {
         MwServiceError error = e.getError();
         assertThat(error.getTitle(), is("nopage"));
         assertThat(error.getDetails(), is("The page parameter must be set"));
-        assertThat(error.getDocRef(), is("See https://en.wikipedia.org/w/api.php for API usage"));
     }
 }

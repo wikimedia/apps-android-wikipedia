@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/base_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,45 +12,47 @@
 
     <View
         android:id="@+id/years_text_space"
-        android:visibility="gone"
         android:layout_width="1dp"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"
+        android:visibility="gone" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/years_text_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:layout_marginStart="-12dp"
+        android:layout_marginBottom="12dp"
+        android:background="?attr/paper_color"
         android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        android:background="?attr/paper_color">
+        android:paddingBottom="2dp">
 
         <ImageView
             android:id="@+id/years_text_background"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@null"
             android:tint="?attr/chart_shade5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/otd_year_button_background"
-            android:contentDescription="@null"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/otd_year_button_background" />
 
         <TextView
             android:id="@+id/years_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="1dp"
-            android:paddingBottom="3dp"
-            android:paddingEnd="6dp"
+            android:maxLines="1"
             android:paddingStart="6dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="3dp"
             android:textColor="?attr/chart_shade7"
             android:textSize="12sp"
-            android:maxLines="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="123 years ago" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/year_layout"
@@ -67,15 +69,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/paper_color"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp">
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp">
+
             <ImageView
                 android:id="@+id/radio_image_view"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
+                android:contentDescription="@null"
                 android:tint="?attr/chart_shade5"
-                app:srcCompat="@drawable/otd_radio"
-                android:contentDescription="@null"/>
+                app:srcCompat="@drawable/otd_radio" />
         </FrameLayout>
 
         <TextView
@@ -96,22 +99,22 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:layout_marginEnd="12dp"
         android:layout_marginStart="19dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="2dp"
         android:lineSpacingExtra="8sp"
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
         tools:text="Thomas Edison films American sharpshooter Annie Oakley, which is instrumental in her hiring by Buffalo Bill for his Wild West Show." />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pages_recycler"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_marginTop="8dp"
         android:background="?attr/paper_color"
         android:clipToPadding="false"
-        android:paddingStart="16dp"/>
+        android:paddingStart="16dp" />
 
 </LinearLayout>

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-scripts/missing-qq.py
-time ./gradlew connectedAlphaReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=org.wikipedia.test.TranslationTests

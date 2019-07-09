@@ -14,8 +14,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Soek in Wikipedia</string>
   <string name="search_hint_search_history">Soekgeskiedenis</string>
-  <string name="search_hint_search_my_lists">Deursiek my lyste</string>
-  <string name="search_hint_search_reading_list">Deursoek leeslys</string>
   <string name="search_hint_search_languages">Soek na ’n taal</string>
   <string name="nav_item_history">Geskiedenis</string>
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
@@ -266,7 +264,7 @@
   <string name="article_menu_bar_bookmark">Voeg hierdie artikel toe tot leeslys</string>
   <string name="article_menu_bar_share">Deel die artikelskakel</string>
   <string name="article_header_edit_hint">Wysig…</string>
-  <string name="article_header_edit_description">Wysig titelbeskrywing</string>
+  <string name="article_header_edit_description" fuzzy="true">Wysig titelbeskrywing</string>
   <string name="article_header_edit_lead_section">Wysig inleiding</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Lig</string>
@@ -319,7 +317,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Instellings</string>
   <string name="user_option_sync_label">Voorkeure</string>
   <string name="notification_reverted_title">Wysiging teruggestel</string>
-  <string name="view_continue_reading_card_title">Lees verder</string>
   <string name="view_main_page_card_title">Vandag op Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hoofblad op %s</string>
   <string name="view_featured_image_card_title">Prent van die dag</string>
@@ -339,23 +336,12 @@
   <string name="description_edit_save">Publiseer</string>
   <string name="description_edit_cancel_hint">Kanselleer</string>
   <string name="description_edit_success_did_you_know">Het u geweet?</string>
-  <string name="description_edit_tutorial_title_descriptions">Titelbeskrywings</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titelbeskrywings</string>
   <string name="description_edit_tutorial_keep_it_short">Hou dit kort</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin redigeer</string>
-  <string name="description_edit_help_about_title">Aangaande</string>
-  <string name="description_edit_help_tips_examples">Byvoorbeeld:</string>
-  <string name="description_edit_help_tips_example1">skildery deur Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">titelbeskrywing vir ’n artikel oor die Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">Aarde se hoogste berg</string>
-  <string name="description_edit_help_tips_example2_hint">Titelbeskrywing vir ’n artikel oor Berg Everest</string>
-  <string name="description_edit_help_more_info">Meer inligting</string>
   <string name="description_edit_revert_subtitle">Dankie dat u bydra tot Wikipedia!</string>
   <string name="size_gb">%.2f GG</string>
   <string name="size_mb">%.2f MG</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">nog 1 min</item>
-    <item quantity="other">nog %d mins</item>
-  </plurals>
   <string name="languages_list_all_text">Alle tale</string>
   <string name="wikipedia_languages_title">Wikipedia-tale</string>
   <string name="wikipedia_languages_your_languages_text">U tale</string>

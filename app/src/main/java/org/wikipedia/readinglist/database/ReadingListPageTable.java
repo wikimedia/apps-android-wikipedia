@@ -3,8 +3,9 @@ package org.wikipedia.readinglist.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.util.Base64;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;

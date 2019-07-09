@@ -1,7 +1,8 @@
 package org.wikipedia.database.column;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 public class StrColumn extends Column<String> {
     public StrColumn(@NonNull String tbl, @NonNull String name, @NonNull String type) {

@@ -1,8 +1,7 @@
 package org.wikipedia.recurring;
 
-import android.util.Log;
-
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.log.L;
 
 import java.util.Date;
 
@@ -22,11 +21,11 @@ public abstract class RecurringTask {
         String lastExecutionLog = getName() + ". Last execution was " + lastRunDate + ".";
 
         if (shouldRun(lastRunDate)) {
-            Log.d(getClass().getName(), "Executing recurring task, " + lastExecutionLog);
+            L.d("Executing recurring task, " + lastExecutionLog);
             run(lastRunDate);
             Prefs.setLastRunTime(getName(), getAbsoluteTime());
         } else {
-            Log.d(getClass().getName(), "Skipping recurring task, " + lastExecutionLog);
+            L.d("Skipping recurring task, " + lastExecutionLog);
         }
     }
 

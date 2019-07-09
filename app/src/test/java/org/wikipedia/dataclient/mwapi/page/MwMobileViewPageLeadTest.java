@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.mwapi.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,14 +22,14 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
         subject = new MwPageClient();
     }
 
-    @Test public void testEnglishMainPage() throws Exception {
+    @Test public void testEnglishMainPage() {
         MwMobileViewPageLead pageLead = unmarshal(MwMobileViewPageLead.class, wrapInMobileview(getEnglishMainPageJson()));
         MwMobileViewPageLead.Mobileview props = pageLead.getMobileview();
         verifyEnglishMainPage(props);
     }
 
 
-    @Test public void testUnprotectedDisambiguationPage() throws Exception {
+    @Test public void testUnprotectedDisambiguationPage() {
         MwMobileViewPageLead pageLead = unmarshal(MwMobileViewPageLead.class,
                 wrapInMobileview(getUnprotectedDisambiguationPageJson()));
         MwMobileViewPageLead.Mobileview props = pageLead.getMobileview();
@@ -40,7 +40,7 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
      * Custom deserializer; um, yeah /o\.
      * An earlier version had issues with protection settings that don't include "edit" protection.
      */
-    @Test public void testProtectedButNoEditProtectionPage() throws Exception {
+    @Test public void testProtectedButNoEditProtectionPage() {
         MwMobileViewPageLead pageLead = unmarshal(MwMobileViewPageLead.class,
                 wrapInMobileview(getProtectedButNoEditProtectionPageJson()));
         MwMobileViewPageLead.Mobileview props = pageLead.getMobileview();
@@ -57,9 +57,9 @@ public class MwMobileViewPageLeadTest extends BasePageLeadTest {
                     && result.body().getDescription().contains("Mexican boxer"));
     }
 
-    @Test public void testError() throws Exception {
+    @Test public void testError() {
         try {
-            MwMobileViewPageLead pageLead = unmarshal(MwMobileViewPageLead.class, getErrorJson());
+            unmarshal(MwMobileViewPageLead.class, getErrorJson());
         } catch (MwException e) {
             verifyError(e);
         }

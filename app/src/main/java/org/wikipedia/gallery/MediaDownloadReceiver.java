@@ -9,8 +9,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -35,7 +36,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
     public static void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
         String filename = FileUtil.sanitizeFileName(featuredImage.title());
         String targetDirectory = Environment.DIRECTORY_PICTURES;
-        performDownloadRequest(context, featuredImage.image().source(), targetDirectory, filename, null);
+        performDownloadRequest(context, Uri.parse(featuredImage.getOriginal().getSource()), targetDirectory, filename, null);
     }
 
     public static void download(@NonNull Context context, @NonNull GalleryItem galleryItem) {

@@ -1,7 +1,5 @@
 package org.wikipedia.richtext;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -10,7 +8,11 @@ import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.widget.TextView;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -133,8 +135,16 @@ public final class RichTextUtil {
 
 
     public static CharSequence remove(@NonNull CharSequence text, @IntRange(from = 1) int start, int end) {
-        return new SpannedString(TextUtils.concat(text.subSequence(0, start - 1),
-                text.subSequence(end, text.length())));
+        try {
+            return new SpannedString(TextUtils.concat(text.subSequence(0, start - 1),
+                    text.subSequence(end, text.length())));
+        } catch (Exception e) {
+            // A number of possible exceptions can be thrown by the system from handling even
+            // slightly malformed spans or paragraphs, so let's ignore them for now and just
+            // return the original text.
+            L.e(e);
+        }
+        return text;
     }
 
     private RichTextUtil() { }

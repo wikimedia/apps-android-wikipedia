@@ -1,13 +1,12 @@
 package org.wikipedia.dataclient.mwapi;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.model.BaseModel;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,20 +14,15 @@ import java.util.List;
  */
 public class MwServiceError extends BaseModel implements ServiceError {
     @SuppressWarnings("unused") @Nullable private String code;
-    @SuppressWarnings("unused") @Nullable private String info;
-    @SuppressWarnings("unused") @Nullable private String docref;
-    @SuppressWarnings("unused") @NonNull private List<Message> messages = Collections.emptyList();
+    @SuppressWarnings("unused") @Nullable private String text;
+    @SuppressWarnings("unused") @Nullable private Data data;
 
     @Override @NonNull public String getTitle() {
         return StringUtils.defaultString(code);
     }
 
     @Override @NonNull public String getDetails() {
-        return StringUtils.defaultString(info);
-    }
-
-    @Nullable public String getDocRef() {
-        return docref;
+        return StringUtils.defaultString(text);
     }
 
     public boolean badToken() {
@@ -40,21 +34,33 @@ public class MwServiceError extends BaseModel implements ServiceError {
     }
 
     public boolean hasMessageName(@NonNull String messageName) {
-        for (Message msg : messages) {
-            if (messageName.equals(msg.name)) {
-                return true;
+        if (data != null && data.messages() != null) {
+            for (Message msg : data.messages()) {
+                if (messageName.equals(msg.name)) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
     @Nullable public String getMessageHtml(@NonNull String messageName) {
-        for (Message msg : messages) {
-            if (messageName.equals(msg.name)) {
-                return msg.html();
+        if (data != null && data.messages() != null) {
+            for (Message msg : data.messages()) {
+                if (messageName.equals(msg.name)) {
+                    return msg.html();
+                }
             }
         }
         return null;
+    }
+
+    private static final class Data {
+        @SuppressWarnings("unused") @Nullable private List<Message> messages;
+
+        @Nullable private List<Message> messages() {
+            return messages;
+        }
     }
 
     private static final class Message {

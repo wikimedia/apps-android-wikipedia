@@ -1,11 +1,12 @@
 package org.wikipedia.settings;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.preference.PreferenceViewHolder;
-import android.support.v7.preference.SwitchPreferenceCompat;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.preference.PreferenceViewHolder;
+import androidx.preference.SwitchPreferenceCompat;
 
 public class SwitchPreferenceMultiLine extends SwitchPreferenceCompat {
     public SwitchPreferenceMultiLine(Context ctx, AttributeSet attrs, int defStyle) {

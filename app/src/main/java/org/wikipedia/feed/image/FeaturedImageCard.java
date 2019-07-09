@@ -1,8 +1,9 @@
 package org.wikipedia.feed.image;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -56,7 +57,7 @@ public class FeaturedImageCard extends Card {
     @Override
     @NonNull
     public Uri image() {
-        return featuredImage.thumbnail().source();
+        return Uri.parse(featuredImage.getThumbnailUrl());
     }
 
     @NonNull @Override public CardType type() {
@@ -65,7 +66,7 @@ public class FeaturedImageCard extends Card {
 
     @Nullable
     public String description() {
-        return featuredImage.description();
+        return featuredImage.getDescription().getText();
     }
 
     @Override

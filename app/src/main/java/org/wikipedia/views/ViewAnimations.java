@@ -3,8 +3,9 @@ package org.wikipedia.views;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.res.Resources;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 /**
  * Contains convenient methods for performing various animations on Views.

@@ -35,7 +35,7 @@ public class CreateAccountClientTest extends MockRetrofitTest {
                 .assertValue(result -> result.status().equals("FAIL"));
     }
 
-    @Test public void testRequestResponse404() throws Throwable {
+    @Test public void testRequestResponse404() {
         enqueue404();
         TestObserver<CreateAccountResponse> observer = new TestObserver<>();
         getObservable().subscribe(observer);
@@ -43,8 +43,8 @@ public class CreateAccountClientTest extends MockRetrofitTest {
         observer.assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("┏━┓ ︵  /(^.^/)");
+    @Test public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<CreateAccountResponse> observer = new TestObserver<>();
         getObservable().subscribe(observer);
 

@@ -7,34 +7,37 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
-import android.util.Log;
 import android.widget.RemoteViews;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 import static org.wikipedia.util.UriUtil.decodeURL;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
-    private static final String TAG = "WidgetFeatured";
-
     public static void forceUpdateWidget(@NonNull Context context) {
         Intent intent = new Intent(context, WidgetProviderFeaturedPage.class);
         intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
@@ -46,26 +49,28 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         }
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager,
                          int[] appWidgetIds) {
         ComponentName thisWidget = new ComponentName(context, WidgetProviderFeaturedPage.class);
         final int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
 
-        getMainPageLead((final String titleText) -> {
+        getFeaturedArticleInformation((final PageTitle pageTitle, final CharSequence widgetText) -> {
             for (final int widgetId : allWidgetIds) {
-                Log.d(TAG, "updating widget...");
+                L.d("updating widget...");
                 final RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
                         R.layout.widget_featured_page);
 
-                if (!TextUtils.isEmpty(titleText)) {
-                    remoteViews.setTextViewText(R.id.widget_content_text, titleText);
+                if (!TextUtils.isEmpty(widgetText)) {
+                    remoteViews.setTextViewText(R.id.widget_content_text, widgetText);
                 }
                 appWidgetManager.updateAppWidget(widgetId, remoteViews);
 
                 // Create a PendingIntent to act as the onClickListener
                 Intent intent = new Intent(context, PageActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra(EXTRA_PAGETITLE, pageTitle);
                 intent.putExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET, true);
                 PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent,
                         PendingIntent.FLAG_UPDATE_CURRENT);
@@ -82,24 +87,43 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         });
     }
 
+
+
     @SuppressLint("CheckResult")
-    private void getMainPageLead(final Callback cb) {
+    private void getFeaturedArticleInformation(final Callback cb) {
         WikipediaApp app = WikipediaApp.getInstance();
-        final PageTitle title = new PageTitle(
+
+        final PageTitle mainPageTitle = new PageTitle(
                 MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()),
                 app.getWikiSite());
 
-        getApiService(title)
-                .lead(title.getWikiSite(), null, null, null, title.getRequestUrlText(),
-                        DimenUtil.calculateLeadImageWidth())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(rsp -> {
-                    PageLead lead = rsp.body();
-                    L.d("Downloaded page " + title.getDisplayText());
-                    String titleText = findFeaturedArticleTitle(lead.getLeadSectionContent());
+        UtcDate date = DateUtil.getUtcRequestDateFor(0);
 
-                    cb.onFeaturedArticleReceived(titleText);
+        ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getAggregatedFeed(date.year(), date.month(), date.date())
+                .flatMap(response -> {
+                    if (response.tfa() != null) {
+                        return Observable.just(response.tfa());
+                    } else {
+                        // TODO: this logic can be removed if the feed API can return the featured article for all languages.
+                        return getApiService(mainPageTitle)
+                                .lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(),
+                                        DimenUtil.calculateLeadImageWidth());
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .subscribe(response -> {
+                    CharSequence widgetText = mainPageTitle.getText();
+                    PageTitle pageTitle = mainPageTitle;
+                    if (response instanceof retrofit2.Response) {
+                        PageLead lead = (PageLead) ((retrofit2.Response) response).body();
+                        L.d("Downloaded page " + mainPageTitle.getRequestUrlText());
+                        widgetText = findFeaturedArticleTitle(lead.getLeadSectionContent());
+                    } else if (response instanceof RbPageSummary) {
+                        widgetText = StringUtil.fromHtml(((RbPageSummary) response).getDisplayTitle());
+                        pageTitle = ((RbPageSummary) response).getPageTitle(app.getWikiSite());
+                    }
+
+                    cb.onFeaturedArticleReceived(pageTitle, widgetText);
                 }, L::e);
     }
 
@@ -131,6 +155,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
     }
 
     private interface Callback {
-        void onFeaturedArticleReceived(String titleText);
+        void onFeaturedArticleReceived(@NonNull PageTitle pageTitle, @NonNull CharSequence widgetText);
     }
 }

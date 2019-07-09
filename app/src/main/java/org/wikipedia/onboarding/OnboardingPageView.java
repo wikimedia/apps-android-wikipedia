@@ -1,20 +1,9 @@
 package org.wikipedia.onboarding;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -23,6 +12,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -82,7 +81,6 @@ public class OnboardingPageView extends LinearLayout {
         init(attrs, defStyleAttr, 0);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public OnboardingPageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs, defStyleAttr, defStyleRes);
@@ -110,7 +108,7 @@ public class OnboardingPageView extends LinearLayout {
         if (attrs != null) {
             TypedArray array = getContext().obtainStyledAttributes(attrs,
                     R.styleable.OnboardingPageView, defStyleAttr, defStyleRes);
-            Drawable centeredImage = ContextCompat.getDrawable(getContext(),
+            Drawable centeredImage = AppCompatResources.getDrawable(getContext(),
                     array.getResourceId(R.styleable.OnboardingPageView_centeredImage, -1));
             String primaryText = array.getString(R.styleable.OnboardingPageView_primaryText);
             String secondaryText = array.getString(R.styleable.OnboardingPageView_secondaryText);
@@ -119,11 +117,19 @@ public class OnboardingPageView extends LinearLayout {
             listDataType = array.getString(R.styleable.OnboardingPageView_dataType);
             boolean showListView = array.getBoolean(R.styleable.OnboardingPageView_showListView, false);
             Drawable background = array.getDrawable(R.styleable.OnboardingPageView_background);
+            float imageSize = array.getDimension(R.styleable.OnboardingPageView_imageSize, 0);
 
             if (background != null) {
                 setBackground(background);
             }
             imageViewCentered.setImageDrawable(centeredImage);
+            if (imageSize > 0 && centeredImage != null && centeredImage.getIntrinsicHeight() > 0) {
+                float aspect = (float)centeredImage.getIntrinsicWidth() / centeredImage.getIntrinsicHeight();
+                ViewGroup.LayoutParams params = imageViewCentered.getLayoutParams();
+                params.width = (int) imageSize;
+                params.height = (int) (imageSize / aspect);
+                imageViewCentered.setLayoutParams(params);
+            }
             primaryTextView.setText(primaryText);
             secondaryTextView.setText(StringUtil.fromHtml(secondaryText));
             tertiaryTextView.setText(tertiaryText);

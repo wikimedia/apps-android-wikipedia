@@ -47,42 +47,6 @@
     <!-- Find in page -->
     <string name="find_in_page_result">%1$d/%2$d</string>
 
-    <!-- Description editing -->
-    <string name="description_edit_help_body"><![CDATA[
-        <p>
-            <font color=\'#3366cc\'><strong>:helpAboutTitle</strong></font>
-        </p>
-        <p>
-            :helpAboutDescription
-            <br/>
-        </p>
-        <p>
-            <font color=\'#3366cc\'><strong>:helpTipsTitle</strong></font>
-        </p>
-        <p>
-            :helpTipsDescription
-        </p>
-        <p>
-            :helpTipsExamples
-        </p>
-        <p>
-            <strong><em>:helpTipsExample1</em></strong>
-            <br/>
-            :helpTipsExample1Hint
-        </p>
-        <p>
-            <strong><em>:helpTipsExample2</em></strong>
-            <br/>
-            :helpTipsExample2Hint
-            <br/>
-        </p>
-        <p>
-            <font color=\'#3366cc\'><strong>:helpMoreInfo</strong></font>
-        </p>
-        <p>
-            :helpMetaInfo
-        </p>
-    ]]></string>
 
     <string name="description_edit_revert_help_body"><![CDATA[
         :revertSubtitle<br />
@@ -112,10 +76,6 @@
     <string name="language_data">multilingual</string>
     <string name="add_square_brackets_to_string">[%s]</string>
     <string name="empty" />
-
-    <!-- TODO: remove after we have the formal dialog texts -->
-    <string name="temp_add_title_descriptions_dialog_title">First time message for add title descriptions task list</string>
-    <string name="temp_add_title_descriptions_dialog_message">Introduction to how this particular app editor task flow works. Can be a short dialog since users should be familiar with the edit type already.</string>
-
+    <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
 
 </resources>

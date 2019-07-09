@@ -2,7 +2,8 @@ package org.wikipedia.util;
 
 import android.content.ContentProviderClient;
 import android.os.Build;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 public final class ContentProviderClientCompat {
     public static void close(@NonNull ContentProviderClient client) {

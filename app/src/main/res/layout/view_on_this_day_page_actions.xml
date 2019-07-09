@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
     tools:background="?attr/paper_color"
-    tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
-    tools:orientation="vertical">
+    tools:layout_width="match_parent"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
 
     <TextView
         android:id="@+id/on_this_day_item_title"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:paddingLeft="@dimen/list_item_horizontal_padding"
-        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingStart="@dimen/list_item_horizontal_padding"
+        android:paddingEnd="@dimen/list_item_horizontal_padding"
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
-        android:fontFamily="sans-serif-medium"
-        android:maxLines="1"
-        android:ellipsize="end"
-        tools:text="Article title"/>
+        tools:text="Article title" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color"/>
+        android:background="?attr/material_theme_border_color" />
 
     <LinearLayout
         android:id="@+id/on_this_day_item_add_to_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
+
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
-            android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_bookmark_white_24dp"
+            android:layout_marginStart="@dimen/list_item_horizontal_padding"
+            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+            android:contentDescription="@null"
             android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_bookmark_white_24dp" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/list_item_horizontal_padding"
-            android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
+            android:paddingStart="@dimen/list_item_horizontal_padding"
+            android:paddingEnd="@dimen/list_item_horizontal_padding"
+            android:text="@string/menu_page_add_to_list"
             android:textColor="?attr/primary_text_color"
-            android:textSize="16sp"
-            android:text="@string/menu_page_add_to_list"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,24 +60,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
+
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
-            android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_share_black_24dp"
+            android:layout_marginStart="@dimen/list_item_horizontal_padding"
+            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+            android:contentDescription="@null"
             android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_share_black_24dp" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/list_item_horizontal_padding"
-            android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
+            android:paddingStart="@dimen/list_item_horizontal_padding"
+            android:paddingEnd="@dimen/list_item_horizontal_padding"
+            android:text="@string/on_this_day_page_share"
             android:textColor="?attr/primary_text_color"
-            android:textSize="16sp"
-            android:text="@string/menu_text_select_share"/>
+            android:textSize="16sp" />
     </LinearLayout>
 </merge>

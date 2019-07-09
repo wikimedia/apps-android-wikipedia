@@ -18,7 +18,7 @@ import java.lang.annotation.RetentionPolicy;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.RectF;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.view.MotionEvent;
 
 import com.facebook.common.logging.FLog;

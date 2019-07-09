@@ -2,10 +2,11 @@ package org.wikipedia.pageimages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -19,7 +20,8 @@ public class PageImage implements Parcelable {
 
     private final PageTitle title;
     private final String imageName;
-    @Nullable private String requestUrlTitle;
+    @Nullable
+    private String requestUrlTitle;
 
     public PageImage(PageTitle title, String imageName, @Nullable String requestUrlTitle) {
         this.title = title;

@@ -2,14 +2,15 @@ package org.wikipedia.page.shareafact;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
@@ -74,17 +75,22 @@ public class ShareHandler {
         this.bridge = bridge;
 
         bridge.addListener("onGetTextSelection", (String messageType, JSONObject messagePayload) -> {
+            leaveActionMode();
             String purpose = messagePayload.optString(PAYLOAD_PURPOSE_KEY, "");
             String text = messagePayload.optString(PAYLOAD_TEXT_KEY, "");
             switch (purpose) {
                 case PAYLOAD_PURPOSE_SHARE:
-                    onSharePayload(text);
+                    if (funnel == null) {
+                        createFunnel();
+                    }
+                    shareSnippet(text);
+                    funnel.logShareTap(text);
                     break;
                 case PAYLOAD_PURPOSE_DEFINE:
-                    onDefinePayload(text);
+                    showWiktionaryDefinition(text.toLowerCase(Locale.getDefault()));
                     break;
                 case PAYLOAD_PURPOSE_EDIT_HERE:
-                    onEditHerePayload(messagePayload.optInt("sectionID", 0), text);
+                    onEditHerePayload(messagePayload.optInt("sectionID", 0), text, messagePayload.optBoolean("editDescription", false));
                     break;
                 default:
                     L.d("Unknown purpose=" + purpose);
@@ -96,38 +102,19 @@ public class ShareHandler {
         disposables.clear();
     }
 
-    private void onHighlightText() {
-        if (funnel == null) {
-            createFunnel();
-        }
-        funnel.logHighlight();
-    }
-
     public void showWiktionaryDefinition(String text) {
         PageTitle title = fragment.getTitle();
         fragment.showBottomSheet(WiktionaryDialog.newInstance(title, text));
     }
 
-    private void onSharePayload(@NonNull String text) {
-        if (funnel == null) {
-            createFunnel();
+    private void onEditHerePayload(int sectionID, String text, boolean isEditingDescription) {
+        if (sectionID == 0 && isEditingDescription) {
+            fragment.verifyBeforeEditingDescription(text);
+        } else {
+            if (sectionID >= 0) {
+                fragment.getEditHandler().startEditingSection(sectionID, text);
+            }
         }
-        shareSnippet(text);
-        funnel.logShareTap(text);
-    }
-
-    private void onDefinePayload(String text) {
-        showWiktionaryDefinition(text.toLowerCase(Locale.getDefault()));
-    }
-
-    private void onEditHerePayload(int sectionID, String text) {
-        if (sectionID >= 0) {
-            fragment.getEditHandler().startEditingSection(sectionID, text);
-        }
-    }
-
-    private void showCopySnackbar() {
-        FeedbackUtil.showMessage(fragment.getActivity(), R.string.text_copied);
     }
 
     private void shareSnippet(@NonNull CharSequence input) {
@@ -170,10 +157,7 @@ public class ShareHandler {
         webViewActionMode = mode;
         Menu menu = mode.getMenu();
         MenuItem shareItem = menu.findItem(R.id.menu_text_select_share);
-        handleSelection(menu, shareItem);
-    }
 
-    private void handleSelection(Menu menu, MenuItem shareItem) {
         if (Prefs.isShareTutorialEnabled()) {
             postShowShareToolTip(shareItem);
             Prefs.setShareTutorialEnabled(false);
@@ -184,7 +168,7 @@ public class ShareHandler {
         MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
         copyItem.setOnMenuItemClickListener((MenuItem menuItem) -> {
             fragment.getWebView().copyToClipboard();
-            showCopySnackbar();
+            FeedbackUtil.showMessage(fragment.getActivity(), R.string.text_copied);
             leaveActionMode();
             return true;
         });
@@ -199,7 +183,10 @@ public class ShareHandler {
             editItem.setVisible(false);
         }
 
-        onHighlightText();
+        if (funnel == null) {
+            createFunnel();
+        }
+        funnel.logHighlight();
     }
 
     private boolean shouldEnableWiktionaryDialog() {
@@ -215,14 +202,10 @@ public class ShareHandler {
         fragment.getView().post(() -> {
             View shareItemView = ActivityUtil.getMenuItemView(fragment.requireActivity(), shareItem);
             if (shareItemView != null) {
-                showShareToolTip(shareItemView);
+                FeedbackUtil.showTapTargetView(fragment.requireActivity(), shareItemView,
+                        R.string.share, R.string.tool_tip_share, null);
             }
         });
-    }
-
-    private void showShareToolTip(@NonNull View shareItemView) {
-        FeedbackUtil.showTapTargetView(fragment.requireActivity(), shareItemView,
-                R.string.menu_text_select_share, R.string.tool_tip_share, null);
     }
 
     private void leaveActionMode() {
@@ -253,21 +236,16 @@ public class ShareHandler {
 
         @Override
         public boolean onMenuItemClick(MenuItem item) {
-            requestTextSelection(purpose);
-            leaveActionMode();
+            // send an event to the WebView that will make it return the
+            // selected text (or first paragraph) back to us...
+            try {
+                JSONObject payload = new JSONObject();
+                payload.put(PAYLOAD_PURPOSE_KEY, purpose);
+                bridge.sendMessage("getTextSelection", payload);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
             return true;
-        }
-    }
-
-    private void requestTextSelection(String purpose) {
-        // send an event to the WebView that will make it return the
-        // selected text (or first paragraph) back to us...
-        try {
-            JSONObject payload = new JSONObject();
-            payload.put(PAYLOAD_PURPOSE_KEY, purpose);
-            bridge.sendMessage("getTextSelection", payload);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
         }
     }
 

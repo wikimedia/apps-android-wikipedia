@@ -1,10 +1,6 @@
 package org.wikipedia.gallery;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,6 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -72,7 +73,6 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         @Override
         public void onClick(View v) {
             if (mListener != null) {
-                // TODO: check which title will be used here
                 mListener.onGalleryItemClicked(mGalleryItem.getTitles().getCanonical());
             }
         }

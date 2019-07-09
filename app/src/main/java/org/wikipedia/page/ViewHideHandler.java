@@ -1,9 +1,10 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
@@ -21,6 +22,7 @@ public abstract class ViewHideHandler
         this.hideableView = hideableView;
         this.anchoredView = anchoredView;
         this.gravity = gravity;
+
     }
 
     /**
@@ -54,13 +56,9 @@ public abstract class ViewHideHandler
         if (webView == null) {
             return;
         }
+
         onScrolled(oldScrollY, scrollY);
 
-        if (gravity == Gravity.TOP && scrollY <= webView.getHeight()) {
-            // For the first screenful, ensure it's always shown
-            ensureDisplayed();
-            return;
-        }
         int animMargin = 0;
         int scrollDelta = scrollY - oldScrollY;
         if (!isHumanScroll) {

@@ -1,6 +1,6 @@
 package org.wikipedia.captcha;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.dataclient.mwapi.MwResponse;
 

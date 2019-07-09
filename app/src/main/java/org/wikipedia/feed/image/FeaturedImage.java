@@ -1,59 +1,34 @@
 package org.wikipedia.feed.image;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
 
-import org.wikipedia.feed.model.Thumbnail;
+import org.wikipedia.gallery.GalleryItem;
+import org.wikipedia.gallery.ImageInfo;
+import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.json.annotations.Required;
 
-public final class FeaturedImage {
+public final class FeaturedImage extends GalleryItem implements PostProcessingTypeAdapter.PostProcessable {
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private Thumbnail thumbnail;
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private Thumbnail image;
-    @SuppressWarnings("unused") @Nullable private Description description;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private ImageInfo image;
+
+    private int age;
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
 
     @NonNull
     public String title() {
         return title;
     }
 
-    @NonNull
-    public Thumbnail thumbnail() {
-        return thumbnail;
-    }
-
-    @NonNull
-    public Thumbnail image() {
-        return image;
-    }
-
-    @Nullable
-    public String description() {
-        return description == null ? null : description.text;
-    }
-
-    @Nullable
-    public String descriptionLang() {
-        return description == null ? null : description.lang;
-    }
-
-    /**
-     * An object containing a description of the featured image and a language code for that description.
-     *
-     * The content service gets all available translations of the featured image description and
-     * returns the translation for the request wiki language, if available.  Otherwise it defaults
-     * to providing the English translation.
-     */
-    private static class Description {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String text;
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String lang;
-
-        public String text() {
-            return text;
-        }
-
-        public String lang() {
-            return lang;
-        }
+    @Override
+    public void postProcess() {
+        setTitle(title);
+        getOriginal().setSource(image.getSource());
     }
 }

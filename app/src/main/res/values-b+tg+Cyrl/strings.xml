@@ -23,7 +23,7 @@
   <string name="menu_text_select_share">Паҳнкунӣ</string>
   <string name="nav_item_nearby">Наздикӣ</string>
   <string name="nearby_zoom_to_location">Наздиккунӣ ба як маконе дар харита</string>
-  <string name="last_updated_text">Охирин рӯзи барӯзшавӣ %1$s</string>
+  <string name="last_updated_text">Охирин рӯзи барӯзшавӣ %s</string>
   <string name="content_license_html">Мӯҳтаво таҳти &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ва ё ғайр дастрас аст</string>
   <string name="edit_save_action_license_logged_in">Бо захира намудан, Шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
   <string name="edit_save_action_license_anon">Бо захиракуни, шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти иҷозатномаи &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; розӣ ҳастед. Вироишот ба нишонаи IP ин дастгоҳ сабт мешавад. Агар шумо &lt;a href=\"https://#login\"&gt;вуруд шавад&lt;/a&gt;, шумо бештар ҳарми шахсиятро пайдо мекунед.</string>

@@ -1,12 +1,13 @@
 package org.wikipedia.edit;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -15,7 +16,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.descriptions.DescriptionEditClient;
+import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
@@ -59,14 +60,14 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION);
     }
 
-    private void showUneditableDialog() {
+    public void showUneditableDialog() {
         new AlertDialog.Builder(fragment.requireActivity())
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
                 .setMessage(AccountUtil.isLoggedIn()
                         ? R.string.page_protected_can_not_edit
                         : R.string.page_protected_can_not_edit_anon)
-                .setPositiveButton(android.R.string.ok, null)
+                .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
                 .show();
         funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }
@@ -77,7 +78,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             return;
         }
         if (messageType.equals("editSectionClicked")) {
-            if (messagePayload.has("mainPencilClicked") && DescriptionEditClient.isEditAllowed(currentPage)) {
+            if (messagePayload.has("mainPencilClicked") && DescriptionEditUtil.isEditAllowed(currentPage)) {
                 View tempView = new View(fragment.requireContext());
                 tempView.setX(DimenUtil.dpToPx(messagePayload.optInt("x")));
                 tempView.setY(DimenUtil.dpToPx(messagePayload.optInt("y")) - fragment.getWebView().getScrollY());
@@ -87,19 +88,11 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 menu.setOnMenuItemClickListener(new EditMenuClickListener());
                 menu.setOnDismissListener(menu1 -> ((ViewGroup) fragment.getView()).removeView(tempView));
                 menu.show();
-            } else if (messagePayload.has("editDescriptionClicked") && DescriptionEditClient.isEditAllowed(currentPage)) {
-                verifyDescriptionEditable();
+            } else if (messagePayload.has("editDescriptionClicked") && DescriptionEditUtil.isEditAllowed(currentPage)) {
+                fragment.verifyBeforeEditingDescription(null);
             } else {
                 startEditingSection(messagePayload.optInt("sectionID"), null);
             }
-        }
-    }
-
-    private void verifyDescriptionEditable() {
-        if (currentPage != null && currentPage.getPageProperties().canEdit()) {
-            fragment.verifyLoggedInThenEditDescription();
-        } else {
-            showUneditableDialog();
         }
     }
 
@@ -108,7 +101,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_page_header_edit_description:
-                    verifyDescriptionEditable();
+                    fragment.verifyBeforeEditingDescription(null);
                     return true;
                 case R.id.menu_page_header_edit_lead_section:
                     startEditingSection(0, null);

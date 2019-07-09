@@ -28,7 +28,7 @@ public class NewsLinkCardTest {
         content = GsonUtil.getDefaultGson().fromJson(json, typeToken.getType());
     }
 
-    @Test public void testTitleNormalization() throws Throwable {
+    @Test public void testTitleNormalization() {
         List<NewsItemCard> newsItemCards = NewsListCard.toItemCards(content, TEST);
         for (NewsItemCard newsItemCard : newsItemCards) {
             for (RbPageSummary link : newsItemCard.links()) {

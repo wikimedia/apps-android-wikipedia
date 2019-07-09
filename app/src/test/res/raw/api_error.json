@@ -1,8 +1,10 @@
 {
-  "error": {
-    "code": "unknown_action",
-    "info": "Unrecognized value for parameter \"action\": oscillate.",
-    "docref": "See https://en.wikipedia.org/w/api.php for API usage."
-  },
+  "errors": [
+    {
+      "code": "unknown_action",
+      "text": "Unrecognized value for parameter \"action\": oscillate."
+    }
+  ],
+  "docref": "See https://en.wikipedia.org/w/api.php for API usage.",
   "servedby": "mw1286"
 }

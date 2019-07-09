@@ -3,11 +3,11 @@ package org.wikipedia.feed.featured;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -22,6 +22,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -106,7 +107,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void extract(@Nullable String extract) {
-        extractView.setText(Html.fromHtml(extract));
+        extractView.setText(StringUtil.fromHtml(extract));
     }
 
     private void header(@NonNull FeaturedArticleCard card) {

@@ -1,10 +1,11 @@
 package org.wikipedia.espresso.page;
 
 import android.Manifest;
-import android.support.test.espresso.DataInteraction;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.rule.GrantPermissionRule;
-import android.support.test.runner.AndroidJUnit4;
+
+import androidx.test.espresso.DataInteraction;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.GrantPermissionRule;
+import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -14,9 +15,9 @@ import org.wikipedia.espresso.search.SearchBehaviors;
 import org.wikipedia.espresso.util.ScreenshotTools;
 import org.wikipedia.page.PageActivity;
 
-import static android.support.test.espresso.Espresso.onData;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.Espresso.onData;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;

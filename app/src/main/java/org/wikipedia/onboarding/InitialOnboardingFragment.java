@@ -2,13 +2,14 @@ package org.wikipedia.onboarding;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.PagerAdapter;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;

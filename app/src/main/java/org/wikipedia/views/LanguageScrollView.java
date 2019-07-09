@@ -5,19 +5,21 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.ViewCompat;
+
+import com.google.android.material.tabs.TabLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -98,7 +100,7 @@ public class LanguageScrollView extends ConstraintLayout {
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.colorAccent);
                 @ColorInt int paperColor = getThemedColor(getContext(), R.attr.paper_color);
-                Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.lang_button_shape);
+                Drawable drawable = AppCompatResources.getDrawable(getContext(), R.drawable.lang_button_shape);
                 updateTabLanguageCode(view, null, paperColor, drawable, color);
                 updateTabLanguageLabel(view, null, color);
             }
@@ -110,7 +112,7 @@ public class LanguageScrollView extends ConstraintLayout {
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color);
                 updateTabLanguageLabel(view, null, color);
-                updateTabLanguageCode(view, null, color, ContextCompat.getDrawable(getContext(), R.drawable.lang_button_shape_border), color);
+                updateTabLanguageCode(view, null, color, AppCompatResources.getDrawable(getContext(), R.drawable.lang_button_shape_border), color);
             }
         }
     }

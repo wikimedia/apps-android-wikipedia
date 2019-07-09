@@ -3,15 +3,16 @@ package org.wikipedia.settings.languages;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -99,7 +100,7 @@ public class WikipediaLanguagesItemView extends LinearLayout {
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(),
+            setForeground(AppCompatResources.getDrawable(getContext(),
                     ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
     }

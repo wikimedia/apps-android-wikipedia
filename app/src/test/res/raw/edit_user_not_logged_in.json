@@ -1,8 +1,10 @@
 {
-  "servedby": "mw1221",
-  "error": {
-    "code": "assertuserfailed",
-    "info": "Assertion that the user is logged in failed",
-    "docref": "See https://en.wikipedia.org/w/api.php for API usage"
-  }
+  "errors": [
+    {
+      "code": "assertuserfailed",
+      "text": "Assertion that the user is logged in failed"
+    }
+  ],
+  "docref": "See https://en.wikipedia.org/w/api.php for API usage",
+  "servedby": "mw1221"
 }

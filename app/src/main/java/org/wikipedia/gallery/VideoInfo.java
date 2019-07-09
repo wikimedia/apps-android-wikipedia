@@ -1,6 +1,6 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 

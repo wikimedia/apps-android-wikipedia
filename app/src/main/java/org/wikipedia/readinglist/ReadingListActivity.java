@@ -3,11 +3,11 @@ package org.wikipedia.readinglist;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -18,10 +18,8 @@ public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragm
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
     }
 
     public static Intent newIntent(@NonNull Context context, @NonNull ReadingList list) {

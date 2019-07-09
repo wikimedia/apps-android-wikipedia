@@ -4,9 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -14,6 +11,11 @@ import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -351,6 +353,7 @@ public class CreateAccountActivity extends BaseActivity {
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+        L.logRemoteErrorIfProd(caught);
     }
 
     private class UserNameTextWatcher implements TextWatcher {

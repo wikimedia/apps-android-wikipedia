@@ -1,6 +1,6 @@
 package org.wikipedia.database.column;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.page.Namespace;
 

@@ -1,8 +1,9 @@
 package org.wikipedia.dataclient.restbase.page;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -96,6 +97,10 @@ public class RbPageSummary implements PageSummary {
 
     public int getPageId() {
         return pageid;
+    }
+
+    public String getLang() {
+        return lang;
     }
 
     /**

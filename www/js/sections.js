@@ -1,12 +1,8 @@
 var bridge = require("./bridge");
 var transformer = require("./transformer");
-var theme = require("./theme");
 var pagelib = require("wikimedia-page-library");
 var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
 var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
-
-var opacityLight = 0.54;
-var opacityDark = 0.7;
 
 pagelib.PlatformTransform.classify( window );
 pagelib.CompatibilityTransform.enableSupport( document );
@@ -17,8 +13,6 @@ bridge.registerListener( "clearContents", function() {
 
 bridge.registerListener( "setMargins", function( payload ) {
     document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
-    document.getElementById( "content" ).style.marginLeft = payload.marginLeft + "px";
-    document.getElementById( "content" ).style.marginRight = payload.marginRight + "px";
 });
 
 bridge.registerListener( "setPaddingTop", function( payload ) {
@@ -42,6 +36,8 @@ function getLeadParagraph() {
 // If fewer than two characters are highlighted, returns the text of the first paragraph.
 bridge.registerListener( "getTextSelection", function( payload ) {
     var text = window.getSelection().toString().trim();
+    var sectionID = getCurrentSection();
+    var editDescription = false;
     if (text.length < 2 && payload.purpose === "share") {
         text = getLeadParagraph();
     }
@@ -54,7 +50,11 @@ bridge.registerListener( "getTextSelection", function( payload ) {
         range.setStart(range.startContainer, newRangeStart);
         text = range.toString();
     }
-    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text, "sectionID" : getCurrentSection() } );
+    if (sectionID === "0" && window.allowDescriptionEdit) {
+        var getSelectionContainerId = window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode.getAttribute('id');
+        editDescription = getSelectionContainerId && getSelectionContainerId === "pagelib_edit_section_title_description";
+    }
+    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text, "sectionID" : sectionID, "editDescription" : editDescription } );
 });
 
 function setWindowAttributes( payload ) {
@@ -76,92 +76,20 @@ function setWindowAttributes( payload ) {
     window.siteLanguage = payload.siteLanguage;
     window.showImages = payload.showImages;
     window.collapseTables = payload.collapseTables;
+    window.dimImages = payload.dimImages;
+    window.imagePlaceholderBackgroundColor = payload.imagePlaceholderBackgroundColor;
 }
 
-function isRtl() {
-    return window.directionality === 'rtl';
-}
+function setTitleElement( parentNode, section ) {
 
-function makeSvgElement( width, height, color, svgContents ) {
-    var svg = document.createElement( "svg" );
-    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    svg.setAttribute("width", width);
-    svg.setAttribute("height", height);
-    svg.setAttribute("style", "vertical-align:middle;fill:" + color + ";");
-    svg.innerHTML = svgContents;
-    return svg;
-}
+    var container = pagelib.EditTransform.newEditLeadSectionHeader(document, window.pageTitle,
+        window.pageDescription, window.string_add_description,
+        window.allowDescriptionEdit, section.noedit, window.hasPronunciation);
 
-/*
-TODO: migrate this upstream to page-library, or to MCS.
-*/
-function setTitleElement( parentNode ) {
-    var titleDiv = document.createElement( "div" );
-    titleDiv.id = "heading_0";
-    titleDiv.setAttribute( "data-id", 0 );
-    titleDiv.className = "section_heading";
-    titleDiv.setAttribute( "dir", window.directionality );
+    var sectionHeader = container.querySelector( ".pagelib_edit_section_header" );
+    sectionHeader.setAttribute( "data-id", 0 );
 
-    // Create the actual H1 heading
-    var h1 = document.createElement( "h1" );
-    h1.innerHTML = window.pageTitle;
-
-    if (window.hasPronunciation) {
-        // Create and append the audio "speaker" icon
-        var audioIcon = makeSvgElement(16, 16, 'currentColor', '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path><path d="M0 0h24v24H0z" fill="none"></path>');
-        audioIcon.setAttribute("viewBox", "0 0 24 24");
-        audioIcon.style.margin = "0 6px 2px 6px";
-        if (isRtl()) { audioIcon.style.transform = "scaleX(-1)"; }
-        var audioAnchor = document.createElement( "a" );
-        audioAnchor.setAttribute("data-action", "pronunciation_click");
-        audioAnchor.setAttribute("style", "color:inherit;");
-        audioAnchor.innerHTML = audioIcon.outerHTML;
-        h1.appendChild(audioAnchor);
-    }
-
-    // Div that will contain the description and edit pencil
-    var descriptionDiv = document.createElement( "div" );
-    var mainEditPencilAnchor = document.createElement( "a" );
-    mainEditPencilAnchor.setAttribute("data-action", "edit_main");
-    mainEditPencilAnchor.setAttribute("class", "pagelib_edit_section_link");
-    var style = window.isDarkMode ? "filter:invert(100%);-webkit-filter:invert(100%);" : "";
-    style += isRtl() ? "float:left;transform:scaleX(-1);" : "float:right;"
-    mainEditPencilAnchor.setAttribute("style", style);
-    mainEditPencilAnchor.style.opacity = window.isDarkMode ? opacityDark : opacityLight;
-
-    // Span that will contain the description and/or the two-line icon
-    var descriptionSpan = document.createElement( "span" );
-    descriptionSpan.setAttribute("style", "font-size:90%;");
-    if (window.pageDescription) {
-        descriptionSpan.innerHTML = window.pageDescription;
-        descriptionSpan.style.opacity = window.isDarkMode ? opacityDark : opacityLight;
-    } else if (window.allowDescriptionEdit) {
-        var descriptionAnchor = document.createElement( "a" );
-        var descSvg = makeSvgElement(24, 16, 'currentColor', '<defs><path id="a" d="M0 0h24v24H0V0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path d="M4 9h16v2H4zm0 4h10v2H4z" clip-path="url(#b)"/>');
-        descSvg.setAttribute("viewBox", "4 9 24 8");
-        if (isRtl()) { descSvg.style.transform = "scaleX(-1)"; }
-        descriptionAnchor.setAttribute("href", "#");
-        descriptionAnchor.setAttribute("data-action", "edit_description");
-        descriptionAnchor.innerHTML = descSvg.outerHTML + window.string_add_description;
-        descriptionAnchor.setAttribute("style", "font-style:italic;");
-        descriptionSpan.appendChild(descriptionAnchor);
-    } else {
-        descriptionSpan.innerHTML = " ";
-    }
-
-    // Decorative divider that appears below the title and description
-    var dividerLine = document.createElement( "div" );
-    dividerLine.setAttribute("style", "width:56px;border-top: 1px solid currentColor !important;margin-top:12px;margin-bottom:16px;");
-    dividerLine.style.opacity = window.isDarkMode ? opacityDark : opacityLight;
-
-    descriptionDiv.appendChild(mainEditPencilAnchor);
-    descriptionDiv.appendChild(descriptionSpan);
-    if (!window.isMainPage) {
-        titleDiv.appendChild(h1);
-        titleDiv.appendChild(descriptionDiv);
-        titleDiv.appendChild(dividerLine);
-    }
-    parentNode.appendChild(titleDiv);
+    parentNode.appendChild(container);
 }
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
@@ -172,14 +100,16 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     setWindowAttributes(payload);
     window.offline = false;
 
-    theme.applyTheme(payload);
+    pagelib.DimImagesTransform.dim( window, window.dimImages );
 
     var contentElem = document.getElementById( "content" );
-    setTitleElement(contentElem);
+    contentElem.setAttribute( "dir", window.directionality );
+    if (!window.isMainPage) {
+        setTitleElement(contentElem, payload.section);
+    }
 
     lazyDocument = document.implementation.createHTMLDocument( );
     var content = lazyDocument.createElement( "div" );
-    content.setAttribute( "dir", window.directionality );
     content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
@@ -188,9 +118,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).appendChild( content );
 
     applySectionTransforms(content, true);
-
-    transformer.transform( "hideTables", document );
-    lazyLoadTransformer.loadPlaceholders();
 });
 
 function clearContents() {
@@ -204,11 +131,9 @@ function elementsForSection( section ) {
     var header = pagelib.EditTransform.newEditSectionHeader(document,
               section.id, section.toclevel + 1, section.line, !section.noedit);
     header.id = section.anchor;
-    header.setAttribute( "dir", window.directionality );
     header.setAttribute( 'data-id', section.id );
     lazyDocument = document.implementation.createHTMLDocument( );
     content = lazyDocument.createElement( "div" );
-    content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
     applySectionTransforms(content, false);
@@ -274,9 +199,8 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
     remainingRequest.open('GET', payload.url);
     remainingRequest.sequence = payload.sequence;
     remainingRequest.fragment = payload.fragment;
-    if (window.apiLevel > 19 && window.responseType !== 'json') {
-        remainingRequest.responseType = 'json';
-    }
+    remainingRequest.responseType = 'json';
+
     remainingRequest.onreadystatechange = function() {
         if (this.readyState !== XMLHttpRequest.DONE || this.status === 0 || this.sequence !== window.sequence) {
             return;
@@ -286,9 +210,7 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
             return;
         }
         try {
-            // On API <20, the XMLHttpRequest does not support responseType = json,
-            // so we have to call JSON.parse() ourselves.
-            var sectionsObj = window.apiLevel > 19 ? this.response : JSON.parse(this.response);
+            var sectionsObj = this.response;
             if (sectionsObj.mobileview) {
                 // If it's a mobileview response, the "sections" object will be one level deeper.
                 sectionsObj = sectionsObj.mobileview;

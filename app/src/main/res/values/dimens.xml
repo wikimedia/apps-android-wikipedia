@@ -36,7 +36,6 @@
     <dimen name="leadImageWidth">640dp</dimen>
     <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.4</item>
 
-    <dimen name="content_margin">@dimen/activity_horizontal_margin</dimen>
 
     <dimen name="drawer_drag_margin">16dp</dimen>
 
@@ -95,11 +94,17 @@
     <!-- Dialog -->
     <dimen name="dialog_line_spacing_extra">5sp</dimen>
 
-    <!-- Floating Queue -->
-    <dimen name="floating_queue_container_height">64dp</dimen>
-    <dimen name="floating_queue_container_margin">8dp</dimen>
-
     <!-- Article bottom toolbar -->
-    <dimen name="bottom_toolbar_item_padding">16dp</dimen>
+    <dimen name="bottom_toolbar_height">48dp</dimen>
+    <dimen name="bottom_toolbar_icon_size">48dp</dimen>
+    <dimen name="bottom_toolbar_item_padding">12dp</dimen>
+
+    <!-- Randomizer -->
+    <dimen name="randomizer_card_view_bottom_padding">0dp</dimen>
+    <dimen name="randomizer_image_view_height">192dp</dimen>
+    <dimen name="randomizer_text_view_height">164dp</dimen>
+
+    <!-- Divider width -->
+    <dimen name="divider_width_for_article">60dp</dimen>
 
 </resources>

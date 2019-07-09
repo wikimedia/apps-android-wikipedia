@@ -11,30 +11,30 @@ import static org.wikipedia.createaccount.CreateAccountActivity.validateInput;
 
 @RunWith(RobolectricTestRunner.class) public class CreateAccountActivityTest {
 
-    @Test public void testValidateInputSuccessWithEmail() throws Throwable {
+    @Test public void testValidateInputSuccessWithEmail() {
         assertThat(validateInput("user", "password", "password", "test@example.com"),
                 is(ValidateResult.SUCCESS));
     }
-    @Test public void testValidateInvalidEmail() throws Throwable {
+    @Test public void testValidateInvalidEmail() {
         assertThat(validateInput("user", "password", "password", ""),
                 is(ValidateResult.NO_EMAIL));
     }
-    @Test public void testValidateInputInvalidUser() throws Throwable {
+    @Test public void testValidateInputInvalidUser() {
         assertThat(validateInput("user[]", "password", "password", ""),
                 is(ValidateResult.INVALID_USERNAME));
     }
 
-    @Test public void testValidateInputInvalidPassword() throws Throwable {
+    @Test public void testValidateInputInvalidPassword() {
         assertThat(validateInput("user", "foo", "password", ""),
                 is(ValidateResult.INVALID_PASSWORD));
     }
 
-    @Test public void testValidateInputPasswordMismatch() throws Throwable {
+    @Test public void testValidateInputPasswordMismatch() {
         assertThat(validateInput("user", "password", "passw0rd", ""),
                 is(ValidateResult.PASSWORD_MISMATCH));
     }
 
-    @Test public void testValidateInputInvalidEmail() throws Throwable {
+    @Test public void testValidateInputInvalidEmail() {
         assertThat(validateInput("user", "password", "password", "foo"),
                 is(ValidateResult.INVALID_EMAIL));
     }

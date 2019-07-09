@@ -2,7 +2,8 @@ package org.wikipedia.feed;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
@@ -41,8 +42,8 @@ public class FeedCoordinator extends FeedCoordinatorBase {
         boolean online = WikipediaApp.getInstance().isOnline();
 
         conditionallyAddPendingClient(new SearchClient(), age == 0);
-        conditionallyAddPendingClient(new OnboardingClient(), age == 0);
         conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
+        conditionallyAddPendingClient(new OnboardingClient(), age == 0);
 
         List<FeedContentType> orderedContentTypes = new ArrayList<>();
         orderedContentTypes.addAll(Arrays.asList(FeedContentType.values()));

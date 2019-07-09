@@ -1,8 +1,10 @@
 {
-  "servedby": "mw1196",
-  "error": {
-    "code": "unknown_site",
-    "info": "Unrecognized value for parameter 'site': testwiki",
-    "docref": "See https://www.wikidata.org/w/api.php for API usage"
-  }
+  "errors": [
+    {
+      "code": "unknown_site",
+      "text": "Unrecognized value for parameter 'site': testwiki"
+    }
+  ],
+  "docref": "See https://www.wikidata.org/w/api.php for API usage",
+  "servedby": "mw1196"
 }

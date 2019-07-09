@@ -3,13 +3,6 @@ package org.wikipedia.language;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -57,8 +57,6 @@ public class LangLinksActivity extends BaseActivity {
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
 
-    private static final String LANGUAGE_ENTRIES_BUNDLE_KEY = "languageEntries";
-
     private static final String GOTHIC_LANGUAGE_CODE = "got";
 
     private List<PageTitle> languageEntries;
@@ -91,10 +89,6 @@ public class LangLinksActivity extends BaseActivity {
         }
 
         title = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
-
-        if (savedInstanceState != null && savedInstanceState.containsKey(LANGUAGE_ENTRIES_BUNDLE_KEY)) {
-            languageEntries = savedInstanceState.getParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY);
-        }
 
         langLinksEmpty.setVisibility(View.GONE);
         langLinksProgress.setVisibility(View.VISIBLE);
@@ -181,13 +175,10 @@ public class LangLinksActivity extends BaseActivity {
         protected boolean finishActionModeIfKeyboardHiding() {
             return false;
         }
-    }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (languageEntries != null) {
-           outState.putParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY, new ArrayList<Parcelable>(languageEntries));
+        @Override
+        protected Context getParentContext() {
+            return LangLinksActivity.this;
         }
     }
 
@@ -195,7 +186,9 @@ public class LangLinksActivity extends BaseActivity {
         List<PageTitle> list = new ArrayList<>();
 
         for (PageTitle entry : languageEntries) {
-            if (app.language().getAppLanguageCodes().contains(entry.getWikiSite().languageCode())) {
+            if ((entry.getWikiSite().languageCode().equals(AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE)
+                    && app.language().getAppLanguageCodes().contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE))
+                    || app.language().getAppLanguageCodes().contains(entry.getWikiSite().languageCode())) {
                 list.add(entry);
             }
         }

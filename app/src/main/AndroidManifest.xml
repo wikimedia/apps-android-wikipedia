@@ -82,6 +82,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".page.PageActivity"
@@ -101,7 +102,7 @@
                      https://developer.android.com/training/app-links/deep-linking.html
                      so http and https apply to all prefixes-->
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
-                <data android:host="*.wikipedia.org" android:pathPattern="/zh-.*" android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
             </intent-filter>
             <intent-filter>
                 <action android:name="org.wikipedia.app_shortcut" />
@@ -144,9 +145,11 @@
             android:label="@string/languages_list_activity_title"
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
-        <activity android:name=".editactionfeed.AddTitleDescriptionsActivity"
-            android:label="@string/editactionfeed_add_title_descriptions"
-            android:theme="@style/AppTheme.ActionBar"/>
+        <activity
+            android:name=".suggestededits.SuggestedEditsCardsActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.ActionBar.SuggestedEdits"
+            android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
@@ -213,11 +216,6 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name=".descriptions.DescriptionEditHelpActivity"
-            android:label="@string/description_edit_help_title"
-            android:theme="@style/AppTheme.ActionBar" />
-
-        <activity
             android:name=".descriptions.DescriptionEditTutorialActivity" />
 
         <activity
@@ -256,9 +254,18 @@
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".editactionfeed.EditTasksActivity"
-            android:label="@string/edit_tasks_activity_title"
+            android:name=".suggestededits.SuggestedEditsTasksActivity"
+            android:launchMode="singleTask"
+            android:label="@string/suggested_edits_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
+
+        <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionsActivity"
+            android:label="@string/suggested_edits_my_contributions"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"
@@ -272,7 +279,7 @@
             android:label="@string/user_option_sync_label" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

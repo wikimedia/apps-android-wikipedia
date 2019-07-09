@@ -3,9 +3,10 @@ package org.wikipedia.readinglist.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -102,6 +103,11 @@ public class ReadingListDbHelper {
         updateLists(db, Collections.singletonList(list), queueForSync);
     }
 
+    public void updateLists(@NonNull List<ReadingList> lists, boolean queueForSync) {
+        SQLiteDatabase db = getWritableDatabase();
+        updateLists(db, lists, queueForSync);
+    }
+
     void updateList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, boolean queueForSync) {
         updateLists(db, Collections.singletonList(list), queueForSync);
     }
@@ -156,6 +162,29 @@ public class ReadingListDbHelper {
         try {
             addPageToList(db, list, title);
             db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        SavedPageSyncService.enqueue();
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync();
+        }
+    }
+
+    public void addPageToLists(@NonNull List<ReadingList> lists, @NonNull ReadingListPage page, boolean queueForSync) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            for (ReadingList list : lists) {
+                if (getPageByTitle(db, list, ReadingListPage.toPageTitle(page)) != null) {
+                    continue;
+                }
+                page.status(ReadingListPage.STATUS_QUEUE_FOR_SAVE);
+                insertPageInDb(db, list, page);
+            }
+            db.setTransactionSuccessful();
+
+            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, page));
         } finally {
             db.endTransaction();
         }

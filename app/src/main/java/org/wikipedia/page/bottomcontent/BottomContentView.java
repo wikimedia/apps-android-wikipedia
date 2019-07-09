@@ -1,11 +1,8 @@
 package org.wikipedia.page.bottomcontent;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
@@ -13,15 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
-import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
@@ -34,12 +32,8 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
@@ -127,11 +121,11 @@ public class BottomContentView extends LinearLayoutOverWebView
         pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         if (parentFragment.callback() != null) {
-            ListViewContextMenuListener contextMenuListener
+            org.wikipedia.LongPressHandler.ListViewOverflowMenuListener overflowMenuListener
                     = new LongPressHandler(parentFragment);
 
             new org.wikipedia.LongPressHandler(readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
-                    contextMenuListener);
+                    overflowMenuListener);
         }
 
         addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
@@ -250,7 +244,8 @@ public class BottomContentView extends LinearLayoutOverWebView
         // pad the bottom of the webview, to make room for ourselves
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingBottom", (int)(getHeight() / DimenUtil.getDensityScalar()));
+            payload.put("paddingBottom",
+                    (int)((getHeight() + getResources().getDimension(R.dimen.bottom_toolbar_height)) / DimenUtil.getDensityScalar()));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -348,7 +343,7 @@ public class BottomContentView extends LinearLayoutOverWebView
     }
 
     private class LongPressHandler extends PageContainerLongPressHandler
-            implements ListViewContextMenuListener {
+            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
         private int lastPosition;
         LongPressHandler(@NonNull PageFragment fragment) {
             super(fragment);
@@ -398,38 +393,15 @@ public class BottomContentView extends LinearLayoutOverWebView
 
         @Override
         public View getView(int position, View convView, ViewGroup parent) {
-            PageItemView<RbPageSummary> itemView = (PageItemView<RbPageSummary>) convView;
-            if (itemView == null) {
-                itemView = new PageItemView<>(getContext());
-                itemView.setLayoutParams(new ListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            }
+            PageItemView<RbPageSummary> itemView = new PageItemView<>(getContext());
             RbPageSummary result = getItem(position);
             PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
-
-            ImageView primaryActionBtn = itemView.findViewById(R.id.page_list_item_action_primary);
-            primaryActionBtn.setVisibility(VISIBLE);
-            if (firstTimeShown) {
-                setPrimaryActionDrawable(primaryActionBtn, pageTitle);
-            }
-            final int paddingEnd = 8;
-            itemView.setPaddingRelative(itemView.getPaddingStart(), itemView.getPaddingTop(),
-                    DimenUtil.roundedDpToPx(paddingEnd), itemView.getPaddingBottom());
-
             itemView.setCallback(this);
             itemView.setTitle(pageTitle.getDisplayText());
             itemView.setDescription(StringUtils.capitalize(pageTitle.getDescription()));
             itemView.setImageUrl(pageTitle.getThumbUrl());
             return itemView;
-        }
-
-        private void setPrimaryActionDrawable(ImageView primaryActionBtn, PageTitle pageTitle) {
-            disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle) != null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(exists -> primaryActionBtn.setImageResource(exists
-                            ? R.drawable.ic_bookmark_white_24dp
-                            : R.drawable.ic_bookmark_border_black_24dp), L::w));
         }
 
         @Override public void onClick(@Nullable RbPageSummary item) {
@@ -439,41 +411,6 @@ public class BottomContentView extends LinearLayoutOverWebView
             funnel.logSuggestionClicked(page.getTitle(), readMoreItems, results.indexOf(item));
         }
 
-        @Override public void onActionClick(@Nullable RbPageSummary item, @NonNull View view) {
-            if (item == null) {
-                return;
-            }
-            PageTitle pageTitle = item.getPageTitle(page.getTitle().getWikiSite());
-            disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(pageTitle) != null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(pageInList -> {
-                        if (!pageInList) {
-                            parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
-                        } else {
-                            new ReadingListBookmarkMenu(view, new ReadingListBookmarkMenu.Callback() {
-                                @Override
-                                public void onAddRequest(@Nullable ReadingListPage page) {
-                                    parentFragment.addToReadingList(pageTitle, AddToReadingListDialog.InvokeSource.READ_MORE_BOOKMARK_BUTTON);
-                                }
-
-                                @Override
-                                public void onDeleted(@Nullable ReadingListPage page) {
-                                    FeedbackUtil.showMessage((Activity) getContext(),
-                                            getContext().getString(R.string.reading_list_item_deleted, pageTitle.getDisplayText()));
-                                    setPrimaryActionDrawable((ImageView) view, pageTitle);
-
-                                }
-
-                                @Override
-                                public void onShare() {
-                                    // ignore
-                                }
-                            }).show(pageTitle);
-                        }
-                    }, L::w));
-        }
-
         @Override public boolean onLongClick(@Nullable RbPageSummary item) {
             return false;
         }
@@ -481,11 +418,15 @@ public class BottomContentView extends LinearLayoutOverWebView
         @Override public void onThumbClick(@Nullable RbPageSummary item) {
         }
 
+        @Override public void onActionClick(@Nullable RbPageSummary item, @NonNull View view) {
+        }
+
         @Override public void onSecondaryActionClick(@Nullable RbPageSummary item, @NonNull View view) {
+        }
+
+        @Override
+        public void onListChipClick(@Nullable ReadingList readingList) {
         }
     }
 
-    public void updateBookmark() {
-        ((ReadMoreAdapter) readMoreList.getAdapter()).notifyDataSetChanged();
-    }
 }

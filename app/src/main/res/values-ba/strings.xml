@@ -2,6 +2,7 @@
 <!-- Authors:
 * Envlh
 * Lizalizaufa
+* Patriccck
 * Sagan
 * Азат Хәлилов
 * Айсар
@@ -15,8 +16,8 @@
 -->
 <resources>
   <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta">Википедия (бета)</string>
-  <string name="app_name_alpha">Википедия (альфа)</string>
+  <string name="app_name_beta">Википедия бета</string>
+  <string name="app_name_alpha">Википедия альфа</string>
   <string name="wikimedia">Викимедиа</string>
   <string name="search_hint">Википедияла эҙләү</string>
   <string name="nav_item_history">Тарих</string>

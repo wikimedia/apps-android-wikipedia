@@ -2,11 +2,12 @@ package org.wikipedia.page.leadimages;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -165,6 +166,7 @@ public class LeadImagesHandler {
 
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
+            pageHeaderView.show(isLeadImageEnabled());
             pageHeaderView.loadImage(url);
         } else {
             pageHeaderView.loadImage(null);

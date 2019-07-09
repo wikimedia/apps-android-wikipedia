@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-BASE_PATH="`dirname $0`/../app/src/main/assets"
+INPUT_PATH="https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base"
+OUTPUT_PATH="`dirname $0`/../app/src/main/assets"
 
-wget "https://en.wikipedia.org/api/rest_v1/data/css/mobile/base" -O "$BASE_PATH/styles.css"
-wget "https://en.wikipedia.org/api/rest_v1/data/css/mobile/base" -O "$BASE_PATH/preview.css"
+curl $INPUT_PATH > "$OUTPUT_PATH/styles.css"
+curl $INPUT_PATH > "$OUTPUT_PATH/preview.css"

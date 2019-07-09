@@ -7,12 +7,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -21,6 +23,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
@@ -180,6 +183,7 @@ public class LoginActivity extends BaseActivity {
         Prefs.setReadingListPagesDeletedIds(Collections.emptySet());
         Prefs.setReadingListsDeletedIds(Collections.emptySet());
         ReadingListSyncAdapter.manualSyncWithForce();
+        NotificationPollBroadcastReceiver.pollEditorTaskCounts(this);
         finish();
     }
 
@@ -308,5 +312,6 @@ public class LoginActivity extends BaseActivity {
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+        L.logRemoteErrorIfProd(caught);
     }
 }
