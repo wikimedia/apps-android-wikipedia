@@ -63,6 +63,14 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             }
         }
         showAddedContributionView(addedContribution)
+        if (savedInstanceState != null) {
+            pagerPosition = savedInstanceState.getInt("pagerPosition", -1)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("pagerPosition", pagerPosition)
     }
 
     override fun onDestroy() {
