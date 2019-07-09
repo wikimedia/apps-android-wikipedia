@@ -39,7 +39,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     public interface Callback {
         void onImageClicked();
-        void onArticleCTAClicked();
+        void onAddCaptionClicked();
     }
 
     public PageHeaderView(Context context) {
@@ -113,7 +113,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     @OnClick(R.id.call_to_action_container) void onCallToActionClicked() {
         if (callback != null) {
-            callback.onArticleCTAClicked();
+            callback.onAddCaptionClicked();
         }
     }
 

@@ -70,7 +70,6 @@ public class LeadImagesHandler {
     private SuggestedEditsSummary sourceSummary, targetSummary;
     private boolean isTranslation;
     private CompositeDisposable disposables = new CompositeDisposable();
-    private PageTitle captionSourcePageTitle, captionTargetPageTitle;
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
@@ -225,6 +224,7 @@ public class LeadImagesHandler {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(captions -> {
+                            PageTitle captionSourcePageTitle, captionTargetPageTitle;
                             if (galleryItem[0] != null) {
                                 captionSourcePageTitle = new PageTitle(title[0], new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
 
@@ -307,8 +307,8 @@ public class LeadImagesHandler {
             }
 
             @Override
-            public void onArticleCTAClicked() {
-                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), isTranslation ? captionTargetPageTitle : captionSourcePageTitle, null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
+            public void onAddCaptionClicked() {
+                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), isTranslation ? targetSummary.getPageTitle() : sourceSummary.getPageTitle(), null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
                         ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT);
             }
         });
@@ -342,6 +342,6 @@ public class LeadImagesHandler {
     }
 
     public String getLeadingImageEditLang() {
-        return isTranslation ? captionTargetPageTitle == null ? null : captionTargetPageTitle.getWikiSite().languageCode() : captionSourcePageTitle == null ? null : captionSourcePageTitle.getWikiSite().languageCode();
+        return isTranslation ? targetSummary.getPageTitle() == null ? null : targetSummary.getPageTitle().getWikiSite().languageCode() : sourceSummary.getPageTitle() == null ? null : sourceSummary.getPageTitle().getWikiSite().languageCode();
     }
 }
