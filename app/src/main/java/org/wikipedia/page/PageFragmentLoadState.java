@@ -141,9 +141,8 @@ public class PageFragmentLoadState {
 
         // Reload the stub index.html into the WebView, which will cause any wiki-specific
         // CSS to be loaded automatically.
-        bridge.resetHtml("index.html", model.getTitle().getWikiSite().url());
-
-        pageLoadCheckReadingLists();
+        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
+        //pageLoadCheckReadingLists();
     }
 
     public boolean isLoading() {
