@@ -187,9 +187,9 @@ dependencies {
     implementation "com.jakewharton:butterknife:10.1.0"
     implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:7.0.1"
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v7:0.4.0'
-    implementation 'net.hockeyapp.android:HockeySDK:5.1.1'
-    implementation 'org.apache.commons:commons-lang3:3.8.1'
-    implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'net.hockeyapp.android:HockeySDK:5.2.0'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.jsoup:jsoup:1.12.1'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:10.1.0"
 
