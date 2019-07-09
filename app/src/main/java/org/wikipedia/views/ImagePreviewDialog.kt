@@ -3,15 +3,12 @@ package org.wikipedia.views
 import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.Spanned
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.annotation.Nullable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -103,32 +100,32 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             // Show the image description when a structured caption does not exist.
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
-                    SpannableString(suggestedEditsSummary.description), null)
+                    suggestedEditsSummary.description, null)
         } else {
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
-                    SpannableString(if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
-                    else suggestedEditsSummary.pageTitle.description), null)
+                    if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
+                    else suggestedEditsSummary.pageTitle.description, null)
         }
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.artistUrl()), null)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.dateTime()), null)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), StringUtil.fromHtml(suggestedEditsSummary.metadata!!.creditUrl()), null)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), SpannableString(suggestedEditsSummary.metadata!!.licenseShortName()), getClickListenerFor(suggestedEditsSummary.metadata!!.licenseUrl()))
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info), SpannableString(getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text)), getClickListenerFor(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artistUrl(), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime(), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.creditUrl(), null)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), getClickListenerFor(suggestedEditsSummary.metadata!!.licenseUrl()))
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info), getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), getClickListenerFor(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
         detailsHolder.requestLayout()
     }
 
-    private fun addDetailPortion(titleString: String, @Nullable detail: Spanned, linkClickListener: View.OnClickListener?) {
-        if (!detail.isEmpty()) {
+    private fun addDetailPortion(titleString: String, detail: String?, linkClickListener: View.OnClickListener?) {
+        if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(requireContext())
             view.titleTextView.text = titleString
-            view.detailTextView.setMovementMethod(movementMethod)
+            view.detailTextView.movementMethod = movementMethod
             if (linkClickListener != null) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
                 view.externalLinkView.visibility = VISIBLE
                 view.detailsContainer.setOnClickListener(linkClickListener)
             }
-            view.detailTextView.text = detail
+            view.detailTextView.text = StringUtil.strip(StringUtil.fromHtml(detail))
             detailsHolder.addView(view)
         }
     }

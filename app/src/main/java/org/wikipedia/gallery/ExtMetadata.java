@@ -67,18 +67,16 @@ public class ExtMetadata {
         return StringUtils.defaultString(artist == null ? null : artist.value());
     }
 
-    @NonNull
-    public String artistUrl() {
+    @Nullable public String artistUrl() {
         if (artist == null || artist.value() == null) {
-            return "";
+            return null;
         }
         return artist.value();
     }
 
-    @NonNull
-    public String creditUrl() {
+    @Nullable public String creditUrl() {
         if (credit == null || credit.value() == null) {
-            return "";
+            return null;
         }
         return credit.value();
     }
