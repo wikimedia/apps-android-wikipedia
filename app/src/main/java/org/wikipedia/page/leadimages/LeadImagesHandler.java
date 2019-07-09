@@ -342,6 +342,6 @@ public class LeadImagesHandler {
     }
 
     public String getLeadingImageEditLang() {
-        return isTranslation ? targetSummary.getPageTitle() == null ? null : targetSummary.getPageTitle().getWikiSite().languageCode() : sourceSummary.getPageTitle() == null ? null : sourceSummary.getPageTitle().getWikiSite().languageCode();
+        return isTranslation ? targetSummary.getPageTitle().getWikiSite().languageCode() : sourceSummary.getPageTitle().getWikiSite().languageCode();
     }
 }
