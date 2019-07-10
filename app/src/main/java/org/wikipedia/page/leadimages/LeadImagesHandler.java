@@ -213,7 +213,7 @@ public class LeadImagesHandler {
         }
         GalleryItem[] galleryItem = {null};
         String[] title = {null};
-        disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getMedia(getTitle().getConvertedText())
+        disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getMedia(getTitle().getRequestUrlText())
                 .flatMap(gallery -> {
                     List<GalleryItem> list = gallery.getItems("image");
                     for (GalleryItem item : list) {
