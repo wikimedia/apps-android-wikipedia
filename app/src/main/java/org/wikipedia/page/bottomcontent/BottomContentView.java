@@ -183,7 +183,7 @@ public class BottomContentView extends LinearLayoutOverWebView
 
     @OnClick(R.id.page_talk_container) void onTalkClick(View v) {
         PageTitle title = page.getTitle();
-        PageTitle talkPageTitle = new PageTitle("Talk", title.getPrefixedText(), title.getWikiSite());
+        PageTitle talkPageTitle = new PageTitle("Talk", title.getRequestUrlText(), title.getWikiSite());
         visitInExternalBrowser(parentFragment.getContext(), Uri.parse(talkPageTitle.getMobileUri()));
     }
 

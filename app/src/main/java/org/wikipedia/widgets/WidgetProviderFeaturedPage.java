@@ -106,7 +106,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                     } else {
                         // TODO: this logic can be removed if the feed API can return the featured article for all languages.
                         return getApiService(mainPageTitle)
-                                .lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(),
+                                .lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getRequestUrlText(),
                                         DimenUtil.calculateLeadImageWidth());
                     }
                 })

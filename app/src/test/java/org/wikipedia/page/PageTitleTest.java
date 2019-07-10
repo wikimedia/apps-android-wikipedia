@@ -34,7 +34,7 @@ import static org.mockito.Mockito.when;
     @Test public void testFromInternalLink() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
-        assertThat(enwiki.titleForInternalLink("/wiki/India").getPrefixedText(), is("India"));
+        assertThat(enwiki.titleForInternalLink("/wiki/India").getRequestUrlText(), is("India"));
         assertThat(enwiki.titleForInternalLink("/wiki/India").getNamespace(), nullValue());
 
         assertThat(enwiki.titleForInternalLink("/wiki/Talk:India").getNamespace(), is("Talk"));

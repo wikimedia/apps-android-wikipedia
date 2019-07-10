@@ -1009,7 +1009,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
-            SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
+            SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(getTitle().getRequestUrlText(), getTitle().getWikiSite().languageCode(), getTitle(),
                     getTitle().getDisplayText(), getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl(), getTitle().getThumbUrl(),
                     null, null, null, null);
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, PAGE_ACTIVITY),

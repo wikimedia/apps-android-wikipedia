@@ -310,7 +310,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
         title.setDescription(currentCaption);
 
-        SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), app.getAppOrSystemLanguageCode(), title,
+        SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getRequestUrlText(), app.getAppOrSystemLanguageCode(), title,
                 title.getDisplayText(), title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getDescription().getHtml()).toString(), null),
                 item.getThumbnailUrl(), item.getPreferredSizedImageUrl(), null, null, null, null);
 
@@ -331,11 +331,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             currentCaption = StringUtil.fromHtml(item.getDescription().getHtml()).toString();
         }
 
-        SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
+        SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(sourceTitle.getRequestUrlText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
                 sourceTitle.getDisplayText(), sourceTitle.getDisplayText(), currentCaption, item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
                 null, null, null, null);
 
-        SuggestedEditsSummary targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
+        SuggestedEditsSummary targetSummary = new SuggestedEditsSummary(targetTitle.getRequestUrlText(), targetTitle.getWikiSite().languageCode(), targetTitle,
                 targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
                 null, null, null, null);
 

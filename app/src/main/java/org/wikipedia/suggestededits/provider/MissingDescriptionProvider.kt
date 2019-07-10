@@ -110,8 +110,8 @@ object MissingDescriptionProvider {
     }
 
     private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<RbPageSummary, RbPageSummary>> {
-        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
-                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText),
+        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.requestUrlText),
+                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.requestUrlText),
                 BiFunction<RbPageSummary, RbPageSummary, Pair<RbPageSummary, RbPageSummary>> { source, target -> Pair(source, target) })
     }
 

@@ -272,7 +272,7 @@ public class EditPreviewFragment extends Fragment {
         hideSoftKeyboard(requireActivity());
         progressDialog.show();
 
-        disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
+        disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getRequestUrlText(), wikiText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doFinally(() -> {

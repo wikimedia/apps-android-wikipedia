@@ -261,7 +261,7 @@ public class SavedPageSyncService extends JobIntentService {
                 totalSize += reqSaveImages(page, imageUrls);
             }
 
-            String title = pageTitle.getPrefixedText();
+            String title = pageTitle.getRequestUrlText();
             L.i("Saved page " + title + " (" + totalSize + ")");
 
             return totalSize;
@@ -278,7 +278,7 @@ public class SavedPageSyncService extends JobIntentService {
                                                                           @Nullable String saveOfflineHeader,
                                                                           @NonNull PageTitle pageTitle) {
         PageClient client = newPageClient(pageTitle);
-        String title = pageTitle.getPrefixedText();
+        String title = pageTitle.getRequestUrlText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
         return client.lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
@@ -287,7 +287,7 @@ public class SavedPageSyncService extends JobIntentService {
                                                          @Nullable String saveOfflineHeader,
                                                          @NonNull PageTitle pageTitle) {
         PageClient client = newPageClient(pageTitle);
-        String title = pageTitle.getPrefixedText();
+        String title = pageTitle.getRequestUrlText();
         return client.sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
     }
 

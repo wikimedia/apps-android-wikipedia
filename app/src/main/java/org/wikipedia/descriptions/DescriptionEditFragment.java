@@ -222,7 +222,7 @@ public class DescriptionEditFragment extends Fragment {
     private void loadPageSummaryIfNeeded(Bundle savedInstanceState) {
         if (invokeSource == PAGE_ACTIVITY && TextUtils.isEmpty(sourceSummary.getExtractHtml())) {
             disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                    .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
+                    .summary(pageTitle.getWikiSite(), pageTitle.getRequestUrlText(), null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doFinally(() -> setUpEditView(savedInstanceState))
