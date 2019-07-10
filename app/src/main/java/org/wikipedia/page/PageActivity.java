@@ -33,6 +33,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
@@ -683,6 +684,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
+                && resultCode == RESULT_OK) {
+            pageFragment.refreshPage();
+            FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
+                    StringUtils.defaultString(app.language().getAppLanguageLocalizedName(pageFragment.getLeadingImageEditLang()), getString(R.string.description_edit_success_saved_image_caption_snackbar))));
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

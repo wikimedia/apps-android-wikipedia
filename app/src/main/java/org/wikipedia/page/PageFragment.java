@@ -317,6 +317,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
+        leadImagesHandler.dispose();
         super.onDestroyView();
     }
 
@@ -1237,4 +1238,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
+
+    String getLeadingImageEditLang() {
+        return leadImagesHandler.getLeadingImageEditLang();
+    }
+
 }
