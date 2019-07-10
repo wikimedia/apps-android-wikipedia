@@ -16,7 +16,6 @@
         android:layout_height="48dp"
         android:fontFamily="sans-serif"
         android:gravity="center_vertical"
-        android:letterSpacing="0.04"
         android:lineSpacingExtra="6sp"
         android:textAllCaps="true"
         android:textColor="?attr/primary_text_color"
@@ -43,21 +42,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
             android:lineSpacingExtra="8sp"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
-            android:textStyle="normal"
+            android:textIsSelectable="true"
             tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
 
         <ImageView
             android:id="@+id/externalLinkView"
-            android:layout_width="@dimen/app_shortcut_icon_size"
-            android:layout_height="@dimen/app_shortcut_icon_size"
-            android:layout_marginStart="12dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@null"
             android:tint="?attr/colorAccent"
             android:visibility="gone"
-            app:srcCompat="@drawable/ic_open_in_new_black_24px" />
+            app:srcCompat="@drawable/ic_open_in_new_black_24px"
+            tools:visibility="visible"/>
     </LinearLayout>
 </LinearLayout>
