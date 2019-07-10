@@ -54,7 +54,6 @@
         android:tint="@color/base30"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/item_image_2"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_bookmark_gray_24dp"
         tools:visibility="visible" />
