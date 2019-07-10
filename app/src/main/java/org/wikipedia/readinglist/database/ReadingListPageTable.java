@@ -75,7 +75,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
 
     @Override
     public void onUpgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
-        if (toVersion == DB_VER_REQUEST_URL_TITLE_ADDED) {
+        if (toVersion == DB_VER_INTRODUCED) {
             List<ReadingList> currentLists = new ArrayList<>();
             createDefaultList(db, currentLists);
             renameListsWithIdenticalNameAsDefault(db, currentLists);
