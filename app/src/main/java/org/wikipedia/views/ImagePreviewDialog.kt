@@ -8,6 +8,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -23,6 +24,7 @@ import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -44,6 +46,12 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         enableFullWidthDialog()
         return rootView
+    }
+
+    override fun onStart() {
+        super.onStart()
+        BottomSheetBehavior.from(view!!.parent as View).peekHeight = DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.imagePreviewSheetPeekHeight))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -126,6 +134,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             view.detailTextView.text = StringUtil.strip(StringUtil.fromHtml(detail))
             if (!externalLink.isNullOrEmpty()) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
+                view.detailTextView.setTextIsSelectable(false)
                 view.externalLinkView.visibility = VISIBLE
                 view.detailsContainer.setOnClickListener {
                     dismiss()
