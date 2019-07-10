@@ -8,7 +8,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.annotation.Nullable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -22,11 +21,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.UriUtil.handleExternalLink
+import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
 import org.wikipedia.util.log.L
 
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
@@ -48,12 +50,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         super.onViewCreated(view, savedInstanceState)
         progressBar!!.visibility = VISIBLE
         toolbarView.setOnClickListener { dismiss() }
-        imagePageCommonsLinkContainer.setOnClickListener {
-            dismiss()
-            UriUtil.visitInExternalBrowser(context, Uri.parse(getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title)))
-        }
-
-        titleText!!.text = StringUtil.removeNamespace(suggestedEditsSummary.displayTitle!!)
+        titleText!!.text = StringUtil.removeHTMLTags(suggestedEditsSummary.displayTitle!!)
         loadImage(suggestedEditsSummary.getPreferredSizeThumbnailUrl())
         loadImageInfoIfNeeded()
     }
@@ -70,7 +67,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         progressBar.visibility = GONE
         detailsHolder.visibility = GONE
         galleryImage.visibility = GONE
-        moreInfoContainer.visibility = GONE
         errorView.visibility = VISIBLE
         errorView.setError(caught)
     }
@@ -80,7 +76,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageExtMetadata(suggestedEditsSummary.title)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally{ setImageDetails() }
+                    .doFinally { setImageDetails() }
                     .subscribe({ response ->
                         val page = response.query()!!.pages()!![0]
                         if (page.imageInfo() != null) {
@@ -104,30 +100,46 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             // Show the image description when a structured caption does not exist.
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
-                    suggestedEditsSummary.description, false)
+                    suggestedEditsSummary.description)
         } else {
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(suggestedEditsSummary.lang)),
                     if (suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) suggestedEditsSummary.description
-                    else suggestedEditsSummary.pageTitle.description, false)
+                    else suggestedEditsSummary.pageTitle.description)
         }
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artist(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime(), false)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.imageDescriptionSource(), true)
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), true)
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artist())
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime())
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.credit())
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), suggestedEditsSummary.metadata!!.licenseUrl())
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info), getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), getString(R.string.suggested_edits_image_file_page_commons_link, suggestedEditsSummary.title))
         detailsHolder.requestLayout()
     }
 
-    private fun addDetailPortion(titleString: String, @Nullable detail: String?, shouldAddAccentTint: Boolean) {
+    private fun addDetailPortion(titleString: String, detail: String?) {
+        addDetailPortion(titleString, detail, null)
+    }
+
+    private fun addDetailPortion(titleString: String, detail: String?, externalLink: String?) {
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(requireContext())
             view.titleTextView.text = titleString
-            if (shouldAddAccentTint) {
+            view.detailTextView.text = StringUtil.strip(StringUtil.fromHtml(detail))
+            if (!externalLink.isNullOrEmpty()) {
                 view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
+                view.externalLinkView.visibility = VISIBLE
+                view.detailsContainer.setOnClickListener {
+                    dismiss()
+                    UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
+                }
+            } else {
+                view.detailTextView.movementMethod = movementMethod
             }
-            view.detailTextView.text = StringUtil.strip(StringUtil.removeHTMLTags(detail))
             detailsHolder.addView(view)
         }
+    }
+
+    private val movementMethod = LinkMovementMethodExt { url: String ->
+        handleExternalLink(context, Uri.parse(resolveProtocolRelativeUrl(url)))
     }
 
     private fun loadImage(url: String?) {
