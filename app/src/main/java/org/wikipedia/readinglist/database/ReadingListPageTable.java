@@ -71,7 +71,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     @Override
     public void onUpgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
         if (toVersion == DB_VER_INTRODUCED) {
-            List<ReadingList> currentLists = new ArrayList<>();
+            List<ReadingList> currentLists = ReadingListDbHelper.instance().getAllLists();
             createDefaultList(db, currentLists);
             renameListsWithIdenticalNameAsDefault(db, currentLists);
             // TODO: add other one-time conversions here.
