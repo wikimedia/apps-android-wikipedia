@@ -688,7 +688,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
-                    app.language().getAppLanguageLocalizedName(StringUtils.defaultString(pageFragment.getLeadingImageEditLang()))));
+                    StringUtils.defaultString(app.language().getAppLanguageLocalizedName(pageFragment.getLeadingImageEditLang()), getString(R.string.description_edit_success_saved_image_caption_snackbar))));
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

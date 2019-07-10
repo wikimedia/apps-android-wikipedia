@@ -55,7 +55,7 @@ public class LeadImagesHandler {
      * the page title.
      */
     private static final int MIN_SCREEN_HEIGHT_DP = 480;
-    private static final String COMMONS_IMAGE_URL = "/wikipedia/commons/";
+    private static final String COMMONS_PREFIX = "/wikipedia/commons/";
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete(int sequence);
@@ -67,7 +67,7 @@ public class LeadImagesHandler {
     @NonNull private final PageHeaderView pageHeaderView;
 
     private int displayHeightDp;
-    private SuggestedEditsSummary sourceSummary, targetSummary;
+    @Nullable private SuggestedEditsSummary sourceSummary, targetSummary;
     private boolean isTranslation;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -201,7 +201,7 @@ public class LeadImagesHandler {
     }
 
     private void updateCallToAction() {
-        if ((!Prefs.isSuggestedEditsAddCaptionsUnlocked() && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) || !getLeadImageUrl().contains(COMMONS_IMAGE_URL) || getPage() == null) {
+        if ((!Prefs.isSuggestedEditsAddCaptionsUnlocked() && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) || !getLeadImageUrl().contains(COMMONS_PREFIX) || getPage() == null) {
             pageHeaderView.setUpCallToAction(null);
             return;
         }
@@ -307,9 +307,11 @@ public class LeadImagesHandler {
             }
 
             @Override
-            public void onAddCaptionClicked() {
-                getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), isTranslation ? targetSummary.getPageTitle() : sourceSummary.getPageTitle(), null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
-                        ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT);
+            public void onCallToActionClicked() {
+                if (isTranslation ? (targetSummary != null && sourceSummary != null) : sourceSummary != null) {
+                    getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), isTranslation ? targetSummary.getPageTitle() : sourceSummary.getPageTitle(), null, sourceSummary, targetSummary, isTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
+                            ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT);
+                }
             }
         });
     }
@@ -336,12 +338,13 @@ public class LeadImagesHandler {
     }
 
     public void dispose() {
-        if (disposables != null && !disposables.isDisposed()) {
-            disposables.clear();
-        }
+        disposables.clear();
     }
 
     public String getLeadingImageEditLang() {
+        if (isTranslation ? (targetSummary == null || sourceSummary == null) : sourceSummary == null) {
+            return null;
+        }
         return isTranslation ? targetSummary.getPageTitle().getWikiSite().languageCode() : sourceSummary.getPageTitle().getWikiSite().languageCode();
     }
 }

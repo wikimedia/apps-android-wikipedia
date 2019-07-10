@@ -51,12 +51,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="sans-serif-medium"
-                android:letterSpacing="0.04"
-                android:lineSpacingExtra="6sp"
                 android:textAllCaps="true"
                 android:textColor="?attr/paper_color"
-                android:textSize="14sp"
-                android:textStyle="normal"
                 tools:text="ADD CAPTION" />
         </LinearLayout>
 
