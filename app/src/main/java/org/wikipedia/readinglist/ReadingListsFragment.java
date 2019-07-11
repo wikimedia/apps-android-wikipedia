@@ -630,7 +630,7 @@ public class ReadingListsFragment extends Fragment implements
         }
 
         @Override
-        public void onListChipClick(@Nullable ReadingList readingList) {
+        public void onListChipClick(@NonNull ReadingList readingList) {
             startActivity(ReadingListActivity.newIntent(requireContext(), readingList));
         }
     }
