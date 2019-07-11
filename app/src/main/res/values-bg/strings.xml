@@ -598,6 +598,9 @@
   <string name="suggested_edits_add_descriptions" fuzzy="true">Добавяне на описания</string>
   <string name="suggested_edits_review_description" fuzzy="true">Преглед на описанието</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
+  <string name="suggested_edits_edit_description_button">Редактиране на описанието</string>
+  <string name="suggested_edits_add_translation_button">Добавяне на превод</string>
+  <string name="suggested_edits_edit_translation_button">Редактиране на превод</string>
   <string name="suggested_edits_my_contributions">Моите приноси</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Добавяне на описания“</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Поздравления за Вашия трети принос! Понеже Вие сте изключително добър в редактирането, ние съставихме списък на статиите с липсващи описания. Бихте ли ни помогнали да подобрим Уикипедия?</string>
