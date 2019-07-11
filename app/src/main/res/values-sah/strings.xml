@@ -571,15 +571,16 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Салҕаама</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Сөп</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Салҕаама</string>
-  <string name="description_edit_text_hint" fuzzy="true">Ойуулааһын</string>
+  <string name="description_edit_text_hint">Ыстатыйа туһунан</string>
   <string name="description_edit_article_description_label_per_language">Ыстатыйа (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Ыстатыйа туһунан (%s)</string>
   <string name="description_edit_add_caption_label_per_language">Ойуу туһунан (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Ойуу туһунан (%s)</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_read">Ааҕыы</string>
   <string name="description_edit_add_description">Кылгас быһаарыыны эбии</string>
   <string name="description_edit_translate_description">Быһаарыыны тылбаастааһын</string>
-  <string name="description_edit_edit_description" fuzzy="true">Быһаарыыны уларытыы</string>
+  <string name="description_edit_edit_description">Ыстатыйа туһунан суругу уларыт</string>
   <string name="description_edit_add_image_caption">Ойуу туһунан суруйарга</string>
   <string name="description_edit_edit_image_caption">Ойуу туһунан суругу уларытарга</string>
   <string name="description_edit_translate_image_caption">Ойуу туһунан суругу тылбаастыырга</string>
@@ -593,28 +594,32 @@
   <string name="description_edit_success_saved">Бигэргэтилиннэ!</string>
   <string name="description_edit_success_saved_snackbar">Бигэргэтилиннэ!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Бигэргэтилиннэ! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Ойуу туһунан сурулунна!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Ойуу туһунан сурулунна! (%s)</string>
   <string name="description_edit_success_encouragement">Бикипиэдьийэни тупсаҕай гынан биэрдиҥ</string>
   <string name="description_edit_success_done">Оҥоһулунна</string>
   <string name="description_edit_success_did_you_know">Билэҕин дуо?</string>
   <string name="description_edit_success_article_edit_hint">Ыстатыйалары эмиэ уларытыаххын сөп. Алҕас суруллубуту уонна кылгас этиилэри ^1 баттааҥҥын көннөрөн көрөөр</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Баһын ойуулааһын</string>
+  <string name="description_edit_tutorial_title_descriptions">Ыстатыйа туһунан</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Кылгастык тиэмэни арыйар, ааҕааччыга тута өйдүүрүгэр көмө буолар</string>
   <string name="description_edit_tutorial_keep_it_short">Кылгастык суруй</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Биир сурааһын, иккиттэн уон иккигэ диэри тыл буолара ордук</string>
   <string name="description_edit_tutorial_button_label_start_editing">Уларытыыны саҕалаа</string>
   <string name="description_edit_tutorial_promise">Саҕалыырбар бу кыаҕы сөпкө туһаныам диэн мэктиэлиибин.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Кылгас быһаарыы эбии</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Быһаарыыны тылбаастааһын</string>
+  <string name="suggested_edits_add_descriptions">Кылгас быһаарыы эбии</string>
+  <string name="suggested_edits_translate_descriptions">Быһаарыыны тылбаастааһын</string>
   <string name="suggested_edits_add_image_captions">Ойуу туһунан суруйарга</string>
   <string name="suggested_edits_translate_image_captions">Ойуу суругун тылбааһа</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Быһаарыылары тургутуу</string>
+  <string name="suggested_edits_review_description">Быһаарыылары тургутуу</string>
   <string name="suggested_edits_add_description_button">Быһааран суруй</string>
   <string name="suggested_edits_edit_description_button">Ойуулааһыны уларытыы</string>
   <string name="suggested_edits_add_translation_button">Тылбааһы эбэргэ</string>
   <string name="suggested_edits_edit_translation_button">Тылбааһы уларытарга</string>
   <string name="suggested_edits_add_caption_button">Ойуулааһыны эбэргэ</string>
   <string name="suggested_edits_edit_caption_button">Ойуулааһыны уларытыы</string>
+  <string name="suggested_edits_review_image_caption">Ойуу туһунан суругу тургутарга</string>
   <string name="suggested_edits_my_contributions">Бэйэм суруйуум</string>
+  <string name="suggested_edits_no_description">Бу билэ туһунан суруллубатах</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"Быһаарыыны эбии\" диэни холбоотуҥ</string>
   <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
   <string name="suggested_edits_unlock_dialog_yes">Чэ, бардыбыт!</string>
@@ -653,6 +658,17 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Кылгас быһаарыыны эбии (%s)</string>
   <string name="suggested_edits_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Саҕалыырга</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Ойуу туһунан (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Ойуу туһунан (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Худуоһунньук</string>
+  <string name="suggested_edits_image_preview_dialog_date">Күнэ-дьыла</string>
+  <string name="suggested_edits_image_preview_dialog_source">Төрүтэ/Фотограф</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Лиссиэнсийэлээһин</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Сиһилии</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Билэ сирэйэ Биики Хааһахха</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Ойуулааһыны эбии</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Ойуулааһыны эбии (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>

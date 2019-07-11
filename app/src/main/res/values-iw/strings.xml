@@ -698,7 +698,7 @@
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
   <string name="suggested_edits_image_preview_dialog_source">מקור/צלם</string>
   <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">מידע נוסף</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">מידע נוסף</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">דף הקובץ בוויקישיתוף</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>

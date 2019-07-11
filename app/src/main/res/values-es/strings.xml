@@ -18,6 +18,7 @@
 * JO777
 * Jduranboger
 * Johnny243
+* Johny Weissmuller Jr
 * Jorgito
 * Josecurioso
 * Juan Cuartas
@@ -662,7 +663,7 @@
   <string name="suggested_edits_edit_caption_button">Editar leyenda</string>
   <string name="suggested_edits_review_image_caption">Revisar leyenda de imagen</string>
   <string name="suggested_edits_my_contributions">Mis contribuciones</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Sin descripción</string>
+  <string name="suggested_edits_no_description">Este archivo no tiene una descripción</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Se desbloqueó la tarea de \"Edición de descripciones\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracias por todas tus contribuciones! Ya que eres un editor fantástico, hemos compilado una lista de los artículos a los que les faltan descripciones. ¿Nos ayudarías a mejorar Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloqueaste la tarea de traducción de descripciones de artículo</string>
@@ -704,11 +705,15 @@
   <string name="suggested_edits_feed_card_title">Ediciones sugeridas</string>
   <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Leyenda de imagen (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de imagen (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_date">Fecha</string>
   <string name="suggested_edits_image_preview_dialog_source">Fuente/fotógrafo</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Más información</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Más información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página del archivo en Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_add_image_caption">Añadir título</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">Añadir título (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
