@@ -16,8 +16,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.graphics.Matrix;
-import androidx.annotation.Nullable;
 import android.view.animation.DecelerateInterpolator;
+
+import androidx.annotation.Nullable;
 
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;

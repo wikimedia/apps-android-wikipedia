@@ -571,15 +571,15 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодите фид „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Сада можете да изаберете шта желите да се приказује у фиду, као и да дате предност вашем омиљеном типу садржаја.</string>
   <string name="description_edit_text_hint">Опис чланка</string>
   <string name="description_edit_save">Објави</string>
-  <string name="description_edit_add_description">Додај опис чланака</string>
+  <string name="description_edit_add_description">Додај опис чланка</string>
   <string name="description_edit_translate_description">Преведите опис чланка</string>
   <string name="description_edit_edit_description" fuzzy="true">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
-  <string name="description_edit_help_title">Помоћ: Описи чланака</string>
+  <string name="description_edit_help_title">Информације: Описи чланака</string>
   <string name="description_edit_help_about_wikidata">О Википодацима</string>
   <string name="description_edit_help_wikidata_guide">Водич на Википодацима за писање описа</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа чланка. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
+  <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа чланака. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
   <string name="description_edit_license_notice">Променом описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Опис чланка је објављен!</string>
   <string name="description_edit_success_encouragement">Управо сте побољшали Википедију за све</string>
@@ -593,7 +593,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
   <string name="suggested_edits_add_descriptions">Додавање описа чланка</string>
-  <string name="suggested_edits_review_description">Преглед описа чланака</string>
+  <string name="suggested_edits_review_description">Преглед описа чланка</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
   <string name="suggested_edits_my_contributions">Моји доприноси</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Можда касније</string>

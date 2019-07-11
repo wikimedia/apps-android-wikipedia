@@ -686,7 +686,7 @@
   <string name="suggested_edits_task_multilingual_title">Více úkolů pro vícejazyčné editory</string>
   <string name="suggested_edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuto, dokud needitujete %d titulky obrázků</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Zamčeno, dokud neprovedete %d ověřené příspěvky</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Zamčeno, dokud nevytvoříte %d ověřené popisy článků</string>
   <string name="suggested_edits_task_multilingual_negative">Není pro mě</string>
   <string name="suggested_edits_task_multilingual_positive">Přidat jazyky</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umělec</string>
@@ -709,7 +709,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Zdroj/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencování</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Více informací</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
   <string name="suggested_edits_feed_card_add_image_caption">Přidat popis obrázku</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat popis obrázku (%s)</string>

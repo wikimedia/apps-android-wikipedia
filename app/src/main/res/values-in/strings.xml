@@ -632,6 +632,7 @@
   </plurals>
   <string name="suggested_edits_tutorial_message">Selamat datang di rumah baru untuk penyuntingan cepat di aplikasi Wikipedia. Kontribusi Anda sangat kami hargai. Selamat menyunting!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Info lainnya</string>
   <string name="description_edit_revert_subtitle">Terima kasih telah menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memiliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>

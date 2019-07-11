@@ -641,7 +641,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Źródło/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Więcej Informacji</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Więcej Informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
