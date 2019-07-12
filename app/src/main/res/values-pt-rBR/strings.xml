@@ -200,7 +200,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permite que a Wikimedia recolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar relatórios de falhas</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permite que o aplicativo envie relatórios de falhas automaticamente ao HockeyApp / um provedor de serviços de terceiros para que possamos a falha e corrigi-la rapidamente e facilmente.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permite que o aplicativo envie relatórios de falhas automaticamente ao HockeyApp / um provedor de serviços de terceiros para que possamos analisar a falha e corrigi-la de forma rápida e fácil.</string>
   <string name="editing_error_spamblacklist">Foram detectadas ligações para domínios bloqueadas (%s). Remova-as e tente novamente.</string>
   <string name="history_search_list_hint">Histórico de pesquisa</string>
   <string name="error_can_not_process_link">Não foi possível exibir esta ligação</string>
@@ -229,7 +229,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -407,7 +407,7 @@
   <string name="reading_list_action_menu_remove_from_offline">Remover do modo offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salvar off-line</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Remover tudo do offline</string>
-  <string name="reading_list_action_menu_save_all_for_offline">Salve tudo offline</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Salvar tudo offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Adicione em outra lista</string>
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome da lista</string>
@@ -710,7 +710,7 @@
   </plurals>
   <string name="suggested_edits_feed_card_title">Edições sugeridas</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
-  <string name="suggested_edits_tutorial_message">Bem-vindo ao novo lar para edição rápida no aplicativo da Wikipedia. Suas contribuições são muito apreciadas. Edição feliz!</string>
+  <string name="suggested_edits_tutorial_message">Bem-vindo ao novo lar para edição rápida no aplicativo da Wikipédia. Suas contribuições são muito apreciadas. Edição feliz!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
@@ -718,8 +718,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotógrafo</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciando</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Mais informações</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Mais informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página de arquivo no Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_add_image_caption">Adicionar legenda</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">Adicionar legenda (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
@@ -777,7 +779,7 @@
     <item quantity="one">Remover o idioma selecionado?</item>
     <item quantity="other">Remover idiomas selecionados?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Você só verá o conteúdo no Feed de explorar e os filtros de pesquisa rápida para os idiomas restantes do Wikipedia</string>
+  <string name="wikipedia_languages_remove_dialog_content">Você só verá o conteúdo no Feed de explorar e os filtros de pesquisa rápida para os idiomas restantes da Wikipédia.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Não é possível remover todos os idiomas</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Mantenha pelo menos um idioma do Wikipedia para pesquisar e ler conteúdo.</string>
   <string name="more_language_options">mais</string>

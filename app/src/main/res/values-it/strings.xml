@@ -665,7 +665,7 @@
   <string name="suggested_edits_task_multilingual_title">Più attività per editori multilingue</string>
   <string name="suggested_edits_task_multilingual_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Bloccato fino a quando non avrai modificato %d didascalie di immagini</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai modificato %d descrizioni di voci (verificate)</string>
   <string name="suggested_edits_task_multilingual_negative">Non per me</string>
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
@@ -686,8 +686,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotografo</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Ulteriori Informazioni</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Ulteriori Informazioni</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagina del file su Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_add_image_caption">Aggiungi didascalia</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>

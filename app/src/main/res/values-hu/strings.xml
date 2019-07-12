@@ -696,7 +696,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>
   <string name="suggested_edits_image_preview_dialog_source">Forrás/fényképész</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">További információk</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">További információk</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>

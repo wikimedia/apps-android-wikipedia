@@ -646,7 +646,7 @@
   <string name="suggested_edits_edit_caption_button">Modifica la llegenda</string>
   <string name="suggested_edits_review_image_caption">Revisa la llegenda de la imatge</string>
   <string name="suggested_edits_my_contributions">Les meves contribucions</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Sense descripció</string>
+  <string name="suggested_edits_no_description">El fitxer no té descripció</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">S\'ha desbloquejat la tasca d\'addició de descripcions d\'article</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Gràcies per les vostres contribucions! Atès que ho feu molt bé editant, hem compilat una llista d\'articles que no tenen descripcions. Ens ajudeu a millorar la Viquipèdia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">S\'ha desbloquejat la tasca de traducció de descripcions d\'article</string>
@@ -661,12 +661,12 @@
   <string name="suggested_edits_unlock_notification_button">Sí, som-hi</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Heu desbloquejat la tasca «Afegeix llegendes a les imatges»</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Heu desbloquejat «Afegeix descripcions d\'imatges»</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Gràcies per les vostres contribucions! Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat un llistat d\'imatges que no en tenen. Ens ajudeu a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Modificacions suggerides\n\nGràcies per les vostres contribucions. Atès que pensem que us agrada afegir llegendes a les imatges, hem compilat una llista d\'imatges que no tenen llegendes. Ens ajudeu a millor la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Gràcies per les vostres edicions de llegendes d\'imatges! Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat un llistat d\'imatges que no en tenen. Ens ajudeu a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Edicions suggerides\n\nGràcies per les vostres edicions de llegendes d\'imatges. Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat una llista d\'imatges que no en tenen. Ens ajudeu a millor la Viquipèdia?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Heu desbloquejat la tasca «Tradueix llegendes de les imatges»</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Heu desbloquejat «Tradueix les llegendes de les imatges»</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Gràcies per les vostres contribucions! Esteu fent servir l\'aplicació en diferents llengües, per tant hem compilat una llista d\'imatges que necessita traducció de les seves llegendes. Continuareu ajudant-nos a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Modificacions suggerides\n\nGràcies per les contribucions. Esteu fent servir l\'aplicació en diferents llengües, per tant hem compilat una llista d\'imatges que necessiten traducció de les seves llegendes. Continuareu ajudant-nos a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Enhorabona per les vostres edicions de llegendes d\'imatges - estem impressionats! Esteu fent servir l\'aplicació en diferents llengües, per tant hem compilat una llista d\'imatges que necessiten traducció de les seves llegendes. Continuareu ajudant-nos a millorar la Viquipèdia?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Edicions suggerides\n\nEnhorabona per les vostres edicions de llegendes d\'imatges - estem impressionats! Esteu fent servir l\'aplicació en diferents llengües, per tant hem compilat una llista d\'imatges que necessiten traducció de les seves llegendes. Continuareu ajudant-nos a millorar la Viquipèdia?</string>
   <string name="suggested_edits_license_notice">En afegir la descripció, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">En afegir la llegenda de la imatge, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i alliberar irrevocablement les contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
@@ -675,14 +675,14 @@
   <string name="suggested_edits_task_add_description_description">Contribuïu a articles sense descripcions</string>
   <string name="suggested_edits_task_translation_title">Tradueix descripcions d\'article</string>
   <string name="suggested_edits_task_translation_description">Tradueix les descripcions en les diferents llengües de l\'article.</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Afegeix llegendes a les imatges</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Addició de llegendes a les imatges</string>
+  <string name="suggested_edits_task_image_caption_title">Addició de llegendes a les imatges</string>
+  <string name="suggested_edits_task_image_caption_description">Afegeix llegendes curtes a les imatges que no en tenen</string>
   <string name="suggested_edits_task_translate_caption_title">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_task_translate_caption_description">Tradueix les llegendes en altres llengües</string>
   <string name="suggested_edits_task_multilingual_title">Més tasques per a editors multilingües</string>
   <string name="suggested_edits_task_multilingual_description">Les tasques de traducció són disponibles si llegiu i escriviu en més d\'una llengua de la Viquipèdia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Bloquejat fins que no hàgiu fet %d contribucions verificades</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloquejat fins que no hàgiu editat %d llegendes d\'imatges</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquejat fins que no hàgiu editat %d descripcions d\'article (verificat)</string>
   <string name="suggested_edits_task_multilingual_negative">No per a mi</string>
   <string name="suggested_edits_task_multilingual_positive">Afegeix llengües</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
@@ -704,7 +704,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Origen/fotògraf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Llicència</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Més informació</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Més informació</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pàgina del fitxer a Wikimedia Commons</string>
   <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda (%s)</string>

@@ -28,11 +28,25 @@ public interface ZoomableController {
   interface Listener {
 
     /**
+     * Notifies the view that the transform began.
+     *
+     * @param transform the current transform matrix
+     */
+    void onTransformBegin(Matrix transform);
+
+    /**
      * Notifies the view that the transform changed.
      *
      * @param transform the new matrix
      */
     void onTransformChanged(Matrix transform);
+
+    /**
+     * Notifies the view that the transform ended.
+     *
+     * @param transform the current transform matrix
+     */
+    void onTransformEnd(Matrix transform);
   }
 
   /**
@@ -78,10 +92,9 @@ public interface ZoomableController {
    */
   boolean wasTransformCorrected();
 
-  /**
-   * See {@link androidx.core.view.ScrollingView}.
-   */
+  /** See {@link androidx.core.view.ScrollingView}. */
   int computeHorizontalScrollRange();
+
   int computeHorizontalScrollOffset();
   int computeHorizontalScrollExtent();
   int computeVerticalScrollRange();

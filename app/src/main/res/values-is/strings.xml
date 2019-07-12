@@ -675,7 +675,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Dagsetning</string>
   <string name="suggested_edits_image_preview_dialog_source">Heimild/Ljósmyndari</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Notkunarleyfi</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Frekari upplýsingar</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Frekari upplýsingar</string>
   <string name="description_edit_revert_subtitle">Takk fyrir framlag þitt til Wikipedia!</string>
   <string name="description_edit_revert_intro">Við vitum að þú reyndir þitt besta, en einn í yfirlestrarhópnum var í vafa. Hugsanlegar ástæður fyrir því að breytingunni þinni var hafnað, gætu meðal annars verið:</string>
   <string name="description_edit_revert_reason1">framlagið þitt fylgdi ekki einhverju atriðanna í &lt;a href=\"%1$s\"&gt;leiðbeiningunum&lt;/a&gt;.</string>

@@ -590,7 +590,7 @@
   <string name="description_edit_article_description_label_per_language">Статија (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис на статијата (%s)</string>
   <string name="description_edit_add_caption_label_per_language">Опис на сликата (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Описи на сликата (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Опис на сликата (%s)</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_read">Прочитај</string>
   <string name="description_edit_add_description">Додај опис на статијата</string>
@@ -634,7 +634,7 @@
   <string name="suggested_edits_edit_caption_button">Додај опис на содржината</string>
   <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
   <string name="suggested_edits_my_contributions">Мои придонеси</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Нема опис</string>
+  <string name="suggested_edits_no_description">Податотекава нема опис</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи на статии“</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Ви благодариме на придонесите! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи на статии“</string>
@@ -670,7 +670,7 @@
   <string name="suggested_edits_task_multilingual_title">Повеќе задачи за повеќејазични уредници</string>
   <string name="suggested_edits_task_multilingual_description">Има преводни задачи на располагање доколку читате и пишувате на Википедија на повеќе од еден јазик.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Заклучено додека не направите %d уредувања во описи на слики</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Заклучено додека не уредите %d проверени описи</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Заклучено додека не уредите %d описи на статии (проверени)</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Уметник</string>
@@ -692,8 +692,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
   <string name="suggested_edits_image_preview_dialog_source">Извор/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
+  <string name="suggested_edits_article_cta_add_image_caption">Додај опис</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">Додај опис (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>
