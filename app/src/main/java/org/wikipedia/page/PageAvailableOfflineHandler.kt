@@ -1,12 +1,11 @@
 package org.wikipedia.page
 
 import android.annotation.SuppressLint
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.*
 import org.wikipedia.WikipediaApp
 import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.log.L
 
 object PageAvailableOfflineHandler {
     interface Callback {
@@ -23,14 +22,14 @@ object PageAvailableOfflineHandler {
             callback.onFinish(true)
             return
         }
-
-        Observable.fromCallable { ReadingListDbHelper.instance().findPageInAnyList(pageTitle) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    callback.onFinish(it!!.offline() && !it.saving())
-                }, {
-                    callback.onFinish(false)
-                })
+        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, exception ->
+            run {
+                callback.onFinish(false)
+                L.w(exception)
+            }
+        }) {
+            val readingListPage = withContext(Dispatchers.IO) { ReadingListDbHelper.instance().findPageInAnyList(pageTitle) }
+            callback.onFinish(readingListPage!!.offline() && !readingListPage.saving())
+        }
     }
 }

@@ -425,7 +425,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
 
         @Override
-        public void onListChipClick(@Nullable ReadingList readingList) {
+        public void onListChipClick(@NonNull ReadingList readingList) {
         }
     }
 
