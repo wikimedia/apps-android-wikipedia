@@ -714,7 +714,7 @@
   <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d описаний статей и они не будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
@@ -736,8 +736,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
   <string name="suggested_edits_image_preview_dialog_source">Источник/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Лицензирование</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Подробнее</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Подробнее</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница файла на Викискладе</string>
+  <string name="suggested_edits_article_cta_add_image_caption">Добавить описание</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">Добавить описание (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить описание (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>

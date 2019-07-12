@@ -354,7 +354,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencizo</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Plusa informi</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Plusa informi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagino dil arkivo che Wikimedia Commons</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adjuntez expliko</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez expliko (%s)</string>

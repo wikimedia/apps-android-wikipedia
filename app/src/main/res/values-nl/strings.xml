@@ -694,7 +694,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Bron/fotograaf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licentie</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Meer info</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Meer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschrijving toevoegen</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
