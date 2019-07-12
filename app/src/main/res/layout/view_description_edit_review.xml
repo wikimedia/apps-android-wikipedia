@@ -101,7 +101,7 @@
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/galleryImage"
-            style="@style/SimpleDraweeViewPlaceholder.SuggestedEditsReview"
+            style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits.Review"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:actualImageScaleType="fitCenter"
@@ -124,7 +124,7 @@
             android:paddingTop="36dp"
             android:paddingBottom="16dp"
             android:layout_gravity="bottom"
-            android:lineSpacingExtra="8sp"
+            android:lineSpacingMultiplier="1.5"
             android:background="@drawable/gallery_caption_gradient_background"
             tools:text="Sample image description text" />
     </FrameLayout>

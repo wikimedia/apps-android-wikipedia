@@ -341,23 +341,20 @@
 
     <style name="SimpleDraweeViewPlaceholder">
         <item name="actualImageScaleType">centerCrop</item>
-        <item name="placeholderImage">?attr/thumbnail_image_placeholder</item>
-        <item name="placeholderImageScaleType">fitCenter</item>
-        <item name="failureImage">?attr/thumbnail_image_placeholder</item>
-        <item name="failureImageScaleType">fitCenter</item>
+        <item name="failureImage">?android:colorBackground</item>
         <item name="fadeDuration">0</item>
-        <item name="backgroundImage">?attr/paper_color</item>
+        <item name="backgroundImage">?android:colorBackground</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.SuggestedEdits">
-        <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
-        <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
+        <item name="placeholderImage">?attr/material_theme_border_color</item>
+        <item name="failureImage">?attr/material_theme_border_color</item>
         <item name="backgroundImage">@color/base30</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder.SuggestedEditsReview">
-        <item name="placeholderImage">@drawable/ic_image_gray_transparent_24dp</item>
-        <item name="failureImage">@drawable/ic_image_gray_transparent_24dp</item>
+    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits.Review">
+        <item name="placeholderImage">@android:color/black</item>
+        <item name="failureImage">@android:color/black</item>
         <item name="backgroundImage">@android:color/black</item>
     </style>
 
@@ -365,8 +362,8 @@
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
         <item name="android:contentDescription">@null</item>
-        <item name="placeholderImage">?attr/material_theme_border_color</item>
-        <item name="failureImage">?attr/material_theme_border_color</item>
+        <item name="placeholderImage">?android:colorBackground</item>
+        <item name="failureImage">?android:colorBackground</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>

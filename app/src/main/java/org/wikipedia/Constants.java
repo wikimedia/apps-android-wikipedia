@@ -27,6 +27,7 @@ public final class Constants {
     public static final int ACTIVITY_REQUEST_BROWSE_TABS = 61;
     public static final int ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62;
     public static final int ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING = 63;
+    public static final int ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT = 64;
 
     public static final String INTENT_RETURN_TO_MAIN = "returnToMain";
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
@@ -46,6 +47,7 @@ public final class Constants {
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
 
+    public static final int PREFERRED_CARD_THUMBNAIL_SIZE = 800;
     public static final int PREFERRED_GALLERY_IMAGE_SIZE = 1280;
 
     public static final int MAX_TABS = 100;
@@ -74,6 +76,8 @@ public final class Constants {
         SUGGESTED_EDITS_TRANSLATE_CAPTION,
         FEED_CARD_SUGGESTED_EDITS_ADD_DESC,
         FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC,
+        FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION,
+        FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION,
         SUGGESTED_EDITS_ONBOARDING,
         ONBOARDING_DIALOG,
         FEED,

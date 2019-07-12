@@ -323,7 +323,7 @@
   <string name="article_menu_bar_bookmark">Tambah artikel iki nyang pratélan wacan</string>
   <string name="article_menu_bar_share">Dum pranalané artikel</string>
   <string name="article_header_edit_hint">Mbesut...</string>
-  <string name="article_header_edit_description">Besut wedharaning sesirah</string>
+  <string name="article_header_edit_description" fuzzy="true">Besut wedharaning sesirah</string>
   <string name="article_header_edit_lead_section">Besut bebuka</string>
   <string name="color_theme_select">Irah-irahan</string>
   <string name="color_theme_light">Padhang</string>
@@ -538,50 +538,44 @@
   <string name="feed_item_type_randomizer">Asilaké sembarang artikel saperlu kawaca</string>
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
-  <string name="description_edit_text_hint">Wedharaning sesirah</string>
-  <string name="description_edit_text_hint_per_language">%s wedharan</string>
+  <string name="description_edit_text_hint" fuzzy="true">Wedharaning sesirah</string>
   <string name="description_edit_save">Babar</string>
-  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Waca</string>
-  <string name="description_edit_add_description">Wuwuh wedharaning sesirah</string>
-  <string name="description_edit_add_description_v2">Wuwuh wedharan</string>
-  <string name="description_edit_translate_description">Pertal wedharan</string>
-  <string name="description_edit_edit_description">Besut wedharan</string>
-  <string name="add_translation">Wuwuh %s wedharan</string>
+  <string name="description_edit_add_description" fuzzy="true">Wuwuh wedharaning sesirah</string>
+  <string name="description_edit_translate_description" fuzzy="true">Pertal wedharan</string>
+  <string name="description_edit_edit_description" fuzzy="true">Besut wedharan</string>
   <string name="description_edit_cancel_hint">Wurung</string>
-  <string name="description_edit_help_title">Pitulung: wedharaning sesirah</string>
+  <string name="description_edit_help_title" fuzzy="true">Pitulung: wedharaning sesirah</string>
   <string name="description_edit_help_about_wikidata">Ngenani Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Tuntunan Wikidata kanggo nulis andharan</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
-  <string name="description_edit_license_notice">Kanthi ngganti wedharaning sesirah, aku sarujuk marang &lt;a href=\"%1$s\"&gt;Pranatan Pangguna&lt;/a&gt; lan nguculaké sumbanganku ing pangayomané lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Wedharané wis terbit!</string>
-  <string name="description_edit_success_saved_snackbar">Wedharan wis babar!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Kanthi ngganti wedharaning sesirah, aku sarujuk marang &lt;a href=\"%1$s\"&gt;Pranatan Pangguna&lt;/a&gt; lan nguculaké sumbanganku ing pangayomané lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Wedharané wis terbit!</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Wedharan wis babar!</string>
   <string name="description_edit_success_encouragement">Panjenengan mentas waé ndadèkaké Wikipédia luwih becik kanggo saben wong</string>
   <string name="description_edit_success_done">Rampung</string>
   <string name="description_edit_success_did_you_know">Panjenengan ngerti, ta?</string>
   <string name="description_edit_success_article_edit_hint">Panjenengan uga bisa mbesut artikel ing aplikasi iki. Bésuk manèh, jajal dandanana salah-tik lan ukara cendhak kanthi ngeklik ikon ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Katerangané sesirah</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Katerangané sesirah</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Ngringkes artikel supaya kang maca sumurup surasané yèn maca satleraman</string>
   <string name="description_edit_tutorial_keep_it_short">Ringkes waé</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Prayogané salarik, tembungé cacahé antarané loro tekan rolas</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Kanthi miwiti, kula jangji ora nyalahi panganggoné fitur iki.</string>
-  <string name="suggested_edits_add_descriptions">Wuwuh wedharan</string>
-  <string name="suggested_edits_translate_descriptions">Pertal wedharan</string>
-  <string name="suggested_edits_review_description">Priksa wedharan</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Wuwuh wedharan</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Pertal wedharan</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Priksa wedharan</string>
   <string name="suggested_edits_add_description_button">Wuwuh wedharan</string>
   <string name="suggested_edits_my_contributions">Pasumbangku</string>
-  <string name="suggested_edits_added_by_you">Kang dakwuwuh:</string>
-  <string name="suggested_edits_translated_by_you">Kang dakpertal:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Kowé mbukak ayahan \"Wuwuh wedharan\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Kowé mbukak ayahan \"Wuwuh wedharan\"</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_task_translation_title">Pertal wedharan</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Pertal wedharan</string>
   <string name="suggested_edits_task_translation_description">Pertal wedharan ing akèh basa.</string>
-  <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>
-  <string name="suggested_edits_task_multilingual_positive">Wuwuh basa</string>
   <string name="suggested_edits_task_translate_caption_title">Pertal katerangan gambar</string>
   <string name="suggested_edits_task_translate_caption_description">Pertal katerangan menyang basa liya</string>
+  <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>
+  <string name="suggested_edits_task_multilingual_positive">Wuwuh basa</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 pasumbang</item>
     <item quantity="other">%d pasumbang</item>

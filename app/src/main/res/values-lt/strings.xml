@@ -232,7 +232,7 @@
   <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_header_edit_hint">Redaguoti...</string>
-  <string name="article_header_edit_description">Redaguoti pavadinimo aprašymą</string>
+  <string name="article_header_edit_description" fuzzy="true">Redaguoti pavadinimo aprašymą</string>
   <string name="article_header_edit_lead_section">Redaguoti įžangą</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Šviesi</string>
@@ -315,14 +315,14 @@
   <string name="view_featured_article_footer_saved_button_label">Išsaugota</string>
   <string name="feed_configure_menu_select_all">Rodyti viską</string>
   <string name="feed_configure_menu_deselect_all">Paslėpti viską</string>
-  <string name="description_edit_text_hint">Pavadinimo aprašymas</string>
+  <string name="description_edit_text_hint" fuzzy="true">Pavadinimo aprašymas</string>
   <string name="description_edit_save">Paskelbti</string>
-  <string name="description_edit_add_description">Pridėti pavadinimo aprašymą</string>
-  <string name="description_edit_edit_description">Redaguoti aprašymą</string>
+  <string name="description_edit_add_description" fuzzy="true">Pridėti pavadinimo aprašymą</string>
+  <string name="description_edit_edit_description" fuzzy="true">Redaguoti aprašymą</string>
   <string name="description_edit_cancel_hint">Atšaukti</string>
   <string name="description_edit_help_about_wikidata">Apie Vikiduomenis</string>
   <string name="description_edit_help_wikidata_guide">Vikiduomenų gidas aprašymų rašymui</string>
-  <string name="description_edit_success_saved">Aprašymas paskelbtas!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Aprašymas paskelbtas!</string>
   <string name="description_edit_success_encouragement">Jūs ką tik padarėte Vikipediją geresne visiems</string>
   <string name="description_edit_success_done">Atlikta</string>
   <string name="description_edit_success_did_you_know">Ar žinote?</string>

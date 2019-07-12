@@ -18,17 +18,26 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Atzera</string>
+  <string name="page_tabs_back">Atzera</string>
+  <string name="nav_item_forward">Aurrera</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_search_history">Bilatu historia</string>
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>
+  <string name="card_offline_error_retry">Berriz saiatu</string>
+  <string name="storage_access_error_retry">Saiatu berriro</string>
+  <string name="article_load_error_retry">Saiatu berriro</string>
+  <string name="offline_load_error_retry">Saiatu berriro</string>
   <string name="page_error_back_to_main">Atzera joan</string>
+  <string name="error_back">Atzera joan</string>
   <string name="menu_clear_all_history">Historia garbitu</string>
   <string name="history_item_deleted">%s historiatik kendu da</string>
   <string name="history_items_deleted">%d artikulu kendu dira historiatik</string>
   <string name="history_item_delete_undo">Desegin</string>
+  <string name="notification_archive_undo">Desegin</string>
   <string name="app_settings">App ezarpenak</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="dialog_message_clear_history">Honek zure arakatze-historia guztia ezabatuko du eta uneko irekitako fitxak itxi egingo dira. Ziur zaude?</string>
@@ -48,6 +57,9 @@
   <string name="menu_text_select_copy">Kopiatu</string>
   <string name="menu_text_select_define">Definitu</string>
   <string name="menu_text_select_share">Partekatu</string>
+  <string name="share">Partekatu</string>
+  <string name="on_this_day_page_share">Partekatu</string>
+  <string name="reading_list_page_share">Partekatu</string>
   <string name="menu_text_select_edit_here">Editatu hementxe</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
@@ -59,8 +71,8 @@
   <string name="other_languages_indication_text">Irakurri beste hizkuntza batean</string>
   <string name="language_count_link_text">Irakurgarri beste %d hizkuntzatan</string>
   <string name="content_license_html">Edukia eskuragarri &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
+  <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
+  <string name="edit_save_action_license_anon">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
   <string name="preference_title_language">Wikipediako hizkuntzak</string>
   <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
@@ -73,7 +85,7 @@
   <string name="dialog_message_edit_failed">Errorea aldaketan!</string>
   <string name="dialog_message_edit_failed_retry">Saiatu berriro</string>
   <string name="dialog_message_edit_failed_cancel">Utzi</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Zure aldaketak oraindik ez dira gorde. Ziur zaude orritik irten nahi duzula?</string>
+  <string name="dialog_message_leaving_edit">Zure aldaketak oraindik ez dira gorde. Ziur zaude orritik irten nahi duzula?</string>
   <string name="dialog_message_leaving_edit_leave">Irten</string>
   <string name="dialog_message_leaving_edit_stay">Gelditu</string>
   <string name="menu_show_toc">Eduki-taula</string>
@@ -82,15 +94,20 @@
   <string name="search_reading_lists_no_results">Ez dira emaitzarik aurkitu irakurketa zerrendetan</string>
   <string name="search_history_no_results">Historian ez da emaitzik aurkitu</string>
   <string name="edit_section_captcha_message">Spam automatikoaren aurka babesteko, mesedez idatzi jarraian ageri diren hitzak</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Ezin duzu argazkia ikusi? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Gehiago ikasi&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Ezin duzu argazkia ikusi? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Goiko hitzak errepikatu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
   <string name="edit_section_captcha_reload">CAPTCHA sakatu eguneratu</string>
   <string name="nav_item_login">Saioa hasi Wikipedian</string>
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
+  <string name="account_creation_password_hint">Pasahitza</string>
   <string name="login_2fa_hint">Bi-faktoreko Autentikatze Kodea</string>
   <string name="login_2fa_other_workflow_error_msg">Bi-faktoreko autentikatzea beharrezkoa da! Mesedez bueltatu jarduera normalera eta sartu zure 2FA tokena, eta orduan berriro saiatu.</string>
+  <string name="onboarding_card_login">Saioa hasi</string>
+  <string name="page_editing_login">Saioa hasi</string>
+  <string name="reading_lists_sync_login">Saioa hasi</string>
+  <string name="create_account_login">Saioa hasi</string>
   <string name="menu_login">Hasi saioa</string>
   <string name="login_activity_title">Saioa hasi Wikipedian</string>
   <string name="login_in_progress_dialog_message">Saioa hasten…</string>
@@ -101,6 +118,10 @@
   <string name="reset_password_button">Gorde eta hasi saioa</string>
   <string name="preference_title_logout">Saioa itxi</string>
   <string name="toast_logout_complete">Saioa itxita</string>
+  <string name="logout_dialog_cancel_button_text">Utzi</string>
+  <string name="logged_out_in_background_title">Saioa itxita</string>
+  <string name="logged_out_in_background_login">Saioa hasi</string>
+  <string name="logged_out_in_background_cancel">Utzi</string>
   <string name="history_empty_title">Ez dago azkenaldian ikusitako orririk!</string>
   <string name="history_empty_message">Egin hemen irakurri duzunaren jarraipena.</string>
   <string name="search_empty_message">Bilatu eta irakurri doako entziklopedia zure hizkuntzan</string>
@@ -171,6 +192,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.eu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Erabilitako liburutegiak</string>
   <string name="about_contributors_heading">Ekarleak</string>
   <string name="about_translators_heading">Itzultzaileak</string>
@@ -189,6 +211,10 @@
   <string name="edit_next">Hurrengoa</string>
   <string name="edit_done">Argitaratu</string>
   <string name="edit_preview">Aurrebista</string>
+  <string name="edit_undo">Desegin</string>
+  <string name="edit_redo">Berregin</string>
+  <string name="edit_zoom_in">Handiagotu</string>
+  <string name="edit_zoom_out">Txikiagotu</string>
   <string name="edit_summary_tag_typo">Ortografia zuzenketa</string>
   <string name="edit_summary_tag_grammar">Gramatika zuzenketa</string>
   <string name="edit_summary_tag_links">Gehitutako loturak</string>
@@ -227,7 +253,7 @@
   <string name="preference_summary_show_images">Gaitu edo ezgaitu irudien karga orrialdeetan. Kendu aukera hau Internet konexioa geldoa bada, edo zure datu plana mugatua bada.</string>
   <string name="preference_title_download_only_over_wifi">Jaitsi Wi-Fi sarea bakarrik erabilita</string>
   <string name="dialog_title_download_only_over_wifi">Datu mugikorren bidezko jaitsiera berresten duzu?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">\"Jaitsi Wi-Fi sarea bakarrik erabilita\" piztu duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, jaitsiera honetarako bakarrik?</string>
+  <string name="dialog_text_download_only_over_wifi">\"Jaitsi Wi-Fi sarea bakarrik erabilita\" piztu duzu ezarpenetan. Datu mugikorren erabilera baimendu nahi duzu, jaitsiera honetarako bakarrik?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Baimendu</string>
   <string name="read_more_section">Irakurri gehiago</string>
   <string name="about_article_section">Artikulu honi buruz</string>
@@ -273,6 +299,7 @@
   <string name="error_no_maps_app">Ez da aurkitu helbiderik eskaintzen duen aplikaziorik.</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="preference_summary_show_link_previews">Erakutsi artikuluen aurrebista bizkorra esteketan sakatzen denean.</string>
+  <string name="preference_title_collapse_tables">Taulak txikitu</string>
   <string name="nav_item_donate">Wikipedia Lagundu</string>
   <string name="error_voice_search_not_available">Barkatu, ahots ezagutza ez dago erabilgarri.</string>
   <string name="location_service_disabled">Kokapen zerbitzuak desgaituak daude.</string>
@@ -301,12 +328,13 @@
   <string name="article_menu_bar_bookmark">Artikulu hau gehitu irakurtze zerrendara</string>
   <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_header_edit_hint">Aldatu...</string>
-  <string name="article_header_edit_description">Izenburuko deskribapena aldatu</string>
+  <string name="article_header_edit_description">Artikuluaren deskribapena aldatu</string>
   <string name="article_header_edit_lead_section">Sarrera aldatu</string>
   <string name="color_theme_select">Gaia</string>
   <string name="color_theme_light">Argia</string>
   <string name="color_theme_dark">Iluna</string>
   <string name="color_theme_black">Beltza</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Eredu testua</string>
   <string name="color_theme_test_text">Arrastatu graduatzailea, artikuluak irakurtzean erabiltzen den testuaren tamaina aldatzeko. Aplikazioaren gainerako testu-tamaina zehazteko, aldatu zure sistemaren testuaren tamaina.</string>
   <string name="preference_title_app_theme">App gaia</string>
@@ -419,6 +447,13 @@
     <item quantity="other">Artikulu hauek ez dira eskuragarri izango konexiorik gabe.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Irakurketa zerrenda arrakastaz sinkronizatua</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">Ados</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Ados</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Utzi</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Utzi</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Utzi</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Utzi</string>
+  <string name="reading_list_split_dialog_ok_button_text">Ados</string>
   <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_reverted_title">Lehengoratutako aldaketa</string>
   <string name="notification_channel_description">Deskargatu aurrerapena</string>
@@ -468,6 +503,7 @@
   <string name="preference_summary_notification_welcome">Kontu bat sortu da</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
+  <string name="preference_title_notification_revert">Lehengoratu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>
   <string name="view_random_card_subtitle">Irakurri Wikipediako ausazko artikulu bat</string>
@@ -494,9 +530,11 @@
   <string name="view_continue_reading_card_subtitle_today">gaur</string>
   <string name="view_continue_reading_card_subtitle_read_date">Irakurri %s</string>
   <string name="view_announcement_card_negative_action">Ez, eskerrik asko</string>
+  <string name="onboarding_negative_action">Ez, eskerrik asko</string>
   <string name="view_offline_card_text">Edukia ezin da azaldu konexiorik gabe.</string>
   <string name="view_featured_article_card_title">Nabarmendutako artikulua</string>
   <string name="view_featured_article_footer_save_button_label">Gorde</string>
+  <string name="view_static_card_save_button_label">Gorde</string>
   <string name="view_featured_article_footer_saved_button_label">Gordea</string>
   <string name="feed_configure_activity_title">Pertsonalizatu jarioa</string>
   <string name="feed_configure_menu_reset">Leheneratu ikuspegi lehenetsiak</string>
@@ -513,23 +551,28 @@
   <string name="feed_item_type_randomizer">Irakurtzeko ausazko artikuluak sortu</string>
   <string name="feed_empty_message">Ez dago ezer zure Arakatze-jarioan</string>
   <string name="feed_configure_onboarding_action">Pertsonalizatu</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">Ados</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Utzi</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pertsonalizatu zure Arakatze jarioa&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Orain zure jarioan zer erakutsi behar den aukeratu dezakezu eta, era berean, zure eduki mota gogokoenak lehentasunez ezarri.</string>
-  <string name="description_edit_text_hint">Izenburuaren deskribapena</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Ados</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Utzi</string>
+  <string name="description_edit_text_hint">Artikuluaren deskribapena</string>
   <string name="description_edit_save">Argitaratu</string>
-  <string name="description_edit_add_description">Gehitu izenburuaren deskribapena</string>
-  <string name="description_edit_edit_description">Aldatu deskribapena</string>
+  <string name="description_edit_read">Irakurri</string>
+  <string name="description_edit_add_description">Gehitu artikuluaren deskribapena</string>
+  <string name="description_edit_edit_description">Artikuluaren deskribapena aldatu</string>
   <string name="description_edit_cancel_hint">Utzi</string>
-  <string name="description_edit_help_title">Laguntza: izenburuen deskribapenak</string>
+  <string name="description_edit_help_title">Info: artikuluen deskribapenak</string>
   <string name="description_edit_help_about_wikidata">Wikidatari buruz</string>
   <string name="description_edit_help_wikidata_guide">Wikidata gida idatzitako deskribapenentzat</string>
-  <string name="description_edit_anon_limit">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
-  <string name="description_edit_license_notice">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
-  <string name="description_edit_success_saved">Deskribapea argiraratu da!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
+  <string name="description_edit_success_saved">Artikulua argitaratu da!</string>
   <string name="description_edit_success_encouragement">Wikipedia askoz hobea egin duzu gu denontzat</string>
   <string name="description_edit_success_done">Egina</string>
   <string name="description_edit_success_did_you_know">Ba al zenekien?</string>
   <string name="description_edit_success_article_edit_hint">Aplikazio honetatik ere artikuluak alda ditzakezu. Saia zaitez tipoak eta esaldi laburrak konpontzen ^1 ikonoaren bitartez hurrengo batean</string>
-  <string name="description_edit_tutorial_title_descriptions">Izenburuaren deskribapenak</string>
+  <string name="description_edit_tutorial_title_descriptions">Artikuluen deskribapenak</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Artikulu bat laburbiltzen du, irakurleek gai bat begirada batez uler ditzaten</string>
   <string name="description_edit_tutorial_keep_it_short">Labur mantendu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideala, lerro bakarra, bi eta hamabi hitz artean</string>
@@ -560,7 +603,7 @@
   <string name="onboarding_got_it">Ulertuta</string>
   <string name="onboarding_multilingual_secondary_text">Hurrengoak aurkitu ditugu zure gailuan:</string>
   <string name="onboarding_multilingual_add_language_text">Hizkuntzak gehitu ala aldatu</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Entziklopedia Askea\n... ia 300 hizkuntzatan</string>
+  <string name="onboarding_welcome_title_v2">Entziklopedia Askea\n...300 hizkuntza baino gehiagotan</string>
   <string name="app_shortcuts_random">Ausazkoa</string>
   <string name="app_shortcuts_continue_reading">Irakurtzen jarraitu</string>
   <string name="app_shortcuts_search">Bilatu</string>

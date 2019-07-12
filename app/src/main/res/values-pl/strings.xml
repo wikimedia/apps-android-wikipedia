@@ -22,6 +22,7 @@
 * Stojex
 * Tar Lócesilion
 * The Polish
+* Thoji
 * Vesihiisi
 * WTM
 * Warchlak
@@ -40,10 +41,16 @@
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
+  <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
+  <string name="card_offline_error_retry">Ponów próbę</string>
+  <string name="storage_access_error_retry">Ponów próbę</string>
+  <string name="article_load_error_retry">Ponów próbę</string>
+  <string name="offline_load_error_retry">Ponów próbę</string>
   <string name="page_error_back_to_main">Wróć</string>
+  <string name="error_back">Wróć</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_items_deleted">%d artykułów usunięto z historii</string>
@@ -55,6 +62,7 @@
   <string name="dialog_message_clear_history_yes">Tak</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Udostępnij przez</string>
+  <string name="image_share_via">Udostępnij przez</string>
   <string name="search_redirect_from">Przekierowano z %s</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
@@ -73,6 +81,9 @@
   <string name="menu_text_select_copy">Kopiuj</string>
   <string name="menu_text_select_define">Definicja</string>
   <string name="menu_text_select_share">Udostępnij</string>
+  <string name="share">Udostępnij</string>
+  <string name="on_this_day_page_share">Udostępnij</string>
+  <string name="reading_list_page_share">Udostępnij</string>
   <string name="menu_text_select_edit_here">Edytuj tutaj</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
@@ -117,6 +128,10 @@
   <string name="account_creation_password_hint">Hasło</string>
   <string name="login_2fa_hint">Kod uwierzytelniania dwuskładnikowego</string>
   <string name="login_2fa_other_workflow_error_msg">Wymagane uwierzytelnianie dwuskładnikowe! Wróć do głównej aktywności i zaloguj się za pomocą tokena 2FA, a następnie spróbuj ponownie.</string>
+  <string name="onboarding_card_login">Zaloguj się</string>
+  <string name="page_editing_login">Zaloguj się</string>
+  <string name="reading_lists_sync_login">Zaloguj się</string>
+  <string name="create_account_login">Zaloguj się</string>
   <string name="menu_login">Zaloguj się</string>
   <string name="login_activity_title">Zaloguj się do Wikipedii</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
@@ -280,6 +295,7 @@
   <string name="gallery_save_success">Plik pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
+  <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Kliknij, aby rozwinąć</string>
@@ -351,7 +367,7 @@
   <string name="article_menu_bar_bookmark">Dodaj ten artykuł do listy do przeczytania</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_header_edit_hint">Edytuj...</string>
-  <string name="article_header_edit_description">Edytuj opis tytułu</string>
+  <string name="article_header_edit_description">Edytuj opis artykułu</string>
   <string name="article_header_edit_lead_section">Edytuj wprowadzenie</string>
   <string name="color_theme_select">Skórka</string>
   <string name="color_theme_light">Jasna</string>
@@ -359,6 +375,7 @@
   <string name="color_theme_black">Czarny</string>
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Przykładowy tekst</string>
+  <string name="color_theme_test_text">Przeciągnij suwak, aby zmienić rozmiar tekstu używanego do czytania artykułów. Aby ustawić rozmiar tekstu w pozostałej części aplikacji, zmień rozmiar tekstu systemowego.</string>
   <string name="preference_title_app_theme">Motyw aplikacji</string>
   <string name="preference_summary_color_theme">Przejdź do korzystania z motywu ciemnego aplikacji</string>
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
@@ -367,6 +384,7 @@
   <string name="nav_item_reading_lists">Moje listy</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_create_new">Utwórz nową</string>
+  <string name="reading_list_title_exists">Lista \"%s\" już istnieje.</string>
   <string name="reading_list_added_to_named">Dodano do %s.</string>
   <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
@@ -394,6 +412,7 @@
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
   <string name="reading_list_item_deleted">Usunięto %s z historii</string>
   <string name="reading_list_items_deleted">%d artykułów usunięto z listy</string>
+  <string name="reading_lists_item_deleted">Usunięto %s z listy</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
   <string name="reading_list_deleted">%s został usunięty</string>
   <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych stron</string>
@@ -413,29 +432,49 @@
   <string name="reading_list_select_item">Wybierz</string>
   <string name="reading_list_confirm_remove_article_from_offline">Usuń z zapisanych na później</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artykuł pojawia się na wielu listach</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s nie będzie dostępne offline dla wszystkich list:</string>
   <string name="reading_lists_sync_reminder_title">Włączyć synchronizację listy czytanych?</string>
+  <string name="reading_lists_sync_reminder_text">Artykuły zapisane na listach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Listy może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i pozwól na zapisywanie list. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
   <string name="reading_list_login_reminder_title">Zsynchronizuj swoje listy czytania</string>
+  <string name="reading_lists_login_reminder_text">Listy może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i pozwól na zapisywanie list.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
+  <string name="reading_list_article_save_in_progress">Artykuł jest w trakcie pobierania i będzie dostępny w trybie offline, gdy pobieranie się zakończy.</string>
+  <string name="reading_list_already_contains_selection">Wybrana lista zawiera już wszystkie wybrane strony.</string>
   <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>
   <string name="reading_list_delete_confirm">Czy na pewno chcesz usunąć „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Zaloguj się, aby włączyć synchronizację</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Zaloguj się, aby umożliwić zapisywanie list na swoim koncie.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anuluj</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Zaloguj się</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Synchronizacja list wyłączona</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Synchronizacja list jest wyłączona dla Twojego konta, a artykuły zapisane na zalogowanych urządzeniach nie są już kopiowane. Włącz synchronizację list w Ustawieniach.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ustawienia</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Włączyć synchronizację list?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Artykuły zapisane na listach mogą być teraz zsynchronizowane z Twoim kontem w Wikipedii. &lt;a href=\"#faq\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nie pokazuj mi tego ponownie</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Włącz synchronizację</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Znaleziono listy artykułów</string>
+  <string name="reading_list_login_option_reminder_dialog_text">Artykuły zostały zapisane na liście, gdy byłeś wylogowany. Czy chciałbyś dodać je do list na swoim koncie?</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Tak, dodaj je do mojej listy</string>
   <string name="reading_list_login_option_reminder_dialog_no">Nie, usuń artykuły</string>
   <string name="reading_list_logout_option_reminder_dialog_title">Zachować w aplikacji zapisane artykuły?</string>
+  <string name="reading_list_logout_option_reminder_dialog_text">Artykuły są obecnie zapisywane na listach. Chcesz je tam zatrzymać po wylogowaniu?</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Tak, zachowaj artykuły na listach</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Nie, usuń artykuły z list</string>
   <string name="default_reading_list_name">Zapisane</string>
   <string name="default_reading_list_description">Domyślna lista dla zapisanych artykułów</string>
   <string name="no_user_lists_title">Uporządkuj artykuły w listy</string>
+  <string name="no_user_lists_msg">Twórz listy miejsc, do których chciałbyś podróżować, ulubionych tematów i wielu innych.</string>
   <string name="reading_list_saved_list_rename">%1$s (utworzono konto użytkownika)</string>
+  <string name="split_reading_list_message">Istnieje limit %d artykułów na listę. Istniejące listy, których liczba przekracza ten limit, zostały podzielone na wiele list.</string>
+  <string name="reading_list_article_limit_message">Nie można dodać tego do tej listy. Osiągnąłeś limit %2$d artykułów na listę dla \"%1$s\".</string>
+  <string name="reading_lists_limit_message">Nie można utworzyć kolejnej listy. Osiągnąłeś limit 100 list dla tego konta.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sync reading lists&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Odczytywanie list może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się do swojego konta w Wikipedii i pozwól, aby Twoje listy były zapisywane.</string>
   <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
@@ -463,6 +502,7 @@
   <string name="notification_syncing_pause_button">Pauza</string>
   <string name="notification_syncing_resume_button">Wznów</string>
   <string name="notification_syncing_cancel_button">Przerwij</string>
+  <string name="notification_syncing_reading_list_channel_description">Synchronizowanie List</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Pobieranie artykułu</item>
     <item quantity="other">Pobieranie artykułów</item>
@@ -474,6 +514,10 @@
   <plurals name="notification_syncing_description">
     <item quantity="one">pozostał %1$d artykuł</item>
     <item quantity="other">pozostało %1$d artykułów</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Synchronizowanie listy</item>
+    <item quantity="other">Synchronizowanie list</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Synchronizuję %1$d listę…</item>
@@ -498,9 +542,11 @@
   <string name="notifications_poll_enable_title">Włącz powiadomienia</string>
   <string name="notifications_poll_enable_positive">Włącz</string>
   <string name="notifications_poll_enable_negative">Nie teraz</string>
+  <string name="notifications_empty_message">Nie masz żadnych powiadomień.</string>
   <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
+  <string name="preference_summary_notification_poll">Pozwól aplikacji używać danych do sprawdzania nowych powiadomień w tle.</string>
   <string name="preference_category_notification_types">Typy powiadomień w aplikacji</string>
   <string name="preference_title_notification_welcome">Powitanie</string>
   <string name="preference_summary_notification_welcome">Konto jest tworzone</string>
@@ -535,6 +581,7 @@
   <string name="view_continue_reading_card_subtitle_today">dzisiaj</string>
   <string name="view_continue_reading_card_subtitle_read_date">Czytany %s</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
+  <string name="onboarding_negative_action">Nie, dziękuję</string>
   <string name="view_offline_card_text">Treści nie można załadować w trybie offline.</string>
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
@@ -556,42 +603,46 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Anuluj</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
-  <string name="description_edit_text_hint">Opis tytułu</string>
+  <string name="description_edit_text_hint" fuzzy="true">Opis tytułu</string>
+  <string name="description_edit_translate_caption_hint_per_language">Podpisy obrazka (%s)</string>
   <string name="description_edit_save">Opublikuj</string>
-  <string name="description_edit_article">Artykuł</string>
-  <string name="description_edit_add_description">Dodaj opis tytułu</string>
-  <string name="description_edit_edit_description">Edytuj opis</string>
+  <string name="description_edit_add_description" fuzzy="true">Dodaj opis tytułu</string>
+  <string name="description_edit_edit_description" fuzzy="true">Edytuj opis</string>
   <string name="description_edit_add_image_caption">Dodaj podpis obrazu</string>
   <string name="description_edit_edit_image_caption">Edytuj podpis obrazu</string>
   <string name="description_edit_cancel_hint">Anuluj</string>
   <string name="description_edit_help_about_wikidata">O Wikidanych</string>
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Opis opublikowany!</string>
-  <string name="description_edit_success_saved_snackbar">Opis opublikowany!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Opis opublikowany!</string>
+  <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
-  <string name="description_edit_tutorial_title_descriptions">Opis tytułu</string>
+  <string name="description_edit_tutorial_title_descriptions">Opis artykułu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
-  <string name="suggested_edits_add_descriptions">Dodaj opisy tytułów</string>
-  <string name="suggested_edits_translate_descriptions">Przetłumacz opisy tytułów</string>
+  <string name="suggested_edits_add_descriptions">Dodaj opisy artykułów</string>
+  <string name="suggested_edits_translate_descriptions">Przetłumacz opisy artykułów</string>
   <string name="suggested_edits_add_image_captions">Dodaj podpisy obrazu</string>
-  <string name="suggested_edits_review_description">Sprawdź opis</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Sprawdź opis</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
-  <string name="suggested_edits_added_by_you">Dodane przez Ciebie:</string>
-  <string name="suggested_edits_translated_by_you">Przetłumaczone przez Ciebie:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odblokowałeś zadanie „Dodaj opisy”</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odblokowałeś zadanie „Przetłumacz opisy”</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Odblokowałeś zadanie „Dodaj opisy”</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odblokowałeś zadanie „Przetłumacz opisy artykułów”</string>
   <string name="suggested_edits_unlock_dialog_no">Może później</string>
   <string name="suggested_edits_menu_info">Informacje</string>
-  <string name="suggested_edits_task_add_description_title">Dodaj opisy tytułów</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Dodaj opisy tytułów</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
+  <string name="suggested_edits_image_preview_dialog_date">Data</string>
+  <string name="suggested_edits_image_preview_dialog_source">Źródło/Fotograf</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Więcej Informacji</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>

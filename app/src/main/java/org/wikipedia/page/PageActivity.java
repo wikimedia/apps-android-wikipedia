@@ -243,7 +243,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                if (app.haveMainActivity()) {
+                    onBackPressed();
+                } else {
+                    goToMainTab(NavTab.EXPLORE.code());
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -332,7 +336,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 finish();
                 return;
             }
-            loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
+            loadPage(title, historyEntry, intent.getCategories().contains(Intent.CATEGORY_BROWSABLE) ? TabPosition.NEW_TAB_FOREGROUND : TabPosition.EXISTING_TAB);
         } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
                 || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
@@ -679,6 +683,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
             }
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
+                && resultCode == RESULT_OK) {
+            pageFragment.refreshPage();
+            FeedbackUtil.showMessage(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, pageFragment.getLeadImageEditLang()));
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

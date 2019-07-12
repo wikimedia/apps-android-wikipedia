@@ -11,6 +11,7 @@
 * Inkbug
 * Matanya
 * Or
+* Steeve815
 * Strayblues
 * YaronSh
 * בנימין
@@ -281,6 +282,7 @@
   <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
+  <string name="gallery_add_image_caption_in_language_button">הוספת כיתוב תמונה (%s)</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
   <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
   <string name="expand_refs">יש ללחוץ להרחבה</string>
@@ -352,7 +354,7 @@
   <string name="article_menu_bar_bookmark">הוספת הערך הזה לרשימת קריאה</string>
   <string name="article_menu_bar_share">שיתוף קישור לערך</string>
   <string name="article_header_edit_hint">עריכה...</string>
-  <string name="article_header_edit_description">עריכת תיאור הכותרת</string>
+  <string name="article_header_edit_description">עריכת תיאור הערך</string>
   <string name="article_header_edit_lead_section">עריכת ההקדמה</string>
   <string name="color_theme_select">עיצוב</string>
   <string name="color_theme_light">בהיר</string>
@@ -595,80 +597,109 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
-  <string name="description_edit_text_hint">תיאור הכותרת</string>
-  <string name="description_edit_text_hint_per_language">תיאור (%s)</string>
+  <string name="description_edit_text_hint">תיאור הערך</string>
+  <string name="description_edit_translate_caption_hint_per_language">כיתובי תמונות (%s)</string>
   <string name="description_edit_save">פרסום</string>
-  <string name="description_edit_article">ערך</string>
   <string name="description_edit_read">לקרוא</string>
-  <string name="description_edit_add_description">הוספת תיאור כותרת</string>
-  <string name="description_edit_add_description_v2">הוספת תיאור</string>
-  <string name="description_edit_translate_description">תרגום תיאור</string>
-  <string name="description_edit_edit_description">עריכת התיאור</string>
-  <string name="add_translation">הוספת תרגום ל%s</string>
+  <string name="description_edit_add_description">הוספת תיאור ערך</string>
+  <string name="description_edit_translate_description">תרגום תיאור ערך</string>
+  <string name="description_edit_edit_description" fuzzy="true">עריכת התיאור</string>
+  <string name="description_edit_add_image_caption">הוספת כיתוב תמונה</string>
+  <string name="description_edit_edit_image_caption">עריכת כיתוב תמונה</string>
+  <string name="description_edit_translate_image_caption">תרגום כיתוב תמונה</string>
   <string name="description_edit_cancel_hint">ביטול</string>
-  <string name="description_edit_help_title">עזרה: תיאורי כותרות</string>
+  <string name="description_edit_help_title">מידע: תיאורי ערכים</string>
   <string name="description_edit_help_about_wikidata">אודות ויקינתונים</string>
   <string name="description_edit_help_wikidata_guide">מדריך ויקינתונים לכתיבת תיאורים</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
-  <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">התיאור פורסם!</string>
-  <string name="description_edit_success_saved_snackbar">התיאור פורסם!</string>
+  <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורי ערכים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
+  <string name="description_edit_license_notice">שינוי תיאור הערך מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
+  <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">כיתוב התמונה פורסם!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">כיתוב התמונה פורסם! (%s)</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
   <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך היישום הזה. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמל ^1 בפעם הבאה</string>
-  <string name="description_edit_tutorial_title_descriptions">תיאורי כותרת</string>
+  <string name="description_edit_tutorial_title_descriptions">תיאורי ערכים</string>
   <string name="description_edit_tutorial_title_descriptions_summary">סיכום הערך שעוזר לקוראים להבין את הנושא במבט אחד</string>
   <string name="description_edit_tutorial_keep_it_short">זה אמור להיות קצר</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
-  <string name="suggested_edits_add_descriptions">הוספת תיאורים</string>
-  <string name="suggested_edits_translate_descriptions">תרגום תיאורים</string>
-  <string name="suggested_edits_review_description">סקירת תיאור</string>
+  <string name="suggested_edits_add_descriptions">הוספת תיאורי ערכים</string>
+  <string name="suggested_edits_translate_descriptions">תרגום תיאורי ערכים</string>
+  <string name="suggested_edits_add_image_captions">הוספת כיתובי תמונות</string>
+  <string name="suggested_edits_translate_image_captions">תרגום כיתובי תמונות</string>
+  <string name="suggested_edits_review_description">סקירת תיאור ערך</string>
   <string name="suggested_edits_add_description_button">להוסיף תיאור</string>
+  <string name="suggested_edits_edit_description_button">עריכת תיאור</string>
+  <string name="suggested_edits_add_translation_button">הוספת תרגום</string>
+  <string name="suggested_edits_edit_translation_button">עריכת תרגום</string>
+  <string name="suggested_edits_add_caption_button">הוספת כיתוב</string>
+  <string name="suggested_edits_edit_caption_button">עריכת כיתוב</string>
+  <string name="suggested_edits_review_image_caption">סקירת כיתוב תמונה</string>
   <string name="suggested_edits_my_contributions">התרומות שלי</string>
-  <string name="suggested_edits_added_by_you">נוסף על־ידיך</string>
-  <string name="suggested_edits_translated_by_you">תורגם על ידיך:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">פתחת לשימוש את המשימה \"הוספת תיאורים\"</string>
+  <string name="suggested_edits_no_description" fuzzy="true">אין תיאור</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">פתחת לשימוש את המשימה \"הוספת תיאורי ערכים\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">תודה על כל התרומות שלך! מכיוון שהצטיינת בעריכה, בנינו בשבילך רשימת ערכים שחסרים להם תיאורים. אפשר לבקש ממך לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">פתחת את המשימה \"תרגום תיאורים\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">פתחת את המשימה \"תרגום תיאורי ערכים\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">ברכות על התרומות הרבות שלך, התרשמנו! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של ערכים שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_dialog_no">אולי מאוחר יותר</string>
   <string name="suggested_edits_unlock_dialog_yes">כן, נעשה את זה</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">פתחת את \"הוספת תיאורים\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">פתחת את \"תרגום תיאורים\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">פתחת את \"הוספת תיאורי ערכים\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">פתחת את \"תרגום תיאורי ערכים\"</string>
   <string name="suggested_edits_unlock_notification_text">עריכות מוצעות</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">עריכות מוצעות\n\nתודה על כל התרומות שלך. מכיוון שהצטיינת בעריכה, בנינו בשבילך רשימת ערכים שחסרים להם תיאורים. אפשר לבקש ממך לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">עריכות מוצעות\n\nברכות על התרומות הרבות שלך, התרשמנו! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של ערכים שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
   <string name="suggested_edits_unlock_notification_button">כן, נעשה את זה</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">הוספת תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">פתחת את המשימה \"הוספת כיתובי תמונות\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">פתחת את \"הוספת כיתובי תמונות\"</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">תודה על כל התרומות שלך! מאחר ואנחנו חושבים שאתה אוהב להוסיף תיאורים לתמונות, בנינו בשבילך רשימה שלך תמונות שחסרות להן תיאורים. האם תוכל לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">עריכות מוצעות\n\nתודה על כל התרומות שלך. מאחר ואנחנו חושבים שאתה אוהב להוסיף כיתובים לתמונות, בנינו בשבילך רשימה של תמונות שחסרות להן תיאורים. האם תוכל לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">פתחת את המשימה \"תרגום כיתובי תמונות\"</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">פתחת את \"תרגום כיתובי תמונות\"</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">תודה על כל התרומות שלך! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של תמונות שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">עריכות מוצעות\n\nתודה על כל התרומות שלך! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של תמונות שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
+  <string name="suggested_edits_license_notice">הוספת התיאור מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">הוספת תיאור התמונה מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">מידע</string>
   <string name="suggested_edits_tasks_activity_title">עריכות מוצעות</string>
-  <string name="suggested_edits_task_add_description_title">הוספת תיאורים</string>
+  <string name="suggested_edits_task_add_description_title">הוספת תיאורי ערכים</string>
   <string name="suggested_edits_task_add_description_description">תרומה לערכים חסרי תיאורים</string>
-  <string name="suggested_edits_task_image_caption_title">הוספת כיתובים לתמונות</string>
-  <string name="suggested_edits_task_image_caption_description">הוספת תיאורים לתמונות</string>
-  <string name="suggested_edits_task_multilingual_title">עוד משימות לעורכים רב־לשוניים</string>
-  <string name="suggested_edits_task_multilingual_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
-  <string name="suggested_edits_task_translation_title">תרגום תיאורים</string>
+  <string name="suggested_edits_task_translation_title">תרגום תיאורי ערכים</string>
   <string name="suggested_edits_task_translation_description">תרגום תיאורים לשפות אחרות.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">נעול עד לביצוע %d תרומות שנבדקו</string>
-  <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
-  <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">הוספת כיתובים לתמונות</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">הוספת תיאורים לתמונות</string>
   <string name="suggested_edits_task_translate_caption_title">תרגום כיתובי תמונה</string>
   <string name="suggested_edits_task_translate_caption_description">תרגום כיתובים לשפות אחרות</string>
+  <string name="suggested_edits_task_multilingual_title">עוד משימות לעורכים רב־לשוניים</string>
+  <string name="suggested_edits_task_multilingual_description">משימות התרגום זמינות למי שקורא וכותב בוויקיפדיה ביותר משפה אחת.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">נעול עד לביצוע %d תרומות שנבדקו</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">נעול עד לביצוע %d תרומות שנבדקו</string>
+  <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
+  <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">יוצר</string>
+  <string name="suggested_edits_image_caption_summary_title_author">מחבר</string>
+  <string name="suggested_edits_image_caption_summary_title_source">מקור</string>
+  <string name="suggested_edits_image_caption_summary_title_license">רישיון</string>
+  <string name="suggested_edits_image_caption_summary_title_date">תאריך</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">תרומה אחת</item>
     <item quantity="other">%d תרומות</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">הוספת תיאור ערך (%s)</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
-  <string name="suggested_edits_add_translation_button_label">הוספת תרגום</string>
-  <string name="suggested_edits_edit_translation_button_label">עריכת תרגום</string>
+  <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
+  <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
+  <string name="suggested_edits_image_preview_dialog_source">מקור/צלם</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">מידע נוסף</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">דף הקובץ בוויקישיתוף</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>

@@ -166,7 +166,7 @@
   <string name="crash_report_relaunch">Такрар ишлетмек</string>
   <string name="crash_report_quit">Чыкъмакъ</string>
   <string name="article_header_edit_hint">Тюзлемек…</string>
-  <string name="article_header_edit_description">Тасвирин тюзлемек</string>
+  <string name="article_header_edit_description" fuzzy="true">Тасвирин тюзлемек</string>
   <string name="color_theme_select">Келпетлев</string>
   <string name="color_theme_light">Ярыкъ</string>
   <string name="color_theme_dark">Къарангы</string>
@@ -210,25 +210,20 @@
   <string name="feed_configure_menu_select_all">Тюмюн гёрсетмек</string>
   <string name="feed_configure_menu_deselect_all">Тюмюн яшырмакъ</string>
   <string name="feed_configure_onboarding_action">Кюйлемек</string>
-  <string name="description_edit_text_hint">Къысгъа тасвири</string>
-  <string name="description_edit_text_hint_per_language">%s тасвир</string>
+  <string name="description_edit_text_hint" fuzzy="true">Къысгъа тасвири</string>
   <string name="description_edit_save">Сакъламакъ</string>
-  <string name="description_edit_article">Макъала</string>
   <string name="description_edit_read">Охумакъ</string>
-  <string name="description_edit_add_description_v2">Тасвир къошмакъ</string>
-  <string name="description_edit_edit_description">Тасвирин тюзлемек</string>
+  <string name="description_edit_edit_description" fuzzy="true">Тасвирин тюзлемек</string>
   <string name="description_edit_cancel_hint">Гери алмакъ</string>
   <string name="description_edit_success_done">Гьазир</string>
   <string name="description_edit_success_did_you_know">Билемисен?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Тюзлеп башламакъ</string>
-  <string name="suggested_edits_added_by_you">Сен къошгъансан:</string>
-  <string name="suggested_edits_translated_by_you">Мен гёчюргенлер:</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Балики сонгра</string>
   <string name="suggested_edits_unlock_dialog_yes">Гетдик</string>
   <string name="suggested_edits_unlock_notification_button">Гетдик</string>
   <string name="suggested_edits_menu_info">Маълумат</string>
-  <string name="suggested_edits_task_add_description_title">Тасвир къошмакъ</string>
-  <string name="suggested_edits_task_translation_title">Тасвирлени гёчюрювлери</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Тасвир къошмакъ</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Тасвирлени гёчюрювлери</string>
   <string name="suggested_edits_task_multilingual_negative">Магъа тюгюл</string>
   <string name="suggested_edits_task_multilingual_positive">Тиллер къошмакъ</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Башламакъ</string>

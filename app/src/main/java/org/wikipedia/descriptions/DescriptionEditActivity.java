@@ -25,8 +25,14 @@ import org.wikipedia.views.ImagePreviewDialog;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
@@ -43,22 +49,15 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
+                                   @Nullable SuggestedEditsSummary sourceSummary,
+                                   @Nullable SuggestedEditsSummary targetSummary,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
                 .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
-                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
-    }
-
-
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull PageTitle title,
-                                   @Nullable SuggestedEditsSummary sourceSummary,
-                                   @Nullable SuggestedEditsSummary targetSummary,
-                                   @NonNull InvokeSource invokeSource) {
-        return newIntent(context, title, null, invokeSource)
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
-                .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary));
+                .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary))
+                .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
     @Override
@@ -69,31 +68,24 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public void onBottomBarContainerClicked(@NonNull InvokeSource invokeSource) {
-        SuggestedEditsSummary sourceSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
-        SuggestedEditsSummary targetSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
+        SuggestedEditsSummary summary;
 
-        switch (invokeSource) {
-            case SUGGESTED_EDITS_ADD_CAPTION:
-                bottomSheetPresenter.show(getSupportFragmentManager(),
-                        ImagePreviewDialog.Companion.newInstance(sourceSummary));
-                break;
-            case SUGGESTED_EDITS_TRANSLATE_DESC:
-                bottomSheetPresenter.show(getSupportFragmentManager(),
-                        LinkPreviewDialog.newInstance(new HistoryEntry(targetSummary.getPageTitle(),
-                                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
-                                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                                null));
-                break;
-            case SUGGESTED_EDITS_TRANSLATE_CAPTION:
-                bottomSheetPresenter.show(getSupportFragmentManager(),
-                        ImagePreviewDialog.Companion.newInstance(targetSummary));
-                break;
-            default:
-                bottomSheetPresenter.show(getSupportFragmentManager(),
-                        LinkPreviewDialog.newInstance(new HistoryEntry(sourceSummary.getPageTitle(),
-                                        getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
-                                                ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                                null));
+        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
+        } else {
+            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
+        }
+
+        if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+            bottomSheetPresenter.show(getSupportFragmentManager(),
+                    ImagePreviewDialog.Companion.newInstance(summary, invokeSource));
+        } else {
+            bottomSheetPresenter.show(getSupportFragmentManager(),
+                    LinkPreviewDialog.newInstance(new HistoryEntry(summary.getPageTitle(),
+                                    getIntent().hasExtra(EXTRA_INVOKE_SOURCE) && getIntent().getSerializableExtra(EXTRA_INVOKE_SOURCE) == PAGE_ACTIVITY
+                                            ? HistoryEntry.SOURCE_EDIT_DESCRIPTION : HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                            null, true));
         }
     }
 

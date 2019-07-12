@@ -75,6 +75,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDIN
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
@@ -234,22 +235,27 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             refresh();
         } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            boolean isTranslation = false;
             if (suggestedEditsCardView != null) {
                 suggestedEditsCardView.refreshCardContent();
+                isTranslation = suggestedEditsCardView.isTranslation();
             }
-            FeedbackUtil.showMessage(this, R.string.description_edit_success_saved_snackbar);
+            FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
+                    ? getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                    : getString(R.string.description_edit_success_saved_snackbar));
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
             startDescriptionEditScreen();
         }
     }
 
     private void startDescriptionEditScreen() {
-        PageTitle pageTitle = suggestedEditsCardView.isTranslation()
-                ? suggestedEditsCardView.getTargetSummary().getPageTitle()
-                : suggestedEditsCardView.getSourceSummary().getPageTitle();
-        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle,
-                suggestedEditsCardView.getSourceSummary(), suggestedEditsCardView.getTargetSummary(),
-                suggestedEditsCardView.isTranslation() ? FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC : FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
+        Constants.InvokeSource invokeSource = suggestedEditsCardView.getCard().getInvokeSource();
+        PageTitle pageTitle = (invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION)
+                ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
+                : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
+        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
+                suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
+                suggestedEditsCardView.getCard().getInvokeSource()),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 

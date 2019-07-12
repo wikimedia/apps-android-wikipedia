@@ -2,6 +2,7 @@
 <!-- Authors:
 * 4elovek12345
 * Abijeet Patro
+* Alexander Istomin
 * Alexey zakharenkov
 * Amire80
 * Batumski brodyaga
@@ -45,6 +46,7 @@
 * Yuryleb
 * Александр Сигачёв
 * Евгения
+* ЛингвоЧел
 -->
 <resources>
   <string name="app_name_prod">Википедия</string>
@@ -84,7 +86,7 @@
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти на странице</string>
   <string name="edit_section_find_in_page">Найти на странице</string>
-  <string name="menu_page_font_and_theme">Изменение шрифта и оформления</string>
+  <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
   <string name="menu_page_add_to_list">Добавить в список для чтения</string>
   <string name="feed_card_add_to_list">Добавить в список для чтения</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
@@ -106,9 +108,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Участники &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последнее обновление: %s</string>
   <string name="talk_page_link_text">Смотреть страницу обсуждения</string>
-  <string name="edit_history_link_text">История изменений</string>
+  <string name="edit_history_link_text">Посмотреть историю изменений</string>
   <string name="map_view_link_text">Посмотреть на карте</string>
-  <string name="other_languages_indication_text">На другом языке</string>
+  <string name="other_languages_indication_text">Читать на другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
   <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -311,6 +313,7 @@
   <string name="gallery_save_success">Файл успешно сохранён.</string>
   <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для сохранения изображений требуется разрешение на запись в хранилище вашего устройства.</string>
+  <string name="gallery_add_image_caption_in_language_button">Добавить описание изображения (%s)</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
   <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>
   <string name="expand_refs">Нажмите, чтобы развернуть</string>
@@ -382,7 +385,7 @@
   <string name="article_menu_bar_bookmark">Добавить эту статью в список для чтения</string>
   <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
   <string name="article_header_edit_hint">Править…</string>
-  <string name="article_header_edit_description">Изменить краткое описание</string>
+  <string name="article_header_edit_description">Изменить описание статьи</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
   <string name="color_theme_select">Оформление</string>
   <string name="color_theme_light">Светлое</string>
@@ -627,58 +630,63 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
-  <string name="description_edit_text_hint">Краткое описание</string>
-  <string name="description_edit_text_hint_per_language">%s описание</string>
-  <string name="description_edit_caption_hint_per_language">описание (%s)</string>
+  <string name="description_edit_text_hint">Описание статьи</string>
+  <string name="description_edit_article_description_label_per_language">Статья %s</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Описаниe статей (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Описание изображения (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Описания изображений (%s)</string>
   <string name="description_edit_save">Сохранить</string>
-  <string name="description_edit_article">Статья</string>
   <string name="description_edit_read">Читать</string>
-  <string name="description_edit_add_description">Добавить краткое описание</string>
-  <string name="description_edit_add_description_v2">Добавить краткое описание</string>
-  <string name="description_edit_translate_description">Перевод кратких описаний</string>
-  <string name="description_edit_edit_description">Править описание</string>
+  <string name="description_edit_add_description">Добавить описание статьи</string>
+  <string name="description_edit_translate_description">Перевод описаний статей</string>
+  <string name="description_edit_edit_description">Править описание статьи</string>
   <string name="description_edit_add_image_caption">Добавить описание изображения</string>
   <string name="description_edit_edit_image_caption">Редактировать описание изображения</string>
   <string name="description_edit_translate_image_caption">Перевести описание изображения</string>
-  <string name="add_translation">Добавить перевод на %s</string>
   <string name="description_edit_cancel_hint">Отмена</string>
-  <string name="description_edit_help_title">Справка: краткие описания</string>
+  <string name="description_edit_help_title">Справка: описания статей</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
   <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
-  <string name="description_edit_anon_limit">Спасибо вам за неослабевающий интерес к изменению описаний! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
-  <string name="description_edit_license_notice">Изменяя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Описание сохранено!</string>
-  <string name="description_edit_success_saved_snackbar">Описание сохранено!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">Описание опубликовано!</string>
+  <string name="description_edit_anon_limit">Спасибо за ваш интерес к редактированию описаний статей! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
+  <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">Описание статьи сохранено!</string>
+  <string name="description_edit_success_saved_snackbar">Описание статьи сохранено!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Описание изображения опубликовано!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Опубликовано описание изображения (%s)!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
   <string name="description_edit_success_article_edit_hint">Вы также можете редактировать статьи в этом приложении. Попробуйте исправлять опечатки и небольшие предложения, нажав в следующий раз на иконку ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Краткие описания</string>
+  <string name="description_edit_tutorial_title_descriptions">Описания статей</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Резюмирует статью, чтобы помочь читателям понять тему с первого взгляда</string>
   <string name="description_edit_tutorial_keep_it_short">Будьте кратки</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
-  <string name="suggested_edits_add_descriptions">Добавление кратких описаний</string>
-  <string name="suggested_edits_translate_descriptions">Перевод кратких описаний</string>
+  <string name="suggested_edits_add_descriptions">Добавление описаний статей</string>
+  <string name="suggested_edits_translate_descriptions">Перевод описаний статей</string>
   <string name="suggested_edits_add_image_captions">Добавить описания изображений</string>
   <string name="suggested_edits_translate_image_captions">Перевести описания изображений</string>
-  <string name="suggested_edits_review_description">Проверить описание</string>
+  <string name="suggested_edits_review_description">Проверить описание статей</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
+  <string name="suggested_edits_edit_description_button">Править описание</string>
+  <string name="suggested_edits_add_translation_button">Добавить перевод</string>
+  <string name="suggested_edits_edit_translation_button">Редактировать перевод</string>
+  <string name="suggested_edits_add_caption_button">Добавить описание</string>
+  <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
   <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
-  <string name="suggested_edits_added_by_you">Добавлено вами:</string>
-  <string name="suggested_edits_translated_by_you">Переведено вами:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление кратких описаний\"</string>
+  <string name="suggested_edits_no_description">У этого файла отсутствует описание</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Спасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Вы разблокировали модуль \"Перевод кратких описаний\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Вы разблокировали модуль \"Перевод описаний статей\"</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Вы сделали уже довольного много правок. Поздравляем! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_dialog_no">Может позже</string>
   <string name="suggested_edits_unlock_dialog_yes">Поехали!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Вы разблокировали модуль \"Добавление кратких описаний\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Вы разблокировали модуль \"Перевод кратких описаний\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Вы разблокировали модуль \"Перевод описаний статей\"</string>
   <string name="suggested_edits_unlock_notification_text">Предложение отредактировать</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложение отредактировать\n\nВы сделали уже довольного много правок. Поздравляем!  Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
@@ -689,26 +697,26 @@
   <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Спасибо за ваш вклад! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список изображений, нуждающихся в переводе описаний. Поможете улучшить Википедию таким образом?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список изображений, нуждающихся в переводе описаний. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Вы сделали уже довольного много правок. Поздравляем! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложение отредактировать\n\nВы сделали уже довольного много правок. Поздравляем!  Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_license_notice">Добавляя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Добавляя описание изображения, я соглашаюсь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаюсь на безотзывную публикацию моего вклада по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информация</string>
   <string name="suggested_edits_tasks_activity_title">Предложение отредактировать</string>
-  <string name="suggested_edits_task_add_description_title">Добавление кратких описаний</string>
+  <string name="suggested_edits_task_add_description_title">Добавление описания статей</string>
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
-  <string name="suggested_edits_task_image_caption_title">Описание изображений</string>
-  <string name="suggested_edits_task_image_caption_description">Добавление описания изображениям</string>
-  <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
-  <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
-  <string name="suggested_edits_task_translation_title">Перевод кратких описаний</string>
+  <string name="suggested_edits_task_translation_title">Перевод описаний статей</string>
   <string name="suggested_edits_task_translation_description">Перевод кратких описаний на другие языки.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d кратких описаний</string>
-  <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
-  <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
+  <string name="suggested_edits_task_image_caption_title">Добавить описание изображений</string>
+  <string name="suggested_edits_task_image_caption_description">Добавление короткие описания изображениям</string>
   <string name="suggested_edits_task_translate_caption_title">Перевод описаний изображений</string>
   <string name="suggested_edits_task_translate_caption_description">Перевод подписей для изображений на другие языки</string>
+  <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
+  <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d описаний статей и они не будут проверены</string>
+  <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
+  <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Источник</string>
@@ -719,10 +727,22 @@
     <item quantity="other">%d правки</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Предложения отредактировать</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
   <string name="suggested_edits_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
-  <string name="suggested_edits_add_translation_button_label">Добавить перевод</string>
-  <string name="suggested_edits_edit_translation_button_label">Редактировать перевод</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Описание изображения (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
+  <string name="suggested_edits_image_preview_dialog_date">Дата</string>
+  <string name="suggested_edits_image_preview_dialog_source">Источник/Фотограф</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Лицензирование</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Подробнее</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница файла на Викискладе</string>
+  <string name="suggested_edits_article_cta_add_image_caption">Добавить описание</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">Добавить описание (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Добавить описание (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>

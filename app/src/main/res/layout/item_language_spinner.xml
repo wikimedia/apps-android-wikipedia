@@ -2,4 +2,6 @@
     android:id="@android:id/text1"
     style="@style/LanguageSpinnerItemTextAppearance"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:background="?attr/suggestions_background_color"
+    android:foreground="?android:attr/selectableItemBackgroundBorderless"/>

@@ -322,7 +322,7 @@
   <string name="article_menu_bar_bookmark">Tambahkeun ieu artikel kana daptar bacaan</string>
   <string name="article_menu_bar_share">Bagikeun tutumbu artikel</string>
   <string name="article_header_edit_hint">Édit...</string>
-  <string name="article_header_edit_description">Édit pedaran judul</string>
+  <string name="article_header_edit_description" fuzzy="true">Édit pedaran judul</string>
   <string name="article_header_edit_lead_section">Édit panganteur</string>
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Caang</string>
@@ -495,35 +495,32 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Bolay</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OKÉH</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bolay</string>
-  <string name="description_edit_text_hint">\nPedaran judul</string>
+  <string name="description_edit_text_hint" fuzzy="true">\nPedaran judul</string>
   <string name="description_edit_save">Medalkeun</string>
-  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Baca</string>
-  <string name="description_edit_add_description">Tambahkeun pedaran judul</string>
-  <string name="description_edit_add_description_v2">Tambah pedaran</string>
-  <string name="description_edit_translate_description">Tarjamahkeun pedaran</string>
-  <string name="description_edit_edit_description">Édit pedaran</string>
-  <string name="add_translation">Tambah tarjamahan %s</string>
+  <string name="description_edit_add_description" fuzzy="true">Tambahkeun pedaran judul</string>
+  <string name="description_edit_translate_description" fuzzy="true">Tarjamahkeun pedaran</string>
+  <string name="description_edit_edit_description" fuzzy="true">Édit pedaran</string>
   <string name="description_edit_cancel_hint">Bolay</string>
-  <string name="description_edit_help_title">Pitulung: pedaran judul</string>
+  <string name="description_edit_help_title" fuzzy="true">Pitulung: pedaran judul</string>
   <string name="description_edit_help_about_wikidata">Ngeunaan Wikipédia</string>
   <string name="description_edit_help_wikidata_guide">Pituduh Wikidata pikeun nulis pedaran</string>
-  <string name="description_edit_anon_limit">Hatur nuhun kana kapercayaan anjeun dina ngédit pedaran! Pikeun nyieun éditan panambah, sok waé asup log kana akun Wikipédia anjeun.</string>
-  <string name="description_edit_license_notice">Ku ngarobah déskripsi judul, kami satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt; sarta ngaleupas kontribusi kami dina lisénsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Déskripsi geus dimedalkeun</string>
-  <string name="description_edit_success_saved_snackbar">Pedaran dipedal!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Hatur nuhun kana kapercayaan anjeun dina ngédit pedaran! Pikeun nyieun éditan panambah, sok waé asup log kana akun Wikipédia anjeun.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Ku ngarobah déskripsi judul, kami satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt; sarta ngaleupas kontribusi kami dina lisénsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Déskripsi geus dimedalkeun</string>
+  <string name="description_edit_success_saved_snackbar" fuzzy="true">Pedaran dipedal!</string>
   <string name="description_edit_success_encouragement">Cik kénéh anjeun geus ngajadikeun Wikipédia leuwih écés pikeun balaréa</string>
   <string name="description_edit_success_done">Anggeus</string>
   <string name="description_edit_success_did_you_know">Uninga teu anjeun?</string>
   <string name="description_edit_success_article_edit_hint">Anjeun gé bisa ngédit artikel dina ieu aplikasi. Coba benerkeun salah ketikan jeun kalimah pondok ku cara nglik ikon ^1 engkę deui mah</string>
-  <string name="description_edit_tutorial_title_descriptions">Pedaran judul</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Pedaran judul</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Ngaringkeskeun hiji artikel pikeun nulungan nu maca nyangkem subyék ku saliwatan</string>
   <string name="description_edit_tutorial_keep_it_short">Jaga sangkan singget</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Alusna mah sabaris, antara dua nepi ka dua welas kecap</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mimitian ngédit</string>
   <string name="description_edit_tutorial_promise">Ku ngamimitianna, kuring jangji moal nyalahgunakeun ieu fitur.</string>
-  <string name="suggested_edits_add_descriptions">Tambah pedaran</string>
-  <string name="suggested_edits_translate_descriptions">Tarjamahkeun pedaran</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambah pedaran</string>
+  <string name="suggested_edits_translate_descriptions" fuzzy="true">Tarjamahkeun pedaran</string>
   <string name="description_edit_revert_subtitle">Hatur nuhun tos ngédit di Wikipédia!</string>
   <string name="description_edit_revert_intro">Kami nyaho anjeun nyoba nu panghadéna, ngan salah sahiji pamariksa mibanda kakhawatiran. Kamungkinan alesan éditan anjeun geus dibalikkeun ngawengku:</string>
   <string name="description_edit_revert_reason1">kontribusi anjeun teu numutkeun kana salah sahiji &lt;a href=\"%1$s\"&gt;palanggeran&lt;/a&gt;.</string>

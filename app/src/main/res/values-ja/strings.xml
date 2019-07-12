@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Aefgh39622
 * Afaz
+* Dbrant
 * GAMEZONE628
 * Hzy980512
 * Kanon und wikipedia
@@ -24,6 +25,7 @@
 * WwLMvmT
 * Yusuke1109
 * ネイ
+* 神樂坂秀吉
 * 組曲師
 -->
 <resources>
@@ -291,6 +293,7 @@
   <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込む許可は画像の保存に必要になります。</string>
+  <string name="gallery_add_image_caption_in_language_button">画像キャプションを追加 (%s)</string>
   <string name="err_cannot_save_file">ファイルを保存できません</string>
   <string name="snippet_share_intro">「%1$s」の記事を @Wikipedia で読む: %2$s</string>
   <string name="expand_refs">タップして開く</string>
@@ -587,7 +590,7 @@
   <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
   <string name="feed_configure_menu_select_all">すべて表示</string>
-  <string name="feed_configure_menu_deselect_all">すべて隠す</string>
+  <string name="feed_configure_menu_deselect_all">全て隠す</string>
   <string name="feed_configure_language_warning">すべてのウィキペディアの言語で、すべてのカードの種類が利用できるわけではないことにご留意ください。設定で言語を選んでください。</string>
   <string name="feed_item_type_news">最近の出来事の記事</string>
   <string name="feed_item_type_on_this_day">過去に起こったこの日の出来事</string>
@@ -606,23 +609,29 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">キャンセル</string>
   <string name="description_edit_text_hint">記事の説明</string>
-  <string name="description_edit_text_hint_per_language">%sの説明</string>
+  <string name="description_edit_article_description_label_per_language">記事 (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">記事の説明 (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">画像の説明 (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">画像の説明 (%s)</string>
   <string name="description_edit_save">公開</string>
-  <string name="description_edit_article">記事</string>
   <string name="description_edit_read">閲覧</string>
   <string name="description_edit_add_description">記事の説明を追加</string>
-  <string name="description_edit_add_description_v2">説明を追加</string>
-  <string name="description_edit_translate_description">説明を翻訳</string>
-  <string name="description_edit_edit_description">説明を編集</string>
-  <string name="add_translation">%sの翻訳を追加</string>
+  <string name="description_edit_translate_description">記事の説明を翻訳</string>
+  <string name="description_edit_edit_description">記事の説明を編集</string>
+  <string name="description_edit_add_image_caption">画像キャプションを追加する</string>
+  <string name="description_edit_edit_image_caption">画像キャプションを編集</string>
+  <string name="description_edit_translate_image_caption">画像キャプションを翻訳</string>
   <string name="description_edit_cancel_hint">キャンセル</string>
   <string name="description_edit_help_title">ヘルプ：記事の説明</string>
   <string name="description_edit_help_about_wikidata">ウィキデータについて</string>
   <string name="description_edit_help_wikidata_guide">記述を書くためのWikidataガイド</string>
-  <string name="description_edit_anon_limit">説明を編集していただきありがとうございます。追加編集を行うには、ウィキペディアアカウントにログインしてください。</string>
+  <string name="description_edit_anon_limit">記事の説明を編集していただきありがとうございます。追加で編集を行うには、ウィキペディアアカウントにログインしてください。</string>
   <string name="description_edit_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
-  <string name="description_edit_success_saved">記述が公開されました！</string>
-  <string name="description_edit_success_saved_snackbar">説明が公開されました！</string>
+  <string name="description_edit_success_saved">記事の説明が公開されました！</string>
+  <string name="description_edit_success_saved_snackbar">記事の説明が公開されました！</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">記事の説明が公開されました！ (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">画像のキャプションが公開されました！</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">画像のキャプションが公開されました！ (%s)</string>
   <string name="description_edit_success_encouragement">あなたはWikipediaをみんなのために良くしました</string>
   <string name="description_edit_success_done">完了</string>
   <string name="description_edit_success_did_you_know">ご存じでしたか?</string>
@@ -633,59 +642,82 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">説明は1行のみで、30文字程度で書いてください</string>
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">この機能を悪用しないことを約束して、スタートする。</string>
-  <string name="suggested_edits_add_descriptions">説明を追加</string>
-  <string name="suggested_edits_translate_descriptions">説明を翻訳</string>
-  <string name="suggested_edits_review_description">説明を査読</string>
+  <string name="suggested_edits_add_descriptions">記事の説明を追加</string>
+  <string name="suggested_edits_translate_descriptions">記事の説明を翻訳</string>
+  <string name="suggested_edits_add_image_captions">画像キャプションを追加する</string>
+  <string name="suggested_edits_translate_image_captions">画像キャプションを翻訳</string>
+  <string name="suggested_edits_review_description">記事の説明を査読</string>
   <string name="suggested_edits_add_description_button">説明を追加</string>
+  <string name="suggested_edits_edit_description_button">説明を編集</string>
+  <string name="suggested_edits_add_translation_button">翻訳を追加</string>
+  <string name="suggested_edits_edit_translation_button">翻訳を編集</string>
+  <string name="suggested_edits_add_caption_button">キャプションを追加</string>
+  <string name="suggested_edits_edit_caption_button">キャプションを編集</string>
+  <string name="suggested_edits_review_image_caption">画像キャプションを確認</string>
   <string name="suggested_edits_my_contributions">自分の投稿記録</string>
-  <string name="suggested_edits_added_by_you">あなたが追加した説明です:</string>
-  <string name="suggested_edits_translated_by_you">あなたが翻訳した説明です:</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">「記事の説明を編集」タスクを実績解除しました！</string>
+  <string name="suggested_edits_no_description" fuzzy="true">説明なし</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">「記事の説明を追加」タスクを実績解除しました！</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">これまでのすべてのご寄稿に感謝します！　あなたは編集がお得意ですので、説明が欠けている記事のリストをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">「説明の翻訳」を実績解除しました！</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">「記事の説明を翻訳」タスクを実績解除しました</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message">たくさんの編集おめでとうございます、感激しました！　アプリで複数の言語をお使いですので、記事の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
   <string name="suggested_edits_unlock_dialog_no">あとで検討するかもしれません</string>
   <string name="suggested_edits_unlock_dialog_yes">ぜひやってみます</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">「記事の説明を編集」を実績解除しました！</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">「説明を翻訳」を実績解除しました！</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">「記事の説明を追加」を実績解除しました</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">「記事の説明を翻訳」を実績解除しました！</string>
   <string name="suggested_edits_unlock_notification_text">編集提案</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_big_text">編集の提案\n\nこれまでのすべてのご寄稿に感謝します！　あなたは編集がお得意ですので、説明が欠けている記事のリストをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">編集提案\n\nたくさんの編集おめでとうございます、感激しました！　アプリで複数の言語をお使いですので、記事の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
   <string name="suggested_edits_unlock_notification_button">ぜひやってみます</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">「画像の説明を追加」タスクを実績解除しました！</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">「画像の説明を追加」を実績解除しました</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">いつもご寄稿ありがとうございます！　画像に説明を追加するのがお好きなようですので、現在説明が入っていない画像をリストにまとめてみました。ウィキペディアの改善をお手伝いいただけませんでしょうか？</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">編集提案\n\nいつもご寄稿ありがとうございます。画像に説明を追加するのがお好きなようですので、現在説明が入っていない画像をリストにまとめてみました。ウィキペディアの改善をお手伝いいただけませんでしょうか？</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">画像キャプションを編集していただき、ありがとうございます！画像に説明を追加するのがお好きなようですので、現在説明が入っていない画像をリストにまとめてみました。ウィキペディアの改善を手伝っていただけますか？</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">編集提案\n\n画像キャプションを編集していただき、ありがとうございます！画像に説明を追加するのがお好きなようですので、現在説明が入っていない画像をリストにまとめてみました。ウィキペディアの改善を手伝っていただけますか？</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">「画像の説明を翻訳」タスクを実績解除しました</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">「画像の説明を翻訳」を実績解除しました</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">たくさんの編集おめでとうございます、感激しました！　アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">編集提案\n\nたくさんの編集ありがとうございます、感激しました！　アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">多くの画像キャプションの編集の完了、おめでとうございます！ アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善を手伝っていただけますか？</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">編集提案\n\n多くの画像キャプションの編集の完了、おめでとうございます！ アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善を手伝っていただけますか？</string>
+  <string name="suggested_edits_license_notice">この記事の説明を追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
+  <string name="suggested_edits_image_caption_license_notice">この画像キャプションを追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_menu_info">情報</string>
   <string name="suggested_edits_tasks_activity_title">編集提案</string>
-  <string name="suggested_edits_task_add_description_title">説明を追加</string>
+  <string name="suggested_edits_task_add_description_title">記事の説明を追加</string>
   <string name="suggested_edits_task_add_description_description">説明が未記入の記事に着手する</string>
-  <string name="suggested_edits_task_image_caption_title">画像のキャプション</string>
-  <string name="suggested_edits_task_image_caption_description">画像にキャプションを追加する</string>
-  <string name="suggested_edits_task_multilingual_title">多言語話者の編集者向けのタスク</string>
-  <string name="suggested_edits_task_multilingual_description">2言語以上で読み書きができる編集者向けに編集タスクがあります。</string>
-  <string name="suggested_edits_task_translation_title">説明を翻訳</string>
+  <string name="suggested_edits_task_translation_title">記事の説明を翻訳</string>
   <string name="suggested_edits_task_translation_description">説明文を他の言語に翻訳する。</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">最低%d件の有効な編集が完了するまでロックされています</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">最低%d件の有効な編集をするまでロックされています</string>
-  <string name="suggested_edits_task_multilingual_negative">私向けではありません</string>
-  <string name="suggested_edits_task_multilingual_positive">言語を追加</string>
+  <string name="suggested_edits_task_image_caption_title">画像キャプションを追加</string>
+  <string name="suggested_edits_task_image_caption_description">画像にキャプションを追加する</string>
   <string name="suggested_edits_task_translate_caption_title">画像キャプションの編集</string>
   <string name="suggested_edits_task_translate_caption_description">画像のキャプションを他の言語に翻訳</string>
+  <string name="suggested_edits_task_multilingual_title">多言語話者の編集者向けのタスク</string>
+  <string name="suggested_edits_task_multilingual_description">2言語以上で読み書きができる編集者向けに編集タスクがあります。</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">最低%d件の画像キャプションの編集が完了するまでロックされています</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">最低%d件の有効な編集をするまでロックされています</string>
+  <string name="suggested_edits_task_multilingual_negative">私向けではありません</string>
+  <string name="suggested_edits_task_multilingual_positive">言語を追加</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">アーティスト</string>
+  <string name="suggested_edits_image_caption_summary_title_author">著者</string>
+  <string name="suggested_edits_image_caption_summary_title_source">情報源</string>
+  <string name="suggested_edits_image_caption_summary_title_license">ライセンス</string>
+  <string name="suggested_edits_image_caption_summary_title_date">日付</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 件の貢献</item>
     <item quantity="other">%d 件の貢献</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">編集提案</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
   <string name="suggested_edits_tutorial_message">ようこそ、ここはウィキペディアアプリ内で、編集を手早く実行するための新しいホーム画面です。皆さんの編集は大歓迎です。ではお楽しみください！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
-  <string name="suggested_edits_add_translation_button_label">翻訳を追加</string>
-  <string name="suggested_edits_edit_translation_button_label">翻訳を編集</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">画像キャプション (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">画像の説明 (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">作者</string>
+  <string name="suggested_edits_image_preview_dialog_date">日付</string>
+  <string name="suggested_edits_image_preview_dialog_source">情報源/撮影者</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">詳細情報</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
+  <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">キャプションを追加 (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>

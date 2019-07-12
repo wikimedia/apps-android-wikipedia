@@ -57,12 +57,20 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        cardView.setOnClickListener {
+        cardClickArea.setOnClickListener {
             if (sourceSummary != null) {
                 parent().onSelectPage()
             }
         }
         showAddedContributionView(addedContribution)
+        if (savedInstanceState != null) {
+            pagerPosition = savedInstanceState.getInt("pagerPosition", -1)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("pagerPosition", pagerPosition)
     }
 
     override fun onDestroy() {
@@ -79,11 +87,11 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribe({ pair ->
                             val source = pair.second
                             val target = pair.first
-                            
+
                             sourceSummary = SuggestedEditsSummary(
                                     source.title,
                                     source.lang,
-                                    source.getPageTitle(WikiSite.forLanguageCode(source.lang)),
+                                    source.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
                                     source.normalizedTitle,
                                     source.displayTitle,
                                     source.description,
@@ -96,7 +104,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             targetSummary = SuggestedEditsSummary(
                                     target.title,
                                     target.lang,
-                                    target.getPageTitle(WikiSite.forLanguageCode(target.lang)),
+                                    target.getPageTitle(WikiSite.forLanguageCode(parent().langToCode)),
                                     target.normalizedTitle,
                                     target.displayTitle,
                                     target.description,
@@ -113,8 +121,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .flatMap { mwQueryResponse ->
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(mwQueryResponse.title())
+                        .flatMap { title ->
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(title)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -125,7 +133,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                 val imageInfo = page.imageInfo()!!
 
                                 sourceSummary = SuggestedEditsSummary(
-                                        StringUtil.removeNamespace(title),
+                                        title,
                                         parent().langFromCode,
                                         PageTitle(
                                                 Namespace.FILE.name,
@@ -136,7 +144,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                         ),
                                         StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
-                                        imageInfo.metadata!!.imageDescription()!!.value(),
+                                        imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
                                         imageInfo.originalUrl,
                                         null,
@@ -156,7 +164,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
                             fileCaption = pair.first
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second.title())
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -167,7 +175,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                 val imageInfo = page.imageInfo()!!
 
                                 sourceSummary = SuggestedEditsSummary(
-                                        StringUtil.removeNamespace(title),
+                                        title,
                                         parent().langFromCode,
                                         PageTitle(
                                                 Namespace.FILE.name,
@@ -260,7 +268,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun updateDescriptionContents() {
-        viewArticleTitle.text = sourceSummary!!.normalizedTitle
+        viewArticleTitle.text = StringUtil.fromHtml(sourceSummary!!.displayTitle)
 
         if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
             viewArticleSubtitleContainer.visibility = VISIBLE
@@ -269,34 +277,41 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
         viewImageSummaryContainer.visibility = GONE
 
-        viewArticleExtract.text = StringUtil.fromHtml(sourceSummary!!.extractHtml)
+        viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummary!!.extractHtml!!)
         if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = GONE
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
     private fun updateCaptionContents() {
-        viewArticleTitle.text = sourceSummary!!.normalizedTitle
+        viewArticleTitle.text = StringUtil.removeNamespace(sourceSummary!!.displayTitle!!)
         viewArticleSubtitleContainer.visibility = VISIBLE
-        viewArticleSubtitle.text = StringUtil.strip(StringUtil.fromHtml((if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description!!).capitalize()))
+
+        val descriptionText = when {
+            addedContribution.isNotEmpty() -> addedContribution
+            sourceSummary!!.description!!.isNotEmpty() -> sourceSummary!!.description!!
+            else -> getString(R.string.suggested_edits_no_description)
+        }
+
+        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText.capitalize()))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
             viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
             viewImageArtist!!.setDetailText(sourceSummary!!.user)
         } else {
-            viewImageArtist!!.titleText.text = StringUtil.fromHtml(sourceSummary!!.metadata!!.artist()!!.value())
+            viewImageArtist!!.titleText.text = StringUtil.removeHTMLTags(sourceSummary!!.metadata!!.artist())
         }
 
         viewImageDate!!.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!))
-        viewImageSource!!.setDetailText(sourceSummary!!.metadata!!.credit()!!.value())
-        viewImageLicense!!.setDetailText(sourceSummary!!.metadata!!.licenseShortName()!!.value())
+        viewImageSource!!.setDetailText(sourceSummary!!.metadata!!.credit())
+        viewImageLicense!!.setDetailText(sourceSummary!!.metadata!!.licenseShortName())
 
-        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.thumbnailUrl))
+        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
         viewArticleExtract.visibility = GONE
     }
 

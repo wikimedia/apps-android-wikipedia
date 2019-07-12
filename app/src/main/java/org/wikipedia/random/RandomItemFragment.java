@@ -1,5 +1,6 @@
 package org.wikipedia.random;
 
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,6 +19,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -31,6 +33,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.PREFERRED_CARD_THUMBNAIL_SIZE;
+
 public class RandomItemFragment extends Fragment {
     @BindView(R.id.random_item_container) ViewGroup containerView;
     @BindView(R.id.random_item_progress) View progressBar;
@@ -40,6 +44,8 @@ public class RandomItemFragment extends Fragment {
     @BindView(R.id.view_random_article_card_extract) TextView extractView;
     @BindView(R.id.random_item_error_view) WikiErrorView errorView;
 
+    private static final float IMAGE_ASPECT_RATIO_PORTRAIT = 1.77f;
+    private static final float IMAGE_ASPECT_RATIO_LANDSCAPE = 3.8f;
     private CompositeDisposable disposables = new CompositeDisposable();
     @Nullable private RbPageSummary summary;
     private int pagerPosition = -1;
@@ -73,6 +79,7 @@ public class RandomItemFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_random_item, container, false);
         ButterKnife.bind(this, view);
         imageView.setLegacyVisibilityHandlingEnabled(true);
+        imageView.setAspectRatio(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? IMAGE_ASPECT_RATIO_LANDSCAPE : IMAGE_ASPECT_RATIO_PORTRAIT);
         errorView.setBackClickListener(v -> requireActivity().finish());
         errorView.setRetryClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);
@@ -139,8 +146,9 @@ public class RandomItemFragment extends Fragment {
                 extractView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
-        imageView.loadImage(TextUtils.isEmpty(summary.getThumbnailUrl()) ? null
-                : Uri.parse(summary.getThumbnailUrl()));
+
+        imageView.loadImage(TextUtils.isEmpty(summary.getThumbnailUrl())
+                ? null : Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_CARD_THUMBNAIL_SIZE)));
     }
 
     @Nullable public PageTitle getTitle() {

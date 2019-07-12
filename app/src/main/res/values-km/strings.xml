@@ -2,10 +2,11 @@
 <!-- Authors:
 * Bsitzmann
 * Sovichet
+* Y.snsqr
 * គីមស៊្រុន
 -->
 <resources>
-  <string name="app_name_prod">វិគីភីឌា</string>
+  <string name="app_name_prod">វិគីភីឌៀ</string>
   <string name="app_name_beta">វិគីភីឌាបេតា</string>
   <string name="app_name_alpha">វិគីភីឌាអាល់ហ្វា</string>
   <string name="wikimedia">វិគីមេឌា</string>
@@ -242,7 +243,7 @@
   <string name="article_menu_bar_bookmark">បន្ថែមអត្ថបទនេះទៅបញ្ជីអំណាន</string>
   <string name="article_menu_bar_share">ចែកចាយតំណភ្ជាប់អត្ថបទ</string>
   <string name="article_header_edit_hint">កែប្រែ…</string>
-  <string name="article_header_edit_description">កែប្រែពណ៌នាចំណងជើង</string>
+  <string name="article_header_edit_description" fuzzy="true">កែប្រែពណ៌នាចំណងជើង</string>
   <string name="article_header_edit_lead_section">កែប្រែសេចក្ដីផ្ដើម</string>
   <string name="color_theme_select">រចនាបថ</string>
   <string name="color_theme_light">ភ្លឺ</string>
@@ -339,8 +340,8 @@
   <string name="feed_configure_menu_select_all">បង្ហាញទាំង​អស់​</string>
   <string name="feed_configure_menu_deselect_all">លាក់ទាំង​អស់​</string>
   <string name="description_edit_save">បោះផ្សាយ</string>
-  <string name="description_edit_add_description">បន្ថែមការពណ៌នាអំពីចំណងជើង</string>
-  <string name="description_edit_edit_description">កែប្រែការពណ៌នាអំពីចំណងជើង</string>
+  <string name="description_edit_add_description" fuzzy="true">បន្ថែមការពណ៌នាអំពីចំណងជើង</string>
+  <string name="description_edit_edit_description" fuzzy="true">កែប្រែការពណ៌នាអំពីចំណងជើង</string>
   <string name="description_edit_cancel_hint">បោះបង់</string>
   <string name="description_edit_success_done">រួចរាល់</string>
   <string name="description_edit_success_did_you_know">តើអ្នកដឹងទេ?</string>

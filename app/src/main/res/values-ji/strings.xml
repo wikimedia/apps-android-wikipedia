@@ -206,7 +206,7 @@
   <string name="crash_report_relaunch">אנהייבן פונדאסניי</string>
   <string name="crash_report_quit">פֿארלאזן</string>
   <string name="article_header_edit_hint">רעדאַקטירן...</string>
-  <string name="article_header_edit_description">רעדאקטירן טיטל־באשרײבונג</string>
+  <string name="article_header_edit_description" fuzzy="true">רעדאקטירן טיטל־באשרײבונג</string>
   <string name="article_header_edit_lead_section">רעדאקטירן אריינפֿיר</string>
   <string name="color_theme_select">טעמע</string>
   <string name="color_theme_light">העל</string>
@@ -232,10 +232,10 @@
   <string name="view_continue_reading_card_subtitle_today">הײנט</string>
   <string name="view_announcement_card_negative_action">ניין, א דאנק</string>
   <string name="description_edit_save">פֿאַרעפֿנטלעכן</string>
-  <string name="description_edit_add_description">צולייגן טיטל־באַשרייבונג</string>
-  <string name="description_edit_edit_description">רעדאקטירט באשרייבונג</string>
+  <string name="description_edit_add_description" fuzzy="true">צולייגן טיטל־באַשרייבונג</string>
+  <string name="description_edit_edit_description" fuzzy="true">רעדאקטירט באשרייבונג</string>
   <string name="description_edit_cancel_hint">אַנולירן</string>
-  <string name="description_edit_help_title">קעפל באַשרייבונגען</string>
+  <string name="description_edit_help_title" fuzzy="true">קעפל באַשרייבונגען</string>
   <string name="description_edit_help_about_wikidata">װעגן װיקידאַטן</string>
   <string name="description_edit_success_done">ערליידיקט</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true">די פֿרייע ענציקלאפעדיע</string>
