@@ -308,7 +308,7 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     @NonNull private Observable<Gallery> reqPageMedia(@NonNull PageTitle pageTitle) {
-
+        // TODO: check if it needs extra CacheControl or header for the request
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText());
     }
 
