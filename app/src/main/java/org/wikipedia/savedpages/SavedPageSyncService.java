@@ -10,6 +10,7 @@ import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
@@ -19,6 +20,8 @@ import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.events.PageDownloadEvent;
+import org.wikipedia.gallery.Gallery;
+import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
@@ -30,6 +33,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -235,10 +239,11 @@ public class SavedPageSyncService extends JobIntentService {
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+        Observable<Gallery> mediaCall = reqPageMedia(pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
+        Observable.zip(leadCall, sectionsCall, mediaCall, (leadRsp, sectionsRsp, mediaRsp) -> {
             long totalSize = 0;
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);
@@ -246,19 +251,30 @@ public class SavedPageSyncService extends JobIntentService {
             page.downloadProgress(SECTIONS_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             totalSize += responseSize(sectionsRsp);
-            Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
-            imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+            Set<String> mediaUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
+            mediaUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+
+            if (mediaRsp.getAllItems() != null) {
+                for (GalleryItem galleryItem : mediaRsp.getAllItems()) {
+                    if (FileUtil.isVideo(galleryItem.getType())) {
+                        mediaUrls.add(galleryItem.getThumbnailUrl());
+                        mediaUrls.add(galleryItem.getOriginalVideoSource().getOriginalUrl());
+                    } else {
+                        mediaUrls.add(galleryItem.getPreferredSizedImageUrl());
+                    }
+                }
+            }
 
             if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
                 page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
                         leadRsp.body().getThumbUrl()));
                 persistPageThumbnail(pageTitle, page.thumbUrl());
-                imageUrls.add(page.thumbUrl());
+                mediaUrls.add(page.thumbUrl());
             }
             page.description(leadRsp.body().getDescription());
 
             if (Prefs.isImageDownloadEnabled()) {
-                totalSize += reqSaveImages(page, imageUrls);
+                totalSize += reqSaveMedia(page, mediaUrls);
             }
 
             String title = pageTitle.getPrefixedText();
@@ -291,7 +307,12 @@ public class SavedPageSyncService extends JobIntentService {
         return client.sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
     }
 
-    private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
+    @NonNull private Observable<Gallery> reqPageMedia(@NonNull PageTitle pageTitle) {
+
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText());
+    }
+
+    private long reqSaveMedia(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
         int numOfImages = urls.size();
         long totalSize = 0;
         float percentage = SECTIONS_PROGRESS;
@@ -301,7 +322,7 @@ public class SavedPageSyncService extends JobIntentService {
                 throw new InterruptedException("Sync paused or cancelled.");
             }
             try {
-                totalSize += reqSaveImage(page.wiki(), url);
+                totalSize += reqSaveMedia(page.wiki(), url);
                 percentage += updateRate;
                 page.downloadProgress((int) percentage);
                 WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
@@ -318,7 +339,7 @@ public class SavedPageSyncService extends JobIntentService {
         return totalSize;
     }
 
-    private long reqSaveImage(@NonNull WikiSite wiki, @NonNull String url) throws IOException {
+    private long reqSaveMedia(@NonNull WikiSite wiki, @NonNull String url) throws IOException {
         Request request = makeImageRequest(wiki, url)
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .build();
