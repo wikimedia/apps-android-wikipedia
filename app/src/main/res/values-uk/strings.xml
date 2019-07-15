@@ -613,13 +613,13 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Дякуємо за Ваш незмінний інтерес до редагування описів! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
   <string name="description_edit_license_notice" fuzzy="true">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt;, і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Опис опубліковано!</string>
-  <string name="description_edit_success_saved_snackbar" fuzzy="true">Опис опубліковано!</string>
+  <string name="description_edit_success_saved">Опис статті опубліковано!</string>
+  <string name="description_edit_success_saved_snackbar">Опис статті опубліковано!</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>
   <string name="description_edit_success_article_edit_hint">Ви також можете редагувати статті з цього додатка. Спробуйте виправити невеличкі помилки друку та невеликі речення, натиснувши на іконку ^1 наступного разу</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Описи назви</string>
+  <string name="description_edit_tutorial_title_descriptions">Описи статей</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Резюмує статтю, щоб допомогти читачам зрозуміти тему з першого погляду</string>
   <string name="description_edit_tutorial_keep_it_short">Будьте лаконічні</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>

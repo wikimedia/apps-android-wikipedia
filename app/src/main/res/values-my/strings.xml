@@ -667,7 +667,7 @@
   <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>
   <string name="suggested_edits_image_preview_dialog_source">ရင်းမြစ်/ဓါတ်ပုံဆရာ</string>
   <string name="suggested_edits_image_preview_dialog_licensing">လိုင်စင်သတ်မှတ်ခြင်း</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">အချက်အလက် ပို၍</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">အချက်အလက် ပို၍</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ဝီကီပီးဒီးယား ကွန်မွန်းစ်ရှိ ဖိုင်စာမျက်နှာ</string>
   <string name="suggested_edits_feed_card_add_image_caption">ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>

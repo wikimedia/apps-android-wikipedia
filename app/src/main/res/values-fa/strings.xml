@@ -713,7 +713,7 @@
   <string name="suggested_edits_image_preview_dialog_date">تاریخ</string>
   <string name="suggested_edits_image_preview_dialog_source">منبع/عکاس</string>
   <string name="suggested_edits_image_preview_dialog_licensing">اجازه‌نامه</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">اطلاعات بیشتر</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">اطلاعات بیشتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحهٔ این پرونده در ویکی‌انبار</string>
   <string name="suggested_edits_feed_card_add_image_caption">افزودن توضیح</string>
   <string name="suggested_edits_feed_card_translate_image_caption">افزودن توضیح (%s)</string>
