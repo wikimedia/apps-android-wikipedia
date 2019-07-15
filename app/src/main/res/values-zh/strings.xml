@@ -219,6 +219,7 @@
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
   <string name="about_translators_heading">翻译者</string>
@@ -279,7 +280,7 @@
   <string name="preference_summary_show_images">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
   <string name="preference_title_download_only_over_wifi">只在有Wi-Fi的情况下下载</string>
   <string name="dialog_title_download_only_over_wifi">确认使用移动数据下载么？</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">您已在设置中启用“只在有Wi-Fi的情况下下载”。您是否希望只在这次使用您的移动数据计划下载？</string>
+  <string name="dialog_text_download_only_over_wifi">您已在设置中启用“只在有Wi-Fi的情况下下载”。您是否希望只在这次下载中使用您的移动数据流量？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
   <string name="about_article_section">关于此条目</string>
@@ -292,6 +293,7 @@
   <string name="gallery_save_success">文件保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="gallery_save_image_write_permission_rationale">需要写入您设备存储的权限才能保存图片。</string>
+  <string name="gallery_add_image_caption_in_language_button">添加图像说明（%s）</string>
   <string name="err_cannot_save_file">无法保存文件</string>
   <string name="snippet_share_intro">\@Wikipedia 上的“%1$s”：%2$s</string>
   <string name="expand_refs">点按展开</string>
@@ -552,6 +554,7 @@
   <string name="preference_title_notification_thanks">感谢</string>
   <string name="preference_summary_notification_thanks">有人感谢了您的一次编辑</string>
   <string name="preference_title_notification_revert">回退</string>
+  <string name="preference_summary_notification_revert">你其中一条贡献被撤销</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
   <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
@@ -606,11 +609,12 @@
   <string name="feed_lang_selection_dialog_ok_button_text">确认</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="description_edit_text_hint">条目描述</string>
+  <string name="description_edit_article_description_label_per_language">条目（%s）</string>
   <string name="description_edit_save">发布</string>
   <string name="description_edit_read">阅读</string>
   <string name="description_edit_add_description">添加条目描述</string>
   <string name="description_edit_translate_description">翻译条目描述</string>
-  <string name="description_edit_edit_description" fuzzy="true">编辑描述</string>
+  <string name="description_edit_edit_description">编辑条目描述</string>
   <string name="description_edit_add_image_caption">添加图像说明</string>
   <string name="description_edit_edit_image_caption">编辑图像说明</string>
   <string name="description_edit_translate_image_caption">翻译图片描述</string>
@@ -644,7 +648,8 @@
   <string name="suggested_edits_edit_translation_button">编辑翻译</string>
   <string name="suggested_edits_add_caption_button">添加说明文字</string>
   <string name="suggested_edits_my_contributions">我的贡献</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">“词条描述”编辑任务列表已解锁！</string>
+  <string name="suggested_edits_no_description">这个文件没有描述</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">你已经解锁“词条描述”编辑任务</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">我们注意到您偏好编辑条目描述，故我们汇编了一个内含缺少标题描述的条目的“应用程序编者任务”列表来助你持续贡献！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">编辑标题描述功能已解锁！</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">我们注意到您喜欢编辑标题描述，同时也常阅读多种语言版本的维基百科词条。欢迎查看此列表并帮助我们翻译更多的标题描述。</string>
@@ -743,5 +748,8 @@
   <string name="main_drawer_close">关闭</string>
   <string name="main_drawer_help">帮助</string>
   <string name="main_drawer_login">登录/加入维基百科</string>
+  <string name="custom_date_picker_dialog_ok_button_text">确认</string>
   <string name="text_input_dialog_ok_button_text">确定</string>
+  <string name="text_input_dialog_cancel_button_text">取消</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
 </resources>
