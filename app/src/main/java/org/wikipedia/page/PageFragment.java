@@ -646,6 +646,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      * Update the WebView's font size, based on the specified font size multiplier from the app
      * preferences. The default text zoom starts from 100, which is by percentage.
      */
+    @SuppressWarnings("checkstyle:magicnumber")
     public void updateFontSize() {
         webView.getSettings().setTextZoom(100 + getTextSizeMultiplier() * 10);
     }
