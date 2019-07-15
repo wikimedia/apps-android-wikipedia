@@ -59,7 +59,7 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_page_summary) TextView pageSummaryText;
     @BindView(R.id.view_description_edit_container) ViewGroup descriptionEditContainer;
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
-    @BindView(R.id.label_text) TextView labelText;
+    @BindView(R.id.view_description_edit_page_summary_label) TextView pageSummaryLabel;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditBottomBarView bottomBarContainer;
 
     @Nullable private String originalDescription;
@@ -192,7 +192,7 @@ public class DescriptionEditView extends LinearLayout {
         suggestedEditsSummary = isTranslationEdit ? targetSummary : sourceSummary;
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
-        labelText.setText(getLabelText(sourceSummary.getLang()));
+        pageSummaryLabel.setText(getLabelText(sourceSummary.getLang()));
         pageSummaryText.setText(StringUtil.strip(StringUtils.capitalize(StringUtil.removeHTMLTags(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
                 ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
         if (pageSummaryText.getText().toString().isEmpty()) {
