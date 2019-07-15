@@ -404,6 +404,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void initWebViewListeners() {
+        
         webView.addOnUpOrCancelMotionEventListener(() -> {
             // update our session, since it's possible for the user to remain on the page for
             // a long time, and we wouldn't want the session to time out.
