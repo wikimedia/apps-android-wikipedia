@@ -32,7 +32,8 @@ import static org.wikipedia.util.GradientUtil.getPowerGradient;
 
 public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) FaceAndColorDetectImageView image;
-    @BindView(R.id.view_page_header_image_gradient) View gradientView;
+    @BindView(R.id.view_page_header_image_gradient_top) View gradientViewTop;
+    @BindView(R.id.view_page_header_image_gradient_bottom) View gradientViewBottom;
     @BindView(R.id.call_to_action_container) View callToActionContainer;
     @BindView(R.id.call_to_action_text) TextView callToActionTextView;
     @Nullable private Callback callback;
@@ -79,18 +80,20 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         if (callToActionText != null) {
             callToActionContainer.setVisibility(VISIBLE);
             callToActionTextView.setText(callToActionText);
+            gradientViewBottom.setVisibility(VISIBLE);
         } else {
             callToActionContainer.setVisibility(GONE);
+            gradientViewBottom.setVisibility(GONE);
         }
     }
 
     public void loadImage(@Nullable String url) {
         if (TextUtils.isEmpty(url)) {
             image.setVisibility(GONE);
-            gradientView.setVisibility(GONE);
+            gradientViewTop.setVisibility(GONE);
         } else {
             image.setVisibility(VISIBLE);
-            gradientView.setVisibility(VISIBLE);
+            gradientViewTop.setVisibility(VISIBLE);
             image.loadImage(Uri.parse(url));
         }
     }
@@ -137,8 +140,8 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         inflate(getContext(), R.layout.view_page_header, this);
         ButterKnife.bind(this);
         ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
-        gradientView.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
-        gradientView.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
+        gradientViewTop.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
+        gradientViewBottom.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
 
         image.setOnImageLoadListener(new ImageLoadListener());
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice()));
