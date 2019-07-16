@@ -511,7 +511,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onListChipClick(@Nullable ReadingList readingList) {
+        public void onListChipClick(@NonNull ReadingList readingList) {
         }
     }
 

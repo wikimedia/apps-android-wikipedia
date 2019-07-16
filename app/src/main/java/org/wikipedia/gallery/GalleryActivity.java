@@ -32,7 +32,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -79,6 +78,8 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
@@ -314,7 +315,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 title.getDisplayText(), title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getDescription().getHtml()).toString(), null),
                 item.getThumbnailUrl(), item.getPreferredSizedImageUrl(), null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, SUGGESTED_EDITS_ADD_CAPTION),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -339,7 +340,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 targetTitle.getDisplayText(), targetTitle.getDisplayText(), null, item.getThumbnailUrl(), item.getPreferredSizedImageUrl(),
                 null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary, Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,
+                (sourceSummary.getLang().equals(targetSummary.getLang())) ? SUGGESTED_EDITS_ADD_CAPTION : SUGGESTED_EDITS_TRANSLATE_CAPTION),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
