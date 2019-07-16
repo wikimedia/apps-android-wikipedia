@@ -713,8 +713,6 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Label for image licensing detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
-  <string name="suggested_edits_article_cta_add_image_caption">Text for call to action button on article lead image, prompting the user to add a caption to the image.</string>
-  <string name="suggested_edits_article_cta_translate_image_caption">Text for call to action button on article lead image, prompting the user to translate caption into their language. The language into which the caption needs to be translated into, is indicated by  %s .</string>
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
@@ -805,4 +803,5 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="suggested_edits_article_cta_image_caption">Text for call to action button on article lead image, prompting the user to add a caption in the %s language.</string>
 </resources>
