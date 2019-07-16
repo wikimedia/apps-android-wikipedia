@@ -22,7 +22,12 @@
             app:placeholderImageScaleType="centerCrop" />
 
         <View
-            android:id="@+id/view_page_header_image_gradient"
+            android:id="@+id/view_page_header_image_gradient_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/view_page_header_image_gradient_bottom"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
