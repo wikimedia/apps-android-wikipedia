@@ -709,8 +709,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Zdroj/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencování</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Více informací</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_add_image_caption">Přidat titulek</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">Přidat titulek (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Přidat popis obrázku</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat popis obrázku (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
