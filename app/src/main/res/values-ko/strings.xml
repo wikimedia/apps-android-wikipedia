@@ -699,7 +699,7 @@
   <string name="suggested_edits_image_preview_dialog_date">날짜</string>
   <string name="suggested_edits_image_preview_dialog_source">출처/촬영자</string>
   <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">자세한 정보</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
   <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
   <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>
