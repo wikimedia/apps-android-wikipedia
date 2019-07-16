@@ -138,6 +138,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         ButterKnife.bind(this);
         ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
         gradientView.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
+        gradientView.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
 
         image.setOnImageLoadListener(new ImageLoadListener());
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice()));
