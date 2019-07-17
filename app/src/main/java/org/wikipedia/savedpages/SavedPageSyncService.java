@@ -273,16 +273,20 @@ public class SavedPageSyncService extends JobIntentService {
             }
             page.description(leadRsp.body().getDescription());
 
-            if (Prefs.isImageDownloadEnabled()) {
-                totalSize += reqSaveMedia(page, mediaUrls);
-            }
-
             String title = pageTitle.getPrefixedText();
             L.i("Saved page " + title + " (" + totalSize + ")");
 
-            return totalSize;
+            pageSize[0] = totalSize;
+
+            return mediaUrls;
+        }).flatMap(urls -> {
+            if (Prefs.isImageDownloadEnabled()) {
+                return Observable.fromCallable(() -> reqSaveMedia(page, urls));
+            } else {
+                return Observable.just(0L);
+            }
         }).subscribeOn(Schedulers.io())
-                .blockingSubscribe(size -> pageSize[0] = size,
+                .blockingSubscribe(size -> pageSize[0] += size,
                         t -> exception[0] = (Exception) t);
         if (exception[0] != null) {
             throw exception[0];
