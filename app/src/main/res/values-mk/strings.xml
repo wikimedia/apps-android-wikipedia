@@ -694,8 +694,6 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
-  <string name="suggested_edits_article_cta_add_image_caption">Додај опис</string>
-  <string name="suggested_edits_article_cta_translate_image_caption">Додај опис (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>

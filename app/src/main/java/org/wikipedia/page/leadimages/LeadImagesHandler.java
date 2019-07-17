@@ -28,7 +28,6 @@ import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
@@ -206,9 +205,7 @@ public class LeadImagesHandler {
     private void updateCallToAction() {
         dispose();
         pageHeaderView.setUpCallToAction(null);
-        if (!AccountUtil.isLoggedIn()
-                || (!Prefs.isSuggestedEditsAddCaptionsUnlocked() && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked())
-                || getLeadImageUrl() == null || !getLeadImageUrl().contains(URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
+        if (!AccountUtil.isLoggedIn() || getLeadImageUrl() == null || !getLeadImageUrl().contains(URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
             return;
         }
         GalleryItem[] galleryItem = {null};
@@ -234,14 +231,14 @@ public class LeadImagesHandler {
                                 captionSourcePageTitle = new PageTitle(title[0], new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
 
                                 if (!captions.containsKey(getTitle().getWikiSite().languageCode())) {
-                                    pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
-                                    callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getRequestUrlText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
+                                    pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption, app.language().getAppLanguageLocalizedName(getTitle().getWikiSite().languageCode())));
+                                    callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
                                             captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(galleryItem[0].getDescription().getHtml()).toString(), getActivity().getString(R.string.suggested_edits_no_description)),
                                             galleryItem[0].getThumbnailUrl(), galleryItem[0].getPreferredSizedImageUrl(), null, null, null, null);
 
                                     return;
                                 }
-                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                                     for (String lang : app.language().getAppLanguageCodes()) {
                                         if (!captions.containsKey(lang)) {
                                             callToActionIsTranslation = true;
@@ -255,7 +252,7 @@ public class LeadImagesHandler {
                                             callToActionTargetSummary = new SuggestedEditsSummary(captionTargetPageTitle.getRequestUrlText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
                                                     captionTargetPageTitle.getDisplayText(), captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
                                                     null, null, null, null);
-                                            pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), app.language().getAppLanguageLocalizedName(lang)));
+                                            pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption, app.language().getAppLanguageLocalizedName(lang)));
                                             break;
                                         }
                                     }

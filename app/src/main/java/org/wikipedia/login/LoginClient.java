@@ -17,7 +17,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.mwapi.MwServiceError;
+import org.wikipedia.dataclient.mwapi.MwResponse;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -185,16 +185,9 @@ public class LoginClient {
         loginCall = null;
     }
 
-    public static final class LoginResponse {
-        @SuppressWarnings("unused") @SerializedName("error") @Nullable
-        private MwServiceError error;
-
+    public static final class LoginResponse extends MwResponse {
         @SuppressWarnings("unused") @SerializedName("clientlogin") @Nullable
         private ClientLogin clientLogin;
-
-        @Nullable public MwServiceError getError() {
-            return error;
-        }
 
         @Nullable LoginResult toLoginResult(@NonNull WikiSite site, @NonNull String password) {
             return clientLogin != null ? clientLogin.toLoginResult(site, password) : null;
