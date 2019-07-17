@@ -256,8 +256,8 @@ public class SavedPageSyncService extends JobIntentService {
 
             if (mediaRsp.getAllItems() != null) {
                 for (GalleryItem galleryItem : mediaRsp.getAllItems()) {
+                    mediaUrls.add(galleryItem.getThumbnailUrl());
                     if (FileUtil.isVideo(galleryItem.getType())) {
-                        mediaUrls.add(galleryItem.getThumbnailUrl());
                         mediaUrls.add(galleryItem.getOriginalVideoSource().getOriginalUrl());
                     } else {
                         mediaUrls.add(galleryItem.getPreferredSizedImageUrl());
