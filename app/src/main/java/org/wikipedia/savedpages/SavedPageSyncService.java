@@ -142,7 +142,8 @@ public class SavedPageSyncService extends JobIntentService {
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, sectionsRsp) -> {
+                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
+                reqPageMedia(pageTitle), (leadRsp, sectionsRsp, mediaRsp) -> {
                     Set<String> imageUrls = new HashSet<>();
                     if (leadRsp.body() != null) {
                         imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
@@ -152,6 +153,14 @@ public class SavedPageSyncService extends JobIntentService {
                     }
                     if (sectionsRsp.body() != null) {
                         imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+                    }
+                    if (mediaRsp.getAllItems() != null) {
+                        for (GalleryItem galleryItem : mediaRsp.getAllItems()) {
+                            imageUrls.add(galleryItem.getThumbnailUrl());
+                            if (FileUtil.isVideo(galleryItem.getType())) {
+                                imageUrls.add(galleryItem.getOriginalVideoSource().getOriginalUrl());
+                            }
+                        }
                     }
                     return imageUrls;
                 })
