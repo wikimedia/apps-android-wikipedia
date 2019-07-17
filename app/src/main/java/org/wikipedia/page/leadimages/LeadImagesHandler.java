@@ -234,7 +234,7 @@ public class LeadImagesHandler {
                                 captionSourcePageTitle = new PageTitle(title[0], new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
 
                                 if (!captions.containsKey(getTitle().getWikiSite().languageCode())) {
-                                    pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
+                                    pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption, app.language().getAppLanguageLocalizedName(getTitle().getWikiSite().languageCode())));
                                     callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
                                             captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(galleryItem[0].getDescription().getHtml()).toString(), getActivity().getString(R.string.suggested_edits_no_description)),
                                             galleryItem[0].getThumbnailUrl(), galleryItem[0].getPreferredSizedImageUrl(), null, null, null, null);
@@ -255,7 +255,7 @@ public class LeadImagesHandler {
                                             callToActionTargetSummary = new SuggestedEditsSummary(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
                                                     captionTargetPageTitle.getDisplayText(), captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
                                                     null, null, null, null);
-                                            pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), app.language().getAppLanguageLocalizedName(lang)));
+                                            pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption, app.language().getAppLanguageLocalizedName(lang)));
                                             break;
                                         }
                                     }

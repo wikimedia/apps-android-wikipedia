@@ -590,7 +590,7 @@
   <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
   <string name="feed_configure_menu_select_all">すべて表示</string>
-  <string name="feed_configure_menu_deselect_all">全て隠す</string>
+  <string name="feed_configure_menu_deselect_all">すべて隠す</string>
   <string name="feed_configure_language_warning">すべてのウィキペディアの言語で、すべてのカードの種類が利用できるわけではないことにご留意ください。設定で言語を選んでください。</string>
   <string name="feed_item_type_news">最近の出来事の記事</string>
   <string name="feed_item_type_on_this_day">過去に起こったこの日の出来事</string>
@@ -655,7 +655,7 @@
   <string name="suggested_edits_edit_caption_button">キャプションを編集</string>
   <string name="suggested_edits_review_image_caption">画像キャプションを確認</string>
   <string name="suggested_edits_my_contributions">自分の投稿記録</string>
-  <string name="suggested_edits_no_description" fuzzy="true">説明なし</string>
+  <string name="suggested_edits_no_description">このファイルには説明がありません</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">「記事の説明を追加」タスクを実績解除しました！</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">これまでのすべてのご寄稿に感謝します！　あなたは編集がお得意ですので、説明が欠けている記事のリストをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">「記事の説明を翻訳」タスクを実績解除しました</string>
@@ -691,7 +691,7 @@
   <string name="suggested_edits_task_multilingual_title">多言語話者の編集者向けのタスク</string>
   <string name="suggested_edits_task_multilingual_description">2言語以上で読み書きができる編集者向けに編集タスクがあります。</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">最低%d件の画像キャプションの編集が完了するまでロックされています</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">最低%d件の有効な編集をするまでロックされています</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">最低%d件の (有効な) 編集をするまでロックされています</string>
   <string name="suggested_edits_task_multilingual_negative">私向けではありません</string>
   <string name="suggested_edits_task_multilingual_positive">言語を追加</string>
   <string name="suggested_edits_image_caption_summary_title_artist">アーティスト</string>
@@ -713,8 +713,10 @@
   <string name="suggested_edits_image_preview_dialog_date">日付</string>
   <string name="suggested_edits_image_preview_dialog_source">情報源/撮影者</string>
   <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">詳細情報</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">詳細情報</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
+  <string name="suggested_edits_article_cta_add_image_caption">キャプションを追加</string>
+  <string name="suggested_edits_article_cta_translate_image_caption">キャプションを追加 (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>
   <string name="suggested_edits_feed_card_translate_image_caption">キャプションを追加 (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
