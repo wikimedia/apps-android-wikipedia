@@ -718,10 +718,8 @@
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotógrafo</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciando</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Mais informações</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Maiores informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página de arquivo no Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_add_image_caption">Adicionar legenda</string>
-  <string name="suggested_edits_article_cta_translate_image_caption">Adicionar legenda (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
