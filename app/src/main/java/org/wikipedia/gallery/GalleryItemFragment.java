@@ -247,7 +247,7 @@ public class GalleryItemFragment extends Fragment {
         if (FileUtil.isVideo(galleryItem.getType())) {
             loadVideo();
         } else {
-            loadImage(galleryItem.getPreferredSizedImageUrl());
+            loadImage(app.isOnline() ? galleryItem.getPreferredSizedImageUrl() : galleryItem.getThumbnailUrl());
         }
 
         parentActivity.supportInvalidateOptionsMenu();

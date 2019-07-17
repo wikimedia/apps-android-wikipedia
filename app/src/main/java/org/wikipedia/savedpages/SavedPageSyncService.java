@@ -259,8 +259,6 @@ public class SavedPageSyncService extends JobIntentService {
                     mediaUrls.add(galleryItem.getThumbnailUrl());
                     if (FileUtil.isVideo(galleryItem.getType())) {
                         mediaUrls.add(galleryItem.getOriginalVideoSource().getOriginalUrl());
-                    } else {
-                        mediaUrls.add(galleryItem.getPreferredSizedImageUrl());
                     }
                 }
             }
