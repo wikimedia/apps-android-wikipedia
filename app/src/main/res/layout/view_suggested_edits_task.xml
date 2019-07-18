@@ -17,13 +17,13 @@
         android:background="?android:attr/selectableItemBackground">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/task_info_layout"
+            android:id="@+id/taskInfoContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/taskTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -33,13 +33,13 @@
                 android:lineSpacingExtra="10sp"
                 android:textColor="?attr/material_theme_primary_color"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@id/image"
+                app:layout_constraintEnd_toStartOf="@id/taskImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Add title descriptions" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/taskDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -48,14 +48,14 @@
                 android:lineSpacingExtra="4sp"
                 android:textColor="?attr/material_theme_secondary_color"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@id/image"
-                app:layout_constraintStart_toStartOf="@id/title"
-                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintEnd_toStartOf="@id/taskImage"
+                app:layout_constraintStart_toStartOf="@id/taskTitle"
+                app:layout_constraintTop_toBottomOf="@id/taskTitle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:text="Contribute to articles without title descriptions" />
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/taskImage"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="16dp"
@@ -69,14 +69,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
-            android:id="@+id/action_layout"
+            android:id="@+id/taskActionLayout"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description">
+            app:layout_constraintTop_toBottomOf="@id/taskInfoContainer">
 
             <LinearLayout
-                android:id="@+id/unlock_message_container"
+                android:id="@+id/unlockMessageContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?android:attr/colorBackground"
@@ -92,7 +92,7 @@
                     app:srcCompat="@drawable/ic_lock_white_24dp" />
 
                 <TextView
-                    android:id="@+id/unlock_message_text"
+                    android:id="@+id/unlockMessageText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -103,7 +103,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/unlock_actions_container"
+                android:id="@+id/unlockActionsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="end"
@@ -112,7 +112,7 @@
                 android:paddingEnd="16dp">
 
                 <TextView
-                    android:id="@+id/unlock_action_negative_button"
+                    android:id="@+id/unlockActionNegativeButton"
                     style="@style/TransparentButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                     tools:text="Not for me" />
 
                 <TextView
-                    android:id="@+id/unlock_action_positive_button"
+                    android:id="@+id/unlockActionPositiveButton"
                     style="@style/TransparentButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
