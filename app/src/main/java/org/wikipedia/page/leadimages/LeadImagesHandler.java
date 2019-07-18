@@ -28,7 +28,6 @@ import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
@@ -206,9 +205,7 @@ public class LeadImagesHandler {
     private void updateCallToAction() {
         dispose();
         pageHeaderView.setUpCallToAction(null);
-        if (!AccountUtil.isLoggedIn()
-                || (!Prefs.isSuggestedEditsAddCaptionsUnlocked() && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked())
-                || getLeadImageUrl() == null || !getLeadImageUrl().contains(URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
+        if (!AccountUtil.isLoggedIn() || getLeadImageUrl() == null || !getLeadImageUrl().contains(URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
             return;
         }
         GalleryItem[] galleryItem = {null};
@@ -241,7 +238,7 @@ public class LeadImagesHandler {
 
                                     return;
                                 }
-                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                                     for (String lang : app.language().getAppLanguageCodes()) {
                                         if (!captions.containsKey(lang)) {
                                             callToActionIsTranslation = true;
