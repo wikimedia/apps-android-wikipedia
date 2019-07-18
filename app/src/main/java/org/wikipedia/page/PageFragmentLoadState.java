@@ -2,17 +2,14 @@ package org.wikipedia.page;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +22,6 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -33,11 +29,8 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
@@ -142,7 +135,7 @@ public class PageFragmentLoadState {
         // Reload the stub index.html into the WebView, which will cause any wiki-specific
         // CSS to be loaded automatically.
         bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
-        //pageLoadCheckReadingLists();
+        pageLoadCheckReadingLists();
     }
 
     public boolean isLoading() {
@@ -363,78 +356,6 @@ public class PageFragmentLoadState {
         leadImagesHandler.beginLayout(new LeadImageLayoutListener(runnable), sequenceNumber.get());
     }
 
-    private void pageLoadDisplayLeadSection() {
-        Page page = model.getPage();
-
-        bridge.sendMessage("setMargins", marginPayload());
-
-        sendLeadSectionPayload(page);
-
-        sendMiscPayload(page);
-
-        if (webView.getVisibility() != View.VISIBLE) {
-            webView.setVisibility(View.VISIBLE);
-        }
-
-        refreshView.setRefreshing(false);
-        if (fragment.callback() != null) {
-            fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-    }
-
-    private JSONObject marginPayload() {
-        try {
-            return new JSONObject()
-                    .put("marginTop", DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.activity_vertical_margin)));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void sendLeadSectionPayload(Page page) {
-        JSONObject leadSectionPayload = leadSectionPayload(page);
-        bridge.sendMessage("displayLeadSection", leadSectionPayload);
-        L.d("Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
-    }
-
-    @SuppressWarnings("checkstyle:magicnumber")
-    private JSONObject setLeadSectionMetadata(@NonNull JSONObject obj,
-                                              @NonNull Page page) throws JSONException {
-        SparseArray<String> localizedStrings = localizedStrings(page);
-        return obj.put("sequence", sequenceNumber.get())
-                .put("title", page.getDisplayTitle())
-                .put("description", StringUtils.capitalize(model.getTitle().getDescription()))
-                .put("allowDescriptionEdit", DescriptionEditUtil.isEditAllowed(page))
-                .put("hasPronunciation", !TextUtils.isEmpty(page.getTitlePronunciationUrl()))
-                .put("string_table_infobox", localizedStrings.get(R.string.table_infobox))
-                .put("string_table_other", localizedStrings.get(R.string.table_other))
-                .put("string_table_close", localizedStrings.get(R.string.table_close))
-                .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
-                .put("string_add_description", localizedStrings.get(R.string.description_edit_add_description))
-                .put("isBeta", ReleaseUtil.isPreProdRelease()) // True for any non-production release type
-                .put("siteLanguage", model.getTitle().getWikiSite().languageCode())
-                .put("siteBaseUrl", model.getTitle().getWikiSite().url())
-                .put("isMainPage", page.isMainPage())
-                .put("isFilePage", page.isFilePage())
-                .put("fromRestBase", page.isFromRestBase())
-                .put("apiLevel", Build.VERSION.SDK_INT)
-                .put("showImages", Prefs.isImageDownloadEnabled())
-                .put("collapseTables", Prefs.isCollapseTablesEnabled())
-                .put("theme", app.getCurrentTheme().getMarshallingId())
-                .put("imagePlaceholderBackgroundColor", "#" + Integer.toHexString(ResourceUtil.getThemedColor(fragment.requireContext(), android.R.attr.colorBackground) & 0xFFFFFF))
-                .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages());
-    }
-
-    private JSONObject leadSectionPayload(@NonNull Page page) {
-
-        try {
-            return setLeadSectionMetadata(new JSONObject(), page)
-                    .put("section", page.getSections().get(0).toJSON());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private SparseArray<String> localizedStrings(Page page) {
         return getStringsForArticleLanguage(page.getTitle(),
                 ResourceUtil.getIdArray(fragment.requireContext(), R.array.page_localized_string_ids));
@@ -532,7 +453,6 @@ public class PageFragmentLoadState {
                 return;
             }
             fragment.requireActivity().invalidateOptionsMenu();
-            pageLoadRemainingSections(sequenceNumber.get());
         });
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
@@ -583,7 +503,6 @@ public class PageFragmentLoadState {
             if (runnable != null) {
                 // when the lead image is laid out, load the lead section and the rest
                 // of the sections into the webview.
-                pageLoadDisplayLeadSection();
                 runnable.run();
             }
         }

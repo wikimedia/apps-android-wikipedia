@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -46,6 +47,7 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -405,7 +407,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void initWebViewListeners() {
-        
         webView.addOnUpOrCancelMotionEventListener(() -> {
             // update our session, since it's possible for the user to remain on the page for
             // a long time, and we wouldn't want the session to time out.
@@ -420,6 +421,15 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                updateProgressBar(false, true, 0);
+                if (webView != null) {
+                    webView.evaluateJavascript(JavaScriptActionHandler.setHandler(), null);
+                }
             }
         });
     }
@@ -916,9 +926,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 return model.getTitle().getWikiSite();
             }
         };
-        bridge.addListener("linkClicked", linkHandler);
+        bridge.addListener("link_clicked", linkHandler);
 
-        bridge.addListener("referenceClicked", new ReferenceHandler() {
+        bridge.addListener("reference_clicked", new ReferenceHandler() {
             @Override
             protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
 
@@ -930,9 +940,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferences, linkHandler));
             }
         });
-        bridge.addListener("imageClicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("image_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
-                String href = decodeURL(messagePayload.getString("href"));
+                String href = decodeURL(messagePayload.getString("src"));
                 if (href.startsWith("/wiki/")) {
                     String filename = UriUtil.removeInternalLinkPrefix(href);
                     String fileUrl = null;
@@ -958,7 +968,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 L.logRemoteErrorIfProd(e);
             }
         });
-        bridge.addListener("mediaClicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("media_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
                 String href = decodeURL(messagePayload.getString("href"));
                 String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
@@ -971,7 +981,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 L.logRemoteErrorIfProd(e);
             }
         });
-        bridge.addListener("pronunciationClicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("pronunciation_clicked", (String messageType, JSONObject messagePayload) -> {
             if (avPlayer == null) {
                 avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
                 avPlayer.init();

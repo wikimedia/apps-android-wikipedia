@@ -101,13 +101,13 @@ public class CommunicationBridge {
         @Override
         public boolean handleMessage(Message msg) {
             JSONObject messagePack = (JSONObject) msg.obj;
-            String type = messagePack.optString("type");
+            String type = messagePack.optString("action");
             if (!eventListeners.containsKey(type)) {
                 throw new RuntimeException("No such message type registered: " + type);
             }
             List<JSEventListener> listeners = eventListeners.get(type);
             for (JSEventListener listener : listeners) {
-                listener.onMessage(type, messagePack.optJSONObject("payload"));
+                listener.onMessage(type, messagePack.optJSONObject("data"));
             }
             return false;
         }
