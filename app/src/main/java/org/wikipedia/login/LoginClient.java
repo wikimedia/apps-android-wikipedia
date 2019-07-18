@@ -59,7 +59,7 @@ public class LoginClient {
                 MwQueryResponse queryResponse;
                 try {
                     queryResponse = GsonUtil.getDefaultGson().fromJson(response.body(), MwQueryResponse.class);
-                    if (!TextUtils.isEmpty(queryResponse.query().loginToken())) {
+                    if (TextUtils.isEmpty(queryResponse.query().loginToken())) {
                         throw new RuntimeException("Received empty login token: " + GsonUtil.getDefaultGson().toJson(response.body()));
                     }
                 } catch (Exception e) {
