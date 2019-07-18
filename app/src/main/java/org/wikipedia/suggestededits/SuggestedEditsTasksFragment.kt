@@ -26,7 +26,7 @@ import org.wikipedia.notifications.NotificationEditorTasksHandler
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil.getThemedAttributeId
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
@@ -47,11 +47,16 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_suggested_edits_tasks, container, false)
+        super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_suggested_edits_tasks, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener{ this.updateUI() }
 
         tasksRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -65,7 +70,6 @@ class SuggestedEditsTasksFragment : Fragment() {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
         }
         setUpTasks()
-        return view
     }
 
     override fun onResume() {
@@ -120,7 +124,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
                         totalEdits += count
                     }
-                    contributionsText!!.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
+                    contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
                     updateDisplayedTasks(editorTaskCounts)
                 }, { throwable ->
                     L.e(throwable)
@@ -211,7 +215,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         } catch (e: Exception) {
             L.e(e)
         } finally {
-            tasksRecyclerView!!.adapter!!.notifyDataSetChanged()
+            tasksRecyclerView.adapter!!.notifyDataSetChanged()
         }
     }
 
@@ -227,24 +231,20 @@ class SuggestedEditsTasksFragment : Fragment() {
             if (task == multilingualTeaserTask) {
                 val multilingualTaskPosition = displayedTasks.indexOf(multilingualTeaserTask)
                 displayedTasks.remove(multilingualTeaserTask)
-                tasksRecyclerView!!.adapter!!.notifyItemChanged(multilingualTaskPosition)
+                tasksRecyclerView.adapter!!.notifyItemChanged(multilingualTaskPosition)
                 Prefs.setShowSuggestedEditsMultilingualTeaserTask(false)
             }
         }
 
         override fun onViewClick(task: SuggestedEditsTask) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size > 1) {
-                if (task == translateDescriptionsTask) {
-                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_TRANSLATE_DESC))
-                } else if (task == translateImageCaptionsTask) {
-                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_TRANSLATE_CAPTION))
-                }
-            } else {
-                if (task == addDescriptionsTask) {
-                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ADD_DESC))
-                } else if (task == addImageCaptionsTask) {
-                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ADD_CAPTION))
-                }
+            if (task == addDescriptionsTask) {
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ADD_DESC))
+            } else if (task == addImageCaptionsTask) {
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ADD_CAPTION))
+            } else if (task == translateDescriptionsTask && WikipediaApp.getInstance().language().appLanguageCodes.size > 1) {
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_TRANSLATE_DESC))
+            } else if (task == translateImageCaptionsTask && WikipediaApp.getInstance().language().appLanguageCodes.size > 1) {
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_TRANSLATE_CAPTION))
             }
         }
     }

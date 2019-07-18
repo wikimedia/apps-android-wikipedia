@@ -16,21 +16,21 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
-        taskTitle!!.text = task.title
-        taskDescription!!.text = task.description
-        taskImage!!.visibility = if (task.showImagePlaceholder) View.VISIBLE else View.GONE
-        taskImage!!.setImageDrawable(task.imageDrawable)
-        taskInfoContainer!!.alpha = if (task.disabled) 0.56f else 1.0f
-        unlockMessageContainer!!.visibility = if (task.disabled) View.VISIBLE else View.GONE
-        unlockMessageText!!.text = task.unlockMessageText
-        unlockActionsContainer!!.visibility = if (task.disabled) View.GONE else View.VISIBLE
-        unlockActionPositiveButton!!.text = task.unlockActionPositiveButtonString
-        unlockActionNegativeButton!!.text = task.unlockActionNegativeButtonString
-        taskActionLayout!!.visibility = if (task.showActionLayout) View.VISIBLE else View.GONE
+        taskTitle.text = task.title
+        taskDescription.text = task.description
+        taskImage.visibility = if (task.showImagePlaceholder) View.VISIBLE else View.GONE
+        taskImage.setImageDrawable(task.imageDrawable)
+        taskInfoContainer.alpha = if (task.disabled) 0.56f else 1.0f
+        unlockMessageContainer.visibility = if (task.disabled) View.VISIBLE else View.GONE
+        unlockMessageText.text = task.unlockMessageText
+        unlockActionsContainer.visibility = if (task.disabled) View.GONE else View.VISIBLE
+        unlockActionPositiveButton.text = task.unlockActionPositiveButtonString
+        unlockActionNegativeButton.text = task.unlockActionNegativeButtonString
+        taskActionLayout.visibility = if (task.showActionLayout) View.VISIBLE else View.GONE
 
         taskInfoContainer.setOnClickListener {
-            if (callback != null && !task.disabled) {
-                callback.onViewClick(task)
+            if (!task.disabled) {
+                callback?.onViewClick(task)
             }
         }
 
@@ -38,7 +38,7 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
             callback?.onPositiveActionClick(task)
         }
 
-        unlockActionPositiveButton.setOnClickListener {
+        unlockActionNegativeButton.setOnClickListener {
             callback?.onNegativeActionClick(task)
         }
     }
