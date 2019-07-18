@@ -13,6 +13,7 @@ class SuggestedEditsOnboardingActivity : SingleFragmentActivity<SuggestedEditsOn
     }
 
     companion object {
+        @JvmStatic
         fun newIntent(context: Context, source: Constants.InvokeSource): Intent {
             return Intent(context, SuggestedEditsOnboardingActivity::class.java).putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
         }

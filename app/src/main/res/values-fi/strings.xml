@@ -598,6 +598,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
+  <string name="description_edit_article_description_label_per_language">Artikkeli (%s)</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description">Lisää artikkelin kuvaus</string>
@@ -647,6 +648,10 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Taiteilija</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Tekijä</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Lähde</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lisenssi</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 muokkaus</item>
     <item quantity="other">%d muokkausta</item>

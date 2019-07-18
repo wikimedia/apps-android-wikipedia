@@ -29,7 +29,7 @@ object PageAvailableOfflineHandler {
             }
         }) {
             val readingListPage = withContext(Dispatchers.IO) { ReadingListDbHelper.instance().findPageInAnyList(pageTitle) }
-            callback.onFinish(readingListPage!!.offline() && !readingListPage.saving())
+            callback.onFinish(readingListPage != null && readingListPage.offline() && !readingListPage.saving())
         }
     }
 }
