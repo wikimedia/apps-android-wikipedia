@@ -734,8 +734,7 @@
     <string name="suggested_edits_image_preview_dialog_licensing">Licensing</string>
     <string name="suggested_edits_image_preview_dialog_more_info">More Info</string>
     <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
-    <string name="suggested_edits_article_cta_add_image_caption">Add caption</string>
-    <string name="suggested_edits_article_cta_translate_image_caption">Add caption (%s)</string>
+    <string name="suggested_edits_article_cta_image_caption">Add image caption (%s)</string>
     <string name="suggested_edits_feed_card_add_image_caption">Add caption</string>
     <string name="suggested_edits_feed_card_translate_image_caption">Add caption (%s)</string>
     <string name="suggested_edits_feed_card_add_description_button">Add article description</string>

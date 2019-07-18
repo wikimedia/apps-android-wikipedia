@@ -638,7 +638,7 @@
   <string name="suggested_edits_edit_caption_button">Redakti titolon de bildo</string>
   <string name="suggested_edits_review_image_caption">Revizii titolon de bildo</string>
   <string name="suggested_edits_my_contributions">Miaj kontribuoj</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Neniu priskribo</string>
+  <string name="suggested_edits_no_description">Mankas priskribo pri ĉi tiu dosiero</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vi malŝlosis la taskon \"Aldoni priskribojn al artikoloj\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Dankon pro viaj kontribuoj. Ĉar vi bonege redaktas, ni kompilis liston de artikoloj malhavantaj priskribojn. Ĉu vi povas helpi nin per plibonigado de Vikipedio?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vi liberigis la taskon \"Traduki priskribojn de artikoloj\"</string>
@@ -674,7 +674,7 @@
   <string name="suggested_edits_task_multilingual_title">Pli da taskoj por plurlingvaj redaktanoj</string>
   <string name="suggested_edits_task_multilingual_description">Tradukaj taskoj estas haveblaj se vi legas kaj skribas plurajn Vikipediajn lingvojn.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d titolojn de bildoj</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Ŝlosita ĝis kiam vi faros %d konfirmitajn kontribuojn</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d priskribojn (konfirmitajn)</string>
   <string name="suggested_edits_task_multilingual_negative">Ne por mi</string>
   <string name="suggested_edits_task_multilingual_positive">Aldoni lingvojn</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Kreito de arto</string>
@@ -696,8 +696,9 @@
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotisto</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Permesilo</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Pli da Informo</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Pli da Informo</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Paĝo de dosiero ĉe Vikimedia Komunejo</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aldoni titolon</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aldoni titolon (je %s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>

@@ -9,7 +9,7 @@
     tools:context="org.wikipedia.suggestededits.SuggestedEditsTasksActivity">
 
     <FrameLayout
-        android:id="@+id/user_contributions_button"
+        android:id="@+id/userContributionsButton"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="?attr/main_toolbar_color"
@@ -27,7 +27,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/usernameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -37,7 +37,7 @@
                 tools:text="Androidloggedinusername" />
 
             <TextView
-                android:id="@+id/contributions_text"
+                android:id="@+id/contributionsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -60,7 +60,7 @@
             app:tint="?attr/colorAccent" />
 
         <ProgressBar
-            android:id="@+id/progress_bar"
+            android:id="@+id/progressBar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,12 +75,12 @@
     </FrameLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/suggested_edits_swipe_refresh"
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/task_recyclerview"
+            android:id="@+id/tasksRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
