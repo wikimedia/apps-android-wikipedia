@@ -714,8 +714,9 @@
   <string name="suggested_edits_image_preview_dialog_date">التاريخ</string>
   <string name="suggested_edits_image_preview_dialog_source">المصدر/المصور</string>
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">المزيد من المعلومات</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
+  <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح</string>
   <string name="suggested_edits_feed_card_translate_image_caption">إضافة شرح (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
