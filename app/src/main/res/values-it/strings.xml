@@ -17,6 +17,7 @@
 * Giacomo Checchin
 * Gianfranco
 * Greis
+* JackLantern
 * LACLARETTA
 * Lorelai87
 * Macofe
@@ -616,6 +617,7 @@
   <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni della voce! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Didascalia dell\'immagine pubblicata!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Didascalia dell\'immagine pubblicata! (%s)</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
@@ -678,6 +680,7 @@
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autore</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licenza</string>
   <string name="suggested_edits_image_caption_summary_title_date">Data</string>
   <plurals name="suggested_edits_contribution_count">
@@ -696,6 +699,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Ulteriori informazioni</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagina del file su Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>
@@ -726,6 +730,7 @@
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
   <string name="more_trending_text">Voci correlate</string>
+  <string name="top_on_this_day">Di tendenza il %1$s</string>
   <string name="on_this_day_card_title">In questo giorno</string>
   <string name="more_events_text">Altro in questo giorno</string>
   <string name="events_count_text">%1$s eventi dal %2$s–%3$d</string>
