@@ -11,7 +11,6 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 
 import java.util.ArrayList;
 import java.util.Collections;

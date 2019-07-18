@@ -60,7 +60,6 @@ import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.shareafact.ShareHandler;
@@ -147,7 +146,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
     private PageHeaderView pageHeaderView;
-    private BottomContentView bottomContentView;
     private ObservableWebView webView;
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
@@ -258,10 +256,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return editHandler;
     }
 
-    public BottomContentView getBottomContentView() {
-        return bottomContentView;
-    }
-
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -298,8 +292,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         errorView = rootView.findViewById(R.id.page_error);
 
-        bottomContentView = rootView.findViewById(R.id.page_bottom_view);
-
         return rootView;
     }
 
@@ -313,7 +305,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.cleanup();
         tocHandler.log();
         shareHandler.dispose();
-        bottomContentView.dispose();
         leadImagesHandler.dispose();
         disposables.clear();
         webView.clearAllListeners();
@@ -367,8 +358,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         // TODO: initialize View references in onCreateView().
         leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
-
-        bottomContentView.setup(this, bridge, webView);
 
         shareHandler = new ShareHandler(this, bridge);
 
@@ -634,7 +623,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack);
         scrollTriggerListener.setStagedScrollY(stagedScrollY);
-        bottomContentView.hide();
         updateBookmarkAndMenuOptions();
     }
 
@@ -785,7 +773,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         setupToC(model, pageFragmentLoadState.isFirstPage());
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
-        bottomContentView.setPage(model.getPage());
 
         if (model.getReadingListPage() != null) {
             final ReadingListPage page = model.getReadingListPage();
