@@ -110,7 +110,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                             sections.getJSONObject(i).getInt("yOffset"));
                 }
                 // artificially add height for bottom About section
-                adapter.setYOffset(ABOUT_SECTION_ID, webView.getContentHeight() - (int)(fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
+                adapter.setYOffset(ABOUT_SECTION_ID, webView.getContentHeight());
             } catch (JSONException e) {
                 // ignore
             }
@@ -163,8 +163,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 JSONObject payload = new JSONObject();
                 try {
                     final int topPadding = 16;
-                    payload.put("offset", topPadding
-                            + (int) (fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
+                    payload.put("offset", topPadding);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
