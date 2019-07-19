@@ -417,7 +417,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 super.onPageFinished(view, url);
                 updateProgressBar(false, true, 0);
                 if (webView != null) {
-                    webView.evaluateJavascript(JavaScriptActionHandler.setHandler(), null);
+                    webView.evaluateJavascript(JavaScriptActionHandler.setHandler(requireContext()), null);
+                    webView.evaluateJavascript(JavaScriptActionHandler.setMulti(requireContext(), app.getCurrentTheme().getFunnelName().toUpperCase(), app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages(), Prefs.isCollapseTablesEnabled()), null);
+
                 }
             }
         });
