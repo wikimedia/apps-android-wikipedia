@@ -679,6 +679,11 @@ public class EditSectionActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        if (progressBar.getVisibility() == View.VISIBLE) {
+            // If it is visible, it means we should wait until all the requests are done.
+            return;
+        }
+        progressBar.setVisibility(View.GONE);
         if (captchaHandler.isActive()) {
             captchaHandler.cancelCaptcha();
         }
@@ -692,13 +697,9 @@ public class EditSectionActivity extends BaseActivity {
         if (editSummaryFragment.handleBackPressed()) {
             return;
         }
-        if (editPreviewFragment.handleBackPressed()) {
-            return;
-        }
         if (errorView.getVisibility() == View.VISIBLE) {
             errorView.setVisibility(View.GONE);
         }
-        progressBar.setVisibility(View.GONE);
 
         hideSoftKeyboard(this);
 
