@@ -13,11 +13,9 @@ import androidx.annotation.NonNull;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.FileUtil;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,19 +62,9 @@ public class CommunicationBridge {
         });
     }
 
-    public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl) {
-        String html = "";
-        try {
-            html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
-                    .replace("$wikiurl", wikiUrl)
-                    .replace("$pageLibThemeClass", WikipediaApp.getInstance().getCurrentTheme().getPageLibClass())
-                    .replace("$pageLibDimImgClass", WikipediaApp.getInstance().getCurrentTheme().isDark() ? "pagelib_dim_images" : "");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void resetHtml(@NonNull String wikiUrl, String title) {
         isDOMReady = false;
-        webView.loadDataWithBaseURL(wikiUrl, html, "text/html", "utf-8", "");
+        webView.loadUrl(wikiUrl + "/" + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + title);
     }
 
     public void cleanup() {
@@ -113,13 +101,13 @@ public class CommunicationBridge {
         @Override
         public boolean handleMessage(Message msg) {
             JSONObject messagePack = (JSONObject) msg.obj;
-            String type = messagePack.optString("type");
+            String type = messagePack.optString("action");
             if (!eventListeners.containsKey(type)) {
                 throw new RuntimeException("No such message type registered: " + type);
             }
             List<JSEventListener> listeners = eventListeners.get(type);
             for (JSEventListener listener : listeners) {
-                listener.onMessage(type, messagePack.optJSONObject("payload"));
+                listener.onMessage(type, messagePack.optJSONObject("data"));
             }
             return false;
         }
