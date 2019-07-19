@@ -30,11 +30,12 @@ object JavaScriptActionHandler {
     fun setFooter(context: Context, title: PageTitle): String {
         return "pagelib.c1.Footer.add(document," +
                 "    '" + title.displayText + "'," +
-                "    [pagelib.c1.Footer.MenuItemType.languages, pagelib.c1.Footer.MenuItemType.lastEdited, pagelib.c1.Footer.MenuItemType.pageIssues, pagelib.c1.Footer.MenuItemType.disambiguation, pagelib.c1.Footer.MenuItemType.talkPage]," +
+                "    [pagelib.c1.Footer.MenuItemType.languages, pagelib.c1.Footer.MenuItemType.lastEdited, pagelib.c1.Footer.MenuItemType.pageIssues, " +
+                "pagelib.c1.Footer.MenuItemType.disambiguation, pagelib.c1.Footer.MenuItemType.talkPage, pagelib.c1.Footer.MenuItemType.coordinate]," +
                 "    {" +
                 "        'readMoreHeading': '" + context.getString(R.string.read_more_section) + "'," +
                 "        'menuDisambiguationTitle': '" + context.getString(R.string.page_similar_titles) + "'," +
-                "        'menuLanguagesTitle': 'Available in 9 other languages'," +
+                "        'menuLanguagesTitle': 'Available in FIXME other languages'," +
                 "        'menuHeading': '" + context.getString(R.string.about_article_section) + "'," +
                 "        'menuLastEditedSubtitle': '" + context.getString(R.string.edit_history_link_text) + "'," +
                 "        'menuLastEditedTitle': 'Edited today'," +
