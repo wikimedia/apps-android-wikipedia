@@ -13,7 +13,6 @@ data class SuggestedEditsSummary(
         var displayTitle: String?,
         var description: String?,
         var thumbnailUrl: String?,
-        var originalUrl: String?,
         var extractHtml: String?,
         var timestamp: String?,
         var user: String?,

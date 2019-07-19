@@ -67,6 +67,9 @@ public class LoginClient {
                     return;
                 }
 
+                if (call.isCanceled()) {
+                    return;
+                }
                 login(wiki, userName, password, null, null, queryResponse.query().loginToken(), cb);
             }
 
@@ -89,6 +92,9 @@ public class LoginClient {
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 LoginResponse loginResponse = response.body();
                 LoginResult loginResult = loginResponse.toLoginResult(wiki, password);
                 if (loginResult != null) {
