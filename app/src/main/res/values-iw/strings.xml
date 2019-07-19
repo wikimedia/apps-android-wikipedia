@@ -705,8 +705,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
   <string name="suggested_edits_image_preview_dialog_more_info">מידע נוסף</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">דף הקובץ בוויקישיתוף</string>
-  <string name="suggested_edits_article_cta_add_image_caption">הוספת כיתוב</string>
-  <string name="suggested_edits_article_cta_translate_image_caption">הוספת כיתוב (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">הוספת כיתוב לתמונה (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב</string>
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">הוספת תיאור ערך</string>
