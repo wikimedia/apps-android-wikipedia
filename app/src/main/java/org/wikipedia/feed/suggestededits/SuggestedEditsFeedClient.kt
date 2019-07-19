@@ -68,7 +68,6 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                             pageSummary.displayTitle,
                             pageSummary.description,
                             pageSummary.thumbnailUrl,
-                            pageSummary.originalImageUrl,
                             pageSummary.extractHtml,
                             null, null, null
                     )
@@ -101,7 +100,6 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                             source.displayTitle,
                             source.description,
                             source.thumbnailUrl,
-                            source.originalImageUrl,
                             source.extractHtml,
                             null, null, null
                     )
@@ -114,7 +112,6 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                             target.displayTitle,
                             target.description,
                             target.thumbnailUrl,
-                            target.originalImageUrl,
                             target.extractHtml,
                             null, null, null
                     )
@@ -159,7 +156,6 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                                 StringUtil.removeHTMLTags(title),
                                 imageInfo.metadata!!.imageDescription(),
                                 imageInfo.thumbUrl,
-                                imageInfo.originalUrl,
                                 null,
                                 imageInfo.timestamp,
                                 imageInfo.user,
@@ -207,7 +203,6 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                                 StringUtil.removeHTMLTags(title),
                                 fileCaption,
                                 imageInfo.thumbUrl,
-                                imageInfo.originalUrl,
                                 null,
                                 imageInfo.timestamp,
                                 imageInfo.user,
