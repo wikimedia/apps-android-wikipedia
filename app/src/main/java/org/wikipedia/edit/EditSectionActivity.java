@@ -1,6 +1,5 @@
 package org.wikipedia.edit;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -117,14 +116,13 @@ public class EditSectionActivity extends BaseActivity {
 
     private EditFunnel funnel;
 
-    private ProgressDialog progressDialog;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private ActionMode actionMode;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
-            progressDialog.dismiss();
+            sectionProgress.setVisibility(View.GONE);
 
             //Build intent that includes the section we were editing, so we can scroll to it later
             Intent data = new Intent();
@@ -155,11 +153,6 @@ public class EditSectionActivity extends BaseActivity {
         pageProps = getIntent().getParcelableExtra(EXTRA_PAGE_PROPS);
         textToHighlight = getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT);
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage(getString(R.string.dialog_saving_in_progress));
-
         final ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
             supportActionBar.setTitle("");
@@ -168,7 +161,7 @@ public class EditSectionActivity extends BaseActivity {
         syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
         sectionScrollView.setSmoothScrollingEnabled(false);
 
-        captchaHandler = new CaptchaHandler(this, title.getWikiSite(), progressDialog, sectionText, "", null);
+        captchaHandler = new CaptchaHandler(this, title.getWikiSite(), sectionText, "", null);
 
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
         editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
@@ -227,9 +220,7 @@ public class EditSectionActivity extends BaseActivity {
         disposables.clear();
         captchaHandler.dispose();
         cancelCalls();
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
+        sectionProgress.setVisibility(View.GONE);
         sectionText.removeTextChangedListener(textWatcher);
         syntaxHighlighter.cleanup();
         super.onDestroy();
@@ -307,7 +298,7 @@ public class EditSectionActivity extends BaseActivity {
         summaryText = StringUtil.fromHtml(summaryText).toString();
 
         if (!isFinishing()) {
-            progressDialog.show();
+            sectionProgress.setVisibility(View.VISIBLE);
         }
 
         new EditClient().request(title.getWikiSite(), title, sectionID,
@@ -317,7 +308,7 @@ public class EditSectionActivity extends BaseActivity {
                 new EditClient.Callback() {
                     @Override
                     public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
-                        if (isFinishing() || !progressDialog.isShowing()) {
+                        if (isFinishing()) {
                             // no longer attached to activity!
                             return;
                         }
@@ -344,7 +335,7 @@ public class EditSectionActivity extends BaseActivity {
                         } else if (result instanceof EditSpamBlacklistResult) {
                             FeedbackUtil.showMessage(EditSectionActivity.this,
                                     R.string.editing_error_spamblacklist);
-                            progressDialog.dismiss();
+                            sectionProgress.setVisibility(View.GONE);
                             editPreviewFragment.hide();
                         } else {
                             funnel.logError(result.getResult());
@@ -355,7 +346,7 @@ public class EditSectionActivity extends BaseActivity {
 
                     @Override
                     public void failure(@NonNull Call<Edit> call, @NonNull Throwable caught) {
-                        if (isFinishing() || !progressDialog.isShowing()) {
+                        if (isFinishing()) {
                             // no longer attached to activity!
                             return;
                         }
@@ -377,11 +368,11 @@ public class EditSectionActivity extends BaseActivity {
                 .setPositiveButton(R.string.dialog_message_edit_failed_retry, (dialog, which) -> {
                     getEditTokenThenSave(false);
                     dialog.dismiss();
-                    progressDialog.dismiss();
+                    sectionProgress.setVisibility(View.GONE);
                 })
                 .setNegativeButton(R.string.dialog_message_edit_failed_cancel, (dialog, which) -> {
                     dialog.dismiss();
-                    progressDialog.dismiss();
+                    sectionProgress.setVisibility(View.GONE);
                 }).create();
         retryDialog.show();
     }
@@ -397,7 +388,7 @@ public class EditSectionActivity extends BaseActivity {
             return;
         }
 
-        progressDialog.dismiss();
+        sectionProgress.setVisibility(View.GONE);
         if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
@@ -450,9 +441,7 @@ public class EditSectionActivity extends BaseActivity {
         hideSoftKeyboard(this);
         ViewAnimations.fadeIn(abusefilterContainer, this::supportInvalidateOptionsMenu);
 
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
+        sectionProgress.setVisibility(View.GONE);
     }
 
 
