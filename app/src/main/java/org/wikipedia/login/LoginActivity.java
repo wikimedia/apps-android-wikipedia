@@ -216,8 +216,7 @@ public class LoginActivity extends BaseActivity {
             loginClient = new LoginClient();
         }
 
-        progressBar.setVisibility(View.VISIBLE);
-        enableLoginButton(false);
+        showProgressBar(true);
 
         if (!twoFactorCode.isEmpty()) {
             loginClient.login(WikipediaApp.getInstance().getWikiSite(), username, password,
@@ -232,8 +231,7 @@ public class LoginActivity extends BaseActivity {
         return new LoginClient.LoginCallback() {
             @Override
             public void success(@NonNull LoginResult result) {
-                progressBar.setVisibility(View.GONE);
-                enableLoginButton(true);
+                showProgressBar(false);
                 if (result.pass()) {
 
                     Bundle extras = getIntent().getExtras();
@@ -253,8 +251,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
-                progressBar.setVisibility(View.GONE);
-                enableLoginButton(true);
+                showProgressBar(false);
                 firstStepToken = token;
                 twoFactorText.setVisibility(View.VISIBLE);
                 twoFactorText.requestFocus();
@@ -268,8 +265,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void error(@NonNull Throwable caught) {
-                progressBar.setVisibility(View.GONE);
-                enableLoginButton(true);
+                showProgressBar(false);
                 if (caught instanceof LoginClient.LoginFailedException) {
                     FeedbackUtil.showError(LoginActivity.this, caught);
                 } else {
@@ -279,9 +275,10 @@ public class LoginActivity extends BaseActivity {
         };
     }
 
-    private void enableLoginButton(boolean enabled) {
-        loginButton.setEnabled(enabled);
-        loginButton.setText(enabled ? R.string.menu_login : R.string.login_in_progress_dialog_message);
+    private void showProgressBar(boolean enable) {
+        progressBar.setVisibility(enable ? View.VISIBLE : View.GONE);
+        loginButton.setEnabled(!enable);
+        loginButton.setText(enable ? R.string.login_in_progress_dialog_message : R.string.menu_login);
     }
 
     @Override
@@ -292,7 +289,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onStop() {
-        progressBar.setVisibility(View.GONE);
+        showProgressBar(false);
         super.onStop();
     }
 
