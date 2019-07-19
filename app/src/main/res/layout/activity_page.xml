@@ -49,7 +49,7 @@
                     android:id="@+id/page_toolbar_button_tabs"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/menu_page_show_tabs" />
+                    android:contentDescription="@string/menu_page_show_tabs"></org.wikipedia.views.TabCountsView>
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/page_toolbar_button_show_overflow_menu"
