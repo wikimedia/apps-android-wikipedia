@@ -3,6 +3,8 @@ package org.wikipedia.dataclient;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.JsonElement;
+
 import org.wikipedia.captcha.Captcha;
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
@@ -207,7 +209,7 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @NonNull Call<MwQueryResponse> getLoginToken();
+    @NonNull Call<JsonElement> getLoginToken();
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
