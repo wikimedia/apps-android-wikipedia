@@ -5,8 +5,8 @@ import org.wikipedia.R
 
 object JavaScriptActionHandler {
     @JvmStatic
-    fun setHandler(context: Context): String {
-        return (context.getString(R.string.page_mh_set_handler_script))
+    fun setHandler(): String {
+        return ("pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})")
     }
 
     @JvmStatic

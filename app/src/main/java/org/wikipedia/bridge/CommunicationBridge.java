@@ -54,17 +54,20 @@ public class CommunicationBridge {
         webView.setWebChromeClient(new CommunicatingChrome());
         webView.addJavascriptInterface(marshaller, "marshaller");
         eventListeners = new HashMap<>();
-        this.addListener("DOMLoaded", (messageType, messagePayload) -> {
-            isDOMReady = true;
-            for (String jsString : pendingJSMessages) {
-                CommunicationBridge.this.webView.loadUrl(jsString);
-            }
-        });
+    }
+
+    public void onPageFinished() {
+        isDOMReady = true;
+        for (String jsString : pendingJSMessages) {
+            webView.loadUrl(jsString);
+        }
     }
 
     public void resetHtml(@NonNull String wikiUrl, String title) {
         isDOMReady = false;
+        pendingJSMessages.clear();
         webView.loadUrl(wikiUrl + "/" + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + title);
+        execute(JavaScriptActionHandler.setHandler());
     }
 
     public void cleanup() {
@@ -85,6 +88,16 @@ public class CommunicationBridge {
         }
     }
 
+    public void execute(@NonNull String js) {
+        String jsString = "javascript:" + js;
+        if (!isDOMReady) {
+            pendingJSMessages.add(jsString);
+        } else {
+            webView.loadUrl(jsString);
+        }
+    }
+
+    @Deprecated
     public void sendMessage(String messageName, JSONObject messageData) {
         String messagePointer =  marshaller.putPayload(messageData.toString());
 
