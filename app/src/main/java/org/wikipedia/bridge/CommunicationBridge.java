@@ -31,10 +31,7 @@ import java.util.Map;
  */
 public class CommunicationBridge {
     private final WebView webView;
-
     private final Map<String, List<JSEventListener>> eventListeners;
-
-    private final BridgeMarshaller marshaller;
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
@@ -46,13 +43,11 @@ public class CommunicationBridge {
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     public CommunicationBridge(final WebView webView) {
         this.webView = webView;
-        this.marshaller = new BridgeMarshaller();
-
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
         webView.setWebChromeClient(new CommunicatingChrome());
-        webView.addJavascriptInterface(marshaller, "marshaller");
+        webView.addJavascriptInterface(new BridgeMarshaller(), "marshaller");
         eventListeners = new HashMap<>();
     }
 
@@ -99,14 +94,7 @@ public class CommunicationBridge {
 
     @Deprecated
     public void sendMessage(String messageName, JSONObject messageData) {
-        String messagePointer =  marshaller.putPayload(messageData.toString());
-
-        String jsString = "javascript:handleMessage( \"" + messageName + "\", \"" + messagePointer + "\" );";
-        if (!isDOMReady) {
-            pendingJSMessages.add(jsString);
-        } else {
-            webView.loadUrl(jsString);
-        }
+        // TODO: remove/convert all remaining places where we call this method.
     }
 
     private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;
@@ -135,28 +123,6 @@ public class CommunicationBridge {
     }
 
     private class BridgeMarshaller {
-        private Map<String, String> queueItems = new HashMap<>();
-        private int counter = 0;
-
-        /**
-         * Called from the JS via the JSBridge to get actual payload from a messagePointer.
-         *
-         * Warning: This is going to be called on an indeterminable background thread, not main thread.
-         *
-         * @param pointer Key returned from #putPayload
-         */
-        @JavascriptInterface
-        public synchronized String getPayload(String pointer) {
-            return queueItems.remove(pointer);
-        }
-
-        public synchronized String putPayload(String payload) {
-            String key = "pointerKey_" + counter;
-            counter++;
-            queueItems.put(key, payload);
-            return key;
-        }
-
         /**
          * Called from Javascript to send a message packet to the Java layer. The message must be
          * formatted in JSON, and URL-encoded.
