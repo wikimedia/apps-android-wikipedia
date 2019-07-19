@@ -194,7 +194,7 @@ public class EditPreviewFragment extends Fragment {
             isWebViewSetup = true;
             L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault(), bridge);
 
-            bridge.addListener("link_clicked", new LinkHandler(requireActivity()) {
+            bridge.addListener("linkClicked", new LinkHandler(requireActivity()) {
                 @Override
                 public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
                     // TODO: also need to handle references, issues, disambig, ... in preview eventually
@@ -235,13 +235,13 @@ public class EditPreviewFragment extends Fragment {
                     return parentActivity.getPageTitle().getWikiSite();
                 }
             });
-            bridge.addListener("image_clicked", (messageType, messagePayload) -> {
+            bridge.addListener("imageClicked", (messageType, messagePayload) -> {
                 // TODO: do something when an image is clicked in Preview.
             });
             bridge.addListener("mediaClicked", (messageType, messagePayload) -> {
                 // TODO: do something when a video is clicked in Preview.
             });
-            bridge.addListener("reference_clicked", (messageType, messagePayload) -> {
+            bridge.addListener("referenceClicked", (messageType, messagePayload) -> {
                 // TODO: do something when a reference is clicked in Preview.
             });
         }

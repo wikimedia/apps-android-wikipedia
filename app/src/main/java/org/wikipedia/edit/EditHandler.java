@@ -32,7 +32,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
 
     public EditHandler(PageFragment fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
-        bridge.addListener("edit_section", this);
+        bridge.addListener("editSectionClicked", this);
     }
 
     public void setPage(Page page) {
@@ -77,7 +77,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         if (!fragment.isAdded()) {
             return;
         }
-        if (messageType.equals("edit_section")) {
+        if (messageType.equals("editSectionClicked")) {
             if (messagePayload.has("mainPencilClicked") && DescriptionEditUtil.isEditAllowed(currentPage)) {
                 View tempView = new View(fragment.requireContext());
                 tempView.setX(DimenUtil.dpToPx(messagePayload.optInt("x")));
