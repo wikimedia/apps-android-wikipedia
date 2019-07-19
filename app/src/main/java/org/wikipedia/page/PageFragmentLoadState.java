@@ -1,31 +1,19 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
-import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -33,19 +21,13 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import io.reactivex.Completable;
@@ -53,12 +35,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
-import okhttp3.Protocol;
-import okhttp3.Request;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
-import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
 
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
@@ -112,8 +90,6 @@ public class PageFragmentLoadState {
         this.bridge = bridge;
         this.leadImagesHandler = leadImagesHandler;
 
-        setUpBridgeListeners();
-
         this.currentTab = tab;
     }
 
@@ -141,8 +117,7 @@ public class PageFragmentLoadState {
 
         // Reload the stub index.html into the WebView, which will cause any wiki-specific
         // CSS to be loaded automatically.
-        bridge.resetHtml("index.html", model.getTitle().getWikiSite().url());
-
+        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
         pageLoadCheckReadingLists();
     }
 
@@ -239,65 +214,6 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void setUpBridgeListeners() {
-        bridge.addListener("loadRemainingError", new SynchronousBridgeListener() {
-            @Override
-            public void onMessage(JSONObject payload) {
-                try {
-                    if (model.getTitle() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
-                        return;
-                    }
-                    int sequence = payload.getInt("sequence");
-                    int status = payload.getInt("status");
-                    commonSectionFetchOnCatch(new HttpStatusException(new okhttp3.Response.Builder()
-                            .code(status).protocol(Protocol.HTTP_1_1).message("")
-                            .request(new okhttp3.Request.Builder()
-                                    .url(model.getTitle().getMobileUri()).build()).build()),
-                            sequence);
-                } catch (JSONException e) {
-                    L.logRemoteErrorIfProd(e);
-                }
-            }
-        });
-        bridge.addListener("pageLoadComplete", new SynchronousBridgeListener() {
-            @Override
-            public void onMessage(JSONObject payload) {
-                app.getSessionFunnel().restSectionsFetchEnd();
-
-                if (fragment.callback() != null) {
-                    fragment.callback().onPageUpdateProgressBar(false, true, 0);
-                }
-
-                try {
-                    if (model.getPage() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
-                        return;
-                    }
-                    if (payload.has("sections")) {
-                        // augment our current Page object with updated Sections received from JS
-                        List<Section> sectionList = new ArrayList<>();
-                        JSONArray sections = payload.getJSONArray("sections");
-                        for (int i = 0; i < sections.length(); i++) {
-                            JSONObject s = sections.getJSONObject(i);
-                            sectionList.add(new Section(s.getInt("id"),
-                                    s.getInt("toclevel") - 1,
-                                    s.getString("line"),
-                                    s.getString("anchor"),
-                                    ""));
-                        }
-                        Page page = model.getPage();
-                        page.getSections().addAll(sectionList);
-                    }
-                } catch (JSONException e) {
-                    L.e(e);
-                }
-
-                loading = false;
-                networkErrorCallback = null;
-                fragment.onPageLoadComplete();
-            }
-        });
-    }
-
     private void pageLoadCheckReadingLists() {
         disposables.clear();
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(model.getTitle()))
@@ -364,109 +280,6 @@ public class PageFragmentLoadState {
         leadImagesHandler.beginLayout(new LeadImageLayoutListener(runnable), sequenceNumber.get());
     }
 
-    private void pageLoadDisplayLeadSection() {
-        Page page = model.getPage();
-
-        bridge.sendMessage("setMargins", marginPayload());
-
-        sendLeadSectionPayload(page);
-
-        sendMiscPayload(page);
-
-        if (webView.getVisibility() != View.VISIBLE) {
-            webView.setVisibility(View.VISIBLE);
-        }
-
-        refreshView.setRefreshing(false);
-        if (fragment.callback() != null) {
-            fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-    }
-
-    private JSONObject marginPayload() {
-        try {
-            return new JSONObject()
-                    .put("marginTop", DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.activity_vertical_margin)));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void sendLeadSectionPayload(Page page) {
-        JSONObject leadSectionPayload = leadSectionPayload(page);
-        bridge.sendMessage("displayLeadSection", leadSectionPayload);
-        L.d("Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
-    }
-
-    @SuppressWarnings("checkstyle:magicnumber")
-    private JSONObject setLeadSectionMetadata(@NonNull JSONObject obj,
-                                              @NonNull Page page) throws JSONException {
-        SparseArray<String> localizedStrings = localizedStrings(page);
-        return obj.put("sequence", sequenceNumber.get())
-                .put("title", page.getDisplayTitle())
-                .put("description", StringUtils.capitalize(model.getTitle().getDescription()))
-                .put("allowDescriptionEdit", DescriptionEditUtil.isEditAllowed(page))
-                .put("hasPronunciation", !TextUtils.isEmpty(page.getTitlePronunciationUrl()))
-                .put("string_table_infobox", localizedStrings.get(R.string.table_infobox))
-                .put("string_table_other", localizedStrings.get(R.string.table_other))
-                .put("string_table_close", localizedStrings.get(R.string.table_close))
-                .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
-                .put("string_add_description", localizedStrings.get(R.string.description_edit_add_description))
-                .put("isBeta", ReleaseUtil.isPreProdRelease()) // True for any non-production release type
-                .put("siteLanguage", model.getTitle().getWikiSite().languageCode())
-                .put("siteBaseUrl", model.getTitle().getWikiSite().url())
-                .put("isMainPage", page.isMainPage())
-                .put("isFilePage", page.isFilePage())
-                .put("fromRestBase", page.isFromRestBase())
-                .put("apiLevel", Build.VERSION.SDK_INT)
-                .put("showImages", Prefs.isImageDownloadEnabled())
-                .put("collapseTables", Prefs.isCollapseTablesEnabled())
-                .put("theme", app.getCurrentTheme().getMarshallingId())
-                .put("imagePlaceholderBackgroundColor", "#" + Integer.toHexString(ResourceUtil.getThemedColor(fragment.requireContext(), android.R.attr.colorBackground) & 0xFFFFFF))
-                .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages());
-    }
-
-    private JSONObject leadSectionPayload(@NonNull Page page) {
-
-        try {
-            return setLeadSectionMetadata(new JSONObject(), page)
-                    .put("section", page.getSections().get(0).toJSON());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private SparseArray<String> localizedStrings(Page page) {
-        return getStringsForArticleLanguage(page.getTitle(),
-                ResourceUtil.getIdArray(fragment.requireContext(), R.array.page_localized_string_ids));
-    }
-
-
-    private void sendMiscPayload(Page page) {
-        JSONObject miscPayload = miscPayload(page);
-        bridge.sendMessage("setPageProtected", miscPayload);
-    }
-
-    private JSONObject miscPayload(Page page) {
-        try {
-            return new JSONObject()
-                    .put("noedit", !isPageEditable(page)) // Controls whether edit pencils are visible.
-                    .put("protect", page.isProtected());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private boolean isPageEditable(Page page) {
-        return (AccountUtil.isLoggedIn() || !isAnonEditingDisabled())
-                && !page.isFilePage()
-                && !page.isMainPage();
-    }
-
-    private boolean isAnonEditingDisabled() {
-        return getRemoteConfig().optBoolean("disableAnonEditing", false);
-    }
-
     private void showPageOfflineMessage(@NonNull String dateHeader) {
         if (!fragment.isAdded()) {
             return;
@@ -479,37 +292,6 @@ public class PageFragmentLoadState {
                     Toast.LENGTH_LONG).show();
         } catch (ParseException e) {
             // ignore
-        }
-    }
-
-    private JSONObject getRemoteConfig() {
-        return app.getRemoteConfig().getConfig();
-    }
-
-    private void queueRemainingSections(@NonNull Request request) {
-        if (fragment.callback() != null) {
-            fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-        try {
-            JSONObject wrapper = new JSONObject();
-            wrapper.put("sequence", sequenceNumber.get());
-            wrapper.put("url", request.url());
-
-            if (sectionTargetFromIntent > 0 && sectionTargetFromIntent < model.getPage().getSections().size()) {
-                //if we have a section to scroll to (from our Intent):
-                wrapper.put("fragment", model.getPage().getSections().get(sectionTargetFromIntent).getAnchor());
-            } else if (sectionTargetFromTitle != null) {
-                //if we have a section to scroll to (from our PageTitle):
-                wrapper.put("fragment", sectionTargetFromTitle);
-            } else if (!TextUtils.isEmpty(model.getTitle().getFragment())) {
-                // It's possible, that the link was a redirect and the new title has a fragment
-                // scroll to it, if there was no fragment so far
-                wrapper.put("fragment", model.getTitle().getFragment());
-            }
-
-            bridge.sendMessage("queueRemainingSections", wrapper);
-        } catch (JSONException e) {
-            L.logRemoteErrorIfProd(e);
         }
     }
 
@@ -533,7 +315,6 @@ public class PageFragmentLoadState {
                 return;
             }
             fragment.requireActivity().invalidateOptionsMenu();
-            pageLoadRemainingSections(sequenceNumber.get());
         });
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
@@ -549,23 +330,7 @@ public class PageFragmentLoadState {
         updateThumbnail(pageImage.getImageName());
     }
 
-    private void pageLoadRemainingSections(final int startSequenceNum) {
-        if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
-            return;
-        }
-        app.getSessionFunnel().restSectionsFetchStart();
 
-        Request request = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                            .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
-                                    model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                                    model.getTitle().getPrefixedText());
-
-        queueRemainingSections(request);
-    }
-
-    private Resources getResources() {
-        return fragment.getResources();
-    }
 
     private class LeadImageLayoutListener implements LeadImagesHandler.OnLeadImageLayoutListener {
         @Nullable private final Runnable runnable;
@@ -584,27 +349,8 @@ public class PageFragmentLoadState {
             if (runnable != null) {
                 // when the lead image is laid out, load the lead section and the rest
                 // of the sections into the webview.
-                pageLoadDisplayLeadSection();
                 runnable.run();
             }
-        }
-    }
-
-    private abstract class SynchronousBridgeListener implements CommunicationBridge.JSEventListener {
-        private static final String BRIDGE_PAYLOAD_SEQUENCE = "sequence";
-
-        @Override
-        public void onMessage(String message, JSONObject payload) {
-            if (fragment.isAdded() && inSync(payload)) {
-                onMessage(payload);
-            }
-        }
-
-        protected abstract void onMessage(JSONObject payload);
-
-        private boolean inSync(JSONObject payload) {
-            return sequenceNumber.inSync(payload.optInt(BRIDGE_PAYLOAD_SEQUENCE,
-                    sequenceNumber.get() - 1));
         }
     }
 
