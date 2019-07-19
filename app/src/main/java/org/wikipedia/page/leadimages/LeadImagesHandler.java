@@ -168,7 +168,7 @@ public class LeadImagesHandler {
         int topPadding = isMainPage()
                 ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
                 : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar());
-        bridge.execute(JavaScriptActionHandler.setMargin(getActivity(), topPadding + 16, 16, 0, 16));
+        bridge.execute(JavaScriptActionHandler.setMargin(getActivity(), topPadding + 16, 16, 48, 16));
     }
 
     /**
