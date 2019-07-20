@@ -701,6 +701,9 @@ public class EditSectionActivity extends BaseActivity {
         if (editSummaryFragment.handleBackPressed()) {
             return;
         }
+        if (editPreviewFragment.handleBackPressed()) {
+            return;
+        }
         if (errorView.getVisibility() == View.VISIBLE) {
             errorView.setVisibility(View.GONE);
         }
