@@ -125,7 +125,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
-            progressBar.setVisibility(View.GONE);
+            showProgressBar(false);
 
             //Build intent that includes the section we were editing, so we can scroll to it later
             Intent data = new Intent();
@@ -220,7 +220,7 @@ public class EditSectionActivity extends BaseActivity {
 
     @Override
     public void onStop() {
-        progressBar.setVisibility(View.GONE);
+        showProgressBar(false);
         editClient.cancel();
         super.onStop();
     }
@@ -307,7 +307,7 @@ public class EditSectionActivity extends BaseActivity {
         summaryText = StringUtil.fromHtml(summaryText).toString();
 
         if (!isFinishing()) {
-            progressBar.setVisibility(View.VISIBLE);
+            showProgressBar(true);
         }
 
         editClient.request(title.getWikiSite(), title, sectionID,
@@ -346,7 +346,7 @@ public class EditSectionActivity extends BaseActivity {
             } else if (result instanceof EditSpamBlacklistResult) {
                 FeedbackUtil.showMessage(EditSectionActivity.this,
                         R.string.editing_error_spamblacklist);
-                progressBar.setVisibility(View.GONE);
+                showProgressBar(false);
                 editPreviewFragment.hide();
             } else {
                 funnel.logError(result.getResult());
@@ -378,13 +378,12 @@ public class EditSectionActivity extends BaseActivity {
                 .setPositiveButton(R.string.dialog_message_edit_failed_retry, (dialog, which) -> {
                     getEditTokenThenSave(false);
                     dialog.dismiss();
-                    progressBar.setVisibility(View.GONE);
                 })
                 .setNegativeButton(R.string.dialog_message_edit_failed_cancel, (dialog, which) -> {
                     dialog.dismiss();
-                    progressBar.setVisibility(View.GONE);
                 }).create();
         retryDialog.show();
+        showProgressBar(false);
     }
 
     /**
@@ -398,7 +397,7 @@ public class EditSectionActivity extends BaseActivity {
             return;
         }
 
-        progressBar.setVisibility(View.GONE);
+        showProgressBar(false);
         if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
@@ -451,7 +450,7 @@ public class EditSectionActivity extends BaseActivity {
         hideSoftKeyboard(this);
         ViewAnimations.fadeIn(abusefilterContainer, this::supportInvalidateOptionsMenu);
 
-        progressBar.setVisibility(View.GONE);
+        showProgressBar(false);
     }
 
 
@@ -626,7 +625,7 @@ public class EditSectionActivity extends BaseActivity {
                         baseTimeStamp = rev.timeStamp();
                         displaySectionText();
                     }, throwable -> {
-                        progressBar.setVisibility(View.GONE);
+                        showProgressBar(false);
                         showError(throwable);
                         L.e(throwable);
                     }));
@@ -637,6 +636,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private void displaySectionText() {
         sectionText.setText(sectionWikitext);
+        showProgressBar(true);
         ViewAnimations.crossFade(progressBar, sectionContainer);
         supportInvalidateOptionsMenu();
         scrollToHighlight(textToHighlight);
@@ -669,6 +669,10 @@ public class EditSectionActivity extends BaseActivity {
         });
     }
 
+    public void showProgressBar(boolean enable) {
+        progressBar.setVisibility(enable ? View.VISIBLE : View.GONE);
+    }
+
     /**
      * Shows the custom edit summary input fragment, where the user may enter a summary
      * that's different from the standard summary tags.
@@ -683,7 +687,7 @@ public class EditSectionActivity extends BaseActivity {
             // If it is visible, it means we should wait until all the requests are done.
             return;
         }
-        progressBar.setVisibility(View.GONE);
+        showProgressBar(false);
         if (captchaHandler.isActive()) {
             captchaHandler.cancelCaptcha();
         }
