@@ -511,15 +511,19 @@ public class EditSectionActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit_section, menu);
         MenuItem item = menu.findItem(R.id.menu_save_section);
-        item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
         menu.findItem(R.id.menu_edit_zoom_in).setVisible(!editPreviewFragment.isActive());
         menu.findItem(R.id.menu_edit_zoom_out).setVisible(!editPreviewFragment.isActive());
         menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
-        if (abusefilterEditResult != null) {
-            item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);
+        item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
+        if (progressBar.getVisibility() == View.GONE) {
+            if (abusefilterEditResult != null) {
+                item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);
+            } else {
+                item.setEnabled(sectionTextModified);
+            }
         } else {
-            item.setEnabled(sectionTextModified);
+            item.setEnabled(false);
         }
 
         View v = getLayoutInflater().inflate(R.layout.item_edit_actionbar_button, null);
@@ -636,9 +640,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private void displaySectionText() {
         sectionText.setText(sectionWikitext);
-        showProgressBar(true);
         ViewAnimations.crossFade(progressBar, sectionContainer);
-        supportInvalidateOptionsMenu();
         scrollToHighlight(textToHighlight);
 
         if (pageProps != null && pageProps.getEditProtectionStatus() != null) {
@@ -671,6 +673,7 @@ public class EditSectionActivity extends BaseActivity {
 
     public void showProgressBar(boolean enable) {
         progressBar.setVisibility(enable ? View.VISIBLE : View.GONE);
+        supportInvalidateOptionsMenu();
     }
 
     /**
