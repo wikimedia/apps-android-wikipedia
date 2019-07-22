@@ -293,18 +293,7 @@ public class LeadImagesHandler {
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onImageClicked() {
-                if (getPage() != null && isLeadImageEnabled()) {
-                    String imageName = getPage().getPageProperties().getLeadImageName();
-                    String imageUrl = getPage().getPageProperties().getLeadImageUrl();
-                    if (imageName != null && imageUrl != null) {
-                        String filename = "File:" + imageName;
-                        WikiSite wiki = getTitle().getWikiSite();
-                        getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                                parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
-                                GalleryFunnel.SOURCE_LEAD_IMAGE),
-                                Constants.ACTIVITY_REQUEST_GALLERY);
-                    }
-                }
+                openImageInGallery();
             }
 
             @Override
@@ -317,6 +306,21 @@ public class LeadImagesHandler {
                 }
             }
         });
+    }
+
+    public void openImageInGallery() {
+        if (getPage() != null && isLeadImageEnabled()) {
+            String imageName = getPage().getPageProperties().getLeadImageName();
+            String imageUrl = getPage().getPageProperties().getLeadImageUrl();
+            if (imageName != null && imageUrl != null) {
+                String filename = "File:" + imageName;
+                WikiSite wiki = getTitle().getWikiSite();
+                getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
+                        parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
+                        GalleryFunnel.SOURCE_LEAD_IMAGE),
+                        Constants.ACTIVITY_REQUEST_GALLERY);
+            }
+        }
     }
 
     private boolean isMainPage() {

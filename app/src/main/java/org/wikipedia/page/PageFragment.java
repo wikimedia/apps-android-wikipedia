@@ -1276,4 +1276,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return leadImagesHandler.getCallToActionEditLang();
     }
 
+    void openImageInGallery() {
+        leadImagesHandler.openImageInGallery();
+    }
+
 }

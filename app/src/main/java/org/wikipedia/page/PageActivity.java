@@ -33,6 +33,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
@@ -686,8 +687,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
-            FeedbackUtil.showMessage(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, pageFragment.getLeadImageEditLang()));
+            FeedbackUtil.makeSnackbar(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode()))), FeedbackUtil.LENGTH_DEFAULT)
+                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery()).show();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
