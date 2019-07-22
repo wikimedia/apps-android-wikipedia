@@ -96,7 +96,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                     source.displayTitle,
                                     source.description,
                                     source.thumbnailUrl,
-                                    source.originalImageUrl,
                                     source.extractHtml,
                                     null, null, null
                             )
@@ -109,7 +108,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                     target.displayTitle,
                                     target.description,
                                     target.thumbnailUrl,
-                                    target.originalImageUrl,
                                     target.extractHtml,
                                     null, null, null
                             )
@@ -146,7 +144,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                         StringUtil.removeHTMLTags(title),
                                         imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
-                                        imageInfo.originalUrl,
                                         null,
                                         imageInfo.timestamp,
                                         imageInfo.user,
@@ -188,7 +185,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                         StringUtil.removeHTMLTags(title),
                                         fileCaption,
                                         imageInfo.thumbUrl,
-                                        imageInfo.originalUrl,
                                         null,
                                         imageInfo.timestamp,
                                         imageInfo.user,
@@ -224,7 +220,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,
-                                    pageSummary.originalImageUrl,
                                     pageSummary.extractHtml,
                                     null, null, null
                             )

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Astrind
 * Bugoslav
 * Ex13
@@ -524,6 +525,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj opis (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>

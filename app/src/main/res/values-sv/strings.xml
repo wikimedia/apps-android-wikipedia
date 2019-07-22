@@ -644,7 +644,7 @@
   <string name="suggested_edits_edit_caption_button">Redigera bildtext</string>
   <string name="suggested_edits_review_image_caption">Granska bildtext</string>
   <string name="suggested_edits_my_contributions">Mina bidrag</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Ingen beskrivning</string>
+  <string name="suggested_edits_no_description">Denna fil har ingen beskrivning</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Du låste upp uppgiften \"Lägg till beskrivningar\"</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tack för alla dina bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Du låste upp uppgiften \"Översätt beskrivningar\"</string>
@@ -680,7 +680,7 @@
   <string name="suggested_edits_task_multilingual_title">Fler uppgifter för flerspråkiga redigerare</string>
   <string name="suggested_edits_task_multilingual_description">Översättningsuppgifter finns tillgängliga om du läser och skriver på fler än ett Wikipedia-språk.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Låst tills du har redigerat %d bildtexter</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Låst tills du har gjort %d verifierade bidrag</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Låst tills du har redigerat %d artikelbeskrivningar (verifierade)</string>
   <string name="suggested_edits_task_multilingual_negative">Ingenting för mig</string>
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
@@ -704,8 +704,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_add_image_caption">Lägg till bildtext</string>
-  <string name="suggested_edits_article_cta_translate_image_caption">Lägg till bildtext (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>

@@ -13,6 +13,7 @@
 * Spider 001757
 * Sudo77(new)
 * TomášPolonec
+* Vegetator
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
@@ -550,6 +551,7 @@
   <string name="view_continue_reading_card_subtitle_today">dnes</string>
   <string name="view_continue_reading_card_subtitle_read_date">Prečítané %s</string>
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
+  <string name="onboarding_negative_action">Nie, vďaka</string>
   <string name="view_offline_card_text">Obsah nemôže byť načítaný bez pripojenia na internet.</string>
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
@@ -571,6 +573,9 @@
   <string name="feed_configure_onboarding_action">Prispôsobiť</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prispôsobte si svoj kanál Objaviť&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Teraz si môžete vybrať, čo sa má zobrazovať na vašej stránke, a tiež uprednostňovať svoje obľúbené typy obsahu.</string>
   <string name="description_edit_text_hint" fuzzy="true">Popis článku</string>
+  <string name="description_edit_article_description_label_per_language">Článok %s</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Opis článku (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Opis obrázku (%s)</string>
   <string name="description_edit_save">Uverejniť</string>
   <string name="description_edit_add_description" fuzzy="true">Pridať popis článku</string>
   <string name="description_edit_edit_description" fuzzy="true">Upraviť popis</string>

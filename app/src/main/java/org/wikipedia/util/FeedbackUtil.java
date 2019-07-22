@@ -121,7 +121,7 @@ public final class FeedbackUtil {
 
     public static Snackbar makeSnackbar(Activity activity, CharSequence text, int duration) {
         View view = findBestView(activity);
-        Snackbar snackbar = Snackbar.make(view, text, duration);
+        Snackbar snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration);
         TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
         textView.setMaxLines(SNACKBAR_MAX_LINES);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
