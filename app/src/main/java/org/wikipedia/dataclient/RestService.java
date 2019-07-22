@@ -43,6 +43,7 @@ public interface RestService {
     String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.2\"";
 
     String REST_PAGE_SECTIONS_URL = "page/mobile-sections-remaining/{title}";
+    String PAGE_HTML_ENDPOINT = "page/mobile-html/";
 
     /**
      * Gets a page summary for a given title -- for link previews

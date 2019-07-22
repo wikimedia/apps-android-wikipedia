@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 
 public class References {
@@ -19,12 +20,18 @@ public class References {
     }
 
     public static class Reference  {
+        @SuppressWarnings("unused,NullableProblems") @NonNull @SerializedName("back_links") private List<ReferenceBackLink> backLinks;
         @SuppressWarnings("unused,NullableProblems") @NonNull private ReferenceContent content;
         private String text;
 
         @NonNull
         public String getContent() {
             return content.getHtml();
+        }
+
+        @NonNull
+        public List<ReferenceBackLink> getBackLinks() {
+            return backLinks;
         }
 
         public void setText(@NonNull String text) {
@@ -43,6 +50,15 @@ public class References {
         @NonNull
         public String getHtml() {
             return StringUtils.defaultString(html);
+        }
+    }
+
+    public static class ReferenceBackLink  {
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String href;
+
+        @NonNull
+        public String getHref() {
+            return StringUtils.defaultString(href);
         }
     }
 }

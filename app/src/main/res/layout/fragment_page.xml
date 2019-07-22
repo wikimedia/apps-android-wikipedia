@@ -21,16 +21,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
-
-        <org.wikipedia.page.bottomcontent.BottomContentView
-            android:id="@+id/page_bottom_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="-368dp"
-            android:layout_marginBottom="@dimen/bottom_toolbar_height"
-            android:orientation="vertical" />
-
         <org.wikipedia.views.WikiPageErrorView
             android:id="@+id/page_error"
             android:layout_width="match_parent"

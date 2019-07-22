@@ -44,6 +44,9 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
             String href = decodeURL(messagePayload.getString("href"));
+            if (href.startsWith("./")) {
+                href = href.replace("./", "/wiki/");
+            }
             onUrlClick(href, messagePayload.optString("title"), messagePayload.optString("text"));
         } catch (IllegalArgumentException e) {
             // The URL is malformed and URL decoder can't understand it. Just do nothing.

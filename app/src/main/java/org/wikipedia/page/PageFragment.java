@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -48,6 +49,7 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
@@ -63,7 +65,6 @@ import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.references.ReferenceDialog;
@@ -90,6 +91,7 @@ import org.wikipedia.views.WikiPageErrorView;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -154,7 +156,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
     private PageHeaderView pageHeaderView;
-    private BottomContentView bottomContentView;
     private ObservableWebView webView;
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
@@ -162,7 +163,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
-    private Map<String, References.Reference> referencesMap;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -266,10 +266,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return editHandler;
     }
 
-    public BottomContentView getBottomContentView() {
-        return bottomContentView;
-    }
-
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -306,8 +302,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         errorView = rootView.findViewById(R.id.page_error);
 
-        bottomContentView = rootView.findViewById(R.id.page_bottom_view);
-
         return rootView;
     }
 
@@ -321,7 +315,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.cleanup();
         tocHandler.log();
         shareHandler.dispose();
-        bottomContentView.dispose();
         leadImagesHandler.dispose();
         disposables.clear();
         webView.clearAllListeners();
@@ -376,8 +369,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // TODO: initialize View references in onCreateView().
         leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
 
-        bottomContentView.setup(this, bridge, webView);
-
         shareHandler = new ShareHandler(this, bridge);
 
         if (callback() != null) {
@@ -427,6 +418,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                bridge.onPageFinished();
+                updateProgressBar(false, true, 0);
+                bridge.execute(JavaScriptActionHandler.setMulti(requireContext(), app.getCurrentTheme().getFunnelName().toUpperCase(), app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages(), Prefs.isCollapseTablesEnabled()));
             }
         });
     }
@@ -642,7 +641,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack);
         scrollTriggerListener.setStagedScrollY(stagedScrollY);
-        bottomContentView.hide();
         updateBookmarkAndMenuOptions();
     }
 
@@ -793,7 +791,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         setupToC(model, pageFragmentLoadState.isFirstPage());
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
-        bottomContentView.setPage(model.getPage());
 
         if (model.getReadingListPage() != null) {
             final ReadingListPage page = model.getReadingListPage();
@@ -808,7 +805,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }).subscribeOn(Schedulers.io()).subscribe());
         }
 
-        loadPageReferences();
         checkAndShowBookmarkOnboarding();
     }
 
@@ -924,38 +920,52 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 return model.getTitle().getWikiSite();
             }
         };
-        bridge.addListener("linkClicked", linkHandler);
+        bridge.addListener("link_clicked", linkHandler);
 
-        bridge.addListener("referenceClicked", (String messageType, JSONObject messagePayload) -> {
-            if (referencesMap == null) {
-                loadPageReferences();
+        bridge.addListener("reference_clicked", (String messageType, JSONObject messagePayload) -> {
+            if (!isAdded()) {
+                L.d("Detached from activity, so stopping reference click.");
+                return;
             }
 
-            try {
-                int selectedIndex = messagePayload.getInt("selectedIndex");
-                JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
-                List<References.Reference> adjacentReferencesList = new ArrayList<>();
-                for (int i = 0; i < referencesGroup.length(); i++) {
-                    JSONObject reference = (JSONObject) referencesGroup.get(i);
-                    String getReferenceText = StringUtils.defaultString(reference.optString("text"));
-                    String getReferenceId = StringUtils.defaultString(reference.optString("href")).replace("#cite_note-", "");
-                    References.Reference getReference = referencesMap.get(getReferenceId);
-                    if (getReference != null) {
-                        getReference.setText(getReferenceText);
-                        adjacentReferencesList.add(getReference);
-                    }
-                }
+            disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(references ->  {
+                        int selectedIndex = messagePayload.getInt("selectedIndex");
+                        JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
+                        List<References.Reference> adjacentReferencesList = new ArrayList<>();
+                        for (int i = 0; i < referencesGroup.length(); i++) {
+                            JSONObject reference = (JSONObject) referencesGroup.get(i);
+                            L.d("reference_clicked reference " + reference.toString());
+                            L.d("reference_clicked reference " + reference.toString());
+                            String getReferenceText = StringUtils.defaultString(reference.optString("text"));
+                            String getReferenceId = StringUtils.defaultString(reference.optString("id"));
 
-                if (adjacentReferencesList.size() > 0) {
-                    showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
-                }
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
+                            Iterator iterator = references.getReferencesMap().entrySet().iterator();
+                            boolean foundReference = false;
+                            while(iterator.hasNext() && !foundReference) {
+                                Map.Entry entry = (Map.Entry) iterator.next();
+                                References.Reference value = (References.Reference) entry.getValue();
+                                for (References.ReferenceBackLink backLink : value.getBackLinks()) {
+                                    if (backLink.getHref().contains(getReferenceId)) {
+                                        value.setText(getReferenceText);
+                                        adjacentReferencesList.add(value);
+                                        foundReference = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (adjacentReferencesList.size() > 0) {
+                            showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
+                        }
+                    }, L::d));
         });
-        bridge.addListener("imageClicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("image_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
-                String href = decodeURL(messagePayload.getString("href"));
+                String href = decodeURL(messagePayload.getString("src"));
                 if (href.startsWith("/wiki/")) {
                     String filename = UriUtil.removeInternalLinkPrefix(href);
                     String fileUrl = null;
@@ -981,7 +991,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 L.logRemoteErrorIfProd(e);
             }
         });
-        bridge.addListener("mediaClicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("media_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
                 String href = decodeURL(messagePayload.getString("href"));
                 String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
@@ -994,7 +1004,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 L.logRemoteErrorIfProd(e);
             }
         });
-        bridge.addListener("pronunciationClicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("pronunciation_clicked", (String messageType, JSONObject messagePayload) -> {
             if (avPlayer == null) {
                 avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
                 avPlayer.init();
@@ -1070,13 +1080,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void goForward() {
         pageFragmentLoadState.goForward();
-    }
-
-    private void loadPageReferences() {
-        disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(references ->  referencesMap = references.getReferencesMap(), L::d));
     }
 
     private void checkAndShowBookmarkOnboarding() {
