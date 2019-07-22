@@ -584,10 +584,13 @@
   <string name="suggested_edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
   <string name="suggested_edits_task_multilingual_negative">Ní domsa é</string>
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Ceadúnas</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Dáta</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
+  <string name="suggested_edits_image_preview_dialog_licensing">Ceadúnú</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>
@@ -624,7 +627,7 @@
   <string name="on_this_day_card_title">Ar an lá seo</string>
   <string name="more_events_text">Tuilleadh ar an lá seo</string>
   <string name="events_count_text">%1$s ócáid ó %2$s–%3$d</string>
-  <string name="this_year">An bhliain seo</string>
+  <string name="this_year">I mbliana</string>
   <string name="back_to_top">Siar go barr</string>
   <plurals name="diff_years">
     <item quantity="one">An bhliain seo caite</item>
