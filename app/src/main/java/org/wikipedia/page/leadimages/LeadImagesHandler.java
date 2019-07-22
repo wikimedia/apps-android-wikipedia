@@ -308,7 +308,7 @@ public class LeadImagesHandler {
         });
     }
 
-    private void openImageInGallery() {
+    public void openImageInGallery() {
         if (getPage() != null && isLeadImageEnabled()) {
             String imageName = getPage().getPageProperties().getLeadImageName();
             String imageUrl = getPage().getPageProperties().getLeadImageUrl();
@@ -357,9 +357,5 @@ public class LeadImagesHandler {
         }
         return callToActionIsTranslation ? callToActionTargetSummary.getPageTitle().getWikiSite().languageCode()
                 : callToActionSourceSummary.getPageTitle().getWikiSite().languageCode();
-    }
-
-    public void showLeadImageInGallery() {
-        openImageInGallery();
     }
 }

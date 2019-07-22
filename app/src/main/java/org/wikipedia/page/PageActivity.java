@@ -688,8 +688,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             FeedbackUtil.makeSnackbar(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCodes().get(0)))), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.showLeadImageInGallery()).show();
+                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode()))), FeedbackUtil.LENGTH_DEFAULT)
+                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery()).show();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
