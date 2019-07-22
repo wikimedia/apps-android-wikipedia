@@ -1,6 +1,7 @@
 package org.wikipedia.createaccount;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -283,19 +284,20 @@ public class CreateAccountActivity extends BaseActivity {
                 return;
 
             case NO_EMAIL:
-                new AlertDialog.Builder(this)
-                        .setCancelable(false)
-                        .setTitle(R.string.email_recommendation_dialog_title)
-                        .setMessage(StringUtil.fromHtml(getResources().getString(R.string.email_recommendation_dialog_message)))
-                        .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action,
-                                (dialogInterface, i) -> {
-                                    createAccount();
-                                })
-                        .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action,
-                                (dialogInterface, i) -> {
-                                    emailInput.requestFocus();
-                                })
-                        .show();
+                String message=StringUtil.fromHtml(getResources().getString(R.string.email_recommendation_dialog_message)).toString();
+                showConfirmationDialog(R.string.email_recommendation_dialog_title, message, R.string.email_recommendation_dialog_create_without_email_action, R.string.email_recommendation_dialog_create_with_email_action, new ConfirmationDialogClickListeners() {
+                    @Override
+                    public void onPositiveButtonClick(DialogInterface dialogInterface) {
+                        dialogInterface.dismiss();
+                        createAccount();
+                    }
+
+                    @Override
+                    public void onNegativeButtonClick(DialogInterface dialogInterface) {
+                        dialogInterface.dismiss();
+                        emailInput.requestFocus();
+                    }
+                });
                 break;
 
             case SUCCESS:

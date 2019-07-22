@@ -49,7 +49,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
     }
 
     private fun getActionBarTitleRes(invokeSource: InvokeSource): Int {
-        return when(invokeSource) {
+        return when (invokeSource) {
             SUGGESTED_EDITS_TRANSLATE_DESC -> {
                 R.string.suggested_edits_translate_descriptions
             }
@@ -72,51 +72,33 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         }
 
         fun showEditDescriptionUnlockDialog(context: Context) {
-            AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, true))
-                    .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
-                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
-                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_ADD_DESC))
-                    }
-                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                    .show()
+            showCaptionUnlockDialog(context, R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, R.string.suggested_edits_unlock_add_descriptions_dialog_message, SUGGESTED_EDITS_ADD_DESC)
         }
 
         fun showTranslateDescriptionUnlockDialog(context: Context) {
-            AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_unlock_illustration_translate, true))
-                    .setMessage(R.string.suggested_edits_unlock_translate_descriptions_dialog_message)
-                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
-                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_TRANSLATE_DESC))
-                    }
-                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                    .show()
+            showCaptionUnlockDialog(context, R.string.suggested_edits_unlock_translate_descriptions_dialog_title, R.drawable.ic_unlock_illustration_translate, R.string.suggested_edits_unlock_translate_descriptions_dialog_message, SUGGESTED_EDITS_TRANSLATE_DESC)
         }
 
         fun showEditCaptionUnlockDialog(context: Context) {
+            showCaptionUnlockDialog(context, R.string.suggested_edits_unlock_add_captions_dialog_title, R.drawable.ic_unlock_illustration_add_captions, R.string.suggested_edits_unlock_add_captions_dialog_message, SUGGESTED_EDITS_ADD_CAPTION)
+        }
+
+        fun showTranslateCaptionUnlockDialog(context: Context) {
+            showCaptionUnlockDialog(context, R.string.suggested_edits_unlock_translate_captions_dialog_title, R.drawable.ic_unlock_illustration_translate_captions, R.string.suggested_edits_unlock_translate_captions_dialog_message, SUGGESTED_EDITS_TRANSLATE_CAPTION)
+        }
+
+
+        private fun showCaptionUnlockDialog(context: Context, title: Int, image: Int, message: Int, resource: InvokeSource) {
             AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_add_captions_dialog_title, R.drawable.ic_unlock_illustration_add_captions, true))
-                    .setMessage(R.string.suggested_edits_unlock_add_captions_dialog_message)
+                    .setCustomTitle(DialogTitleWithImage(context, title, image, true))
+                    .setMessage(message)
                     .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
                         SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_ADD_CAPTION))
+                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, resource))
                     }
                     .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
                     .show()
         }
 
-        fun showTranslateCaptionUnlockDialog(context: Context) {
-            AlertDialog.Builder(context)
-                    .setCustomTitle(DialogTitleWithImage(context, R.string.suggested_edits_unlock_translate_captions_dialog_title, R.drawable.ic_unlock_illustration_translate_captions, true))
-                    .setMessage(R.string.suggested_edits_unlock_translate_captions_dialog_message)
-                    .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes) { _, _ ->
-                        SuggestedEditsFunnel.get(ONBOARDING_DIALOG)
-                        context.startActivity(SuggestedEditsTasksActivity.newIntent(context, SUGGESTED_EDITS_TRANSLATE_CAPTION))
-                    }
-                    .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                    .show()
-        }
     }
 }

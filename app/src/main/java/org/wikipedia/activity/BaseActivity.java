@@ -3,6 +3,7 @@ package org.wikipedia.activity;
 import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ShortcutManager;
@@ -67,7 +68,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private boolean previousNetworkState = WikipediaApp.getInstance().isOnline();
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         exclusiveBusMethods = new ExclusiveBusConsumer();
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new NonExclusiveBusConsumer()));
@@ -105,7 +107,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         maybeShowLoggedOutInBackgroundDialog();
     }
 
-    @Override protected void onDestroy() {
+    @Override
+    protected void onDestroy() {
         unregisterReceiver(networkStateReceiver);
         disposables.dispose();
         if (EXCLUSIVE_BUS_METHODS == exclusiveBusMethods) {
@@ -120,7 +123,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    @Override protected void onResume() {
+    @Override
+    protected void onResume() {
         super.onResume();
         WikipediaApp.getInstance().getSessionFunnel().touchSession();
 
@@ -136,7 +140,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
@@ -300,4 +305,60 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         }
     }
+
+
+    protected void showAlert(String message, String textMessage) {
+        final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+        alertBuilder.setTitle(getString(R.string.app_name_prod));
+        alertBuilder.setMessage(message);
+        alertBuilder.setCancelable(false);
+        alertBuilder.setPositiveButton(textMessage, (dialogInterface, i) -> dialogInterface.dismiss()).create().show();
+
+    }
+
+    protected void showAlert(String message, String textMessage, ConfirmationDialogClickListeners listeners) {
+        final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+        alertBuilder.setTitle(getString(R.string.app_name_prod));
+        alertBuilder.setMessage(message);
+        alertBuilder.setCancelable(false);
+        alertBuilder.setPositiveButton(textMessage, (dialogInterface, i) -> {
+            if (listeners != null) {
+                listeners.onPositiveButtonClick(dialogInterface);
+            } else {
+                dialogInterface.dismiss();
+            }
+        }).create().show();
+    }
+
+    /**
+     * @param message Text to show as message on confirmation dialog
+     * @param positiveButtonText Text to be set as positive button
+     * @param negativeButtonText Text to be set as negative button
+     * @param buttonClickListeners to handle button clicks
+     */
+    protected void showConfirmationDialog(int title,String message, int positiveButtonText, int negativeButtonText, ConfirmationDialogClickListeners buttonClickListeners) {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+        if(title!=0)
+        alertBuilder.setTitle(title);
+        alertBuilder.setMessage(message);
+        alertBuilder.setCancelable(false);
+        alertBuilder.setPositiveButton(positiveButtonText, (dialog, which) -> {
+        });
+        alertBuilder.setNegativeButton(negativeButtonText, (dialog, which) -> {
+        });
+
+        AlertDialog alertDialog = alertBuilder.create();
+        alertDialog.setOnShowListener(dialog -> {
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> buttonClickListeners.onPositiveButtonClick(dialog));
+            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(v -> buttonClickListeners.onNegativeButtonClick(dialog));
+        });
+        alertDialog.show();
+    }
+
+    protected interface ConfirmationDialogClickListeners {
+        void onPositiveButtonClick(DialogInterface dialogInterface);
+
+        void onNegativeButtonClick(DialogInterface dialogInterface);
+    }
+
 }

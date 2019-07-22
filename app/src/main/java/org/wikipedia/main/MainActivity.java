@@ -1,6 +1,7 @@
 package org.wikipedia.main;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -270,20 +271,29 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     private class DrawerViewCallback implements MainDrawerView.Callback {
         @Override public void loginLogoutClick() {
             if (AccountUtil.isLoggedIn()) {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setMessage(R.string.logout_prompt)
-                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
-                        .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
-                            WikipediaApp.getInstance().logOut();
-                            FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
-                            if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
-                                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
-                            }
-                            Prefs.setReadingListsLastSyncTime(null);
-                            Prefs.setReadingListSyncEnabled(false);
-                            Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
-                            Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
-                        }).show();
+
+                String message=getString(R.string.logout_prompt);
+                showConfirmationDialog(0,message, R.string.preference_title_logout, R.string.logout_dialog_cancel_button_text, new ConfirmationDialogClickListeners() {
+                    @Override
+                    public void onPositiveButtonClick(DialogInterface dialogInterface) {
+                       dialogInterface.dismiss();
+                        WikipediaApp.getInstance().logOut();
+                        FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
+                        if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
+                            ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
+                        }
+                        Prefs.setReadingListsLastSyncTime(null);
+                        Prefs.setReadingListSyncEnabled(false);
+                        Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
+                        Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
+                    }
+
+                    @Override
+                    public void onNegativeButtonClick(DialogInterface dialogInterface) {
+                        dialogInterface.dismiss();
+
+                    }
+                });
             } else {
                 getFragment().onLoginRequested();
             }

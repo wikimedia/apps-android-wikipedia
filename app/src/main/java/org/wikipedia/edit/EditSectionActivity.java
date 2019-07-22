@@ -1,6 +1,7 @@
 package org.wikipedia.edit;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -371,19 +372,21 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     private void showRetryDialog(@NonNull Throwable t) {
-        final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
-                .setTitle(R.string.dialog_message_edit_failed)
-                .setMessage(t.getLocalizedMessage())
-                .setPositiveButton(R.string.dialog_message_edit_failed_retry, (dialog, which) -> {
-                    getEditTokenThenSave(false);
-                    dialog.dismiss();
-                    progressDialog.dismiss();
-                })
-                .setNegativeButton(R.string.dialog_message_edit_failed_cancel, (dialog, which) -> {
-                    dialog.dismiss();
-                    progressDialog.dismiss();
-                }).create();
-        retryDialog.show();
+        showConfirmationDialog(R.string.dialog_message_edit_failed, t.getLocalizedMessage(), R.string.dialog_message_edit_failed_retry, R.string.dialog_message_edit_failed_cancel, new ConfirmationDialogClickListeners() {
+            @Override
+            public void onPositiveButtonClick(DialogInterface dialogInterface) {
+                getEditTokenThenSave(false);
+                dialogInterface.dismiss();
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onNegativeButtonClick(DialogInterface dialogInterface) {
+                dialogInterface.dismiss();
+                progressDialog.dismiss();
+            }
+        });
+
     }
 
     /**

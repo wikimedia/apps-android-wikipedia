@@ -1,6 +1,7 @@
 package org.wikipedia.page.tabs;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -243,14 +244,20 @@ public class TabActivity extends BaseActivity {
                 openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
-                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setMessage(R.string.close_all_tabs_confirm);
-                alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {
-                    tabSwitcher.clear();
-                    cancelled = false;
+                String message=getString(R.string.close_all_tabs_confirm);
+                showConfirmationDialog(0, message, R.string.close_all_tabs_confirm_yes, R.string.close_all_tabs_confirm_no, new ConfirmationDialogClickListeners() {
+                    @Override
+                    public void onPositiveButtonClick(DialogInterface dialogInterface) {
+                        tabSwitcher.clear();
+                        cancelled = false;
+                        dialogInterface.dismiss();
+                    }
+
+                    @Override
+                    public void onNegativeButtonClick(DialogInterface dialogInterface) {
+                        dialogInterface.dismiss();
+                    }
                 });
-                alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
-                alert.create().show();
                 return true;
             case R.id.menu_open_a_new_tab:
                 openNewTab();
