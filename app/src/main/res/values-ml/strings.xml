@@ -13,10 +13,12 @@
   <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
   <string name="wikimedia">വിക്കിമീഡിയ</string>
   <string name="nav_item_back">പിന്നോട്ട്</string>
+  <string name="page_tabs_back">പുറകോട്ട്</string>
   <string name="nav_item_forward">മുന്നോട്ട്</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="search_hint_search_history">തിരച്ചിൽ ചരിത്രം</string>
   <string name="search_hint_search_languages">ഒരു ഭാഷക്കായി തിരയുക</string>
+  <string name="search_hint_search_my_lists_and_articles">എന്റെ പട്ടികകളിലും ലേഖനങ്ങളിലും തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
