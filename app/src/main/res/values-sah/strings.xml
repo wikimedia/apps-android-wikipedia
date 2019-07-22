@@ -620,7 +620,8 @@
   <string name="suggested_edits_review_image_caption">Ойуу туһунан суругу тургутарга</string>
   <string name="suggested_edits_my_contributions">Бэйэм суруйуум</string>
   <string name="suggested_edits_no_description">Бу билэ туһунан суруллубатах</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"Быһаарыыны эбии\" диэни холбоотуҥ</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Ыстатыйаҕа быһаарыыны эбии\" диэни холбоотуҥ</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Кыттарыҥ иһин махтанабыт! Уларытары хайыы-үйэ сатыыгын, онон ойуулааһына суох ыстатыйалар испииһэктэрин көр. Бикипиэдьийэни тупсарарга көмөлөс дуу!</string>
   <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
   <string name="suggested_edits_unlock_dialog_yes">Чэ, бардыбыт!</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">\"Быһаарыыны эбии\" диэнтэн хааччаҕын уһуллуҥ</string>
@@ -665,8 +666,9 @@
   <string name="suggested_edits_image_preview_dialog_date">Күнэ-дьыла</string>
   <string name="suggested_edits_image_preview_dialog_source">Төрүтэ/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Лиссиэнсийэлээһин</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Сиһилии</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Сиһилии</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Билэ сирэйэ Биики Хааһахха</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Ойуулааһыны эбии (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Ойуулааһыны эбии</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ойуулааһыны эбии (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>
