@@ -248,17 +248,6 @@ public class EditPreviewFragment extends Fragment {
 
         ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
         ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
-
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("html", html);
-            payload.put("siteBaseUrl", parentActivity.getPageTitle().getWikiSite().url());
-            payload.put("theme", WikipediaApp.getInstance().getCurrentTheme().getMarshallingId());
-            payload.put("dimImages", Prefs.shouldDimDarkModeImages());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("displayPreviewHTML", payload);
     }
 
     /**

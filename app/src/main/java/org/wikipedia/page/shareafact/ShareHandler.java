@@ -238,13 +238,6 @@ public class ShareHandler {
         public boolean onMenuItemClick(MenuItem item) {
             // send an event to the WebView that will make it return the
             // selected text (or first paragraph) back to us...
-            try {
-                JSONObject payload = new JSONObject();
-                payload.put(PAYLOAD_PURPOSE_KEY, purpose);
-                bridge.sendMessage("getTextSelection", payload);
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
             return true;
         }
     }

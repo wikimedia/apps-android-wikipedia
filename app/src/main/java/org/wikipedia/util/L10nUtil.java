@@ -67,22 +67,6 @@ public final class L10nUtil {
      * @param bridge The CommunicationBridge to use to communicate with the WebView
      */
     public static void setupDirectionality(String contentLang, Locale uiLocale, CommunicationBridge bridge) {
-        JSONObject payload = new JSONObject();
-        try {
-            if (isLangRTL(contentLang)) {
-                payload.put("contentDirection", "rtl");
-            } else {
-                payload.put("contentDirection", "ltr");
-            }
-            if (isLangRTL(LanguageUtil.localeToWikiLanguageCode(uiLocale))) {
-                payload.put("uiDirection", "rtl");
-            } else {
-                payload.put("uiDirection", "ltr");
-            }
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setDirectionality", payload);
     }
 
     /**

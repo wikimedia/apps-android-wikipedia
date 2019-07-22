@@ -147,31 +147,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     void scrollToSection(String sectionAnchor) {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("anchor", sectionAnchor);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("scrollToSection", payload);
     }
 
     private void scrollToSection(Section section) {
-        if (section != null) {
-            // is it the bottom (about) section?
-            if (section.getId() == ABOUT_SECTION_ID) {
-                JSONObject payload = new JSONObject();
-                try {
-                    final int topPadding = 16;
-                    payload.put("offset", topPadding);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-                bridge.sendMessage("scrollToBottom", payload);
-            } else {
-                scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
-            }
-        }
     }
 
     public void show() {
@@ -218,9 +196,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     @Override
     public void onContentHeightChanged(int contentHeight) {
-        if (!fragment.isLoading()) {
-            bridge.sendMessage("requestSectionData", new JSONObject());
-        }
     }
 
     @Override

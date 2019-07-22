@@ -894,14 +894,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                JSONObject payload = new JSONObject();
-                try {
-                    payload.put("anchor", anchor);
-                    payload.put("text", linkText);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-                bridge.sendMessage("handleReference", payload);
+
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -1055,13 +1048,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void sendDecorOffsetMessage() {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("offset", getContentTopOffset(requireActivity()));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setDecorOffset", payload);
     }
 
     private void initPageScrollFunnel() {
