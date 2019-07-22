@@ -1,5 +1,4 @@
 var bridge = require('./bridge');
-var pagelib = require("wikimedia-page-library");
 
 function ActionsHandler() {
 }
@@ -13,35 +12,6 @@ ActionsHandler.prototype.register = function( action, fun ) {
         actionHandlers[action] = [ fun ];
     }
 };
-
-bridge.registerListener( 'handleReference', function( payload ) {
-    handleReference( "#" + payload.anchor, null, payload.text );
-} );
-
-function handleReference( href, linkNode, linkText ) {
-    var targetElem = document.getElementById(href.slice(1));
-    if (linkNode && pagelib.ReferenceCollection.isCitation(href)){
-        var adjacentReferences = pagelib.ReferenceCollection.collectNearbyReferencesAsText(document, linkNode);
-        bridge.sendMessage( 'referenceClicked', adjacentReferences );
-    } else if ( href.slice(1, 5).toLowerCase() === "cite" ) {
-        try {
-            var refTexts = targetElem.getElementsByClassName( "reference-text" );
-            if ( refTexts.length > 0 ) {
-                targetElem = refTexts[0];
-            }
-            bridge.sendMessage( 'referenceClicked', { "selectedIndex": 0, "referencesGroup": [ { "href": href, "text": linkText } ] });
-        } catch (e) {
-            targetElem.scrollIntoView();
-        }
-    } else {
-        if ( targetElem === null ) {
-            console.log( "reference target not found: " + href );
-        } else {
-            // If it is a link to another anchor in the current page, just scroll to it
-            targetElem.scrollIntoView();
-        }
-    }
-}
 
 document.onclick = function() {
     var sourceNode = null;
@@ -65,9 +35,7 @@ document.onclick = function() {
             }
         } else {
             var href = sourceNode.getAttribute( "href" );
-            if ( href[0] === "#" ) {
-                handleReference(href, event.target, null);
-            } else if (sourceNode.classList.contains( 'app_media' )) {
+            if (sourceNode.classList.contains( 'app_media' )) {
                 bridge.sendMessage( 'mediaClicked', { "href": href } );
             } else if (sourceNode.classList.contains( 'image' )) {
                 bridge.sendMessage( 'imageClicked', { "href": href } );

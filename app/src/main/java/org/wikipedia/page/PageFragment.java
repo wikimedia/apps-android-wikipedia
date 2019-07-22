@@ -909,7 +909,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
-                bridge.sendMessage("handleReference", payload);
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -937,11 +936,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         List<References.Reference> adjacentReferencesList = new ArrayList<>();
                         for (int i = 0; i < referencesGroup.length(); i++) {
                             JSONObject reference = (JSONObject) referencesGroup.get(i);
-                            L.d("reference_clicked reference " + reference.toString());
-                            L.d("reference_clicked reference " + reference.toString());
                             String getReferenceText = StringUtils.defaultString(reference.optString("text"));
                             String getReferenceId = StringUtils.defaultString(reference.optString("id"));
 
+                            // TODO: can be simplified if page-library returns the href from the link itself.
                             Iterator iterator = references.getReferencesMap().entrySet().iterator();
                             boolean foundReference = false;
                             while(iterator.hasNext() && !foundReference) {
