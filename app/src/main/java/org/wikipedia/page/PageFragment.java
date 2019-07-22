@@ -1011,7 +1011,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
             SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
-                    getTitle().getDisplayText(), getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl(), getTitle().getThumbUrl(),
+                    getTitle().getDisplayText(), getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl(),
                     null, null, null, null);
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
@@ -1243,6 +1243,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Nullable String getLeadImageEditLang() {
         return leadImagesHandler.getCallToActionEditLang();
+    }
+
+    void openImageInGallery() {
+        leadImagesHandler.openImageInGallery();
     }
 
 }
