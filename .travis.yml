@@ -12,6 +12,7 @@ before_script:
 branches:
   only:
   - master
+  - mobile_html
 script:
 - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./scripts/apps-android-wikipedia-test; fi
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./scripts/apps-android-wikipedia-publish-travis; fi
