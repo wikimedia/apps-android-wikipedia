@@ -80,6 +80,7 @@ import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -1019,6 +1020,31 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             } else {
                 updateProgressBar(false, true, 0);
                 avPlayer.stop();
+            }
+        });
+        bridge.addListener("footer_item_selected", (String messageType, JSONObject messagePayload) -> {
+            String itemType = messagePayload.optString("itemType");
+            if ("talkPage".equals(itemType) && model.getTitle() != null) {
+                PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
+                visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getMobileUri()));
+            } else if ("languages".equals(itemType)) {
+                startLangLinksActivity();
+            } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getUriForAction("history")));
+            } else if ("coordinate".equals(itemType) && model.getPage() != null && model.getPage().getPageProperties().getGeo() != null) {
+                GeoUtil.sendGeoIntent(requireActivity(), model.getPage().getPageProperties().getGeo(), model.getPage().getDisplayTitle());
+            } else if ("disambiguation".equals(itemType)) {
+                // TODO
+                // messagePayload contains an array of URLs called "payload".
+            }
+        });
+        bridge.addListener("read_more_titles_retrieved", (String messageType, JSONObject messagePayload) -> {
+            // TODO: do something with this.
+            L.v(messagePayload.toString());
+        });
+        bridge.addListener("view_in_browser", (String messageType, JSONObject messagePayload) -> {
+            if (model.getTitle() != null) {
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getMobileUri()));
             }
         });
     }

@@ -35,7 +35,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RestService {
-    String REST_API_PREFIX = "api/rest_v1/";
+    String REST_API_PREFIX = "/api/rest_v1";
 
     String ACCEPT_HEADER_PREFIX = "accept: application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/";
     String ACCEPT_HEADER_SUMMARY = ACCEPT_HEADER_PREFIX + "Summary/1.2.0\"";
@@ -43,7 +43,7 @@ public interface RestService {
     String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.2\"";
 
     String REST_PAGE_SECTIONS_URL = "page/mobile-sections-remaining/{title}";
-    String PAGE_HTML_ENDPOINT = "page/mobile-html/";
+    String PAGE_HTML_ENDPOINT = "/page/mobile-html/";
 
     /**
      * Gets a page summary for a given title -- for link previews
