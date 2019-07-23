@@ -56,7 +56,7 @@ object JavaScriptActionHandler {
                 "],   {" +
                 "        'readMoreHeading': '" + context.getString(R.string.read_more_section) + "'," +
                 "        'menuDisambiguationTitle': '" + context.getString(R.string.page_similar_titles) + "'," +
-                "        'menuLanguagesTitle': '" + context.getString(R.string.language_count_link_text, model.page?.pageProperties?.languageCount) + "'," +
+                "        'menuLanguagesTitle': '" + context.getString(R.string.language_count_link_text, languageCount) + "'," +
                 "        'menuHeading': '" + context.getString(R.string.about_article_section) + "'," +
                 "        'menuLastEditedSubtitle': '" + context.getString(R.string.edit_history_link_text) + "'," +
                 "        'menuLastEditedTitle': '${lastEditText}'," +
