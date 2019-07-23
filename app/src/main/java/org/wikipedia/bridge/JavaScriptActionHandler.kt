@@ -5,6 +5,7 @@ import org.wikipedia.R
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageViewModel
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.L10nUtil.formatDateRelative
 
 object JavaScriptActionHandler {
@@ -31,10 +32,12 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun setFooter(context: Context, model: PageViewModel): String {
         if (model.page == null) {
-            return "";
+            return ""
         }
 
-        val showLanguagesLink = model.page!!.pageProperties.languageCount > 0
+        val languageCount = L10nUtil.getUpdatedLanguageCountIfNeeded(model.page!!.title.wikiSite.languageCode(),
+                model.page!!.pageProperties.languageCount)
+        val showLanguagesLink = languageCount > 0
         val showEditHistoryLink = !(model.page!!.isMainPage || model.page!!.isFilePage)
         val lastEditText = (context.getString(R.string.last_updated_text, formatDateRelative(model.page!!.pageProperties.lastModified)))
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
