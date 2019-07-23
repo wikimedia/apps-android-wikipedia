@@ -172,6 +172,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
+    private References references;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
 
@@ -641,6 +642,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         updateProgressBar(true, true, 0);
 
         this.pageRefreshed = isRefresh;
+        references = null;
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack);
@@ -931,10 +933,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 return;
             }
 
-            disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText())
+            disposables.add(getReferences()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(references ->  {
+                        this.references = references;
                         int selectedIndex = messagePayload.getInt("selectedIndex");
                         JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
                         List<References.Reference> adjacentReferencesList = new ArrayList<>();
@@ -1304,6 +1307,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Nullable String getLeadImageEditLang() {
         return leadImagesHandler.getCallToActionEditLang();
+    }
+
+    private Observable<References> getReferences() {
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText()) : Observable.just(references);
     }
 
     void openImageInGallery() {

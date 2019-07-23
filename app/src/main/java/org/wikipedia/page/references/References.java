@@ -1,37 +1,40 @@
 package org.wikipedia.page.references;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("unused,NullableProblems")
 public class References {
-    @SuppressWarnings("unused,NullableProblems")  @NonNull private String revision;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String tid;
-    @SuppressWarnings("unused,NullableProblems") @NonNull @SerializedName("references_by_id") private Map<String, Reference> referencesMap;
+    @Nullable private String revision;
+    @Nullable private String tid;
+    @Nullable @SerializedName("references_by_id") private Map<String, Reference> referencesMap;
 
     @NonNull
     public Map<String, Reference> getReferencesMap() {
-        return referencesMap;
+        return referencesMap == null ? Collections.emptyMap() : referencesMap;
     }
 
     public static class Reference  {
-        @SuppressWarnings("unused,NullableProblems") @NonNull @SerializedName("back_links") private List<ReferenceBackLink> backLinks;
-        @SuppressWarnings("unused,NullableProblems") @NonNull private ReferenceContent content;
+        @Nullable @SerializedName("back_links") private List<ReferenceBackLink> backLinks;
+        @Nullable private ReferenceContent content;
         private String text;
 
         @NonNull
         public String getContent() {
-            return content.getHtml();
+            return content == null ? "" : content.getHtml();
         }
 
         @NonNull
         public List<ReferenceBackLink> getBackLinks() {
-            return backLinks;
+            return backLinks == null ? Collections.emptyList() : backLinks;
         }
 
         public void setText(@NonNull String text) {
@@ -45,7 +48,7 @@ public class References {
     }
 
     private static class ReferenceContent  {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String html;
+        @Nullable private String html;
 
         @NonNull
         public String getHtml() {
@@ -54,7 +57,7 @@ public class References {
     }
 
     public static class ReferenceBackLink  {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String href;
+        @Nullable private String href;
 
         @NonNull
         public String getHref() {
