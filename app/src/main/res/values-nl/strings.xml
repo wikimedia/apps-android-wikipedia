@@ -694,8 +694,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Bron/fotograaf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licentie</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Meer info</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Meer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Bijschrift toevoegen</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Bijschrift toevoegen (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschrijving toevoegen</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
