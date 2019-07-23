@@ -44,9 +44,6 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
             String href = decodeURL(messagePayload.getString("href"));
-            if (href.startsWith("./")) {
-                href = href.replace("./", "/wiki/");
-            }
             onUrlClick(href, messagePayload.optString("title"), messagePayload.optString("text"));
         } catch (IllegalArgumentException e) {
             // The URL is malformed and URL decoder can't understand it. Just do nothing.
@@ -61,6 +58,14 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         if (href.startsWith("//")) {
             // for URLs without an explicit scheme, add our default scheme explicitly.
             href = getWikiSite().scheme() + ":" + href;
+        } else if (href.startsWith("./")) {
+            href = href.replace("./", "/wiki/");
+        }
+
+        // special: returned by page-library when clicking Read More items in the footer.
+        int eventLoggingParamIndex = href.indexOf("?event_logging_label");
+        if (eventLoggingParamIndex > 0) {
+            href = href.substring(0, eventLoggingParamIndex);
         }
 
         Uri uri = Uri.parse(href);
