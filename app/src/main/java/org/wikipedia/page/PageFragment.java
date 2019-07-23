@@ -415,6 +415,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                if (!isAdded()) {
+                    return;
+                }
                 bridge.onPageFinished();
                 updateProgressBar(false, true, 0);
                 bridge.execute(JavaScriptActionHandler.setMulti(requireContext(), app.getCurrentTheme().getFunnelName().toUpperCase(), app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages(), Prefs.isCollapseTablesEnabled()));
@@ -1226,6 +1229,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Nullable String getLeadImageEditLang() {
         return leadImagesHandler.getCallToActionEditLang();
+    }
+
+    void openImageInGallery() {
+        leadImagesHandler.openImageInGallery();
     }
 
 }
