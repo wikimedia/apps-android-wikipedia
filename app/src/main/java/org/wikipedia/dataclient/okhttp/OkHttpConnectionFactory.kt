@@ -11,7 +11,7 @@ import org.wikipedia.settings.RbSwitch
 import java.io.File
 
 object OkHttpConnectionFactory {
-    private const val CACHE_DIR_NAME = "okhttp-cache"
+    const val CACHE_DIR_NAME = "okhttp-cache"
     private const val NET_CACHE_SIZE = (64 * 1024 * 1024).toLong()
     private const val SAVED_PAGE_CACHE_SIZE = NET_CACHE_SIZE * 1024
     private val NET_CACHE = Cache(File(WikipediaApp.getInstance().cacheDir, CACHE_DIR_NAME), NET_CACHE_SIZE)
