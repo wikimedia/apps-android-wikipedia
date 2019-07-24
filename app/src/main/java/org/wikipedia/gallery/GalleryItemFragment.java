@@ -43,6 +43,7 @@ import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ZoomableDraweeViewWithBackground;
 
@@ -331,7 +332,7 @@ public class GalleryItemFragment extends Fragment {
         updateProgressBar(true, true, 0);
         imageView.setDrawBackground(false);
         imageView.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(url)
+                .setUri(UriUtil.resolveProtocolRelativeUrl(url))
                 .setAutoPlayAnimations(true)
                 .setControllerListener(new BaseControllerListener<ImageInfo>() {
                     @Override

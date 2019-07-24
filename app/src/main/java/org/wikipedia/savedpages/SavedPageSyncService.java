@@ -21,7 +21,6 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.gallery.Gallery;
-import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
@@ -33,7 +32,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -154,14 +152,6 @@ public class SavedPageSyncService extends JobIntentService {
                     if (sectionsRsp.body() != null) {
                         imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
                     }
-                    if (mediaRsp.getAllItems() != null) {
-                        for (GalleryItem galleryItem : mediaRsp.getAllItems()) {
-                            imageUrls.add(galleryItem.getThumbnailUrl());
-                            if (FileUtil.isVideo(galleryItem.getType())) {
-                                imageUrls.add(galleryItem.getOriginalVideoSource().getOriginalUrl());
-                            }
-                        }
-                    }
                     return imageUrls;
                 })
                 .subscribeOn(Schedulers.io())
@@ -262,15 +252,6 @@ public class SavedPageSyncService extends JobIntentService {
             totalSize += responseSize(sectionsRsp);
             Set<String> mediaUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
             mediaUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
-
-            if (mediaRsp.getAllItems() != null) {
-                for (GalleryItem galleryItem : mediaRsp.getAllItems()) {
-                    mediaUrls.add(galleryItem.getThumbnailUrl());
-                    if (FileUtil.isVideo(galleryItem.getType())) {
-                        mediaUrls.add(galleryItem.getOriginalVideoSource().getOriginalUrl());
-                    }
-                }
-            }
 
             if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
                 page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
