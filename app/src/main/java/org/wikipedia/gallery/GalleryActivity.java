@@ -534,14 +534,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(gallery -> {
-                    List<GalleryItem> initialList = gallery.getItems("image", "video");
-                    int initialImagePosition = getInitialImagePos(initialList);
-                    updateProgressBar(false, true, 0);
+                    List<GalleryItem> list = gallery.getItems("image", "video");
+                    int initialImagePosition = getInitialImagePos(list);
                     if (!app.isOnline()) {
                         disposables.add(fetchCachedImageUrls(pageTitle)
                                 .map(urls -> {
                                     for (String url : urls) {
-                                        for (GalleryItem item : initialList) {
+                                        for (GalleryItem item : list) {
                                             // find the cached image urls and place with original image urls from cached endpoints
                                             if (UriUtil.decodeURL(url).contains(StringUtil.removeNamespace(item.getTitles().getCanonical()))) {
                                                 item.getOriginal().setSource(url);
@@ -550,12 +549,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                                             }
                                         }
                                     }
-                                    return initialList;
+                                    return list;
                                 })
                                 .subscribeOn(Schedulers.io())
-                                .subscribe(list -> applyGalleryList(list, initialImagePosition), L::e));
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(it -> applyGalleryList(it, initialImagePosition), L::e));
                     } else {
-                        applyGalleryList(initialList, initialImagePosition);
+                        applyGalleryList(list, initialImagePosition);
                     }
                 }, caught -> {
                     updateProgressBar(false, true, 0);
@@ -572,7 +572,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
             featuredImage.setAge(getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0));
-            updateProgressBar(false, true, 0);
             applyGalleryList(Collections.singletonList(featuredImage), -1);
         } else {
             fetchGalleryItems();
@@ -591,6 +590,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void applyGalleryList(@NonNull List<GalleryItem> list, int initialImagePos) {
+        updateProgressBar(false, true, 0);
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
         // first, verify that the collection contains the item that the user
