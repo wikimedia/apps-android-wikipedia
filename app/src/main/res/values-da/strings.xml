@@ -15,6 +15,7 @@
 * Rho
 * Saederup92
 * Sarrus
+* Tinamalmgren
 * Yuvipanda
 -->
 <resources>
@@ -596,7 +597,7 @@
   <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
   <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
-  <string name="description_edit_edit_description">Rediger artikelbeskrivelse</string>
+  <string name="description_edit_edit_description">Redigér artikelbeskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
   <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
@@ -619,7 +620,7 @@
   <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
-  <string name="suggested_edits_edit_description_button">Rediger besrkivelse</string>
+  <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
   <string name="suggested_edits_add_translation_button">Tilføj oversættelse</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
@@ -637,7 +638,7 @@
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Oversæt beskrivelser</string>
   <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
-  <string name="suggested_edits_task_image_caption_title">Tilføj billedtekstning</string>
+  <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
   <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
   <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>

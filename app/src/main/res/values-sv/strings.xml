@@ -626,7 +626,7 @@
   <string name="description_edit_success_did_you_know">Visste du att?</string>
   <string name="description_edit_success_article_edit_hint">Du kan även redigera artiklar i denna app. Prova att korrigera stavfel och små meningar genom att klicka på ikonen ^1 nästa gång</string>
   <string name="description_edit_tutorial_title_descriptions">Titelbeskrivningar</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Sammanfattar en artikel för att hjälpa läsare att förstå ämnet med ett ögonkast</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Sammanfattar en artikel för att hjälpa läsare förstå ämnet med ett ögonkast</string>
   <string name="description_edit_tutorial_keep_it_short">Låt den vara kort</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst en rad, mellan två till tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>

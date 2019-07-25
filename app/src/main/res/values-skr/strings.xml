@@ -277,6 +277,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">لائیسنس</string>
   <string name="suggested_edits_image_caption_summary_title_date">تریخ</string>
   <string name="suggested_edits_image_preview_dialog_date">تریخ</string>
+  <string name="suggested_edits_article_cta_snackbar_action">ݙکھالا</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
