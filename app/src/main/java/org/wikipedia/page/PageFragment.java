@@ -92,9 +92,7 @@ import org.wikipedia.views.WikiPageErrorView;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -944,22 +942,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         for (int i = 0; i < referencesGroup.length(); i++) {
                             JSONObject reference = (JSONObject) referencesGroup.get(i);
                             String getReferenceText = StringUtils.defaultString(reference.optString("text"));
-                            String getReferenceId = StringUtils.defaultString(reference.optString("id"));
-
-                            // TODO: can be simplified if page-library returns the href from the link itself.
-                            Iterator iterator = references.getReferencesMap().entrySet().iterator();
-                            boolean foundReference = false;
-                            while(iterator.hasNext() && !foundReference) {
-                                Map.Entry entry = (Map.Entry) iterator.next();
-                                References.Reference value = (References.Reference) entry.getValue();
-                                for (References.ReferenceBackLink backLink : value.getBackLinks()) {
-                                    if (backLink.getHref().contains(getReferenceId)) {
-                                        value.setText(getReferenceText);
-                                        adjacentReferencesList.add(value);
-                                        foundReference = true;
-                                        break;
-                                    }
-                                }
+                            String getReferenceId = UriUtil.getFragment(StringUtils.defaultString(reference.optString("href")));
+                            References.Reference getReference = references.getReferencesMap().get(getReferenceId);
+                            if (getReference != null) {
+                                getReference.setText(getReferenceText);
+                                adjacentReferencesList.add(getReference);
                             }
                         }
 
