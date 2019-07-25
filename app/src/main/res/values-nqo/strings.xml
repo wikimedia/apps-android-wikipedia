@@ -555,9 +555,6 @@
   <string name="more_events_text">ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
   <string name="this_year">ߢߌ߬ߣߊ߲߬</string>
   <string name="back_to_top">ߌ ߞߐߛߊ߬ߦߌ߬ ߛߊ߲ߝߍ߬</string>
-  <plurals name="diff_years">
-    <item quantity="other">one:ߞߋߟߋ߲߫=ߛߊߙߏ߲߬</item>
-  </plurals>
   <string name="languages_list_activity_title">ߞߊ߲ ߘߏ߫ ߛߎߥߊ߲ߘߌ߫</string>
   <string name="languages_list_all_text">ߞߊ߲ ߠߎ߬ ߓߍ߯</string>
   <string name="wikipedia_languages_title">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬</string>
