@@ -29,7 +29,6 @@ public class PageActionOverflowView extends FrameLayout {
         void feedClick();
         void readingListsClick();
         void historyClick();
-        void nearbyClick();
     }
 
     @Nullable private Callback callback;
@@ -77,9 +76,6 @@ public class PageActionOverflowView extends FrameLayout {
                 break;
             case R.id.page_action_overflow_reading_lists:
                 callback.readingListsClick();
-                break;
-            case R.id.page_action_overflow_nearby:
-                callback.nearbyClick();
                 break;
             default:
                 break;

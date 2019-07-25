@@ -10,7 +10,6 @@ import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
-import org.wikipedia.nearby.NearbyLazyLoadFragment;
 import org.wikipedia.readinglist.ReadingListsFragment;
 
 public enum NavTab implements EnumCode {
@@ -27,11 +26,6 @@ public enum NavTab implements EnumCode {
     HISTORY(R.string.nav_item_history, R.drawable.ic_restore_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
             return HistoryFragment.newInstance();
-        }
-    },
-    NEARBY(R.string.nav_item_nearby, R.drawable.ic_explore_black_24dp) {
-        @NonNull @Override public Fragment newInstance() {
-            return NearbyLazyLoadFragment.newInstance();
         }
     };
 

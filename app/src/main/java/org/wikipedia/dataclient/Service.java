@@ -141,12 +141,6 @@ public interface Service {
                                                   @Query("continue") String cont,
                                                   @Query("gsroffset") String gsrOffset);
 
-    @GET(MW_API_PREFIX + "action=query&prop=coordinates|description|pageimages"
-            + "&colimit=50&piprop=thumbnail&pilicense=any"
-            + "&generator=geosearch&ggslimit=50&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> nearbySearch(@NonNull @Query("ggscoord") String coord,
-                                                @Query("ggsradius") double radius);
-
 
     // ------- Miscellaneous -------
 

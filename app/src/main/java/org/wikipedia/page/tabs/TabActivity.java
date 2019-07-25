@@ -270,11 +270,6 @@ public class TabActivity extends BaseActivity {
                         .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HISTORY.code()));
                 finish();
                 return true;
-            case R.id.menu_nearby:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.NEARBY.code()));
-                finish();
-                return true;
             default:
                 break;
         }
