@@ -356,6 +356,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencizo</string>
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Plusa informi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagino dil arkivo che Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Videz</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adjuntez expliko</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez expliko (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>

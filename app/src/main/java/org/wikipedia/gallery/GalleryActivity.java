@@ -135,6 +135,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
     private Disposable imageCaptionDisposable;
+    private WikiSite sourceWiki;
 
     private boolean controlsShowing = true;
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
@@ -218,6 +219,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
         initialImageUrl = getIntent().getStringExtra(EXTRA_IMAGEURL);
+        sourceWiki = getIntent().getParcelableExtra(EXTRA_WIKI);
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);
         galleryPager.setAdapter(galleryAdapter);
@@ -320,11 +322,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
         GalleryItem item = getCurrentItem();
-        PageTitle title = new PageTitle(item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage()), new WikiSite(Service.COMMONS_URL, app.getAppOrSystemLanguageCode()));
-        String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
+        PageTitle title = new PageTitle(item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage()), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
+        String currentCaption = item.getStructuredCaptions().get(sourceWiki.languageCode());
         title.setDescription(currentCaption);
 
-        SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), app.getAppOrSystemLanguageCode(), title,
+        SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), sourceWiki.languageCode(), title,
                 title.getDisplayText(), title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getDescription().getHtml()).toString(), null),
                 item.getThumbnailUrl(), null, null, null, null);
 
@@ -338,7 +340,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         GalleryItem item = getCurrentItem();
         String title = item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage());
-        PageTitle sourceTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, app.language().getAppLanguageCodes().get(0)));
+        PageTitle sourceTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
         PageTitle targetTitle = new PageTitle(title, new WikiSite(Service.COMMONS_URL, StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1))));
         String currentCaption = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
         if (TextUtils.isEmpty(currentCaption)) {
@@ -687,8 +689,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        if (item.getStructuredCaptions().containsKey(app.getAppOrSystemLanguageCode())) {
-            descriptionStr = item.getStructuredCaptions().get(app.getAppOrSystemLanguageCode());
+
+        if (item.getStructuredCaptions().containsKey(sourceWiki.languageCode())) {
+            descriptionStr = item.getStructuredCaptions().get(sourceWiki.languageCode());
         } else {
             descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
         }
