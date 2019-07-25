@@ -39,7 +39,7 @@ object JavaScriptActionHandler {
                 model.page!!.pageProperties.languageCount)
         val showLanguagesLink = languageCount > 0
         val showEditHistoryLink = !(model.page!!.isMainPage || model.page!!.isFilePage)
-        val lastEditText = (context.getString(R.string.last_updated_text, formatDateRelative(model.page!!.pageProperties.lastModified)))
+        val lastModifiedDate = formatDateRelative(model.page!!.pageProperties.lastModified)
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
 
@@ -54,19 +54,19 @@ object JavaScriptActionHandler {
                 (if (showTalkLink) "pagelib.c1.Footer.MenuItemType.talkPage, " else "") +
                 (if (showMapLink) "pagelib.c1.Footer.MenuItemType.coordinate " else "") +
                 "],   {" +
-                "        'readMoreHeading': '" + context.getString(R.string.read_more_section) + "'," +
-                "        'menuDisambiguationTitle': '" + context.getString(R.string.page_similar_titles) + "'," +
-                "        'menuLanguagesTitle': '" + context.getString(R.string.language_count_link_text, languageCount) + "'," +
-                "        'menuHeading': '" + context.getString(R.string.about_article_section) + "'," +
-                "        'menuLastEditedSubtitle': '" + context.getString(R.string.edit_history_link_text) + "'," +
-                "        'menuLastEditedTitle': '${lastEditText}'," +
-                "        'licenseString': '" + context.getString(R.string.content_license_html) + "'," +
-                "        'menuTalkPageTitle': '" + context.getString(R.string.talk_page_link_text) + "'," +
-                "        'viewInBrowserString': '" + context.getString(R.string.page_view_in_browser) + "'," +
+                "        'readMoreHeading': '${context.getString(R.string.read_more_section)}'," +
+                "        'menuDisambiguationTitle': '${context.getString(R.string.page_similar_titles)}'," +
+                "        'menuLanguagesTitle': '${context.getString(R.string.language_count_link_text, languageCount)}'," +
+                "        'menuHeading': '${context.getString(R.string.about_article_section)}'," +
+                "        'menuLastEditedSubtitle': '${context.getString(R.string.edit_history_link_text)}'," +
+                "        'menuLastEditedTitle': '${context.getString(R.string.last_updated_text, lastModifiedDate)}'," +
+                "        'licenseString': '${context.getString(R.string.content_license_html)}'," +
+                "        'menuTalkPageTitle': '${context.getString(R.string.talk_page_link_text)}'," +
+                "        'viewInBrowserString': '${context.getString(R.string.page_view_in_browser)}'," +
                 "        'licenseSubstitutionString': 'CC BY-SA 3.0'," +
-                "        'menuCoordinateTitle': '" + context.getString(R.string.map_view_link_text) + "'" +
+                "        'menuCoordinateTitle': '${context.getString(R.string.map_view_link_text)}'" +
                 "     }, 3," +
-                "     '${model.title?.wikiSite?.url()}${RestService.REST_API_PREFIX}'" +
+                "     '${model.title?.wikiSite?.url() + RestService.REST_API_PREFIX}'" +
                 ")"
     }
 }
