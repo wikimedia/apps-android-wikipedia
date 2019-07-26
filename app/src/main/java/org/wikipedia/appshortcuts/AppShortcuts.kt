@@ -7,9 +7,13 @@ import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.Icon
 import android.os.Build
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
-import java.util.*
+import org.wikipedia.util.log.L
 
 class AppShortcuts {
     companion object {
@@ -18,12 +22,14 @@ class AppShortcuts {
         @JvmStatic
         fun setShortcuts(app: Context) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-                app.getSystemService(ShortcutManager::class.java)
-                        .dynamicShortcuts = Arrays.asList(continueReadingShortcut(app))
+                CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, exception -> run { L.e(exception) } }) {
+                    app.getSystemService(ShortcutManager::class.java)
+                            .dynamicShortcuts = listOf(continueReadingShortcut(app))
+                }
             }
         }
 
-        @TargetApi(android.os.Build.VERSION_CODES.N_MR1)
+        @TargetApi(Build.VERSION_CODES.N_MR1)
         private fun continueReadingShortcut(app: Context): ShortcutInfo {
             return ShortcutInfo.Builder(app, app.getString(R.string.app_shortcuts_continue_reading))
                     .setShortLabel(app.getString(R.string.app_shortcuts_continue_reading))
