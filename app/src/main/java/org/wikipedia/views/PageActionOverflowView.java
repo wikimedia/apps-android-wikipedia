@@ -54,8 +54,7 @@ public class PageActionOverflowView extends FrameLayout {
     }
 
     @OnClick({R.id.page_action_overflow_forward, R.id.page_action_overflow_feed,
-            R.id.page_action_overflow_history, R.id.page_action_overflow_reading_lists,
-            R.id.page_action_overflow_nearby})
+            R.id.page_action_overflow_history, R.id.page_action_overflow_reading_lists})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();

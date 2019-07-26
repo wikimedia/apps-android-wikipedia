@@ -83,9 +83,6 @@
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此编辑</string>
-  <string name="nav_item_nearby">附近</string>
-  <string name="nearby_zoom_to_location">找到地图上的位置</string>
-  <string name="nearby_osm_license">&amp;copy;&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;贡献者</string>
   <string name="last_updated_text">最后更新于%s</string>
   <string name="talk_page_link_text">查看讨论页</string>
   <string name="edit_history_link_text">查看编辑历史</string>

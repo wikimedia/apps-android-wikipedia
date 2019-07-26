@@ -37,7 +37,6 @@
   <string name="menu_long_press_copy_page">Kopyahin ang direksiyon ng kawing</string>
   <string name="menu_text_select_copy">Kopyahin</string>
   <string name="menu_text_select_share">Ibahagi</string>
-  <string name="nav_item_nearby">Kalapit</string>
   <string name="last_updated_text">Huling pagsasa-panahon (update) %s</string>
   <string name="talk_page_link_text">Tingnan ang pahinang usapan</string>
   <string name="edit_history_link_text">Tingnan ang kasaysayan ng pagbabago</string>

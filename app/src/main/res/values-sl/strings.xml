@@ -40,8 +40,6 @@
   <string name="menu_text_select_define">Definiraj</string>
   <string name="menu_text_select_share">Deli</string>
   <string name="menu_text_select_edit_here">Uredi tukaj</string>
-  <string name="nav_item_nearby">Blizu</string>
-  <string name="nearby_zoom_to_location">Približaj k lokaciji na zemplevidu</string>
   <string name="last_updated_text">Nazadnje posodobljeno %s</string>
   <string name="talk_page_link_text" fuzzy="true">Pogovorna stran</string>
   <string name="edit_history_link_text" fuzzy="true">Zgodovina urejanja</string>

@@ -40,7 +40,6 @@
   <string name="menu_long_press_copy_page">లంకె చిరునామాను కాపీచెయ్యి</string>
   <string name="menu_text_select_copy">కాపీచేయి</string>
   <string name="menu_text_select_share">పంచుకోండి</string>
-  <string name="nav_item_nearby">దగ్గరలో</string>
   <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
   <string name="talk_page_link_text" fuzzy="true">చర్చ</string>
   <string name="content_license_html" fuzzy="true">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>

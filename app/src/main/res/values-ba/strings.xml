@@ -42,8 +42,6 @@
   <string name="menu_text_select_define">Билдәләү</string>
   <string name="menu_text_select_share">Уртаҡлашырға</string>
   <string name="menu_text_select_edit_here">Бында төҙәтергә</string>
-  <string name="nav_item_nearby">Эргәлә</string>
-  <string name="nearby_zoom_to_location">Картала урынды күрһәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="talk_page_link_text" fuzzy="true">Әңгәмә</string>
   <string name="content_license_html">Эстәлек &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>

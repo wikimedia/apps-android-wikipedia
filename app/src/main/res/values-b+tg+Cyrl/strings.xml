@@ -53,8 +53,6 @@
   <string name="on_this_day_page_share">Паҳнкунӣ</string>
   <string name="reading_list_page_share">Паҳнкунӣ</string>
   <string name="menu_text_select_edit_here">Вироиши инҷо</string>
-  <string name="nav_item_nearby">Наздикӣ</string>
-  <string name="nearby_zoom_to_location">Наздиккунӣ ба як маконе дар харита</string>
   <string name="last_updated_text">Охирин рӯзи барӯзшавӣ %s</string>
   <string name="content_license_html">Муҳтаво таҳти &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ва ё ғайр дастрас аст</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Бо захира намудан, Шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
