@@ -632,6 +632,8 @@
     <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
     <string name="description_edit_anon_limit">Thanks for your continued interest in editing article descriptions! To make additional edits, please log in to your Wikipedia account.</string>
     <string name="description_edit_license_notice"><![CDATA[By changing the article description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="description_edit_helper_text_lowercase_warning">usually begin with a lowercase letter</string>
+
     <!-- /Description editing -->
 
     <!-- Description editing success -->
