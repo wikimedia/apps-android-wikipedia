@@ -40,6 +40,7 @@
 * Smigles
 * Staspotanin2
 * Stjn
+* ToJack
 * Vlad5250
 * WindEwriX
 * Wirbel78
@@ -736,8 +737,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
   <string name="suggested_edits_image_preview_dialog_source">Источник/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Лицензирование</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Подробнее</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Подробнее</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница файла на Викискладе</string>
+  <string name="suggested_edits_article_cta_image_caption">Добавить описание изображения (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Просмотр</string>
   <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить описание (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
