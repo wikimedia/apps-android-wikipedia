@@ -687,9 +687,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
+            String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
             FeedbackUtil.makeSnackbar(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode()))), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery()).show();
+                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
+                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
