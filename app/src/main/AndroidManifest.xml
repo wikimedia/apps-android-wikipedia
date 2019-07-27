@@ -103,10 +103,6 @@
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="ACTION_APP_SHORTCUT" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".crash.CrashReportActivity"
