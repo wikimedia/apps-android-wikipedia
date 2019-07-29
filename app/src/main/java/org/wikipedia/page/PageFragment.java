@@ -31,6 +31,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
@@ -48,6 +50,7 @@ import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -64,6 +67,8 @@ import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
+import org.wikipedia.page.references.ReferenceDialog;
+import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
@@ -85,6 +90,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiPageErrorView;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -164,6 +170,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
+    private References references;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
 
@@ -633,6 +640,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         updateProgressBar(true, true, 0);
 
         this.pageRefreshed = isRefresh;
+        references = null;
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack);
@@ -905,7 +913,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
-                bridge.sendMessage("handleReference", payload);
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -918,17 +925,35 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         };
         bridge.addListener("link_clicked", linkHandler);
 
-        bridge.addListener("reference_clicked", new ReferenceHandler() {
-            @Override
-            protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
-
-                if (!isAdded()) {
-                    L.d("Detached from activity, so stopping reference click.");
-                    return;
-                }
-
-                showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferences, linkHandler));
+        bridge.addListener("reference_clicked", (String messageType, JSONObject messagePayload) -> {
+            if (!isAdded()) {
+                L.d("Detached from activity, so stopping reference click.");
+                return;
             }
+
+            disposables.add(getReferences()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(references ->  {
+                        this.references = references;
+                        int selectedIndex = messagePayload.getInt("selectedIndex");
+                        JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
+                        List<References.Reference> adjacentReferencesList = new ArrayList<>();
+                        for (int i = 0; i < referencesGroup.length(); i++) {
+                            JSONObject reference = (JSONObject) referencesGroup.get(i);
+                            String getReferenceText = StringUtils.defaultString(reference.optString("text"));
+                            String getReferenceId = UriUtil.getFragment(StringUtils.defaultString(reference.optString("href")));
+                            References.Reference getReference = references.getReferencesMap().get(getReferenceId);
+                            if (getReference != null) {
+                                getReference.setText(getReferenceText);
+                                adjacentReferencesList.add(getReference);
+                            }
+                        }
+
+                        if (adjacentReferencesList.size() > 0) {
+                            showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
+                        }
+                    }, L::d));
         });
         bridge.addListener("image_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
@@ -1269,6 +1294,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Nullable String getLeadImageEditLang() {
         return leadImagesHandler.getCallToActionEditLang();
+    }
+
+    private Observable<References> getReferences() {
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText()) : Observable.just(references);
     }
 
     void openImageInGallery() {
