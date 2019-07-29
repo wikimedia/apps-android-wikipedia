@@ -220,6 +220,7 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private void loadPageSummaryIfNeeded(Bundle savedInstanceState) {
+        editView.showProgressBar(true);
         if (invokeSource == PAGE_ACTIVITY && TextUtils.isEmpty(sourceSummary.getExtractHtml())) {
             disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
                     .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
@@ -242,6 +243,7 @@ public class DescriptionEditFragment extends Fragment {
             editView.setDescription(savedInstanceState.getString(ARG_DESCRIPTION));
             editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));
         }
+        editView.showProgressBar(false);
     }
 
     private Callback callback() {

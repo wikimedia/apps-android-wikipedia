@@ -90,6 +90,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         GalleryItemFragment.Callback {
     public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
     private static final int ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2;
+    public static final int ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 3;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_FILENAME = "filename";
@@ -302,8 +303,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
-                    app.language().getAppLanguageLocalizedName(StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1)))));
+                    app.language().getAppLanguageLocalizedName(StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCode()))));
             layOutGalleryDescription();
+            setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
         }
     }
 

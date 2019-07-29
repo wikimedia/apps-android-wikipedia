@@ -672,6 +672,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             handleSettingsActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             handleLangLinkOrPageResult(data);
+        } else if (galleryImageCaptionAdded(requestCode, resultCode)) {
+            pageFragment.refreshPage();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (app.getTabCount() == 0 && resultCode != TabActivity.RESULT_NEW_TAB) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -750,6 +752,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private boolean galleryPageSelected(int requestCode, int resultCode) {
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED;
+    }
+
+    private boolean galleryImageCaptionAdded(int requestCode, int resultCode) {
+        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
     }
 
     private boolean languageChanged(int resultCode) {
