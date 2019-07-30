@@ -160,14 +160,14 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onTabChanged(@NonNull NavTab tab) {
         if (tab.equals(NavTab.EXPLORE)) {
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
-            getSupportActionBar().setTitle("");
+            toolbar.setTitle("");
             controlNavTabInFragment = false;
         } else {
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
             hamburgerAndWordmarkLayout.setVisibility(GONE);
-            getSupportActionBar().setTitle(tab.text());
+            toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
         shouldShowMainDrawer(!controlNavTabInFragment);

@@ -65,6 +65,7 @@ public class TabCountsView extends FrameLayout {
         }
 
         tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_SP, tabTextSize);
+        tabsCountText.setContentDescription(getContext().getString(R.string.menu_page_show_tabs));
     }
 
     public void setColor(@ColorInt int color) {
