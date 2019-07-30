@@ -111,7 +111,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_info_container) ViewGroup infoContainer;
     @BindView(R.id.gallery_info_gradient) View infoGradient;
     @BindView(R.id.gallery_progressbar) ProgressBar progressBar;
-    @BindView(R.id.edit_container) View descriptionEditContainer;
+    @BindView(R.id.gallery_description_container) View galleryDescriptionContainer;
     @BindView(R.id.gallery_description_text) TextView descriptionText;
     @BindView(R.id.gallery_license_icon) ImageView licenseIcon;
     @BindView(R.id.gallery_license_icon_by) ImageView byIcon;
@@ -655,10 +655,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
         }
         if (descriptionStr != null && descriptionStr.length() > 0) {
-            descriptionEditContainer.setVisibility(View.VISIBLE);
+            galleryDescriptionContainer.setVisibility(View.VISIBLE);
             descriptionText.setText(strip(descriptionStr));
         } else {
-            descriptionEditContainer.setVisibility(View.GONE);
+            galleryDescriptionContainer.setVisibility(View.GONE);
         }
         captionTranslateContainer.setVisibility(allowTranslate && AccountUtil.isLoggedIn() ? View.VISIBLE : View.GONE);
         captionTranslateButtonText.setText(getString(R.string.gallery_add_image_caption_in_language_button,
