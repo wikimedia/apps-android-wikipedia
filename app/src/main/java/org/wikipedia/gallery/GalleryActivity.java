@@ -656,7 +656,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             descriptionText.setText(strip(descriptionStr));
         } else {
             descriptionText.setText(R.string.suggested_edits_no_description);
-            allowTranslate = false;
         }
         captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
         captionTranslateButtonText.setText(getString(R.string.gallery_add_image_caption_in_language_button,
