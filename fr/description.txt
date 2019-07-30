@@ -20,7 +20,7 @@ Galerie d'images - Tapez sur une image pour la voir en plein-écran et en haute 
 
 Définitions de Wikitionnaire - Tapez et maintenez pour surligner un mot, puis tapez le bouton "Définir" pour voir une définition du mot de Wikitionnaire.
 
-Wikipedia Zero - Accéder à Wikipedia sur Android sans frais avec les opérateurs mobile participants. (liens des opérateurs participants).
+Wikipédia Zero - Accéder à Wikipédia sur Android sans frais avec les opérateurs mobile participants. (liens des opérateurs participants).
 
 Envoyez-nous des retours à propos de l'application ! Dans le menu, appuyez sur "Paramètres", puis "À propos de l'application Wikipédia", enfin "Envoyer un avis sur l'application".
 
