@@ -36,6 +36,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -110,6 +111,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_info_container) ViewGroup infoContainer;
     @BindView(R.id.gallery_info_gradient) View infoGradient;
     @BindView(R.id.gallery_progressbar) ProgressBar progressBar;
+    @BindView(R.id.edit_container) View descriptionEditContainer;
     @BindView(R.id.gallery_description_text) TextView descriptionText;
     @BindView(R.id.gallery_license_icon) ImageView licenseIcon;
     @BindView(R.id.gallery_license_icon_by) ImageView byIcon;
@@ -628,7 +630,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
-        boolean captionEditable = item.getFilePage().contains(Service.COMMONS_URL);
+        boolean captionEditable = item.getFilePage().contains(Service.COMMONS_URL) && AccountUtil.isLoggedIn();
         captionEditButton.setVisibility(captionEditable ? View.VISIBLE : View.GONE);
 
         boolean allowTranslate = false;
@@ -653,11 +655,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             descriptionStr = StringUtil.fromHtml(item.getDescription().getHtml());
         }
         if (descriptionStr != null && descriptionStr.length() > 0) {
+            descriptionEditContainer.setVisibility(View.VISIBLE);
             descriptionText.setText(strip(descriptionStr));
         } else {
-            descriptionText.setText(R.string.suggested_edits_no_description);
+            descriptionEditContainer.setVisibility(View.GONE);
         }
-        captionTranslateContainer.setVisibility(allowTranslate ? View.VISIBLE : View.GONE);
+        captionTranslateContainer.setVisibility(allowTranslate && AccountUtil.isLoggedIn() ? View.VISIBLE : View.GONE);
         captionTranslateButtonText.setText(getString(R.string.gallery_add_image_caption_in_language_button,
                 app.language().getAppLanguageLocalizedName(targetLanguageCode)));
 
