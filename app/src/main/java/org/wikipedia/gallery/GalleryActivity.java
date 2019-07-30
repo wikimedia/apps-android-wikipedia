@@ -547,8 +547,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (initialFilename != null) {
             for (GalleryItem item : list) {
                 // sometimes the namespace of a file would be in different languages rather than English.
-                if (StringUtil.removeNamespace(item.getTitles().getCanonical())
-                        .equals(StringUtil.removeNamespace(addUnderscores(initialFilename)))) {
+                String title = StringUtil.removeNamespace(item.getTitles().getCanonical());
+                String titleFromFilePageUrl = StringUtil.removeNamespace(addUnderscores(UriUtil.getTitleFromUrl(item.getFilePage())));
+                String titleFromPage = StringUtil.removeNamespace(addUnderscores(initialFilename));
+                if (title.equals(titleFromPage) || titleFromFilePageUrl.equals(titleFromPage)) {
                     initialImagePos = list.indexOf(item);
                     break;
                 }
