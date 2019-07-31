@@ -10,6 +10,7 @@ import androidx.annotation.VisibleForTesting;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
@@ -115,9 +116,8 @@ public class PageFragmentLoadState {
             leadImagesHandler.hide();
         }
 
-        // Reload the stub index.html into the WebView, which will cause any wiki-specific
-        // CSS to be loaded automatically.
-        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
+        // Kick off by checking whether this page exists in a reading list, since that will determine
+        // whether we'll (re)save it to offline cache.
         pageLoadCheckReadingLists();
     }
 
@@ -201,8 +201,8 @@ public class PageFragmentLoadState {
     }
 
     @VisibleForTesting
-    protected void commonSectionFetchOnCatch(@NonNull Throwable caught, int startSequenceNum) {
-        if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
+    protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
+        if (!fragment.isAdded()) {
             return;
         }
         ErrorCallback callback = networkErrorCallback;
@@ -245,30 +245,31 @@ public class PageFragmentLoadState {
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
         }
-        pageLoadLeadSection(sequenceNumber.get());
-    }
 
-    @VisibleForTesting
-    protected void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
         disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(rsp -> {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(rsp -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
                     PageLead lead = rsp.body();
-                    pageLoadLeadSectionComplete(lead, startSequenceNum);
+                    pageLoadLeadSectionComplete(lead);
+
+                    bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
+
                     if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
                             || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                         showPageOfflineMessage(rsp.raw().header("date", ""));
                     }
                 }, t -> {
                     L.e("PageLead error: ", t);
-                    commonSectionFetchOnCatch(t, startSequenceNum);
+                    commonSectionFetchOnCatch(t);
                 }));
+
+        // And finally, start blasting the HTML into the WebView.
+        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
     }
 
     private void updateThumbnail(String thumbUrl) {
@@ -295,8 +296,8 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageLead pageLead, int startSequenceNum) {
-        if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
+    private void pageLoadLeadSectionComplete(PageLead pageLead) {
+        if (!fragment.isAdded()) {
             return;
         }
 

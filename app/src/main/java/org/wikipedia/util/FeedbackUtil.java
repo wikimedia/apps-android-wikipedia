@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -126,7 +125,7 @@ public final class FeedbackUtil {
         textView.setMaxLines(SNACKBAR_MAX_LINES);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
-        actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
+        actionView.setTextColor(ResourceUtil.getThemedColor(view.getContext(), R.attr.color_group_52));
         return snackbar;
     }
 

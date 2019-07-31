@@ -31,6 +31,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
@@ -48,6 +50,7 @@ import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -64,6 +67,8 @@ import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
+import org.wikipedia.page.references.ReferenceDialog;
+import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
@@ -75,6 +80,7 @@ import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -84,6 +90,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiPageErrorView;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -103,7 +110,6 @@ import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
-import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
@@ -163,6 +169,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
+    private References references;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
 
@@ -632,6 +639,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         updateProgressBar(true, true, 0);
 
         this.pageRefreshed = isRefresh;
+        references = null;
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack);
@@ -897,7 +905,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -910,17 +917,35 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         };
         bridge.addListener("link_clicked", linkHandler);
 
-        bridge.addListener("reference_clicked", new ReferenceHandler() {
-            @Override
-            protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
-
-                if (!isAdded()) {
-                    L.d("Detached from activity, so stopping reference click.");
-                    return;
-                }
-
-                showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferences, linkHandler));
+        bridge.addListener("reference_clicked", (String messageType, JSONObject messagePayload) -> {
+            if (!isAdded()) {
+                L.d("Detached from activity, so stopping reference click.");
+                return;
             }
+
+            disposables.add(getReferences()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(references ->  {
+                        this.references = references;
+                        int selectedIndex = messagePayload.getInt("selectedIndex");
+                        JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
+                        List<References.Reference> adjacentReferencesList = new ArrayList<>();
+                        for (int i = 0; i < referencesGroup.length(); i++) {
+                            JSONObject reference = (JSONObject) referencesGroup.get(i);
+                            String getReferenceText = StringUtils.defaultString(reference.optString("text"));
+                            String getReferenceId = UriUtil.getFragment(StringUtils.defaultString(reference.optString("href")));
+                            References.Reference getReference = references.getReferencesMap().get(getReferenceId);
+                            if (getReference != null) {
+                                getReference.setText(getReferenceText);
+                                adjacentReferencesList.add(getReference);
+                            }
+                        }
+
+                        if (adjacentReferencesList.size() > 0) {
+                            showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
+                        }
+                    }, L::d));
         });
         bridge.addListener("image_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
@@ -977,6 +1002,31 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             } else {
                 updateProgressBar(false, true, 0);
                 avPlayer.stop();
+            }
+        });
+        bridge.addListener("footer_item_selected", (String messageType, JSONObject messagePayload) -> {
+            String itemType = messagePayload.optString("itemType");
+            if ("talkPage".equals(itemType) && model.getTitle() != null) {
+                PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
+                visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getMobileUri()));
+            } else if ("languages".equals(itemType)) {
+                startLangLinksActivity();
+            } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getUriForAction("history")));
+            } else if ("coordinate".equals(itemType) && model.getPage() != null && model.getPage().getPageProperties().getGeo() != null) {
+                GeoUtil.sendGeoIntent(requireActivity(), model.getPage().getPageProperties().getGeo(), model.getPage().getDisplayTitle());
+            } else if ("disambiguation".equals(itemType)) {
+                // TODO
+                // messagePayload contains an array of URLs called "payload".
+            }
+        });
+        bridge.addListener("read_more_titles_retrieved", (String messageType, JSONObject messagePayload) -> {
+            // TODO: do something with this.
+            L.v(messagePayload.toString());
+        });
+        bridge.addListener("view_in_browser", (String messageType, JSONObject messagePayload) -> {
+            if (model.getTitle() != null) {
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getMobileUri()));
             }
         });
     }
@@ -1229,6 +1279,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Nullable String getLeadImageEditLang() {
         return leadImagesHandler.getCallToActionEditLang();
+    }
+
+    private Observable<References> getReferences() {
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText()) : Observable.just(references);
     }
 
     void openImageInGallery() {

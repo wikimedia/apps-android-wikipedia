@@ -61,7 +61,7 @@ public class CommunicationBridge {
     public void resetHtml(@NonNull String wikiUrl, String title) {
         isDOMReady = false;
         pendingJSMessages.clear();
-        webView.loadUrl(wikiUrl + "/" + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + title);
+        webView.loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + title);
         execute(JavaScriptActionHandler.setHandler());
     }
 
@@ -104,7 +104,8 @@ public class CommunicationBridge {
             JSONObject messagePack = (JSONObject) msg.obj;
             String type = messagePack.optString("action");
             if (!eventListeners.containsKey(type)) {
-                throw new RuntimeException("No such message type registered: " + type);
+                L.e("No such message type registered: " + type);
+                return false;
             }
             List<JSEventListener> listeners = eventListeners.get(type);
             for (JSEventListener listener : listeners) {
