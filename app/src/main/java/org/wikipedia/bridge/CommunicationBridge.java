@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -132,6 +133,7 @@ public class CommunicationBridge {
          */
         @JavascriptInterface
         public synchronized void onReceiveMessage(String message) {
+            Log.e("####","MESSAGE"+message);
             try {
                 if (incomingMessageHandler != null) {
                     JSONObject messagePack = new JSONObject(message);
