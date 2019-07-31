@@ -138,7 +138,8 @@ public final class DeviceUtil {
 
     public static boolean isAccessibilityEnabled() {
         AccessibilityManager am = (AccessibilityManager) WikipediaApp.getInstance().getSystemService(ACCESSIBILITY_SERVICE);
-        return am != null && am.isEnabled();
+        // TODO: add more logic if other accessibility tools have different settings.
+        return am != null && am.isEnabled() && am.isTouchExplorationEnabled();
     }
 
     private DeviceUtil() {
