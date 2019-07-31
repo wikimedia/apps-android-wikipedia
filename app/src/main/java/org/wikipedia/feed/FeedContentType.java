@@ -17,7 +17,6 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.ReleaseUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,11 +85,11 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new BecauseYouReadClient() : null;
         }
     },
-    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false, ReleaseUtil.isPreBetaRelease()) {
+    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            if (ReleaseUtil.isPreBetaRelease() && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+            if (isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
                 List<InvokeSource> unlockedTypes = getUnlockedEditingPrivileges();
                 if (unlockedTypes.size() > 0) {
                     return new SuggestedEditsFeedClient(unlockedTypes.get(age % unlockedTypes.size()));
@@ -126,7 +125,6 @@ public enum FeedContentType implements EnumCode {
     private boolean enabled = true;
 
     private boolean perLanguage;
-    private boolean showInConfig = true;
     private List<String> langCodesSupported = new ArrayList<>();
     private List<String> langCodesDisabled = new ArrayList<>();
 
@@ -152,10 +150,6 @@ public enum FeedContentType implements EnumCode {
 
     public boolean isEnabled() {
         return enabled;
-    }
-
-    public boolean showInConfig() {
-        return showInConfig;
     }
 
     public void setEnabled(boolean enabled) {
@@ -188,11 +182,6 @@ public enum FeedContentType implements EnumCode {
         this.titleId = titleId;
         this.subtitleId = subtitleId;
         this.perLanguage = perLanguage;
-    }
-
-    FeedContentType(int code, @StringRes int titleId, @StringRes int subtitleId, boolean perLanguage, boolean showInConfig) {
-        this(code, titleId, subtitleId, perLanguage);
-        this.showInConfig = showInConfig;
     }
 
     public static List<String> getAggregatedLanguages() {

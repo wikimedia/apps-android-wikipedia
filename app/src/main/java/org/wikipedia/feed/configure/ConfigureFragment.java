@@ -172,10 +172,6 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         Iterator<FeedContentType> i = orderedContentTypes.iterator();
         while (i.hasNext()) {
             FeedContentType feedContentType = i.next();
-            if (!feedContentType.showInConfig()) {
-                i.remove();
-                continue;
-            }
             List<String> supportedLanguages = feedContentType.getLangCodesSupported();
             if (supportedLanguages.isEmpty()) {
                 continue;
