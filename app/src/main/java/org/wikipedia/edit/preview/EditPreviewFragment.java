@@ -16,8 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
@@ -32,7 +30,6 @@ import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewModel;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.log.L;
@@ -192,7 +189,6 @@ public class EditPreviewFragment extends Fragment {
     private void displayPreview(final String html) {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
-            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault(), bridge);
 
             bridge.addListener("link_clicked", new LinkHandler(requireActivity()) {
                 @Override
@@ -248,6 +244,7 @@ public class EditPreviewFragment extends Fragment {
 
         ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
         ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
+        //Todo: mobile-html: add bridge communication
     }
 
     /**

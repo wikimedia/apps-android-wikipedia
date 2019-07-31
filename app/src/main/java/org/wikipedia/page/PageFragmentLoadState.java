@@ -23,13 +23,11 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
 import java.text.ParseException;
-import java.util.Locale;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -232,9 +230,6 @@ public class PageFragmentLoadState {
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
-
-        L10nUtil.setupDirectionality(model.getTitle().getWikiSite().languageCode(), Locale.getDefault(),
-                bridge);
 
         networkErrorCallback = errorCallback;
         if (!fragment.isAdded()) {

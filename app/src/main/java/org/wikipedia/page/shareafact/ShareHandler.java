@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -238,6 +237,7 @@ public class ShareHandler {
         public boolean onMenuItemClick(MenuItem item) {
             // send an event to the WebView that will make it return the
             // selected text (or first paragraph) back to us...
+            //Todo: mobile-html: add bridge communication
             return true;
         }
     }

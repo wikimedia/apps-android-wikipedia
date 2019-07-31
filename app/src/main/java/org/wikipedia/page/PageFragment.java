@@ -905,6 +905,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
+                //Todo: mobile-html: add bridge communication
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -1101,6 +1102,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void sendDecorOffsetMessage() {
+        //Todo: mobile-html: add bridge communication
     }
 
     private void initPageScrollFunnel() {

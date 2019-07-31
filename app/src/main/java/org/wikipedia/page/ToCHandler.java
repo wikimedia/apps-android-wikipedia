@@ -22,7 +22,6 @@ import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
@@ -147,9 +146,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     void scrollToSection(String sectionAnchor) {
+        //Todo: mobile-html: add bridge communication
     }
 
     private void scrollToSection(Section section) {
+        //Todo: mobile-html: add bridge communication
     }
 
     public void show() {
@@ -196,6 +197,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     @Override
     public void onContentHeightChanged(int contentHeight) {
+        //Todo: mobile-html: add bridge communication
     }
 
     @Override
