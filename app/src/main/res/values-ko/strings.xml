@@ -701,6 +701,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
+  <string name="suggested_edits_article_cta_image_caption">이미지 캡션 추가 (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">보기</string>
   <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
   <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>

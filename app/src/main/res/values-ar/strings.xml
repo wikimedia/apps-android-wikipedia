@@ -628,6 +628,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">شكرا لاهتمامك المستمر بتحرير أوصاف المقالات! لإجراء تعديلات إضافية؛ يُرجَى تسجيل الدخول إلى حساب ويكيبيديا الخاص بك.</string>
   <string name="description_edit_license_notice">من خلال تغيير وصف المقالة، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">عادةً ما يبدأ بحرف صغير</string>
   <string name="description_edit_success_saved">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_snackbar">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
@@ -717,6 +718,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
   <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح</string>
   <string name="suggested_edits_feed_card_translate_image_caption">إضافة شرح (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
