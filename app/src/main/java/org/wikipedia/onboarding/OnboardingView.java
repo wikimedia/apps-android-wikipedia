@@ -54,10 +54,12 @@ public class OnboardingView extends LinearLayout {
 
     public void setPositiveAction(@StringRes int id) {
         actionViewPositive.setText(id);
+        actionViewPositive.setContentDescription(getContext().getString(R.string.content_description_for_button, getContext().getString(id)));
     }
 
     public void setNegativeAction(@StringRes int id) {
         actionViewNegative.setText(id);
+        actionViewNegative.setContentDescription(getContext().getString(R.string.content_description_for_button, getContext().getString(id)));
     }
 
     @OnClick(R.id.view_onboarding_action_positive)
