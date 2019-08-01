@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.rd.PageIndicatorView;
+
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
@@ -27,6 +29,7 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
     @BindView(R.id.fragment_onboarding_skip_button) View skipButton;
     @BindView(R.id.fragment_onboarding_forward_button) View forwardButton;
     @BindView(R.id.fragment_onboarding_done_button) TextView doneButton;
+    @BindView(R.id.view_onboarding_page_indicator) PageIndicatorView pageIndicatorView;
     private Unbinder unbinder;
     private PagerAdapter adapter;
 
@@ -38,11 +41,6 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
 
     @StringRes protected abstract int getDoneButtonText();
 
-    protected ViewPager getViewPager() {
-        return viewPager;
-    }
-
-
     @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_onboarding_pager, container, false);
@@ -50,7 +48,9 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         adapter = getAdapter();
         viewPager.setAdapter(adapter);
         doneButton.setText(getDoneButtonText());
+        doneButton.setContentDescription(getString(R.string.content_description_for_button, getString(getDoneButtonText())));
         updateButtonState();
+        updatePageIndicatorContentDescription();
         return view;
     }
 
@@ -70,8 +70,7 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         return false;
     }
 
-    @OnClick({R.id.fragment_onboarding_forward_button, R.id.fragment_onboarding_done_button})
-    public void onForwardClick() {
+    @OnClick({R.id.fragment_onboarding_forward_button, R.id.fragment_onboarding_done_button}) void onForwardClick() {
         if (atLastPage()) {
             finish();
         } else {
@@ -85,10 +84,12 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
 
     @OnPageChange(R.id.fragment_pager) void onPageChange() {
         updateButtonState();
+        updatePageIndicatorContentDescription();
+        // TODO: request focus to child view to make it readable after switched page.
     }
 
 
-    protected void advancePage() {
+    void advancePage() {
         if (!isAdded()) {
             return;
         }
@@ -109,6 +110,10 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
 
     private boolean atLastPage() {
         return viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1;
+    }
+
+    private void updatePageIndicatorContentDescription() {
+        pageIndicatorView.setContentDescription(getString(R.string.content_description_for_page_indicator, viewPager.getCurrentItem() + 1, adapter.getCount()));
     }
 
     private void updateButtonState() {

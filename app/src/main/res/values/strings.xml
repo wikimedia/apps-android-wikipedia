@@ -838,6 +838,7 @@
 
     <!-- Content description -->
     <string name="content_description_for_button">%s button</string>
+    <string name="content_description_for_page_indicator">Page %1$d of %2$d</string>
     <!-- /Content description -->
 
     <string name="wikitext_bold">Bold</string>
