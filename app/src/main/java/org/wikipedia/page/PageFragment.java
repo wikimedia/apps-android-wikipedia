@@ -428,7 +428,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 bridge.onPageFinished();
                 updateProgressBar(false, true, 0);
-                bridge.execute(JavaScriptActionHandler.setMulti(requireContext(), app.getCurrentTheme().getFunnelName().toUpperCase(), app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages(), Prefs.isCollapseTablesEnabled()));
+                bridge.execute(JavaScriptActionHandler.setUp(requireContext(), app.getCurrentTheme().getFunnelName().toUpperCase(), app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages(), Prefs.isCollapseTablesEnabled()));
             }
         });
     }

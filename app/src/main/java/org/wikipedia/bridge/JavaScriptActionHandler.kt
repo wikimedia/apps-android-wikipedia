@@ -25,7 +25,7 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setMulti(context: Context, theme: String, dimImages: Boolean, collapseTables: Boolean): String {
+    fun setUp(context: Context, theme: String, dimImages: Boolean, collapseTables: Boolean): String {
         return context.getString(R.string.page_mh_set_multi_script, theme, dimImages, collapseTables)
     }
 
