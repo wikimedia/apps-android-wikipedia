@@ -1,7 +1,6 @@
 package org.wikipedia.captcha;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
@@ -42,17 +41,15 @@ public class CaptchaHandler {
     private final WikiSite wiki;
     private final View primaryView;
     private final String prevTitle;
-    private ProgressDialog progressDialog;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private String token;
     @Nullable private CaptchaResult captchaResult;
 
-    public CaptchaHandler(final Activity activity, final WikiSite wiki, final ProgressDialog progressDialog,
-                          final View primaryView, final String prevTitle, final String submitButtonText) {
+    public CaptchaHandler(final Activity activity, final WikiSite wiki, final View primaryView,
+                          final String prevTitle, final String submitButtonText) {
         this.activity = activity;
         this.wiki = wiki;
-        this.progressDialog = progressDialog;
         this.primaryView = primaryView;
         this.prevTitle = prevTitle;
 
@@ -152,9 +149,6 @@ public class CaptchaHandler {
                     @Override
                     public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
                         ((AppCompatActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
-                        if (progressDialog.isShowing()) {
-                            progressDialog.hide();
-                        }
 
                         // for our Dark theme, show a "negative image" of the captcha!
                         final int maxColorVal = 255;
