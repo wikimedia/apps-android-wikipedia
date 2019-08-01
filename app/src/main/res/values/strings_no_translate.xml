@@ -81,7 +81,7 @@
     <!-- Mobile-html(mh) scripts -->
     <string name="page_mh_set_handler_script">pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})</string>
     <string name="page_mh_set_margins_script">pagelib.c1.Page.setMargins({ top:\'%dpx\', right:\'%dpx\', bottom:\'%dpx\', left:\'%dpx\' })</string>
-    <string name="page_mh_set_scrollTop_script">pagelib.c1.Page.setScrollTop(document,%d)</string>
+    <string name="page_mh_set_scrollTop_script">pagelib.c1.Page.setScrollTop(%d)</string>
     <string name="page_mh_set_multi_script">pagelib.c1.Page.setUp({
                                             platform: pagelib.c1.Platforms.ANDROID,
                                             theme: pagelib.c1.Themes.%s,
