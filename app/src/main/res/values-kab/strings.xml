@@ -81,7 +81,6 @@
   <string name="langlinks_activity_title">Tutlayin-nniḍen</string>
   <string name="langlinks_your_wikipedia_languages">Tutlayt-ik n Wikipedia</string>
   <string name="menu_save_changes">Suffeɣ-d asnifel</string>
-  <string name="dialog_saving_in_progress">Asuffeɣ...</string>
   <string name="edit_saved_successfully">Taẓrigt teffeɣ-d!</string>
   <string name="dialog_message_edit_failed">Taẓrigt tecceḍ!</string>
   <string name="dialog_message_edit_failed_retry">Ɛreḍ tikelt-nniḍen</string>
@@ -144,7 +143,6 @@
   <string name="create_account_ip_block_details">Ttfaṣil</string>
   <string name="preferences_general_heading">Amatu</string>
   <string name="wikipedia_app_faq">Isteqsiyen FAQ n isnasen Wikipedia</string>
-  <string name="edit_preview_fetching_dialog_message">Awway n teskant...</string>
   <string name="send_feedback">Azen-d tikti ɣef usnas</string>
   <string name="create_account_account_created_toast">Amiḍan yettwarna!</string>
   <string name="preferences_heading_data_usage">Aseqdec n isefka</string>
