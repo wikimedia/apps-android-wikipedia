@@ -17,7 +17,7 @@ public class MediaList {
         List<MediaListItem> list = new ArrayList<>();
         if (items != null) {
             for (MediaListItem item : items) {
-                if (item.isShowInGallery()) {
+                if (item.showInGallery()) {
                     for (String type : types) {
                         if (item.getType().contains(type)) {
                             list.add(item);
