@@ -14,6 +14,7 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
+
+import static android.content.Context.ACCESSIBILITY_SERVICE;
 
 public final class DeviceUtil {
 
@@ -131,6 +134,12 @@ public final class DeviceUtil {
     public static boolean isOnWiFi() {
         NetworkInfo info = getConnectivityManager().getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return info != null && info.isConnected();
+    }
+
+    public static boolean isAccessibilityEnabled() {
+        AccessibilityManager am = (AccessibilityManager) WikipediaApp.getInstance().getSystemService(ACCESSIBILITY_SERVICE);
+        // TODO: add more logic if other accessibility tools have different settings.
+        return am != null && am.isEnabled() && am.isTouchExplorationEnabled();
     }
 
     private DeviceUtil() {
