@@ -2,13 +2,14 @@ package org.wikipedia.login;
 
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,11 +41,12 @@ public class ResetPasswordActivity extends BaseActivity {
     @BindView(R.id.reset_password_repeat) TextInputLayout passwordRepeatInput;
     @BindView(R.id.login_2fa_text) EditText twoFactorText;
     @BindView(R.id.view_login_error) WikiErrorView errorView;
-    @BindView(R.id.login_button) View loginButton;
+    @BindView(R.id.login_button) TextView loginButton;
+    @BindView(R.id.view_progress_bar) ProgressBar progressBar;
 
-    private ProgressDialog progressDialog;
     @Nullable private String firstStepToken;
     private LoginClient loginClient;
+    private LoginCallback loginCallback = new LoginCallback();
     private String userName;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String userName,
@@ -72,10 +74,6 @@ public class ResetPasswordActivity extends BaseActivity {
             }
             return false;
         });
-
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
-        progressDialog.setCancelable(false);
 
         userName = getIntent().getStringExtra(LOGIN_USER_NAME);
         firstStepToken = getIntent().getStringExtra(LOGIN_TOKEN);
@@ -120,73 +118,66 @@ public class ResetPasswordActivity extends BaseActivity {
         String retypedPassword = getText(passwordRepeatInput).toString();
         String twoFactorCode = twoFactorText.getText().toString();
 
+        showProgressBar(true);
+
         if (loginClient == null) {
             loginClient = new LoginClient();
         }
-        progressDialog.show();
 
         loginClient.login(WikipediaApp.getInstance().getWikiSite(), userName, password,
-                retypedPassword, twoFactorCode, firstStepToken, getCallback());
+                retypedPassword, twoFactorCode, firstStepToken, loginCallback);
     }
 
-    private LoginClient.LoginCallback getCallback() {
-        return new LoginClient.LoginCallback() {
-            @Override
-            public void success(@NonNull LoginResult result) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                if (result.pass()) {
-                    Bundle extras = getIntent().getExtras();
-                    AccountAuthenticatorResponse response = extras == null
-                            ? null
-                            : extras.getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
-                    AccountUtil.updateAccount(response, result);
+    private class LoginCallback implements LoginClient.LoginCallback {
+        @Override
+        public void success(@NonNull LoginResult result) {
+            showProgressBar(false);
+            if (result.pass()) {
+                Bundle extras = getIntent().getExtras();
+                AccountAuthenticatorResponse response = extras == null
+                        ? null
+                        : extras.getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
+                AccountUtil.updateAccount(response, result);
 
-                    hideSoftKeyboard(ResetPasswordActivity.this);
-                    setResult(RESULT_PASSWORD_RESET_SUCCESS);
-                    finish();
+                hideSoftKeyboard(ResetPasswordActivity.this);
+                setResult(RESULT_PASSWORD_RESET_SUCCESS);
+                finish();
 
-                } else if (result.fail()) {
-                    String message = result.getMessage();
-                    FeedbackUtil.showMessage(ResetPasswordActivity.this, message);
-                    L.w("Login failed with result " + message);
-                }
+            } else if (result.fail()) {
+                String message = result.getMessage();
+                FeedbackUtil.showMessage(ResetPasswordActivity.this, message);
+                L.w("Login failed with result " + message);
             }
+        }
 
-            @Override
-            public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                firstStepToken = token;
-                twoFactorText.setVisibility(View.VISIBLE);
-                twoFactorText.requestFocus();
+        @Override
+        public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
+            showProgressBar(false);
+            firstStepToken = token;
+            twoFactorText.setVisibility(View.VISIBLE);
+            twoFactorText.requestFocus();
+            FeedbackUtil.showError(ResetPasswordActivity.this, caught);
+        }
+
+        @Override public void passwordResetPrompt(@Nullable String token) {
+            // This case should not happen here, and we wouldn't have much to do anyway.
+        }
+
+        @Override
+        public void error(@NonNull Throwable caught) {
+            showProgressBar(false);
+            if (caught instanceof LoginClient.LoginFailedException) {
                 FeedbackUtil.showError(ResetPasswordActivity.this, caught);
+            } else {
+                showError(caught);
             }
+        }
+    }
 
-            @Override public void passwordResetPrompt(@Nullable String token) {
-                // This case should not happen here, and we wouldn't have much to do anyway.
-            }
-
-            @Override
-            public void error(@NonNull Throwable caught) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                if (caught instanceof LoginClient.LoginFailedException) {
-                    FeedbackUtil.showError(ResetPasswordActivity.this, caught);
-                } else {
-                    showError(caught);
-                }
-            }
-        };
+    private void showProgressBar(boolean enable) {
+        progressBar.setVisibility(enable ? View.VISIBLE : View.GONE);
+        loginButton.setEnabled(!enable);
+        loginButton.setText(enable ? R.string.login_in_progress_dialog_message : R.string.menu_login);
     }
 
     @Override
@@ -197,9 +188,7 @@ public class ResetPasswordActivity extends BaseActivity {
 
     @Override
     public void onStop() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
+        showProgressBar(false);
         super.onStop();
     }
 
