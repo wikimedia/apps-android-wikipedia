@@ -93,7 +93,6 @@
   <string name="langlinks_activity_title">Altres idiomes</string>
   <string name="langlinks_your_wikipedia_languages">Les vostres llengües de la Viquipèdia</string>
   <string name="menu_save_changes">Publica els canvis</string>
-  <string name="dialog_saving_in_progress">S’estan publicant…</string>
   <string name="edit_saved_successfully">Modificació publicada!</string>
   <string name="dialog_message_edit_failed">La modificació no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Torna-ho a provar</string>
@@ -171,7 +170,6 @@
   <string name="create_account_ip_block_details">Detalls</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">PMF de l\'aplicació de la Viquipèdia</string>
-  <string name="edit_preview_fetching_dialog_message">Obtenint la previsualització…</string>
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preferences_heading_syncing">Sincronització</string>

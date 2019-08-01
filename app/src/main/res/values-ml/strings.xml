@@ -69,7 +69,6 @@
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
   <string name="langlinks_your_wikipedia_languages">താങ്കളുടെ വിക്കിപീഡിയ ഭാഷകൾ</string>
   <string name="menu_save_changes">മാറ്റങ്ങൾ പ്രസിദ്ധീകരിക്കുക</string>
-  <string name="dialog_saving_in_progress">പ്രസിദ്ധീകരിക്കുന്നു...</string>
   <string name="edit_saved_successfully">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -129,7 +128,6 @@
   <string name="create_account_ip_block_details">വിശദാംശങ്ങൾ</string>
   <string name="preferences_general_heading">സാർവത്രികം</string>
   <string name="wikipedia_app_faq">വിക്കിപീഡിയ ആപ്പ് പതിവ് ചോദ്യങ്ങൾ</string>
-  <string name="edit_preview_fetching_dialog_message">പ്രിവ്യൂ എടുക്കുന്നു…</string>
   <string name="send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>
   <string name="create_account_account_created_toast">അംഗത്വം സൃഷ്ടിച്ചിരിക്കുന്നു!</string>
   <string name="preferences_heading_syncing">ഏകതാനമാക്കുക</string>

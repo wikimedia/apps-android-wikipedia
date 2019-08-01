@@ -82,7 +82,6 @@
   <string name="langlinks_activity_title">زمانەکانی تر</string>
   <string name="langlinks_your_wikipedia_languages">زمانەکانی ویکیپیدیاکەت</string>
   <string name="menu_save_changes">پاشەکەوتکردنی گۆڕانکارییەکان</string>
-  <string name="dialog_saving_in_progress">پاشەکەوتکردن…</string>
   <string name="edit_saved_successfully">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed_retry">ھەوڵداناوە</string>
@@ -140,7 +139,6 @@
   <string name="create_account_button">دروستکردنی ھەژمار</string>
   <string name="preferences_general_heading">گشتی</string>
   <string name="wikipedia_app_faq">پرسیارە دووپاتکراوەکانی نەرمامێری مۆبایلی ویکیپیدیا</string>
-  <string name="edit_preview_fetching_dialog_message">ھێنان و بردنی پێشبینین...</string>
   <string name="send_feedback">ناردنی فیدباکی ئاپ</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">ڕێگە بە ویکیپیدیا بدە بۆ خەزێنەکردنی پێڕستی خوێندنەوەکەت لەکاتی ھاتنە ژوورەوەت</string>

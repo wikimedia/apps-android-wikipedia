@@ -102,7 +102,6 @@
   <string name="langlinks_activity_title">查看其他语言的版本</string>
   <string name="langlinks_your_wikipedia_languages">添加维基百科语言</string>
   <string name="menu_save_changes">保存更改</string>
-  <string name="dialog_saving_in_progress">正在保存更改…</string>
   <string name="edit_saved_successfully">更改保存成功！</string>
   <string name="dialog_message_edit_failed">更改保存失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
@@ -180,7 +179,6 @@
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">常规</string>
   <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
-  <string name="edit_preview_fetching_dialog_message">正在获取预览…</string>
   <string name="send_feedback">发送应用程序反馈</string>
   <string name="create_account_account_created_toast">账户已创建！</string>
   <string name="preferences_heading_syncing">正在同步</string>
