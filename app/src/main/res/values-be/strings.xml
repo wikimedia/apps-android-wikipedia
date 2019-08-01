@@ -58,7 +58,6 @@
   <string name="langlinks_no_match" fuzzy="true">Ня знойдзена моваў, якія адпавядаюць Вашаму запыту.</string>
   <string name="langlinks_activity_title">Іншыя мовы</string>
   <string name="menu_save_changes">Апублікаваць змены</string>
-  <string name="dialog_saving_in_progress">Захоўваецца…</string>
   <string name="edit_saved_successfully">Праўка захавана!</string>
   <string name="dialog_message_edit_failed">Памылка рэдагавання!</string>
   <string name="dialog_message_edit_failed_retry">Паўтарыць</string>
@@ -109,7 +108,6 @@
   <string name="create_account_button">Стварыць уліковы запіс</string>
   <string name="preferences_general_heading">Агульныя</string>
   <string name="wikipedia_app_faq">Частыя пытанні па дадатку Вікіпедыі</string>
-  <string name="edit_preview_fetching_dialog_message">Атрыманне папярэдняга прагляду...</string>
   <string name="send_feedback">Зваротная сувязь</string>
   <string name="create_account_account_created_toast">Рахунак створаны!</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Дазволіць Вікімедыя сінхранізаваць Ваш спіс для чытання пры аўтарызацыі</string>
