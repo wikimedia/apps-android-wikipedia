@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gallery {
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String revision;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String tid;
+    @SuppressWarnings("unused") @Nullable private String revision;
+    @SuppressWarnings("unused") @Nullable private String tid;
     @SuppressWarnings("unused") @Nullable private List<GalleryItem> items;
 
     @Nullable
