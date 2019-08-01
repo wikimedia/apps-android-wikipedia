@@ -32,7 +32,7 @@ public class MediaListItem implements Serializable {
         return caption;
     }
 
-    public boolean isShowInGallery() {
+    public boolean showInGallery() {
         return showInGallery;
     }
 
