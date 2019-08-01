@@ -124,7 +124,7 @@
   <string name="login_username_hint">用户名</string>
   <string name="login_password_hint">密码</string>
   <string name="account_creation_password_hint">密码</string>
-  <string name="login_2fa_hint">输入二元验证码</string>
+  <string name="login_2fa_hint">输入两步验证码</string>
   <string name="login_2fa_other_workflow_error_msg">需要二元验证，请返回主活动页面使用2FA Token登录后重试。</string>
   <string name="onboarding_card_login">登录</string>
   <string name="page_editing_login">登录</string>

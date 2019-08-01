@@ -16,6 +16,7 @@
   <string name="search_hint">Ҷустуҷӯи Википедия</string>
   <string name="search_hint_search_history">Ҷустан дар таърих</string>
   <string name="search_hint_search_languages">Ҷустани забон</string>
+  <string name="search_hint_search_my_lists_and_articles">Ҷустани мақолаҳо ва рӯйхатҳои ман</string>
   <string name="nav_item_history">Таърих</string>
   <string name="error_network_error">Ба Интернет пайваст шуда наметавонам.</string>
   <string name="page_error_retry">Дубора саъй кунед</string>
@@ -26,6 +27,8 @@
   <string name="page_error_back_to_main">Аз нав оғоз намоед</string>
   <string name="error_back">Аз нав оғоз намоед</string>
   <string name="menu_clear_all_history">Тозакунии таърих</string>
+  <string name="history_item_deleted">%s аз таърих тоза шуд</string>
+  <string name="history_items_deleted">%d мақолаҳо аз таърих тоза шуданд</string>
   <string name="history_item_delete_undo">Ботил</string>
   <string name="notification_archive_undo">Ботил</string>
   <string name="dialog_title_clear_history">Тозакунии таърихи мурур</string>
@@ -94,8 +97,14 @@
   <string name="login_in_progress_dialog_message">Дар ҳоли вуруд ба...</string>
   <string name="login_success_toast">Вуруд бо муваффақият!</string>
   <string name="reset_password_title">Гузарвожаи худро ворид кунед</string>
+  <string name="reset_password_hint">Калимаи нави убур:</string>
+  <string name="reset_password_button">Захира ва вуруд</string>
   <string name="preference_title_logout">Хуруҷ</string>
   <string name="toast_logout_complete">Хориҷ шудед</string>
+  <string name="logout_dialog_cancel_button_text">Тамом кардан</string>
+  <string name="logged_out_in_background_title">Хориҷ шудед</string>
+  <string name="logged_out_in_background_login">Вуруд</string>
+  <string name="logged_out_in_background_cancel">Тамом кардан</string>
   <string name="history_empty_message" fuzzy="true">Шояд шумо ҳамаи онҳоро тоза карда бошед. Даъфаи дигар вақте ба саҳифае меравед шумо ба он саҳифа бори дигар аз инҷо рафта метавонед.</string>
   <string name="create_account_username_hint">Номи корбар</string>
   <string name="create_account_activity_title">Эҷоди ҳисоб</string>
@@ -106,6 +115,7 @@
   <string name="create_account_next">Баъдӣ</string>
   <string name="create_account_button">Эҷоди ҳисоб</string>
   <string name="preferences_general_heading">Умумӣ</string>
+  <string name="wikipedia_app_faq">Саволҳои Ҳмаёни Википедиа</string>
   <string name="create_account_account_created_toast">Ҳисоб эҷод шуд!</string>
   <string name="settings_item_preferences">Танзимот</string>
   <string name="settings_activity_title">Танзимот</string>

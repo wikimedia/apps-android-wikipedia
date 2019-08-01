@@ -645,13 +645,14 @@
   <string name="suggested_edits_task_translate_caption_description">Käännä kuvatekstit muille kielille</string>
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua artikkelikuvausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Taiteilija</string>
   <string name="suggested_edits_image_caption_summary_title_author">Tekijä</string>
   <string name="suggested_edits_image_caption_summary_title_source">Lähde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Lisenssi</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Päiväys</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 muokkaus</item>
     <item quantity="other">%d muokkausta</item>

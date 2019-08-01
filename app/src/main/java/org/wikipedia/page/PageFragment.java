@@ -1300,8 +1300,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText()) : Observable.just(references);
     }
 
-    void openImageInGallery() {
-        leadImagesHandler.openImageInGallery();
+    void openImageInGallery(@NonNull String language) {
+        leadImagesHandler.openImageInGallery(language);
     }
 
 }
