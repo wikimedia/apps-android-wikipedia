@@ -91,7 +91,6 @@
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="langlinks_your_wikipedia_languages">আপনার উইকিপিডিয়ার ভাষা</string>
   <string name="menu_save_changes">পরিবর্তন প্রকাশ করুন</string>
-  <string name="dialog_saving_in_progress">প্রকাশ করা হচ্ছে...</string>
   <string name="edit_saved_successfully">সম্পাদনা প্রকাশিত হয়েছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>
   <string name="dialog_message_edit_failed_retry">পুনঃচেষ্টা করুন</string>
@@ -167,7 +166,6 @@
   <string name="create_account_ip_block_details">বিস্তারিত</string>
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
-  <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে…</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="preferences_heading_syncing">সুসংগত করা হচ্ছে</string>

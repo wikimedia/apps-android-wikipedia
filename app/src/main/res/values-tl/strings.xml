@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Brazal.dang
 * Emem.calist
 * Ianlopez1115
 * Jewel457
@@ -53,7 +54,6 @@
   <string name="langlinks_activity_title">Iba pang mga wika</string>
   <string name="langlinks_your_wikipedia_languages">Iyong mga wikang pang-Wikipedia</string>
   <string name="menu_save_changes">Ilathala ang mga pagbabago</string>
-  <string name="dialog_saving_in_progress">Inilalathala…</string>
   <string name="edit_saved_successfully">Nailathala ang pagbabago!</string>
   <string name="dialog_message_edit_failed">Nabigo ang pagbabago!</string>
   <string name="dialog_message_edit_failed_retry">Subukang muli</string>
@@ -95,7 +95,6 @@
   <string name="create_account_button">Lumikha ng akawnt</string>
   <string name="preferences_general_heading">Pangkalahatan</string>
   <string name="wikipedia_app_faq">Mga madalas itanong (FAQ) ng Wikipedia App</string>
-  <string name="edit_preview_fetching_dialog_message">Kinukuha ang paunang tingin</string>
   <string name="send_feedback">Magpadala ng tugon sa app</string>
   <string name="create_account_account_created_toast">Nalikha ang akawnt!</string>
   <string name="preferences_heading_data_usage">Paggamit ng datos</string>
@@ -219,5 +218,6 @@
   <string name="view_main_page_card_action">Tingnan ang unang pahina</string>
   <string name="view_featured_image_card_title">Larawan sa araw na ito</string>
   <string name="feed_featured_image_share_subject">Napiling larawan mula sa Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Tingnan</string>
   <string name="more_language_options">Mga karagdagan</string>
 </resources>

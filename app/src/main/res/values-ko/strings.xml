@@ -96,7 +96,6 @@
   <string name="langlinks_activity_title">다른 언어</string>
   <string name="langlinks_your_wikipedia_languages">내 위키백과 언어</string>
   <string name="menu_save_changes">변경사항 게시</string>
-  <string name="dialog_saving_in_progress">게시 중...</string>
   <string name="edit_saved_successfully">편집이 게시됐습니다!</string>
   <string name="dialog_message_edit_failed">편집에 실패했습니다!</string>
   <string name="dialog_message_edit_failed_retry">다시 시도</string>
@@ -174,7 +173,6 @@
   <string name="create_account_ip_block_details">자세한 사항</string>
   <string name="preferences_general_heading">일반</string>
   <string name="wikipedia_app_faq">위키백과 앱 FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중…</string>
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="preferences_heading_syncing">동기화</string>

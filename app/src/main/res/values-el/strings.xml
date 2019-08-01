@@ -87,7 +87,6 @@
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
   <string name="langlinks_your_wikipedia_languages">Οι γλώσσες Βικιπαίδειας σας</string>
   <string name="menu_save_changes">Δημοσίευση αλλαγών</string>
-  <string name="dialog_saving_in_progress">Δημοσιεύεται…</string>
   <string name="edit_saved_successfully">Η επεξεργασία δημοσιεύτηκε!</string>
   <string name="dialog_message_edit_failed">Η επεξεργασία απέτυχε!</string>
   <string name="dialog_message_edit_failed_retry">Ξαναπροσπαθήστε</string>
@@ -163,7 +162,6 @@
   <string name="create_account_ip_block_details">Λεπτομέρειες</string>
   <string name="preferences_general_heading">Γενικά</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">Προετοιμάζοντας προεπισκόπηση…</string>
   <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>
   <string name="create_account_account_created_toast">Ο λογαριασμός δημιουργήθηκε!</string>
   <string name="preferences_heading_syncing">Συγχρονισμός</string>
