@@ -116,8 +116,8 @@
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
-  <string name="login_2fa_hint">雙重認證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙重認證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_hint">雙因素驗證代碼</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙因素驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -620,6 +620,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯條目描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
+  <string name="description_edit_helper_text_lowercase_warning">通常以小寫字母作開頭</string>
   <string name="description_edit_success_saved">已發佈條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發佈！（%s）</string>
@@ -709,6 +710,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
   <string name="suggested_edits_article_cta_image_caption">新增圖片說明（%s）</string>
+  <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增說明（%s）</string>
   <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>
