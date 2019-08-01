@@ -1,10 +1,13 @@
 package org.wikipedia.bridge
 
 import android.content.Context
+import org.wikipedia.BuildConfig
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageViewModel
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.L10nUtil.formatDateRelative
 
@@ -25,8 +28,9 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setUp(context: Context, theme: String, dimImages: Boolean, collapseTables: Boolean): String {
-        return context.getString(R.string.page_mh_set_multi_script, theme, dimImages, collapseTables)
+    fun setUp(context: Context): String {
+        val app: WikipediaApp = WikipediaApp.getInstance()
+        return context.getString(R.string.page_mh_set_multi_script, BuildConfig.VERSION_NAME, app.getCurrentTheme().getFunnelName().toUpperCase(), (app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()), !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 
     @JvmStatic
