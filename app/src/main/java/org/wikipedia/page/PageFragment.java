@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -957,8 +958,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         });
         bridge.addListener("image_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
-                String href = decodeURL(messagePayload.getString("src"));
-                if (href.startsWith("/wiki/")) {
+                String href = decodeURL(messagePayload.getString("href"));
+                if (href.startsWith("./File:")) {
                     String filename = UriUtil.removeInternalLinkPrefix(href);
                     String fileUrl = null;
 
