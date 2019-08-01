@@ -241,8 +241,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 isTranslation = suggestedEditsCardView.isTranslation();
                 if (suggestedEditsCardView.getCard() != null) {
                     FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
-                            ? (suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) ? getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1))) : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                            : (suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) ? getString(R.string.description_edit_success_saved_snackbar) : getString(R.string.description_edit_success_saved_image_caption_snackbar));
+                            ? getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                            : getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_ADD_DESC ? R.string.description_edit_success_saved_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
                 }
             }
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
