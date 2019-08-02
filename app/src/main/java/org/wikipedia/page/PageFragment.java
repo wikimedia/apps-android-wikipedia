@@ -427,7 +427,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 bridge.onPageFinished();
                 updateProgressBar(false, true, 0);
-                bridge.execute(JavaScriptActionHandler.setMulti(requireContext(), app.getCurrentTheme().getFunnelName().toUpperCase(), app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages(), Prefs.isCollapseTablesEnabled()));
+                bridge.execute(JavaScriptActionHandler.setUp(requireContext()));
             }
         });
     }
@@ -1287,8 +1287,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText()) : Observable.just(references);
     }
 
-    void openImageInGallery() {
-        leadImagesHandler.openImageInGallery();
+    void openImageInGallery(@NonNull String language) {
+        leadImagesHandler.openImageInGallery(language);
     }
 
 }

@@ -1,6 +1,7 @@
 language: android
 jdk:
 - oraclejdk8
+dist: trusty
 android:
   components:
   - platform-tools
