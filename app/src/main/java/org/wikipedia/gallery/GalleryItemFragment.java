@@ -25,14 +25,15 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.samples.zoomable.DoubleTapGestureListener;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
@@ -40,6 +41,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
+import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
@@ -49,7 +51,13 @@ import org.wikipedia.views.ZoomableDraweeViewWithBackground;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 
@@ -71,6 +79,7 @@ public class GalleryItemFragment extends Fragment {
     @BindView(R.id.gallery_video_play_button) View videoPlayButton;
     @BindView(R.id.gallery_image) ZoomableDraweeViewWithBackground imageView;
     @Nullable private Unbinder unbinder;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private MediaController mediaController;
     private int age;
@@ -79,16 +88,17 @@ public class GalleryItemFragment extends Fragment {
     @Nullable private GalleryActivity parentActivity;
     @Nullable private PageTitle pageTitle;
     @SuppressWarnings("NullableProblems") @NonNull private PageTitle imageTitle;
-    @Nullable private GalleryItem galleryItem;
+    @Nullable private MediaListItem mediaListItem;
+    @Nullable private ImageInfo imageInfo;
     @Nullable public GalleryItem getGalleryItem() {
         return galleryItem;
     }
 
-    public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull GalleryItem galleryItem) {
+    public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull MediaListItem item) {
         GalleryItemFragment f = new GalleryItemFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_PAGETITLE, pageTitle);
-        args.putSerializable(ARG_GALLERY_ITEM, galleryItem);
+        args.putSerializable(ARG_GALLERY_ITEM, item);
 
         if (galleryItem instanceof FeaturedImage) {
             args.putBoolean(ARG_FEED_FEATURED_IMAGE, true);
@@ -102,11 +112,11 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        galleryItem = (GalleryItem) getArguments().getSerializable(ARG_GALLERY_ITEM);
+        mediaListItem = (MediaListItem) getArguments().getSerializable(ARG_GALLERY_ITEM);
         pageTitle = getArguments().getParcelable(ARG_PAGETITLE);
         imageTitle = new PageTitle(Namespace.FILE.toLegacyString(),
-                StringUtil.removeNamespace(galleryItem.getTitles().getCanonical()),
-                new WikiSite(galleryItem.getFilePage()));
+                StringUtil.removeNamespace(mediaListItem.getTitle()),
+                pageTitle.getWikiSite());
 
         if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
             age = getArguments().getInt(ARG_AGE);
@@ -146,20 +156,19 @@ public class GalleryItemFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        disposables.clear();
         imageView.setController(null);
         imageView.setOnClickListener(null);
         videoThumbnail.setController(null);
         videoThumbnail.setOnClickListener(null);
-        unbinder.unbind();
-        unbinder = null;
+        if (unbinder != null) {
+            unbinder.unbind();
+            unbinder = null;
+        }
         super.onDestroyView();
     }
 
-    private void updateProgressBar(boolean visible, boolean indeterminate, int value) {
-        progressBar.setIndeterminate(indeterminate);
-        if (!indeterminate) {
-            progressBar.setProgress(value);
-        }
+    private void updateProgressBar(boolean visible) {
         progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
@@ -175,18 +184,18 @@ public class GalleryItemFragment extends Fragment {
         if (!isAdded()) {
             return;
         }
-        menu.findItem(R.id.menu_gallery_visit_page).setEnabled(galleryItem != null);
-        menu.findItem(R.id.menu_gallery_share).setEnabled(galleryItem != null
-                && !TextUtils.isEmpty(galleryItem.getThumbnailUrl()) && imageView.getDrawable() != null);
-        menu.findItem(R.id.menu_gallery_save).setEnabled(galleryItem != null
-                && !TextUtils.isEmpty(galleryItem.getThumbnailUrl()) && imageView.getDrawable() != null);
+        menu.findItem(R.id.menu_gallery_visit_page).setEnabled(imageInfo != null);
+        menu.findItem(R.id.menu_gallery_share).setEnabled(imageInfo != null
+                && !TextUtils.isEmpty(imageInfo.getThumbUrl()) && imageView.getDrawable() != null);
+        menu.findItem(R.id.menu_gallery_save).setEnabled(imageInfo != null
+                && !TextUtils.isEmpty(imageInfo.getThumbUrl()) && imageView.getDrawable() != null);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_gallery_visit_page:
-                if (galleryItem != null) {
+                if (imageInfo != null) {
                     parentActivity.finishWithPageResult(imageTitle);
                 }
                 return true;
@@ -244,14 +253,27 @@ public class GalleryItemFragment extends Fragment {
      * Load the actual media associated with our gallery item into the UI.
      */
     private void loadMedia() {
-        if (FileUtil.isVideo(galleryItem.getType())) {
-            loadVideo();
-        } else {
-            loadImage(galleryItem.getPreferredSizedImageUrl());
-        }
-
-        parentActivity.supportInvalidateOptionsMenu();
-        parentActivity.layOutGalleryDescription();
+        disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(mediaListItem.getTitle())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> {
+                    parentActivity.supportInvalidateOptionsMenu();
+                    parentActivity.layOutGalleryDescription();
+                })
+                .subscribe(response -> {
+                    imageInfo = response.query().firstPage().imageInfo();
+                    videoInfo = response.query().firstPage().videoInfo();
+                    if (FileUtil.isVideo(mediaListItem.getType())) {
+                        loadVideo();
+                    } else {
+                        loadImage(ImageUrlUtil.getUrlForPreferredSize(imageInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE));
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        // TODO?
+                    }
+                }));
     }
 
     private View.OnClickListener videoThumbnailClickListener = new View.OnClickListener() {
@@ -259,20 +281,20 @@ public class GalleryItemFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            if (loading) {
+            if (loading || videoInfo == null) {
                 return;
             }
             loading = true;
-            L.d("Loading video from url: " + galleryItem.getOriginalVideoSource().getOriginalUrl());
+            L.d("Loading video from url: " + videoInfo.          galleryItem.getOriginalVideoSource().getOriginalUrl());
             videoView.setVisibility(View.VISIBLE);
             mediaController = new MediaController(parentActivity);
             if (!DeviceUtil.isNavigationBarShowing()) {
                 mediaController.setPadding(0, 0, 0, (int) DimenUtil.dpToPx(DimenUtil.getNavigationBarHeight(requireContext())));
             }
-            updateProgressBar(true, true, 0);
+            updateProgressBar(true);
             videoView.setMediaController(mediaController);
             videoView.setOnPreparedListener((mp) -> {
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
                 // ...update the parent activity, which will trigger us to start playing!
                 parentActivity.layOutGalleryDescription();
                 // hide the video thumbnail, since we're about to start playback
@@ -283,7 +305,7 @@ public class GalleryItemFragment extends Fragment {
                 loading = false;
             });
             videoView.setOnErrorListener((mp, what, extra) -> {
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
                 FeedbackUtil.showMessage(getActivity(),
                         R.string.gallery_error_video_failed);
                 videoView.setVisibility(View.GONE);
@@ -292,7 +314,7 @@ public class GalleryItemFragment extends Fragment {
                 loading = false;
                 return true;
             });
-            videoView.setVideoURI(Uri.parse(galleryItem.getOriginalVideoSource().getOriginalUrl()));
+            videoView.setVideoURI(Uri.parse        (galleryItem.getOriginalVideoSource().getOriginalUrl()));
         }
     };
 
@@ -300,23 +322,23 @@ public class GalleryItemFragment extends Fragment {
         videoContainer.setVisibility(View.VISIBLE);
         videoPlayButton.setVisibility(View.VISIBLE);
         videoView.setVisibility(View.GONE);
-        if (TextUtils.isEmpty(galleryItem.getThumbnailUrl())) {
+        if (TextUtils.isEmpty(imageInfo.getThumbUrl())) {
             videoThumbnail.setVisibility(View.GONE);
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
             videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
-                    .setUri(galleryItem.getThumbnailUrl())
+                    .setUri(imageInfo.getThumbUrl())
                     .setAutoPlayAnimations(true)
-                    .setControllerListener(new BaseControllerListener<ImageInfo>() {
+                    .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
                         @Override
-                        public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
-                            updateProgressBar(false, true, 0);
+                        public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
+                            updateProgressBar(false);
                         }
 
                         @Override
                         public void onFailure(String id, Throwable throwable) {
-                            updateProgressBar(false, true, 0);
+                            updateProgressBar(false);
                         }
                     })
                     .build());
@@ -328,22 +350,22 @@ public class GalleryItemFragment extends Fragment {
         imageView.setVisibility(View.VISIBLE);
         L.v("Loading image from url: " + url);
 
-        updateProgressBar(true, true, 0);
+        updateProgressBar(true);
         imageView.setDrawBackground(false);
         imageView.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(url)
                 .setAutoPlayAnimations(true)
-                .setControllerListener(new BaseControllerListener<ImageInfo>() {
+                .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
                     @Override
-                    public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
+                    public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
                         imageView.setDrawBackground(true);
-                        updateProgressBar(false, true, 0);
+                        updateProgressBar(false);
                         parentActivity.supportInvalidateOptionsMenu();
                     }
 
                     @Override
                     public void onFailure(String id, Throwable throwable) {
-                        updateProgressBar(false, true, 0);
+                        updateProgressBar(false);
                         FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
                         L.d(throwable);
                     }
@@ -352,10 +374,10 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void shareImage() {
-        if (galleryItem == null) {
+        if (imageInfo == null) {
             return;
         }
-        new ImagePipelineBitmapGetter(galleryItem.getPreferredSizedImageUrl()){
+        new ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(imageInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)){
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {
                 if (!isAdded()) {
@@ -396,7 +418,7 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void saveImage() {
-        if (galleryItem != null && callback() != null) {
+        if (imageInfo != null && callback() != null) {
             callback().onDownload(galleryItem);
         }
     }

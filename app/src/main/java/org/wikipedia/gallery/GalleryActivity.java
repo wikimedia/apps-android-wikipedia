@@ -512,12 +512,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         updateProgressBar(true);
 
-        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
+        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(gallery -> {
+                .subscribe(mediaList -> {
                     updateProgressBar(false);
-                    applyGalleryList(gallery.getItems("image", "video"));
+                    applyGalleryList(mediaList.getItems("image", "video"));
                 }, caught -> {
                     updateProgressBar(false);
                     showError(caught);
@@ -534,25 +534,24 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
             featuredImage.setAge(getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0));
             updateProgressBar(false);
-            applyGalleryList(Collections.singletonList(featuredImage));
+            applyGalleryList(Collections.singletonList(new MediaListItem(featuredImage.title())));
         } else {
             fetchGalleryItems();
         }
     }
 
-    private void applyGalleryList(@NonNull List<GalleryItem> list) {
+    private void applyGalleryList(@NonNull List<MediaListItem> list) {
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
         int initialImagePos = -1;
         if (initialFilename != null) {
-            for (GalleryItem item : list) {
+            for (MediaListItem item : list) {
                 // sometimes the namespace of a file would be in different languages rather than English.
-                String title = StringUtil.removeNamespace(item.getTitles().getCanonical());
-                String titleFromFilePageUrl = StringUtil.removeNamespace(addUnderscores(UriUtil.getTitleFromUrl(item.getFilePage())));
+                String title = StringUtil.removeNamespace(item.getTitle());
                 String titleFromPage = StringUtil.removeNamespace(addUnderscores(initialFilename));
-                if (title.equals(titleFromPage) || titleFromFilePageUrl.equals(titleFromPage)) {
+                if (title.equals(titleFromPage)) {
                     initialImagePos = list.indexOf(item);
                     break;
                 }
@@ -562,13 +561,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 // add it manually.
                 // (this can happen if the user clicked on an SVG file, since we hide SVGs
                 // by default in the gallery; or lead image in the PageHeader or in the info box)
-
-                GalleryItem galleryItem = new GalleryItem(initialFilename);
-                galleryItem.getOriginal().setSource(initialImageUrl);
-                galleryItem.getThumbnail().setSource(initialImageUrl);
-
                 initialImagePos = 0;
-                list.add(initialImagePos, galleryItem);
+                list.add(initialImagePos, new MediaListItem(initialFilename));
             }
         }
 
@@ -709,7 +703,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * lazily, and then cached for future use.
      */
     private class GalleryItemAdapter extends FragmentPagerAdapter {
-        private List<GalleryItem> list = new ArrayList<>();
+        private List<MediaListItem> list = new ArrayList<>();
         private SparseArray<GalleryItemFragment> fragmentArray;
 
         GalleryItemAdapter(AppCompatActivity activity) {
@@ -717,7 +711,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             fragmentArray = new SparseArray<>();
         }
 
-        public void setList(@NonNull List<GalleryItem> list) {
+        public void setList(@NonNull List<MediaListItem> list) {
             this.list.clear();
             this.list.addAll(list);
             notifyDataSetChanged();
