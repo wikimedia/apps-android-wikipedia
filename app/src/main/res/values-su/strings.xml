@@ -78,7 +78,6 @@
   <string name="langlinks_activity_title">Basa séjén</string>
   <string name="langlinks_your_wikipedia_languages">Basa-basa Wikipédia anjeun</string>
   <string name="menu_save_changes">Medalkeun parobahan</string>
-  <string name="dialog_saving_in_progress">Keur medalkeun...</string>
   <string name="edit_saved_successfully">Éditan geus dimedalkeun</string>
   <string name="dialog_message_edit_failed">Ngédit gagal!</string>
   <string name="dialog_message_edit_failed_retry">Cobaan deui</string>
@@ -152,7 +151,6 @@
   <string name="create_account_ip_block_details">Wincikan</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">NLD aplikasi Wikipédia</string>
-  <string name="edit_preview_fetching_dialog_message">Nyokot pramidang...</string>
   <string name="send_feedback">Kirim eupan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun geus dijieun!</string>
   <string name="preferences_heading_syncing">Nyingkronkeun</string>

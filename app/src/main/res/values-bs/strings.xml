@@ -56,7 +56,6 @@
   <string name="langlinks_no_match">Nije pronađen nijedan jezik</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="menu_save_changes">Objavi izmjene</string>
-  <string name="dialog_saving_in_progress">Objavljujem...</string>
   <string name="edit_saved_successfully">Izmjena je objavljena!</string>
   <string name="dialog_message_edit_failed">Čuvanje izmjene nije uspjelo!</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
@@ -108,7 +107,6 @@
   <string name="create_account_name_unavailable">Korisničko ime \"%s\" nije dostupno. Izaberite drugo.</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji</string>
-  <string name="edit_preview_fetching_dialog_message">Učitavam pregled...</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Korisnički račun napravljen!</string>
   <string name="preferences_heading_syncing">Sinhronizacija</string>

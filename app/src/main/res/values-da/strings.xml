@@ -92,7 +92,6 @@
   <string name="langlinks_activity_title">Andre sprog</string>
   <string name="langlinks_your_wikipedia_languages">Dine Wikipedia-sprog</string>
   <string name="menu_save_changes">Offentliggør ændringer</string>
-  <string name="dialog_saving_in_progress">Offentliggør…</string>
   <string name="edit_saved_successfully">Redigering offentliggjort!</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
@@ -168,7 +167,6 @@
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning …</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_syncing">Synkroniserer</string>
