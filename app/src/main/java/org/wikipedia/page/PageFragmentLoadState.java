@@ -302,6 +302,8 @@ public class PageFragmentLoadState {
         }
 
         Page page = pageLead.toPage(model.getTitle());
+        bridge.execute(JavaScriptActionHandler.setUpEditButtons(fragment.requireContext(), true, !page.getPageProperties().canEdit()));
+
         model.setPage(page);
         model.setTitle(page.getTitle());
 

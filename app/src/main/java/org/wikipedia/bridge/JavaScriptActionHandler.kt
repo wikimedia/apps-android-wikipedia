@@ -34,6 +34,12 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun setUpEditButtons(context: Context, isEditable: Boolean, isProtected: Boolean): String {
+        val app: WikipediaApp = WikipediaApp.getInstance()
+        return context.getString(R.string.page_mh_set_edit_buttons, isEditable, isProtected)
+    }
+
+    @JvmStatic
     fun setFooter(context: Context, model: PageViewModel): String {
         if (model.page == null) {
             return ""
@@ -50,7 +56,7 @@ object JavaScriptActionHandler {
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
 
-        return "pagelib.c1.Footer.add(document," +
+        return "pagelib.c1.Footer.add(" +
                 "    '${model.page?.displayTitle}'," +
                 "    [" +
                 (if (showLanguagesLink) "pagelib.c1.Footer.MenuItemType.languages, " else "") +
