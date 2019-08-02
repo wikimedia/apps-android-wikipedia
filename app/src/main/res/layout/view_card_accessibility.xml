@@ -19,7 +19,7 @@
         android:gravity="center"
         android:text="@string/feed_accessibility_card_text" />
 
-    <TextView
+    <Button
         android:id="@+id/view_card_accessibility_button_load_more"
         style="@style/App.Button.White"
         android:layout_margin="8dp"

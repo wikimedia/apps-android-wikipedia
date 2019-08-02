@@ -1,4 +1,4 @@
-package org.wikipedia.feed.accessibility.offline;
+package org.wikipedia.feed.accessibility;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.DummyClient;

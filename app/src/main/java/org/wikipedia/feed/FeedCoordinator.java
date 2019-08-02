@@ -6,7 +6,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.accessibility.offline.AccessibilityCardClient;
+import org.wikipedia.feed.accessibility.AccessibilityCardClient;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
 import org.wikipedia.feed.dataclient.FeedClient;

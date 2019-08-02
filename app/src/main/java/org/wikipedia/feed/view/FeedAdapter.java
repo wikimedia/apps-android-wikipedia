@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
-import org.wikipedia.feed.accessibility.offline.AccessibilityCardView;
+import org.wikipedia.feed.accessibility.AccessibilityCardView;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;

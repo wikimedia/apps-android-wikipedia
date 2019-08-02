@@ -1,4 +1,4 @@
-package org.wikipedia.feed.accessibility.offline;
+package org.wikipedia.feed.accessibility;
 
 import android.content.Context;
 import android.widget.LinearLayout;

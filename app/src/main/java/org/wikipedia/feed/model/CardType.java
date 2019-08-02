@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.feed.FeedContentType;
-import org.wikipedia.feed.accessibility.offline.AccessibilityCardView;
+import org.wikipedia.feed.accessibility.AccessibilityCardView;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
