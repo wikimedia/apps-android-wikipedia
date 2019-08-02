@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
+import org.wikipedia.feed.accessibility.offline.AccessibilityCardView;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
@@ -22,6 +23,7 @@ import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -62,7 +64,8 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
                 && position == getItemCount() - 1
                 && !(item instanceof OfflineCard)
                 && item != lastCardReloadTrigger
-                && callback != null) {
+                && callback != null
+                && !DeviceUtil.isAccessibilityEnabled()) {
             callback.onRequestMore();
             lastCardReloadTrigger = item;
         } else {
@@ -74,6 +77,10 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
 
         if (view instanceof OfflineCardView && position == 1) {
             ((OfflineCardView) view).setTopPadding();
+        }
+
+        if (view instanceof AccessibilityCardView && position == 1) {
+            ((AccessibilityCardView) view).setTopPadding();
         }
     }
 

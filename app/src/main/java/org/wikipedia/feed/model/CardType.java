@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.feed.FeedContentType;
+import org.wikipedia.feed.accessibility.offline.AccessibilityCardView;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
@@ -107,6 +108,11 @@ public enum CardType implements EnumCode {
     SUGGESTED_EDITS(21, FeedContentType.SUGGESTED_EDITS) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new SuggestedEditsCardView(ctx);
+        }
+    },
+    ACCESSIBILITY(96) {
+        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
+            return new AccessibilityCardView(ctx);
         }
     },
     DAY_HEADER(97) {
