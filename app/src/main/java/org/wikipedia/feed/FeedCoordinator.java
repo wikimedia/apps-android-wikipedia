@@ -6,7 +6,6 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.accessibility.AccessibilityCardClient;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
 import org.wikipedia.feed.dataclient.FeedClient;
@@ -14,7 +13,6 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.offline.OfflineCardClient;
 import org.wikipedia.feed.onboarding.OnboardingClient;
 import org.wikipedia.feed.searchbar.SearchClient;
-import org.wikipedia.util.DeviceUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,7 +54,6 @@ public class FeedCoordinator extends FeedCoordinatorBase {
             addPendingClient(contentType.newClient(aggregatedClient, age));
         }
 
-        conditionallyAddPendingClient(new AccessibilityCardClient(), online && DeviceUtil.isAccessibilityEnabled());
         conditionallyAddPendingClient(new OfflineCardClient(), age == 0 && !online);
 
     }

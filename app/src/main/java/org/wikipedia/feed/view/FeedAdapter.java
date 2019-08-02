@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
+import org.wikipedia.feed.accessibility.AccessibilityCard;
 import org.wikipedia.feed.accessibility.AccessibilityCardView;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
@@ -23,7 +24,6 @@ import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -63,9 +63,9 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         if (coordinator.finished()
                 && position == getItemCount() - 1
                 && !(item instanceof OfflineCard)
+                && !(item instanceof AccessibilityCard)
                 && item != lastCardReloadTrigger
-                && callback != null
-                && !DeviceUtil.isAccessibilityEnabled()) {
+                && callback != null) {
             callback.onRequestMore();
             lastCardReloadTrigger = item;
         } else {

@@ -110,7 +110,7 @@ public enum CardType implements EnumCode {
             return new SuggestedEditsCardView(ctx);
         }
     },
-    ACCESSIBILITY(96) {
+    ACCESSIBILITY(22, FeedContentType.ACCESSIBILITY) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new AccessibilityCardView(ctx);
         }
