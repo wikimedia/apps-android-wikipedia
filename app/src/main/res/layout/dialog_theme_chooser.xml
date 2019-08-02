@@ -125,7 +125,7 @@
                 android:layout_height="48dp"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_light"
                     style="@style/App.Button.White"
                     android:layout_width="match_parent"
@@ -178,7 +178,7 @@
                 android:layout_height="48dp"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_dark"
                     style="@style/App.Button.Gray"
                     android:layout_width="match_parent"
@@ -204,7 +204,7 @@
                 android:layout_height="48dp"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_black"
                     style="@style/App.Button.Black"
                     android:layout_width="match_parent"

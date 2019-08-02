@@ -99,7 +99,7 @@
                         android:visibility="gone" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
+                <Button
                     android:id="@+id/login_button"
                     style="@style/App.Button.Blue"
                     android:layout_width="match_parent"
