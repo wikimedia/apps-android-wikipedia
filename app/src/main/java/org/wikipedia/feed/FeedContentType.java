@@ -100,7 +100,7 @@ public enum FeedContentType implements EnumCode {
             return null;
         }
     },
-    ACCESSIBILITY(10, 0, R.string.feed_item_type_accessibility, false, false) {
+    ACCESSIBILITY(10, 0, 0, false, false) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {

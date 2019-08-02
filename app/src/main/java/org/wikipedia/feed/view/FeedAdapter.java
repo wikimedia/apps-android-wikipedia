@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.accessibility.AccessibilityCard;
-import org.wikipedia.feed.accessibility.AccessibilityCardView;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
@@ -77,10 +76,6 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
 
         if (view instanceof OfflineCardView && position == 1) {
             ((OfflineCardView) view).setTopPadding();
-        }
-
-        if (view instanceof AccessibilityCardView && position == 1) {
-            ((AccessibilityCardView) view).setTopPadding();
         }
     }
 

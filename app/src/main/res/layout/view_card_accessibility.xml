@@ -6,12 +6,6 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Space
-        android:id="@+id/view_card_accessibility_top_padding"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:visibility="gone" />
-
     <TextView
         style="@style/MaterialMediumSecondaryCaption"
         android:layout_width="wrap_content"
