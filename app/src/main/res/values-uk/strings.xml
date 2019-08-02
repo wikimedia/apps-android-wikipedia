@@ -93,7 +93,6 @@
   <string name="langlinks_activity_title">Інші мови</string>
   <string name="langlinks_your_wikipedia_languages">Мова вашої Вікіпедії</string>
   <string name="menu_save_changes">Опублікувати зміни</string>
-  <string name="dialog_saving_in_progress">Публікація…</string>
   <string name="edit_saved_successfully">Редагування опубліковано!</string>
   <string name="dialog_message_edit_failed">Невдале редагування!</string>
   <string name="dialog_message_edit_failed_retry">Повторити</string>
@@ -171,7 +170,6 @@
   <string name="create_account_ip_block_details">Деталі</string>
   <string name="preferences_general_heading">Загальні</string>
   <string name="wikipedia_app_faq">Часті питання по додатку</string>
-  <string name="edit_preview_fetching_dialog_message">Отримання попереднього перегляду…</string>
   <string name="send_feedback">Надіслати відгук про програму</string>
   <string name="create_account_account_created_toast">Створено обліковий запис!</string>
   <string name="preferences_heading_syncing">Синхронізація</string>
@@ -621,6 +619,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Дякуємо за Ваш незмінний інтерес до редагування описів статей! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
   <string name="description_edit_license_notice">Змінюючи опис статті, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">зазвичай починається з маленької літери</string>
   <string name="description_edit_success_saved">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_snackbar">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
@@ -710,6 +709,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Більше інформації</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Сторінка файлу на Вікісховищі</string>
   <string name="suggested_edits_article_cta_image_caption">Додати опис зображення (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додати опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додати опис (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Додати опис статті</string>

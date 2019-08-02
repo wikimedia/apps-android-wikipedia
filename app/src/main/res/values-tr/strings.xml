@@ -106,7 +106,6 @@
   <string name="langlinks_activity_title">Diğer diller</string>
   <string name="langlinks_your_wikipedia_languages">Vikipedi dilleriniz</string>
   <string name="menu_save_changes">Değişiklikleri yayımla</string>
-  <string name="dialog_saving_in_progress">Yayımlanıyor...</string>
   <string name="edit_saved_successfully">Düzenleme yayımlandı!</string>
   <string name="dialog_message_edit_failed">Değişiklik başarısız oldu!</string>
   <string name="dialog_message_edit_failed_retry">Tekrar dene</string>
@@ -184,7 +183,6 @@
   <string name="create_account_ip_block_details">Ayrıntılar</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
-  <string name="edit_preview_fetching_dialog_message">Önizleme alınıyor...</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="create_account_account_created_toast">Hesap oluşturuldu!</string>
   <string name="preferences_heading_syncing">Senkronize ediliyor</string>
@@ -660,7 +658,7 @@
   <string name="suggested_edits_edit_caption_button">Altyazıyı düzenle</string>
   <string name="suggested_edits_review_image_caption">Resim altyazısını incele</string>
   <string name="suggested_edits_my_contributions">Katkılarım</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Açıklama yok</string>
+  <string name="suggested_edits_no_description">Bu dosyanın bir açıklaması yok</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Madde açıklamaları ekle\" görevinin kilidini açtınız</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tüm katkılarınız için teşekkürler! Düzenleme konusunda çok iyi olduğunuzdan açıklamaların eksik olduğu bir madde listesi hazırladık. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"Madde açıklamalarını çevir\" görevinin kilidini açtınız</string>
@@ -696,7 +694,7 @@
   <string name="suggested_edits_task_multilingual_title">Çok dilli editörler için daha fazla görev</string>
   <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">%d doğrulanmış katkı yapana kadar kilitlendi</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">%d doğrulanmış katkı yapana kadar kilitlendi</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">%d makale açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Sanatçı</string>
@@ -718,8 +716,10 @@
   <string name="suggested_edits_image_preview_dialog_date">Tarih</string>
   <string name="suggested_edits_image_preview_dialog_source">Kaynak/Fotoğrafçı</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisanslama</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Daha Fazla Bilgi</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Daha Fazla Bilgi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons\'taki dosya sayfası</string>
+  <string name="suggested_edits_article_cta_image_caption">Resim yazısı ekle (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Görüntüle</string>
   <string name="suggested_edits_feed_card_add_image_caption">Altyazı ekle</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Altyazı ekle (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Madde açıklaması ekle</string>

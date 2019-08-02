@@ -80,7 +80,6 @@
   <string name="langlinks_activity_title">Други јазици</string>
   <string name="langlinks_your_wikipedia_languages">Ваши википедиски јазици</string>
   <string name="menu_save_changes">Објави промени</string>
-  <string name="dialog_saving_in_progress">Објавувам…</string>
   <string name="edit_saved_successfully">Уредувањето е објавено!</string>
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>
   <string name="dialog_message_edit_failed_retry">Повтори</string>
@@ -158,7 +157,6 @@
   <string name="create_account_ip_block_details">Подробно</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="wikipedia_app_faq">ЧПП за прилогот „Википедија“</string>
-  <string name="edit_preview_fetching_dialog_message">Испишувам преглед…</string>
   <string name="send_feedback">Испрати мислење за прилогот</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
   <string name="preferences_heading_syncing">Усогласување</string>
@@ -606,6 +604,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
   <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описи на статиите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
   <string name="description_edit_license_notice">Менувајќи го описот на статијата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
+  <string name="description_edit_helper_text_lowercase_warning">обично почнува со мала буква</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>
@@ -628,8 +627,8 @@
   <string name="suggested_edits_review_description">Преглед на описот на статијата</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
   <string name="suggested_edits_edit_description_button">Уреди опис</string>
-  <string name="suggested_edits_add_translation_button">Додај превед</string>
-  <string name="suggested_edits_edit_translation_button">Уреди опис</string>
+  <string name="suggested_edits_add_translation_button">Додај превод</string>
+  <string name="suggested_edits_edit_translation_button">Уреди превод</string>
   <string name="suggested_edits_add_caption_button">Додај опис на сликата</string>
   <string name="suggested_edits_edit_caption_button">Додај опис на содржината</string>
   <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
@@ -695,6 +694,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
   <string name="suggested_edits_article_cta_image_caption">Додај опис на сликата (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>

@@ -80,7 +80,6 @@
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
   <string name="langlinks_your_wikipedia_languages">Zure Wikipedia hizkuntzak</string>
   <string name="menu_save_changes">Aldaketak argitaratu</string>
-  <string name="dialog_saving_in_progress">Argitaratzen…</string>
   <string name="edit_saved_successfully">Aldaketa argitaratu da!</string>
   <string name="dialog_message_edit_failed">Errorea aldaketan!</string>
   <string name="dialog_message_edit_failed_retry">Saiatu berriro</string>
@@ -155,7 +154,6 @@
   <string name="create_account_ip_block_details">Xehetasunak</string>
   <string name="preferences_general_heading">Orokorra</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">Aurreikuspena eskuratzen…</string>
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
   <string name="create_account_account_created_toast">Kontua sortua!</string>
   <string name="preferences_heading_syncing">Sinkronizatzen</string>

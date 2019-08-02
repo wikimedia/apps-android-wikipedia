@@ -99,7 +99,6 @@
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.\n{{Identical|Otherlanguages}}</string>
   <string name="langlinks_your_wikipedia_languages">Section header text that shows user list of languages the current article is available in.</string>
   <string name="menu_save_changes">{{Identical|Publish changes}}</string>
-  <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.\n{{Identical|Publishing}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
   <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.\n{{Identical|Retry}}</string>
@@ -177,7 +176,6 @@
   <string name="create_account_ip_block_details">Button label that shows details that describe an IP address block.</string>
   <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
   <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
-  <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_heading_syncing">Section title for preferences related to syncing</string>
@@ -625,6 +623,7 @@
   <string name="wikidata_description_guide_url">URL that points to a page on Wikidata that contains guidelines for writing descriptions. Preferably the URL should link directly to the section that lists specific guidelines.</string>
   <string name="description_edit_anon_limit">Dialog message that informs the user that they must log in before making edits to additional descriptions.</string>
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
+  <string name="description_edit_helper_text_lowercase_warning">Warning message shows the article description usually begin with a lowercase letter.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
@@ -714,6 +713,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
   <string name="suggested_edits_article_cta_image_caption">Text for call to action button on article lead image, prompting the user to add a caption in the %s language.</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Button text suggesting the user to view the image</string>
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
@@ -804,5 +804,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Button text suggesting the user to view the image</string>
 </resources>

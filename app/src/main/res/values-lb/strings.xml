@@ -71,7 +71,6 @@
   <string name="langlinks_activity_title">Aner Sproochen</string>
   <string name="langlinks_your_wikipedia_languages">Är Wikipedia-Sproochen</string>
   <string name="menu_save_changes">Ännerunge verëffentlechen</string>
-  <string name="dialog_saving_in_progress">Verëffentlechen...</string>
   <string name="edit_saved_successfully">Ännerung verëffentlecht!</string>
   <string name="dialog_message_edit_failed">Feeler beim Änneren!</string>
   <string name="dialog_message_edit_failed_retry">Nach eng Kéier probéieren</string>
@@ -140,7 +139,6 @@
   <string name="create_account_ip_block_details">Detailer</string>
   <string name="preferences_general_heading">Allgemeng</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren…</string>
   <string name="send_feedback">Feedback vun der App schécken</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="preferences_heading_syncing">Synchronisatioun</string>
@@ -520,7 +518,7 @@
   <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="suggested_edits_add_translation_button">Iwwersetzung derbäisetzen</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Iwwersetzung änneren</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Keng Beschreiwung</string>
+  <string name="suggested_edits_no_description">Dëse Fichier huet keng Beschreiwung</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
   <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
@@ -536,6 +534,8 @@
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Méi Informatiounen</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Weisen</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>

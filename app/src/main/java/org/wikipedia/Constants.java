@@ -33,6 +33,8 @@ public final class Constants {
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
 
     public static final String INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading";
+    public static final String INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer";
+    public static final String INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch";
 
     public static final String INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber";
     public static final String INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList";
