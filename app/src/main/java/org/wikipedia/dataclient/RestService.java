@@ -13,7 +13,6 @@ import org.wikipedia.feed.aggregated.AggregatedFeedContent;
 import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
-import org.wikipedia.gallery.Gallery;
 import org.wikipedia.gallery.MediaList;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
 import org.wikipedia.suggestededits.provider.SuggestedEditItem;
