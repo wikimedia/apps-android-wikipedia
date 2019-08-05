@@ -191,6 +191,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         toolbarGradient.setBackground(GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
         infoGradient.setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
         descriptionText.setMovementMethod(linkMovementMethod);
+        creditText.setMovementMethod(linkMovementMethod);
 
         ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
                 .setColorFilter(ContextCompat.getColor(this, R.color.base70));
@@ -621,7 +622,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
-        boolean captionEditable = AccountUtil.isLoggedIn() && item.getMediaInfo().getThumbUrl().contains(Service.COMMONS_URL);
+        boolean captionEditable = AccountUtil.isLoggedIn() && item.getMediaInfo().getThumbUrl().contains(Service.URL_FRAGMENT_FROM_COMMONS);
         captionEditButton.setVisibility(captionEditable ? View.VISIBLE : View.GONE);
 
         boolean allowTranslate = false;
