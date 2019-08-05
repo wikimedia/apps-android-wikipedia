@@ -149,7 +149,9 @@
   <string name="create_account_ip_block_message">ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߊ߬ߟߌ߬ߣߍ߲ ߠߋ߬ ߖߊ߬ߕߋ߬ߘߊ߬ ߞߎ߬ߘߊ߬ ߛߌ߲ߘߌ ߡߊ߬.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ߝߊߙߊ߲ߝߊ߯ߛߟߌ</string>
+  <string name="preferences_general_heading">ߝߘߏ߬ߓߊ߬ߡߊ</string>
   <string name="wikipedia_app_faq">ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߢ.ߡ.ߢ</string>
+  <string name="send_feedback">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߟߢߊ߬ߟߌ߬ ߗߋߛߓߍ ߗߋ߫</string>
   <string name="create_account_account_created_toast">ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߛߌ߲ߘߌ߫߹</string>
   <string name="preferences_heading_syncing">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫</string>
   <string name="preferences_heading_data_usage">ߕߎ߬ߡߊ߬ߘߊ ߟߊߓߊ߯ߙߊߟߌ</string>
@@ -350,14 +352,18 @@
   <string name="reading_list_action_menu_add_to_another_list">ߊ߬ ߟߊߘߏ߲߬ ߛߙߍߘߍ߫ ߜߘߍ߫ ߘߐ߫</string>
   <string name="reading_list_name_sample">ߒ ߠߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="reading_list_name_hint">ߛߙߍߘߍ ߣߌ߲߬ ߕߐ߮</string>
+  <string name="reading_list_description_hint">ߞߊ߲߬ߛߓߍߟߌ (ߢߣߊߕߊߟߞߊ)</string>
   <string name="reading_list_item_deleted">%s ߛߋ߲߬ߓߐ߫ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_items_deleted">%d ߦߌߟߡߊ ߟߎ߬ ߓߘߊ߫ ߛߋ߲߬ߓߐ߫ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_lists_item_deleted">%s ߛߋ߲߬ߓߐ߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_deleted">%s ߓߘߊ߫ ߖߏ߬ߛߌ߬</string>
   <string name="saved_list_empty_title">ߞߐߜߍ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬</string>
+  <string name="reading_lists_empty_message">ߞߎߡߘߊ ߟߊߘߏ߲߬ ߞߐߝߍ߫ ߘߐߘߊߙߊ߲ߠߌ߲ ߛߙߍߘߍ ߘߐ߫߸ ߤߊߟߌ߬ ߣߴߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߬ ߕߍ߫.</string>
+  <string name="reading_lists_onboarding_intro">ߞߎߡߘߊ ߟߊߘߏ߲߬ ߞߐߝߍ߫ ߘߐߘߊߙߊ߲ߠߌ߲ ߛߙߍߘߍ ߘߐ߫߸ ߤߊߟߌ߬ ߣߴߊ߬ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߬ ߕߍ߫߹</string>
   <string name="reading_lists_onboarding_for_example">ߟߊߒߡߊ߫ ߘߐ߫</string>
   <string name="reading_lists_onboarding_example1">ߓߐߒߡߊߟߌ߫ ߦߙߐ</string>
+  <string name="reading_lists_onboarding_example2">ߓߌߦߊ߲߫ ߠߊ߫ ߞߏߘߐߣߐ߰ߦߊ߬ߣߍ߲ ߠߎ߬.</string>
   <string name="reading_lists_onboarding_example3">ߞߣߍ ߛߏ߲߯ߓߊߟߌ</string>
   <string name="reading_lists_onboarding_got_it">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬</string>
   <string name="reading_list_empty">ߦߌߟߡߊ߫ ߛߌ߫ ߟߊߘߏ߲߬ߣߍ߲߬ ߕߴߌ ߓߟߏ߫ ߛߙߍߘߍ ߣߌ߲߬ ߘߐ߫.</string>
@@ -369,11 +375,17 @@
   <string name="reading_list_select_item">ߓߊߕߐߡߐ߲ߠߌ߲</string>
   <string name="reading_list_confirm_remove_article_from_offline">ߊ߬ ߛߋ߲߬ߓߐ߫ ߗߊ߲߬ߞߎ߲߬ߠߌ߲߬ ߓߊߟߌߦߊ ߘߐ߫</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">ߦߌߟߡߊ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߦߋ߫ ߟߊ߫ ߛߙߍߘߍ߫ ߦߙߌߞߊ ߟߎ߬ ߘߐ߫</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s ߕߍ߫ ߣߊ߬ ߡߍ߲߫ ߠߊ߫ ߞߍߟߌ ߘߐ߫ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߓߍ߯ ߦߋ߫:</string>
   <string name="reading_lists_sync_reminder_title">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߟߊߞߎߣߎ߲߫؟</string>
+  <string name="reading_lists_sync_reminder_text">ߞߎߡߘߊ ߡߍ߲ ߠߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫߸ ߏ߬ ߟߎ߬ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߛߍߣߍ߲߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߡߎ߬ߕߎ߲߬. \nߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߫ ߞߵߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_login_reminder_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫</string>
+  <string name="reading_lists_login_reminder_text">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߟߴߌ ߟߊ߫ ߞߍߟߊ߲ ߘߐ߫ ߛߌߣߍ߲߬. ߌ ߜߊ߲߬ߞߎ߲߬ ߌ ߟߊ߫ ߥߞߌߔߋߘߌߦߊ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫ ߞߴߌ ߟߊ߫ ߛߙߍߘߍ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߟߊߘߌ߬ߢߍ߬.</string>
   <string name="reading_lists_confirm_remote_delete_yes">ߐ߲߬ߐ߲߬ߐ߲߫</string>
   <string name="reading_lists_confirm_remote_delete_no">ߍ߲߬ߍ߲߫</string>
+  <string name="reading_list_article_save_in_progress">ߞߎߡߘߊ ߓߘߊ߫ ߟߊߖߌ߱ ߘߊߡߌ߬ߣߊ߬ ߌ ߞߎ߲߬߸ ߊ߬ ߓߊ߯ ߘߝߊ߫ ߕߎ߬ߡߊ ߡߍ߲߸ ߊ߬ ߘߌ߫ ߞߍ߫ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫.</string>
+  <string name="reading_list_already_contains_selection">ߛߙߍߘߍ߫ ߛߎߥߊ߲ߘߌߣߍ߲ ߓߍ߯ ߦߋ߫ ߞߐߜߍ߫ ߓߊߕߐ߬ߡߐ߲߬ߣߍ߲ ߘߐ߫ ߞߘߐ߬ߡߊ߲߫.</string>
   <string name="reading_list_added_articles_list_titled">ߦߌߟߡߊ %1$d ߓߘߊ߫ ߓߌ߬ߟߊ߬ %2$s ߘߐ߫</string>
   <string name="reading_list_delete_confirm">ߌ ߟߊ߫ ߣߴߊ߬ ߟߊ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ %s ߖߏ߬ߛߌ߬؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">ߌ ߜߊ߲߬ߞߎ߲߫ ߞߊ߬ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
@@ -402,7 +414,15 @@
   <string name="reading_list_saved_list_rename">(ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߛߌ߲ߘߟߌ߫ ߣߐ) %1$s</string>
   <string name="reading_lists_menu_create_list">ߛߙߍߘߍ߫ ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</string>
   <string name="reading_lists_menu_sort_by">ߞߵߊ߬ ߢߊߓߐ߫ ߡߊ߬</string>
+  <string name="reading_lists_refresh_sync_option">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ߟߌ ߟߊߛߎߡߊ߫</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ߌ ߜߊ߲߬ߞߎ߲߫/ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="other">ߞߋߟߋ߲߫=ߞߎߡߘߊ ߣߌ߲߬ ߕߍ߫ ߣߊ߬ ߛߐ߲߬ ߞߍ߫ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߘߐ߫</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="other">ߞߋߟߋ߲߫=ߞߎߡߘߊ ߣߌ߲߬ ߕߍ߫ ߣߊ߬ ߥߊ߯ߕߌ߫ ߖߊ߲߫ ߞߍ߫ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߘߐ߫</item>
+  </plurals>
+  <string name="reading_list_toast_last_sync">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߓߘߊ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߞߏߟߌߞߏߟߌ߫.</string>
   <string name="reading_list_menu_last_sync">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬߫ ߞߐ߯ߟߕߊ: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="reading_list_delete_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
@@ -412,9 +432,12 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_split_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="user_option_sync_label">ߝߌ߬ߛߊ߬ߡߊ߲߬ߕߋ</string>
+  <string name="notification_reverted_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߞߐߛߊ߬ߦߌ߬ߣߍ߲</string>
   <string name="notification_channel_description">ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲ ߓߘߊ߫ ߖߊ߲߬ߝߊ߫</string>
   <string name="notification_syncing_pause_button">ߊ߬ ߟߊߟߐ߬</string>
+  <string name="notification_syncing_resume_button">ߟߊߛߎ߬ߘߎ߲߬ߧߊ߫</string>
   <string name="notification_syncing_cancel_button">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="notification_syncing_reading_list_channel_description">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߘߊ߫ ߖߊ߲߬ߝߊ߫</string>
   <plurals name="notification_channel_name">
     <item quantity="other">ߦߌߟߡߊ߫ ߞߋߟߋ߲߫=ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲ ߦߴߌ ߘߐ߫</item>
   </plurals>
@@ -423,6 +446,15 @@
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="other">ߦߌߟߡߊ߫=%1$d ߣߎߡߊ߲ ߝߍ߬</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="other">ߞߋߟߋ߲߫=ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="other">ߞߋߟߋ߲߫=ߛߙߍߘߍ߫%1$dߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫...</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="other">ߞߋߟߋ߲߫=ߛߙߍߘߍ%1$dߣߎߡߊ߲߫</item>
   </plurals>
   <string name="notification_echo_channel_description">ߥߞߌ-ߔߘߋߞߎ ߡߊ߬ߟߐ߲߬ߠߌ߲</string>
   <string name="notifications_activity_title">ߡߊ߬ߟߐ߲߬ߠߌ߲</string>
