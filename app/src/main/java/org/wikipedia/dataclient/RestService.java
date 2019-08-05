@@ -115,10 +115,6 @@ public interface RestService {
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
-    @Deprecated
-    @GET("page/media/{title}")
-    @NonNull Observable<Gallery> getMedia(@Path("title") String title);
-
     @GET("page/media-list/{title}")
     @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
 
