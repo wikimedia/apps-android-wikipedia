@@ -106,7 +106,6 @@
   <string name="langlinks_activity_title">Diğer diller</string>
   <string name="langlinks_your_wikipedia_languages">Vikipedi dilleriniz</string>
   <string name="menu_save_changes">Değişiklikleri yayımla</string>
-  <string name="dialog_saving_in_progress">Yayımlanıyor...</string>
   <string name="edit_saved_successfully">Düzenleme yayımlandı!</string>
   <string name="dialog_message_edit_failed">Değişiklik başarısız oldu!</string>
   <string name="dialog_message_edit_failed_retry">Tekrar dene</string>
@@ -184,7 +183,6 @@
   <string name="create_account_ip_block_details">Ayrıntılar</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
-  <string name="edit_preview_fetching_dialog_message">Önizleme alınıyor...</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="create_account_account_created_toast">Hesap oluşturuldu!</string>
   <string name="preferences_heading_syncing">Senkronize ediliyor</string>

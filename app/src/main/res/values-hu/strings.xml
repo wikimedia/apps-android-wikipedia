@@ -92,7 +92,6 @@
   <string name="langlinks_activity_title">További nyelvek</string>
   <string name="langlinks_your_wikipedia_languages">Wikipédia-nyelveid</string>
   <string name="menu_save_changes">Változtatások közzététele</string>
-  <string name="dialog_saving_in_progress">Közzététel…</string>
   <string name="edit_saved_successfully">Szerkesztés közzétéve!</string>
   <string name="dialog_message_edit_failed">A szerkesztés nem sikerült!</string>
   <string name="dialog_message_edit_failed_retry">Újra</string>
@@ -170,7 +169,6 @@
   <string name="create_account_ip_block_details">Részletek</string>
   <string name="preferences_general_heading">Általános</string>
   <string name="wikipedia_app_faq">Wikipédia alkalmazás GYIK</string>
-  <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
   <string name="send_feedback">Visszajelzés küldése az alkalmazásról</string>
   <string name="create_account_account_created_toast">Fiók létrehozva!</string>
   <string name="preferences_heading_syncing">Szinkronizálás</string>
@@ -616,6 +614,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice" fuzzy="true">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
+  <string name="description_edit_helper_text_lowercase_warning">általában kis kezdőbetűvel kezdődik</string>
   <string name="description_edit_success_saved" fuzzy="true">Leírás közzétéve!</string>
   <string name="description_edit_success_saved_snackbar" fuzzy="true">Leírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
@@ -696,7 +695,7 @@
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>
   <string name="suggested_edits_image_preview_dialog_source">Forrás/fényképész</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">További információk</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">További információ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>

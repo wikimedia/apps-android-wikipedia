@@ -95,7 +95,6 @@
   <string name="langlinks_activity_title">Outras línguas</string>
   <string name="langlinks_your_wikipedia_languages">As suas línguas da Wikipédia</string>
   <string name="menu_save_changes">Publicar alterações</string>
-  <string name="dialog_saving_in_progress">A publicar…</string>
   <string name="edit_saved_successfully">Edição publicada!</string>
   <string name="dialog_message_edit_failed">A edição falhou!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
@@ -173,7 +172,6 @@
   <string name="create_account_ip_block_details">Detalhes</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes sobre a aplicação Wikipédia</string>
-  <string name="edit_preview_fetching_dialog_message">A obter a antevisão…</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="preferences_heading_syncing">Sincronização</string>

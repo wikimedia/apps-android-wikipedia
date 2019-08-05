@@ -65,7 +65,6 @@
   <string name="langlinks_activity_title">အရေဝ်ဘာသာ တၞဟ်</string>
   <string name="langlinks_your_wikipedia_languages">အရေဝ်ဘာသာ ဝဳကဳပဳယာ မၞး</string>
   <string name="menu_save_changes">ပတိတ်တြး ပြံင်လှာဲအာ</string>
-  <string name="dialog_saving_in_progress">ပတိတ်တြးဒၟံင်</string>
   <string name="edit_saved_successfully">ဒါန်ပလေဝ် တုဲဒှ် ဗွဲမအံင်ဇၞး!</string>
   <string name="dialog_message_edit_failed">ဒါန်ပလေဝ် ဟွံအံင်ဇၞး!</string>
   <string name="dialog_message_edit_failed_retry">ကလေင်ကၠောန်</string>
@@ -132,7 +131,6 @@
   <string name="create_account_ip_block_details">ဗွဲမစုင်လေင်</string>
   <string name="preferences_general_heading">နာနာ</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">အဃောမပလေဝ်ဒၟံင် နမူနာ...</string>
   <string name="send_feedback">ပလံင် လညာတ်ဇကု စပ်ကဵု app</string>
   <string name="create_account_account_created_toast">အကံက်ဂှ် ကၠောန်ဂွံ ဗွဲမအံင်ဇၞး!</string>
   <string name="preferences_heading_syncing">ပချဳဓရာင်</string>

@@ -96,7 +96,6 @@
   <string name="langlinks_activity_title">다른 언어</string>
   <string name="langlinks_your_wikipedia_languages">내 위키백과 언어</string>
   <string name="menu_save_changes">변경사항 게시</string>
-  <string name="dialog_saving_in_progress">게시 중...</string>
   <string name="edit_saved_successfully">편집이 게시됐습니다!</string>
   <string name="dialog_message_edit_failed">편집에 실패했습니다!</string>
   <string name="dialog_message_edit_failed_retry">다시 시도</string>
@@ -174,7 +173,6 @@
   <string name="create_account_ip_block_details">자세한 사항</string>
   <string name="preferences_general_heading">일반</string>
   <string name="wikipedia_app_faq">위키백과 앱 FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중…</string>
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="preferences_heading_syncing">동기화</string>
@@ -614,6 +612,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">문서 설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
   <string name="description_edit_license_notice">문서 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
+  <string name="description_edit_helper_text_lowercase_warning">보통 소문자로 시작합니다</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
@@ -657,8 +656,8 @@
   <string name="suggested_edits_unlock_notification_button">예, 시작합니다</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">\"이미지 설명 추가\" 작업의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">\"이미지 설명 추가\"의 잠금을 해제하였습니다.</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">모든 기여에 감사드립니다! 이미지에 설명을 추가하고 계신 것 같아 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">편집 제안\n\n모든 기여에 감사드립니다. 이미지에 설명을 추가하고 계신 것 같아 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">이미지 캡션 편집에 감사드립니다! 이미지에 설명을 추가하고 계신 것을 확인하여 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">편집 제안\n\n이미지 캡션 편집에 감사드립니다! 이미지에 설명을 추가하고 계신 것을 확인하여 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">\"이미지 설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">\"이미지 설명 번역하기\"의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">모든 기여에 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
@@ -671,13 +670,13 @@
   <string name="suggested_edits_task_translation_title">문서 설명 번역하기</string>
   <string name="suggested_edits_task_translation_description">문서 언어별로 설명을 번역합니다.</string>
   <string name="suggested_edits_task_image_caption_title">이미지 설명 추가</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">이미지에 캡션 추가</string>
+  <string name="suggested_edits_task_image_caption_description">이미지에 존재하지 않는 짧은 캡션 추가</string>
   <string name="suggested_edits_task_translate_caption_title">이미지 설명 번역하기</string>
   <string name="suggested_edits_task_translate_caption_description">설명을 다른 언어로 번역하기</string>
   <string name="suggested_edits_task_multilingual_title">다언어 편집자를 위한 더 많은 작업</string>
   <string name="suggested_edits_task_multilingual_description">둘 이상의 위키백과 언어로 읽고 쓰는 경우에 번역 작업이 가능합니다.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">%d건의 유효한 기여를 수행하기 전까지는 잠겨있습니다</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">%d건의 이미지 캡션을 편집하기 전까지는 잠겨있습니다</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">%d건의 문서 설명을 편집하기 전까지는 잠겨있습니다 (검증됨)</string>
   <string name="suggested_edits_task_multilingual_negative">제게는 해당되지 않습니다</string>
   <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
   <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
