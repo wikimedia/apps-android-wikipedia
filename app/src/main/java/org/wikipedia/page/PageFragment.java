@@ -110,7 +110,6 @@ import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
-import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
@@ -906,13 +905,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                JSONObject payload = new JSONObject();
-                try {
-                    payload.put("anchor", anchor);
-                    payload.put("text", linkText);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
+                //Todo: mobile-html: add bridge communication
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -1111,13 +1104,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void sendDecorOffsetMessage() {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("offset", getContentTopOffset(requireActivity()));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setDecorOffset", payload);
+        //Todo: mobile-html: add bridge communication
     }
 
     private void initPageScrollFunnel() {

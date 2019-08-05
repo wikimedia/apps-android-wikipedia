@@ -22,7 +22,6 @@ import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
@@ -147,31 +146,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     void scrollToSection(String sectionAnchor) {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("anchor", sectionAnchor);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("scrollToSection", payload);
+        //Todo: mobile-html: add bridge communication
     }
 
     private void scrollToSection(Section section) {
-        if (section != null) {
-            // is it the bottom (about) section?
-            if (section.getId() == ABOUT_SECTION_ID) {
-                JSONObject payload = new JSONObject();
-                try {
-                    final int topPadding = 16;
-                    payload.put("offset", topPadding);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-                bridge.sendMessage("scrollToBottom", payload);
-            } else {
-                scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
-            }
-        }
+        //Todo: mobile-html: add bridge communication
     }
 
     public void show() {
@@ -218,9 +197,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     @Override
     public void onContentHeightChanged(int contentHeight) {
-        if (!fragment.isLoading()) {
-            bridge.sendMessage("requestSectionData", new JSONObject());
-        }
+        //Todo: mobile-html: add bridge communication
     }
 
     @Override
