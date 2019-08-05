@@ -69,7 +69,6 @@
   <string name="langlinks_activity_title">Дигар забонҳо</string>
   <string name="langlinks_your_wikipedia_languages">Забонҳои Википедиаи Шумо</string>
   <string name="menu_save_changes">Нашри тағйирот</string>
-  <string name="dialog_saving_in_progress">Нашр шуда истодааст ...</string>
   <string name="edit_saved_successfully">Вироиш нашр шуд!</string>
   <string name="dialog_message_edit_failed">Вироиш муваффақ шуд!</string>
   <string name="dialog_message_edit_failed_retry">Дубора саъй кунед</string>

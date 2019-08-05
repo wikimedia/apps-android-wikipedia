@@ -106,7 +106,6 @@
   <string name="langlinks_activity_title">زبان‌های دیگر</string>
   <string name="langlinks_your_wikipedia_languages">زبان‌های ویکی‌پدیای شما</string>
   <string name="menu_save_changes">منتشر کردن تغییرات</string>
-  <string name="dialog_saving_in_progress">در حال انتشار…</string>
   <string name="edit_saved_successfully">ویرایش منتشر شد!</string>
   <string name="dialog_message_edit_failed">ویرایش اِعمال نشد!</string>
   <string name="dialog_message_edit_failed_retry">تلاش دوباره</string>
@@ -184,7 +183,6 @@
   <string name="create_account_ip_block_details">جزئیات</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
-  <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش…</string>
   <string name="send_feedback">فرستادن بازخورد برنامه</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
   <string name="preferences_heading_syncing">همگام‌سازی</string>
