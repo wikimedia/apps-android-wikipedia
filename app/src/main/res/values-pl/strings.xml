@@ -641,6 +641,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Więcej Informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
