@@ -78,17 +78,4 @@
     <string name="empty" />
     <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
 
-    <!-- Mobile-html(mh) scripts -->
-    <string name="page_mh_set_handler_script">pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})</string>
-    <string name="page_mh_set_margins_script">pagelib.c1.Page.setMargins({ top:\'%dpx\', right:\'%dpx\', bottom:\'%dpx\', left:\'%dpx\' })</string>
-    <string name="page_mh_set_scrollTop_script">pagelib.c1.Page.setScrollTop(%d)</string>
-    <string name="page_mh_set_multi_script">pagelib.c1.Page.setup({
-                                            platform: pagelib.c1.Platforms.ANDROID,
-                                            clientVersion: \'%s\',
-                                            theme: pagelib.c1.Themes.%s,
-                                            dimImages: %b ,
-                                            areTablesInitiallyExpanded: %b ,
-                                            loadImages: %b
-})</string>
-
 </resources>

@@ -428,7 +428,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 bridge.onPageFinished();
                 updateProgressBar(false, true, 0);
-                bridge.execute(JavaScriptActionHandler.setUp(requireContext()));
+                bridge.execute(JavaScriptActionHandler.setUp());
             }
         });
     }
@@ -957,8 +957,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         });
         bridge.addListener("image_clicked", (String messageType, JSONObject messagePayload) -> {
             try {
-                String href = decodeURL(messagePayload.getString("src"));
-                if (href.startsWith("/wiki/")) {
+                String href = decodeURL(messagePayload.getString("href"));
+                if (href.startsWith("./File:")) {
                     String filename = UriUtil.removeInternalLinkPrefix(href);
                     String fileUrl = null;
 
@@ -1026,6 +1026,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             } else if ("disambiguation".equals(itemType)) {
                 // TODO
                 // messagePayload contains an array of URLs called "payload".
+            } else if ("referenceList".equals(itemType)) {
+                // TODO: show full list of references.
             }
         });
         bridge.addListener("read_more_titles_retrieved", (String messageType, JSONObject messagePayload) -> {
