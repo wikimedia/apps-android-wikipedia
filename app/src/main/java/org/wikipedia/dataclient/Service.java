@@ -162,6 +162,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
 
+    @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getMediaInfo(@NonNull @Query("titles") String titles);
+
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname")
     @NonNull Observable<SiteMatrix> getSiteMatrix();
 

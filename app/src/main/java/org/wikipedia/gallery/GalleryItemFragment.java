@@ -32,9 +32,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
@@ -43,7 +40,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ZoomableDraweeViewWithBackground;
@@ -53,8 +49,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Action;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
@@ -62,14 +56,12 @@ import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermissio
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 
 public class GalleryItemFragment extends Fragment {
-    public static final String ARG_PAGETITLE = "pageTitle";
-    public static final String ARG_GALLERY_ITEM = "galleryItem";
-    public static final String ARG_FEED_FEATURED_IMAGE = "feedFeaturedImage";
-    public static final String ARG_AGE = "age";
+    private static final String ARG_PAGETITLE = "pageTitle";
+    private static final String ARG_GALLERY_ITEM = "galleryItem";
 
     public interface Callback {
-        void onDownload(@NonNull GalleryItem item);
-        void onShare(@NonNull GalleryItem item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title);
+        void onDownload(@NonNull GalleryItemFragment item);
+        void onShare(@NonNull GalleryItemFragment item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title);
     }
 
     @BindView(R.id.gallery_item_progress_bar) ProgressBar progressBar;
@@ -82,16 +74,20 @@ public class GalleryItemFragment extends Fragment {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private MediaController mediaController;
-    private int age;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @Nullable private GalleryActivity parentActivity;
     @Nullable private PageTitle pageTitle;
-    @SuppressWarnings("NullableProblems") @NonNull private PageTitle imageTitle;
     @Nullable private MediaListItem mediaListItem;
-    @Nullable private ImageInfo imageInfo;
-    @Nullable public GalleryItem getGalleryItem() {
-        return galleryItem;
+
+    private PageTitle imageTitle;
+    public PageTitle getImageTitle() {
+        return imageTitle;
+    }
+
+    @Nullable private ImageInfo mediaInfo;
+    @Nullable public ImageInfo getMediaInfo() {
+        return mediaInfo;
     }
 
     public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull MediaListItem item) {
@@ -99,12 +95,6 @@ public class GalleryItemFragment extends Fragment {
         Bundle args = new Bundle();
         args.putParcelable(ARG_PAGETITLE, pageTitle);
         args.putSerializable(ARG_GALLERY_ITEM, item);
-
-        if (galleryItem instanceof FeaturedImage) {
-            args.putBoolean(ARG_FEED_FEATURED_IMAGE, true);
-            args.putInt(ARG_AGE, ((FeaturedImage) galleryItem).getAge());
-        }
-
         f.setArguments(args);
         return f;
     }
@@ -117,10 +107,6 @@ public class GalleryItemFragment extends Fragment {
         imageTitle = new PageTitle(Namespace.FILE.toLegacyString(),
                 StringUtil.removeNamespace(mediaListItem.getTitle()),
                 pageTitle.getWikiSite());
-
-        if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
-            age = getArguments().getInt(ARG_AGE);
-        }
     }
 
     @Override
@@ -184,18 +170,18 @@ public class GalleryItemFragment extends Fragment {
         if (!isAdded()) {
             return;
         }
-        menu.findItem(R.id.menu_gallery_visit_page).setEnabled(imageInfo != null);
-        menu.findItem(R.id.menu_gallery_share).setEnabled(imageInfo != null
-                && !TextUtils.isEmpty(imageInfo.getThumbUrl()) && imageView.getDrawable() != null);
-        menu.findItem(R.id.menu_gallery_save).setEnabled(imageInfo != null
-                && !TextUtils.isEmpty(imageInfo.getThumbUrl()) && imageView.getDrawable() != null);
+        menu.findItem(R.id.menu_gallery_visit_page).setEnabled(mediaInfo != null);
+        menu.findItem(R.id.menu_gallery_share).setEnabled(mediaInfo != null
+                && !TextUtils.isEmpty(mediaInfo.getThumbUrl()) && imageView.getDrawable() != null);
+        menu.findItem(R.id.menu_gallery_save).setEnabled(mediaInfo != null
+                && !TextUtils.isEmpty(mediaInfo.getThumbUrl()) && imageView.getDrawable() != null);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_gallery_visit_page:
-                if (imageInfo != null) {
+                if (mediaInfo != null) {
                     parentActivity.finishWithPageResult(imageTitle);
                 }
                 return true;
@@ -253,26 +239,25 @@ public class GalleryItemFragment extends Fragment {
      * Load the actual media associated with our gallery item into the UI.
      */
     private void loadMedia() {
-        disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(mediaListItem.getTitle())
+        updateProgressBar(true);
+        disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMediaInfo(mediaListItem.getTitle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doFinally(() -> {
+                    updateProgressBar(false);
                     parentActivity.supportInvalidateOptionsMenu();
                     parentActivity.layOutGalleryDescription();
                 })
                 .subscribe(response -> {
-                    imageInfo = response.query().firstPage().imageInfo();
-                    videoInfo = response.query().firstPage().videoInfo();
+                    mediaInfo = response.query().firstPage().videoInfo();
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
-                        loadImage(ImageUrlUtil.getUrlForPreferredSize(imageInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE));
+                        loadImage(ImageUrlUtil.getUrlForPreferredSize(mediaInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE));
                     }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        // TODO?
-                    }
+                }, throwable -> {
+                    FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
+                    L.d(throwable);
                 }));
     }
 
@@ -281,11 +266,11 @@ public class GalleryItemFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            if (loading || videoInfo == null) {
+            if (loading || mediaInfo == null || mediaInfo.getBestDerivative() == null) {
                 return;
             }
             loading = true;
-            L.d("Loading video from url: " + videoInfo.          galleryItem.getOriginalVideoSource().getOriginalUrl());
+            L.d("Loading video from url: " + mediaInfo.getBestDerivative().getSrc());
             videoView.setVisibility(View.VISIBLE);
             mediaController = new MediaController(parentActivity);
             if (!DeviceUtil.isNavigationBarShowing()) {
@@ -314,7 +299,7 @@ public class GalleryItemFragment extends Fragment {
                 loading = false;
                 return true;
             });
-            videoView.setVideoURI(Uri.parse        (galleryItem.getOriginalVideoSource().getOriginalUrl()));
+            videoView.setVideoURI(Uri.parse(mediaInfo.getBestDerivative().getSrc()));
         }
     };
 
@@ -322,13 +307,13 @@ public class GalleryItemFragment extends Fragment {
         videoContainer.setVisibility(View.VISIBLE);
         videoPlayButton.setVisibility(View.VISIBLE);
         videoView.setVisibility(View.GONE);
-        if (TextUtils.isEmpty(imageInfo.getThumbUrl())) {
+        if (TextUtils.isEmpty(mediaInfo.getThumbUrl())) {
             videoThumbnail.setVisibility(View.GONE);
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
             videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
-                    .setUri(imageInfo.getThumbUrl())
+                    .setUri(mediaInfo.getThumbUrl())
                     .setAutoPlayAnimations(true)
                     .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
                         @Override
@@ -374,17 +359,17 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void shareImage() {
-        if (imageInfo == null) {
+        if (mediaInfo == null) {
             return;
         }
-        new ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(imageInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)){
+        new ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(mediaInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)){
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {
                 if (!isAdded()) {
                     return;
                 }
                 if (callback() != null) {
-                    callback().onShare(galleryItem, bitmap, getShareSubject(), imageTitle);
+                    callback().onShare(GalleryItemFragment.this, bitmap, getShareSubject(), imageTitle);
                 }
             }
         }.get();
@@ -411,15 +396,12 @@ public class GalleryItemFragment extends Fragment {
 
     @Nullable
     private String getShareSubject() {
-        if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
-            return ShareUtil.getFeaturedImageShareSubject(requireContext(), age);
-        }
         return pageTitle != null ? pageTitle.getDisplayText() : null;
     }
 
     private void saveImage() {
-        if (imageInfo != null && callback() != null) {
-            callback().onDownload(galleryItem);
+        if (mediaInfo != null && callback() != null) {
+            callback().onDownload(this);
         }
     }
 
