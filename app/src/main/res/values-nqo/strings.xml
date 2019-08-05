@@ -487,9 +487,6 @@
   <string name="feed">ߛߏ߲߯ߓߊߟߌ</string>
   <string name="view_static_card_icon_content_description">ߔߊ߬ߔߘߊ ߛߌ߲ߞߐ߲</string>
   <string name="view_card_news_title">ߞߎߘߊ ߟߎ߬ ߘߐ߫</string>
-  <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="other">ߞߋߟߋ߲߫=ߞߎߣߎ߲߬</item>
-  </plurals>
   <string name="view_continue_reading_card_subtitle_today">ߓߌ߬</string>
   <string name="view_continue_reading_card_subtitle_read_date">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ %s</string>
   <string name="view_announcement_card_negative_action">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
@@ -622,9 +619,6 @@
   <string name="more_events_text">ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
   <string name="this_year">ߢߌ߬ߣߊ߲߬</string>
   <string name="back_to_top">ߌ ߞߐߛߊ߬ߦߌ߬ ߛߊ߲ߝߍ߬</string>
-  <plurals name="diff_years">
-    <item quantity="other">one:ߞߋߟߋ߲߫=ߛߊߙߏ߲߬</item>
-  </plurals>
   <string name="languages_list_activity_title">ߞߊ߲ ߘߏ߫ ߛߎߥߊ߲ߘߌ߫</string>
   <string name="languages_list_all_text">ߞߊ߲ ߠߎ߬ ߓߍ߯</string>
   <string name="wikipedia_languages_title">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬</string>
