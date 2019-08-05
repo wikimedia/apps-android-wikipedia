@@ -1,6 +1,7 @@
 package org.wikipedia.onboarding;
 
 import android.content.Context;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,8 +24,8 @@ public class OnboardingView extends LinearLayout {
 
     @BindView(R.id.view_onboarding_title) TextView titleView;
     @BindView(R.id.view_onboarding_text) TextView textView;
-    @BindView(R.id.view_onboarding_action_positive) TextView actionViewPositive;
-    @BindView(R.id.view_onboarding_action_negative) TextView actionViewNegative;
+    @BindView(R.id.view_onboarding_action_positive) Button actionViewPositive;
+    @BindView(R.id.view_onboarding_action_negative) Button actionViewNegative;
 
     @Nullable private Callback callback;
 
