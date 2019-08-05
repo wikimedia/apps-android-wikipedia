@@ -18,25 +18,34 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setMargin(context: Context, top: Int, right: Int, bottom: Int, left: Int): String {
-        return (context.getString(R.string.page_mh_set_margins_script, top, right, bottom, left))
+    fun setMargin( top: Int, right: Int, bottom: Int, left: Int): String {
+        return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top, right, bottom, left)
     }
 
     @JvmStatic
-    fun setScrollTop(context: Context, top: Int): String {
-        return (context.getString(R.string.page_mh_set_scrollTop_script, top))
+    fun setScrollTop(top: Int): String {
+        return String.format("pagelib.c1.Page.setScrollTop(%d)", top)
     }
 
     @JvmStatic
-    fun setUp(context: Context): String {
+    fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        return context.getString(R.string.page_mh_set_multi_script, BuildConfig.VERSION_NAME, app.getCurrentTheme().getFunnelName().toUpperCase(), (app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()), !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
+        return String.format("pagelib.c1.Page.setup({" +
+                "platform: pagelib.c1.Platforms.ANDROID," +
+                "clientVersion: '%s'," +
+                "theme: pagelib.c1.Themes.%s," +
+                "dimImages: %b," +
+                "areTablesInitiallyExpanded: %b," +
+                "textSizeAdjustmentPercentage: '100%%'," +
+                "loadImages: %b" +
+                "})", BuildConfig.VERSION_NAME, app.getCurrentTheme().getFunnelName().toUpperCase(),
+                (app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()),
+                !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 
     @JvmStatic
-    fun setUpEditButtons(context: Context, isEditable: Boolean, isProtected: Boolean): String {
-        val app: WikipediaApp = WikipediaApp.getInstance()
-        return context.getString(R.string.page_mh_set_edit_buttons, isEditable, isProtected)
+    fun setUpEditButtons(isEditable: Boolean, isProtected: Boolean): String {
+        return String.format("pagelib.c1.Page.setEditButtons(%b, %b)", isEditable, isProtected)
     }
 
     @JvmStatic
