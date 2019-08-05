@@ -1026,6 +1026,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             } else if ("disambiguation".equals(itemType)) {
                 // TODO
                 // messagePayload contains an array of URLs called "payload".
+            } else if ("referenceList".equals(itemType)) {
+                // TODO: show full list of references.
             }
         });
         bridge.addListener("read_more_titles_retrieved", (String messageType, JSONObject messagePayload) -> {
