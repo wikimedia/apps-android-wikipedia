@@ -55,7 +55,6 @@ public class LeadImagesHandler {
      * the page title.
      */
     private static final int MIN_SCREEN_HEIGHT_DP = 480;
-    private static final String URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/";
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete(int sequence);
@@ -205,7 +204,7 @@ public class LeadImagesHandler {
     private void updateCallToAction() {
         dispose();
         pageHeaderView.setUpCallToAction(null);
-        if (!AccountUtil.isLoggedIn() || getLeadImageUrl() == null || !getLeadImageUrl().contains(URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
+        if (!AccountUtil.isLoggedIn() || getLeadImageUrl() == null || !getLeadImageUrl().contains(Service.URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
             return;
         }
         String imageTitle = "File:" + getPage().getPageProperties().getLeadImageName();
