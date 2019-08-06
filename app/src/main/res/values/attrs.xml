@@ -9,22 +9,15 @@
     <attr name="page_toolbar_color" format="reference"/>
     <attr name="page_toolbar_icon_color" format="reference"/>
     <attr name="themed_icon_color" format="reference"/>
-    <attr name="toc_item_background" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />
     <attr name="edit_improve_tag_unselected_drawable" format="reference" />
     <attr name="lead_image_drawable" format="reference"/>
     <attr name="list_separator_drawable" format="reference"/>
     <attr name="list_separator_drawable_bottom_content" format="reference"/>
-    <attr name="nearby_marker_drawable" format="reference"/>
-    <attr name="tab_item_selector" format="reference"/>
-    <attr name="tab_shadow_drawable" format="reference"/>
-    <attr name="material_theme_shadow" format="reference"/>
     <attr name="nav_tab_background_color" format="reference" />
     <attr name="nav_tab_item_color_state" format="reference" />
     <attr name="button_highlight_border_shape" format="reference" />
     <attr name="randomizer_dice_icon_color" format="reference" />
-    <attr name="shadow_background_drawable" format="reference" />
-    <attr name="tab_counts_shape_border" format="reference" />
     <attr name="page_tab_counts_shape_border" format="reference" />
 
     <attr name="multi_select_background_color" format="reference" />
@@ -46,8 +39,13 @@
     <attr name="thumb_off_color" format="color" />
     <attr name="track_off_color" format="color" />
     <attr name="toc_h1_h2_color" format="color" />
-    <attr name="text_highlight_color" format="color" />
-    <attr name="text_highlight_color_translucent" format="color" />
+    <attr name="toc_scroller_button_color" format="color" />
+    <attr name="button_background_color" format="color" />
+    <attr name="tab_placeholder_text_color" format="color" />
+    <attr name="chip_background_color" format="color"/>
+    <attr name="chip_text_color" format="color"/>
+    <attr name="suggestions_background_color" format="color"/>
+    <attr name="color_group_52" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
@@ -98,5 +96,14 @@
         <attr name="progressBackgroundColor" format="color" />
         <attr name="progressStrokeWidth" format="dimension" />
         <attr name="maxProgress" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="AppTextView">
+        <attr name="html" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageDetailHorizontalView">
+        <attr name="title" format="string" />
+        <attr name="detail" format="string" />
     </declare-styleable>
 </resources>

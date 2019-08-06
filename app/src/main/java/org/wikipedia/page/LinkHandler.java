@@ -2,16 +2,17 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +47,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             onUrlClick(href, messagePayload.optString("title"), messagePayload.optString("text"));
         } catch (IllegalArgumentException e) {
             // The URL is malformed and URL decoder can't understand it. Just do nothing.
-            Log.d("Wikipedia", "A malformed URL was tapped.");
+            L.d("A malformed URL was tapped.");
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -76,7 +77,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
                     .build();
         }
 
-        Log.d("Wikipedia", "Link clicked was " + uri.toString());
+        L.d("Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
                 && (uri.getPath().startsWith("/wiki/") || uri.getPath().startsWith("/zh-"))) {
             WikiSite site = new WikiSite(uri);

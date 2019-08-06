@@ -56,10 +56,11 @@ def transform_file(file_path, *funcs):
 def bump(file_path):
     transform_file(file_path, set_version_code)
     sh.cd(path_prefix)
+    sh.git.checkout('bumpVersionCode')
     sh.git.add('-u', file_path)
     sh.git.commit('-m', 'Bump versionCode')
 
 
 if __name__ == '__main__':
     bump('app/build.gradle')
-    print('BUMP NOTICE! Run git review with bumped version and +2 if appropriate,')
+    print('BUMP NOTICE! Push the current branch with bumped version and merge if appropriate. (Note: do not delete the `bumpVersionCode` branch!)')

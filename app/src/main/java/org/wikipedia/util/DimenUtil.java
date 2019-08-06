@@ -3,12 +3,13 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+
+import androidx.annotation.DimenRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -97,6 +98,11 @@ public final class DimenUtil {
         return id > 0 ? DimenUtil.getDimension(id) : 0;
     }
 
+    public static float getNavigationBarHeight(Context context) {
+        int id = getNavigationBarId(context);
+        return id > 0 ? DimenUtil.getDimension(id) : 0;
+    }
+
     private static float getToolbarHeight(Context context) {
         return DimenUtil.roundedPxToDp(getToolbarHeightPx(context));
     }
@@ -110,7 +116,7 @@ public final class DimenUtil {
      */
     public static int getToolbarHeightPx(Context context) {
         final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[] {
-                android.support.v7.appcompat.R.attr.actionBarSize
+                androidx.appcompat.R.attr.actionBarSize
         });
         int size = styledAttributes.getDimensionPixelSize(0, 0);
         styledAttributes.recycle();
@@ -119,6 +125,10 @@ public final class DimenUtil {
 
     @DimenRes private static int getStatusBarId(Context context) {
         return context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+    }
+
+    @DimenRes private static int getNavigationBarId(Context context) {
+        return context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
     }
 
     public static void setViewHeight(View view, int height) {

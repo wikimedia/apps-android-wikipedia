@@ -1,7 +1,7 @@
 package org.wikipedia.gallery;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -22,12 +22,12 @@ public class ImageLicense implements Serializable {
     @NonNull @SerializedName("url") private final String licenseUrl;
 
     public ImageLicense(@NonNull ExtMetadata metadata) {
-        this.license = metadata.license() != null ? metadata.license().value() : "";
-        this.licenseShortName = metadata.licenseShortName() != null ? metadata.licenseShortName().value() : "";
-        this.licenseUrl = metadata.licenseUrl() != null ? metadata.licenseUrl().value() : "";
+        this.license = metadata.license();
+        this.licenseShortName = metadata.licenseShortName();
+        this.licenseUrl = metadata.licenseUrl();
     }
 
-    private ImageLicense(@NonNull String license, @NonNull String licenseShortName, @NonNull String licenseUrl) {
+    public ImageLicense(@NonNull String license, @NonNull String licenseShortName, @NonNull String licenseUrl) {
         this.license = license;
         this.licenseShortName = licenseShortName;
         this.licenseUrl = licenseUrl;

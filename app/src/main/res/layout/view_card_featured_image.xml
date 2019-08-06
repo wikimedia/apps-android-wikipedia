@@ -9,15 +9,15 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_featured_image_card_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_header_height"/>
+        android:layout_height="@dimen/view_card_header_height" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="260dp">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
-            style="@style/SimpleDraweeViewPlaceholder"
             android:id="@+id/view_featured_image_card_image"
+            style="@style/SimpleDraweeViewPlaceholder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:actualImageScaleType="focusCrop" />
@@ -27,21 +27,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:background="#4c000000"
-            android:textColor="@android:color/white"
-            tools:text="Description of featured image here"
             android:ellipsize="end"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/white"
+            tools:text="Description of featured image here" />
 
     </FrameLayout>
 
     <org.wikipedia.feed.view.ActionFooterView
         android:id="@+id/view_featured_image_card_footer"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_footer_height"/>
+        android:layout_height="@dimen/view_card_footer_height" />
 
 </LinearLayout>

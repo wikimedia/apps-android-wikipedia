@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.fresco;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.facebook.binaryresource.BinaryResource;
 import com.facebook.cache.common.CacheKey;

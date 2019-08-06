@@ -1,8 +1,9 @@
 package org.wikipedia.views;
 
-import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * Triggers events when one or more EditTexts are empty or not

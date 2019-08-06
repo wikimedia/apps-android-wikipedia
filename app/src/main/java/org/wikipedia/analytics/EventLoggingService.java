@@ -62,7 +62,7 @@ public final class EventLoggingService {
             OkHttpConnectionFactory.getClient().newCall(request).execute().close();
         }).subscribeOn(Schedulers.io())
                 .subscribe(() -> { },
-                        throwable -> L.d("Lost EL data: " + event.toString()));
+                        throwable -> L.d("Lost EL data: " + event.toString(), throwable));
     }
 
     private EventLoggingService() { }

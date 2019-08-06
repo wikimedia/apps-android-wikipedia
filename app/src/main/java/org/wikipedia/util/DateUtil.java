@@ -3,7 +3,8 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.icu.text.RelativeDateTimeFormatter;
 import android.os.Build;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -15,25 +16,26 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 public final class DateUtil {
+    private static Map<String, SimpleDateFormat> DATE_FORMATS = new HashMap<>();
 
-    public static SimpleDateFormat getIso8601DateFormatShort() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat;
+    // TODO: Switch to DateTimeFormatter when minSdk = 26.
+
+    public static synchronized String iso8601DateFormat(Date date) {
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date);
     }
 
-    public static SimpleDateFormat getIso8601DateFormat() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat;
+    public static synchronized Date iso8601DateParse(String date) throws ParseException {
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).parse(date);
     }
 
-    public static SimpleDateFormat getIso8601LocalDateFormat() {
-        return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT);
+    public static synchronized String iso8601LocalDateFormat(Date date) {
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date);
     }
 
     public static String getFeedCardDayHeaderDate(int age) {
@@ -68,8 +70,19 @@ public final class DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d");
     }
 
-    private static String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
-        return new SimpleDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault()).format(date);
+    private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
+        return getCachedDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date);
+    }
+
+    private static SimpleDateFormat getCachedDateFormat(String pattern, Locale locale, boolean utc) {
+        if (!DATE_FORMATS.containsKey(pattern)) {
+            SimpleDateFormat df = new SimpleDateFormat(pattern, locale);
+            if (utc) {
+                df.setTimeZone(TimeZone.getTimeZone("UTC"));
+            }
+            DATE_FORMATS.put(pattern, df);
+        }
+        return DATE_FORMATS.get(pattern);
     }
 
     public static String getShortDateString(@NonNull Date date) {
@@ -92,14 +105,12 @@ public final class DateUtil {
         return calendar;
     }
 
-    public static Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
-        SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH);
-        df.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return df.parse(dateStr);
+    public static synchronized Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
+        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr);
     }
 
     public static String getReadingListsLastSyncDateString(@NonNull String dateStr) throws ParseException {
-        return getDateStringWithSkeletonPattern(getIso8601DateFormat().parse(dateStr), "d MMM yyyy HH:mm");
+        return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm");
     }
 
     @NonNull public static String yearToStringWithEra(int year) {

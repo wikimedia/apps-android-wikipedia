@@ -1,9 +1,10 @@
 package org.wikipedia.crash.hockeyapp;
 
-import android.support.annotation.Nullable;
-import android.util.Log;
+import androidx.annotation.Nullable;
 
 import net.hockeyapp.android.ExceptionHandler;
+
+import org.wikipedia.util.log.L;
 
 /** Wrapper around {@link ExceptionHandler} that calls {@link HockeyAppCrashListener#onCrash()}. */
 class HockeyAppExceptionHandler extends ExceptionHandler {
@@ -25,7 +26,7 @@ class HockeyAppExceptionHandler extends ExceptionHandler {
 
     @Override
     public void uncaughtException(Thread thread, Throwable exception) {
-        Log.e(getClass().getName(), "", exception);
+        L.e("", exception);
         saveException(exception, null, listener);
 
         if (!ignoreDefaultHandler) {

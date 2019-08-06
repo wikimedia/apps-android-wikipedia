@@ -1,8 +1,10 @@
 package org.wikipedia.dataclient;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.LruCache;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.LruCache;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
@@ -49,6 +51,11 @@ public final class ServiceFactory {
         RestService s = r.create(RestService.class);
         REST_SERVICE_CACHE.put(hashCode, s);
         return s;
+    }
+
+    public static <T> T get(@NonNull WikiSite wiki, @Nullable String baseUrl, Class<T> service) {
+        Retrofit r = createRetrofit(wiki, TextUtils.isEmpty(baseUrl) ? wiki.url() + "/" : baseUrl);
+        return r.create(service);
     }
 
     private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {

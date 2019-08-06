@@ -23,7 +23,7 @@ public class FeaturedArticleCardTest {
         content = GsonUnmarshaller.unmarshal(RbPageSummary.class, json);
     }
 
-    @Test public void testTitleNormalization() throws Throwable {
+    @Test public void testTitleNormalization() {
         FeaturedArticleCard tfaCard = new FeaturedArticleCard(content, 0, TEST);
         assertThat(tfaCard.title(), not(containsString("_")));
     }

@@ -9,8 +9,6 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Hikaroka an\'i Wikipedia</string>
   <string name="search_hint_search_history">Hikaroka ny tantara</string>
-  <string name="search_hint_search_my_lists">Hikaroka ny lisitra</string>
-  <string name="search_hint_search_reading_list">Hikaroka ny lisi-pamakiana</string>
   <string name="search_hint_search_languages">Hikaroka fiteny</string>
   <string name="nav_item_history">Tantara</string>
   <string name="error_network_error">Tsy afaka mifandray amin\'ny Aterineto.</string>
@@ -54,7 +52,6 @@
   <string name="langlinks_activity_title">Fiteny hafa</string>
   <string name="langlinks_your_wikipedia_languages">Ny teny Wikipedianao</string>
   <string name="menu_save_changes">Hamoaka ny fiovana</string>
-  <string name="dialog_saving_in_progress">An-dalam-pamoahana...</string>
   <string name="edit_saved_successfully">Navoaka ny fiovana!</string>
   <string name="dialog_message_edit_failed">Tsy nahomby ny fandraiketana!</string>
   <string name="dialog_message_edit_failed_retry">Andramana indray</string>
@@ -202,7 +199,7 @@
   <string name="crash_report_quit">Hiala</string>
   <string name="article_menu_bar_share">Hizara ny rohy mankany amin\'ny pejy</string>
   <string name="article_header_edit_hint">Ovaina...</string>
-  <string name="article_header_edit_description">Hanova ny famisavisan-dohateny</string>
+  <string name="article_header_edit_description" fuzzy="true">Hanova ny famisavisan-dohateny</string>
   <string name="article_header_edit_lead_section">Hanova ny fampidirana</string>
   <string name="color_theme_select">Tena</string>
   <string name="color_theme_light">Mazava</string>
@@ -223,9 +220,6 @@
   <string name="format_reading_list_statistical_summary_singular">Lahatsoratra iray, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">Lahatosratra %1$d, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d ny lahatsoratra 1 no azo vakiana, %2$.2f MB</string>
-  <string name="description_edit_text_hint">Visavisan\'ilay lohateny</string>
-  <string name="description_edit_add_description">Hanampy visavisan-dohateny</string>
-  <string name="description_edit_help_about_title">Mombamomba</string>
-  <string name="description_edit_help_tips_examples">Ohatra:</string>
-  <string name="description_edit_help_more_info">Torohay fanampiny</string>
+  <string name="description_edit_text_hint" fuzzy="true">Visavisan\'ilay lohateny</string>
+  <string name="description_edit_add_description" fuzzy="true">Hanampy visavisan-dohateny</string>
 </resources>

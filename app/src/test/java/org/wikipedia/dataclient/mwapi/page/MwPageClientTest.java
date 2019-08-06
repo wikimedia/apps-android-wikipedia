@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.mwapi.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class MwPageClientTest extends BasePageClientTest {
         subject = new MwPageClient();
     }
 
-    @Test public void testLeadThumbnailWidth() throws Throwable {
+    @Test public void testLeadThumbnailWidth() {
 
         TestObserver<Response<PageLead>> observer = new TestObserver<>();
         subject.lead(wikiSite(), null, null, null, "test", 10).subscribe(observer);

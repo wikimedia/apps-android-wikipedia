@@ -1,8 +1,9 @@
 package org.wikipedia.views;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DontInterceptTouchListener implements RecyclerView.OnItemTouchListener {
     private int pointerId = Integer.MIN_VALUE;

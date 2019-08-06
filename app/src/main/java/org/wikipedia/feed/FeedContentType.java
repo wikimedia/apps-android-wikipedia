@@ -1,16 +1,19 @@
 package org.wikipedia.feed;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
+import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
@@ -19,6 +22,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
@@ -76,7 +84,37 @@ public enum FeedContentType implements EnumCode {
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             return isEnabled() ? new BecauseYouReadClient() : null;
         }
+    },
+    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
+            if (isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+                List<InvokeSource> unlockedTypes = getUnlockedEditingPrivileges();
+                if (unlockedTypes.size() > 0) {
+                    return new SuggestedEditsFeedClient(unlockedTypes.get(age % unlockedTypes.size()));
+                }
+            }
+            return null;
+        }
     };
+
+    List<InvokeSource> getUnlockedEditingPrivileges() {
+        List<InvokeSource> unlockedTypes = new ArrayList<>();
+        if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_ADD_DESC);
+        }
+        if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
+        }
+        if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
+        }
+        if (Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
+        }
+        return unlockedTypes;
+    }
 
     private static final EnumCodeMap<FeedContentType> MAP
             = new EnumCodeMap<>(FeedContentType.class);
@@ -87,6 +125,7 @@ public enum FeedContentType implements EnumCode {
     private boolean enabled = true;
 
     private boolean perLanguage;
+    private boolean showInConfig = true;
     private List<String> langCodesSupported = new ArrayList<>();
     private List<String> langCodesDisabled = new ArrayList<>();
 
@@ -112,6 +151,10 @@ public enum FeedContentType implements EnumCode {
 
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public boolean showInConfig() {
+        return showInConfig;
     }
 
     public void setEnabled(boolean enabled) {
@@ -144,6 +187,11 @@ public enum FeedContentType implements EnumCode {
         this.titleId = titleId;
         this.subtitleId = subtitleId;
         this.perLanguage = perLanguage;
+    }
+
+    FeedContentType(int code, @StringRes int titleId, @StringRes int subtitleId, boolean perLanguage, boolean showInConfig) {
+        this(code, titleId, subtitleId, perLanguage);
+        this.showInConfig = showInConfig;
     }
 
     public static List<String> getAggregatedLanguages() {

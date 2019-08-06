@@ -11,8 +11,6 @@
   <string name="wikimedia">विकिमीडिया</string>
   <string name="search_hint">विकिपीडिया में खोजीं</string>
   <string name="search_hint_search_history">खोज इतिहास</string>
-  <string name="search_hint_search_my_lists">हमार लिस्ट खोजीं</string>
-  <string name="search_hint_search_reading_list">रीडिंग लिस्ट खोजीं</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
   <string name="page_error_retry">दुबारा कोसिस करीं</string>

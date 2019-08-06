@@ -16,7 +16,7 @@ public class PageTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
     @Test
-    public void testMediaWikiMarshalling() throws Throwable {
+    public void testMediaWikiMarshalling() {
         PageTitle title = new PageTitle("Main page", WIKI, "//foo/thumb.jpg");
         PageProperties props = new PageProperties(title, true);
 
@@ -25,7 +25,7 @@ public class PageTest {
     }
 
     @Test
-    public void testRestBaseMarshalling() throws Throwable {
+    public void testRestBaseMarshalling() {
         PageTitle title = new PageTitle("Main page", WIKI, "//foo/thumb.jpg");
         PageProperties props = new PageProperties(title, true);
 

@@ -1,15 +1,16 @@
 package org.wikipedia.page;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.rd.PageIndicatorView;
 
 import org.wikipedia.R;
@@ -23,6 +24,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+
 /**
  * A dialog that displays the currently clicked reference.
  */
@@ -30,7 +33,6 @@ public class ReferenceDialog extends BottomSheetDialog {
     @BindView(R.id.reference_pager) WrapContentViewPager referencesViewPager;
     @BindView(R.id.pageIndicatorView) PageIndicatorView pageIndicatorView;
     @BindView(R.id.indicator_divider) View pageIndicatorDivider;
-    @BindView(R.id.reference_title_text) TextView singleCitationTitleText;
     private LinkHandler referenceLinkHandler;
 
     ReferenceDialog(@NonNull Context context, int selectedIndex, List<ReferenceHandler.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
@@ -55,6 +57,8 @@ public class ReferenceDialog extends BottomSheetDialog {
         referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
         pageIndicatorView.setCount(adjacentReferences.size());
         referencesViewPager.setCurrentItem(selectedIndex, true);
+
+        setConditionalLayoutDirection(rootView, referenceLinkHandler.getWikiSite().languageCode());
     }
 
     @NonNull private String processLinkTextWithAlphaReferences(@NonNull String linkText) {

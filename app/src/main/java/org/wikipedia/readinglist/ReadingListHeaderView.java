@@ -1,10 +1,6 @@
 package org.wikipedia.readinglist;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -12,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.facebook.drawee.drawable.ScalingUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -56,12 +53,6 @@ public class ReadingListHeaderView extends FrameLayout {
         init();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ReadingListHeaderView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
-
     public void setReadingList(@NonNull ReadingList readingList) {
         this.readingList = readingList;
         if (readingList.pages().isEmpty()) {
@@ -92,8 +83,6 @@ public class ReadingListHeaderView extends FrameLayout {
     private void clearThumbnails() {
         for (FaceAndColorDetectImageView imageView : imageViews) {
             ViewUtil.loadImageUrlInto(imageView, null);
-            imageView.getHierarchy().setFailureImage(R.drawable.ic_bookmark_gray_24dp,
-                    ScalingUtils.ScaleType.FIT_CENTER);
         }
     }
 
@@ -120,10 +109,6 @@ public class ReadingListHeaderView extends FrameLayout {
     }
 
     private void loadThumbnail(@NonNull FaceAndColorDetectImageView view, @Nullable String url) {
-        if (TextUtils.isEmpty(url)) {
-            view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp,
-                    ScalingUtils.ScaleType.FIT_CENTER);
-        }
         ViewUtil.loadImageUrlInto(view, url);
     }
 }

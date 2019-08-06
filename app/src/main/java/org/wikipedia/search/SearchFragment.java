@@ -4,24 +4,22 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.IntentFunnel;
@@ -57,12 +55,15 @@ import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.Constants.InvokeSource.INTENT_PROCESS_TEXT;
+import static org.wikipedia.Constants.InvokeSource.INTENT_SHARE;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class SearchFragment extends Fragment implements SearchResultsFragment.Callback,
         RecentSearchesFragment.Callback, LanguageScrollView.Callback {
 
-    private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_QUERY = "lastQuery";
 
     private static final int PANEL_RECENT_SEARCHES = 0;
@@ -79,9 +80,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private WikipediaApp app;
-    @BindView(android.support.v7.appcompat.R.id.search_src_text) EditText searchEditText;
     private SearchFunnel funnel;
-    private SearchInvokeSource invokeSource;
+    private InvokeSource invokeSource;
     private String searchLanguageCode;
     private String tempLangCodeHolder;
     private boolean langBtnClicked = false;
@@ -134,12 +134,12 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         }
     };
 
-    @NonNull public static SearchFragment newInstance(int source,
+    @NonNull public static SearchFragment newInstance(InvokeSource source,
                                                       @Nullable String query) {
         SearchFragment fragment = new SearchFragment();
 
         Bundle args = new Bundle();
-        args.putInt(ARG_INVOKE_SOURCE, source);
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         args.putString(ARG_QUERY, query);
 
         fragment.setArguments(args);
@@ -155,7 +155,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             handleIntent(requireActivity().getIntent());
         }
 
-        invokeSource = SearchInvokeSource.of(getArguments().getInt(ARG_INVOKE_SOURCE, SearchInvokeSource.TOOLBAR.code()));
+        invokeSource = (InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
         query = getArguments().getString(ARG_QUERY);
         funnel = new SearchFunnel(app, invokeSource);
     }
@@ -215,13 +215,13 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             intentFunnel.logShareIntent();
             getArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT));
-            getArguments().putInt(ARG_INVOKE_SOURCE, SearchInvokeSource.INTENT_SHARE.code());
+            getArguments().putSerializable(INTENT_EXTRA_INVOKE_SOURCE, INTENT_SHARE);
         } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             intentFunnel.logProcessTextIntent();
             getArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT));
-            getArguments().putInt(ARG_INVOKE_SOURCE, SearchInvokeSource.INTENT_PROCESS_TEXT.code());
+            getArguments().putSerializable(INTENT_EXTRA_INVOKE_SOURCE, INTENT_PROCESS_TEXT);
         }
     }
 
@@ -311,8 +311,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     }
 
     @Override
-    public void onSearchResultAddToList(@NonNull PageTitle title,
-                                        @NonNull AddToReadingListDialog.InvokeSource source) {
+    public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         bottomSheetPresenter.show(getChildFragmentManager(), AddToReadingListDialog.newInstance(title, source));
     }
 
@@ -385,7 +384,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         // automatically trigger the showing of the corresponding search results.
         if (isValidQuery(query)) {
             searchView.setQuery(query, false);
-            searchEditText.selectAll();
+            searchView.selectAllQueryTexts();
         }
     }
 
@@ -430,25 +429,12 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private void initSearchView() {
         searchView.setOnQueryTextListener(searchQueryListener);
         searchView.setOnCloseListener(searchCloseListener);
+        searchView.setSearchHintTextColor(getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color));
 
-        // reset its background
-        searchEditText.setBackgroundColor(Color.TRANSPARENT);
-        // make the search frame match_parent
-        View searchEditFrame = searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_edit_frame);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        searchEditFrame.setLayoutParams(params);
-        // center the search text in it
-        searchEditText.setGravity(Gravity.CENTER_VERTICAL);
         // remove focus line from search plate
         View searchEditPlate = searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_plate);
+                .findViewById(androidx.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
-
-        ImageView searchClose = searchView.findViewById(
-                android.support.v7.appcompat.R.id.search_close_btn);
-        FeedbackUtil.setToolbarButtonLongPressToast(searchClose);
     }
 
     private void initLangButton() {
@@ -484,6 +470,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             tempLangCodeHolder = null;
         }
         searchLanguageCode = selectedLanguageCode;
+        searchResultsFragment.setLayoutDirection(searchLanguageCode);
         startSearch(query, true);
     }
 

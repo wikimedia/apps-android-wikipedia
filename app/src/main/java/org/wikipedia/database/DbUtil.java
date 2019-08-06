@@ -2,8 +2,9 @@ package org.wikipedia.database;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.database.column.Column;
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Anakmalaysia
 * Arifin.wijaya
 * Aviator
@@ -14,32 +15,40 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Kembali</string>
+  <string name="page_tabs_back">Kembali</string>
   <string name="nav_item_forward">Maju</string>
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="search_hint_search_history">Cari dalam sejarah</string>
-  <string name="search_hint_search_my_lists">Cari senarai saya</string>
-  <string name="search_hint_search_reading_list">Cari senarai bacaan</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="nav_item_history">Sejarah</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
+  <string name="card_offline_error_retry">Cuba lagi</string>
+  <string name="storage_access_error_retry">Cuba lagi</string>
+  <string name="article_load_error_retry">Cuba lagi</string>
+  <string name="offline_load_error_retry">Cuba lagi</string>
   <string name="page_error_back_to_main">Kembali</string>
+  <string name="error_back">Kembali</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
   <string name="history_item_deleted">%s dihapus dari sejarah</string>
   <string name="history_items_deleted">%d rencana dipadamkan dari sejarah</string>
   <string name="history_item_delete_undo">Nyahbuat</string>
+  <string name="notification_archive_undo">Nyahbuat</string>
   <string name="app_settings">Tetapan aplikasi</string>
   <string name="dialog_title_clear_history">Padamkan sejarah pelayaran</string>
   <string name="dialog_message_clear_history">Ini akan menghapuskan kesemua sejarah pelayaran anda serta menutup sebarang tab yang masih terbuka. Adakah anda pasti?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Tidak</string>
   <string name="share_via">Sebarkan melalui</string>
+  <string name="image_share_via">Sebarkan melalui</string>
   <string name="search_redirect_from">Dilencongkan dari %s</string>
   <string name="menu_page_show_tabs">Paparkan tab</string>
   <string name="menu_page_other_languages">Tukar bahasa</string>
   <string name="menu_page_find_in_page">Cari dalam laman</string>
+  <string name="edit_section_find_in_page">Cari dalam laman</string>
   <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke senarai bacaan</string>
+  <string name="feed_card_add_to_list">Tambahkan ke senarai bacaan</string>
   <string name="menu_page_share">Kongsikan pautan</string>
   <string name="menu_page_open_a_new_tab">Buka tab baru</string>
   <string name="menu_page_reading_lists">Senarai bacaan</string>
@@ -50,11 +59,14 @@
   <string name="menu_text_select_copy">Salin</string>
   <string name="menu_text_select_define">Takrifkan</string>
   <string name="menu_text_select_share">Kongsi</string>
+  <string name="share">Kongsi</string>
+  <string name="on_this_day_page_share">Kongsi</string>
+  <string name="reading_list_page_share">Kongsi</string>
   <string name="menu_text_select_edit_here">Sunting di sini</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="nearby_zoom_to_location">Zum kepada lokasi pada peta</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;penyumbang &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
-  <string name="last_updated_text">Mutakhir: %1$s</string>
+  <string name="last_updated_text">Mutakhir: %s</string>
   <string name="talk_page_link_text">Lihat laman perbincangan</string>
   <string name="edit_history_link_text">Lihat sejarah penyuntingan</string>
   <string name="map_view_link_text">Paparkan di peta</string>
@@ -70,7 +82,6 @@
   <string name="langlinks_activity_title">Bahasa lain:</string>
   <string name="langlinks_your_wikipedia_languages">Bahasa Wikipedia anda</string>
   <string name="menu_save_changes">Terbit perubahan</string>
-  <string name="dialog_saving_in_progress">Sedang menerbitkan...</string>
   <string name="edit_saved_successfully">Suntingan diterbitkan!</string>
   <string name="dialog_message_edit_failed">Suntingan gagal disimpan!</string>
   <string name="dialog_message_edit_failed_retry">Cuba lagi</string>
@@ -91,8 +102,13 @@
   <string name="nav_item_login">Log masuk ke dalam Wikipedia</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata laluan</string>
+  <string name="account_creation_password_hint">Kata laluan</string>
   <string name="login_2fa_hint">Kod Pengesahan Dwifaktor</string>
   <string name="login_2fa_other_workflow_error_msg">Pengesahan dua faktor yang diperlukan! Sila kembali ke aktiviti utama dan log masuk dengan token 2FA anda, kemudian cuba lagi.</string>
+  <string name="onboarding_card_login">Log masuk</string>
+  <string name="page_editing_login">Log masuk</string>
+  <string name="reading_lists_sync_login">Log masuk</string>
+  <string name="create_account_login">Log masuk</string>
   <string name="menu_login">Log masuk</string>
   <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
@@ -105,6 +121,7 @@
   <string name="toast_logout_complete">Log keluar</string>
   <string name="history_empty_title">Tiada rencana baru dilihat</string>
   <string name="history_empty_message">Menjejaki apa yang anda telah membaca di sini.</string>
+  <string name="history_offline_articles_toast">Beberapa rencana dalam sejarah mungkin tidak boleh dilihat semasa di luar talian.</string>
   <string name="search_empty_message">Cari dan baca ensiklopedia bebas dalam bahasa anda</string>
   <string name="search_empty_message_multilingual_upgrade">Cari Wikipedia dalam banyak bahasa</string>
   <string name="delete_selected_items">Padam item yang dipilih</string>
@@ -136,7 +153,6 @@
   <string name="create_account_ip_block_details">Butiran</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Soalan Lazim Aplikasi Wikipedia</string>
-  <string name="edit_preview_fetching_dialog_message">Mengolah pralihat…</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
   <string name="preferences_heading_syncing">Penyegerakan</string>
@@ -193,6 +209,10 @@
   <string name="edit_next">Seterusnya</string>
   <string name="edit_done">Terbitkan</string>
   <string name="edit_preview">Pratayang</string>
+  <string name="edit_undo">Nyahbuat</string>
+  <string name="edit_redo">Buat semula</string>
+  <string name="edit_zoom_in">Zum dekat</string>
+  <string name="edit_zoom_out">Zum jauh</string>
   <string name="edit_summary_tag_typo">Memperbaiki ejaan</string>
   <string name="edit_summary_tag_grammar">Memperbaiki tatabahasa</string>
   <string name="edit_summary_tag_links">Membubuh pautan</string>
@@ -231,7 +251,7 @@
   <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
   <string name="preference_title_download_only_over_wifi">Muat turun hanya melalui Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Sahkan muat turun menggunakan data mudah alih?</string>
-  <string name="dialog_text_download_only_over_wifi">Anda mempunyai \"Muat turun sahaja melalui Wi-Fi\" dihidupkan dalam tetapan. Adakah anda mahu membenarkan menggunakan pelan data mudah alih anda untuk muat turun ini sahaja?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">Anda mempunyai \"Muat turun sahaja melalui Wi-Fi\" dihidupkan dalam tetapan. Adakah anda mahu membenarkan menggunakan pelan data mudah alih anda untuk muat turun ini sahaja?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Benarkan</string>
   <string name="read_more_section">Selanjutnya</string>
   <string name="about_article_section">Mengenai rencana ini</string>
@@ -261,6 +281,7 @@
   <string name="close_all_tabs_confirm_no">Tidak</string>
   <string name="button_close_tab">Tutup tab</string>
   <string name="tab_item_closed">%s ditutup.</string>
+  <string name="all_tab_items_closed">Semua tab ditutup.</string>
   <string name="tool_tip_bookmark_icon_title">Tambahkan ke senarai bacaan</string>
   <string name="tool_tip_bookmark_icon_text">Ketik pada ikon penanda buku untuk menyimpan rencana ke senarai bacaan.</string>
   <string name="tool_tip_share">Setelah menyoroti fakta menarik, cuba anda sebarkannya dalam rangkaian kegemaran anda.</string>
@@ -314,12 +335,13 @@
   <string name="article_menu_bar_bookmark">Tambahkan rencana ini ke dalam senarai bacaan</string>
   <string name="article_menu_bar_share">Kongsi pautan rencana</string>
   <string name="article_header_edit_hint">Sunting...</string>
-  <string name="article_header_edit_description">Sunting huraian tajuk</string>
+  <string name="article_header_edit_description" fuzzy="true">Sunting huraian tajuk</string>
   <string name="article_header_edit_lead_section">Sunting pengenalan</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
   <string name="color_theme_black">Hitam</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Teks contoh</string>
   <string name="color_theme_test_text">Seret gelangsar untuk menukar saiz teks yang digunakan semasa membaca rencana. Untuk menetapkan saiz teks sepanjang seluruh aplikasi, tukar saiz teks sistem anda.</string>
   <string name="preference_title_app_theme">Tema aplikasi</string>
@@ -492,7 +514,6 @@
   <string name="preference_summary_notification_milestone">Tuntutan suntingan tertentu telah dicapai</string>
   <string name="preference_title_notification_thanks">Terima kasih</string>
   <string name="preference_summary_notification_thanks">Seseorang berterima kasih untuk suntingan anda</string>
-  <string name="view_continue_reading_card_title">Teruskan membaca</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
   <string name="view_random_card_subtitle">Flip melalui rencana rawak untuk dibaca dari Wikipedia</string>
@@ -519,9 +540,11 @@
   <string name="view_continue_reading_card_subtitle_today">hari ini</string>
   <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Tak apalah</string>
+  <string name="onboarding_negative_action">Tak apalah</string>
   <string name="view_offline_card_text">Kandungan tidak boleh dimuatkan semasa di luar talian.</string>
   <string name="view_featured_article_card_title">Rencana pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
+  <string name="view_static_card_save_button_label">Simpan</string>
   <string name="view_featured_article_footer_saved_button_label">Disimpan</string>
   <string name="feed_configure_activity_title">Ubahsuai suapan</string>
   <string name="feed_configure_menu_reset">Pulihkan pandangan lalai</string>
@@ -539,40 +562,58 @@
   <string name="feed_empty_message">Tiada apa-apa pada suapan Jelajah anda</string>
   <string name="feed_configure_onboarding_action">Ubah suai</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Ubahsuai suapan Jelajah anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda kini boleh memilih apa yang akan dipaparkan pada suapan anda, dan juga mengutamakan jenis kandungan kegemaran anda.</string>
-  <string name="description_edit_text_hint">Huraian tajuk</string>
+  <string name="description_edit_text_hint" fuzzy="true">Huraian tajuk</string>
   <string name="description_edit_save">Terbitkan</string>
-  <string name="description_edit_add_description">Tambah huraian tajuk</string>
-  <string name="description_edit_edit_description">Sunting keterangan</string>
+  <string name="description_edit_add_description" fuzzy="true">Tambah huraian tajuk</string>
+  <string name="description_edit_edit_description" fuzzy="true">Sunting keterangan</string>
   <string name="description_edit_cancel_hint">Batalkan</string>
-  <string name="description_edit_help_title">Bantuan: huraian tajuk</string>
+  <string name="description_edit_help_title" fuzzy="true">Bantuan: huraian tajuk</string>
   <string name="description_edit_help_about_wikidata">Mengenai Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Bimbingan Wikidata untuk menulis penerangan</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Terima kasih kerana minat anda terus dalam menyunting huraian! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
-  <string name="description_edit_license_notice">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Huraian diterbitkan!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Terima kasih kerana minat anda terus dalam menyunting huraian! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Huraian diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru sahaja menciptakan Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Siap</string>
   <string name="description_edit_success_did_you_know">Tahukah anda?</string>
   <string name="description_edit_success_article_edit_hint">Anda juga boleh menyunting rencana dalam aplikasi ini. Cuba betulkan kesilapan menaip dan ayat kecil dengan klik pada ikon ^1 lain kali</string>
-  <string name="description_edit_tutorial_title_descriptions">Huraian tajuk</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Huraian tajuk</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Meringkaskan rencana untuk membantu pembaca memahami subjek dengan pantas</string>
   <string name="description_edit_tutorial_keep_it_short">Mengekalkannya pendek</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
-  <string name="description_edit_help_about_title">Perihal</string>
-  <string name="description_edit_help_description">Huraian tajuk meringkaskan rencana untuk membantu pembaca memahami subjek dengan pantas.</string>
-  <string name="description_edit_help_tips">Petua untuk menciptakan huraian</string>
-  <string name="description_edit_help_tips_description">Huraian ideal harus muat pada satu baris, dan antara dua hingga dua belas perkataan panjang. Huraian tidak ditulis dalam huruf besar kecuali perkataan pertamanya ialah kata nama khas.</string>
-  <string name="description_edit_help_tips_examples">Sebagai contoh:</string>
-  <string name="description_edit_help_tips_example1">lukisan oleh Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example1_hint">huraian tajuk untuk rencana mengenai Mona Lisa</string>
-  <string name="description_edit_help_tips_example2">gunung tertinggi di Bumi</string>
-  <string name="description_edit_help_tips_example2_hint">huraian tajuk untuk rencana mengenai Gunung Everest</string>
-  <string name="description_edit_help_more_info">Maklumat lanjut</string>
-  <string name="description_edit_help_meta_info">Huraian disimpan dan disenggarakan di Wikidata, projek Wikimedia Foundation yang menyediakan pangkalan pengetahuan bebas, kerjasama, berbilang bahasa, sekunder menyokong Wikipedia dan projek-projek lain.</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
+  <string name="suggested_edits_add_description_button">Tambah penerangan</string>
+  <string name="suggested_edits_my_contributions">Sumbangan saya</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Senarai tugasan penyuntingan tajuk telah dibuka kunci!</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Kami telah melihat anda menyusun penerangan tajuk, jadi kami telah menyusun senarai \"Tugas editor aplikasi\" dengan lebih banyak rencana yang hilang penerangan tajuk untuk membantu anda terus menyumbang!</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Lain kalilah</string>
+  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
+  <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemah penerangan tajuk</string>
+  <string name="suggested_edits_task_translation_description">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
+  <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
+  <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
+  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
+  <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
+  <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
+  <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">sumbangan dalam apl</item>
+    <item quantity="other">%d sumbangan dalam apl</item>
+  </plurals>
+  <string name="suggested_edits_tutorial_message">Selamat datang ke rumah baru untuk penyuntingan dalam aplikasinya di Wikipedia. Di sini, kami akan mencadangkan peluang untuk menambah kandungan yang mungkin menarik minat anda. Sumbangan anda amat dihargai. Selamat menyunting!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>
   <string name="description_edit_revert_reason1">sumbangan anda tidak mengikuti salah satu daripada &lt;a href=\"%1$s\"&gt;garis panduan&lt;/a&gt;.</string>
@@ -582,13 +623,10 @@
   <string name="offline_read_final_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk menggunakan Perpustakaan Luar Talian.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minit lagi</item>
-    <item quantity="other">%d minit lagi</item>
-  </plurals>
   <string name="onboarding_skip">Langkau</string>
   <string name="onboarding_continue">Teruskan</string>
   <string name="onboarding_get_started">Memulakan</string>
+  <string name="onboarding_maybe_later">Lain kalilah</string>
   <string name="onboarding_explore_title">Cara baru untuk diterokai</string>
   <string name="onboarding_explore_text">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Senarai bacaan dengan penyegerakan</string>
@@ -602,7 +640,7 @@
   <string name="onboarding_got_it">Faham</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemui bahasa berikut pada peranti anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Ensiklopedia Bebas\n…dalam hampir 300 bahasa</string>
+  <string name="onboarding_welcome_title_v2">Ensiklopedia Bebas\n…dalam lebih 300 bahasa</string>
   <string name="app_shortcuts_random">Rawak</string>
   <string name="app_shortcuts_continue_reading">Teruskan membaca</string>
   <string name="app_shortcuts_search">Cari</string>

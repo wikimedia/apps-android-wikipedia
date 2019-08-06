@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Aefgh39622
 * Ans
 * B20180
@@ -7,6 +8,7 @@
 * CodeNameBOSS
 * Geonuch
 * Horus
+* Karit
 * Nkrctp
 * Octahedron80
 * Patsagorn Y.
@@ -18,32 +20,41 @@
   <string name="app_name_alpha">วิกิพีเดียรุ่นแอลฟา</string>
   <string name="wikimedia">วิกิมีเดีย</string>
   <string name="nav_item_back">ย้อนกลับ</string>
+  <string name="page_tabs_back">ยัอนกลับ</string>
   <string name="nav_item_forward">ถัดไป</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_search_history">ค้นหาประวัติ</string>
-  <string name="search_hint_search_my_lists">ค้นหารายการของฉัน</string>
-  <string name="search_hint_search_reading_list">ค้นหารายการอ่าน</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
+  <string name="search_hint_search_my_lists_and_articles">ค้นหารายชื่อและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่อเครือข่ายอินเตอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
+  <string name="card_offline_error_retry">ลองใหม่</string>
+  <string name="storage_access_error_retry">ลองใหม่</string>
+  <string name="article_load_error_retry">ลองใหม่</string>
+  <string name="offline_load_error_retry">ลองใหม่</string>
   <string name="page_error_back_to_main">ย้อนกลับ</string>
+  <string name="error_back">ย้อนกลับ</string>
   <string name="menu_clear_all_history">ล้างประวัติ</string>
   <string name="history_item_deleted">ลบ %s ออกจากประวัติแล้ว</string>
   <string name="history_items_deleted">ลบ %d บทความออกจากประวัติแล้ว</string>
   <string name="history_item_delete_undo">เลิกทำ</string>
+  <string name="notification_archive_undo">เลิกทำ</string>
   <string name="app_settings">การตั้งค่าแอป</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
   <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมด และปิดหน้าต่างปัจจุบัน คุณแน่ใจหรือไม่?</string>
   <string name="dialog_message_clear_history_yes">ใช่</string>
   <string name="dialog_message_clear_history_no">ไม่</string>
   <string name="share_via">แบ่งปันผ่าน</string>
+  <string name="image_share_via">แบ่งปันผ่าน</string>
   <string name="search_redirect_from">เปลี่ยนทางจาก %s</string>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในหน้า</string>
+  <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
   <string name="menu_page_font_and_theme">แบบอักษรและธีม</string>
   <string name="menu_page_add_to_list">เพิ่มในรายการอ่าน</string>
+  <string name="feed_card_add_to_list">เพิ่มในรายการอ่าน</string>
   <string name="menu_page_share">แบ่งปันลิงก์</string>
   <string name="menu_page_open_a_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_page_reading_lists">รายการอ่าน</string>
@@ -54,6 +65,9 @@
   <string name="menu_text_select_copy">คัดลอก</string>
   <string name="menu_text_select_define">นิยาม</string>
   <string name="menu_text_select_share">แบ่งปัน</string>
+  <string name="share">แบ่งปัน</string>
+  <string name="on_this_day_page_share">แบ่งปัน</string>
+  <string name="reading_list_page_share">แบ่งปัน</string>
   <string name="menu_text_select_edit_here">แก้ไขตรงนี้</string>
   <string name="nav_item_nearby">ใกล้เคียง</string>
   <string name="nearby_zoom_to_location">ขยายไปยังตำแหน่งในแผนที่</string>
@@ -74,7 +88,6 @@
   <string name="langlinks_activity_title">ภาษาอื่น</string>
   <string name="langlinks_your_wikipedia_languages">ภาษาของวิกิพีเดียของคุณ</string>
   <string name="menu_save_changes">เผยแพร่การเปลี่ยนแปลง</string>
-  <string name="dialog_saving_in_progress">กำลังเผยแพร่…</string>
   <string name="edit_saved_successfully">เผยแพร่การแก้ไขแล้ว!</string>
   <string name="dialog_message_edit_failed">การแก้ไขล้มเหลว!</string>
   <string name="dialog_message_edit_failed_retry">ลองใหม่</string>
@@ -95,8 +108,13 @@
   <string name="nav_item_login">เข้าสู่ระบบวิกิพีเดีย</string>
   <string name="login_username_hint">ชื่อผู้ใช้</string>
   <string name="login_password_hint">รหัสผ่าน</string>
+  <string name="account_creation_password_hint">รหัสผ่าน</string>
   <string name="login_2fa_hint">รหัสการพิสูจน์ตัวจริงสองระดับ</string>
   <string name="login_2fa_other_workflow_error_msg">ต้องการการพิสูจน์ตัวจริงสองระดับ! โปรดกลับไปยังกิจกรรมหลักและเข้าสู่ระบบด้วยโทเค็น 2FA ของคุณ แล้วลองอีกครั้ง</string>
+  <string name="onboarding_card_login">เข้าสู่ระบบ</string>
+  <string name="page_editing_login">เข้าสู่ระบบ</string>
+  <string name="reading_lists_sync_login">เข้าสู่ระบบ</string>
+  <string name="create_account_login">เข้าสู่ระบบ</string>
   <string name="menu_login">เข้าสู่ระบบ</string>
   <string name="login_activity_title">เข้าสู่ระบบวิกิพีเดีย</string>
   <string name="login_in_progress_dialog_message">กำลังเข้าสู่ระบบ…</string>
@@ -107,6 +125,12 @@
   <string name="reset_password_button">บันทึกและเข้าสู่ระบบ</string>
   <string name="preference_title_logout">ลงชื่อออก</string>
   <string name="toast_logout_complete">ออกจากระบบแล้ว</string>
+  <string name="logout_prompt">การกระทำนี้จะออกจากระบบในทุกอุปกรณ์ที่คุณเคยเช้าสู่ระบบใว้ ต้องการทำต่อหรือใหม่?</string>
+  <string name="logout_dialog_cancel_button_text">ยกเลิก</string>
+  <string name="logged_out_in_background_title">ออกจากระบบแล้ว</string>
+  <string name="logged_out_in_background_dialog">คุณเพิ่งจะออกจากระบบจากวิกิพีเดีย คุณต้องการจะเข้าสู่ระบบอีกครั้งหรือไม่?</string>
+  <string name="logged_out_in_background_login">เข้าสู่ระบบ</string>
+  <string name="logged_out_in_background_cancel">ยกเลิก</string>
   <string name="history_empty_title">ไม่มีบทความที่อ่านล่าสุด</string>
   <string name="history_empty_message">ติดตามสิ่งที่คุณได้อ่านที่นี่</string>
   <string name="history_offline_articles_toast">บางบทความในประวัติอาจดูไม่ได้ขณะออฟไลน์</string>
@@ -141,7 +165,6 @@
   <string name="create_account_ip_block_details">รายละเอียด</string>
   <string name="preferences_general_heading">ทั่วไป</string>
   <string name="wikipedia_app_faq">คำถามที่พบบ่อยเกี่ยวกับแอปวิกิพีเดีย</string>
-  <string name="edit_preview_fetching_dialog_message">กำลังดึงภาพตัวอย่าง…</string>
   <string name="send_feedback">ส่งคำติชมแอป</string>
   <string name="create_account_account_created_toast">สร้างบัญชีแล้ว!</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">อนุญาตให้วิกิมีเดียทำการซิงค์รายการอ่านของคุณเมื่อคุณล็อกอิน</string>
@@ -256,7 +279,6 @@
   <string name="preference_title_notification_welcome">ยินดีต้อนรับ</string>
   <string name="preference_summary_notification_welcome">สร้างบัญชีผู้ใช้แล้ว</string>
   <string name="preference_title_notification_thanks">ขอบคุณ</string>
-  <string name="view_continue_reading_card_title">อ่านต่อ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>
   <string name="view_featured_image_card_download">ดาวน์โหลด</string>
@@ -266,15 +288,27 @@
     <item quantity="other">%d วันที่ผ่านมา</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">วันนี้</string>
-  <string name="editactionfeed_translate_descriptions">แปลคำอธิบายชื่อเรื่อง</string>
-  <string name="editactionfeed_to_language">ถึง:</string>
+  <string name="description_edit_translate_description" fuzzy="true">แปลคำอธิบายชื่อเรื่อง</string>
+  <string name="description_edit_add_image_caption">เติมคำบรรยายภาพ</string>
+  <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
+  <string name="suggested_edits_translate_image_captions">แปลคำบรรยายภาพ</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">การแปลคำอธิบายหัวข้อได้รับการปลดล็อกแล้ว !</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">แปลคำอธิบายหัวข้อ</string>
+  <string name="suggested_edits_task_translation_description">แปลคำอธิบายหัวข้อเป็นภาษาอื่น</string>
+  <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
+  <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">ศิลปิน</string>
+  <string name="suggested_edits_image_caption_summary_title_author">คนเขียน</string>
+  <string name="suggested_edits_image_caption_summary_title_source">จุดกำเนิด</string>
+  <string name="suggested_edits_tutorial_message">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>
   <string name="onboarding_skip">ข้าม</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
   <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>
   <string name="onboarding_analytics_switch_title">ส่งข้อมูลการใช้งาน</string>
   <string name="onboarding_multilingual_secondary_text">เราได้พบภาษาดังต่อไปนี้บนอุปกรณ์ของคุณ:</string>
   <string name="onboarding_multilingual_add_language_text">เพิ่มหรือแก้ไขภาษา</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">สารานุกรมเสรี\n…ในกว่า 300 ภาษา</string>
+  <string name="onboarding_welcome_title_v2">สารานุกรมเสรี\n…ในกว่า 300 ภาษา</string>
   <string name="languages_list_activity_title">เพิ่มภาษา</string>
   <string name="languages_list_all_text">ภาษาทั้งหมด</string>
   <string name="wikipedia_languages_your_languages_text">ภาษาของคุณ</string>
@@ -285,15 +319,4 @@
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">คุณจะเห็นเฉพาะเนื้อหาที่อยู่บนฟีดสำรวจและตัวกรองการค้นหาแบบด่วนสำหรับภาษาวิกิพีเดียที่เหลือเท่านั้น</string>
   <string name="add_wikipedia_languages_text">เพิ่มภาษาของวิกิพีเดีย</string>
-  <string name="translation_task_title">แปลคำอธิบายหัวข้อ</string>
-  <string name="translation_task_description">แปลคำอธิบายหัวข้อเป็นภาษาอื่น</string>
-  <string name="translate_description_edit_disable_text">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
-  <string name="translation_source_description">ลักษณะ %s:</string>
-  <string name="translate_caption_task_title">แปลคำบรรยายภาพ</string>
-  <string name="translate_caption_task_description">แปลคำบรรยายเป็นภาษาอื่น</string>
-  <string name="add_title_descriptions_dialog_title">เพิ่มคำอธิบายชื่อเรื่อง</string>
-  <string name="add_title_descriptions_dialog_message">ตอนนี้คุณสามารถช่วยปรับปรุงวิกิพีเดียโดยการเพิ่มคำอธิบายที่ปรากฏด้านล่างหัวข้อในบทความ คุณสามารถกำหนดค่าภาษาของคุณได้ตลอดเวลา</string>
-  <string name="add_translate_descriptions_dialog_title">คุณกำลังแปลคำอธิบายหัวข้อเป็นครั้งแรก</string>
-  <string name="description_edit_tutorial_message">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>
-  <string name="translation_description_edit_task_unlock_title">การแปลคำอธิบายหัวข้อได้รับการปลดล็อกแล้ว !</string>
 </resources>

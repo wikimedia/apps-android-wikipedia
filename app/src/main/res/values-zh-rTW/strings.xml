@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * A2093064
+* Abijeet Patro
 * Cwlin0416
+* Dbrant
 * Eric850130
 * Kly
 * LEEJACK
@@ -13,6 +15,7 @@
 * Simon Shek
 * SupaplexTW
 * Wehwei
+* Willy1018
 * Wwycheuk
 * 漢黑玉
 * 烈羽
@@ -27,9 +30,8 @@
   <string name="nav_item_forward">下一頁</string>
   <string name="search_hint">搜尋維基百科</string>
   <string name="search_hint_search_history">搜尋歷史</string>
-  <string name="search_hint_search_my_lists">搜尋我的清單</string>
-  <string name="search_hint_search_reading_list">搜尋閱讀清單</string>
   <string name="search_hint_search_languages">搜尋語言</string>
+  <string name="search_hint_search_my_lists_and_articles">搜尋我的清單與條目</string>
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
@@ -46,7 +48,7 @@
   <string name="notification_archive_undo">還原</string>
   <string name="app_settings">應用程式設定</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
-  <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
+  <string name="dialog_message_clear_history">這樣做會刪除您的所有瀏覽記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
   <string name="dialog_message_clear_history_no">否</string>
   <string name="share_via">分享透過</string>
@@ -77,22 +79,21 @@
   <string name="nearby_zoom_to_location">縮放至地圖上的位置</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;開放街圖&lt;/a&gt;貢獻者</string>
   <string name="last_updated_text">最後更新時間：%s</string>
-  <string name="talk_page_link_text">檢視討論頁</string>
+  <string name="talk_page_link_text">檢視對話頁</string>
   <string name="edit_history_link_text">檢視編輯歷史</string>
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
   <string name="language_count_link_text">共 %d 個其它可用語言版本</string>
   <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 條款授權</string>
-  <string name="edit_save_action_license_logged_in">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
+  <string name="edit_save_action_license_logged_in">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
   <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
-  <string name="langlinks_empty">此頁面沒有其他語言版本。</string>
+  <string name="langlinks_empty">此頁面沒有其它可用語言版本。</string>
   <string name="langlinks_no_match">未找到語言</string>
   <string name="langlinks_activity_title">其他語言</string>
   <string name="langlinks_your_wikipedia_languages">您的維基百科語言</string>
   <string name="menu_save_changes">發佈修改</string>
-  <string name="dialog_saving_in_progress">發佈中…</string>
   <string name="edit_saved_successfully">已發佈編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
@@ -114,8 +115,8 @@
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
-  <string name="login_2fa_hint">雙重認證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙重認證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_hint">雙因素驗證代碼</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙因素驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -130,6 +131,12 @@
   <string name="reset_password_button">儲存並登入</string>
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
+  <string name="logout_prompt">這會讓您在您目前所有已登入的裝置上登出。您確定要繼續嗎？</string>
+  <string name="logout_dialog_cancel_button_text">取消</string>
+  <string name="logged_out_in_background_title">已登出</string>
+  <string name="logged_out_in_background_dialog">您已登出維基百科。您要重新登入嗎？</string>
+  <string name="logged_out_in_background_login">登入</string>
+  <string name="logged_out_in_background_cancel">取消</string>
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="history_offline_articles_toast">一些在歷史紀錄裡的條目可能無法在離線時閱覽。</string>
@@ -140,7 +147,7 @@
   <string name="create_account_username_hint">使用者名稱</string>
   <string name="login_dont_have_account">還沒有帳號嗎？</string>
   <string name="login_join_wikipedia">加入維基百科</string>
-  <string name="login_forgot_password">忘記密碼？</string>
+  <string name="login_forgot_password">忘記您的密碼？</string>
   <string name="create_account_already_have">已經擁有帳號了嗎？</string>
   <string name="create_account_activity_title">建立帳號</string>
   <string name="dialog_create_account_checking_progress">驗證中</string>
@@ -152,7 +159,7 @@
   <string name="create_account_password_error">密碼無效</string>
   <string name="create_account_generic_error">無法建立帳號</string>
   <string name="create_account_next">下一步</string>
-  <string name="email_recommendation_dialog_title">不帶電子郵件地址來建立帳帳？</string>
+  <string name="email_recommendation_dialog_title">不帶電子郵件地址來建立帳號？</string>
   <string name="email_recommendation_dialog_message">雖然電子郵件地址是選用項目，但&lt;b&gt;強烈建議&lt;/b&gt;填寫，因為當您遺失密碼時需要透過電子郵件來回復帳號。</string>
   <string name="email_recommendation_message">因回復帳號需要用到電子郵件，建議填寫。</string>
   <string name="email_recommendation_dialog_create_without_email_action">不帶電子郵件繼續</string>
@@ -164,7 +171,6 @@
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
-  <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
   <string name="preferences_heading_syncing">同步</string>
@@ -181,7 +187,7 @@
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="preference_title_auto_upload_crash_reports">傳送損毀報告</string>
   <string name="preference_summary_auto_upload_crash_reports">允許手機應用程式自動傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓我們可以更快速、更簡易地來檢閱錯誤報告及修復問題。</string>
-  <string name="editing_error_spamblacklist">檢測到來自被封鎖網域 (%s) 的連結。請刪除它們並再試一次。</string>
+  <string name="editing_error_spamblacklist">檢測到來自被封鎖網域（%s）的連結。請刪除它們並再試一次。</string>
   <string name="history_search_list_hint">搜尋歷史</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
   <string name="page_protected_autoconfirmed">此頁面已受半保護。</string>
@@ -200,9 +206,10 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
+  <string name="android_app_request_an_account_url">https://zh.m.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">使用的函式庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_translators_heading">翻譯人員</string>
@@ -211,7 +218,7 @@
   <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
-  <string name="edit_abandon_confirm">頁面已修改。確定要離開，而不存儲更改？</string>
+  <string name="edit_abandon_confirm">頁面已修改。確定要離開而不存儲您的更改嗎？</string>
   <string name="edit_abandon_confirm_yes">是</string>
   <string name="edit_abandon_confirm_no">否</string>
   <string name="user_blocked_from_editing_title">已封鎖</string>
@@ -227,7 +234,7 @@
   <string name="edit_zoom_out">縮小</string>
   <string name="edit_summary_tag_typo">修正筆誤</string>
   <string name="edit_summary_tag_grammar">修正語法</string>
-  <string name="edit_summary_tag_links">加入連結</string>
+  <string name="edit_summary_tag_links">新增連結</string>
   <string name="edit_summary_tag_other">其他</string>
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
   <string name="edit_conflict_title">編輯衝突</string>
@@ -276,6 +283,7 @@
   <string name="gallery_save_success">已成功儲存檔案。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
   <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存庫的權限方能儲存圖片。</string>
+  <string name="gallery_add_image_caption_in_language_button">新增圖片說明（%s）</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
   <string name="snippet_share_intro">\"%1$s\" 於 @Wikipedia：%2$s</string>
   <string name="expand_refs">輕觸展開</string>
@@ -296,7 +304,7 @@
   <string name="all_tab_items_closed">所有分頁已關閉</string>
   <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
   <string name="tool_tip_bookmark_icon_text">輕觸書籤圖標來儲存條目至閱讀清單裡。</string>
-  <string name="tool_tip_share">在反白一部分有趣的事實之後，嘗試在您最愛的網路中分享！</string>
+  <string name="tool_tip_share">在突顯一段有趣的實情後，嘗試在您最愛的網路中分享！</string>
   <string name="page_view_in_browser">以瀏覽器檢視頁面</string>
   <string name="tool_tip_toc_title">內容快速存取表格</string>
   <string name="tool_tip_toc_text">您現在可以往左滑動來開啟內容表格，並可以輕觸拖拉到此滾動按鈕來快速跳至條目的不同段落。</string>
@@ -316,7 +324,7 @@
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
-  <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
+  <string name="preference_summary_show_link_previews">在輕觸連結時，顯示條目的快速預覽。</string>
   <string name="preference_title_collapse_tables">折疊表格</string>
   <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
   <string name="nav_item_donate">支持維基百科</string>
@@ -338,7 +346,7 @@
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體能夠檢視您的錯誤，並修正造成問題的程式臭蟲？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
-  <string name="crash_report_dialog_always_send_button">必定傳送</string>
+  <string name="crash_report_dialog_always_send_button">總是傳送</string>
   <string name="crash_report_dialog_send_button">傳送</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">我們感到很抱歉，維基百科手機應用程式發生錯誤，並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
@@ -347,7 +355,7 @@
   <string name="article_menu_bar_bookmark">新增此條目至閱讀清單</string>
   <string name="article_menu_bar_share">分享條目連結</string>
   <string name="article_header_edit_hint">編輯…</string>
-  <string name="article_header_edit_description">編輯標題描述</string>
+  <string name="article_header_edit_description">編輯條目描述</string>
   <string name="article_header_edit_lead_section">編輯簡介</string>
   <string name="color_theme_select">主題</string>
   <string name="color_theme_light">明亮</string>
@@ -390,11 +398,12 @@
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述（可選）</string>
-  <string name="reading_list_item_deleted">%s 已從清單之中移除</string>
+  <string name="reading_list_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
+  <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_item_delete_undo">還原</string>
   <string name="reading_list_deleted">%s 已刪除</string>
-  <string name="saved_list_empty_title">尚無閱讀清單</string>
+  <string name="saved_list_empty_title">尚無儲存頁面</string>
   <string name="reading_lists_empty_message">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可使用。</string>
   <string name="reading_lists_onboarding_intro">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可閱讀！</string>
   <string name="reading_lists_onboarding_for_example">舉例</string>
@@ -402,12 +411,13 @@
   <string name="reading_lists_onboarding_example2">喜愛動物</string>
   <string name="reading_lists_onboarding_example3">太空探索！</string>
   <string name="reading_lists_onboarding_got_it">知道了</string>
-  <string name="reading_list_empty">未有添加至此清單的條目。</string>
+  <string name="reading_list_empty">您尚未添加條目至此清單。</string>
   <string name="reading_list_article_offline">可於離線時閱讀</string>
   <string name="reading_list_article_make_offline">讓此條目可於離線閱讀</string>
   <string name="reading_list_add_to_other_list">新增至另一個閱讀清單</string>
   <string name="reading_list_remove_from_list">自%s移除</string>
   <string name="reading_list_remove_from_lists">自閱讀清單移除</string>
+  <string name="reading_list_select_item">選擇</string>
   <string name="reading_list_confirm_remove_article_from_offline">從離線移除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">出現在多個清單的條目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 不再於所有閱讀清單提供離線內容：</string>
@@ -467,6 +477,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">成功同步閱讀清單</string>
   <string name="reading_list_menu_last_sync">上一次同步：%s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">確認</string>
+  <string name="reading_list_delete_dialog_ok_button_text">確認</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">取消</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">取消</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
+  <string name="reading_list_split_dialog_ok_button_text">確認</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_reverted_title">回退的編輯</string>
   <string name="notification_channel_description">下載進度</string>
@@ -526,7 +543,8 @@
   <string name="preference_summary_notification_milestone">當達到某種程度的編輯數</string>
   <string name="preference_title_notification_thanks">感謝</string>
   <string name="preference_summary_notification_thanks">某人感謝您所做的編輯</string>
-  <string name="view_continue_reading_card_title">繼續閱讀</string>
+  <string name="preference_title_notification_revert">回退</string>
+  <string name="preference_summary_notification_revert">您所做出的其一貢獻已被回退</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_card_subtitle">快速翻閱來自維基百科的隨機條目。</string>
@@ -551,7 +569,7 @@
     <item quantity="other">%d 日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今天</string>
-  <string name="view_continue_reading_card_subtitle_read_date">讀取 %s</string>
+  <string name="view_continue_reading_card_subtitle_read_date">讀取於 %s</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="onboarding_negative_action">不用了，謝謝</string>
   <string name="view_offline_card_text">內容無法在離線時載入。</string>
@@ -559,7 +577,6 @@
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_static_card_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
-  <string name="edit_tasks_activity_title">應用程式編者任務</string>
   <string name="feed_configure_activity_title">自訂摘要</string>
   <string name="feed_configure_menu_reset">重新設定預設檢視</string>
   <string name="feed_configure_menu_select_all">顯示全部</string>
@@ -573,67 +590,138 @@
   <string name="feed_item_type_featured_image">來自維基共享資源的每日特色圖片</string>
   <string name="feed_item_type_main_page">帶有每日特色內容的維基百科首頁</string>
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
+  <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
   <string name="feed_empty_message">您的探索摘要內無任何內容</string>
   <string name="feed_configure_onboarding_action">自訂</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">確認</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索摘要&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的摘要內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
-  <string name="description_edit_text_hint">標題描述</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">確認</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
+  <string name="description_edit_text_hint">條目描述</string>
+  <string name="description_edit_article_description_label_per_language">條目（%s）</string>
+  <string name="description_edit_translate_article_description_hint_per_language">條目描述（%s）</string>
+  <string name="description_edit_add_caption_label_per_language">圖片描述（%s）</string>
+  <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
   <string name="description_edit_save">發佈</string>
-  <string name="description_edit_add_description">增加標題描述</string>
-  <string name="description_edit_edit_description">編輯描述</string>
+  <string name="description_edit_read">閱讀</string>
+  <string name="description_edit_add_description">新增條目描述</string>
+  <string name="description_edit_translate_description">翻譯條目描述</string>
+  <string name="description_edit_edit_description">編輯條目描述</string>
+  <string name="description_edit_add_image_caption">新增語言說明</string>
+  <string name="description_edit_edit_image_caption">編輯語言說明</string>
+  <string name="description_edit_translate_image_caption">翻譯圖片說明</string>
   <string name="description_edit_cancel_hint">取消</string>
-  <string name="description_edit_help_title">協助：標題描述</string>
+  <string name="description_edit_help_title">資訊：條目描述</string>
   <string name="description_edit_help_about_wikidata">關於維基數據</string>
   <string name="description_edit_help_wikidata_guide">關於編寫描述的維基數據指引</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
-  <string name="description_edit_anon_limit">感謝您保持著對於編輯描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
-  <string name="description_edit_license_notice">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出我的個人貢獻。</string>
-  <string name="description_edit_task_unlock_title">標題描述編輯任務清單已解開！</string>
-  <string name="description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述，因此我們做出了一份裡頭含有缺少標題描述之條目的「應用程式編者任務」清單，來幫助您繼續這方面的貢獻！</string>
-  <string name="description_edit_success_saved">已發佈描述！</string>
+  <string name="description_edit_anon_limit">感謝您保持著對於編輯條目描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
+  <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
+  <string name="description_edit_helper_text_lowercase_warning">通常以小寫字母作開頭</string>
+  <string name="description_edit_success_saved">已發佈條目描述！</string>
+  <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發佈！（%s）</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">圖片說明已發佈！</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發佈！（%s）</string>
   <string name="description_edit_success_encouragement">謝謝您！您剛剛已令維基百科變得更完善，所有人都會受惠</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道嗎？</string>
   <string name="description_edit_success_article_edit_hint">您也可以以此應用程式編輯條目。下次可嘗試透過點選^1圖示來修復錯別字與短句</string>
-  <string name="description_edit_tutorial_title_descriptions">標題描述</string>
+  <string name="description_edit_tutorial_title_descriptions">條目描述</string>
   <string name="description_edit_tutorial_title_descriptions_summary">提供條目的摘要，可幫助讀者快速了解主題</string>
-  <string name="description_edit_tutorial_keep_it_short">保持簡潔</string>
+  <string name="description_edit_tutorial_keep_it_short">保持簡短</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">原則上為一行，介於 2 至 12 個字之間</string>
   <string name="description_edit_tutorial_button_label_start_editing">開始編輯</string>
   <string name="description_edit_tutorial_promise">首先，我保證不會濫用此功能。</string>
-  <string name="description_edit_help_about_title">關於</string>
-  <string name="description_edit_help_description">標題描述能概括條目，以幫助讀者快速了解內容。</string>
-  <string name="description_edit_help_tips">建立描述的提示</string>
-  <string name="description_edit_help_tips_description">描述盡量使用一行文字，且長度介於 2 到 12 個字元之間。另外除非第一個詞為專有名詞，否則不用大寫。</string>
-  <string name="description_edit_help_tips_examples">例如：</string>
-  <string name="description_edit_help_tips_example1">李奧納多·達文西的繪畫</string>
-  <string name="description_edit_help_tips_example1_hint">有關蒙娜麗莎條目的標題描述</string>
-  <string name="description_edit_help_tips_example2">地球第一高峰</string>
-  <string name="description_edit_help_tips_example2_hint">有關聖母峰條目的標題描述</string>
-  <string name="description_edit_help_more_info">更多資訊</string>
-  <string name="description_edit_help_meta_info">描述會被保管在維基數據，那是維基媒體基金會計畫的另一個專案，是個自由、共同作業、多語言的二級資料庫，支援著維基百科及其它相類專案。</string>
-  <string name="editactionfeed_add_title_descriptions">增加標題描述</string>
-  <string name="editactionfeed_translate_descriptions">翻譯標題描述</string>
-  <string name="editactionfeed_review_title_description">檢閱標題描述</string>
-  <string name="editactionfeed_add_description_button">添加描述</string>
-  <string name="editactionfeed_my_contributions">我的貢獻</string>
-  <string name="editactionfeed_from_language">從：</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">了解更多</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">了解更多</string>
-  <string name="editactionfeed_to_language">譯成：</string>
+  <string name="suggested_edits_add_descriptions">新增條目描述</string>
+  <string name="suggested_edits_translate_descriptions">翻譯條目描述</string>
+  <string name="suggested_edits_add_image_captions">新增語言說明</string>
+  <string name="suggested_edits_translate_image_captions">翻譯圖片說明</string>
+  <string name="suggested_edits_review_description">檢閱條目描述</string>
+  <string name="suggested_edits_add_description_button">添加描述</string>
+  <string name="suggested_edits_edit_description_button">編輯描述</string>
+  <string name="suggested_edits_add_translation_button">新增翻譯</string>
+  <string name="suggested_edits_edit_translation_button">編輯翻譯</string>
+  <string name="suggested_edits_add_caption_button">新增說明</string>
+  <string name="suggested_edits_edit_caption_button">編輯說明</string>
+  <string name="suggested_edits_review_image_caption">檢視語言說明</string>
+  <string name="suggested_edits_my_contributions">我的貢獻</string>
+  <string name="suggested_edits_no_description">此檔案沒有描述</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">您解開了「新增條目描述」任務</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">感謝您做出的所有貢獻！因為您善於編輯的緣故，我們彙整出條目缺少描述的清單，您是否能協助我們來改善維基百科呢？</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">您解開了「翻譯條目描述」任務</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">恭喜您做出的許多貢獻，讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出條目需要描述翻譯的清單，您是否能繼續協助我們來改善維基百科嗎？</string>
+  <string name="suggested_edits_unlock_dialog_no">稍後再說</string>
+  <string name="suggested_edits_unlock_dialog_yes">好，讓我們開始吧</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">您解開了「新增條目描述」</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">您解開了「翻譯條目描述」</string>
+  <string name="suggested_edits_unlock_notification_text">建議編輯</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">建議編輯\n\n感謝您做出的所有貢獻！因為您善於編輯的緣故，我們彙整出條目缺少描述的清單，您是否能協助我們來改善維基百科呢？</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">建議編輯\n\n恭喜您做出的許多貢獻，讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出條目需要描述翻譯的清單，您是否能繼續協助我們來改善維基百科嗎？</string>
+  <string name="suggested_edits_unlock_notification_button">好，讓我們開始吧</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">您解開了「添加圖片說明」任務</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">您解開了「添加圖片說明」</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">感謝您做出的所有圖片說明編輯！因我們發現到您喜愛替圖片添加說明，所以我們彙整出缺少說明的圖片清單，您是否能繼續協助我們來改善維基百科呢？</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">建議編輯\n\n感謝您做出的所有圖片說明編輯！因我們發現到您喜愛替圖片添加說明，所以我們彙整出缺少說明的圖片清單，您是否能繼續協助我們來改善維基百科呢？</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">您解開了「翻譯圖片說明」任務</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">您解開了「翻譯圖片說明」</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">恭喜您做出的許多圖片說明編輯 - 讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出圖片需要添加描述的清單，您是否能繼續協助我們來改善維基百科呢？</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">建議編輯\n\n恭喜您做出的許多圖片說明編輯 - 讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出圖片需要添加描述的清單，您是否能繼續協助我們來改善維基百科呢？</string>
+  <string name="suggested_edits_license_notice">透過添加描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
+  <string name="suggested_edits_image_caption_license_notice">透過添加圖片說明，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
+  <string name="suggested_edits_menu_info">資訊</string>
+  <string name="suggested_edits_tasks_activity_title">建議編輯</string>
+  <string name="suggested_edits_task_add_description_title">新增條目描述</string>
+  <string name="suggested_edits_task_add_description_description">不帶描述來貢獻條目</string>
+  <string name="suggested_edits_task_translation_title">翻譯條目描述</string>
+  <string name="suggested_edits_task_translation_description">跨條目語言翻譯描述。</string>
+  <string name="suggested_edits_task_image_caption_title">新增語言說明</string>
+  <string name="suggested_edits_task_image_caption_description">為圖片新增缺少的簡短說明</string>
+  <string name="suggested_edits_task_translate_caption_title">翻譯圖片說明</string>
+  <string name="suggested_edits_task_translate_caption_description">翻譯說明成其它語言</string>
+  <string name="suggested_edits_task_multilingual_title">更多多語言編者的任務</string>
+  <string name="suggested_edits_task_multilingual_description">若您有在一種以上語言的維基百科做出讀寫，則可進行翻譯任務。</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">直到您編輯過 %d 圖片說明才會解開</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">直到您編輯 %d 個條目描述才會解開（需經驗證）</string>
+  <string name="suggested_edits_task_multilingual_negative">不適合我</string>
+  <string name="suggested_edits_task_multilingual_positive">新增語言</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">藝術家</string>
+  <string name="suggested_edits_image_caption_summary_title_author">作者</string>
+  <string name="suggested_edits_image_caption_summary_title_source">來源</string>
+  <string name="suggested_edits_image_caption_summary_title_license">授權條款</string>
+  <string name="suggested_edits_image_caption_summary_title_date">日期</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 次貢獻</item>
+    <item quantity="other">%d 次貢獻</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">建議編輯</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">新增條目描述（%s）</string>
+  <string name="suggested_edits_tutorial_message">歡迎來到在維基百科應用程式裡用於快速編輯的新主頁。對於您的貢獻我們在此感激，祝編安！</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
+  <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
+  <string name="suggested_edits_image_preview_dialog_date">日期</string>
+  <string name="suggested_edits_image_preview_dialog_source">來源/攝影者</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
+  <string name="suggested_edits_article_cta_image_caption">新增圖片說明（%s）</string>
+  <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
+  <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">新增說明（%s）</string>
+  <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
-  <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質的，或是有心破壞。</string>
+  <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質、或是有心破壞的。</string>
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
+  <string name="description_edit_login_cancel_button_text">取消</string>
   <string name="offline_read_permission_rationale">需要可存取在您裝置上儲存庫的權限才能離線瀏覽。</string>
   <string name="offline_read_final_rationale">需要可存取在您裝置上儲存庫的權限才能使用離線圖書館。</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">剩下 1 分鐘</item>
-    <item quantity="other">剩下 %d 分鐘</item>
-  </plurals>
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
@@ -651,7 +739,7 @@
   <string name="onboarding_got_it">了解</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或編輯語言</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">自由的百科全書\n…近 300 種可用的語言版本</string>
+  <string name="onboarding_welcome_title_v2">自由的百科全書\n…超過 300 種可用的語言版本</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -687,42 +775,28 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">在您的應用程式語言裡，目前有繁體與簡體的中文異體設定。要更新您的應用程式語言設定嗎？</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">編輯語言</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">不用了，謝謝</string>
+  <string name="remove_language_dialog_cancel_button_text">取消</string>
+  <string name="remove_language_dialog_ok_button_text">確認</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">確認</string>
+  <string name="protected_page_warning_dialog_ok_button_text">確認</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">確認</string>
+  <string name="edit_conflict_dialog_ok_button_text">確認</string>
+  <string name="reverted_edit_dialog_ok_button_text">確認</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
+  <string name="wikitext_bold">粗體</string>
+  <string name="wikitext_italic">斜體</string>
+  <string name="wikitext_link">連結</string>
+  <string name="wikitext_bulleted_list">符號清單</string>
+  <string name="wikitext_numbered_list">編號清單</string>
+  <string name="wikitext_template">模板</string>
+  <string name="wikitext_reference">參考文獻</string>
+  <string name="wikitext_preview_link">預覽連結</string>
   <string name="main_drawer_open">開啟</string>
   <string name="main_drawer_close">關閉</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
-  <string name="title_description_task_title">增加標題描述</string>
-  <string name="title_description_task_description">不帶標題描述來貢獻條目</string>
-  <string name="image_caption_task_title">圖片說明</string>
-  <string name="image_caption_task_description">新增圖片的說明</string>
-  <string name="multilingual_task_title">更多多語言編者的任務</string>
-  <string name="multilingual_task_description">若您有在一種以上語言的維基百科做出讀寫，則可進行翻譯任務。</string>
-  <string name="translation_task_title">翻譯標題描述</string>
-  <string name="translation_task_description">翻譯標題描述成其它語言。</string>
-  <string name="image_caption_edit_disable_text">直到您在應用程式內達成 %d 次經過驗證的編輯才會解開</string>
-  <string name="translate_description_edit_disable_text">直到您編輯過 %d 次標題描述才會解開</string>
-  <string name="multilingual_task_negative">不適合我</string>
-  <string name="multilingual_task_positive">新增語言</string>
-  <string name="editing_level_text">等級 %d 的應用程式編者</string>
-  <string name="translation_source_description">%s描述：</string>
-  <string name="translate_caption_task_title">翻譯圖片說明</string>
-  <string name="translate_caption_task_description">翻譯說明成其它語言</string>
-  <plurals name="edit_action_contribution_count">
-    <item quantity="one">在應用程式裡的編輯</item>
-    <item quantity="other">在應用程式裡的編輯</item>
-  </plurals>
-  <string name="add_title_descriptions_dialog_title">增加標題描述</string>
-  <string name="add_title_descriptions_dialog_message">您現在可以透過新增在條目標題下方的描述來協助改善維基百科。您可以隨時設置您的語言。</string>
-  <string name="add_translate_descriptions_dialog_title">您正在首次翻譯標題描述</string>
-  <string name="add_translate_descriptions_dialog_message">您現在可以透過翻譯標題描述來協助改善維基百科。您可以隨時設置您的語言和設定翻譯領域。</string>
-  <string name="description_edit_tutorial_message">歡迎來到用於維基百科編輯的應用程式新版內容。在這裡，我們會提供出您可能會感興趣的項目來編輯。對於您的貢獻我們在此感激，祝編安！</string>
-  <string name="translation_description_edit_task_unlock_title">翻譯標題描述編輯已解開！</string>
-  <string name="translation_description_edit_task_unlock_body">我們注意到您似乎喜歡編輯標題描述以及閱讀各語言的維基百科，請試看看能夠來翻譯更多標題描述的任務清單！</string>
-  <string name="title_description_editing_skip">略過</string>
-  <string name="title_description_get_started">入門</string>
-  <string name="translate_description_get_started">入門</string>
-  <string name="edit_tasks_onboarding_get_started">入門</string>
-  <string name="translate_descriptions_maybe_later">稍後再說</string>
-  <string name="title_descriptions_onboarding_got_it">了解</string>
-  <string name="translate_descriptions_onboarding_got_it">了解</string>
+  <string name="custom_date_picker_dialog_ok_button_text">確認</string>
+  <string name="text_input_dialog_ok_button_text">確認</string>
+  <string name="text_input_dialog_cancel_button_text">取消</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
 </resources>

@@ -10,17 +10,24 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.Toolbar;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.InputMethodManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
+
+import static android.content.Context.ACCESSIBILITY_SERVICE;
 
 public final class DeviceUtil {
 
@@ -91,15 +98,17 @@ public final class DeviceUtil {
         }
     }
 
-    public static void updateStatusBarTheme(@NonNull Activity activity, @NonNull Toolbar toolbar, boolean reset) {
+    public static void updateStatusBarTheme(@NonNull Activity activity, @Nullable Toolbar toolbar, boolean reset) {
         if (reset) {
             resetSystemUiVisibility(activity);
         } else {
             setLightSystemUiVisibility(activity);
         }
 
-        toolbar.getNavigationIcon().setColorFilter(reset ? activity.getResources().getColor(android.R.color.white)
-                : ResourceUtil.getThemedColor(activity, R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        if (toolbar != null) {
+            toolbar.getNavigationIcon().setColorFilter(reset ? activity.getResources().getColor(android.R.color.white)
+                    : ResourceUtil.getThemedColor(activity, R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        }
     }
 
     public static boolean isLocationServiceEnabled(@NonNull Context context) {
@@ -113,6 +122,11 @@ public final class DeviceUtil {
         return locationMode != Settings.Secure.LOCATION_MODE_OFF;
     }
 
+    public static boolean isNavigationBarShowing() {
+        // TODO: revisit this if there's no more navigation bar by default.
+        return KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK) && KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
+    }
+
     private static ConnectivityManager getConnectivityManager() {
         return (ConnectivityManager) WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
     }
@@ -120,6 +134,12 @@ public final class DeviceUtil {
     public static boolean isOnWiFi() {
         NetworkInfo info = getConnectivityManager().getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return info != null && info.isConnected();
+    }
+
+    public static boolean isAccessibilityEnabled() {
+        AccessibilityManager am = (AccessibilityManager) WikipediaApp.getInstance().getSystemService(ACCESSIBILITY_SERVICE);
+        // TODO: add more logic if other accessibility tools have different settings.
+        return am != null && am.isEnabled() && am.isTouchExplorationEnabled();
     }
 
     private DeviceUtil() {

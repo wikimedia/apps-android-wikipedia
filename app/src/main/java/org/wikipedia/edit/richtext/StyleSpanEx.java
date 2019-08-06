@@ -2,8 +2,9 @@ package org.wikipedia.edit.richtext;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.text.style.StyleSpan;
+
+import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

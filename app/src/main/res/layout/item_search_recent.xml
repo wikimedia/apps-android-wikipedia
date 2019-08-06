@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_default_height"
+    android:background="?attr/selectableItemBackground"
     android:fontFamily="sans-serif"
-    android:paddingStart="16dp"
     android:gravity="center_vertical"
+    android:paddingStart="16dp"
     android:textColor="?attr/material_theme_primary_color"
     android:textSize="16sp"
-    android:background="?attr/selectableItemBackground"
     tools:text="Sample recent search term" />

@@ -2,8 +2,8 @@ package org.wikipedia.page;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -14,6 +14,9 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.getkeepsafe.taptargetview.TapTargetView;
 
@@ -43,12 +46,12 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class ToCHandler implements ObservableWebView.OnClickListener,
         ObservableWebView.OnScrollChangeListener, ObservableWebView.OnContentHeightChangedListener,
-        ObservableWebView.OnEdgeSwipeListener{
+        ObservableWebView.OnEdgeSwipeListener {
     private static final float SCROLLER_BUTTON_SIZE = 44f;
     private static final float SCROLLER_BUTTON_PEEK_MARGIN = -18f;
     private static final float SCROLLER_BUTTON_HIDE_MARGIN = 48f;
+    private static final float SCROLLER_BUTTON_ONBOARDING_MARGIN = 22f;
     private static final float SCROLLER_BUTTON_REVEAL_MARGIN = -30f;
-    private static final int SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS = 2000;
 
     private static final float TOC_LEAD_TEXT_SIZE = 24f;
     private static final float TOC_SECTION_TEXT_SIZE = 18f;
@@ -71,20 +74,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private ToCInteractionFunnel funnel;
 
     private boolean rtl;
-    private boolean scrollerShown;
     private boolean tocShown;
+    private boolean showOnboading;
     private int currentItemSelected;
 
-    private Runnable hideScrollerRunnable = new Runnable() {
-        @Override
-        public void run() {
-            if (!tocShown) {
-                hideScroller();
-            }
-        }
-    };
-
-    public ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
+    ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
@@ -97,7 +91,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         tocList.setOnItemClickListener((parent, view, position, id) -> {
             Section section = adapter.getItem(position);
             scrollToSection(section);
-            funnel.logClick(position, StringUtil.fromHtml(section.getHeading()).toString());
+            funnel.logClick();
             hide();
         });
         tocList.setListener(this::hide);
@@ -130,20 +124,25 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 WikipediaApp.getInstance().getWikiSite(), 0, 0);
     }
 
+    @SuppressLint("RtlHardcoded")
     void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
+        showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;
         tocList.setRtl(rtl);
         setConditionalLayoutDirection(tocContainer, wiki.languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
         params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
         tocContainer.setLayoutParams(params);
 
+        log();
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
                 page.getPageProperties().getPageId(), adapter.getCount());
+    }
 
-        if (Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage && !Prefs.showActionFeedIndicator()) {
-            showTocOnboarding();
+    void log() {
+        if (funnel != null) {
+            funnel.log();
         }
     }
 
@@ -195,11 +194,13 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             scrollerView.setTranslationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN));
             scrollerView.setVisibility(View.VISIBLE);
             setScrollerPosition();
-            showScrollerThenHide();
+            if (showOnboading) {
+                showTocOnboarding();
+            }
         } else {
             tocContainer.setVisibility(View.GONE);
             scrollerView.setVisibility(View.GONE);
-            hideScroller();
+            bringInScroller();
         }
     }
 
@@ -207,8 +208,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public boolean onClick(float x, float y) {
         if (isVisible()) {
             hide();
-        } else {
-            showScrollerThenHide();
         }
         return false;
     }
@@ -216,7 +215,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         setScrollerPosition();
-        showScrollerThenHide();
     }
 
     @Override
@@ -236,7 +234,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections = new ArrayList<>();
         private final SparseIntArray sectionYOffsets = new SparseIntArray();
-        private  String pageTitle;
+        private String pageTitle;
         private int highlightedSection;
 
         void setPage(@NonNull Page page) {
@@ -255,16 +253,16 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             notifyDataSetChanged();
         }
 
-        public void setHighlightedSection(int id) {
+        void setHighlightedSection(int id) {
             highlightedSection = id;
             notifyDataSetChanged();
         }
 
-        public int getYOffset(int id) {
+        int getYOffset(int id) {
             return sectionYOffsets.get(id, 0);
         }
 
-        public void setYOffset(int id, int yOffset) {
+        void setYOffset(int id, int yOffset) {
             sectionYOffsets.put(id, yOffset);
         }
 
@@ -326,21 +324,41 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     private void showTocOnboarding() {
         try {
-            showScroller();
-            FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.tool_tip_toc_title,
-                    R.string.tool_tip_toc_text, new TapTargetView.Listener() {
-                        @Override
-                        public void onTargetClick(TapTargetView view) {
-                            super.onTargetClick(view);
-                            show();
-                        }
-                    });
+            showCompleteScroller(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    if (!fragment.isAdded()) {
+                        return;
+                    }
+                    FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.tool_tip_toc_title,
+                            R.string.tool_tip_toc_text, new TapTargetView.Listener() {
+
+                                boolean targetClicked;
+
+                                @Override
+                                public void onTargetClick(TapTargetView view) {
+                                    super.onTargetClick(view);
+                                    targetClicked = true;
+                                    show();
+                                }
+
+                                @Override
+                                public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
+                                    if (!targetClicked) {
+                                        hide();
+                                    }
+                                }
+                            });
+                }
+            });
         } catch (Exception e) {
             L.w("ToC onboarding failed", e);
         }
         Prefs.setTocTutorialEnabled(false);
     }
 
+    @SuppressLint("RtlHardcoded")
     private void setScrollerPosition() {
         scrollerViewParams.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
         scrollerViewParams.leftMargin = rtl ? DimenUtil.roundedDpToPx(SCROLLER_BUTTON_PEEK_MARGIN) : 0;
@@ -363,12 +381,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         tocList.setEnabled(true);
         currentItemSelected = -1;
         onScrollerMoved(0f, false);
-        funnel.logScrollStart();
+        funnel.scrollStart();
         if (semiFade) {
             return;
         }
         tocShown = true;
-        scrollerView.removeCallbacks(hideScrollerRunnable);
     }
 
     private void fadeOutToc() {
@@ -377,65 +394,42 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
+                        if (!fragment.isAdded()) {
+                            return;
+                        }
                         tocContainer.setVisibility(View.GONE);
                     }
                 });
         tocList.setEnabled(false);
         tocShown = false;
-        funnel.logScrollStop();
+        funnel.scrollStop();
     }
 
     private void bringOutScroller() {
         if (scrollerView.getVisibility() != View.VISIBLE) {
             return;
         }
-        scrollerView.removeCallbacks(hideScrollerRunnable);
         scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_REVEAL_MARGIN : SCROLLER_BUTTON_REVEAL_MARGIN))
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
-        scrollerShown = true;
     }
 
     private void bringInScroller() {
         if (scrollerView.getVisibility() != View.VISIBLE) {
             return;
         }
-        scrollerView.animate().translationX(0)
-                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
-                .setListener(null);
-        scrollerView.removeCallbacks(hideScrollerRunnable);
-        scrollerView.postDelayed(hideScrollerRunnable, SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS);
-    }
-
-    private void showScroller() {
-        if (scrollerView.getVisibility() != View.VISIBLE) {
-            return;
-        }
-        scrollerView.removeCallbacks(hideScrollerRunnable);
-        scrollerView.animate().translationX(0)
-                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
-                .setListener(null);
-        scrollerShown = true;
-        funnel.logOpen();
-    }
-
-    private void hideScroller() {
-        scrollerShown = false;
-        if (scrollerView.getVisibility() != View.VISIBLE) {
-            return;
-        }
         scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? -SCROLLER_BUTTON_HIDE_MARGIN : SCROLLER_BUTTON_HIDE_MARGIN))
                 .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
                 .setListener(null);
-        funnel.logClose();
     }
 
-    private void showScrollerThenHide() {
-        if (!scrollerShown) {
-            showScroller();
+    private void showCompleteScroller(@Nullable AnimatorListenerAdapter listenerAdapter) {
+        if (scrollerView.getVisibility() != View.VISIBLE) {
+            return;
         }
-        scrollerView.removeCallbacks(hideScrollerRunnable);
-        scrollerView.postDelayed(hideScrollerRunnable, SCROLLER_BUTTON_HIDE_TIMEOUT_MILLIS);
+        scrollerView.animate().translationX(DimenUtil.roundedDpToPx(rtl ? SCROLLER_BUTTON_ONBOARDING_MARGIN : -SCROLLER_BUTTON_ONBOARDING_MARGIN))
+                .setDuration(tocContainer.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(listenerAdapter);
     }
 
     private void scrollToListSectionByOffset(int yOffset) {

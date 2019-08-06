@@ -1,70 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/find_in_page_container"
-    android:layout_gravity="top"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="top">
 
     <org.wikipedia.views.CabSearchView
         android:id="@+id/find_in_page_input"
-        android:inputType="text"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:hint="@string/menu_page_find_in_page"
         android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:hint="@string/menu_page_find_in_page"
         android:imeOptions="actionSearch|flagNoExtractUi"
-        android:theme="@style/FindInPageSearchViewStyle"
-        app:iconifiedByDefault="false"
-        app:searchIcon="@null"
+        android:inputType="text"
+        android:maxLines="1"
         app:closeIcon="@null"
-        android:maxLines="1" />
+        app:iconifiedByDefault="false"
+        app:searchIcon="@null" />
 
     <TextView
         android:id="@+id/find_in_page_match"
-        android:visibility="gone"
-        tools:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="12sp"
-        tools:text="99/99"/>
+        android:visibility="gone"
+        tools:text="99/99"
+        tools:visibility="visible" />
 
     <View
         android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:background="?attr/material_theme_border_color"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:background="?attr/material_theme_border_color" />
 
     <ImageView
-        style="@style/Widget.AppCompat.ImageButton"
         android:id="@+id/find_in_page_prev"
+        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_previous"
-        app:srcCompat="@drawable/ic_expand_less_themed_24dp"/>
+        app:srcCompat="@drawable/ic_expand_less_themed_24dp" />
 
     <ImageView
-        style="@style/Widget.AppCompat.ImageButton"
         android:id="@+id/find_in_page_next"
+        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
-        app:srcCompat="@drawable/ic_expand_more_themed_24dp"/>
+        app:srcCompat="@drawable/ic_expand_more_themed_24dp" />
 
     <ImageView
-        style="@style/Widget.AppCompat.ImageButton"
         android:id="@+id/close_button"
+        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/dialog_close_description"
-        app:srcCompat="@drawable/ic_close_themed_24dp"/>
+        app:srcCompat="@drawable/ic_close_themed_24dp" />
 </LinearLayout>

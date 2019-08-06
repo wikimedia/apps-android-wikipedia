@@ -1,7 +1,8 @@
 package org.wikipedia.feed.model;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
@@ -17,6 +18,7 @@ import org.wikipedia.feed.onthisday.OnThisDayCardView;
 import org.wikipedia.feed.progress.ProgressCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
+import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
@@ -100,6 +102,11 @@ public enum CardType implements EnumCode {
     ONBOARDING_READING_LIST_SYNC(20) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new AnnouncementCardView(ctx);
+        }
+    },
+    SUGGESTED_EDITS(21, FeedContentType.SUGGESTED_EDITS) {
+        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
+            return new SuggestedEditsCardView(ctx);
         }
     },
     DAY_HEADER(97) {

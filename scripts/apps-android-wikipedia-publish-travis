@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Optionally pass an Android SDK location as an argument:
-# $ apps-android-wikipedia-publish /srv/jenkins-workspace/tools/android-sdk
-if [ ! $# -eq 0 ]; then
-  echo "org.gradle.jvmargs=-Xmx1536M" >> gradle.properties
-  export ANDROID_HOME="${1}"
-  scripts/jenkins_sdk_setup "${ANDROID_HOME}"
-else
-  export ANDROID_HOME="$PWD/.sdk"
-fi
+openssl aes-256-cbc -K $encrypted_62eb76340444_key -iv $encrypted_62eb76340444_iv -in wikipedia.keystore.enc -out wikipedia.keystore -d
 
 declare START_TIME="$(date +"%Y-%m-%dT%H:%M:%S.%N")"
 ./gradlew -q clean assembleAlphaRelease
+
+if [ -f "app/build/outputs/apk/alpha/release/app-alpha-release.apk" ]; then
+  cp app/build/outputs/apk/alpha/release/app-alpha-release.apk app/build/outputs/apk/alpha/release/app-alpha-universal-release.apk
+fi

@@ -1,11 +1,13 @@
 package org.wikipedia.login;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
@@ -16,7 +18,8 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.mwapi.MwServiceError;
+import org.wikipedia.dataclient.mwapi.MwResponse;
+import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -33,7 +36,7 @@ import retrofit2.Response;
  * Responsible for making login related requests to the server.
  */
 public class LoginClient {
-    @Nullable private Call<MwQueryResponse> tokenCall;
+    @Nullable private Call<JsonElement> tokenCall;
     @Nullable private Call<LoginResponse> loginCall;
 
     public interface LoginCallback {
@@ -48,14 +51,30 @@ public class LoginClient {
         cancel();
 
         tokenCall = ServiceFactory.get(wiki).getLoginToken();
-        tokenCall.enqueue(new Callback<MwQueryResponse>() {
-            @Override public void onResponse(@NonNull Call<MwQueryResponse> call,
-                                             @NonNull Response<MwQueryResponse> response) {
-                login(wiki, userName, password, null, null, response.body().query().loginToken(), cb);
+        tokenCall.enqueue(new Callback<JsonElement>() {
+            @Override public void onResponse(@NonNull Call<JsonElement> call,
+                                             @NonNull Response<JsonElement> response) {
+
+                // TODO: remove when we understand what's happening.
+                MwQueryResponse queryResponse;
+                try {
+                    queryResponse = GsonUtil.getDefaultGson().fromJson(response.body(), MwQueryResponse.class);
+                    if (TextUtils.isEmpty(queryResponse.query().loginToken())) {
+                        throw new RuntimeException("Received empty login token: " + GsonUtil.getDefaultGson().toJson(response.body()));
+                    }
+                } catch (Exception e) {
+                    cb.error(e);
+                    return;
+                }
+
+                if (call.isCanceled()) {
+                    return;
+                }
+                login(wiki, userName, password, null, null, queryResponse.query().loginToken(), cb);
             }
 
             @Override
-            public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+            public void onFailure(@NonNull Call<JsonElement> call, @NonNull Throwable caught) {
                 if (call.isCanceled()) {
                     return;
                 }
@@ -73,6 +92,9 @@ public class LoginClient {
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 LoginResponse loginResponse = response.body();
                 LoginResult loginResult = loginResponse.toLoginResult(wiki, password);
                 if (loginResult != null) {
@@ -109,11 +131,13 @@ public class LoginClient {
 
     public void loginBlocking(@NonNull final WikiSite wiki, @NonNull final String userName,
                               @NonNull final String password, @Nullable final String twoFactorCode) throws Throwable {
-        Response<MwQueryResponse> tokenResponse = ServiceFactory.get(wiki).getLoginToken().execute();
-        if (tokenResponse.body() == null || TextUtils.isEmpty(tokenResponse.body().query().loginToken())) {
+        Response<JsonElement> tokenResponse = ServiceFactory.get(wiki).getLoginToken().execute();
+        MwQueryResponse queryResponse = GsonUtil.getDefaultGson().fromJson(tokenResponse.body(), MwQueryResponse.class);
+
+        if (tokenResponse.body() == null || TextUtils.isEmpty(queryResponse.query().loginToken())) {
             throw new IOException("Unexpected response when getting login token.");
         }
-        String loginToken = tokenResponse.body().query().loginToken();
+        String loginToken = queryResponse.query().loginToken();
 
         Call<LoginResponse> tempLoginCall = StringUtils.defaultIfEmpty(twoFactorCode, "").isEmpty()
                 ? ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
@@ -184,16 +208,9 @@ public class LoginClient {
         loginCall = null;
     }
 
-    public static final class LoginResponse {
-        @SuppressWarnings("unused") @SerializedName("error") @Nullable
-        private MwServiceError error;
-
+    public static final class LoginResponse extends MwResponse {
         @SuppressWarnings("unused") @SerializedName("clientlogin") @Nullable
         private ClientLogin clientLogin;
-
-        @Nullable public MwServiceError getError() {
-            return error;
-        }
 
         @Nullable LoginResult toLoginResult(@NonNull WikiSite site, @NonNull String password) {
             return clientLogin != null ? clientLogin.toLoginResult(site, password) : null;
@@ -210,9 +227,9 @@ public class LoginClient {
                 if ("UI".equals(status)) {
                     if (requests != null) {
                         for (Request req : requests) {
-                            if ("TOTPAuthenticationRequest".equals(req.id())) {
+                            if (req.id().endsWith("TOTPAuthenticationRequest")) {
                                 return new LoginOAuthResult(site, status, userName, password, message);
-                            } else if ("MediaWiki\\Auth\\PasswordAuthenticationRequest".equals(req.id())) {
+                            } else if (req.id().endsWith("PasswordAuthenticationRequest")) {
                                 return new LoginResetPasswordResult(site, status, userName, password, message);
                             }
                         }
@@ -233,8 +250,8 @@ public class LoginClient {
             @SuppressWarnings("unused") @Nullable private String account;
             @SuppressWarnings("unused") @Nullable private Map<String, RequestField> fields;
 
-            @Nullable String id() {
-                return id;
+            @NonNull String id() {
+                return StringUtils.defaultString(id);
             }
         }
 

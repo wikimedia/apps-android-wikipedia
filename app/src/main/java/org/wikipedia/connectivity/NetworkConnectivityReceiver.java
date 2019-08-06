@@ -5,8 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.annotation.Nullable;
-import android.support.v4.net.ConnectivityManagerCompat;
+
+import androidx.annotation.Nullable;
+import androidx.core.net.ConnectivityManagerCompat;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.NetworkConnectEvent;

@@ -1,9 +1,12 @@
 package org.wikipedia.language;
 
+import com.google.gson.stream.MalformedJsonException;
+
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.test.MockRetrofitTest;
 
+import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
 
 public class LangLinksClientTest extends MockRetrofitTest {
@@ -13,8 +16,7 @@ public class LangLinksClientTest extends MockRetrofitTest {
         enqueueFromFile("lang_links.json");
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        getApiService().getLangLinks("foo")
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(result ->
@@ -26,8 +28,7 @@ public class LangLinksClientTest extends MockRetrofitTest {
         enqueueFromFile("lang_links_empty.json");
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        getApiService().getLangLinks("foo")
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
                 .assertValue(result -> result.query().langLinks().isEmpty());
@@ -38,20 +39,22 @@ public class LangLinksClientTest extends MockRetrofitTest {
         enqueueFromFile("api_error.json");
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        getApiService().getLangLinks("foo")
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
         observer.assertError(Exception.class);
     }
 
     @Test
-    public void testRequestResponseMalformed() throws Throwable {
-        server().enqueue("⨌⨀_⨀⨌");
+    public void testRequestResponseMalformed() {
+        enqueueMalformed();
         TestObserver<MwQueryResponse> observer = new TestObserver<>();
 
-        getApiService().getLangLinks("foo")
-                .subscribe(observer);
+        getObservable().subscribe(observer);
 
-        observer.assertError(Exception.class);
+        observer.assertError(MalformedJsonException.class);
+    }
+
+    private Observable<MwQueryResponse> getObservable() {
+        return getApiService().getLangLinks("foo");
     }
 }

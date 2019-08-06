@@ -1,20 +1,17 @@
 package org.wikipedia.history;
 
-import android.support.annotation.Nullable;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.SearchView;
+import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 
-import org.wikipedia.R;
-import org.wikipedia.util.DeviceUtil;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+import androidx.core.view.MenuItemCompat;
+
+import org.wikipedia.views.SearchActionProvider;
 
 public abstract class SearchActionModeCallback implements ActionMode.Callback {
     public static final String ACTION_MODE_TAG = "searchActionMode";
-    private SearchView searchView;
-    private ImageView searchMagIcon;
 
     public static boolean is(@Nullable ActionMode mode) {
         return mode != null && ACTION_MODE_TAG.equals(mode.getTag());
@@ -23,30 +20,21 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         mode.setTag(ACTION_MODE_TAG);
-        mode.getMenuInflater().inflate(R.menu.menu_action_mode_search, menu);
-        searchView = (SearchView) menu.findItem(R.id.menu_search_view).getActionView();
-        searchMagIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
-        searchMagIcon.setImageDrawable(null);
-        searchView.setIconifiedByDefault(false);
-        searchView.setQueryHint(getSearchHintString());
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        MenuItem menuItem = menu.add(getSearchHintString());
+        // Manually setup a action provider to be able to adjust the left margin of the search field.
+        MenuItemCompat.setActionProvider(menuItem, new SearchActionProvider(getParentContext(), getSearchHintString(), new SearchActionProvider.Callback() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
+            public void onQueryTextChange(String s) {
                 onQueryChange(s);
-                return true;
             }
-        });
 
-        searchView.setOnQueryTextFocusChangeListener((view, isFocus) -> {
-            if (!isFocus && finishActionModeIfKeyboardHiding()) {
-                mode.finish();
+            @Override
+            public void onQueryTextFocusChange() {
+                if (finishActionModeIfKeyboardHiding()) {
+                    mode.finish();
+                }
             }
-        });
+        }));
 
         return true;
     }
@@ -57,11 +45,10 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
 
     protected abstract boolean finishActionModeIfKeyboardHiding();
 
+    protected abstract Context getParentContext();
+
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        searchView.requestFocus();
-        searchMagIcon.setVisibility(View.GONE);
-        DeviceUtil.showSoftKeyboard(searchView);
         return true;
     }
 
@@ -72,8 +59,5 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        if (searchView != null) {
-            searchView.setOnQueryTextListener(null);
-        }
     }
 }

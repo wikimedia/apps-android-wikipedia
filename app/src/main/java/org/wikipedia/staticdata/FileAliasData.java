@@ -3,7 +3,7 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public final class FileAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 294;
+        final int size = 296;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Афаил");
         map.put("ace", "Beureukaih");
@@ -127,6 +127,7 @@ public final class FileAliasData {
         map.put("ht", "Fichye");
         map.put("hu", "Fájl");
         map.put("hy", "Պատկեր");
+        map.put("hyw", "Պատկեր");
         map.put("ia", "File");
         map.put("id", "Berkas");
         map.put("ie", "File");
@@ -251,6 +252,7 @@ public final class FileAliasData {
         map.put("se", "Fiila");
         map.put("sg", "Fichier");
         map.put("sh", "Datoteka");
+        map.put("shn", "ၾၢႆႇ");
         map.put("si", "ගොනුව");
         map.put("simple", "File");
         map.put("sk", "Súbor");

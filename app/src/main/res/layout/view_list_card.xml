@@ -1,10 +1,9 @@
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:clipChildren="false"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
 
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_list_card_header"
@@ -16,48 +15,49 @@
         android:id="@+id/view_list_card_large_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_card_header_large_height"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_header"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_header" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view_list_card_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_large_header"/>
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_large_header" />
 
     <LinearLayout
         android:id="@+id/view_list_card_more_container"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
+        android:layout_below="@+id/view_list_card_list"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
-        android:layout_below="@+id/view_list_card_list"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
         tools:visibility="visible">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+            android:contentDescription="@null"
             android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
 
         <TextView
             android:id="@+id/view_list_card_more_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
+            android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
             android:textAllCaps="true"
-            android:textColor="?attr/secondary_text_color"
-            android:gravity="center_vertical"/>
+            android:textColor="?attr/secondary_text_color" />
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

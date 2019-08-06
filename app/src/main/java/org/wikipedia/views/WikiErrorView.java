@@ -2,17 +2,18 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.mwapi.MwException;
@@ -68,7 +69,7 @@ public class WikiErrorView extends LinearLayout {
     public void setError(@Nullable Throwable caught) {
         Resources resources = getContext().getResources();
         ErrorType errorType = getErrorType(caught);
-        icon.setImageDrawable(ContextCompat.getDrawable(getContext(), errorType.icon()));
+        icon.setImageDrawable(AppCompatResources.getDrawable(getContext(), errorType.icon()));
         if (caught instanceof MwException) {
             errorText.setText(caught.getMessage());
         } else {

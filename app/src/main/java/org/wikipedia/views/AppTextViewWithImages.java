@@ -4,18 +4,19 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +88,7 @@ public class AppTextViewWithImages extends AppTextView {
 
     @NonNull @VisibleForTesting
     Drawable getFormattedDrawable(@DrawableRes int drawableId, float size, @ColorInt int color) {
-        Drawable drawable = ContextCompat.getDrawable(getContext(), drawableId);
+        Drawable drawable = AppCompatResources.getDrawable(getContext(), drawableId);
         DrawableCompat.setTint(drawable, color);
 
         float ratio = drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight();

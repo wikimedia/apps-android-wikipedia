@@ -1,10 +1,6 @@
 package org.wikipedia.gallery;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -13,9 +9,15 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
@@ -49,31 +51,30 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         mListener = listener;
     }
 
-    public void setGalleryList(@NonNull List<GalleryItem> list) {
+    public void setGalleryList(@NonNull List<MwQueryPage> list) {
         setAdapter(new GalleryViewAdapter(list));
     }
 
     private class GalleryItemHolder extends ViewHolder implements OnClickListener, OnTouchListener {
         private final SimpleDraweeView mImageView;
-        private GalleryItem mGalleryItem;
+        private MwQueryPage mGalleryItem;
 
         GalleryItemHolder(View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.gallery_thumbnail_image);
         }
 
-        public void bindItem(GalleryItem item) {
+        public void bindItem(MwQueryPage item) {
             mGalleryItem = item;
             mImageView.setOnClickListener(this);
             mImageView.setOnTouchListener(this);
-            ViewUtil.loadImageUrlInto(mImageView, mGalleryItem.getThumbnailUrl());
+            ViewUtil.loadImageUrlInto(mImageView, mGalleryItem.imageInfo().getThumbUrl());
         }
 
         @Override
         public void onClick(View v) {
             if (mListener != null) {
-                // TODO: check which title will be used here
-                mListener.onGalleryItemClicked(mGalleryItem.getTitles().getCanonical());
+                mListener.onGalleryItemClicked(mGalleryItem.title());
             }
         }
 
@@ -95,9 +96,9 @@ public class GalleryThumbnailScrollView extends RecyclerView {
     }
 
     private final class GalleryViewAdapter extends RecyclerView.Adapter<GalleryItemHolder> {
-        @NonNull private final List<GalleryItem> list;
+        @NonNull private final List<MwQueryPage> list;
 
-        GalleryViewAdapter(@NonNull List<GalleryItem> list) {
+        GalleryViewAdapter(@NonNull List<MwQueryPage> list) {
             this.list = list;
         }
 

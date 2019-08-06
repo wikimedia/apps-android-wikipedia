@@ -23,8 +23,6 @@
   <string name="nav_item_forward">آگے</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش کریں</string>
   <string name="search_hint_search_history">تاریخچہ میں تلاش کریں</string>
-  <string name="search_hint_search_my_lists">میری فہرستوں میں تلاش کریں</string>
-  <string name="search_hint_search_reading_list">فہرست مطالعہ میں تلاش کریں</string>
   <string name="search_hint_search_languages">زبان تلاش کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>
@@ -76,7 +74,6 @@
   <string name="langlinks_activity_title">دیگر زبانیں</string>
   <string name="langlinks_your_wikipedia_languages">آپ کی ویکیپیڈیا کی زبانیں</string>
   <string name="menu_save_changes">تبدیلیاں شائع کریں</string>
-  <string name="dialog_saving_in_progress">شائع ہورہا ہے۔۔۔</string>
   <string name="edit_saved_successfully">ترمیم شائع ہوگئی!</string>
   <string name="dialog_message_edit_failed">ترمیم محفوظ نہیں ہو سکی!</string>
   <string name="dialog_message_edit_failed_retry">دوبارہ کوشش کریں</string>
@@ -142,7 +139,6 @@
   <string name="create_account_ip_block_details">تفصیلات</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا اطلاقیہ کے عمومی سوالات</string>
-  <string name="edit_preview_fetching_dialog_message">نمائش حاصل کی جارہی ہے...</string>
   <string name="send_feedback">ایپ پر ردعمل بھیجیے۔</string>
   <string name="create_account_account_created_toast">کھاتہ بن چکا ہے!</string>
   <string name="preferences_heading_syncing">مطابقت داری ہو رہی ہے</string>
@@ -297,7 +293,7 @@
   <string name="article_menu_bar_bookmark">اس مضمون کو کسی فہرست مطالعہ میں شامل کریں</string>
   <string name="article_menu_bar_share">مضمون کا ربط دوسروں کو بھیجیں</string>
   <string name="article_header_edit_hint">ترمیم۔۔۔</string>
-  <string name="article_header_edit_description">عنوان کی وضاحت میں ترمیم کریں</string>
+  <string name="article_header_edit_description" fuzzy="true">عنوان کی وضاحت میں ترمیم کریں</string>
   <string name="article_header_edit_lead_section">دیباچے میں ترمیم کریں</string>
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">ہلکا</string>
@@ -418,7 +414,6 @@
   <string name="preference_summary_notification_milestone">صارف کی ترامیم کی مخصوص تعداد عبور کرنے پر اطلاع</string>
   <string name="preference_title_notification_thanks">شکر گزاری</string>
   <string name="preference_summary_notification_thanks">دیگر صارفین کا آپ کی ترمیم پر شکریہ ادا کرنے کا پیغام</string>
-  <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
   <string name="view_random_card_subtitle">ویکیپیڈیا سے پڑھنے کے لیے بےترتیب مضامین کی تحریر پلٹ کر دیکھیں۔</string>
@@ -463,40 +458,28 @@
   <string name="feed_item_type_main_page">ویکیپیڈیا کا صفحۂ اول مع منتخب مواد</string>
   <string name="feed_item_type_randomizer">بے ترتیب مضامین پڑھیے</string>
   <string name="feed_configure_onboarding_action">تخصیص کریں</string>
-  <string name="description_edit_text_hint">عنوان کی وضاحت</string>
+  <string name="description_edit_text_hint" fuzzy="true">عنوان کی وضاحت</string>
   <string name="description_edit_save">شائع کریں</string>
-  <string name="description_edit_add_description">عنوان کی وضاحت درج کریں</string>
-  <string name="description_edit_edit_description">وضاحت میں ترمیم کریں</string>
+  <string name="description_edit_add_description" fuzzy="true">عنوان کی وضاحت درج کریں</string>
+  <string name="description_edit_edit_description" fuzzy="true">وضاحت میں ترمیم کریں</string>
   <string name="description_edit_cancel_hint">منسوخ کریں</string>
-  <string name="description_edit_help_title">معاونت:عنوان کی وضاحتیں</string>
+  <string name="description_edit_help_title" fuzzy="true">معاونت:عنوان کی وضاحتیں</string>
   <string name="description_edit_help_about_wikidata">ویکی ڈیٹا کا تعارف</string>
   <string name="description_edit_help_wikidata_guide">وضاحت نویسی کے لیے ویکی ڈیٹا رہبر</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
-  <string name="description_edit_anon_limit">وضاحت کی ترمیم میں آپ کی مسلسل دلچسپی کا شکریہ! مزید ترامیم کے لیے براہ کرم اپنے ویکیپیڈیا کھاتے میں داخل ہوں۔</string>
-  <string name="description_edit_license_notice">عنوان کی وضاحت میں تبدیلی کرنے پر میں &lt;a href=\"%1$s\"&gt;شرائط استعمال&lt;/a&gt; سے متفق ہوں اور اپنی تبدیلیوں کو &lt;a href=\"%2$s\"&gt;کریئیٹیو کامنز CC0&lt;/a&gt; اجازت نامے کے تحت شائع کرتا ہوں۔</string>
-  <string name="description_edit_success_saved">وضاحت شائع ہوگئی!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">وضاحت کی ترمیم میں آپ کی مسلسل دلچسپی کا شکریہ! مزید ترامیم کے لیے براہ کرم اپنے ویکیپیڈیا کھاتے میں داخل ہوں۔</string>
+  <string name="description_edit_license_notice" fuzzy="true">عنوان کی وضاحت میں تبدیلی کرنے پر میں &lt;a href=\"%1$s\"&gt;شرائط استعمال&lt;/a&gt; سے متفق ہوں اور اپنی تبدیلیوں کو &lt;a href=\"%2$s\"&gt;کریئیٹیو کامنز CC0&lt;/a&gt; اجازت نامے کے تحت شائع کرتا ہوں۔</string>
+  <string name="description_edit_success_saved" fuzzy="true">وضاحت شائع ہوگئی!</string>
   <string name="description_edit_success_encouragement">آپ نے ابھی ابھی ویکیپیڈیا کو مزید بہتر کر دیا ہے</string>
   <string name="description_edit_success_done">مکمل</string>
   <string name="description_edit_success_did_you_know">کیا آپ جانتے ہیں؟</string>
   <string name="description_edit_success_article_edit_hint">آپ اس اطلاقیہ کے ذریعہ مضامین میں ترمیم کر سکتے ہیں۔  آپ ^1 علامت پر کلک کرکے املا کی غلطیوں اور مختصر جملوں کو درست کرنے کی کوشش کریں</string>
-  <string name="description_edit_tutorial_title_descriptions">عنوان کی وضاحتیں</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">عنوان کی وضاحتیں</string>
   <string name="description_edit_tutorial_title_descriptions_summary">مضمون کا خلاصہ درج کریں تاکہ قارئین ایک نظر میں موضوع سے واقف ہو جائیں</string>
   <string name="description_edit_tutorial_keep_it_short">اسے چھوٹا رکھیں</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">ایک سطر کافی ہوگی دو سے بارہ الفاظ کے درمیان۔</string>
   <string name="description_edit_tutorial_button_label_start_editing">ترمیم شروع کریں</string>
   <string name="description_edit_tutorial_promise">شروع کرنے سے قبل میں وعدہ کرتا ہوں کہ اس سہولت کا غلط استعمال نہیں کروں گا۔</string>
-  <string name="description_edit_help_about_title">تعارف</string>
-  <string name="description_edit_help_tips_examples">مثلاً:</string>
-  <string name="description_edit_help_tips_example1">لیونارڈو دا ونچی کی مصوری</string>
-  <string name="description_edit_help_tips_example1_hint">مونا لیزا کے مضمون کے عنوان کی وضاحت</string>
-  <string name="description_edit_help_tips_example2">زمین کا سب سے بلند پہاڑ</string>
-  <string name="description_edit_help_tips_example2_hint">ماؤنٹ ایورسٹ کے مضمون کے عنوان کی وضاحت</string>
-  <string name="description_edit_help_more_info">مزید معلومات</string>
   <string name="description_edit_revert_subtitle">ویکیپیڈیا میں ترمیم کا شکریہ!</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">ایک منٹ باقی ہے</item>
-    <item quantity="other">%d منٹ باقی ہیں</item>
-  </plurals>
   <string name="onboarding_skip">چھوڑیں</string>
   <string name="onboarding_continue">جاری رکھیں</string>
   <string name="onboarding_get_started">شروع کریں</string>

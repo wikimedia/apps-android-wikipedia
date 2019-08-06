@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/search_container"
     android:layout_width="match_parent"
@@ -7,31 +6,31 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:contentDescription="@string/search_hint"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_search_white_24dp"
-        app:tint="?attr/material_theme_secondary_color"
-        android:contentDescription="@string/search_hint" />
+        app:tint="?attr/material_theme_secondary_color" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:text="@string/search_hint"
         android:textColor="?attr/material_theme_de_emphasised_color" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/voice_search_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:scaleType="center"
-        app:srcCompat="@drawable/ic_mic_black_24dp"
-        app:tint="?attr/material_theme_secondary_color"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
-        android:contentDescription="@string/search_hint" />
+        android:contentDescription="@string/search_hint"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_mic_black_24dp"
+        app:tint="?attr/material_theme_secondary_color" />
 
 </LinearLayout>

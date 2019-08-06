@@ -1,23 +1,21 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.FileUtil;
-import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -54,6 +52,7 @@ public class CommunicationBridge {
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
         webView.setWebChromeClient(new CommunicatingChrome());
         webView.addJavascriptInterface(marshaller, "marshaller");
         eventListeners = new HashMap<>();
@@ -65,14 +64,14 @@ public class CommunicationBridge {
         });
     }
 
-    public void resetHtml(@NonNull Context context, @NonNull String assetFileName, @NonNull String wikiUrl) {
+    public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl) {
         String html = "";
         try {
-            final int rgbMask = 0xFFFFFF;
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
                     .replace("$wikiurl", wikiUrl)
-                    .replace("$bodybackground", String.format("#%06X",
-                            ResourceUtil.getThemedColor(context, R.attr.paper_color) & rgbMask));
+                    .replace("$pageLibThemeClass", WikipediaApp.getInstance().getCurrentTheme().getPageLibClass())
+                    .replace("$pageLibDimImgClass", WikipediaApp.getInstance().getCurrentTheme().isDark() ? "pagelib_dim_images" : "");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -129,7 +128,7 @@ public class CommunicationBridge {
     private class CommunicatingChrome extends WebChromeClient {
         @Override
         public boolean onConsoleMessage(@NonNull ConsoleMessage consoleMessage) {
-            Log.d("WikipediaWeb", consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
+            L.d(consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
             return true;
         }
     }

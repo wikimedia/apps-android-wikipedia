@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="randomizer_card_view_bottom_padding">17dp</dimen>
+    <dimen name="randomizer_image_view_height">162dp</dimen>
+    <dimen name="randomizer_text_view_height">144dp</dimen>
+</resources>

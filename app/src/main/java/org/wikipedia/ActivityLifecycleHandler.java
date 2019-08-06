@@ -8,9 +8,14 @@ import org.wikipedia.main.MainActivity;
 
 public class ActivityLifecycleHandler implements Application.ActivityLifecycleCallbacks {
     private boolean haveMainActivity;
+    private boolean anyActivityResumed;
 
     public boolean haveMainActivity() {
         return haveMainActivity;
+    }
+
+    public boolean isAnyActivityResumed() {
+        return anyActivityResumed;
     }
 
     @Override
@@ -26,10 +31,12 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
 
     @Override
     public void onActivityResumed(Activity activity) {
+        anyActivityResumed = true;
     }
 
     @Override
     public void onActivityPaused(Activity activity) {
+        anyActivityResumed = false;
     }
 
     @Override

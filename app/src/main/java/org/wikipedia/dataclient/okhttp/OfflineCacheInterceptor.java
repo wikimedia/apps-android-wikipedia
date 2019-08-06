@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.settings.Prefs;
 
@@ -12,7 +12,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.cache.CacheRequest;
 import okhttp3.internal.cache.CacheStrategy;
-import okhttp3.internal.http.HttpCodec;
+import okhttp3.internal.http.ExchangeCodec;
 import okhttp3.internal.http.HttpHeaders;
 import okhttp3.internal.http.RealResponseBody;
 import okio.Buffer;
@@ -122,8 +122,7 @@ public class OfflineCacheInterceptor implements Interceptor {
      * consumer. This is careful to discard bytes left over when the stream is closed; otherwise we
      * may never exhaust the source stream and therefore not complete the cached response.
      */
-    private Response cacheWritingResponse(final CacheRequest cacheRequest, Response response)
-            throws IOException {
+    private Response cacheWritingResponse(final CacheRequest cacheRequest, Response response) throws IOException {
         // Some apps return a null body; for compatibility we treat that like a null cache request.
         if (cacheRequest == null) {
             return response;
@@ -165,15 +164,13 @@ public class OfflineCacheInterceptor implements Interceptor {
                 return bytesRead;
             }
 
-            @Override
-            public Timeout timeout() {
+            @Override public Timeout timeout() {
                 return source.timeout();
             }
 
-            @Override
-            public void close() throws IOException {
+            @Override public void close() throws IOException {
                 if (!cacheRequestClosed
-                        && !discard(this, HttpCodec.DISCARD_STREAM_TIMEOUT_MILLIS, MILLISECONDS)) {
+                        && !discard(this, ExchangeCodec.DISCARD_STREAM_TIMEOUT_MILLIS, MILLISECONDS)) {
                     cacheRequestClosed = true;
                     cacheRequest.abort();
                 }

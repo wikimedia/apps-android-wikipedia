@@ -1,7 +1,8 @@
 package org.wikipedia.history;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseClient;

@@ -29,21 +29,14 @@
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
         <item name="dialogTheme">@style/DialogDark</item>
-        <item name="alertDialogTheme">@style/AlertDialogDark</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
 
-        <!-- Theme for dialog after long pressing on internal links -->
-        <item name="android:alertDialogTheme">@style/LongPressAlertDialogDark</item>
-
         <!-- Overrides of our own custom style attributes -->
-        <item name="toc_item_background">@drawable/toc_item_background_dark</item>
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="list_separator_drawable">@drawable/divider_dark</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_dark</item>
-        <item name="tab_item_selector">@drawable/tab_item_selector_dark</item>
-        <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
@@ -64,7 +57,6 @@
         <item name="material_theme_secondary_color">@color/white70</item>
         <item name="material_theme_de_emphasised_color">@color/white50</item>
         <item name="material_theme_border_color">@color/white20</item>
-        <item name="material_theme_shadow">@color/base10</item>
         <item name="primary_text_color">@color/base90</item>
         <item name="secondary_text_color">@color/base70</item>
         <item name="section_title_color">@color/base90</item>
@@ -73,37 +65,25 @@
         <item name="chart_shade5">@color/base30</item>
         <item name="chart_shade7">@color/base10</item>
         <item name="green_highlight_color">@color/green50</item>
-        <item name="randomizer_dice_icon_color">@color/accent30</item>
-        <item name="shadow_background_drawable">@android:drawable/dialog_holo_dark_frame</item>
-        <item name="tab_counts_shape_border">@drawable/tab_counts_shape_border_dark</item>
+        <item name="randomizer_dice_icon_color">@color/accent50</item>
         <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_dark</item>
         <item name="thumb_off_color">@color/base70</item>
         <item name="track_off_color">@color/base100</item>
         <item name="toc_h1_h2_color">@color/base100</item>
-        <item name="text_highlight_color">@color/yellow90</item>
-        <item name="text_highlight_color_translucent">@color/yellow90_translucent</item>
+        <item name="toc_scroller_button_color">@color/base18</item>
+        <item name="button_background_color">@color/base14</item>
+        <item name="tab_placeholder_text_color">@color/base10</item>
+        <item name="chip_background_color">@color/base20</item>
+        <item name="chip_text_color">@color/base80</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
+        <item name="suggestions_background_color">@color/base12</item>
+        <item name="color_group_52">@color/accent75</item>
 
     </style>
 
-    <style name="AlertDialogDark" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorAccent">@color/accent75</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-        <item name="android:textColorPrimary">?attr/material_theme_secondary_color</item>
-        <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
-        <item name="android:textAppearanceMedium">@style/DialogTitleTextAppearance</item>
-        <item name="buttonBarButtonStyle">@style/AlertDialogButtonStyle</item>
-        <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
-    </style>
-
-    <style name="LongPressAlertDialogDark" parent="AlertDialogDark">
-        <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
-        <item name="android:background">?attr/paper_color</item>
-    </style>
-
-    <style name="DialogDark" parent="Theme.AppCompat.Dialog">
+    <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorAccent">@color/accent75</item>
@@ -115,7 +95,7 @@
         <item name="overlapAnchor">true</item>
     </style>
 
-    <style name="BottomSheetDialogDark" parent="Theme.Design.BottomSheetDialog">
+    <style name="BottomSheetDialogDark" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
         <item name="colorAccent">@color/accent75</item>
         <item name="colorSwitchThumbNormal">@color/base90</item>

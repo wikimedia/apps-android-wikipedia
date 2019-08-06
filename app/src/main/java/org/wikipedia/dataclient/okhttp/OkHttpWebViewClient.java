@@ -1,10 +1,5 @@
 package org.wikipedia.dataclient.okhttp;
 
-import android.annotation.TargetApi;
-import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.webkit.MimeTypeMap;
@@ -12,6 +7,8 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
@@ -44,61 +41,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final String ASSETS_URL_PATH = "/android_asset/";
     private static final String PCS_CSS_BASE = "/data/css/mobile/base";
     private static final String PCS_CSS_PAGELIB = "/data/css/mobile/pagelib";
-    private static final String PCS_CSS_SITE = "/data/css/mobile/site";
 
     @NonNull public abstract PageViewModel getModel();
 
-    @SuppressWarnings("deprecation") @Override
-    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-        if (!SUPPORTED_SCHEMES.contains(Uri.parse(url).getScheme())) {
-            return null;
-        }
-
-        try {
-            if (url.contains(ASSETS_URL_PATH)) {
-                String[] urlArr = url.split(ASSETS_URL_PATH);
-                return new WebResourceResponse(MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(url)),
-                        "utf-8", WikipediaApp.getInstance().getAssets().open(urlArr[urlArr.length - 1]));
-            }
-
-            Response rsp = request(url);
-            if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
-                rsp.close();
-                return super.shouldInterceptRequest(view, url);
-            } else {
-                // noinspection ConstantConditions
-                return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
-                        rsp.body().contentType().charset(Charset.defaultCharset()).name(),
-                        rsp.body().byteStream());
-            }
-        } catch (Exception e) {
-
-            if (url.contains(PCS_CSS_BASE)) {
-                // This means that we failed to fetch the base CSS for our page (probably due to
-                // being offline), so replace it with our pre-packaged fallback.
-                try {
-                    return new WebResourceResponse("text/css", "utf-8",
-                            WikipediaApp.getInstance().getAssets().open("styles.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            } else if (url.contains(PCS_CSS_PAGELIB)) {
-                // This means that we failed to fetch the page-library CSS (probably due to
-                // being offline), so replace it with our pre-packaged fallback.
-                try {
-                    return new WebResourceResponse("text/css", "utf-8",
-                            WikipediaApp.getInstance().getAssets().open("wikimedia-page-library.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            }
-
-            L.e(e);
-        }
-        return null;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override public WebResourceResponse shouldInterceptRequest(WebView view,
                                                                 WebResourceRequest request) {
         if (!SUPPORTED_SCHEMES.contains(request.getUrl().getScheme())) {
@@ -162,19 +107,16 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 || (!event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F3));
     }
 
-    @NonNull private Response request(String url) throws IOException {
-        Request.Builder builder = new Request.Builder()
-                .url(url)
-                .cacheControl(getModel().getCacheControl());
-        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
-    }
-
-    @TargetApi(21)
     @NonNull private Response request(WebResourceRequest request) throws IOException {
         Request.Builder builder = new Request.Builder()
                 .url(request.getUrl().toString())
                 .cacheControl(getModel().getCacheControl());
         for (String header : request.getRequestHeaders().keySet()) {
+            if (header.equals("If-None-Match") || header.equals("If-Modified-Since")) {
+                // Strip away conditional headers from the request coming from the WebView, since
+                // we want control of caching for ourselves (it can break OkHttp's caching internals).
+                continue;
+            }
             builder.header(header, request.getRequestHeaders().get(header));
         }
         return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();

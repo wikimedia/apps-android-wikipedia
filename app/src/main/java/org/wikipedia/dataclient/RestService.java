@@ -1,7 +1,7 @@
 package org.wikipedia.dataclient;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.restbase.RbDefinition;
@@ -11,11 +11,13 @@ import org.wikipedia.dataclient.restbase.page.RbPageRemaining;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.aggregated.AggregatedFeedContent;
 import org.wikipedia.feed.announcement.AnnouncementList;
-import org.wikipedia.feed.configure.FeedAvailabilityClient;
+import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
-import org.wikipedia.gallery.Gallery;
+import org.wikipedia.gallery.MediaList;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
+import org.wikipedia.suggestededits.provider.SuggestedEditItem;
 
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -112,11 +114,11 @@ public interface RestService {
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
-    @GET("page/media/{title}")
-    @NonNull Observable<Gallery> getMedia(@Path("title") String title);
+    @GET("page/media-list/{title}")
+    @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
 
     @GET("feed/onthisday/events/{mm}/{dd}")
-    @NonNull Call<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
+    @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
 
     @Headers(ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
     @GET("feed/announcements")
@@ -129,7 +131,7 @@ public interface RestService {
                                                                  @Path("day") String day);
 
     @GET("feed/availability")
-    @NonNull Call<FeedAvailabilityClient.FeedAvailability> getFeedAvailability();
+    @NonNull Observable<FeedAvailability> getFeedAvailability();
 
 
     // ------- Reading lists -------
@@ -191,5 +193,29 @@ public interface RestService {
     @DELETE("data/lists/{id}/entries/{entry_id}")
     @NonNull Call<Void> deleteEntryFromReadingList(@Path("id") long listId, @Path("entry_id") long entryId,
                                                    @Query("csrf_token") String token);
+
+
+    // ------- Recommendations -------
+
+    @Headers("Cache-Control: no-cache")
+    @GET("data/recommendation/caption/addition/{lang}")
+    @NonNull
+    Observable<List<SuggestedEditItem>> getImagesWithoutCaptions(@NonNull @Path("lang") String lang);
+
+    @Headers("Cache-Control: no-cache")
+    @GET("data/recommendation/caption/translation/from/{fromLang}/to/{toLang}")
+    @NonNull
+    Observable<List<SuggestedEditItem>> getImagesWithTranslatableCaptions(@NonNull @Path("fromLang") String fromLang,
+                                                                          @NonNull @Path("toLang") String toLang);
+    @Headers("Cache-Control: no-cache")
+    @GET("data/recommendation/description/addition/{lang}")
+    @NonNull
+    Observable<List<SuggestedEditItem>> getArticlesWithoutDescriptions(@NonNull @Path("lang") String lang);
+
+    @Headers("Cache-Control: no-cache")
+    @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
+    @NonNull
+    Observable<List<SuggestedEditItem>> getArticlesWithTranslatableDescriptions(@NonNull @Path("fromLang") String fromLang,
+                                                                                @NonNull @Path("toLang") String toLang);
 
 }

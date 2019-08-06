@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * BHARATHESHA ALASANDEMAJALU
 * Bharathesha Alasandemajalu
 * Kiranpoojary
@@ -15,8 +16,6 @@
   <string name="page_tabs_back">ಪಿರ</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯಟ್ ನಾಡ್ಲೇ</string>
   <string name="search_hint_search_history">ಇತಿಹಾಸನ್ ನಾಡ್ಲೆ</string>
-  <string name="search_hint_search_my_lists">ಯೆನ್ನ ಪಟ್ಟಿನ್ ನಾಡ್ಲೆ</string>
-  <string name="search_hint_search_reading_list">ಓದುನ ಪಟ್ಟಿನ್ ನಾಡ್ಲೆ</string>
   <string name="search_hint_search_languages">ಬಾಸೆಲೆನ್ ನಡ್ಲೆ</string>
   <string name="nav_item_history">ಇತಿಹಾಸೊ</string>
   <string name="error_network_error">ನೆಟ್ವರ್ಕ್ ಸರಿಕಟ್ಟ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
@@ -77,7 +76,6 @@
   <string name="langlinks_activity_title">ಬೇತೆ ಬಾಸೆಲೆಡ್</string>
   <string name="langlinks_your_wikipedia_languages">ಇರೇನಾ ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆ</string>
   <string name="menu_save_changes">ಬದಲಾವನೆನ್ ಒರಿಪಾಲೆ</string>
-  <string name="dialog_saving_in_progress">ಒರಿಪಾವೊತುಂಡು...</string>
   <string name="edit_saved_successfully">ಸಂಪಾದನೆನ್ ಒರಿಪಾಂಡ್!</string>
   <string name="dialog_message_edit_failed">ಸಂಪಾದನೆನ್ ಒರಿಪಾಯರಾ ಅಯಿಜಿ!</string>
   <string name="dialog_message_edit_failed_retry">ನನೊರ ಪ್ರಯತ್ನ ಮಾನ್ಪುಲೇ</string>
@@ -148,7 +146,6 @@
   <string name="create_account_ip_block_details">ವಿವರೊ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯೊ</string>
   <string name="wikipedia_app_faq">ವಿಕಿಪೀಡಿಯ ಅಪ್ ತಾ ಅಪಗಪಗ ಕೇನುನ ಪ್ರಶ್ನೆಲು</string>
-  <string name="edit_preview_fetching_dialog_message">ದುಂಬುತ್ತಾ ವಿಸಯಾ ಬತ್ತೊಂತುಂಡು...</string>
   <string name="send_feedback">ಅಪ್ ತಾ ಬಗೆತಾ ಅಭಿಪ್ರಾಯೊ ಕಡಪುಡ್ಲೆ</string>
   <string name="create_account_account_created_toast">ಖಾತೆ ಸೃಷ್ಟಿಯಾಂಡ್.</string>
   <string name="preferences_heading_syncing">ಸಿಂಕಿಂಗ್</string>
@@ -247,7 +244,7 @@
   <string name="crash_report_dialog_send_button">ಕಡಪುಡ್ಲೆ</string>
   <string name="crash_report_quit">ಬುಡ್ಲೆ</string>
   <string name="article_header_edit_hint">ಸೇರ್ಸಲೇ...</string>
-  <string name="article_header_edit_description">ತರೆ ಬರವುದಾ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
+  <string name="article_header_edit_description" fuzzy="true">ತರೆ ಬರವುದಾ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
   <string name="color_theme_select">ಬಣ್ಣೊತಾ ಪಟ್ಟಿ</string>
   <string name="color_theme_light">ಎಲಮೆ ಬಣ್ಣೊ</string>
   <string name="color_theme_dark">ಕಡ್ಪೋ ಬಣ್ಣೊ</string>
@@ -297,7 +294,6 @@
   <string name="preference_summary_notification_welcome">ಇರೆನ ಖಾತೆ ಸೃಷ್ಟಿ ಅತ್‌ಂಡ್.</string>
   <string name="preference_title_notification_milestone">ಮೈಲ್ ಕಂಬ</string>
   <string name="preference_title_notification_thanks">ಸೊಲ್ಮೆಲೋ</string>
-  <string name="view_continue_reading_card_title">ಓದುನೆನ್ ಮುಂದುವರಿಸಲೇ</string>
   <string name="view_main_page_card_title">ವಿಕಿಪೀಡಿಯಾಡ್ ಇನಿ</string>
   <string name="view_main_page_card_subtitle">ಮುಕ್ಯೊ ಪುಟೊ %s ನಾನಿ ಸುರುವಾಯಿನ</string>
   <string name="view_featured_image_card_download">ಡೌನ್‍ಲೋಡ್</string>
@@ -312,17 +308,15 @@
   <string name="view_static_card_save_button_label">ಒರಿಪಾಲೆ</string>
   <string name="view_featured_article_footer_saved_button_label">ಒರಿಪಾಂಡ್</string>
   <string name="feed_configure_menu_select_all">ಮಾಂತ ತೋಜಾಲೆ</string>
-  <string name="description_edit_text_hint">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
+  <string name="description_edit_text_hint" fuzzy="true">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
   <string name="description_edit_save">ಪ್ರಕಟ ಮಾನ್ಪುಲೆ</string>
-  <string name="description_edit_add_description">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
+  <string name="description_edit_add_description" fuzzy="true">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
   <string name="description_edit_cancel_hint">ವಜಾ ಮಲ್ಪುಲೆ</string>
   <string name="description_edit_help_about_wikidata">ವಿಕಿಡಾಟ ತಾ ಬಗ್ಗೆ</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="description_edit_success_done">ಆಂಡ್</string>
   <string name="description_edit_success_did_you_know">ಈರೆಗ್ ತೆರಿದ್‍ಂಡಾ?</string>
-  <string name="description_edit_help_about_title">ಎಂಕ್ಲೆನ ಬಗ್ಗೆ</string>
-  <string name="description_edit_help_tips_examples">ಉದಾಹರಣೆಗ್</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">ನನಾತ್ ಕಲ್ಪುಲೆ</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">ಬಹುಶಃ ಬೊಕ</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">ಬುಡ್ಲೆ</string>
@@ -338,11 +332,4 @@
   <string name="more_language_options">ನನಾತ್</string>
   <string name="add_wikipedia_languages_text">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆಲೇನ್ ಸೇರಲೇ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ಬಾಸೆನ್ ಸೇರಾಲೆ.</string>
-  <string name="title_description_editing_skip">ಬುಡುಲೆ</string>
-  <string name="title_description_get_started">ಸುರು ಮಲ್ಪುಲೆ</string>
-  <string name="translate_description_get_started">ಸುರು ಮಲ್ಪುಲೆ</string>
-  <string name="edit_tasks_onboarding_get_started">ಸುರು ಮಲ್ಪುಲೆ</string>
-  <string name="translate_descriptions_maybe_later">ಬಹುಶಃ ಬೊಕ</string>
-  <string name="title_descriptions_onboarding_got_it">ಗೊತ್ತಾಂಡ್</string>
-  <string name="translate_descriptions_onboarding_got_it">ಗೊತ್ತಾಂಡ್</string>
 </resources>

@@ -2,25 +2,32 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.AttrRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.TextViewCompat;
+
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,20 +48,23 @@ public class PageItemView<T> extends ConstraintLayout {
         void onThumbClick(@Nullable T item);
         void onActionClick(@Nullable T item, @NonNull View view);
         void onSecondaryActionClick(@Nullable T item, @NonNull View view);
+        void onListChipClick(@NonNull ReadingList readingList);
     }
 
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
-    @BindView(R.id.page_list_item_action_primary) ImageView primaryActionView;
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
+    @BindView(R.id.chips_scrollview) View chipsScrollView;
+    @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
+    @Nullable private String imageUrl;
     private boolean selected;
 
     public PageItemView(@NonNull Context context) {
@@ -74,25 +84,29 @@ public class PageItemView<T> extends ConstraintLayout {
         titleView.setText(text);
     }
 
+    public void setTitleMaxLines(int linesCount) {
+        titleView.setMaxLines(linesCount);
+    }
+
+    public void setTitleEllipsis() {
+        titleView.setEllipsize(TextUtils.TruncateAt.END);
+    }
+
     public void setDescription(@Nullable CharSequence text) {
         descriptionView.setText(text);
     }
 
+    public void setDescriptionMaxLines(int linesCount) {
+        descriptionView.setMaxLines(linesCount);
+    }
+
+    public void setDescriptionEllipsis() {
+        descriptionView.setEllipsize(TextUtils.TruncateAt.END);
+    }
+
     public void setImageUrl(@Nullable String url) {
-        ViewUtil.loadImageUrlInto(imageView, url);
-    }
-
-    public void setActionIcon(@DrawableRes int id) {
-        primaryActionView.setImageResource(id);
-        primaryActionView.setVisibility(VISIBLE);
-    }
-
-    public void setActionHint(@StringRes int id) {
-        primaryActionView.setContentDescription(getContext().getString(id));
-    }
-
-    public void setActionTint(@AttrRes int tint) {
-        DrawableCompat.setTint(primaryActionView.getDrawable(), ResourceUtil.getThemedColor(getContext(), tint));
+        imageUrl = url;
+        updateSelectedState();
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
@@ -124,6 +138,40 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
+    public void setListItemImageDimensions(int width, int height) {
+        imageView.getLayoutParams().width = width;
+        imageView.getLayoutParams().height = height;
+        requestLayout();
+    }
+
+    public void setUpChipGroup(List<ReadingList> readingLists) {
+        chipsScrollView.setVisibility(VISIBLE);
+        chipsScrollView.setFadingEdgeLength(0);
+        readingListsChipGroup.removeAllViews();
+        for (ReadingList readingList : readingLists) {
+            Chip chip = new Chip(readingListsChipGroup.getContext());
+            TextViewCompat.setTextAppearance(chip, R.style.CustomChipStyle);
+            chip.setText(readingList.title());
+            chip.setClickable(true);
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.chip_background_color));
+            chip.setOnClickListener(v -> {
+                if (callback != null) {
+                    callback.onListChipClick(readingList);
+                }
+            });
+            readingListsChipGroup.addView(chip);
+        }
+    }
+
+    public void hideChipGroup() {
+        chipsScrollView.setVisibility(GONE);
+    }
+
+    public void setSearchQuery(@Nullable String searchQuery) {
+        // highlight search term within the text
+        StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
+    }
+
     @OnClick void onClick() {
         if (callback != null) {
             callback.onClick(item);
@@ -143,12 +191,6 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.page_list_item_action_primary) void onActionClick(View v) {
-        if (callback != null) {
-            callback.onActionClick(item, v);
-        }
-    }
-
     @OnClick(R.id.page_list_item_action_secondary) void onSecondaryActionClick() {
         if (callback != null) {
             callback.onSecondaryActionClick(item, this);
@@ -164,18 +206,23 @@ public class PageItemView<T> extends ConstraintLayout {
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
 
-        FeedbackUtil.setToolbarButtonLongPressToast(primaryActionView);
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
     private void updateSelectedState() {
-        imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
-        // TODO: animate?
-        setBackgroundColor(getThemedColor(getContext(),
-                selected ? R.attr.multi_select_background_color : R.attr.paper_color));
+        if (selected) {
+            imageSelectedView.setVisibility(VISIBLE);
+            imageView.setVisibility(GONE);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
+        } else {
+            imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, imageUrl);
+            imageSelectedView.setVisibility(GONE);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

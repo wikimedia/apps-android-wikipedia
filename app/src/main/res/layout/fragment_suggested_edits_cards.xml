@@ -1,0 +1,163 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/suggestedEditsCardsCoordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/suggestions_background_color">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/wikiLanguageDropdownContainer"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="1px"
+            android:elevation="4dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/wikiFromLanguageSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:backgroundTint="?attr/colorAccent" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"
+                android:paddingStart="4dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="8dp"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_baseline_arrow_right_alt_24px"
+                app:tint="?attr/material_theme_secondary_color" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="end">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/wikiToLanguageSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:backgroundTint="?attr/colorAccent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPagerWithVelocity
+            android:id="@+id/cardsViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomButtonContainer"
+            app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomButtonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:focusable="true"
+                android:padding="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/addContributionButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:tint="?attr/colorAccent" />
+
+            <FrameLayout
+                android:id="@+id/addContributionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/button_shape_gray"
+                android:backgroundTint="?attr/colorAccent"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="20dp">
+
+                    <ImageView
+                        android:id="@+id/addContributionImage"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="@null"
+                        android:tint="@color/base100"
+                        app:srcCompat="@drawable/ic_add_gray_white_24dp" />
+
+                    <TextView
+                        android:id="@+id/addContributionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suggested_edits_add_description_button"
+                        android:fontFamily="sans-serif-medium"
+                        android:textAllCaps="true"
+                        android:textColor="@color/base100"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/nextButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/view_next_random_article"
+                android:focusable="true"
+                android:padding="12dp"
+                android:scaleX="-1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/addContributionButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:tint="?attr/colorAccent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,54 +9,67 @@
         android:id="@+id/reading_list_header_image_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_gravity="top">
+        android:layout_gravity="top"
+        android:background="?attr/paper_color"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+
             <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/reading_list_header_image_0"
+                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                android:id="@+id/reading_list_header_image_0"/>
+                android:layout_marginEnd="0.5dp"
+                android:layout_weight="1" />
+
             <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/reading_list_header_image_1"
+                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                android:id="@+id/reading_list_header_image_1"/>
+                android:layout_marginEnd="0.5dp"
+                android:layout_weight="1" />
+
             <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/reading_list_header_image_2"
+                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                android:id="@+id/reading_list_header_image_2"/>
+                android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="0.5dp"
             android:layout_weight="1">
+
             <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/reading_list_header_image_3"
+                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                android:id="@+id/reading_list_header_image_3"/>
+                android:layout_marginEnd="0.5dp"
+                android:layout_weight="1" />
+
             <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/reading_list_header_image_4"
+                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                android:id="@+id/reading_list_header_image_4"/>
+                android:layout_marginEnd="0.5dp"
+                android:layout_weight="1" />
+
             <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/reading_list_header_image_5"
+                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                android:id="@+id/reading_list_header_image_5"/>
+                android:layout_weight="1" />
         </LinearLayout>
 
     </LinearLayout>
@@ -67,14 +79,14 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/ic_bookmark_white_24dp"
+        android:contentDescription="@null"
         android:tint="@color/base30"
-        android:contentDescription="@null"/>
+        app:srcCompat="@drawable/ic_bookmark_white_24dp" />
 
     <View
         android:id="@+id/reading_list_header_image_gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="top"/>
+        android:layout_gravity="top" />
 
 </merge>

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-mkdir tmp && export TMPDIR="$PWD/tmp"
-
-./gradlew clean checkstyle lintAlphaRelease testAllAlphaRelease
-
-# TODO: add periodic test tasks here.

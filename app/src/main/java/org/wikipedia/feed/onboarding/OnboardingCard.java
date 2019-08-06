@@ -1,7 +1,7 @@
 package org.wikipedia.feed.onboarding;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.feed.announcement.AnnouncementCard;

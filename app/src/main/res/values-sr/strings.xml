@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Acamicamacaraca
 * Aktron
 * BadDog
@@ -11,6 +12,7 @@
 * Rancher
 * Srdjan m
 * Zoranzoki21
+* Милан Јелисавчић
 * Сербијана
 -->
 <resources>
@@ -19,32 +21,39 @@
   <string name="app_name_alpha">Википедија алфа</string>
   <string name="wikimedia">Викимедија</string>
   <string name="nav_item_back">Назад</string>
+  <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Проследи</string>
   <string name="search_hint">Претражите Википедију</string>
   <string name="search_hint_search_history">Историја претраге</string>
-  <string name="search_hint_search_my_lists">Претражите по својим листама</string>
-  <string name="search_hint_search_reading_list">Претражите по листи за читање</string>
   <string name="search_hint_search_languages">Претражите језике</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Није могуће повезати се са интернетом.</string>
   <string name="page_error_retry">Покушај поново</string>
+  <string name="storage_access_error_retry">Покушај поново</string>
+  <string name="article_load_error_retry">Покушај поново</string>
+  <string name="offline_load_error_retry">Покушај поново</string>
   <string name="page_error_back_to_main">Назад</string>
+  <string name="error_back">Назад</string>
   <string name="menu_clear_all_history">Обриши историју</string>
   <string name="history_item_deleted">Чланак „%s” је уклоњен из историје</string>
   <string name="history_items_deleted">Чланака уклоњено из историје: %d</string>
   <string name="history_item_delete_undo">Опозови</string>
+  <string name="notification_archive_undo">Опозови</string>
   <string name="app_settings">Подешавања апликације</string>
   <string name="dialog_title_clear_history">Брисање историје прегледања</string>
   <string name="dialog_message_clear_history">Овим ћете избрисати сву историју прегледања и затворити све тренутно отворене картице. Јесте ли сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Делите помоћу…</string>
+  <string name="image_share_via">Дели помоћу</string>
   <string name="search_redirect_from">Преусмерено са %s</string>
   <string name="menu_page_show_tabs">Прикажи картице</string>
   <string name="menu_page_other_languages">Промени језик</string>
   <string name="menu_page_find_in_page">Пронађи на страници</string>
+  <string name="edit_section_find_in_page">Пронађи на страници</string>
   <string name="menu_page_font_and_theme">Фонт и тема</string>
   <string name="menu_page_add_to_list">Додај на листу за читање</string>
+  <string name="feed_card_add_to_list">Додај на листу за читање</string>
   <string name="menu_page_share">Дели линк</string>
   <string name="menu_page_open_a_new_tab">Отвори нову картицу</string>
   <string name="menu_page_reading_lists">Листе за читање</string>
@@ -55,6 +64,9 @@
   <string name="menu_text_select_copy">Копирај</string>
   <string name="menu_text_select_define">Дефиниши</string>
   <string name="menu_text_select_share">Дели</string>
+  <string name="share">Дели</string>
+  <string name="on_this_day_page_share">Дели</string>
+  <string name="reading_list_page_share">Дели</string>
   <string name="menu_text_select_edit_here">Уреди овде</string>
   <string name="nav_item_nearby">У близини</string>
   <string name="nearby_zoom_to_location">Увећај локацију на мапи</string>
@@ -75,7 +87,6 @@
   <string name="langlinks_activity_title">Други језици</string>
   <string name="langlinks_your_wikipedia_languages">Ваши језици Википедије</string>
   <string name="menu_save_changes">Објави промене</string>
-  <string name="dialog_saving_in_progress">Објављивање…</string>
   <string name="edit_saved_successfully">Измена је објављена.</string>
   <string name="dialog_message_edit_failed">Уређивање није успело.</string>
   <string name="dialog_message_edit_failed_retry">Покушај поново</string>
@@ -96,8 +107,13 @@
   <string name="nav_item_login">Пријава на Википедију</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
+  <string name="account_creation_password_hint">Лозинка</string>
   <string name="login_2fa_hint">Кôд двофакторске потврде идентитета</string>
   <string name="login_2fa_other_workflow_error_msg">Неопходна је двофакторска потврда идентитета. Вратите се на главну активност и пријавите се са својим 2FA токеном, па покушајте поново.</string>
+  <string name="onboarding_card_login">Пријава</string>
+  <string name="page_editing_login">Пријава</string>
+  <string name="reading_lists_sync_login">Пријава</string>
+  <string name="create_account_login">Пријава</string>
   <string name="menu_login">Пријави ме</string>
   <string name="login_activity_title">Пријава на Википедију</string>
   <string name="login_in_progress_dialog_message">Пријављујем вас…</string>
@@ -142,7 +158,6 @@
   <string name="create_account_ip_block_details">Детаљи</string>
   <string name="preferences_general_heading">Опште</string>
   <string name="wikipedia_app_faq">ЧПП о апликацији Википедија</string>
-  <string name="edit_preview_fetching_dialog_message">Добављање прегледа…</string>
   <string name="send_feedback">Пошаљи повратне информације</string>
   <string name="create_account_account_created_toast">Налог је отворен.</string>
   <string name="preferences_heading_syncing">Синхронизација</string>
@@ -241,7 +256,7 @@
   <string name="preference_summary_show_images">Омогућите или онемогућите учитавање слика на страницама. Уклоните ознаку са овог подешавања ако је ваша веза са интернетом спора или вам је ограничена тарифа за пренос података.</string>
   <string name="preference_title_download_only_over_wifi">Преузимај само преко Wi-Fi-а</string>
   <string name="dialog_title_download_only_over_wifi">Потврдити преузимање са мобилним подацима?</string>
-  <string name="dialog_text_download_only_over_wifi">У подешавањима сте омогућили опцију „Преузимај само преко Wi-Fi-а”. Желите ли да дозволите преузимање са мобилним подацима само у овом случају?</string>
+  <string name="dialog_text_download_only_over_wifi" fuzzy="true">У подешавањима сте омогућили опцију „Преузимај само преко Wi-Fi-а”. Желите ли да дозволите преузимање са мобилним подацима само у овом случају?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Дозволи</string>
   <string name="read_more_section">Прочитајте више</string>
   <string name="about_article_section">О овом чланку</string>
@@ -325,7 +340,7 @@
   <string name="article_menu_bar_bookmark">Додај овај чланак на листу за читање</string>
   <string name="article_menu_bar_share">Дели линк чланка</string>
   <string name="article_header_edit_hint">Уреди…</string>
-  <string name="article_header_edit_description">Уреди опис наслова</string>
+  <string name="article_header_edit_description">Уреди опис чланка</string>
   <string name="article_header_edit_lead_section">Уреди увод</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Светла</string>
@@ -504,7 +519,6 @@
   <string name="preference_summary_notification_milestone">Достигнут је одређени број измена</string>
   <string name="preference_title_notification_thanks">Захвала</string>
   <string name="preference_summary_notification_thanks">Неко вам се захвалио на измени</string>
-  <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">На основу прочитаног</string>
   <string name="view_random_card_title">Случајни чланак</string>
   <string name="view_random_card_subtitle">Прелистајте случајне чланке са Википедије.</string>
@@ -531,9 +545,11 @@
   <string name="view_continue_reading_card_subtitle_today">данас</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Не, хвала</string>
+  <string name="onboarding_negative_action">Не, хвала</string>
   <string name="view_offline_card_text">Садржај се не може учитати када сте офлајн.</string>
   <string name="view_featured_article_card_title">Сјајан чланак</string>
   <string name="view_featured_article_footer_save_button_label">Сачувај</string>
+  <string name="view_static_card_save_button_label">Сачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Сачувано</string>
   <string name="feed_configure_activity_title">Прилагоди фид</string>
   <string name="feed_configure_menu_reset">Врати подразумевани приказ</string>
@@ -551,48 +567,42 @@
   <string name="feed_empty_message">Ваш фид „Истражи“ је празан</string>
   <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодите фид „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Сада можете да изаберете шта желите да се приказује у фиду, као и да дате предност вашем омиљеном типу садржаја.</string>
-  <string name="description_edit_text_hint">Опис наслова</string>
+  <string name="description_edit_text_hint">Опис чланка</string>
   <string name="description_edit_save">Објави</string>
-  <string name="description_edit_add_description">Додај опис наслова</string>
-  <string name="description_edit_edit_description">Уреди опис</string>
+  <string name="description_edit_add_description">Додај опис чланка</string>
+  <string name="description_edit_translate_description">Преведите опис чланка</string>
+  <string name="description_edit_edit_description" fuzzy="true">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
-  <string name="description_edit_help_title">Помоћ: описи наслова</string>
+  <string name="description_edit_help_title">Информације: Описи чланака</string>
   <string name="description_edit_help_about_wikidata">О Википодацима</string>
   <string name="description_edit_help_wikidata_guide">Водич на Википодацима за писање описа</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
-  <string name="description_edit_license_notice">Променом описа наслова, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Опис је објављен.</string>
+  <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа чланака. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
+  <string name="description_edit_license_notice">Променом описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">Опис чланка је објављен!</string>
   <string name="description_edit_success_encouragement">Управо сте побољшали Википедију за све</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Да ли сте знали?</string>
   <string name="description_edit_success_article_edit_hint">У овој апликацији можете и да уређујете чланке. Следећи пут пробајте да исправите грешке у куцању и мање реченице притиском на икону ^1.</string>
-  <string name="description_edit_tutorial_title_descriptions">Описи наслова</string>
+  <string name="description_edit_tutorial_title_descriptions">Описи чланака</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Резимира чланак како би читаоци на први поглед разумели његову тему</string>
   <string name="description_edit_tutorial_keep_it_short">Будите концизни</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
-  <string name="description_edit_help_about_title">О описима</string>
-  <string name="description_edit_help_description">Описи наслова резимирају чланак како би читаоци на први поглед разумели његову тему.</string>
-  <string name="description_edit_help_tips">Савети за писање описа</string>
-  <string name="description_edit_help_tips_description">Описи би, по могућству, требало да буду у једном реду и да се састоје од две до дванаест речи. Не почињу великим словом осим ако је прва реч властита именица.</string>
-  <string name="description_edit_help_tips_examples">На пример:</string>
-  <string name="description_edit_help_tips_example1">слика Леонарда да Винчија</string>
-  <string name="description_edit_help_tips_example1_hint">опис наслова за чланак о Мона Лизи</string>
-  <string name="description_edit_help_tips_example2">највиша планина на Земљи</string>
-  <string name="description_edit_help_tips_example2_hint">опис наслова за чланак о Монт Евересту</string>
-  <string name="description_edit_help_more_info">Више информација</string>
-  <string name="description_edit_help_meta_info">Описи се смештају и одржавају на Википодацима, пројекту Задужбине Викимедија, који пружа слободну, колаборативну, вишејезичку, секундарну базу података, која помаже Википедији и другим пројектима.</string>
-  <string name="editactionfeed_add_title_descriptions">Додавање описа наслова</string>
-  <string name="editactionfeed_translate_descriptions">Преведите описе наслова</string>
-  <string name="editactionfeed_review_title_description">Преглед описа наслова</string>
-  <string name="editactionfeed_add_description_button">Додај опис</string>
-  <string name="editactionfeed_my_contributions">Моји доприноси</string>
-  <string name="editactionfeed_from_language">Од:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Сазнајте више</string>
-  <string name="editactionfeed_to_language">За:</string>
+  <string name="suggested_edits_add_descriptions">Додавање описа чланка</string>
+  <string name="suggested_edits_review_description">Преглед описа чланка</string>
+  <string name="suggested_edits_add_description_button">Додај опис</string>
+  <string name="suggested_edits_my_contributions">Моји доприноси</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Можда касније</string>
+  <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
+  <string name="suggested_edits_task_translation_title">Преведите описе чланака</string>
+  <string name="suggested_edits_task_translation_description">Преведите описе по језицима чланака.</string>
+  <string name="suggested_edits_task_translate_caption_title">Превођење натписа слика</string>
+  <string name="suggested_edits_task_translate_caption_description">Преведите натписе на друге језике</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Закључано док не направите (%d) проверених доприноса</string>
+  <string name="suggested_edits_task_multilingual_negative">Није за мене</string>
+  <string name="suggested_edits_task_multilingual_positive">Додај језике</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;.</string>
@@ -602,10 +612,6 @@
   <string name="offline_read_final_rationale">Потребна је дозвола за приступ меморијском простору уређаја ради коришћења офлајн-библиотеке.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Преостао је 1 минут</item>
-    <item quantity="other">Преостала су %d минута</item>
-  </plurals>
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>
   <string name="onboarding_get_started">Започните</string>
@@ -623,7 +629,7 @@
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Слободна енциклопедија\nна готово 300 језика</string>
+  <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна преко 300 језика</string>
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
@@ -663,14 +669,4 @@
   <string name="main_drawer_close">Затвори</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
-  <string name="title_description_task_title">Додавање описа наслова</string>
-  <string name="translation_task_title">Преведите описе наслова</string>
-  <string name="translation_task_description">Преведите описе наслова на друге језике</string>
-  <string name="translate_description_edit_disable_text">Закључано док не уредите описе наслова (%d)</string>
-  <string name="multilingual_task_negative">Није за мене</string>
-  <string name="multilingual_task_positive">Додај језике</string>
-  <string name="translation_source_description">опис (%s):</string>
-  <string name="translate_caption_task_title">Превођење натписа слика</string>
-  <string name="translate_caption_task_description">Преведите натписе на друге језике</string>
-  <string name="add_title_descriptions_dialog_title">Додавање описа наслова</string>
 </resources>

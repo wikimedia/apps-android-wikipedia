@@ -2,10 +2,11 @@ package org.wikipedia.savedpages;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.JobIntentService;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;

@@ -2,23 +2,24 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;

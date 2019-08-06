@@ -3,12 +3,14 @@ package org.wikipedia.descriptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.onboarding.OnboardingFragment;
+import org.wikipedia.util.ResourceUtil;
 
 public class DescriptionEditTutorialActivity
         extends SingleFragmentActivity<DescriptionEditTutorialFragment>
@@ -22,7 +24,7 @@ public class DescriptionEditTutorialActivity
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarColor(R.color.base100);
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.paper_color));
     }
 
     @Override public void onComplete() {

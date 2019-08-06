@@ -1,14 +1,15 @@
 package org.wikipedia.edit.summaries;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import org.wikipedia.R;
 import org.wikipedia.edit.EditSectionActivity;

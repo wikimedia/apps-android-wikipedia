@@ -5,6 +5,7 @@
 * Satdeep gill
 * Sony dandiwal
 * Tow
+* ਗੁਰਪ੍ਰੀਤ ਹੁੰਦਲ
 * ਪ੍ਰਚਾਰਕ
 -->
 <resources>
@@ -16,6 +17,7 @@
   <string name="nav_item_history">ਅਤੀਤ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
+  <string name="article_load_error_retry">ਫਿਰ ਤੋਂ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="page_error_back_to_main">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="dialog_title_clear_history"> ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
@@ -36,6 +38,7 @@
   <string name="menu_text_select_copy">ਨਕਲ ਕਰੋ</string>
   <string name="menu_text_select_define">ਪਰਿਭਾਸ਼ਿਤ ਕਰੋ</string>
   <string name="menu_text_select_share">ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_text_select_edit_here">ਇੱਥੋਂ ਸੋਧੋ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="nearby_zoom_to_location">ਨਕਸ਼ੇ \'ਤੇ ਥਾਂ ਉੱਪਰ ਜ਼ੂਮ ਕਰੋ</string>
@@ -52,7 +55,6 @@
   <string name="langlinks_no_match" fuzzy="true">ਤੁਹਾਡੀ ਪੁੱਛਗਿੱਛ ਨਾਲ਼ ਮਿਲਦੀਆਂ ਕੋਈ ਬੋਲੀਆਂ ਨਹੀਂ ਲੱਭੀਆਂ।</string>
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>
   <string name="menu_save_changes">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
-  <string name="dialog_saving_in_progress">ਸਾਂਭਿਆ ਜਾ ਰਿਹਾ ਹੈ…</string>
   <string name="edit_saved_successfully">ਸੋਧ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤੀ ਗਈ!</string>
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -80,7 +82,7 @@
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
   <string name="login_join_wikipedia">ਵਿਕੀਪੀਡੀਆ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ</string>
-  <string name="login_forgot_password">ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?</string>
+  <string name="login_forgot_password">ਆਪਣਾ ਲੰਘ-ਸ਼ਬਦ ਭੁੱਲ ਗਏ ਹੋ?</string>
   <string name="create_account_already_have">ਪਹਿਲੋਂ ਹੀ ਖਾਤਾ ਹੈ?</string>
   <string name="create_account_activity_title">ਖਾਤਾ ਬਣਾਓ</string>
   <string name="dialog_create_account_checking_progress">ਤਸਦੀਕੀ ਜਾਰੀ</string>
@@ -93,7 +95,6 @@
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>
   <string name="preferences_general_heading">ਆਮ</string>
   <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
-  <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ…</string>
   <string name="send_feedback">ਅੈਪ ਸੰਬੰਧੀ ਸਲਾਹ ਭੇਜੋ</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
   <string name="preferences_privacy_settings_heading">ਪਰਦੇਦਾਰੀ</string>
@@ -246,7 +247,6 @@
   <string name="default_reading_list_name">ਸੰਭਾਲਿਆ</string>
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
   <string name="notification_syncing_cancel_button">ਰੱਦ ਕਰੋ</string>
-  <string name="view_continue_reading_card_title">ਪੜ੍ਹਦੇ ਰਹੋ</string>
   <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
   <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
   <string name="view_random_card_subtitle" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਤੋੰ ਕੋਈ ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਪੜ੍ਹੋ</string>
@@ -277,8 +277,6 @@
   <string name="description_edit_help_about_wikidata">ਵਿਕੀਡਾਟਾ ਬਾਰੇ</string>
   <string name="description_edit_success_done">ਮੁਕੰਮਲ</string>
   <string name="description_edit_success_did_you_know">ਕੀ ਤੁਸੀੰ ਜਾਣਦੇ ਹੋ?</string>
-  <string name="description_edit_help_about_title">ਬਾਰੇ</string>
-  <string name="description_edit_help_more_info">ਹੋਰ ਜਾਣਕਾਰੀ</string>
   <string name="onboarding_skip">ਛੱਡੋ</string>
   <string name="onboarding_continue">ਜਾਰੀ ਰੱਖੋ</string>
   <string name="onboarding_get_started">ਸ਼ੁਰੂ ਕਰੋ</string>
