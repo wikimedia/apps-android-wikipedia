@@ -20,7 +20,6 @@ import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
@@ -33,6 +32,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     public EditHandler(PageFragment fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
         bridge.addListener("edit_section", this);
+        bridge.addListener("add_title_description", this);
     }
 
     public void setPage(Page page) {
@@ -78,21 +78,22 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             return;
         }
         if (messageType.equals("edit_section")) {
-            if (messagePayload.has("mainPencilClicked") && DescriptionEditUtil.isEditAllowed(currentPage)) {
+            int sectionId = messagePayload.optInt("sectionID");
+            if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(currentPage)) {
                 View tempView = new View(fragment.requireContext());
-                tempView.setX(DimenUtil.dpToPx(messagePayload.optInt("x")));
-                tempView.setY(DimenUtil.dpToPx(messagePayload.optInt("y")) - fragment.getWebView().getScrollY());
+                tempView.setX(fragment.getWebView().getTouchStartX());
+                tempView.setY(fragment.getWebView().getTouchStartY());
                 ((ViewGroup) fragment.getView()).addView(tempView);
                 PopupMenu menu = new PopupMenu(fragment.requireContext(), tempView, 0, 0, R.style.PagePopupMenu);
                 menu.getMenuInflater().inflate(R.menu.menu_page_header_edit, menu.getMenu());
                 menu.setOnMenuItemClickListener(new EditMenuClickListener());
                 menu.setOnDismissListener(menu1 -> ((ViewGroup) fragment.getView()).removeView(tempView));
                 menu.show();
-            } else if (messagePayload.has("editDescriptionClicked") && DescriptionEditUtil.isEditAllowed(currentPage)) {
-                fragment.verifyBeforeEditingDescription(null);
             } else {
-                startEditingSection(messagePayload.optInt("sectionID"), null);
+                startEditingSection(sectionId, null);
             }
+        } else if (messageType.equals("add_title_description") && DescriptionEditUtil.isEditAllowed(currentPage)) {
+            fragment.verifyBeforeEditingDescription(null);
         }
     }
 
