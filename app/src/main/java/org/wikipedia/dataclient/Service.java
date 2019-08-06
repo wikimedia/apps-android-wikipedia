@@ -10,10 +10,6 @@ import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
-import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
-import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageRemaining;
-import org.wikipedia.dataclient.mwapi.page.MwQueryPageSummary;
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.edit.Edit;
 import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
@@ -22,11 +18,9 @@ import org.wikipedia.wikidata.Entities;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -41,81 +35,8 @@ public interface Service {
 
     String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=plaintext&";
 
-    String MW_PAGE_SECTIONS_URL = MW_API_PREFIX + "action=mobileview&prop="
-                                                + "text|sections&onlyrequestedsections=1&sections=1-"
-                                                + "&sectionprop=toclevel|line|anchor&noheadings=";
-
     int PREFERRED_THUMB_SIZE = 320;
 
-    // ------- MobileView page content -------
-
-    /**
-     * Gets the lead section and initial metadata of a given title.
-     *
-     * @param title the page title with prefix if necessary
-     * @return a Retrofit Call which provides the populated MwMobileViewPageLead object in #success
-     */
-     /*
-      Here's the rationale for this API call:
-      We request 10 sentences from the lead section, and then re-parse the text using our own
-      sentence parsing logic to end up with 2 sentences for the link preview. We trust our
-      parsing logic more than TextExtracts because it's better-tailored to the user's
-      Locale on the client side. For example, the TextExtracts extension incorrectly treats
-      abbreviations like "i.e.", "B.C.", "Jr.", etc. as separate sentences, whereas our parser
-      will leave those alone.
-
-      Also, we no longer request "excharacters" from TextExtracts, since it has an issue where
-      it's liable to return content that lies beyond the lead section, which might include
-      unparsed wikitext, which we certainly don't want.
-    */
-    @Headers("x-analytics: preview=1")
-    @GET(MW_API_PREFIX + "action=query&redirects=&converttitles="
-            + "&prop=extracts|pageimages|pageprops&exsentences=5&piprop=thumbnail|name"
-            + "&pilicense=any&explaintext=&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
-                                                 @NonNull @Query("titles") String title,
-                                                 @Nullable @Query("uselang") String useLang);
-
-    /**
-     * Gets the lead section and initial metadata of a given title.
-     *
-     * @param title the page title with prefix if necessary
-     * @param leadImageWidth one of the bucket widths for the lead image
-     */
-    @Headers("x-analytics: pageview=1")
-    @GET(MW_API_PREFIX + "action=mobileview&prop="
-            + "text|sections|languagecount|thumb|image|id|namespace|revision"
-            + "|description|lastmodified|normalizedtitle|displaytitle|protection"
-            + "|editable|pageprops&pageprops=wikibase_item"
-            + "&sections=0&sectionprop=toclevel|line|anchor&noheadings=")
-    @NonNull Observable<Response<MwMobileViewPageLead>> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
-                                                                       @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                                       @Nullable @Header("Referer") String referrerUrl,
-                                                                       @NonNull @Query("page") String title,
-                                                                       @Query("thumbwidth") int leadImageWidth,
-                                                                       @Nullable @Query("uselang") String useLang);
-
-    /**
-     * Gets the remaining sections of a given title.
-     *
-     * @param title the page title to be used including prefix
-     */
-    @GET(MW_PAGE_SECTIONS_URL)
-    @NonNull Observable<Response<MwMobileViewPageRemaining>> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
-                                                                                  @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                                                  @NonNull @Query("page") String title,
-                                                                                  @Nullable @Query("uselang") String useLang);
-    /**
-     * TODO: remove this if we find a way to get the request url before the observable object being executed
-     * Gets the remaining sections request url of a given title.
-     *
-     * @param title the page title to be used including prefix
-     */
-    @GET(MW_PAGE_SECTIONS_URL)
-    @NonNull Call<MwMobileViewPageRemaining> getRemainingSectionsUrl(@Nullable @Header("Cache-Control") String cacheControl,
-                                                                      @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                                      @NonNull @Query("page") String title,
-                                                                      @Nullable @Query("uselang") String useLang);
 
     // ------- Search -------
 

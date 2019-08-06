@@ -7,7 +7,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.RbSwitch
 import java.io.File
 
 object OkHttpConnectionFactory {
@@ -25,7 +24,6 @@ object OkHttpConnectionFactory {
                 .cache(NET_CACHE)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
                 .addInterceptor(UnsuccessfulResponseInterceptor())
-                .addInterceptor(StatusResponseInterceptor(RbSwitch.INSTANCE))
                 .addNetworkInterceptor(StripMustRevalidateResponseInterceptor())
                 .addInterceptor(CommonHeaderRequestInterceptor())
                 .addInterceptor(DefaultMaxStaleRequestInterceptor())

@@ -38,24 +38,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
     @NonNull private final Context context;
 
-    @NonNull private final Preference.OnPreferenceChangeListener setRestBaseManuallyChangeListener
-            = new Preference.OnPreferenceChangeListener() {
-        /**
-         * Called when the useRestBaseSetManually preference has been changed by the user. This is
-         * called before the state of the Preference is about to be updated and
-         * before the state is persisted.
-         *
-         * @param preference The changed Preference.
-         * @param newValue   The new value of the Preference.
-         * @return True to update the state of the Preference with the new value.
-         */
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
-            setUseRestBasePreference((Boolean) newValue);
-            return true;
-        }
-    };
-
     @NonNull private final Preference.OnPreferenceChangeListener setMediaWikiBaseUriChangeListener
             = new Preference.OnPreferenceChangeListener() {
         /**
@@ -101,7 +83,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     @Override
     public void loadPreferences() {
         loadPreferences(R.xml.developer_preferences);
-        setUpRestBaseCheckboxes();
         setUpMediaWikiSettings();
 
         findPreference(context.getString(R.string.preferences_developer_crash_key))
@@ -272,31 +253,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     NotificationEditorTasksHandler.maybeShowTranslateCaptionUnlockNotification(getActivity(), true);
                     return true;
                 });
-    }
-
-    private void setUpRestBaseCheckboxes() {
-        TwoStatePreference manualPreference = (TwoStatePreference) findPreference(getManualKey());
-        manualPreference.setOnPreferenceChangeListener(setRestBaseManuallyChangeListener);
-        setUseRestBasePreference(manualPreference.isChecked());
-    }
-
-    private String getManualKey() {
-        return context.getString(R.string.preference_key_use_restbase_manual);
-    }
-
-    private void setUseRestBasePreference(boolean manualMode) {
-        RbSwitch.INSTANCE.update();
-        TwoStatePreference useRestBasePref = getUseRestBasePreference();
-        useRestBasePref.setEnabled(manualMode);
-        useRestBasePref.setChecked(RbSwitch.INSTANCE.isRestBaseEnabled());
-    }
-
-    private TwoStatePreference getUseRestBasePreference() {
-        return (TwoStatePreference) findPreference(getUseRestBaseKey());
-    }
-
-    private String getUseRestBaseKey() {
-        return context.getString(R.string.preference_key_use_restbase);
     }
 
     private void setUpMediaWikiSettings() {

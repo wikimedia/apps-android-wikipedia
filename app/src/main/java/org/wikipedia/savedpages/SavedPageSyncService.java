@@ -15,7 +15,6 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.events.PageDownloadEvent;
@@ -277,18 +276,16 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@Nullable CacheControl cacheControl,
                                                                           @Nullable String saveOfflineHeader,
                                                                           @NonNull PageTitle pageTitle) {
-        PageClient client = newPageClient(pageTitle);
         String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        return client.lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
+        return new PageClient().lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
 
     @NonNull private Observable<retrofit2.Response<PageRemaining>> reqPageSections(@Nullable CacheControl cacheControl,
                                                          @Nullable String saveOfflineHeader,
                                                          @NonNull PageTitle pageTitle) {
-        PageClient client = newPageClient(pageTitle);
         String title = pageTitle.getPrefixedText();
-        return client.sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
+        return new PageClient().sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
     }
 
     private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
@@ -361,9 +358,5 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long responseSize(@NonNull retrofit2.Response rsp) {
         return OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.raw().request());
-    }
-
-    @NonNull private PageClient newPageClient(@NonNull PageTitle title) {
-        return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
 }

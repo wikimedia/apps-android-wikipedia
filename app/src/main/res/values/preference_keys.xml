@@ -18,10 +18,6 @@
     <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
     <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
     <string name="preference_key_announcement_version_code">announcementVersionCode</string>
-    <string name="preference_key_use_restbase">useRestbase</string>
-    <string name="preference_key_use_restbase_manual">useRestbase_setManually</string>
-    <string name="preference_key_restbase_ticket">restbaseTicket</string>
-    <string name="preference_key_request_successes">requestSuccesses</string>
     <string name="preference_key_restbase_uri_format">RESTBaseUriFormat</string>
     <string name="preference_key_mediawiki_base_uri">mediaWikiBaseUri</string>
     <string name="preference_key_mediawiki_base_uri_supports_lang_code">mediaWikiBaseUriSupportsLangCode</string>

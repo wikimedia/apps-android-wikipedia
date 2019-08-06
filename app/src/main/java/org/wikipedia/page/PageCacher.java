@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.util.log.L;
@@ -23,7 +22,7 @@ final class PageCacher {
     @SuppressLint("CheckResult")
     static void loadIntoCache(@NonNull PageTitle title) {
         L.d("Loading page into cache: " + title.getPrefixedText());
-        PageClient client = PageClientFactory.create(title.getWikiSite(), title.namespace());
+        PageClient client = new PageClient();
         Observable.zip(leadReq(client, title), remainingReq(client, title), (leadRsp, sectionsRsp) -> leadRsp)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
