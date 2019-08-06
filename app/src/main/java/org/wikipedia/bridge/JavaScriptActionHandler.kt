@@ -28,6 +28,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun getTextSelection(): String {
+        return String.format("pagelib.c1.InteractionHandling.getSelectionInfo()")
+    }
+
+    @JvmStatic
     fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         return String.format("pagelib.c1.Page.setup({" +
