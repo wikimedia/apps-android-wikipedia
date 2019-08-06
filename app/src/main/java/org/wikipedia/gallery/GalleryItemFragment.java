@@ -31,7 +31,9 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
@@ -104,6 +106,9 @@ public class GalleryItemFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mediaListItem = (MediaListItem) getArguments().getSerializable(ARG_GALLERY_ITEM);
         pageTitle = getArguments().getParcelable(ARG_PAGETITLE);
+        if (pageTitle == null) {
+            pageTitle = new PageTitle(mediaListItem.getTitle(), new WikiSite(Service.COMMONS_URL));
+        }
         imageTitle = new PageTitle(Namespace.FILE.toLegacyString(),
                 StringUtil.removeNamespace(mediaListItem.getTitle()),
                 pageTitle.getWikiSite());
