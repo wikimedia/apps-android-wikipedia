@@ -39,16 +39,9 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
-import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.html.ImageTagParser;
-import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
@@ -56,17 +49,14 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.savedpages.PageImageUrlParser;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
@@ -74,21 +64,17 @@ import org.wikipedia.views.WikiErrorView;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
 
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
@@ -529,28 +515,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mediaList -> {
-                    List<MediaListItem> list = mediaList.getItems("image", "video");
-                    int initialImagePosition = getInitialImagePos(list);
-                    if (!app.isOnline()) {
-                        disposables.add(fetchCachedImageUrls(pageTitle)
-                                .map(urls -> {
-                                    for (String url : urls) {
-                                        for (MediaListItem item : list) {
-                                            // find the cached image urls and place with original image urls from cached endpoints
-                                            if (UriUtil.decodeURL(url).contains(StringUtil.removeNamespace(item.getTitle()))) {
-                                                // TODO: need to load the same URL
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    return list;
-                                })
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(it -> applyGalleryList(it, initialImagePosition), L::e));
-                    } else {
-                        applyGalleryList(list, initialImagePosition);
-                    }
+                    updateProgressBar(false);
+                    applyGalleryList(mediaList.getItems("image", "video"));
                 }, caught -> {
                     updateProgressBar(false);
                     showError(caught);
@@ -567,28 +533,18 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
             featuredImage.setAge(getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0));
             updateProgressBar(false);
-            applyGalleryList(Collections.singletonList(new MediaListItem(featuredImage.title())), -1);
+            applyGalleryList(Collections.singletonList(new MediaListItem(featuredImage.title())));
         } else {
             fetchGalleryItems();
         }
     }
 
-    private int getInitialImagePos(@NonNull List<MediaListItem> list) {
-        for (MediaListItem item : list) {
-            // sometimes the namespace of a file would be in different languages rather than English.
-            if (StringUtil.removeNamespace(item.getTitle())
-                    .equals(StringUtil.removeNamespace(addUnderscores(initialFilename)))) {
-                return list.indexOf(item);
-            }
-        }
-        return -1;
-    }
-
-    private void applyGalleryList(@NonNull List<MediaListItem> list, int initialImagePos) {
+    private void applyGalleryList(@NonNull List<MediaListItem> list) {
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
+        int initialImagePos = -1;
         if (initialFilename != null) {
             for (MediaListItem item : list) {
                 // sometimes the namespace of a file would be in different languages rather than English.
@@ -799,28 +755,5 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         public void onSuccess() {
             FeedbackUtil.showMessage(GalleryActivity.this, R.string.gallery_save_success);
         }
-    }
-
-    @NonNull private Observable<Set<String>> fetchCachedImageUrls(@NonNull PageTitle pageTitle) {
-        // use the cached images URL to replace the URL inside the galleryItem
-        PageImageUrlParser pageImageUrlParser = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
-        return Observable.zip(reqPageLead(pageTitle), reqPageSections(pageTitle), (leadRsp, sectionsRsp) -> {
-            Set<String> mediaUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
-            mediaUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
-            return mediaUrls;
-        });
-    }
-
-    @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@NonNull PageTitle pageTitle) {
-        PageClient client = PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace());
-        String title = pageTitle.getPrefixedText();
-        int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        return client.lead(pageTitle.getWikiSite(), CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_SAVE, null, title, thumbnailWidth);
-    }
-
-    @NonNull private Observable<retrofit2.Response<PageRemaining>> reqPageSections(@NonNull PageTitle pageTitle) {
-        PageClient client = PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace());
-        String title = pageTitle.getPrefixedText();
-        return client.sections(pageTitle.getWikiSite(), CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_SAVE, title);
     }
 }
