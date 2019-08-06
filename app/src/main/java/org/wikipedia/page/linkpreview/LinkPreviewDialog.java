@@ -18,6 +18,7 @@ import androidx.appcompat.widget.PopupMenu;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -25,9 +26,13 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
+import org.wikipedia.gallery.MediaList;
+import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
@@ -36,8 +41,13 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
@@ -230,11 +240,28 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText())
+                    .flatMap((Function<MediaList, ObservableSource<MwQueryResponse>>) mediaList -> {
+                        final int maxImages = 10;
+                        List<MediaListItem> items = mediaList.getItems("image", "video");
+                        List<String> titleList = new ArrayList<>();
+                        for (MediaListItem item : items) {
+                            if (item.showInGallery() && titleList.size() < maxImages) {
+                                titleList.add(item.getTitle());
+                            }
+                        }
+                        return ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(StringUtils.join(titleList, '|'));
+                    })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(gallery -> {
-                        thumbnailGallery.setGalleryList(gallery.getItems("image", "video"));
+                    .subscribe(response -> {
+                        List<MwQueryPage> pageList = new ArrayList<>();
+                        for (MwQueryPage page : response.query().pages()) {
+                            if (page.imageInfo() != null) {
+                                pageList.add(page);
+                            }
+                        }
+                        thumbnailGallery.setGalleryList(pageList);
                         thumbnailGallery.setGalleryViewListener(galleryViewListener);
                     }, caught -> {
                         // ignore errors
