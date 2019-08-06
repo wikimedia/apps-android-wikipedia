@@ -48,8 +48,8 @@ object JavaScriptActionHandler {
                 "areTablesInitiallyExpanded: %b," +
                 "textSizeAdjustmentPercentage: '100%%'," +
                 "loadImages: %b" +
-                "})", BuildConfig.VERSION_NAME, app.getCurrentTheme().getFunnelName().toUpperCase(),
-                (app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()),
+                "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
+                (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
                 !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 
