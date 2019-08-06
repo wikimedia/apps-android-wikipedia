@@ -10,7 +10,6 @@ import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
@@ -20,7 +19,6 @@ import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.events.PageDownloadEvent;
-import org.wikipedia.gallery.Gallery;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
@@ -140,8 +138,7 @@ public class SavedPageSyncService extends JobIntentService {
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqPageMedia(pageTitle), (leadRsp, sectionsRsp, mediaRsp) -> {
+                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, sectionsRsp) -> {
                     Set<String> imageUrls = new HashSet<>();
                     if (leadRsp.body() != null) {
                         imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
@@ -238,11 +235,10 @@ public class SavedPageSyncService extends JobIntentService {
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
-        Observable<Gallery> mediaCall = reqPageMedia(pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(leadCall, sectionsCall, mediaCall, (leadRsp, sectionsRsp, mediaRsp) -> {
+        Observable.zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
             long totalSize = 0;
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);
@@ -297,11 +293,6 @@ public class SavedPageSyncService extends JobIntentService {
         PageClient client = newPageClient(pageTitle);
         String title = pageTitle.getPrefixedText();
         return client.sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
-    }
-
-    @NonNull private Observable<Gallery> reqPageMedia(@NonNull PageTitle pageTitle) {
-        // TODO: check if it needs extra CacheControl or header for the request
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText());
     }
 
     private long reqSaveMedia(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
