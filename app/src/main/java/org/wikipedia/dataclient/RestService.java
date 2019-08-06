@@ -13,8 +13,8 @@ import org.wikipedia.feed.aggregated.AggregatedFeedContent;
 import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
-import org.wikipedia.gallery.Gallery;
 import org.wikipedia.page.references.References;
+import org.wikipedia.gallery.MediaList;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
 import org.wikipedia.suggestededits.provider.SuggestedEditItem;
 
@@ -116,8 +116,8 @@ public interface RestService {
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
-    @GET("page/media/{title}")
-    @NonNull Observable<Gallery> getMedia(@Path("title") String title);
+    @GET("page/media-list/{title}")
+    @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
