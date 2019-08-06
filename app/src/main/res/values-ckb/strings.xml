@@ -6,6 +6,7 @@
 * Pirehelokan
 * Sarchia
 * Épine
+* ئارام بکر
 -->
 <resources>
   <string name="app_name_prod">ویکیپیدیا</string>
@@ -81,7 +82,6 @@
   <string name="langlinks_activity_title">زمانەکانی تر</string>
   <string name="langlinks_your_wikipedia_languages">زمانەکانی ویکیپیدیاکەت</string>
   <string name="menu_save_changes">پاشەکەوتکردنی گۆڕانکارییەکان</string>
-  <string name="dialog_saving_in_progress">پاشەکەوتکردن…</string>
   <string name="edit_saved_successfully">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed_retry">ھەوڵداناوە</string>
@@ -139,7 +139,6 @@
   <string name="create_account_button">دروستکردنی ھەژمار</string>
   <string name="preferences_general_heading">گشتی</string>
   <string name="wikipedia_app_faq">پرسیارە دووپاتکراوەکانی نەرمامێری مۆبایلی ویکیپیدیا</string>
-  <string name="edit_preview_fetching_dialog_message">ھێنان و بردنی پێشبینین...</string>
   <string name="send_feedback">ناردنی فیدباکی ئاپ</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">ڕێگە بە ویکیپیدیا بدە بۆ خەزێنەکردنی پێڕستی خوێندنەوەکەت لەکاتی ھاتنە ژوورەوەت</string>
@@ -186,7 +185,7 @@
   <string name="edit_preview">پێشبینین</string>
   <string name="edit_summary_tag_typo">چاککردنی ھەڵەی نووسین</string>
   <string name="edit_summary_tag_grammar">چاککردنی ڕێزمان</string>
-  <string name="edit_summary_tag_links">لکێنەرەکان زیاد بکە</string>
+  <string name="edit_summary_tag_links">زیادکردنی بەستەر</string>
   <string name="edit_summary_tag_other">ھیتر</string>
   <string name="edit_summary_tag_other_hint">ڕێگەی تر کە پەڕەکەت پێشخستوە</string>
   <string name="find_next">پاشتر بدۆزەرەوە</string>
@@ -223,7 +222,7 @@
   <string name="license_title">مۆڵەتەکان بۆ %s</string>
   <string name="gallery_menu_share">هاوبەشی کردن</string>
   <string name="gallery_share_error">نەتوانرا وێنە ھاوبەش بکرێت: %s</string>
-  <string name="gallery_save_progress">دابەزاندنی فایل...</string>
+  <string name="gallery_save_progress">داگرتنی پەڕگە...</string>
   <string name="gallery_save_success">فایلەکە سەرکەوتووانە پاشەکەوت کرا.</string>
   <string name="gallery_error_video_failed">نەتوانرا ڤیدیۆکە بخوێنێتەوە.</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">پێویستە ڕێگە بە ئاپەکە بدەیت بۆ وەرگرتنی زانیارییەکانی خەزێنەکەت بۆ خەزن کردنی وێنەکان. تکایە ڕێگە بدە بەم داواکارییە.</string>
@@ -283,7 +282,7 @@
   <string name="article_menu_bar_bookmark">زیادکردنی ئەم وتارە بۆ پێڕستێکی خوێندنەوە</string>
   <string name="article_menu_bar_share">ھاوبەشکردنی بەستەری وتارەکە</string>
   <string name="article_header_edit_hint">دەستکاری...</string>
-  <string name="article_header_edit_description">دەستکاریی وەسفی سەرناو</string>
+  <string name="article_header_edit_description" fuzzy="true">دەستکاریی وەسفی سەرناو</string>
   <string name="article_header_edit_lead_section">دەستکاریی پێشەکی</string>
   <string name="color_theme_select">ڕووکار</string>
   <string name="color_theme_light">سووك</string>
@@ -369,23 +368,23 @@
   <string name="view_featured_article_footer_save_button_label">پاشەکەوت</string>
   <string name="view_featured_article_footer_saved_button_label">پاشەکەوت کرا</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">ھەمووی ھەڵبژێرە</string>
-  <string name="description_edit_text_hint">وەسفی سەرناو</string>
+  <string name="description_edit_text_hint" fuzzy="true">وەسفی سەرناو</string>
   <string name="description_edit_save">پاشەکەوت</string>
-  <string name="description_edit_add_description">زیادکردنی وەسفی سەرناو</string>
-  <string name="description_edit_edit_description">دەستکاریی وەسف</string>
+  <string name="description_edit_add_description" fuzzy="true">زیادکردنی وەسفی سەرناو</string>
+  <string name="description_edit_edit_description" fuzzy="true">دەستکاریی وەسف</string>
   <string name="description_edit_cancel_hint">ھەڵوەشاندنەوە</string>
-  <string name="description_edit_help_title">یارمەتی: وەسفەکانی سەرناو</string>
+  <string name="description_edit_help_title" fuzzy="true">یارمەتی: وەسفەکانی سەرناو</string>
   <string name="description_edit_help_about_wikidata">دەربارەی ویکیداتا</string>
   <string name="description_edit_help_wikidata_guide">ڕێبەری ویکیداتا بۆ نووسینی وەسفەکان</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">سوپاس بۆ بەردەوامبوونت لە دەستکاریکردن! بۆ دەستکاریکردنی زیاتر، تکایە بچۆ ژوورەوە بۆ ھەژماری ویکیپیدیاکەت.</string>
-  <string name="description_edit_license_notice">بە گۆڕینی ڕوونکردنەوەی ناوەکە، من &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt; پەسەند دەکەم و بەبێ پەشیمان بوونەوە بەشدارییەکانم بڵاو دەکەمەوە لەژێر مۆڵەتنامەی &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">وەسف پاشەکەوتکرا!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">سوپاس بۆ بەردەوامبوونت لە دەستکاریکردن! بۆ دەستکاریکردنی زیاتر، تکایە بچۆ ژوورەوە بۆ ھەژماری ویکیپیدیاکەت.</string>
+  <string name="description_edit_license_notice" fuzzy="true">بە گۆڕینی ڕوونکردنەوەی ناوەکە، من &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt; پەسەند دەکەم و بەبێ پەشیمان بوونەوە بەشدارییەکانم بڵاو دەکەمەوە لەژێر مۆڵەتنامەی &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">وەسف پاشەکەوتکرا!</string>
   <string name="description_edit_success_encouragement">تۆ ویکیپیدیا باشتر دەکەیت بۆ ھەموو خەڵکی</string>
   <string name="description_edit_success_done">کرا</string>
   <string name="description_edit_success_did_you_know">دەتزانی؟</string>
   <string name="description_edit_success_article_edit_hint">ھەروەھا دەتوانیت وتارەکان لە ناو ئاپەکەوە دەستکاری بکەیت. ھەوڵی چاککردنەوەی ھەڵەی ڕێزمانی و ڕستەکان بدە بە کرتەکردن لەسەر ھێمای ^1 جاری داھاتوو.</string>
-  <string name="description_edit_tutorial_title_descriptions">وەسفەکانی سەرناو</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">وەسفەکانی سەرناو</string>
   <string name="description_edit_tutorial_title_descriptions_summary">وتارەکە کورت دەکاتەوە بۆ یارمەتیدانی خوێنەران لە تێگەیشتنی بابەتەکە بە سەیرکردنێکی</string>
   <string name="description_edit_tutorial_keep_it_short">با کورت بێت</string>
   <string name="description_edit_tutorial_button_label_start_editing">دەستکردن بە دەستکاری</string>

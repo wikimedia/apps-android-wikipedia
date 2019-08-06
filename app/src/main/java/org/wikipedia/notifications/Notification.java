@@ -11,7 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.wikidata.EntityClient;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -86,7 +85,7 @@ public class Notification {
     }
 
     public boolean isFromWikidata() {
-        return wiki().equals(EntityClient.WIKIDATA_WIKI);
+        return wiki().equals("wikidatawiki");
     }
 
     @Override public String toString() {

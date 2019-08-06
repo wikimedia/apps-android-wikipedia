@@ -1,6 +1,5 @@
 package org.wikipedia.createaccount;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +9,7 @@ import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -75,8 +75,8 @@ public class CreateAccountActivity extends BaseActivity {
     @BindView(R.id.view_create_account_error) WikiErrorView errorView;
     @BindView(R.id.captcha_text) TextInputLayout captchaText;
     @BindView(R.id.captcha_submit_button) TextView createAccountButtonCaptcha;
+    @BindView(R.id.view_progress_bar) ProgressBar progressBar;
 
-    private ProgressDialog progressDialog;
     private CaptchaHandler captchaHandler;
     private CreateAccountResult createAccountResult;
     private CreateAccountFunnel funnel;
@@ -94,19 +94,13 @@ public class CreateAccountActivity extends BaseActivity {
             onboardingContainer.setVisibility(View.GONE);
         }
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
-
         errorView.setBackClickListener((v) -> onBackPressed());
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
         wiki = WikipediaApp.getInstance().getWikiSite();
 
         captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getWikiSite(),
-                progressDialog, primaryContainer, getString(R.string.create_account_activity_title),
-                getString(R.string.create_account_button));
+                primaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button));
 
         // Don't allow user to submit registration unless they've put in a username and password
         new NonEmptyValidator((isValid) -> createAccountButton.setEnabled(isValid), usernameInput, passwordInput);
@@ -194,7 +188,7 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     public void doCreateAccount(@NonNull String token) {
-        progressDialog.show();
+        showProgressBar(true);
 
         String email = null;
         if (getText(emailInput).length() != 0) {
@@ -202,6 +196,7 @@ public class CreateAccountActivity extends BaseActivity {
         }
         String password = getText(passwordInput).toString();
         String repeat = getText(passwordRepeatInput).toString();
+
 
         disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(usernameInput).toString(), password, repeat, token, Service.WIKIPEDIA_URL,
                 email,
@@ -217,7 +212,7 @@ public class CreateAccountActivity extends BaseActivity {
                     }
                 }, caught -> {
                     L.e(caught.toString());
-                    progressDialog.dismiss();
+                    showProgressBar(false);
                     if (caught instanceof CreateAccountException) {
                         handleAccountCreationError(caught.getMessage());
                     } else {
@@ -230,6 +225,7 @@ public class CreateAccountActivity extends BaseActivity {
     public void onBackPressed() {
         if (captchaHandler.isActive()) {
             captchaHandler.cancelCaptcha();
+            showProgressBar(false);
             return;
         }
         hideSoftKeyboard(this);
@@ -238,9 +234,7 @@ public class CreateAccountActivity extends BaseActivity {
 
     @Override
     public void onStop() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
+        showProgressBar(false);
         super.onStop();
     }
 
@@ -343,16 +337,23 @@ public class CreateAccountActivity extends BaseActivity {
         setResult(RESULT_ACCOUNT_CREATED, resultIntent);
 
         createAccountResult = result;
-        progressDialog.dismiss();
+        showProgressBar(false);
         captchaHandler.cancelCaptcha();
         funnel.logSuccess();
         hideSoftKeyboard(CreateAccountActivity.this);
         finish();
     }
 
+    private void showProgressBar(boolean enable) {
+        progressBar.setVisibility(enable ? View.VISIBLE : View.GONE);
+        createAccountButtonCaptcha.setEnabled(!enable);
+        createAccountButtonCaptcha.setText(enable ? R.string.dialog_create_account_checking_progress : R.string.create_account_button);
+    }
+
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+        L.logRemoteErrorIfProd(caught);
     }
 
     private class UserNameTextWatcher implements TextWatcher {

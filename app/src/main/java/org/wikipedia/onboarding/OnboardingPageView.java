@@ -17,8 +17,8 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.SwitchCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -108,7 +108,7 @@ public class OnboardingPageView extends LinearLayout {
         if (attrs != null) {
             TypedArray array = getContext().obtainStyledAttributes(attrs,
                     R.styleable.OnboardingPageView, defStyleAttr, defStyleRes);
-            Drawable centeredImage = ContextCompat.getDrawable(getContext(),
+            Drawable centeredImage = AppCompatResources.getDrawable(getContext(),
                     array.getResourceId(R.styleable.OnboardingPageView_centeredImage, -1));
             String primaryText = array.getString(R.styleable.OnboardingPageView_primaryText);
             String secondaryText = array.getString(R.styleable.OnboardingPageView_secondaryText);

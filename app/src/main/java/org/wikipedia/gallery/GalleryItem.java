@@ -11,25 +11,31 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 
+@SuppressWarnings("unused")
 public class GalleryItem implements Serializable {
-    @SuppressWarnings("unused") @SerializedName("section_id") private int sectionId;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String type;
-    @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("audio_type") private String audioType;
-    @SuppressWarnings("unused") @Nullable private TextInfo caption;
-    @SuppressWarnings("unused") private boolean showInGallery;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private Titles titles;
-    @SuppressWarnings("unused") @Nullable private ImageInfo thumbnail;
-    @SuppressWarnings("unused") @Nullable private ImageInfo original;
-    @SuppressWarnings("unused") @Nullable private List<VideoInfo> sources;
-    @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("file_page") private String filePage;
-    @SuppressWarnings("unused") @Nullable private ArtistInfo artist;
-    @SuppressWarnings("unused") private double duration;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private ImageLicense license;
-    @SuppressWarnings("unused") @Nullable private TextInfo description;
+    @SerializedName("section_id") private int sectionId;
+    @SuppressWarnings("NullableProblems") @NonNull private String type;
+    @Nullable @SerializedName("audio_type") private String audioType;
+    @Nullable private TextInfo caption;
+    private boolean showInGallery;
+    @SuppressWarnings("NullableProblems") @NonNull private Titles titles;
+    @Nullable private ImageInfo thumbnail;
+    @Nullable private ImageInfo original;
+    @Nullable private List<VideoInfo> sources;
+    @Nullable @SerializedName("file_page") private String filePage;
+    @Nullable private ArtistInfo artist;
+    private double duration;
+    @SuppressWarnings("NullableProblems") @NonNull private ImageLicense license;
+    @Nullable private TextInfo description;
+    @Nullable @SerializedName("wb_entity_id") private String entityId;
+    @Nullable @SerializedName("structured") private StructuredData structuredData;
 
     public GalleryItem() {
     }
@@ -117,7 +123,7 @@ public class GalleryItem implements Serializable {
     @NonNull
     public String getFilePage() {
         // return the base url of Wiki Commons for WikiSite() if the file_page is null.
-        return filePage == null ? Service.COMMONS_URL : StringUtils.defaultString(filePage);
+        return StringUtils.defaultString(filePage, Service.COMMONS_URL);
     }
 
     public void setFilePage(@NonNull String filePage) {
@@ -150,10 +156,22 @@ public class GalleryItem implements Serializable {
         return description;
     }
 
+    @NonNull
+    public Map<String, String> getStructuredCaptions() {
+        return (structuredData != null && structuredData.captions != null) ? structuredData.captions : Collections.emptyMap();
+    }
+
+    public void setStructuredCaptions(@NonNull Map<String, String> captions) {
+        if (structuredData == null) {
+            structuredData = new StructuredData();
+        }
+        structuredData.captions = new HashMap<>(captions);
+    }
+
     public static class Titles implements Serializable {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String canonical;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String normalized;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String display;
+        @Nullable private String canonical;
+        @Nullable private String normalized;
+        @Nullable private String display;
 
         Titles(@NonNull String display, @NonNull String canonical, @NonNull String normalized) {
             this.display = display;
@@ -174,6 +192,14 @@ public class GalleryItem implements Serializable {
         @NonNull
         public String getDisplay() {
             return StringUtils.defaultString(display);
+        }
+    }
+
+    public static class StructuredData implements Serializable {
+        @Nullable private HashMap<String, String> captions;
+
+        @Nullable public HashMap<String, String> getCaptions() {
+            return captions;
         }
     }
 }

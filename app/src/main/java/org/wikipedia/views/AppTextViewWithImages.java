@@ -15,7 +15,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import java.util.ArrayList;
@@ -88,7 +88,7 @@ public class AppTextViewWithImages extends AppTextView {
 
     @NonNull @VisibleForTesting
     Drawable getFormattedDrawable(@DrawableRes int drawableId, float size, @ColorInt int color) {
-        Drawable drawable = ContextCompat.getDrawable(getContext(), drawableId);
+        Drawable drawable = AppCompatResources.getDrawable(getContext(), drawableId);
         DrawableCompat.setTint(drawable, color);
 
         float ratio = drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight();

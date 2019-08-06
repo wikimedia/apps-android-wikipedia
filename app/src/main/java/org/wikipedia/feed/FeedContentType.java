@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import org.wikipedia.Constants;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
@@ -17,12 +17,16 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.ReleaseUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
@@ -81,19 +85,36 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new BecauseYouReadClient() : null;
         }
     },
-    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false, ReleaseUtil.isPreBetaRelease()) {
+    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            if (ReleaseUtil.isPreBetaRelease() && isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
-                if (Prefs.shouldShowSuggestedEditsCardsForTesting()) {
-                    return new SuggestedEditsFeedClient(!(age % 2 == 0) && WikipediaApp.getInstance().language().getAppLanguageCodes().size() >= Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION);
+            if (isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
+                List<InvokeSource> unlockedTypes = getUnlockedEditingPrivileges();
+                if (unlockedTypes.size() > 0) {
+                    return new SuggestedEditsFeedClient(unlockedTypes.get(age % unlockedTypes.size()));
                 }
-                return Prefs.isSuggestedEditsAddDescriptionsUnlocked() ? new SuggestedEditsFeedClient(!(age % 2 == 0) && Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) : null;
             }
             return null;
         }
     };
+
+    List<InvokeSource> getUnlockedEditingPrivileges() {
+        List<InvokeSource> unlockedTypes = new ArrayList<>();
+        if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_ADD_DESC);
+        }
+        if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
+        }
+        if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
+        }
+        if (Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
+            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
+        }
+        return unlockedTypes;
+    }
 
     private static final EnumCodeMap<FeedContentType> MAP
             = new EnumCodeMap<>(FeedContentType.class);

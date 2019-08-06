@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:ellipsize="end"
             android:fontFamily="serif"
             android:maxLines="1"
             android:textColor="?attr/primary_text_color"
             android:textSize="24sp"
             android:transitionName="@string/transition_on_this_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="November 1" />
 
         <View
@@ -42,34 +42,34 @@
             android:layout_height="26dp"
             android:layout_marginStart="27dp"
             android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:background="?attr/chart_shade5"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="?attr/chart_shade5"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/view_on_this_day_text_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="12dp"
             android:layout_marginStart="27dp"
-            app:layout_constraintTop_toBottomOf="@id/gradient_layout"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="16dp"
             android:background="?attr/chart_shade5"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gradient_layout">
 
             <FrameLayout
                 android:id="@+id/view_on_this_day_click_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
-                android:paddingBottom="16dp"
                 android:background="?attr/paper_color"
                 android:clickable="true"
                 android:clipChildren="false"
                 android:clipToPadding="false"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingBottom="16dp">
 
                 <include
                     android:id="@+id/year_layout"
@@ -82,38 +82,38 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@null"
             android:tint="?attr/chart_shade5"
-            app:layout_constraintStart_toStartOf="@+id/next_event_years"
-            app:layout_constraintEnd_toEndOf="@+id/next_event_years"
-            app:layout_constraintTop_toTopOf="@+id/next_event_years"
             app:layout_constraintBottom_toBottomOf="@+id/next_event_years"
-            app:srcCompat="@drawable/otd_year_button_background"
-            android:contentDescription="@null"/>
+            app:layout_constraintEnd_toEndOf="@+id/next_event_years"
+            app:layout_constraintStart_toStartOf="@+id/next_event_years"
+            app:layout_constraintTop_toTopOf="@+id/next_event_years"
+            app:srcCompat="@drawable/otd_year_button_background" />
 
         <TextView
             android:id="@+id/next_event_years"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/view_on_this_day_text_container"
-            app:layout_constraintStart_toStartOf="@id/day"
             android:layout_marginTop="2dp"
-            android:paddingTop="1dp"
-            android:paddingBottom="3dp"
-            android:paddingEnd="6dp"
+            android:maxLines="1"
             android:paddingStart="6dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="3dp"
             android:textColor="?attr/chart_shade7"
             android:textSize="12sp"
-            android:maxLines="1"
+            app:layout_constraintStart_toStartOf="@id/day"
+            app:layout_constraintTop_toBottomOf="@id/view_on_this_day_text_container"
             tools:text="123 years ago" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
             android:layout_marginBottom="6dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="?attr/material_theme_border_color"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="?attr/material_theme_border_color" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -122,20 +122,20 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="-6dp"
+        android:background="?attr/paper_color"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
-        android:background="?attr/paper_color"
-        android:foreground="?attr/selectableItemBackground"
-        android:clickable="true">
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_list">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+            android:contentDescription="@null"
             android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
 
         <TextView
             android:id="@+id/view_list_card_more_text"
@@ -143,10 +143,10 @@
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:fontFamily="sans-serif-medium"
-            android:textAllCaps="true"
+            android:gravity="center_vertical"
             android:text="@string/more_events_text"
-            android:textColor="?attr/secondary_text_color"
-            android:gravity="center_vertical"/>
+            android:textAllCaps="true"
+            android:textColor="?attr/secondary_text_color" />
 
     </LinearLayout>
 

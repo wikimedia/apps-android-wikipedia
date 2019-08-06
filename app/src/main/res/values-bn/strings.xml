@@ -5,6 +5,7 @@
 * Bellayet
 * Bodhisattwa
 * Elias Ahmmad
+* Masumrezarock100
 * Nasir8891
 * Rasal Lia
 * Sandipan
@@ -90,7 +91,6 @@
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="langlinks_your_wikipedia_languages">আপনার উইকিপিডিয়ার ভাষা</string>
   <string name="menu_save_changes">পরিবর্তন প্রকাশ করুন</string>
-  <string name="dialog_saving_in_progress">প্রকাশ করা হচ্ছে...</string>
   <string name="edit_saved_successfully">সম্পাদনা প্রকাশিত হয়েছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>
   <string name="dialog_message_edit_failed_retry">পুনঃচেষ্টা করুন</string>
@@ -130,6 +130,8 @@
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
   <string name="logout_prompt" fuzzy="true">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
   <string name="logout_dialog_cancel_button_text">বাতিল</string>
+  <string name="logged_out_in_background_login">প্রবেশ করুন</string>
+  <string name="logged_out_in_background_cancel">বাতিল</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
   <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
   <string name="history_offline_articles_toast">অফলাইন থাকাকালীন ইতিহাসের কিছু নিবন্ধ অপ্রদর্শিত হতে পারে।</string>
@@ -164,7 +166,6 @@
   <string name="create_account_ip_block_details">বিস্তারিত</string>
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
-  <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে…</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="preferences_heading_syncing">সুসংগত করা হচ্ছে</string>
@@ -335,12 +336,13 @@
   <string name="article_menu_bar_bookmark">একটি পড়ার তালিকা এই নিবন্ধটি যোগ করে</string>
   <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
   <string name="article_header_edit_hint">সম্পাদনা…</string>
-  <string name="article_header_edit_description">শিরোনামের বিবরণ সম্পাদনা করুন</string>
+  <string name="article_header_edit_description" fuzzy="true">শিরোনামের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>
   <string name="color_theme_select">থিম</string>
   <string name="color_theme_light">উজ্জ্বল</string>
   <string name="color_theme_dark">কালো</string>
   <string name="color_theme_black">কালো</string>
+  <string name="color_theme_sepia">কালচে-বাদামি</string>
   <string name="color_theme_test_title">নমুনা পাঠ্য</string>
   <string name="preference_title_app_theme">অ্যাপের থিম</string>
   <string name="preference_summary_color_theme">অ্যাপ্লিকেশনের কালো রঙের থিম ব্যবহার করতে স্যুইচ করুন</string>
@@ -395,6 +397,7 @@
   <string name="reading_list_add_to_other_list">আরেকটি পড়ার তালিকা থেকে সরান</string>
   <string name="reading_list_remove_from_list">%s থেকে সরান</string>
   <string name="reading_list_remove_from_lists">পড়ার তালিকা থেকে সরান</string>
+  <string name="reading_list_select_item">নির্বাচন করুন</string>
   <string name="reading_list_confirm_remove_article_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">একাধিক তালিকাতে নিবন্ধটি আছে</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">এই সব পড়ার তালিকার জন্য %s আর অফলাইনে উপলব্ধ হবে না:</string>
@@ -514,35 +517,36 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;আপনার অন্বেষণ ফিড স্বনির্ধারণ করুন&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;আপনি এখন আপনার ফিডে কি প্রদর্শন করাতে চান তা চয়ন করতে পারেন, এবং আপনার পছন্দসই বিষয়বস্তুর ধরনকে অগ্রাধিকার দিতে পারবেন।</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
-  <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
+  <string name="description_edit_text_hint" fuzzy="true">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
-  <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
-  <string name="description_edit_add_description_v2">বিবরণ যোগ করুন</string>
-  <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
-  <string name="add_translation">%s অনুবাদ যোগ করুন</string>
+  <string name="description_edit_read">পড়ুন</string>
+  <string name="description_edit_add_description" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
+  <string name="description_edit_translate_description" fuzzy="true">বিবরণ অনুবাদ করুন</string>
+  <string name="description_edit_edit_description" fuzzy="true">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
-  <string name="description_edit_help_title">সাহায্য: শিরোনামের বিবরণ</string>
+  <string name="description_edit_help_title" fuzzy="true">সাহায্য: শিরোনামের বিবরণ</string>
   <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
   <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
-  <string name="description_edit_anon_limit">বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
-  <string name="description_edit_license_notice">শিরোনামের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
-  <string name="description_edit_success_saved">বিবরণ প্রকাশিত হয়েছে!</string>
+  <string name="description_edit_anon_limit">নিবন্ধের বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
+  <string name="description_edit_license_notice">নিবন্ধের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
+  <string name="description_edit_success_saved" fuzzy="true">বিবরণ প্রকাশিত হয়েছে!</string>
   <string name="description_edit_success_encouragement">আপনি এইমাত্র সবার জন্য উইকিপিডিয়াকে আরো উত্তম করলেন</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
   <string name="description_edit_success_did_you_know">আপনি জানেন কি?</string>
   <string name="description_edit_success_article_edit_hint">আপনি এই অ্যাপটির মাধ্যমেও নিবন্ধ সম্পাদনা করতে পারেন। পরবর্তীতে ^1 আইকনটিতে ক্লিক করে বানান এবং ছোট বাক্য ঠিক করতে চেষ্টা করুন</string>
-  <string name="description_edit_tutorial_title_descriptions">শিরোনামের বিবরণ</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">শিরোনামের বিবরণ</string>
   <string name="description_edit_tutorial_title_descriptions_summary">পাঠককে এক নজরে বিষয় বুঝতে সাহায্য করার জন্য একটি নিবন্ধের সংক্ষিপ্ত বিবরণ লিখুন</string>
   <string name="description_edit_tutorial_keep_it_short">এটি সংক্ষিপ্ত রাখুন</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
-  <string name="suggested_edits_add_descriptions">বিবরণ যোগ করুন</string>
-  <string name="suggested_edits_review_description">বিবরণ পর্যালোচনা করুন</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">বিবরণ যোগ করুন</string>
+  <string name="suggested_edits_review_description">নিবন্ধের বিবরণ পর্যালোচনা করুন</string>
   <string name="suggested_edits_add_description_button">বিবরণ যোগ করুন</string>
+  <string name="suggested_edits_add_translation_button">অনুবাদ করুন</string>
+  <string name="suggested_edits_edit_translation_button">অনুবাদ সম্পাদনা করুন</string>
   <string name="suggested_edits_my_contributions">আমার অবদান</string>
-  <string name="suggested_edits_translated_by_you">আপনার দ্বারা অনূদিত:</string>
   <string name="suggested_edits_unlock_notification_button">হ্যাঁ, চলুন</string>
   <string name="suggested_edits_menu_info">তথ্য</string>
   <string name="suggested_edits_task_multilingual_negative">আমার জন্য নয়</string>

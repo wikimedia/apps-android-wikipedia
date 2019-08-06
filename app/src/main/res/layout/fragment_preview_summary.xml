@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/edit_summary_container"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/paper_color"
+    android:orientation="vertical"
     android:padding="8dp"
     android:visibility="gone"
-    tools:visibility="visible"
-    android:background="?attr/paper_color">
+    tools:visibility="visible">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edit_summary_tag_other_hint">
+
         <AutoCompleteTextView
-                android:id="@+id/edit_summary_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:imeOptions="actionDone|flagNoExtractUi"
-                android:maxLength="255"
-                android:textColor="?attr/primary_text_color"
-                android:maxLines="1" />
+            android:id="@+id/edit_summary_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:maxLength="255"
+            android:maxLines="3"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="?attr/primary_text_color" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

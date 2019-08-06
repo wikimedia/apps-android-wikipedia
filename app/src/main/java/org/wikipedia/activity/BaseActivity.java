@@ -5,11 +5,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ShortcutManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.MenuItem;
 
 import androidx.annotation.ColorRes;
@@ -25,9 +27,11 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
-import org.wikipedia.events.EditorTaskUnlockEvent;
+import org.wikipedia.events.CaptionEditUnlockEvent;
+import org.wikipedia.events.DescriptionEditUnlockEvent;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
@@ -42,7 +46,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -51,6 +55,9 @@ import org.wikipedia.util.log.L;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.appshortcuts.AppShortcuts.APP_SHORTCUT_ID;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static ExclusiveBusConsumer EXCLUSIVE_BUS_METHODS;
@@ -67,6 +74,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new NonExclusiveBusConsumer()));
         setTheme();
         removeSplashBackground();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
+                && AppShortcuts.ACTION_APP_SHORTCUT.equals(getIntent().getAction())) {
+            getIntent().putExtra(INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS);
+            String shortcutId = getIntent().getStringExtra(APP_SHORTCUT_ID);
+            if (!TextUtils.isEmpty(shortcutId)) {
+                getApplicationContext().getSystemService(ShortcutManager.class)
+                        .reportShortcutUsed(shortcutId);
+            }
+        }
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -267,11 +284,17 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
-            } else if (event instanceof EditorTaskUnlockEvent) {
-                if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 1) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showEditUnlockDialog(BaseActivity.this);
-                } else if (((EditorTaskUnlockEvent) event).getNumTargetsPassed() == 2) {
-                    SuggestedEditsAddDescriptionsActivity.Companion.showTranslateUnlockDialog(BaseActivity.this);
+            } else if (event instanceof DescriptionEditUnlockEvent) {
+                if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    SuggestedEditsCardsActivity.Companion.showEditDescriptionUnlockDialog(BaseActivity.this);
+                } else if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    SuggestedEditsCardsActivity.Companion.showTranslateDescriptionUnlockDialog(BaseActivity.this);
+                }
+            } else if (event instanceof CaptionEditUnlockEvent) {
+                if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
+                    SuggestedEditsCardsActivity.Companion.showEditCaptionUnlockDialog(BaseActivity.this);
+                } else if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
+                    SuggestedEditsCardsActivity.Companion.showTranslateCaptionUnlockDialog(BaseActivity.this);
                 }
             } else if (event instanceof LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog();

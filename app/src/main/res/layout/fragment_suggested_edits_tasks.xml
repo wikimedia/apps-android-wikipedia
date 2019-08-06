@@ -9,42 +9,42 @@
     tools:context="org.wikipedia.suggestededits.SuggestedEditsTasksActivity">
 
     <FrameLayout
-        android:id="@+id/user_contributions_button"
+        android:id="@+id/userContributionsButton"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="?attr/main_toolbar_color"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
+        android:elevation="4dp"
         android:focusable="true"
-        android:elevation="4dp" >
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="vertical"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="56dp">
+            android:layout_marginEnd="56dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/usernameText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textSize="16sp"
                 android:ellipsize="end"
                 android:singleLine="true"
+                android:textColor="?attr/material_theme_primary_color"
+                android:textSize="16sp"
                 tools:text="Androidloggedinusername" />
 
             <TextView
-                android:id="@+id/contributions_text"
+                android:id="@+id/contributionsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/colorAccent"
                 android:layout_marginTop="4dp"
-                android:textSize="16sp"
                 android:ellipsize="end"
                 android:singleLine="true"
+                android:textColor="?attr/colorAccent"
+                android:textSize="16sp"
                 tools:text="100 in-app contributions" />
 
         </LinearLayout>
@@ -54,13 +54,13 @@
             android:layout_height="40dp"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@null"
             android:padding="8dp"
             app:srcCompat="@drawable/ic_chevron_forward_gray"
-            app:tint="?attr/colorAccent"
-            android:contentDescription="@null"/>
+            app:tint="?attr/colorAccent" />
 
         <ProgressBar
-            android:id="@+id/progress_bar"
+            android:id="@+id/progressBar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,17 +70,17 @@
             android:indeterminateTint="?attr/colorAccent"
             android:progressBackgroundTint="@color/accent30"
             android:visibility="gone"
-            tools:visibility="visible"/>
+            tools:visibility="visible" />
 
     </FrameLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/suggested_edits_swipe_refresh"
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/task_recyclerview"
+            android:id="@+id/tasksRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

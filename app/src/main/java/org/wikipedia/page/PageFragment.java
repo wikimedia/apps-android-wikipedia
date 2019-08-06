@@ -69,6 +69,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
@@ -98,6 +99,7 @@ import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
+import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
@@ -312,6 +314,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler.log();
         shareHandler.dispose();
         bottomContentView.dispose();
+        leadImagesHandler.dispose();
         disposables.clear();
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
@@ -640,11 +643,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     /**
-     * Update the WebView's base font size, based on the specified font size from the app
-     * preferences.
+     * Update the WebView's font size, based on the specified font size multiplier from the app
+     * preferences. The default text zoom starts from 100, which is by percentage.
      */
+    @SuppressWarnings("checkstyle:magicnumber")
     public void updateFontSize() {
-        webView.getSettings().setDefaultFontSize((int) app.getFontSize(requireActivity().getWindow()));
+        webView.getSettings().setTextZoom(100 + getTextSizeMultiplier() * 10);
     }
 
     public void updateBookmarkAndMenuOptions() {
@@ -689,6 +693,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
             refreshPage();
+            FeedbackUtil.showMessage(requireActivity(), R.string.description_edit_success_saved_snackbar);
         }
     }
 
@@ -1005,7 +1010,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, PAGE_ACTIVITY),
+            SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
+                    getTitle().getDisplayText(), getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl(),
+                    null, null, null, null);
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
     }
@@ -1232,4 +1240,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
+
+    @Nullable String getLeadImageEditLang() {
+        return leadImagesHandler.getCallToActionEditLang();
+    }
+
+    void openImageInGallery(@NonNull String language) {
+        leadImagesHandler.openImageInGallery(language);
+    }
+
 }

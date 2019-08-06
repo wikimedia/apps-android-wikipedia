@@ -1,59 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
     tools:background="?attr/paper_color"
-    tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
-    tools:orientation="vertical">
+    tools:layout_width="match_parent"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
 
     <TextView
         android:id="@+id/reading_list_item_title"
         android:layout_width="match_parent"
         android:layout_height="54dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:maxLines="1"
         android:paddingStart="@dimen/list_item_horizontal_padding"
         android:paddingEnd="@dimen/list_item_horizontal_padding"
-        android:gravity="center_vertical"
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
-        android:fontFamily="sans-serif-medium"
-        android:maxLines="1"
-        android:ellipsize="end"
-        tools:text="Article title"/>
+        tools:text="Article title" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color"/>
+        android:background="?attr/material_theme_border_color" />
 
     <LinearLayout
         android:id="@+id/reading_list_item_offline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
+
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_offline_pin_black_24dp"
+            android:contentDescription="@null"
             android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_offline_pin_black_24dp" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/reading_list_item_offline_switch"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"
+            android:clickable="false"
+            android:gravity="center_vertical"
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
-            android:gravity="center_vertical"
-            android:clickable="false"
+            android:text="@string/reading_list_article_offline"
             android:textColor="?attr/primary_text_color"
-            android:textSize="16sp"
-            android:text="@string/reading_list_article_offline"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,25 +62,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
+
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_share_black_24dp"
+            android:contentDescription="@null"
             android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_share_black_24dp" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
-            android:gravity="center_vertical"
+            android:text="@string/reading_list_page_share"
             android:textColor="?attr/primary_text_color"
-            android:textSize="16sp"
-            android:text="@string/reading_list_page_share"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -87,35 +90,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
+
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_bookmark_white_24dp"
+            android:contentDescription="@null"
             android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_bookmark_white_24dp" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:paddingStart="@dimen/list_item_horizontal_padding"
             android:paddingEnd="@dimen/list_item_horizontal_padding"
-            android:gravity="center_vertical"
+            android:text="@string/reading_list_add_to_other_list"
             android:textColor="?attr/primary_text_color"
-            android:textSize="16sp"
-            android:text="@string/reading_list_add_to_other_list"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="72dp"
-        android:background="?attr/material_theme_border_color"/>
-
     <LinearLayout
-        android:id="@+id/reading_list_item_remove"
+        android:id="@+id/reading_list_item_select"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground">
@@ -125,11 +124,10 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/ic_delete_white_24dp"
+            app:srcCompat="@drawable/ic_check_box_black_24dp"
             android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
-            android:id="@+id/reading_list_item_remove_text"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_weight="1"
@@ -138,6 +136,41 @@
             android:gravity="center_vertical"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
-            tools:text="Remove from list"/>
+            android:text="@string/reading_list_select_item"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="72dp"
+        android:background="?attr/material_theme_border_color" />
+
+    <LinearLayout
+        android:id="@+id/reading_list_item_remove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/list_item_horizontal_padding"
+            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+            android:contentDescription="@null"
+            android:tint="?attr/secondary_text_color"
+            app:srcCompat="@drawable/ic_delete_white_24dp" />
+
+        <TextView
+            android:id="@+id/reading_list_item_remove_text"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/list_item_horizontal_padding"
+            android:paddingEnd="@dimen/list_item_horizontal_padding"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
+            tools:text="Remove from list" />
     </LinearLayout>
 </merge>

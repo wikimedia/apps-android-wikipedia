@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 
@@ -51,7 +52,8 @@ public class TabCountsView extends FrameLayout {
         setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackgroundBorderless));
     }
 
-    public void setTabCount(int count) {
+    public void updateTabCount() {
+        int count = WikipediaApp.getInstance().getTabCount();
         tabsCountText.setText(String.valueOf(count));
 
         float tabTextSize = TAB_COUNT_TEXT_SIZE_MEDIUM;

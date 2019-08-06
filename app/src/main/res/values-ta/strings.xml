@@ -93,7 +93,6 @@
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
   <string name="langlinks_your_wikipedia_languages">உங்கள் விக்கிப்பீடியா மொழிகள்</string>
   <string name="menu_save_changes">மாற்றங்களைப் பதிப்பிடுக</string>
-  <string name="dialog_saving_in_progress">பதிப்பிடபடுகின்றது...</string>
   <string name="edit_saved_successfully">தொகுப்பு பதிப்பிடப்பட்டது!</string>
   <string name="dialog_message_edit_failed">தொகுப்பு சேமிக்கத் தவறிவிட்டது!</string>
   <string name="dialog_message_edit_failed_retry">மறு முயற்சி செய்</string>
@@ -165,7 +164,6 @@
   <string name="create_account_ip_block_details">விவரங்கள்</string>
   <string name="preferences_general_heading">பொதுவான</string>
   <string name="wikipedia_app_faq">விக்கிப்பீடியா செயலி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
-  <string name="edit_preview_fetching_dialog_message">முன்தோற்றத்தை இறக்குகிறது…</string>
   <string name="send_feedback">நிரல் பின்னூட்டம் அனுப்பு</string>
   <string name="create_account_account_created_toast">கணக்கு உருவாக்கப்பட்டது.</string>
   <string name="preferences_heading_syncing">ஒருங்குநிகழ்வு</string>
@@ -326,7 +324,7 @@
   <string name="article_menu_bar_bookmark">இக்கட்டுரையை படிப்பு பட்டியலில் சேர்க்கவும்</string>
   <string name="article_menu_bar_share">கட்டுரை இணைப்பை பகிர்</string>
   <string name="article_header_edit_hint">தொகுக்கவும்...</string>
-  <string name="article_header_edit_description">தலைப்பு விவரத்தை தொகுக்கவும்</string>
+  <string name="article_header_edit_description" fuzzy="true">தலைப்பு விவரத்தை தொகுக்கவும்</string>
   <string name="article_header_edit_lead_section">அறிமுகத்தைத் தொகுக்கவும்</string>
   <string name="color_theme_select">பின்புலத்தோற்றங்கள்</string>
   <string name="color_theme_light">வெளிச்சம்</string>
@@ -479,23 +477,23 @@
   <string name="feed_empty_message">உங்கள் சுற்றிபார் ஓடத்தில் ஒன்றும் இல்லை</string>
   <string name="feed_configure_onboarding_action">தனிப்பயனாக்குக</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;உங்கள் சுற்றிபார் ஓடத்தை விருப்பமைக&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;இப்போது உங்கள் ஓடத்தில் என்ன தெரிய வேண்டும் என்று நீங்கள் தேர்வு செய்யலாம். மேலும் உங்களுக்கு பிடித்தமான விதத்தில் வரிசைபடுத்தளாம்.</string>
-  <string name="description_edit_text_hint">தலைப்பு விவரம்</string>
+  <string name="description_edit_text_hint" fuzzy="true">தலைப்பு விவரம்</string>
   <string name="description_edit_save">பதிப்பிடு</string>
-  <string name="description_edit_add_description">தலைப்பு விவரத்தைக் கொடுக்கவும்</string>
-  <string name="description_edit_edit_description">குறிப்பை தொகுக்க</string>
+  <string name="description_edit_add_description" fuzzy="true">தலைப்பு விவரத்தைக் கொடுக்கவும்</string>
+  <string name="description_edit_edit_description" fuzzy="true">குறிப்பை தொகுக்க</string>
   <string name="description_edit_cancel_hint">கைவிடுக</string>
-  <string name="description_edit_help_title">உதவி: தலைப்பு விவரங்கள்</string>
+  <string name="description_edit_help_title" fuzzy="true">உதவி: தலைப்பு விவரங்கள்</string>
   <string name="description_edit_help_about_wikidata">விக்கிதரவைப் பற்றி</string>
-  <string name="description_edit_success_saved">விவரம் பதிப்பிடப்பட்டது!</string>
+  <string name="description_edit_success_saved" fuzzy="true">விவரம் பதிப்பிடப்பட்டது!</string>
   <string name="description_edit_success_encouragement">நீங்கள் விக்கிப்பீடியாவை அனைவருக்காகவும் மேம்படுத்தியுள்ளீர்கள்</string>
   <string name="description_edit_success_done">முடிந்தது</string>
   <string name="description_edit_success_did_you_know">உங்களுக்கு தெரியுமா?</string>
-  <string name="description_edit_tutorial_title_descriptions">தலைப்பின் விவரங்கள்</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">தலைப்பின் விவரங்கள்</string>
   <string name="description_edit_tutorial_keep_it_short">இதை குறைவாக வைக்கவும்p</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">ஒரு வரியில், இரண்டிலிருந்து பன்னிரண்டு வார்த்தைகளில்</string>
   <string name="description_edit_tutorial_button_label_start_editing">தொகுக்கக் துவங்கவும்</string>
   <string name="suggested_edits_my_contributions">என் பங்களிப்புக்கள்</string>
-  <string name="suggested_edits_task_add_description_title">விளக்கங்களைச் சேர்க்கவும்</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">விளக்கங்களைச் சேர்க்கவும்</string>
   <string name="suggested_edits_task_multilingual_positive">மொழிகளைச் சேர்க்கவும்</string>
   <string name="suggested_edits_tasks_onboarding_get_started">தொடங்கவும்</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>

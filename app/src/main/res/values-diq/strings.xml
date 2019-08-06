@@ -81,7 +81,6 @@
   <string name="langlinks_activity_title">Zıwanê bini</string>
   <string name="langlinks_your_wikipedia_languages">Zıwanê Wikipedia ya şıma</string>
   <string name="menu_save_changes">Vurnayışan qeyd ke</string>
-  <string name="dialog_saving_in_progress">Weşaniyeno...</string>
   <string name="edit_saved_successfully">Vurnayış qeyd bi!</string>
   <string name="dialog_message_edit_failed">Vırnayış xırabiya!</string>
   <string name="dialog_message_edit_failed_retry">Anciya bıcerrebne</string>
@@ -106,6 +105,7 @@
   <string name="preference_title_logout">Bıveciye</string>
   <string name="toast_logout_complete">Ronıştış racneya</string>
   <string name="logout_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="logged_out_in_background_title">Veciya</string>
   <string name="logged_out_in_background_login">Cı kewe</string>
   <string name="logged_out_in_background_cancel">Bıtexelne</string>
   <string name="history_empty_title">Pelê peyêni çıniyê</string>
@@ -133,7 +133,6 @@
   <string name="create_account_ip_block_details">Detayi</string>
   <string name="preferences_general_heading">Bıngeh</string>
   <string name="wikipedia_app_faq">Wikipedia App PZP</string>
-  <string name="edit_preview_fetching_dialog_message">Verqayti ano...</string>
   <string name="send_feedback">Verpersê tetbiqi bırışe</string>
   <string name="create_account_account_created_toast">Hesab vıraziya!</string>
   <string name="preferences_heading_syncing">Senkronize beno</string>
@@ -228,6 +227,7 @@
   <string name="reading_list_sort_by_recent">Tarixê dekerdışi gore ratın (tewr newe)</string>
   <string name="reading_lists_item_deleted">%s listan ra dariya we</string>
   <string name="reading_list_item_delete_undo">Peyser bıgê</string>
+  <string name="reading_list_select_item">Weçine</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bıtexelne</string>
@@ -265,23 +265,26 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
-  <string name="description_edit_text_hint">Şınasnayış sernamey</string>
-  <string name="description_edit_text_hint_per_language">arezekerdışê %s</string>
+  <string name="description_edit_text_hint" fuzzy="true">Şınasnayış sernamey</string>
   <string name="description_edit_save">Bıweşane</string>
-  <string name="description_edit_article">Meqale</string>
   <string name="description_edit_read">Bıwane</string>
-  <string name="description_edit_add_description">Şınasnayışê sernamey cı kerê</string>
+  <string name="description_edit_add_description" fuzzy="true">Şınasnayışê sernamey cı kerê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
-  <string name="suggested_edits_add_descriptions">Arezekerdış cı ke</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_add_description_button">Arezekerdış cı ke</string>
+  <string name="suggested_edits_add_translation_button" fuzzy="true">Açarnayış cı ke</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Çarnayışi bıvurne</string>
   <string name="suggested_edits_my_contributions">İştirakê mı</string>
   <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
   <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
   <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true"/>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Seba iştiakanê şıma rê teşekur kem. A fıkıtyayım ke şıma qayılê resiman rê nuştey resimi cı kerê, ma lista resimanê ke nuştey resimi çıniyo ma ê arêday pêser. Şıma şenê marê seba Wikipedia ravêr berdışi rê peşti bıdê</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true"/>
   <string name="suggested_edits_menu_info">Melumat</string>
-  <string name="suggested_edits_task_add_description_title">Arezekerdış cı ke</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>

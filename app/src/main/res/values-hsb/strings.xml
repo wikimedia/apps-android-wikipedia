@@ -60,7 +60,6 @@
   <string name="langlinks_activity_title">Druhe rěče</string>
   <string name="langlinks_your_wikipedia_languages">Twoje rěčne wersije</string>
   <string name="menu_save_changes">Změny wozjewić</string>
-  <string name="dialog_saving_in_progress">Wozjewju...</string>
   <string name="edit_saved_successfully">Změna wozjewjena!</string>
   <string name="dialog_message_edit_failed">Wobdźěłanje njeje so poradźiło!</string>
   <string name="dialog_message_edit_failed_retry">Hišće raz spytać</string>
@@ -125,7 +124,6 @@
   <string name="create_account_ip_block_details">Podrobnosće</string>
   <string name="preferences_general_heading">Powšitkowny</string>
   <string name="wikipedia_app_faq">Huste prašenja wo app</string>
-  <string name="edit_preview_fetching_dialog_message">Wobstaram přehlad...</string>
   <string name="send_feedback">Feedback wo app wotpósłać</string>
   <string name="create_account_account_created_toast">Konto załožene!</string>
   <string name="preferences_heading_syncing">Synchronizowanje</string>
@@ -385,17 +383,17 @@
   <string name="feed_item_type_trending">Najbóle čitane zapiski</string>
   <string name="feed_item_type_featured_image">Na Wikimedia Commons předstajeny wobraz</string>
   <string name="feed_item_type_main_page">Hłowna strona Wikipedije z aktualnym wobsahom</string>
-  <string name="description_edit_text_hint">Wopis titula</string>
+  <string name="description_edit_text_hint" fuzzy="true">Wopis titula</string>
   <string name="description_edit_save">Wozjewić</string>
-  <string name="description_edit_add_description">Wopis titula přidać</string>
-  <string name="description_edit_edit_description">Wopis wobdźěłać</string>
+  <string name="description_edit_add_description" fuzzy="true">Wopis titula přidać</string>
+  <string name="description_edit_edit_description" fuzzy="true">Wopis wobdźěłać</string>
   <string name="description_edit_cancel_hint">Přetorhnyć</string>
   <string name="description_edit_help_about_wikidata">Wo Wikidatach</string>
-  <string name="description_edit_success_saved">Wopis wozjewjeny!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Wopis wozjewjeny!</string>
   <string name="description_edit_success_encouragement">Sy Wikipediju runje za kóždeho polěpšił(a)</string>
   <string name="description_edit_success_done">Hotowo</string>
   <string name="description_edit_success_did_you_know">Hižo wědźał(a)?</string>
-  <string name="description_edit_tutorial_title_descriptions">Titulowe wopisy</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titulowe wopisy</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>

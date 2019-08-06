@@ -86,7 +86,6 @@
     <string name="langlinks_activity_title">Other languages</string>
     <string name="langlinks_your_wikipedia_languages">Your Wikipedia languages</string>
     <string name="menu_save_changes">Publish changes</string>
-    <string name="dialog_saving_in_progress">Publishing…</string>
     <string name="edit_saved_successfully">Edit published!</string>
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
@@ -164,7 +163,6 @@
     <string name="create_account_ip_block_details">Details</string>
     <string name="preferences_general_heading">General</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-    <string name="edit_preview_fetching_dialog_message">Fetching preview…</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="preferences_heading_syncing">Syncing</string>
@@ -278,6 +276,7 @@
     <string name="gallery_save_success">File saved successfully.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
+    <string name="gallery_add_image_caption_in_language_button">Add image caption (%s)</string>
     <string name="err_cannot_save_file">Cannot save file</string>
     <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
     <string name="expand_refs">Tap to expand</string>
@@ -354,7 +353,7 @@
     <string name="article_menu_bar_bookmark">Add this article to a reading list</string>
     <string name="article_menu_bar_share">Share the article link</string>
     <string name="article_header_edit_hint">Edit…</string>
-    <string name="article_header_edit_description">Edit title description</string>
+    <string name="article_header_edit_description">Edit article description</string>
     <string name="article_header_edit_lead_section">Edit introduction</string>
     <!-- /Article menu bar -->
 
@@ -422,6 +421,7 @@
     <string name="reading_list_add_to_other_list">Add to another reading list</string>
     <string name="reading_list_remove_from_list">Remove from %s</string>
     <string name="reading_list_remove_from_lists">Remove from reading lists</string>
+    <string name="reading_list_select_item">Select</string>
     <string name="reading_list_confirm_remove_article_from_offline">Remove from offline</string>
     <string name="reading_list_confirm_remove_article_from_offline_title">Article appears in multiple lists</string>
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all reading lists:</string>
@@ -615,28 +615,36 @@
     <!-- /The Feed -->
 
     <!-- Description editing -->
-    <string name="description_edit_text_hint">Title description</string>
-    <string name="description_edit_text_hint_per_language">%s description</string>
+    <string name="description_edit_text_hint">Article description</string>
+    <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+    <string name="description_edit_translate_article_description_hint_per_language">Article description (%s)</string>
+    <string name="description_edit_add_caption_label_per_language">Image description (%s)</string>
+    <string name="description_edit_translate_caption_hint_per_language">Image caption (%s)</string>
     <string name="description_edit_save">Publish</string>
-    <string name="description_edit_article">Article</string>
     <string name="description_edit_read">Read</string>
-    <string name="description_edit_add_description">Add title description</string>
-    <string name="description_edit_add_description_v2">Add description</string>
-    <string name="description_edit_translate_description">Translate description</string>
-    <string name="description_edit_edit_description">Edit description</string>
-    <string name="add_translation">Add %s translation</string>
+    <string name="description_edit_add_description">Add article description</string>
+    <string name="description_edit_translate_description">Translate article description</string>
+    <string name="description_edit_edit_description">Edit article description</string>
+    <string name="description_edit_add_image_caption">Add image caption</string>
+    <string name="description_edit_edit_image_caption">Edit image caption</string>
+    <string name="description_edit_translate_image_caption">Translate image caption</string>
     <string name="description_edit_cancel_hint">Cancel</string>
-    <string name="description_edit_help_title">Help: title descriptions</string>
+    <string name="description_edit_help_title">Info: Article descriptions</string>
     <string name="description_edit_help_about_wikidata">About Wikidata</string>
     <string name="description_edit_help_wikidata_guide">Wikidata guide for writing descriptions</string>
     <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-    <string name="description_edit_anon_limit">Thanks for your continued interest in editing descriptions! To make additional edits, please log in to your Wikipedia account.</string>
-    <string name="description_edit_license_notice"><![CDATA[By changing the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="description_edit_anon_limit">Thanks for your continued interest in editing article descriptions! To make additional edits, please log in to your Wikipedia account.</string>
+    <string name="description_edit_license_notice"><![CDATA[By changing the article description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="description_edit_helper_text_lowercase_warning">usually begin with a lowercase letter</string>
+
     <!-- /Description editing -->
 
     <!-- Description editing success -->
-    <string name="description_edit_success_saved">Description published!</string>
-    <string name="description_edit_success_saved_snackbar">Description published!</string>
+    <string name="description_edit_success_saved">Article description published!</string>
+    <string name="description_edit_success_saved_snackbar">Article description published!</string>
+    <string name="description_edit_success_saved_in_lang_snackbar">Article description published! (%s)</string>
+    <string name="description_edit_success_saved_image_caption_snackbar">Image caption published!</string>
+    <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
@@ -644,7 +652,7 @@
     <!-- /Description editing success -->
 
     <!-- Description editing tutorial -->
-    <string name="description_edit_tutorial_title_descriptions">Title descriptions</string>
+    <string name="description_edit_tutorial_title_descriptions">Article descriptions</string>
     <string name="description_edit_tutorial_title_descriptions_summary">Summarizes an article to help readers understand the subject at a glance</string>
     <string name="description_edit_tutorial_keep_it_short">Keep it short</string>
     <string name="description_edit_tutorial_keep_it_short_instructions">Ideally one line, between two to twelve words</string>
@@ -653,51 +661,84 @@
     <!-- /Description editing tutorial -->
 
     <!-- Suggested edits -->
-    <string name="suggested_edits_add_descriptions">Add descriptions</string>
-    <string name="suggested_edits_translate_descriptions">Translate descriptions</string>
-    <string name="suggested_edits_review_description">Review description</string>
+    <string name="suggested_edits_add_descriptions">Add article descriptions</string>
+    <string name="suggested_edits_translate_descriptions">Translate article descriptions</string>
+    <string name="suggested_edits_add_image_captions">Add image captions</string>
+    <string name="suggested_edits_translate_image_captions">Translate image captions</string>
+    <string name="suggested_edits_review_description">Review article description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
+    <string name="suggested_edits_edit_description_button">Edit description</string>
+    <string name="suggested_edits_add_translation_button">Add translation</string>
+    <string name="suggested_edits_edit_translation_button">Edit translation</string>
+    <string name="suggested_edits_add_caption_button">Add caption</string>
+    <string name="suggested_edits_edit_caption_button">Edit caption</string>
+    <string name="suggested_edits_review_image_caption">Review image caption</string>
     <string name="suggested_edits_my_contributions">My contributions</string>
-    <string name="suggested_edits_added_by_you">Added by you:</string>
-    <string name="suggested_edits_translated_by_you">Translated by you:</string>
-    <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the "Add descriptions" task</string>
+    <string name="suggested_edits_no_description">This file does not have a description</string>
+    <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the "Add article descriptions" task</string>
     <string name="suggested_edits_unlock_add_descriptions_dialog_message">Thanks for all your contributions! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the "Translate descriptions" task</string>
+    <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the "Translate article descriptions" task</string>
     <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulations on your many contributions, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_dialog_no">Maybe later</string>
     <string name="suggested_edits_unlock_dialog_yes">Yes, let’s go</string>
-    <string name="suggested_edits_unlock_add_descriptions_notification_title">You unlocked "Add descriptions"</string>
-    <string name="suggested_edits_unlock_translate_descriptions_notification_title">You unlocked "Translate descriptions"</string>
+    <string name="suggested_edits_unlock_add_descriptions_notification_title">You unlocked "Add article descriptions"</string>
+    <string name="suggested_edits_unlock_translate_descriptions_notification_title">You unlocked "Translate article descriptions"</string>
     <string name="suggested_edits_unlock_notification_text">Suggested edits</string>
     <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nThanks for all your contributions. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
     <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your many contributions, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
     <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
-    <string name="suggested_edits_license_notice"><![CDATA[By adding the title description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="suggested_edits_unlock_add_captions_dialog_title">You unlocked the "Add image captions" task</string>
+    <string name="suggested_edits_unlock_add_captions_notification_title">You unlocked "Add image captions"</string>
+    <string name="suggested_edits_unlock_add_captions_dialog_message">Thanks for all your image caption edits! Since we see you like adding captions to images, we’ve compiled a list of images missing captions. Could you help us improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_add_captions_notification_big_text">Suggested edits\n\nThanks for all your image caption edits! Since we see you like adding captions to images, we’ve compiled a list of images missing captions. Could you help us improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_captions_dialog_title">You unlocked the "Translate image captions" task</string>
+    <string name="suggested_edits_unlock_translate_captions_notification_title">You unlocked "Translate image captions"</string>
+    <string name="suggested_edits_unlock_translate_captions_dialog_message">Congratulations on your many image caption edits - we’re amazed! You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Could you continue to help us improve Wikipedia?</string>
+    <string name="suggested_edits_unlock_translate_captions_notification_big_text">Suggested edits\n\nCongratulations on your many image caption edits - we’re amazed! You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Could you continue to help us improve Wikipedia?</string>
+    <string name="suggested_edits_license_notice"><![CDATA[By adding the description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
+    <string name="suggested_edits_image_caption_license_notice"><![CDATA[By adding the image caption, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
     <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
-    <string name="suggested_edits_task_add_description_title">Add descriptions</string>
+    <string name="suggested_edits_task_add_description_title">Add article descriptions</string>
     <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
-    <string name="suggested_edits_task_image_caption_title">Caption images</string>
-    <string name="suggested_edits_task_image_caption_description">Add captions to images</string>
-    <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
-    <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="suggested_edits_task_translation_title">Translate descriptions</string>
+    <string name="suggested_edits_task_translation_title">Translate article descriptions</string>
     <string name="suggested_edits_task_translation_description">Translate descriptions across article languages.</string>
-    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve made %d verified contributions</string>
-    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve made %d verified contributions</string>
-    <string name="suggested_edits_task_multilingual_negative">Not for me</string>
-    <string name="suggested_edits_task_multilingual_positive">Add languages</string>
+    <string name="suggested_edits_task_image_caption_title">Add image captions</string>
+    <string name="suggested_edits_task_image_caption_description">Add missing short captions to images</string>
     <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
+    <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
+    <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
+    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve edited %d image captions</string>
+    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve edited %d article descriptions (verified)</string>
+    <string name="suggested_edits_task_multilingual_negative">Not for me</string>
+    <string name="suggested_edits_task_multilingual_positive">Add languages</string>
+    <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
+    <string name="suggested_edits_image_caption_summary_title_author">Author</string>
+    <string name="suggested_edits_image_caption_summary_title_source">Source</string>
+    <string name="suggested_edits_image_caption_summary_title_license">License</string>
+    <string name="suggested_edits_image_caption_summary_title_date">Date</string>
     <plurals name="suggested_edits_contribution_count">
         <item quantity="one">1 contribution</item>
         <item quantity="other">%d contributions</item>
     </plurals>
     <string name="suggested_edits_feed_card_title">Suggested edits</string>
+    <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
-    <string name="suggested_edits_add_translation_button_label">Add Translation</string>
-    <string name="suggested_edits_edit_translation_button_label">Edit Translation</string>
+    <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
+    <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
+    <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
+    <string name="suggested_edits_image_preview_dialog_date">Date</string>
+    <string name="suggested_edits_image_preview_dialog_source">Source/Photographer</string>
+    <string name="suggested_edits_image_preview_dialog_licensing">Licensing</string>
+    <string name="suggested_edits_image_preview_dialog_more_info">More Info</string>
+    <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
+    <string name="suggested_edits_article_cta_image_caption">Add image caption (%s)</string>
+    <string name="suggested_edits_article_cta_snackbar_action">View</string>
+    <string name="suggested_edits_feed_card_add_image_caption">Add caption</string>
+    <string name="suggested_edits_feed_card_translate_image_caption">Add caption (%s)</string>
+    <string name="suggested_edits_feed_card_add_description_button">Add article description</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

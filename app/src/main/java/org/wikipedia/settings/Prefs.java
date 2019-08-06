@@ -841,16 +841,28 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
     }
 
-    public static boolean showTranslateDescriptionsTeaserTask() {
-        return getBoolean(R.string.preference_key_show_multilingual_task, true);
+    public static boolean showSuggestedEditsMultilingualTeaserTask() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, true);
     }
 
-    public static void setShowTranslateDescriptionsTeaserTask(boolean showTask) {
-        setBoolean(R.string.preference_key_show_multilingual_task, showTask);
+    public static void setShowSuggestedEditsMultilingualTeaserTask(boolean showTask) {
+        setBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, showTask);
     }
 
-    public static boolean shouldShowSuggestedEditsCardsForTesting() {
-        return getBoolean(R.string.preference_key_show_suggested_edits_cards_testing, false);
+    public static boolean isSuggestedEditsAddCaptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, false);
+    }
+
+    public static void setSuggestedEditsAddCaptionsUnlocked(boolean unlocked) {
+        setBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, unlocked);
+    }
+
+    public static boolean isSuggestedEditsTranslateCaptionsUnlocked() {
+        return getBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, false);
+    }
+
+    public static void setSuggestedEditsTranslateCaptionsUnlocked(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, enabled);
     }
 
     public static boolean wasLoggedOutInBackground() {
@@ -860,6 +872,15 @@ public final class Prefs {
     public static void setLoggedOutInBackground(boolean loggedOut) {
         setBoolean(R.string.preference_key_logged_out_in_background, loggedOut);
     }
+
+    public static boolean shouldShowDescriptionEditSuccessPrompt() {
+        return getBoolean(R.string.preference_key_show_description_edit_success_prompt, true);
+    }
+
+    public static void shouldShowDescriptionEditSuccessPrompt(boolean enabled) {
+        setBoolean(R.string.preference_key_show_description_edit_success_prompt, enabled);
+    }
+
 
     private Prefs() { }
 }

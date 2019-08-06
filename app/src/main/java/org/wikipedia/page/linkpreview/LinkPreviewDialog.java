@@ -18,6 +18,7 @@ import androidx.appcompat.widget.PopupMenu;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -25,9 +26,13 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
+import org.wikipedia.gallery.MediaList;
+import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
@@ -36,8 +41,13 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
@@ -52,6 +62,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         void onLinkPreviewAddToList(@NonNull PageTitle title);
         void onLinkPreviewShareLink(@NonNull PageTitle title);
     }
+
+    private static final String ARG_ENTRY = "entry";
+    private static final String ARG_LOCATION = "location";
+    private static final String ARG_FULL_WIDTH = "fullWidth";
 
     private boolean navigateSuccess = false;
 
@@ -73,23 +87,32 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
+    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location, boolean fullWidth) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
         Bundle args = new Bundle();
-        args.putParcelable("entry", entry);
+        args.putParcelable(ARG_ENTRY, entry);
         if (location != null) {
-            args.putParcelable("location", location);
+            args.putParcelable(ARG_LOCATION, location);
         }
+        args.putBoolean(ARG_FULL_WIDTH, fullWidth);
         dialog.setArguments(args);
         return dialog;
+    }
+
+    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
+        return newInstance(entry, location, false);
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         WikipediaApp app = WikipediaApp.getInstance();
-        historyEntry = getArguments().getParcelable("entry");
+        historyEntry = getArguments().getParcelable(ARG_ENTRY);
         pageTitle = historyEntry.getTitle();
-        location = getArguments().getParcelable("location");
+        location = getArguments().getParcelable(ARG_LOCATION);
+
+        if (getArguments().getBoolean(ARG_FULL_WIDTH)) {
+            enableFullWidthDialog();
+        }
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         dialogContainer = rootView.findViewById(R.id.dialog_link_preview_container);
@@ -217,11 +240,28 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMedia(pageTitle.getConvertedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText())
+                    .flatMap((Function<MediaList, ObservableSource<MwQueryResponse>>) mediaList -> {
+                        final int maxImages = 10;
+                        List<MediaListItem> items = mediaList.getItems("image", "video");
+                        List<String> titleList = new ArrayList<>();
+                        for (MediaListItem item : items) {
+                            if (item.showInGallery() && titleList.size() < maxImages) {
+                                titleList.add(item.getTitle());
+                            }
+                        }
+                        return ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(StringUtils.join(titleList, '|'));
+                    })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(gallery -> {
-                        thumbnailGallery.setGalleryList(gallery.getItems("image", "video"));
+                    .subscribe(response -> {
+                        List<MwQueryPage> pageList = new ArrayList<>();
+                        for (MwQueryPage page : response.query().pages()) {
+                            if (page.imageInfo() != null) {
+                                pageList.add(page);
+                            }
+                        }
+                        thumbnailGallery.setGalleryList(pageList);
                         thumbnailGallery.setGalleryViewListener(galleryViewListener);
                     }, caught -> {
                         // ignore errors
@@ -259,7 +299,11 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         if (contents.getExtract().length() > 0) {
             extractText.setText(contents.getExtract());
         }
-        ViewUtil.loadImageUrlInto(thumbnailView, contents.getTitle().getThumbUrl());
+        String thumbnailImageUrl = contents.getTitle().getThumbUrl();
+        if (thumbnailImageUrl != null) {
+            thumbnailView.setVisibility(View.VISIBLE);
+            ViewUtil.loadImageUrlInto(thumbnailView, thumbnailImageUrl);
+        }
         if (overlayView != null) {
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,
                     contents.isDisambiguation() ? R.string.button_continue_to_disambiguation : R.string.button_continue_to_article));

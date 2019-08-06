@@ -46,8 +46,6 @@ import org.wikipedia.views.WikiDrawerLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -75,9 +73,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         WikipediaApp.getInstance().checkCrashes(this);
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
-
-        Completable.fromAction(() -> AppShortcuts.setShortcuts(getApplicationContext()))
-                .subscribeOn(Schedulers.newThread()).subscribe();
+        AppShortcuts.setShortcuts(this);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
@@ -143,7 +139,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                     startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
                 }
             });
-            tabCountsView.setTabCount(WikipediaApp.getInstance().getTabCount());
+            tabCountsView.updateTabCount();
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
         }
@@ -313,7 +309,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
 
-            startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.Companion.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
+            startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
                     : SuggestedEditsTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY));
 
             closeMainDrawer();

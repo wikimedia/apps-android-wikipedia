@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:background="?attr/paper_color"
+    android:foreground="?attr/selectableItemBackground"
     android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/list_item_horizontal_padding"
     android:paddingTop="@dimen/list_item_vertical_padding"
     android:paddingEnd="@dimen/list_item_horizontal_padding"
-    android:paddingBottom="@dimen/list_item_vertical_padding"
-    android:paddingStart="@dimen/list_item_horizontal_padding"
-    android:background="?attr/paper_color"
-    android:foreground="?attr/selectableItemBackground">
+    android:paddingBottom="@dimen/list_item_vertical_padding">
+
     <TextView
         android:id="@+id/localized_language_name"
+        style="@style/MaterialListTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MaterialListTitle"
         android:gravity="center_vertical"
         tools:text="Sample language local name" />
+
     <TextView
         android:id="@+id/non_localized_language_name"
+        style="@style/MaterialListSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MaterialListSubtitle"
         android:gravity="center_vertical"
-        tools:text="Sample article local name"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:text="Sample article local name" />
+
     <TextView
         android:id="@+id/language_subtitle"
+        style="@style/MaterialListSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MaterialListSubtitle"
         android:gravity="center_vertical"
         tools:text="Sample article local name" />
 </LinearLayout>

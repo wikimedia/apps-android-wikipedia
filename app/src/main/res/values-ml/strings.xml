@@ -13,10 +13,12 @@
   <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
   <string name="wikimedia">വിക്കിമീഡിയ</string>
   <string name="nav_item_back">പിന്നോട്ട്</string>
+  <string name="page_tabs_back">പുറകോട്ട്</string>
   <string name="nav_item_forward">മുന്നോട്ട്</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="search_hint_search_history">തിരച്ചിൽ ചരിത്രം</string>
   <string name="search_hint_search_languages">ഒരു ഭാഷക്കായി തിരയുക</string>
+  <string name="search_hint_search_my_lists_and_articles">എന്റെ പട്ടികകളിലും ലേഖനങ്ങളിലും തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -67,7 +69,6 @@
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
   <string name="langlinks_your_wikipedia_languages">താങ്കളുടെ വിക്കിപീഡിയ ഭാഷകൾ</string>
   <string name="menu_save_changes">മാറ്റങ്ങൾ പ്രസിദ്ധീകരിക്കുക</string>
-  <string name="dialog_saving_in_progress">പ്രസിദ്ധീകരിക്കുന്നു...</string>
   <string name="edit_saved_successfully">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -127,7 +128,6 @@
   <string name="create_account_ip_block_details">വിശദാംശങ്ങൾ</string>
   <string name="preferences_general_heading">സാർവത്രികം</string>
   <string name="wikipedia_app_faq">വിക്കിപീഡിയ ആപ്പ് പതിവ് ചോദ്യങ്ങൾ</string>
-  <string name="edit_preview_fetching_dialog_message">പ്രിവ്യൂ എടുക്കുന്നു…</string>
   <string name="send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>
   <string name="create_account_account_created_toast">അംഗത്വം സൃഷ്ടിച്ചിരിക്കുന്നു!</string>
   <string name="preferences_heading_syncing">ഏകതാനമാക്കുക</string>
@@ -255,7 +255,7 @@
   <string name="article_menu_bar_bookmark">ഈ ലേഖനം വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="article_menu_bar_share">ലേഖനത്തിന്റെ കണ്ണി പങ്കുവയ്ക്കുക</string>
   <string name="article_header_edit_hint">തിരുത്തുക...</string>
-  <string name="article_header_edit_description">തലക്കെട്ടിന്റെ വിവരണം തിരുത്തുക</string>
+  <string name="article_header_edit_description" fuzzy="true">തലക്കെട്ടിന്റെ വിവരണം തിരുത്തുക</string>
   <string name="article_header_edit_lead_section">ആമുഖം തിരുത്തുക</string>
   <string name="color_theme_select">ദൃശ്യരൂപം</string>
   <string name="color_theme_light">തെളിച്ചം</string>
@@ -288,19 +288,19 @@
   <string name="reading_lists_onboarding_for_example">ഉദാഹരണത്തിന്</string>
   <string name="user_option_sync_label">ക്രമീകരണങ്ങൾ</string>
   <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
-  <string name="description_edit_text_hint">തലക്കെട്ട് വിവരണം</string>
+  <string name="description_edit_text_hint" fuzzy="true">തലക്കെട്ട് വിവരണം</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>
-  <string name="description_edit_add_description">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
-  <string name="description_edit_edit_description">വിവരണം തിരുത്തുക</string>
+  <string name="description_edit_add_description" fuzzy="true">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
+  <string name="description_edit_edit_description" fuzzy="true">വിവരണം തിരുത്തുക</string>
   <string name="description_edit_cancel_hint">റദ്ദാക്കുക</string>
   <string name="description_edit_success_done">ചെയ്തു</string>
   <string name="description_edit_success_did_you_know">താങ്കൾക്കറിയാമോ?</string>
   <string name="description_edit_tutorial_button_label_start_editing">തിരുത്തി തുടങ്ങുക</string>
-  <string name="suggested_edits_add_descriptions">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
-  <string name="suggested_edits_review_description">തലക്കെട്ട് വിവരണം അവലോകനം ചെയ്യുക</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">തലക്കെട്ട് വിവരണം ചേർക്കുക</string>
+  <string name="suggested_edits_review_description" fuzzy="true">തലക്കെട്ട് വിവരണം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_my_contributions">എന്റെ സംഭാവനകൾ</string>
   <string name="suggested_edits_task_add_description_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
-  <string name="suggested_edits_task_image_caption_description">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_multilingual_title">ബഹുഭാഷ എഡിറ്റർമാർക്കുള്ള കൂടുതൽ ജോലികൾ</string>
   <string name="suggested_edits_task_multilingual_negative">എനിക്കു വേണ്ടിയല്ല</string>
 </resources>

@@ -79,7 +79,6 @@
   <string name="langlinks_activity_title">Teangacha eile</string>
   <string name="langlinks_your_wikipedia_languages">Do chuid teangacha Vicipéide</string>
   <string name="menu_save_changes">Foilsigh athruithe</string>
-  <string name="dialog_saving_in_progress">Ag foilsiú...</string>
   <string name="edit_saved_successfully">Foilsíodh athrú!</string>
   <string name="dialog_message_edit_failed">Theip ar an athrú!</string>
   <string name="dialog_message_edit_failed_retry">Atriail</string>
@@ -153,7 +152,6 @@
   <string name="create_account_ip_block_details">Sonraí</string>
   <string name="preferences_general_heading">Ginearálta</string>
   <string name="wikipedia_app_faq">CCanna an Aip Vicipéide</string>
-  <string name="edit_preview_fetching_dialog_message">Réamhamharc á ghabháil...</string>
   <string name="send_feedback">Seol aiseolas maidir leis an aip</string>
   <string name="create_account_account_created_toast">Cruthaíodh cuntas!</string>
   <string name="preferences_heading_syncing">Sioncronú</string>
@@ -325,7 +323,7 @@
   <string name="article_menu_bar_bookmark">Cuir an t-alt seo ar liosta léitheoireachta</string>
   <string name="article_menu_bar_share">Comhroinn nasc don alt</string>
   <string name="article_header_edit_hint">Cuir in Eagar...</string>
-  <string name="article_header_edit_description">Cuir sainchuntas teidil in eagar</string>
+  <string name="article_header_edit_description" fuzzy="true">Cuir sainchuntas teidil in eagar</string>
   <string name="article_header_edit_lead_section">Cuir réamhrá in eagar</string>
   <string name="color_theme_select">Téama</string>
   <string name="color_theme_light">Geal</string>
@@ -552,42 +550,45 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Cealaigh</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Cuir d\'fhotha Taiscéal in oiriúint&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir roghnú cad a thaispeántar ar d\'fhotha, agus is féidir tús áite a thabhairt don cineál ábhair is fearr leat, leis.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cealaigh</string>
-  <string name="description_edit_text_hint">Sainchuntas teidil</string>
+  <string name="description_edit_text_hint" fuzzy="true">Sainchuntas teidil</string>
   <string name="description_edit_save">Foilsigh</string>
-  <string name="description_edit_add_description">Cuir sainchuntas teidil leis</string>
-  <string name="description_edit_edit_description">Cuir sainchuntas in eagar</string>
+  <string name="description_edit_add_description" fuzzy="true">Cuir sainchuntas teidil leis</string>
+  <string name="description_edit_edit_description" fuzzy="true">Cuir sainchuntas in eagar</string>
   <string name="description_edit_cancel_hint">Cealaigh</string>
-  <string name="description_edit_help_title">Cabhair: sainchuntais theideal</string>
+  <string name="description_edit_help_title" fuzzy="true">Cabhair: sainchuntais theideal</string>
   <string name="description_edit_help_about_wikidata">Maidir le Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Treoirleabhar ó Wikidata ar conas sainchuntais a scríobh</string>
-  <string name="description_edit_anon_limit">Go raibh maith agat as do spéis leanúnach i sainchuntais a chur in eagar! Logáil isteach chuig do chuntas Vicipéide le tuilleadh athruithe a dhéanamh.</string>
-  <string name="description_edit_license_notice">Ach an sainchuntas teidil a athrú, glacaim leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le mo chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Foilsíodh an sainchuntas!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Go raibh maith agat as do spéis leanúnach i sainchuntais a chur in eagar! Logáil isteach chuig do chuntas Vicipéide le tuilleadh athruithe a dhéanamh.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Ach an sainchuntas teidil a athrú, glacaim leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le mo chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Foilsíodh an sainchuntas!</string>
   <string name="description_edit_success_encouragement">Tá tú díreach tar éis Vicipéid a fheabhsú do gach duine</string>
   <string name="description_edit_success_done">Déanta</string>
   <string name="description_edit_success_did_you_know">An raibh a fhios agat?</string>
   <string name="description_edit_success_article_edit_hint">Is féidir ailt a chur in eagar laistigh den aip seo, leis. Bain triail as earráidí cló agus abairtí gearra a dheisiú le cliceáil ar an deilbhín ^1 an chéad uair eile</string>
-  <string name="description_edit_tutorial_title_descriptions">Sainchuntais theideal</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Sainchuntais theideal</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Coimrítear alt chun cabhrú le léitheoirí an t-ábhar a thuiscint ar an bpointe</string>
   <string name="description_edit_tutorial_keep_it_short">Coinnigh gairid é</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
-  <string name="suggested_edits_add_descriptions">Cuir sainchuntais theideal leis</string>
-  <string name="suggested_edits_review_description">Athbhreithnigh sainchuntas teidil</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
   <string name="suggested_edits_add_description_button">Cuir sainchuntas leis</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Thugamar faoi deara gur maith leat sainchuntais theideal a chur ar eagar. Dá thoradh sin táimid tar éis liosta de \"Thascanna d\'eagarthóirí aipe\" a chur le chéile, ina gheobhaidh tú a thuilleadh alt atá sainchuntais theideal in easnamh orthu, mar chabhair le do chuid eagarthóireachta!</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tascanna d\'eagarthóirí aipe</string>
-  <string name="suggested_edits_task_add_description_title">Cuir sainchuntais theideal leis</string>
-  <string name="suggested_edits_task_image_caption_title">Fotheidil íomhánna</string>
-  <string name="suggested_edits_task_image_caption_description">Cuir fotheidil le híomhánna</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Fotheidil íomhánna</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Cuir fotheidil le híomhánna</string>
   <string name="suggested_edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
   <string name="suggested_edits_task_multilingual_negative">Ní domsa é</string>
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Ceadúnas</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Dáta</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
+  <string name="suggested_edits_image_preview_dialog_licensing">Ceadúnú</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>
@@ -624,7 +625,7 @@
   <string name="on_this_day_card_title">Ar an lá seo</string>
   <string name="more_events_text">Tuilleadh ar an lá seo</string>
   <string name="events_count_text">%1$s ócáid ó %2$s–%3$d</string>
-  <string name="this_year">An bhliain seo</string>
+  <string name="this_year">I mbliana</string>
   <string name="back_to_top">Siar go barr</string>
   <plurals name="diff_years">
     <item quantity="one">An bhliain seo caite</item>

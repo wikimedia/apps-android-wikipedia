@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -25,7 +24,7 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
-import org.wikipedia.suggestededits.SuggestedEditsAddDescriptionsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -121,12 +120,12 @@ public final class FeedbackUtil {
 
     public static Snackbar makeSnackbar(Activity activity, CharSequence text, int duration) {
         View view = findBestView(activity);
-        Snackbar snackbar = Snackbar.make(view, text, duration);
+        Snackbar snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration);
         TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
         textView.setMaxLines(SNACKBAR_MAX_LINES);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
-        actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
+        actionView.setTextColor(ResourceUtil.getThemedColor(view.getContext(), R.attr.color_group_52));
         return snackbar;
     }
 
@@ -147,8 +146,8 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.random_coordinator_layout);
         } else if (activity instanceof ReadingListActivity) {
             return activity.findViewById(R.id.fragment_reading_list_coordinator);
-        } else if (activity instanceof SuggestedEditsAddDescriptionsActivity) {
-            return activity.findViewById(R.id.addTitleDescriptionsCoordinatorLayout);
+        } else if (activity instanceof SuggestedEditsCardsActivity) {
+            return activity.findViewById(R.id.suggestedEditsCardsCoordinator);
         } else {
             return activity.findViewById(android.R.id.content);
         }

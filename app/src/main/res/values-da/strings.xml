@@ -15,6 +15,7 @@
 * Rho
 * Saederup92
 * Sarrus
+* Tinamalmgren
 * Yuvipanda
 -->
 <resources>
@@ -91,7 +92,6 @@
   <string name="langlinks_activity_title">Andre sprog</string>
   <string name="langlinks_your_wikipedia_languages">Dine Wikipedia-sprog</string>
   <string name="menu_save_changes">Offentliggør ændringer</string>
-  <string name="dialog_saving_in_progress">Offentliggør…</string>
   <string name="edit_saved_successfully">Redigering offentliggjort!</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
@@ -167,7 +167,6 @@
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning …</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_syncing">Synkroniserer</string>
@@ -349,7 +348,7 @@
   <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>
   <string name="article_menu_bar_share">Del link til artiklen</string>
   <string name="article_header_edit_hint">Rediger…</string>
-  <string name="article_header_edit_description">Rediger titelbeskrivelsen</string>
+  <string name="article_header_edit_description">Rediger artikelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger introduktion</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Lys</string>
@@ -411,6 +410,7 @@
   <string name="reading_list_add_to_other_list">Tilføj til en anden læseliste</string>
   <string name="reading_list_remove_from_list">Fjern fra %s</string>
   <string name="reading_list_remove_from_lists">Fjern fra læselister</string>
+  <string name="reading_list_select_item">Vælg</string>
   <string name="reading_list_confirm_remove_article_from_offline">Fjern fra offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artiklen forekommer i flere lister</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle læselister:</string>
@@ -588,58 +588,63 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
-  <string name="description_edit_text_hint">Titelbeskrivelse</string>
+  <string name="description_edit_text_hint">Artikelbeskrivelse</string>
+  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivelse (%s)</string>
   <string name="description_edit_save">Offentliggør</string>
-  <string name="description_edit_article">Artikel</string>
   <string name="description_edit_read">Læs</string>
-  <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
-  <string name="description_edit_add_description_v2">Tilføj beskrivelse</string>
-  <string name="description_edit_translate_description">Oversæt titelbeskrivelse</string>
-  <string name="description_edit_edit_description">Rediger beskrivelse</string>
+  <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
+  <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
+  <string name="description_edit_edit_description">Redigér artikelbeskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
-  <string name="description_edit_help_title">Hjælp: Titelbeskrivelser</string>
+  <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide til at skrive beskrivelser</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
-  <string name="description_edit_license_notice">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
-  <string name="description_edit_success_saved">Beskrivelsen blev offentliggjort!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Beskrivelsen blev offentliggjort!</string>
   <string name="description_edit_success_encouragement">Du har lige gjort Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Færdig</string>
   <string name="description_edit_success_did_you_know">Vidste du at?</string>
   <string name="description_edit_success_article_edit_hint">Du kan også redigere artikler i denne app. Prøv at rette stavefejl og små sætninger ved at klikke på ^1-ikonet næste gang</string>
-  <string name="description_edit_tutorial_title_descriptions">Titelbeskrivelser</string>
+  <string name="description_edit_tutorial_title_descriptions">Artikelbeskrivelser</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Opsummerer en artikel for at hjælpe læsere med at forstå emnet på et øjeblik</string>
   <string name="description_edit_tutorial_keep_it_short">Hold det kort</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
-  <string name="suggested_edits_add_descriptions">Tilføj beskrivelser</string>
-  <string name="suggested_edits_translate_descriptions">Oversæt beskrivelser</string>
-  <string name="suggested_edits_review_description">Korrekturlæs beskrivelse</string>
+  <string name="suggested_edits_add_descriptions">Tilføj artikelbeskrivelser</string>
+  <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
+  <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
+  <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
+  <string name="suggested_edits_add_translation_button">Tilføj oversættelse</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
-  <string name="suggested_edits_added_by_you">Tilføjet af dig:</string>
-  <string name="suggested_edits_translated_by_you">Oversat af dig:</string>
+  <string name="suggested_edits_no_description">Denne fil har ingen beskrivelse</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Listen over opgaver vedrørende redigering af titelbeskrivelser er blevet låst op!</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Vi har bemærket at du kan lide at redigere titelbeskrivelser, så vi har udformet en liste med flere artikler som mangler titelbeskrivelser for at hjælpe dig til at forsætte med at bidrage!</string>
   <string name="suggested_edits_unlock_dialog_no">Måske senere</string>
   <string name="suggested_edits_unlock_dialog_yes">Ja, lad os komme igang</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Du låste op for “Tilføj beskrivelser“</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Du låste op for “Tilføj beskrivelser“</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du låste op for “Oversæt beskrivelser“</string>
   <string name="suggested_edits_unlock_notification_text">Foreslåede redigeringer</string>
   <string name="suggested_edits_unlock_notification_button">Ja, lad os komme igang</string>
   <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
-  <string name="suggested_edits_task_add_description_title">Tilføj beskrivelser</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
-  <string name="suggested_edits_task_image_caption_title">Billedtekstning</string>
-  <string name="suggested_edits_task_image_caption_description">Tilføj billedtekster til billeder</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Oversæt beskrivelser</string>
+  <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
+  <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
   <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
   <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
-  <string name="suggested_edits_task_translation_title">Oversæt beskrivelser</string>
-  <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
   <string name="suggested_edits_task_multilingual_negative">Ikke noget for mig</string>
   <string name="suggested_edits_task_multilingual_positive">Tilføj sprog</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
   <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>

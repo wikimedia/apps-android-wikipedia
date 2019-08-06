@@ -2,7 +2,6 @@ package org.wikipedia.login;
 
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,13 +54,14 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.login_password_input) TextInputLayout passwordInput;
     @BindView(R.id.login_2fa_text) EditText twoFactorText;
     @BindView(R.id.view_login_error) WikiErrorView errorView;
-    @BindView(R.id.login_button) View loginButton;
+    @BindView(R.id.login_button) TextView loginButton;
+    @BindView(R.id.view_progress_bar) ProgressBar progressBar;
 
-    private ProgressDialog progressDialog;
     @Nullable private String firstStepToken;
     private LoginFunnel funnel;
     private String loginSource;
-    private LoginClient loginClient;
+    private LoginClient loginClient = new LoginClient();
+    private LoginCallback loginCallback = new LoginCallback();
     private boolean wentStraightToCreateAccount;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String source) {
@@ -93,10 +95,6 @@ public class LoginActivity extends BaseActivity {
             }
             return false;
         });
-
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
-        progressDialog.setCancelable(false);
 
         funnel = new LoginFunnel(WikipediaApp.getInstance());
 
@@ -215,78 +213,68 @@ public class LoginActivity extends BaseActivity {
         final String password = getText(passwordInput).toString();
         final String twoFactorCode = twoFactorText.getText().toString();
 
-        if (loginClient == null) {
-            loginClient = new LoginClient();
-        }
-        progressDialog.show();
+        showProgressBar(true);
 
         if (!twoFactorCode.isEmpty()) {
             loginClient.login(WikipediaApp.getInstance().getWikiSite(), username, password,
-                    null, twoFactorCode, firstStepToken, getCallback());
+                    null, twoFactorCode, firstStepToken, loginCallback);
         } else {
             loginClient.request(WikipediaApp.getInstance().getWikiSite(), username, password,
-                    getCallback());
+                    loginCallback);
         }
     }
 
-    private LoginClient.LoginCallback getCallback() {
-        return new LoginClient.LoginCallback() {
-            @Override
-            public void success(@NonNull LoginResult result) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                if (result.pass()) {
+    private class LoginCallback implements LoginClient.LoginCallback {
+        @Override
+        public void success(@NonNull LoginResult result) {
+            showProgressBar(false);
+            if (result.pass()) {
 
-                    Bundle extras = getIntent().getExtras();
-                    AccountAuthenticatorResponse response = extras == null ? null
-                            : extras.getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
-                    AccountUtil.updateAccount(response, result);
+                Bundle extras = getIntent().getExtras();
+                AccountAuthenticatorResponse response = extras == null ? null
+                        : extras.getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
+                AccountUtil.updateAccount(response, result);
 
-                    onLoginSuccess();
+                onLoginSuccess();
 
-                } else if (result.fail()) {
-                    String message = result.getMessage();
-                    FeedbackUtil.showMessage(LoginActivity.this, message);
-                    funnel.logError(message);
-                    L.w("Login failed with result " + message);
-                }
+            } else if (result.fail()) {
+                String message = result.getMessage();
+                FeedbackUtil.showMessage(LoginActivity.this, message);
+                funnel.logError(message);
+                L.w("Login failed with result " + message);
             }
+        }
 
-            @Override
-            public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                firstStepToken = token;
-                twoFactorText.setVisibility(View.VISIBLE);
-                twoFactorText.requestFocus();
+        @Override
+        public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
+            showProgressBar(false);
+            firstStepToken = token;
+            twoFactorText.setVisibility(View.VISIBLE);
+            twoFactorText.requestFocus();
+            FeedbackUtil.showError(LoginActivity.this, caught);
+        }
+
+        @Override
+        public void passwordResetPrompt(@Nullable String token) {
+            startActivityForResult(ResetPasswordActivity.newIntent(LoginActivity.this,
+                    getText(usernameInput).toString(), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD);
+        }
+
+        @Override
+        public void error(@NonNull Throwable caught) {
+            showProgressBar(false);
+            if (caught instanceof LoginClient.LoginFailedException) {
                 FeedbackUtil.showError(LoginActivity.this, caught);
+            } else {
+                showError(caught);
             }
+        }
+    }
 
-            @Override public void passwordResetPrompt(@Nullable String token) {
-                startActivityForResult(ResetPasswordActivity.newIntent(LoginActivity.this,
-                        getText(usernameInput).toString(), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD);
-            }
-
-            @Override
-            public void error(@NonNull Throwable caught) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                if (caught instanceof LoginClient.LoginFailedException) {
-                    FeedbackUtil.showError(LoginActivity.this, caught);
-                } else {
-                    showError(caught);
-                }
-            }
-        };
+    private void showProgressBar(boolean enable) {
+        progressBar.setVisibility(enable ? View.VISIBLE : View.GONE);
+        loginButton.setEnabled(!enable);
+        loginButton.setText(enable ? R.string.login_in_progress_dialog_message : R.string.menu_login);
     }
 
     @Override
@@ -297,9 +285,8 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onStop() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
+        showProgressBar(false);
+        loginClient.cancel();
         super.onStop();
     }
 
@@ -312,5 +299,6 @@ public class LoginActivity extends BaseActivity {
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+        L.logRemoteErrorIfProd(caught);
     }
 }

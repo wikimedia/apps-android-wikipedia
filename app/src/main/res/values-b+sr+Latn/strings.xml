@@ -62,7 +62,6 @@
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="langlinks_your_wikipedia_languages">Vaši jezici Vikipedije</string>
   <string name="menu_save_changes">Objavi promene</string>
-  <string name="dialog_saving_in_progress">Objavljivanje…</string>
   <string name="edit_saved_successfully">Izmena je objavljena.</string>
   <string name="dialog_message_edit_failed">Uređivanje nije uspelo.</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
@@ -128,7 +127,6 @@
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Opšte</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji Vikipedija</string>
-  <string name="edit_preview_fetching_dialog_message">Dobavljanje pregleda…</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Nalog je otvoren.</string>
   <string name="preferences_heading_syncing">Sinhronizacija</string>
@@ -306,7 +304,7 @@
   <string name="article_menu_bar_bookmark">Dodaj ovaj članak na listu za čitanje</string>
   <string name="article_menu_bar_share">Deli link članka</string>
   <string name="article_header_edit_hint">Uredi…</string>
-  <string name="article_header_edit_description">Uredi opis naslova</string>
+  <string name="article_header_edit_description" fuzzy="true">Uredi opis naslova</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Svetla</string>
@@ -530,23 +528,23 @@
   <string name="feed_empty_message">Vaš fid „Istraži“ je prazan</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite fid „Istraži“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Sada možete da izaberete šta želite da se prikazuje u fidu, kao i da date prednost vašem omiljenom tipu sadržaja.</string>
-  <string name="description_edit_text_hint">Opis naslova</string>
+  <string name="description_edit_text_hint" fuzzy="true">Opis naslova</string>
   <string name="description_edit_save">Objavi</string>
-  <string name="description_edit_add_description">Dodaj opis naslova</string>
-  <string name="description_edit_edit_description">Uredi opis</string>
+  <string name="description_edit_add_description" fuzzy="true">Dodaj opis naslova</string>
+  <string name="description_edit_edit_description" fuzzy="true">Uredi opis</string>
   <string name="description_edit_cancel_hint">Otkaži</string>
-  <string name="description_edit_help_title">Pomoć: opisi naslova</string>
+  <string name="description_edit_help_title" fuzzy="true">Pomoć: opisi naslova</string>
   <string name="description_edit_help_about_wikidata">O Vikipodacima</string>
   <string name="description_edit_help_wikidata_guide">Vodič na Vikipodacima za pisanje opisa</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Hvala vam na neprestanom interesu za uređivanje opisa. Da biste napravili još izmena, prijavite se na svoj nalog na Vikipediji.</string>
-  <string name="description_edit_license_notice">Promenom opisa naslova, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Opis je objavljen.</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Hvala vam na neprestanom interesu za uređivanje opisa. Da biste napravili još izmena, prijavite se na svoj nalog na Vikipediji.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Promenom opisa naslova, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Opis je objavljen.</string>
   <string name="description_edit_success_encouragement">Upravo ste poboljšali Vikipediju za sve</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Da li ste znali?</string>
   <string name="description_edit_success_article_edit_hint">U ovoj aplikaciji možete i da uređujete članke. Sledeći put probajte da ispravite greške u kucanju i manje rečenice pritiskom na ikonu ^1.</string>
-  <string name="description_edit_tutorial_title_descriptions">Opisi naslova</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Opisi naslova</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Rezimira članak kako bi čitaoci na prvi pogled razumeli njegovu temu</string>
   <string name="description_edit_tutorial_keep_it_short">Budite koncizni</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Po mogućstvu jedan red, od dve do dvanaest reči</string>

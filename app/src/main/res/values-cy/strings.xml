@@ -78,7 +78,6 @@
   <string name="langlinks_activity_title">Ieithoedd eraill</string>
   <string name="langlinks_your_wikipedia_languages">Eich ieithoedd Wicipedia</string>
   <string name="menu_save_changes">Cyhoeddi newidiadau</string>
-  <string name="dialog_saving_in_progress">Cyhoeddi…</string>
   <string name="edit_saved_successfully">Cadwyd y golygiad!</string>
   <string name="dialog_message_edit_failed">Methodd y golygiad!</string>
   <string name="dialog_message_edit_failed_retry">Ailgeisio</string>
@@ -131,7 +130,6 @@
   <string name="create_account_button">Creu cyfrif</string>
   <string name="preferences_general_heading">Cyffredinol</string>
   <string name="wikipedia_app_faq">Ap FAQ Wicipedia</string>
-  <string name="edit_preview_fetching_dialog_message">Yn nôl y rhagolwg…</string>
   <string name="send_feedback">Anfon adborth am yr ap</string>
   <string name="create_account_account_created_toast">Wedi creu cyfrif!</string>
   <string name="preferences_privacy_settings_heading">Preifatrwydd</string>
@@ -245,7 +243,7 @@
   <string name="article_menu_bar_bookmark">Ychwanegwch yr erthygl hon i\'ch rhestr ddarllen</string>
   <string name="article_menu_bar_share">Rhannwch ddolen yr erthygl hon</string>
   <string name="article_header_edit_hint">Golygu...</string>
-  <string name="article_header_edit_description">Golygu disgrifiad y teitl</string>
+  <string name="article_header_edit_description" fuzzy="true">Golygu disgrifiad y teitl</string>
   <string name="article_header_edit_lead_section">Golygu\'r rhan gyntaf</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Golau</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Dbrant
 * Dr Lotus Black
 * Khunnaingko
 * Lionslayer
@@ -86,7 +87,6 @@
   <string name="langlinks_activity_title">အခြားဘာသာစကားများ</string>
   <string name="langlinks_your_wikipedia_languages">သင်၏ ဝီကီပီဒီးယား ဘာသာစကားများ</string>
   <string name="menu_save_changes">ပြောင်းလဲမှုများကို လွှင့်တင်ရန်</string>
-  <string name="dialog_saving_in_progress">လွှင့်တင်နေသည်...</string>
   <string name="edit_saved_successfully">တည်းဖြတ်မှု လွှင့်တင်ပြီး</string>
   <string name="dialog_message_edit_failed">တည်းဖြတ်မှု မအောင်မြင်!</string>
   <string name="dialog_message_edit_failed_retry">ပြန်လုပ်</string>
@@ -122,9 +122,15 @@
   <string name="reset_password_button">သိမ်းဆည်းပြီး အကောင့်ထဲဝင်ရန်</string>
   <string name="preference_title_logout">ထွက်ရန်</string>
   <string name="toast_logout_complete">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
-  <string name="logout_prompt" fuzzy="true">သင် ထွက်မည်ဆိုသည်မှာ သေချာပါသလား?</string>
+  <string name="logout_prompt">လက်ရှိဝင်ထားသောစက်ပစ္စည်းအားလုံးမှ ထွက်သွားမည်ဖြစ်ပါသည်။ သင် ဆက်လုပ်ချင်ပါသလား။</string>
+  <string name="logout_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="logged_out_in_background_title">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
+  <string name="logged_out_in_background_dialog">ဝီကီပီးဒီးယားမှ သင် လော့ဂ်အောက်ထွက်ခဲ့ပါသည်။ ထပ်မံ၍ လော့ဂ်အင်ဝင်လိုပါသလား။</string>
+  <string name="logged_out_in_background_login">အကောင့်ဝင်ရန်</string>
+  <string name="logged_out_in_background_cancel">မလုပ်တော့ပါ</string>
   <string name="history_empty_title">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
   <string name="history_empty_message">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
+  <string name="history_offline_articles_toast">အော့ဖ်လိုင်းဖြစ်နေချိန်တွင် ရာဇဝင်ထဲရှိ ဆောင်းပါးအချို့ကို ကြည့်ရှုမရဖြစ်နိုင်ပါသည်။</string>
   <string name="search_empty_message">အခမဲ့စွယ်စုံကျမ်းကို သင့်ဘာသာစကားဖြင့် ရှာဖွေဖတ်ရှုပါ။</string>
   <string name="search_empty_message_multilingual_upgrade">ဝီကီပီးဒီးယားကို အခြားဘာသာစကားများဖြင့် ရှာဖွေပါ</string>
   <string name="delete_selected_items">ရွေးချယ်ထားသော အကြောင်းအရာများကို ဖျက်ပါ</string>
@@ -155,7 +161,6 @@
   <string name="create_account_ip_block_details">အသေးစိတ်</string>
   <string name="preferences_general_heading">အထွေထွေ</string>
   <string name="wikipedia_app_faq">ဝီကီပီးဒီးယား App အမေးအဖြေကဏ္ဍ</string>
-  <string name="edit_preview_fetching_dialog_message">နမူနာအား ပြင်ဆင်နေသည်…</string>
   <string name="send_feedback">app အကြံပြုချက် ပို့ရန်</string>
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
   <string name="preferences_heading_syncing">တစ်ထပ်တည်းကျစေခြင်း</string>
@@ -194,6 +199,7 @@
   <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/my</string>
   <string name="about_libraries_heading">အသုံးပြုထားသော စာကြည့်တိုက်များ</string>
   <string name="about_contributors_heading">ဆောင်ရွက်ပေးထားသူများ</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
@@ -254,7 +260,7 @@
   <string name="preference_summary_show_images">စာမျက်နှာများရှိ ပုံများပေါ်စေရန် ခွင့်ပြု သို့ ပိတ်ပါ။ သင့်အင်တာနက် ဆက်သွယ်မှုသည် နှေးကွေးပါက သို့ သင့်ဒေတာအစီအစဉ်သည် ကန့်သတ်မှုရှိပါက ဤအပြင်အဆင်ကို ဖြုတ်ထားပါ။</string>
   <string name="preference_title_download_only_over_wifi">ဝိုင်ဖိုင်ပေါ်မှသာ ဒေါင်းလုဒ်ဆွဲရန်</string>
   <string name="dialog_title_download_only_over_wifi">မိုလ်ဘိုင်းဒေတာဖြင့် ဒေါင်းလုဒ်ဆွဲရန် အတည်ပြုပါသလား</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">သင်သည် အပြင်အဆင်များရှိ “ဝိုင်ဖိုင်ပေါ်မှသာ ဒေါင်းလုဒ်ဆွဲရန်” ကိုဖွင့်ထားသည်။ ဤဒေါင်းလုတ်တစ်ခုတည်းအတွက်သာ သင်၏ မိုလ်ဘိုင်းဒေတာအစီအစဉ်ကို ခွင့်ပြုပေးလိုပါသလား။</string>
+  <string name="dialog_text_download_only_over_wifi">သင်သည် အပြင်အဆင်များရှိ “ဝိုင်ဖိုင်ပေါ်မှသာ ဒေါင်းလုဒ်ဆွဲရန်” ကိုဖွင့်ထားသည်။ ဤဒေါင်းလုတ်တစ်ခုတည်းအတွက်သာ သင်၏ မိုလ်ဘိုင်းဒေတာအစီအစဉ်ကို ခွင့်ပြုပေးလိုပါသလား။</string>
   <string name="dialog_title_download_only_over_wifi_allow">ခွင့်ပြုရန်</string>
   <string name="read_more_section">ဆက်လက်ဖတ်ရှု</string>
   <string name="about_article_section">ဤဆောင်းပါးအကြောင်း</string>
@@ -287,6 +293,7 @@
   <string name="tool_tip_bookmark_icon_title">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="tool_tip_share">စိတ်ဝင်စားသည့် အချက်အား ဟိုက်လိုက်လုပ်ပြီးပါက သင်နှစ်သက်ရာ ကွန်ယက်တွင် မျှဝေလိုက်ပါ!</string>
   <string name="page_view_in_browser">စာမျက်နှာအား ဘရောက်ဇာတွင် ကြည့်ရန်</string>
+  <string name="tool_tip_toc_title">မြန်မြန်ရရှိနိုင်သော မာတိကာစာမျက်နှာ</string>
   <string name="tool_tip_lang_button">အခုဆိုလျင် သင်သည် ဤဆော့ဝဲလ်ရှိ များစွာသော ဝီကီပီးဒီးယား ဘာသာစကားများထဲတွင် ရှာဖွေ၊ ဖတ်ရှုနိုင်ပါသည်။</string>
   <string name="error_response_malformed">ဆာဗာမှ တုံ့ပြန်မှုအား မှန်ကန်စွာ ပုံစံချထားခြင်း မရှိ။</string>
   <string name="error_unknown">အကြောင်းရင်းမသိရှိရသော အမှားတစ်ခု ဖြစ်ပေါ်နေသည်။</string>
@@ -304,6 +311,8 @@
   <string name="error_no_maps_app">ဤလမ်းညွှန်ချက်အား ထောက်ပံ့ပေးနိုင်သည့် app များ ရှာမတွေ့ပါ။</string>
   <string name="preference_title_show_link_previews">နမူနာလင့်ခ်ပြရန်</string>
   <string name="preference_summary_show_link_previews">လင့်ခ်များအား နှိပ်ခြင်းဖြင့် ဆောင်းပါးနမူနာအား ပြသပါ။</string>
+  <string name="preference_title_collapse_tables">ဇယားများ ချဲ့ရန်</string>
+  <string name="preference_summary_collapse_tables">ဆောင်းပါးများရှိ infobox များ၊ အကိုးအကားများနှင့် မှတ်စုများကဲ့သို့သော ဇယားများကို အလိုအလျောက် ချဲ့ကားစေမည်</string>
   <string name="nav_item_donate">ဝီကီပီးဒီးယားကို ကူညီထောက်ပံ့</string>
   <string name="error_voice_search_not_available">စိတ်မကောင်းပါ။ အသံမှတ်သားခိုင်းစေခြင်း မရရှိနိုင်ပါ။</string>
   <string name="location_service_disabled">တည်နေရာဝန်ဆောင်မှုများ ပိတ်ထားသည်။</string>
@@ -332,7 +341,7 @@
   <string name="article_menu_bar_bookmark">ဤဆောင်းပါးအား စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="article_menu_bar_share">ဆောင်းပါးလင့်ခ်အား မျှဝေရန်</string>
   <string name="article_header_edit_hint">ပြင်ဆင်...</string>
-  <string name="article_header_edit_description">ခေါင်းစဉ်ဖော်ပြချက် တည်းဖြတ်ရန်</string>
+  <string name="article_header_edit_description">ဆောင်းပါးဖော်ပြချက်ကို တည်းဖြတ်ရန်</string>
   <string name="article_header_edit_lead_section">မိတ်ဆက် တည်းဖြတ်ရန်</string>
   <string name="color_theme_select">Theme</string>
   <string name="color_theme_light">အလင်း</string>
@@ -376,6 +385,7 @@
   <string name="reading_list_description_hint">ဖော်ပြချက် (မထည့်လည်းရသည်)</string>
   <string name="reading_list_item_deleted">%s ကို စာရင်းမှ ဖယ်ရှားပြီး</string>
   <string name="reading_list_items_deleted">ဆောင်းပါး %d ခုကို စာရင်းမှ ဖယ်ရှားခဲ့။</string>
+  <string name="reading_lists_item_deleted">စာရင်းများမှ %s ကို ဖယ်ရှားပြီး</string>
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>
   <string name="saved_list_empty_title">စာဖတ်စာရင်း မရှိ။</string>
@@ -392,6 +402,7 @@
   <string name="reading_list_add_to_other_list">အခြားသော ဖတ်ရှုမည့်စာရင်းတွင် ထည့်သွင်းရန်။</string>
   <string name="reading_list_remove_from_list">%s မှ ဖယ်ထုတ်ရန်။</string>
   <string name="reading_list_remove_from_lists">ဖတ်ရှုစာရင်းမှ ဖယ်ထုတ်ရန်</string>
+  <string name="reading_list_select_item">ရွေးချယ်</string>
   <string name="reading_list_confirm_remove_article_from_offline">အော့ဖ်လိုင်းမှ ဖယ်ထုတ်ရန်။</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">ဆောင်းပါးသည် စာရင်းများစွာ၌ ပေါ်နေသည်</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s သည် စာဖတ်စာရင်းများအားလုံးအတွက် အော့ဖ်လိုင်းတွင် ရရှိနိုင်တော့မည်မဟုတ်ပါ:</string>
@@ -450,6 +461,13 @@
     <item quantity="other">ဆောင်းပါးများသည် အင်တာနက်မရှိဘဲ အသုံးပြုနိုင်တော့မှာမဟုတ်ပါ။</item>
   </plurals>
   <string name="reading_list_toast_last_sync">စာဖတ်စာရင်းများ အောင်မြင်စွာ sync လုပ်ပြီးပြီ</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">အိုကေ</string>
+  <string name="reading_list_delete_dialog_ok_button_text">အိုကေ</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="reading_list_split_dialog_ok_button_text">အိုကေ</string>
   <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
   <string name="notification_reverted_title">တည်းဖြတ်မှု နောက်ပြန်ပြင်ခဲ့ခြင်း</string>
   <string name="notification_channel_description">ဒေါင်းလုဒ် တိုးတက်လာမှု</string>
@@ -499,6 +517,7 @@
   <string name="notifications_empty_message">အသိပေးချက်များအားလုံးကို သင် ကြည့်ပြီးပါပြီ</string>
   <string name="notifications_view_archived_button_text">မော်ကွန်း အသိပေးချက်များကို ကြည့်ရန်</string>
   <string name="notification_preferences_title">အသိပေးချက် ရွေးချယ်စရာများ</string>
+  <string name="notifications_mark_unread">မဖတ်ရသေးကြောင်း မှတ်သားရန်</string>
   <string name="preference_title_notification_poll">အသိပေးချက်များကို မဲဆန္ဒပေးရန်</string>
   <string name="preference_summary_notification_poll">နောက်ခံမှ အသိပေးချက်အသစ်များကို စစ်ဆေးရန် ဒေတာသုံးစွဲခွင့်ကို app အား ခွင့်ပြုမည်။</string>
   <string name="preference_category_notification_types">app ထဲရှိ အသိပေးချက် အမျိူးအစားများ</string>
@@ -509,6 +528,7 @@
   <string name="preference_title_notification_thanks">ကျေးဇူးတင်ပါသည်</string>
   <string name="preference_summary_notification_thanks">တည်းဖြတ်မှုတစ်ခုအတွက် တစ်စုံတစ်ယောက်က သင့်ကိုကျေးဇူးတင်သည်</string>
   <string name="preference_title_notification_revert">ပြန်ပြောင်းရန်</string>
+  <string name="preference_summary_notification_revert">သင်၏ပံ့ပိုးမှုတစ်ခုမှာ နောက်ပြန်ပြင်ခြင်း ခံရသည်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
   <string name="view_random_card_subtitle">ဝီကီပီးဒီးယားမှ ကျပန်းဆောင်းပါးတစ်ပုဒ်အား ဖတ်ရန် လှည့်ယမ်းပါ</string>
@@ -554,56 +574,107 @@
   <string name="feed_item_type_featured_image">ဝီကီကွန်မွန်းမှ ယနေ့အထူးဓါတ်ပုံ</string>
   <string name="feed_item_type_main_page">နေ့စဉ် အထူးအကြောင်းအရာနှင့် ဝီကီပီးဒီးယား၏ ဗဟိုစာမျက်နှာ</string>
   <string name="feed_item_type_randomizer">ဖတ်ရှုရန် ကျပန်းဆောင်းပါးများကို ထုတ်မည်</string>
+  <string name="feed_item_type_suggested_edits">ဝီကီပီးဒီးယားသို့ အကြောင်းအရာပေါင်းထည့်ရန် အကြံပြုချက်များ</string>
   <string name="feed_empty_message">သင်၏ စူးစမ်းရေးအခင်းအကျင်းတွင် ဘာမျှမရှိပါ</string>
   <string name="feed_configure_onboarding_action">စိတ်ကြိုက်ပြင်ဆင်ရန်</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">အိုကေ</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;သင်၏အခင်းအကျင်းအား စိတ်ကြိုက်ပြင်ဆင်ရန်&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;အခုဆိုလျင် သင်၏အခင်းအကျင်းတွင် မည်သည့်အရာများကို ပြသပေးမည်၊ သင်နှစ်သက်သည့် အကြောင်းအရာအမျိုးအစားများကို ဦးစားပေးဖော်ပြမည်ဆိုသည်ကို ရွေးချယ်နိုင်ပါပြီ။</string>
-  <string name="description_edit_text_hint">ခေါင်းစဉ် ဖော်ပြချက်</string>
-  <string name="description_edit_text_hint_per_language">%s ဖော်ပြချက်</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">အိုကေ</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
+  <string name="description_edit_article_description_label_per_language">ဆောင်းပါး (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">ဆောင်းပါး ဖော်ပြချက် (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">ရုပ်ပုံ ဖော်ပြချက် (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">ရုပ်ပုံ ပုံစာများ (%s)</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
-  <string name="description_edit_article">ဆောင်းပါး</string>
   <string name="description_edit_read">ဖတ်ရန်</string>
-  <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
-  <string name="description_edit_add_description_v2">ဖော်ပြချက်ထည့်သွင်းပါ</string>
-  <string name="description_edit_translate_description">ခေါင်းစဉ်ဖော်ပြချက်ကို ဘာသာပြန်ရန်</string>
-  <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
+  <string name="description_edit_add_description">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
+  <string name="description_edit_translate_description">ဆောင်းပါးဖော်ပြချက်ကို ဘာသာပြန်ရန်</string>
+  <string name="description_edit_edit_description">ဆောင်းပါးဖော်ပြချက် ပြင်ဆင်ရန်</string>
+  <string name="description_edit_add_image_caption">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
+  <string name="description_edit_edit_image_caption">ရုပ်ပုံ ပုံစာ ပြင်ဆင်ရန်</string>
+  <string name="description_edit_translate_image_caption">ရုပ်ပုံ ပုံစာကို ဘာသာပြန်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့ပါ</string>
-  <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>
+  <string name="description_edit_help_title">အကူအညီ:ဆောင်းပါး ဖော်ပြချက်များ</string>
   <string name="description_edit_help_about_wikidata">ဝီကီဒေတာအကြောင်း</string>
   <string name="description_edit_help_wikidata_guide">ဖော်ပြချက်များ ရေးသားရန်အတွက် ဝီကီဒေတာ လမ်းညွှန်</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ဖော်ပြချက်တည်းဖြတ်မှုကို ဆက်တိုက်စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်၊ ထပ်တိုးတည်းဖြတ်မှုများ လုပ်ဆောင်ရန် ကျေးဇူးပြု၍ ဝီကီပီးဒီးယားအကောင့်ထဲသို့ ဝင်ရောက်ပါ။</string>
-  <string name="description_edit_license_notice">ခေါင်းစဉ်ဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
-  <string name="description_edit_success_saved">ဖော်ပြချက် လွှင့်တင်ပြီး!</string>
-  <string name="description_edit_success_saved_snackbar">ဖော်ပြချက် လွှင့်တင်ပြီး!</string>
+  <string name="description_edit_license_notice">ဆောင်းပါးဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
+  <string name="description_edit_success_saved">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
+  <string name="description_edit_success_saved_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">ရုပ်ပုံ ပုံစာ လွှင့်တင်ပြီးပြီ</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ရုပ်ပုံ ပုံစာ လွှင့်တင်ပြီးပြီ (%s)</string>
   <string name="description_edit_success_encouragement">အားလုံးအတွက် ဝီကီပီးဒီးယားအား ပိုကောင်းရန် သင်လုပ်ဆောင်ခဲ့ပြီ</string>
   <string name="description_edit_success_done">ပြီးပြီ</string>
   <string name="description_edit_success_did_you_know">သင်သိပါသလား?</string>
   <string name="description_edit_success_article_edit_hint">ဤ app ဖြင့် ဆောင်းပါးများကို တည်းဖြတ်နိုင်ပါသည်။ စာလုံးပေါင်းအမှားများနှင့် စာကြောင်းတိုများအား ^1 နှိပ်ခြင်းဖြင့် ပြင်ဆင်ကြည့်ပါ။</string>
-  <string name="description_edit_tutorial_title_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များ</string>
+  <string name="description_edit_tutorial_title_descriptions">ဆောင်းပါးဖော်ပြချက်များ</string>
   <string name="description_edit_tutorial_title_descriptions_summary">အကြောင်းအရာအား တစ်ချက်တည်း နားလည်နိုင်စေရန် အတိုချုံးထားခြင်း</string>
   <string name="description_edit_tutorial_keep_it_short">တိုတောင်းပါစေ</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
-  <string name="suggested_edits_add_descriptions">ခေါင်းစဉ်ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="suggested_edits_translate_descriptions">ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
-  <string name="suggested_edits_review_description">ခေါင်းစဉ်ဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
+  <string name="suggested_edits_add_descriptions">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="suggested_edits_translate_descriptions">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_add_image_captions">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_translate_image_captions">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
+  <string name="suggested_edits_edit_description_button">ဖော်ပြချက် တည်းဖြတ်ရန်</string>
+  <string name="suggested_edits_add_translation_button">ဘာသာပြန် ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_edit_translation_button">ဘာသာပြန်ကို ပြင်ဆင်ရန်</string>
+  <string name="suggested_edits_add_caption_button">ပုံစာ ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_edit_caption_button">ပုံစာ ပြင်ဆင်ရန်</string>
+  <string name="suggested_edits_review_image_caption">ရုပ်ပုံ ပုံစာ ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_my_contributions">ပံ့ပိုးထားမှုများ</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">နောက်ကြုံမှ</string>
+  <string name="suggested_edits_no_description">ဤဖိုင်တွင် ဖော်ပြချက် မရှိပါ</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">သင်၏ပံ့ပိုးမှုများအားလုံးအတွက် ကျေးဇူးတင်ပါသည်။ သင်သည် တည်းဖြတ်ရာတွင် အရမ်းကောင်းမွန်သည့်အတွက် ဆောင်းပါးဖော်ပြချက်ပျောက်နေသောစာရင်းကို ပြုစုထားပေးပါသည်။ ဝီကီပီးဒီးယား တိုးတက်ရေးအတွက် ကူညီပေးမည်လော။</string>
+  <string name="suggested_edits_unlock_dialog_no">နောက်ကြုံမှ</string>
+  <string name="suggested_edits_unlock_dialog_yes">ဟုတ်ကဲ့၊ သွားရအောင်</string>
   <string name="suggested_edits_unlock_notification_text">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="suggested_edits_unlock_notification_button">ဟုတ်ကဲ့၊ သွားရအောင်</string>
   <string name="suggested_edits_menu_info">အချက်အလက်</string>
-  <string name="suggested_edits_task_add_description_title">ဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
+  <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_task_add_description_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
-  <string name="suggested_edits_task_translation_title">ဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_task_translation_title">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_task_translation_description">ဆောင်းပါးဘာသာစကားများအနှံ့ ဖော်ပြချက်များကို ဘာသာပြန်ဆိုပါ</string>
+  <string name="suggested_edits_task_image_caption_title">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_task_image_caption_description">ရုပ်ပုံများသို့ လိုအပ်နေသောပုံစာများ ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_task_translate_caption_title">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_task_translate_caption_description">ပုံစာများကို အခြားဘာသာသို့ ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_task_multilingual_description">သင်သည် ဘာသာစကားတစ်ခုထက် ဖတ်ရှု၊ ရေးသားသူဆိုပါက ဘာသာပြန်လုပ်ငန်းများကို ရရှိနိုင်ပါသည်။</string>
   <string name="suggested_edits_task_multilingual_negative">မိမိအတွက် မဟုတ်ပါ</string>
   <string name="suggested_edits_task_multilingual_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">အနုပညာရှင်</string>
+  <string name="suggested_edits_image_caption_summary_title_author">စာရေးသူ</string>
+  <string name="suggested_edits_image_caption_summary_title_source">ရင်းမြစ်</string>
+  <string name="suggested_edits_image_caption_summary_title_license">လိုင်စင်</string>
+  <string name="suggested_edits_image_caption_summary_title_date">နေ့စွဲ</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 ပံ့ပိုးမှု</item>
+    <item quantity="other">%d ပံ့ပိုးမှုများ</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
+  <string name="suggested_edits_image_preview_dialog_artist">အနုပညာရှင်</string>
+  <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>
+  <string name="suggested_edits_image_preview_dialog_source">ရင်းမြစ်/ဓါတ်ပုံဆရာ</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">လိုင်စင်သတ်မှတ်ခြင်း</string>
+  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">အချက်အလက် ပို၍</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">ဝီကီပီးဒီးယား ကွန်မွန်းစ်ရှိ ဖိုင်စာမျက်နှာ</string>
+  <string name="suggested_edits_feed_card_add_image_caption">ပုံစာ ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>
   <string name="description_edit_revert_reason1">သင်၏ပံပိုးမှုသည် &lt;a href=\"%1$s\"&gt;လမ်းညွှန်များ&lt;/a&gt;များထဲကတစ်ခုနှင့် မကိုက်ညီပါ။</string>
   <string name="description_edit_revert_reason2">သင်၏ပံ့ပိုးမှုသည် စမ်းသပ်ချက် သို့မဟုတ် လက်သရမ်းမှုတစ်ခုကဲ့သို့ ဖြစ်နေသည်။</string>
   <string name="description_edit_revert_history">အကယ်၍ စိတ်ဝင်စားပါက the &lt;a href=\"%1$s\"&gt;တည်းဖြတ်မှု ရာဇဝင်&lt;/a&gt;ကိုကြည့်ပါ။</string>
+  <string name="description_edit_login_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="offline_read_permission_rationale">အော့ဖ်လိုင်းဖြင့် မွေနှောက်ရှာဖွေခြင်းကို အသုံးပြုရန် သင့်စက်ပစ္စည်းပေါ်ရှိ သိုလှောင်ခန်းအား ဝင်ရောက်ခွင့်လိုအပ်ပါသည်။</string>
   <string name="offline_read_final_rationale">အော့ဖ်လိုင်းစာကြည့်တိုက်ကို အသုံးပြုရန် သင့်စက်ပစ္စည်းပေါ်ရှိ သိုလှောင်ခန်းအား ဝင်ရောက်ခွင့်လိုအပ်ပါသည်။</string>
   <string name="size_gb">%.2f GB</string>
@@ -625,7 +696,7 @@
   <string name="onboarding_got_it">ရပြီဟေ့</string>
   <string name="onboarding_multilingual_secondary_text">သင်၏စက်ပစ္စည်းပေါ်တွင် အောက်ပါများကို တွေ့ရှိပါသည်:</string>
   <string name="onboarding_multilingual_add_language_text">ဘာသာစကားများ ပေါင်းထည့်/တည်းဖြတ်</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">ဘာသာစကားပေါင်း ၃၀၀ နီးပါးခန့်ဖြင့် အခမဲ့လွတ်လပ်စွယ်စုံကျမ်း</string>
+  <string name="onboarding_welcome_title_v2">ဘာသာစကားပေါင်း ၃၀၀ ကျော်ခန့်ဖြင့် အခမဲ့လွတ်လပ်စွယ်စုံကျမ်း</string>
   <string name="app_shortcuts_random">ကျပန်း</string>
   <string name="app_shortcuts_continue_reading">ဆက်လက် ဖတ်ရှုရန်</string>
   <string name="app_shortcuts_search">ရှာဖွေရန်</string>
@@ -659,6 +730,14 @@
   <string name="add_wikipedia_languages_text">ဝီကီပီဒီးယား ဘာသာစကားများ ပေါင်းထည့်ရန်</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ဘာသာစကားများ တည်းဖြတ်ရန်</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
+  <string name="remove_language_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="remove_language_dialog_ok_button_text">အိုကေ</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">အိုကေ</string>
+  <string name="protected_page_warning_dialog_ok_button_text">အိုကေ</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">အိုကေ</string>
+  <string name="edit_conflict_dialog_ok_button_text">အိုကေ</string>
+  <string name="reverted_edit_dialog_ok_button_text">အိုကေ</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="wikitext_bold">အထူ</string>
   <string name="wikitext_italic">အစောင်း</string>
   <string name="wikitext_link">လင့်</string>
@@ -669,4 +748,8 @@
   <string name="main_drawer_close">ပိတ်ရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
+  <string name="custom_date_picker_dialog_ok_button_text">အိုကေ</string>
+  <string name="text_input_dialog_ok_button_text">အိုကေ</string>
+  <string name="text_input_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
 </resources>

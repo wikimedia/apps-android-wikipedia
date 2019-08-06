@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.SwipeRefreshLayoutWithScroll
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.SwipeRefreshLayoutWithScroll xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,59 +10,61 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-            <org.wikipedia.views.ObservableWebView
-                android:id="@+id/page_web_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none" />
+        <org.wikipedia.views.ObservableWebView
+            android:id="@+id/page_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-            <org.wikipedia.page.leadimages.PageHeaderView
-                android:id="@+id/page_header_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <org.wikipedia.page.leadimages.PageHeaderView
+            android:id="@+id/page_header_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
-            <org.wikipedia.page.bottomcontent.BottomContentView
-                android:id="@+id/page_bottom_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="-368dp"
-                android:layout_marginBottom="@dimen/bottom_toolbar_height"/>
 
-            <org.wikipedia.views.WikiPageErrorView
-                android:id="@+id/page_error"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="?android:windowBackground"
-                android:visibility="gone"/>
+        <org.wikipedia.page.bottomcontent.BottomContentView
+            android:id="@+id/page_bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="-368dp"
+            android:layout_marginBottom="@dimen/bottom_toolbar_height"
+            android:orientation="vertical" />
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:id="@+id/fragment_page_coordinator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="@dimen/bottom_toolbar_height" />
+        <org.wikipedia.views.WikiPageErrorView
+            android:id="@+id/page_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="?android:windowBackground"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:orientation="vertical">
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?attr/chip_background_color"/>
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/fragment_page_coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/bottom_toolbar_height" />
 
-                <org.wikipedia.page.PageActionTabLayout
-                    android:id="@+id/page_actions_tab_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/bottom_toolbar_height"
-                    android:background="?attr/paper_color" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/chip_background_color" />
+
+            <org.wikipedia.page.PageActionTabLayout
+                android:id="@+id/page_actions_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottom_toolbar_height"
+                android:background="?attr/paper_color" />
+        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

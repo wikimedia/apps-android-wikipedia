@@ -73,13 +73,13 @@
         <item name="toc_scroller_button_color">@color/base18</item>
         <item name="button_background_color">@color/base14</item>
         <item name="tab_placeholder_text_color">@color/base10</item>
-        <item name="thumbnail_image_placeholder">@drawable/ic_image_gray_dark_24dp</item>
         <item name="chip_background_color">@color/base20</item>
         <item name="chip_text_color">@color/base80</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
         <item name="suggestions_background_color">@color/base12</item>
+        <item name="color_group_52">@color/accent75</item>
 
     </style>
 

@@ -3,6 +3,8 @@ package org.wikipedia.dataclient;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.JsonElement;
+
 import org.wikipedia.captcha.Captcha;
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
@@ -36,7 +38,7 @@ public interface Service {
     String WIKIPEDIA_URL = "https://wikipedia.org/";
     String WIKIDATA_URL = "https://www.wikidata.org/";
     String COMMONS_URL = "https://commons.wikimedia.org/";
-    String META_URL = "https://meta.wikimedia.org/";
+    String URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/";
 
     String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=plaintext&";
 
@@ -158,8 +160,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description")
     @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=extmetadata")
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
+
+    @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getMediaInfo(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname")
     @NonNull Observable<SiteMatrix> getSiteMatrix();
@@ -173,7 +178,7 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=50"
-            + "&prop=description|imageinfo&iiprop=timestamp|user|url&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+            + "&prop=description|imageinfo&iiprop=timestamp|user|url|mime&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
 
     @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
@@ -208,7 +213,7 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @NonNull Call<MwQueryResponse> getLoginToken();
+    @NonNull Call<JsonElement> getLoginToken();
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
@@ -311,6 +316,10 @@ public interface Service {
 
 
     // ------- Wikidata -------
+
+    @GET(MW_API_PREFIX + "action=wbgetentities")
+    @NonNull Observable<Entities> getEntitiesByTitle(@Query("titles") @NonNull String titles,
+                                                     @Query("sites") @NonNull String sites);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=labels&languagefallback=1")
     @NonNull Call<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
