@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
@@ -239,6 +240,7 @@ public class SavedPageSyncService extends JobIntentService {
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<MediaList> mediaCall = reqPageMedia(pageTitle);
+        final Set<String> mediaUrls = new HashSet<>();
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
@@ -250,7 +252,7 @@ public class SavedPageSyncService extends JobIntentService {
             page.downloadProgress(SECTIONS_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             totalSize += responseSize(sectionsRsp);
-            Set<String> mediaUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
+            mediaUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
             mediaUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
 
             if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
@@ -266,16 +268,22 @@ public class SavedPageSyncService extends JobIntentService {
 
             pageSize[0] = totalSize;
 
-            return mediaUrls;
-        }).flatMap(urls -> {
+            return mediaList;
+        })
+        .flatMapIterable(mediaList -> mediaList.getItems("image", "video"))
+        .flatMap(mediaListItem -> reqMediaInfo(pageTitle, mediaListItem.getTitle()))
+        .flatMap(response -> {
+            // no need to use the responses since we only need them to be loaded.
             if (Prefs.isImageDownloadEnabled()) {
-                return Observable.fromCallable(() -> reqSaveMedia(page, urls));
+                return Observable.fromCallable(() -> reqSaveMedia(page, mediaUrls));
             } else {
                 return Observable.just(0L);
             }
-        }).subscribeOn(Schedulers.io())
-                .blockingSubscribe(size -> pageSize[0] += size,
-                        t -> exception[0] = (Exception) t);
+        })
+        .subscribeOn(Schedulers.io())
+        .blockingSubscribe(size -> pageSize[0] += size,
+                t -> exception[0] = (Exception) t);
+
         if (exception[0] != null) {
             throw exception[0];
         }
@@ -302,6 +310,10 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull private Observable<MediaList> reqPageMedia(@NonNull PageTitle pageTitle) {
         // TODO: check if it needs extra CacheControl or header for the request
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText());
+    }
+
+    @NonNull private Observable<MwQueryResponse> reqMediaInfo(@NonNull PageTitle pageTitle, String title) {
+        return ServiceFactory.get(pageTitle.getWikiSite()).getMediaInfo(title);
     }
 
     private long reqSaveMedia(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
