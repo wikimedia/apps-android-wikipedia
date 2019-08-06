@@ -374,7 +374,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
-        pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab());
+        pageFragmentLoadState.setUp(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
 
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
@@ -425,9 +425,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 if (!isAdded()) {
                     return;
                 }
-                bridge.onPageFinished();
+                pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 bridge.execute(JavaScriptActionHandler.setUp());
+
+                onPageLoadComplete();
             }
         });
     }
@@ -789,6 +791,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void onPageLoadComplete() {
         refreshView.setEnabled(true);
+        refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
 
         setupToC(model, pageFragmentLoadState.isFirstPage());

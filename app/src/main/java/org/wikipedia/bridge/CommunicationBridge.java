@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
@@ -92,9 +93,8 @@ public class CommunicationBridge {
         }
     }
 
-    @Deprecated
-    public void sendMessage(String messageName, JSONObject messageData) {
-        // TODO: remove/convert all remaining places where we call this method.
+    public void evaluate(@NonNull String js, ValueCallback<String> callback) {
+        webView.evaluateJavascript(js, callback);
     }
 
     private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;

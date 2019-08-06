@@ -25,7 +25,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
 import java.text.ParseException;
 
@@ -68,7 +67,6 @@ public class PageFragmentLoadState {
     private PageFragment fragment;
     private CommunicationBridge bridge;
     private ObservableWebView webView;
-    private SwipeRefreshLayoutWithScroll refreshView;
     private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
     private EditHandler editHandler;
@@ -77,14 +75,12 @@ public class PageFragmentLoadState {
     @SuppressWarnings("checkstyle:parameternumber")
     public void setUp(@NonNull PageViewModel model,
                       @NonNull PageFragment fragment,
-                      @NonNull SwipeRefreshLayoutWithScroll refreshView,
                       @NonNull ObservableWebView webView,
                       @NonNull CommunicationBridge bridge,
                       @NonNull LeadImagesHandler leadImagesHandler,
                       @NonNull Tab tab) {
         this.model = model;
         this.fragment = fragment;
-        this.refreshView = refreshView;
         this.webView = webView;
         this.bridge = bridge;
         this.leadImagesHandler = leadImagesHandler;
@@ -121,6 +117,11 @@ public class PageFragmentLoadState {
 
     public boolean isLoading() {
         return loading;
+    }
+
+    public void onPageFinished() {
+        bridge.onPageFinished();
+        loading = false;
     }
 
     public void loadFromBackStack() {
