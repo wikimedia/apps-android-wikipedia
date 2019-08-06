@@ -28,6 +28,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
@@ -219,7 +220,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         if (fragment.isLoading()) {
             return;
         }
-        bridge.evaluate("pagelib.c1.Sections.getOffsets(document.body);", sectionOffsetsCallback);
+        bridge.evaluate(JavaScriptActionHandler.getOffsets(), sectionOffsetsCallback);
     }
 
     @Override
