@@ -78,7 +78,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             return;
         }
         if (messageType.equals("edit_section")) {
-            int sectionId = messagePayload.optInt("sectionID");
+            int sectionId = messagePayload.optInt("sectionId");
             if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(currentPage)) {
                 View tempView = new View(fragment.requireContext());
                 tempView.setX(fragment.getWebView().getTouchStartX());
