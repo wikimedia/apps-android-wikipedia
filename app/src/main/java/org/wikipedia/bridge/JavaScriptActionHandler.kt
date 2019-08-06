@@ -14,7 +14,7 @@ import org.wikipedia.util.L10nUtil.formatDateRelative
 object JavaScriptActionHandler {
     @JvmStatic
     fun setHandler(): String {
-        return ("pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})")
+        return "pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})"
     }
 
     @JvmStatic
@@ -28,8 +28,13 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun getTextSelection(): String {
+        return "pagelib.c1.InteractionHandling.getSelectionInfo()"
+    }
+
+    @JvmStatic
     fun getOffsets(): String {
-        return String.format("pagelib.c1.Sections.getOffsets(document.body);")
+        return "pagelib.c1.Sections.getOffsets(document.body);"
     }
 
     @JvmStatic

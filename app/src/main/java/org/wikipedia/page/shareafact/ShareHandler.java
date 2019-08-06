@@ -13,12 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.gallery.ImageLicense;
@@ -72,29 +74,6 @@ public class ShareHandler {
     public ShareHandler(@NonNull PageFragment fragment, @NonNull CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
-
-        bridge.addListener("onGetTextSelection", (String messageType, JSONObject messagePayload) -> {
-            leaveActionMode();
-            String purpose = messagePayload.optString(PAYLOAD_PURPOSE_KEY, "");
-            String text = messagePayload.optString(PAYLOAD_TEXT_KEY, "");
-            switch (purpose) {
-                case PAYLOAD_PURPOSE_SHARE:
-                    if (funnel == null) {
-                        createFunnel();
-                    }
-                    shareSnippet(text);
-                    funnel.logShareTap(text);
-                    break;
-                case PAYLOAD_PURPOSE_DEFINE:
-                    showWiktionaryDefinition(text.toLowerCase(Locale.getDefault()));
-                    break;
-                case PAYLOAD_PURPOSE_EDIT_HERE:
-                    onEditHerePayload(messagePayload.optInt("sectionID", 0), text, messagePayload.optBoolean("editDescription", false));
-                    break;
-                default:
-                    L.d("Unknown purpose=" + purpose);
-            }
-        });
     }
 
     public void dispose() {
@@ -237,7 +216,36 @@ public class ShareHandler {
         public boolean onMenuItemClick(MenuItem item) {
             // send an event to the WebView that will make it return the
             // selected text (or first paragraph) back to us...
-            //Todo: mobile-html: add bridge communication
+            bridge.evaluate(JavaScriptActionHandler.getTextSelection(), value -> {
+                leaveActionMode();
+                JSONObject messagePayload;
+
+                try {
+                    messagePayload = new JSONObject(value);
+                    String text = messagePayload.optString(PAYLOAD_TEXT_KEY, "");
+                    switch (purpose) {
+                        case PAYLOAD_PURPOSE_SHARE:
+                            if (funnel == null) {
+                                createFunnel();
+                            }
+                            shareSnippet(text);
+                            funnel.logShareTap(text);
+                            break;
+                        case PAYLOAD_PURPOSE_DEFINE:
+                            showWiktionaryDefinition(text.toLowerCase(Locale.getDefault()));
+                            break;
+                        case PAYLOAD_PURPOSE_EDIT_HERE:
+                            onEditHerePayload(messagePayload.optInt("section", 0), text, messagePayload.optBoolean("isTitleDescription", false));
+                            break;
+                        default:
+                            L.d("Unknown purpose=" + purpose);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            });
+
             return true;
         }
     }
