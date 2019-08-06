@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ValueCallback;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -22,6 +23,7 @@ import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
@@ -77,6 +79,23 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private boolean showOnboading;
     private int currentItemSelected;
 
+    private ValueCallback<String> sectionOffsetsCallback = new ValueCallback<String>() {
+        @Override
+        public void onReceiveValue(String value) {
+            try {
+                JSONArray sections = new JSONObject(value).getJSONArray("sections");
+                for (int i = 0; i < sections.length(); i++) {
+                    adapter.setYOffset(sections.getJSONObject(i).getInt("id"),
+                            sections.getJSONObject(i).getInt("yOffset"));
+                }
+                // artificially add height for bottom About section
+                adapter.setYOffset(ABOUT_SECTION_ID, webView.getContentHeight());
+            } catch (JSONException e) {
+                // ignore
+            }
+        }
+    };
+
     ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
@@ -100,20 +119,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         webView.addOnScrollChangeListener(this);
         webView.addOnContentHeightChangedListener(this);
         webView.setOnEdgeSwipeListener(this);
-
-        bridge.addListener("sectionDataResponse", (messageType, messagePayload) -> {
-            try {
-                JSONArray sections = messagePayload.getJSONArray("sections");
-                for (int i = 0; i < sections.length(); i++) {
-                    adapter.setYOffset(sections.getJSONObject(i).getInt("id"),
-                            sections.getJSONObject(i).getInt("yOffset"));
-                }
-                // artificially add height for bottom About section
-                adapter.setYOffset(ABOUT_SECTION_ID, webView.getContentHeight());
-            } catch (JSONException e) {
-                // ignore
-            }
-        });
 
         scrollerView.setCallback(new ScrollerCallback());
         setScrollerPosition();
@@ -145,12 +150,26 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         }
     }
 
-    void scrollToSection(String sectionAnchor) {
-        //Todo: mobile-html: add bridge communication
+    void scrollToSection(@NonNull String sectionAnchor) {
+        for (Section section : adapter.sections) {
+            if (section.getAnchor().equals(sectionAnchor)) {
+                scrollToSection(section);
+                break;
+            }
+        }
     }
 
-    private void scrollToSection(Section section) {
-        //Todo: mobile-html: add bridge communication
+    private void scrollToSection(@Nullable Section section) {
+        if (section == null) {
+            return;
+        }
+        if (section.getId() == ABOUT_SECTION_ID) {
+            webView.setScrollY(webView.getContentHeight());
+        } else {
+            final int topScrollExtra = 64;
+            int offset = DimenUtil.roundedDpToPx(adapter.getYOffset(section.getId()) - topScrollExtra);
+            webView.setScrollY(section.getId() == 0 ? 0 : offset);
+        }
     }
 
     public void show() {
@@ -197,7 +216,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     @Override
     public void onContentHeightChanged(int contentHeight) {
-        //Todo: mobile-html: add bridge communication
+        if (fragment.isLoading()) {
+            return;
+        }
+        bridge.evaluate("pagelib.c1.Sections.getOffsets(document.body);", sectionOffsetsCallback);
     }
 
     @Override
