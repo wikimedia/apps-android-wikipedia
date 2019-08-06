@@ -18,13 +18,18 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setMargin( top: Int, right: Int, bottom: Int, left: Int): String {
+    fun setMargin(top: Int, right: Int, bottom: Int, left: Int): String {
         return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top, right, bottom, left)
     }
 
     @JvmStatic
     fun setScrollTop(top: Int): String {
         return String.format("pagelib.c1.Page.setScrollTop(%d)", top)
+    }
+
+    @JvmStatic
+    fun getOffsets(): String {
+        return String.format("pagelib.c1.Sections.getOffsets(document.body);")
     }
 
     @JvmStatic
