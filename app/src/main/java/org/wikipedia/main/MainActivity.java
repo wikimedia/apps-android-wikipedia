@@ -40,15 +40,12 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -76,9 +73,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         WikipediaApp.getInstance().checkCrashes(this);
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
-
-        Completable.fromAction(() -> AppShortcuts.setShortcuts(getApplicationContext()))
-                .subscribeOn(Schedulers.newThread()).subscribe(() -> { }, L::e);
+        AppShortcuts.setShortcuts(this);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
@@ -314,7 +309,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
 
-            startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.Companion.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
+            startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
                     : SuggestedEditsTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY));
 
             closeMainDrawer();

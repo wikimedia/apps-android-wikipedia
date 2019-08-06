@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* COMISSIONTOPOC
 * Cedric31
 * Envlh
 * Guilhelma
@@ -53,7 +54,6 @@
   <string name="langlinks_no_match" fuzzy="true">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
   <string name="langlinks_activity_title">Autras lengas</string>
   <string name="menu_save_changes">Publicar las modificacions</string>
-  <string name="dialog_saving_in_progress">Publicacion en cors…</string>
   <string name="edit_saved_successfully">Modificacion publicada !</string>
   <string name="dialog_message_edit_failed">Fracàs de l’enregistrament !</string>
   <string name="dialog_message_edit_failed_retry">Ensajar tornarmai</string>
@@ -96,7 +96,6 @@
   <string name="create_account_button">Crear un compte</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">FAQ de las aplicacions Wikipèdia</string>
-  <string name="edit_preview_fetching_dialog_message">Recèrca d’un apercebut…</string>
   <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>
   <string name="create_account_account_created_toast">Compte creat !</string>
   <string name="preferences_privacy_settings_heading">Confidencialitat</string>
@@ -272,4 +271,5 @@
   <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descripcions del títol</string>
   <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Monstrar</string>
 </resources>

@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     android:background="?attr/paper_color">
 
-    <ProgressBar
-        android:id="@+id/edit_section_load_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:indeterminate="true" />
-
     <FrameLayout
         android:id="@+id/edit_section_container"
         android:layout_width="match_parent"
@@ -145,4 +138,15 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
+    <ProgressBar
+        android:id="@+id/view_progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="?attr/colorAccent"
+        android:progressBackgroundTint="@color/accent30"
+        android:visibility="gone"
+        android:layout_marginTop="-6dp"
+        tools:visibility="visible" />
 </FrameLayout>

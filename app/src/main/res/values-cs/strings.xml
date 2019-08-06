@@ -16,6 +16,7 @@
 * Mimichal007
 * Mormegil
 * Patriccck
+* Tereza
 * Vojtěch Dostál
 * Walter Klosse
 -->
@@ -93,7 +94,6 @@
   <string name="langlinks_activity_title">Jiné jazyky</string>
   <string name="langlinks_your_wikipedia_languages">Vaše jazyky Wikipedie</string>
   <string name="menu_save_changes">Zveřejnit změny</string>
-  <string name="dialog_saving_in_progress">Zveřejňuje se…</string>
   <string name="edit_saved_successfully">Editace zveřejněna!</string>
   <string name="dialog_message_edit_failed">Editace se nezdařila!</string>
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
@@ -116,7 +116,7 @@
   <string name="login_password_hint">Heslo</string>
   <string name="account_creation_password_hint">Heslo</string>
   <string name="login_2fa_hint">Dvoufaktorový autentizační kód</string>
-  <string name="login_2fa_other_workflow_error_msg">Dvoufaktorová autentizace je povinná! Vraťte se k hlavní aktivitě a přihlaste se pomocí tokenu 2FA, poté to zkuste znovu.</string>
+  <string name="login_2fa_other_workflow_error_msg">Dvoufázové ověření je povinné! Prosíme, přihlaste se pomocí tokenu dvoufázového ověření; poté to zkuste znovu.</string>
   <string name="onboarding_card_login">Přihlásit se</string>
   <string name="page_editing_login">Přihlásit se</string>
   <string name="reading_lists_sync_login">Přihlásit se</string>
@@ -171,7 +171,6 @@
   <string name="create_account_ip_block_details">Detaily</string>
   <string name="preferences_general_heading">Obecné</string>
   <string name="wikipedia_app_faq">FAQ aplikace Wikipedie</string>
-  <string name="edit_preview_fetching_dialog_message">Načítání náhledu…</string>
   <string name="send_feedback">Poslat zpětnou vazbu</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
   <string name="preferences_heading_syncing">Synchronizace</string>
@@ -542,7 +541,7 @@
   <string name="preference_summary_notification_poll">Povolit aplikaci používaní dat ke kontrole nových upozornění na pozadí.</string>
   <string name="preference_category_notification_types">Typy upozornění v aplikaci</string>
   <string name="preference_title_notification_welcome">Vítejte</string>
-  <string name="preference_summary_notification_welcome">Vytvoření účtu</string>
+  <string name="preference_summary_notification_welcome">Účet je vytvořen</string>
   <string name="preference_title_notification_milestone">Milník</string>
   <string name="preference_summary_notification_milestone">Dosáhli jste určitého počtu editací</string>
   <string name="preference_title_notification_thanks">Poděkování</string>
@@ -622,6 +621,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/cs</string>
   <string name="description_edit_anon_limit">Děkujeme za váš trvalý zájem o editaci popisů článků! Chcete-li provést další úpravy, přihlaste se prosím k účtu Wikipedie.</string>
   <string name="description_edit_license_notice">Změnou popisu článku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">většinou začíná malým písmenem</string>
   <string name="description_edit_success_saved">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
@@ -709,10 +709,12 @@
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Zdroj/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencování</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Více informací</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Přidat popis obrázku</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Přidat popis obrázku (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Přidat titulek obrázku (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Zobrazit</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>

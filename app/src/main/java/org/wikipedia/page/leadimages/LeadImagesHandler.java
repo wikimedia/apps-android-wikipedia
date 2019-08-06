@@ -3,6 +3,7 @@ package org.wikipedia.page.leadimages;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -24,11 +25,10 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.gallery.GalleryActivity;
-import org.wikipedia.gallery.GalleryItem;
+import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
@@ -36,8 +36,7 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
-import java.util.List;
-
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -206,58 +205,43 @@ public class LeadImagesHandler {
     private void updateCallToAction() {
         dispose();
         pageHeaderView.setUpCallToAction(null);
-        if (!AccountUtil.isLoggedIn()
-                || (!Prefs.isSuggestedEditsAddCaptionsUnlocked() && !Prefs.isSuggestedEditsTranslateCaptionsUnlocked())
-                || getLeadImageUrl() == null || !getLeadImageUrl().contains(URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
+        if (!AccountUtil.isLoggedIn() || getLeadImageUrl() == null || !getLeadImageUrl().contains(URL_FRAGMENT_FROM_COMMONS) || getPage() == null) {
             return;
         }
-        GalleryItem[] galleryItem = {null};
-        String[] title = {null};
-        disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getMedia(getTitle().getConvertedText())
-                .flatMap(gallery -> {
-                    List<GalleryItem> list = gallery.getItems("image");
-                    for (GalleryItem item : list) {
-                        if (getPage() != null && item.getFilePage().contains(StringUtil.addUnderscores(getPage().getPageProperties().getLeadImageName()))) {
-                            galleryItem[0] = item;
-                            title[0] = item.getFilePage().equals(Service.COMMONS_URL) ? item.getTitles().getCanonical() : UriUtil.getTitleFromUrl(item.getFilePage());
-                            return MediaHelper.INSTANCE.getImageCaptions(title[0]);
-                        }
-                    }
-                    return null;
-                })
+        String imageTitle = "File:" + getPage().getPageProperties().getLeadImageName();
+        disposables.add(Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
+                ServiceFactory.get(getTitle().getWikiSite()).getImageExtMetadata(imageTitle), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(captions -> {
-                            PageTitle captionSourcePageTitle, captionTargetPageTitle;
-                            if (galleryItem[0] != null) {
-                                WikipediaApp app = WikipediaApp.getInstance();
-                                captionSourcePageTitle = new PageTitle(title[0], new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
+                .subscribe(pair -> {
+                            WikipediaApp app = WikipediaApp.getInstance();
+                            PageTitle captionSourcePageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
+                            ImageInfo imageInfo = pair.second.query().firstPage().imageInfo();
 
-                                if (!captions.containsKey(getTitle().getWikiSite().languageCode())) {
-                                    pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_add_image_caption));
-                                    callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
-                                            captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(galleryItem[0].getDescription().getHtml()).toString(), getActivity().getString(R.string.suggested_edits_no_description)),
-                                            galleryItem[0].getThumbnailUrl(), galleryItem[0].getPreferredSizedImageUrl(), null, null, null, null);
+                            if (!pair.first.containsKey(getTitle().getWikiSite().languageCode())) {
+                                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption, app.language().getAppLanguageLocalizedName(getTitle().getWikiSite().languageCode())));
+                                callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
+                                        captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.getMetadata().imageDescription()).toString(), null),
+                                        imageInfo.getThumbUrl(), null, null, null, null);
 
-                                    return;
-                                }
-                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
-                                    for (String lang : app.language().getAppLanguageCodes()) {
-                                        if (!captions.containsKey(lang)) {
-                                            callToActionIsTranslation = true;
-                                            captionTargetPageTitle = new PageTitle(title[0], new WikiSite(Service.COMMONS_URL, lang));
-                                            String currentCaption = captions.get(getTitle().getWikiSite().languageCode());
-                                            captionSourcePageTitle.setDescription(currentCaption);
-                                            callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
-                                                    captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), currentCaption, getLeadImageUrl(), getLeadImageUrl(),
-                                                    null, null, null, null);
+                                return;
+                            }
+                            if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                                for (String lang : app.language().getAppLanguageCodes()) {
+                                    if (!pair.first.containsKey(lang)) {
+                                        callToActionIsTranslation = true;
+                                        PageTitle captionTargetPageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, lang));
+                                        String currentCaption = pair.first.get(getTitle().getWikiSite().languageCode());
+                                        captionSourcePageTitle.setDescription(currentCaption);
+                                        callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
+                                                captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDisplayText(), currentCaption, getLeadImageUrl(),
+                                                null, null, null, null);
 
-                                            callToActionTargetSummary = new SuggestedEditsSummary(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
-                                                    captionTargetPageTitle.getDisplayText(), captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl(), getLeadImageUrl(),
-                                                    null, null, null, null);
-                                            pageHeaderView.setUpCallToAction(String.format(app.getResources().getString(R.string.suggested_edits_article_cta_translate_image_caption), app.language().getAppLanguageLocalizedName(lang)));
-                                            break;
-                                        }
+                                        callToActionTargetSummary = new SuggestedEditsSummary(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
+                                                captionTargetPageTitle.getDisplayText(), captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl(),
+                                                null, null, null, null);
+                                        pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption, app.language().getAppLanguageLocalizedName(lang)));
+                                        break;
                                     }
                                 }
                             }
@@ -296,18 +280,7 @@ public class LeadImagesHandler {
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onImageClicked() {
-                if (getPage() != null && isLeadImageEnabled()) {
-                    String imageName = getPage().getPageProperties().getLeadImageName();
-                    String imageUrl = getPage().getPageProperties().getLeadImageUrl();
-                    if (imageName != null && imageUrl != null) {
-                        String filename = "File:" + imageName;
-                        WikiSite wiki = getTitle().getWikiSite();
-                        getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                                parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
-                                GalleryFunnel.SOURCE_LEAD_IMAGE),
-                                Constants.ACTIVITY_REQUEST_GALLERY);
-                    }
-                }
+                openImageInGallery(null);
             }
 
             @Override
@@ -320,6 +293,21 @@ public class LeadImagesHandler {
                 }
             }
         });
+    }
+
+    public void openImageInGallery(@Nullable  String language) {
+        if (getPage() != null && isLeadImageEnabled()) {
+            String imageName = getPage().getPageProperties().getLeadImageName();
+            String imageUrl = getPage().getPageProperties().getLeadImageUrl();
+            if (imageName != null && imageUrl != null) {
+                String filename = "File:" + imageName;
+                WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
+                getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
+                        parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
+                        GalleryFunnel.SOURCE_LEAD_IMAGE),
+                        Constants.ACTIVITY_REQUEST_GALLERY);
+            }
+        }
     }
 
     private boolean isMainPage() {

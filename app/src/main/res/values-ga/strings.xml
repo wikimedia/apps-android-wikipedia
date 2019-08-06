@@ -79,7 +79,6 @@
   <string name="langlinks_activity_title">Teangacha eile</string>
   <string name="langlinks_your_wikipedia_languages">Do chuid teangacha Vicipéide</string>
   <string name="menu_save_changes">Foilsigh athruithe</string>
-  <string name="dialog_saving_in_progress">Ag foilsiú...</string>
   <string name="edit_saved_successfully">Foilsíodh athrú!</string>
   <string name="dialog_message_edit_failed">Theip ar an athrú!</string>
   <string name="dialog_message_edit_failed_retry">Atriail</string>
@@ -153,7 +152,6 @@
   <string name="create_account_ip_block_details">Sonraí</string>
   <string name="preferences_general_heading">Ginearálta</string>
   <string name="wikipedia_app_faq">CCanna an Aip Vicipéide</string>
-  <string name="edit_preview_fetching_dialog_message">Réamhamharc á ghabháil...</string>
   <string name="send_feedback">Seol aiseolas maidir leis an aip</string>
   <string name="create_account_account_created_toast">Cruthaíodh cuntas!</string>
   <string name="preferences_heading_syncing">Sioncronú</string>
@@ -584,10 +582,13 @@
   <string name="suggested_edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
   <string name="suggested_edits_task_multilingual_negative">Ní domsa é</string>
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Ceadúnas</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Dáta</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
+  <string name="suggested_edits_image_preview_dialog_licensing">Ceadúnú</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>
@@ -624,7 +625,7 @@
   <string name="on_this_day_card_title">Ar an lá seo</string>
   <string name="more_events_text">Tuilleadh ar an lá seo</string>
   <string name="events_count_text">%1$s ócáid ó %2$s–%3$d</string>
-  <string name="this_year">An bhliain seo</string>
+  <string name="this_year">I mbliana</string>
   <string name="back_to_top">Siar go barr</string>
   <plurals name="diff_years">
     <item quantity="one">An bhliain seo caite</item>

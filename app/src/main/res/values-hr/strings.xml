@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Astrind
 * Bugoslav
 * Ex13
@@ -81,7 +82,6 @@
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="langlinks_your_wikipedia_languages">Vaši jezici Wikipedije</string>
   <string name="menu_save_changes">Objavi izmjene</string>
-  <string name="dialog_saving_in_progress">Objavljivanje...</string>
   <string name="edit_saved_successfully">Uređivanje je objavljeno!</string>
   <string name="dialog_message_edit_failed">Greška u uređivanju.</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
@@ -101,7 +101,7 @@
   <string name="login_password_hint">Zaporka</string>
   <string name="account_creation_password_hint">Zaporka</string>
   <string name="login_2fa_hint">Kôd dvofaktorske autentikacije</string>
-  <string name="login_2fa_other_workflow_error_msg">Potrebna je dvofaktorska autentikacija! Molimo vratite se na glavnu aktivnost i prijavite se Vašim 2FA tokenom, a zatim pokušajte ponovno.</string>
+  <string name="login_2fa_other_workflow_error_msg">Potrebna je dvofaktorska autentikacija! Molimo Vas, vratite se na glavnu aktivnost i prijavite se Vašim 2FA tokenom, a zatim pokušajte ponovno.</string>
   <string name="onboarding_card_login">Prijava</string>
   <string name="page_editing_login">Prijava</string>
   <string name="reading_lists_sync_login">Prijava</string>
@@ -111,7 +111,7 @@
   <string name="login_in_progress_dialog_message">Ulaz u sustav…</string>
   <string name="login_success_toast">Uspješno ste se prijavili.</string>
   <string name="reset_password_title">Postavite zaporku</string>
-  <string name="reset_password_description">Prijavili ste se s privremenom zaporkom. Za dovršetak prijave, molimo postavite novu zaporku ovdje.</string>
+  <string name="reset_password_description">Prijavili ste se s privremenom zaporkom. Za dovršetak prijave, molimo Vas, postavite novu zaporku ovdje.</string>
   <string name="reset_password_hint">Nova zaporka</string>
   <string name="reset_password_button">Spremi i prijavi se</string>
   <string name="preference_title_logout">Odjavi se</string>
@@ -141,16 +141,16 @@
   <string name="create_account_passwords_mismatch_error">Zaporke se ne podudaraju</string>
   <string name="create_account_email_error">Nevaljala adresa e-pošte</string>
   <string name="create_account_username_error">Nevaljani znakovi u suradničkom imenu</string>
-  <string name="create_account_password_error">Lozinka nije valjana</string>
+  <string name="create_account_password_error">Zaporka nije valjana</string>
   <string name="create_account_generic_error">Nije moguće stvoriti suradnički račun</string>
   <string name="create_account_next">Sljedeće</string>
   <string name="email_recommendation_dialog_title">Stvoriti račun bez adrese e-pošte?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Nastavi bez e-pošte</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodajte adresu e-pošte</string>
   <string name="create_account_button">Otvori suradnički račun</string>
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji Wikipedija</string>
-  <string name="edit_preview_fetching_dialog_message">Dohvaćanje pretpregleda…</string>
   <string name="send_feedback">Pošalji povratnu informaciju o aplikaciji</string>
   <string name="create_account_account_created_toast">Suradnički račun otvoren.</string>
   <string name="preferences_heading_syncing">Sinkronizacija</string>
@@ -290,9 +290,12 @@
   <string name="error_voice_search_not_available">Nažalost, prepoznavanje govora nije dostupno.</string>
   <string name="enable_location_service">Omogući</string>
   <string name="location_permissions_enable_action">Uključi</string>
+  <string name="error_message_generic">Dogodila se greška</string>
   <string name="view_link_preview_error_button_dismiss">Odbaci</string>
   <string name="error_page_does_not_exist">Ova stranica ne postoji</string>
   <string name="view_wiki_error_message_offline">Nije moguće spojiti se s Internetom</string>
+  <string name="preference_title_prefer_offline_content">Preferiraj izvanmrežni sadržaj</string>
+  <string name="preference_summary_prefer_offline_content">Uštedite mobilne podatke tako da se učitava dostupan izvanmrežni sadržaj umjesto učitavanja najnovije inačice članka</string>
   <string name="crash_report_dialog_title">Žao nam je, aplikacija se zadnji put srušila</string>
   <string name="crash_report_dialog_text">Želite li poslati izvješće o pogrešci u HockeyApp / usluzi treće strane, kako bi Wikimedija mogla dobiti informacije o pogrešci i ispraviti ju?</string>
   <string name="crash_report_dialog_dont_send_button">Preskoči</string>
@@ -351,8 +354,15 @@
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
   <string name="reading_lists_onboarding_example3">Istraživanje svemira</string>
   <string name="reading_lists_onboarding_got_it">U redu</string>
+  <string name="reading_list_empty">Niste dodali članke na ovaj popis.</string>
   <string name="reading_list_article_offline">Dostupno izvan mreže</string>
+  <string name="reading_list_article_make_offline">Neka ovaj članak bude dostupan izvan mreže</string>
+  <string name="reading_list_add_to_other_list">Dodaj na drugi popis za čitanje</string>
+  <string name="reading_list_remove_from_list">Ukloni s popisa %s</string>
+  <string name="reading_list_remove_from_lists">Ukloni s popisa za čitanje</string>
   <string name="reading_list_select_item">Odaberi</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Članak se pojavljuje na više popisa</string>
+  <string name="reading_lists_sync_reminder_title">Uključiti sinkronizaciju popisa za čitanje?</string>
   <string name="reading_lists_sync_reminder_action">Omogući sinkronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinkroniziranje popisa za čitanje</string>
   <string name="reading_lists_login_reminder_text">Popisi za čitanje sada se mogu sinkronizirati na više uređaja. Prijavite se s Vašim računom na Wikipediji i dopustite spremanje Vaših popisa.</string>
@@ -370,10 +380,18 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Omogući sinkronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
   <string name="reading_list_login_option_reminder_dialog_no">Ne, izbriši članke</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Da, zadrži članke na popisima</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Ne, izbriši članke s popisa</string>
   <string name="default_reading_list_name">Spremljeno</string>
+  <string name="default_reading_list_description">Zadani popis za Vaše spremljene članke</string>
+  <string name="no_user_lists_title">Organizirajte članke u popise</string>
+  <string name="no_user_lists_msg">Stvorite popise za mjesta koja želite posjetiti, omiljene teme i više toga</string>
+  <string name="reading_list_saved_list_rename">%1$s (stvorio korisnik)</string>
+  <string name="reading_lists_menu_create_list">Stvori novi popis</string>
   <string name="reading_lists_menu_sort_by">Poredaj po</string>
   <string name="reading_lists_refresh_sync_option">Osvježi sinkronizaciju</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prijava / registracija</string>
+  <string name="reading_list_menu_last_sync">Posljednja sinkronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">U redu</string>
   <string name="reading_list_delete_dialog_ok_button_text">U redu</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Odustani</string>
@@ -388,6 +406,10 @@
   <string name="notification_syncing_resume_button">Nastavi</string>
   <string name="notification_syncing_cancel_button">Odustani</string>
   <string name="notification_syncing_reading_list_channel_description">Napredak sinkronizacije popisa za čitanje</string>
+  <string name="notification_echo_channel_description">Obavijesti Wikipedije</string>
+  <string name="notifications_activity_title">Obavijesti</string>
+  <string name="notifications_activity_title_archived">Obavijesti (arhivirano)</string>
+  <string name="notifications_search">Pretraži obavijesti</string>
   <string name="notifications_view_unread">Prikaži nepročitano</string>
   <string name="notifications_view_archived">Prikaži arhivirano</string>
   <string name="notifications_prefs">Postavke obavijesti</string>
@@ -399,7 +421,8 @@
   <string name="notifications_view_archived_button_text">Prikaži arhivirane obavijesti</string>
   <string name="notification_preferences_title">Postavke obavijesti</string>
   <string name="notifications_mark_unread">Označi kao nepročitano</string>
-  <string name="preference_title_notification_welcome">Dobrodošli</string>
+  <string name="preference_category_notification_types">Vrste obavijesti unutar aplikacije</string>
+  <string name="preference_title_notification_welcome">Dobro došli</string>
   <string name="preference_summary_notification_welcome">Račun je stvoren</string>
   <string name="preference_title_notification_thanks">Zahvala</string>
   <string name="preference_title_notification_revert">Vraćanje</string>
@@ -498,10 +521,9 @@
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Više informacija</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
-  <string name="suggested_edits_article_cta_add_image_caption">Dodaj opis</string>
-  <string name="suggested_edits_article_cta_translate_image_caption">Dodaj opis (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj opis (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
@@ -547,6 +569,11 @@
   <string name="wikitext_bold">Podebljano</string>
   <string name="wikitext_italic">Kurziv</string>
   <string name="wikitext_link">Poveznica</string>
+  <string name="wikitext_bulleted_list">Popis s grafičkim oznakama</string>
+  <string name="wikitext_numbered_list">Numerirani popis</string>
+  <string name="wikitext_template">Predložak</string>
+  <string name="wikitext_reference">Izvor</string>
+  <string name="wikitext_preview_link">Pretpregled poveznice</string>
   <string name="main_drawer_open">Otvori</string>
   <string name="main_drawer_close">Zatvori</string>
   <string name="main_drawer_help">Pomoć</string>

@@ -101,7 +101,6 @@
   <string name="langlinks_activity_title">Andere talen</string>
   <string name="langlinks_your_wikipedia_languages">Uw Wikipediatalen</string>
   <string name="menu_save_changes">Wijzigingen publiceren</string>
-  <string name="dialog_saving_in_progress">Bezig met publiceren...</string>
   <string name="edit_saved_successfully">Bewerking gepubliceerd!</string>
   <string name="dialog_message_edit_failed">Bewerking mislukt!</string>
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
@@ -179,7 +178,6 @@
   <string name="create_account_ip_block_details">Details</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
-  <string name="edit_preview_fetching_dialog_message">Voorvertoning aan het ophalen…</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="create_account_account_created_toast">Account aangemaakt!</string>
   <string name="preferences_heading_syncing">Synchroniseren</string>
@@ -694,8 +692,11 @@
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Bron/fotograaf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licentie</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Meer info</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Meer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Weergeven</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Bijschrift toevoegen</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Bijschrift toevoegen (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschrijving toevoegen</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>

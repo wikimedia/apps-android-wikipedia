@@ -15,6 +15,7 @@
 * Rho
 * Saederup92
 * Sarrus
+* Tinamalmgren
 * Yuvipanda
 -->
 <resources>
@@ -91,7 +92,6 @@
   <string name="langlinks_activity_title">Andre sprog</string>
   <string name="langlinks_your_wikipedia_languages">Dine Wikipedia-sprog</string>
   <string name="menu_save_changes">Offentliggør ændringer</string>
-  <string name="dialog_saving_in_progress">Offentliggør…</string>
   <string name="edit_saved_successfully">Redigering offentliggjort!</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
@@ -167,7 +167,6 @@
   <string name="create_account_ip_block_details">Detaljer</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning …</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_heading_syncing">Synkroniserer</string>
@@ -596,7 +595,7 @@
   <string name="description_edit_read">Læs</string>
   <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
   <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
-  <string name="description_edit_edit_description">Rediger artikelbeskrivelse</string>
+  <string name="description_edit_edit_description">Redigér artikelbeskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
   <string name="description_edit_help_title">Hjælp: Artikelbeskrivelser</string>
   <string name="description_edit_help_about_wikidata">Om Wikidata</string>
@@ -619,7 +618,7 @@
   <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
-  <string name="suggested_edits_edit_description_button">Rediger besrkivelse</string>
+  <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
   <string name="suggested_edits_add_translation_button">Tilføj oversættelse</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
@@ -637,7 +636,7 @@
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
   <string name="suggested_edits_task_translation_title" fuzzy="true">Oversæt beskrivelser</string>
   <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
-  <string name="suggested_edits_task_image_caption_title">Tilføj billedtekstning</string>
+  <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
   <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
   <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>

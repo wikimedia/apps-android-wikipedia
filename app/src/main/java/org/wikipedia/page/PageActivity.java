@@ -33,6 +33,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
@@ -337,7 +338,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 finish();
                 return;
             }
-            loadPage(title, historyEntry, intent.getCategories().contains(Intent.CATEGORY_BROWSABLE) ? TabPosition.NEW_TAB_FOREGROUND : TabPosition.EXISTING_TAB);
+            loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND);
         } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
                 || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
@@ -677,6 +678,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             handleSettingsActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             handleLangLinkOrPageResult(data);
+        } else if (galleryImageCaptionAdded(requestCode, resultCode)) {
+            pageFragment.refreshPage();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (app.getTabCount() == 0 && resultCode != TabActivity.RESULT_NEW_TAB) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -692,8 +695,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
-            FeedbackUtil.showMessage(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, pageFragment.getLeadImageEditLang()));
+            String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
+            FeedbackUtil.makeSnackbar(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
+                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -753,6 +758,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private boolean galleryPageSelected(int requestCode, int resultCode) {
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED;
+    }
+
+    private boolean galleryImageCaptionAdded(int requestCode, int resultCode) {
+        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
     }
 
     private boolean languageChanged(int resultCode) {

@@ -22,27 +22,29 @@
             app:placeholderImageScaleType="centerCrop" />
 
         <View
-            android:id="@+id/view_page_header_image_gradient"
+            android:id="@+id/view_page_header_image_gradient_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/view_page_header_image_gradient_bottom"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <LinearLayout
             android:id="@+id/call_to_action_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:layout_gravity="bottom"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="12dp"
             android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical"
-            android:padding="8dp"
+            android:paddingStart="12dp"
             android:visibility="gone">
 
             <ImageView
                 android:layout_width="@dimen/app_shortcut_icon_size"
                 android:layout_height="@dimen/app_shortcut_icon_size"
                 android:contentDescription="@null"
-                android:tint="?attr/paper_color"
                 app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
             <TextView
@@ -52,7 +54,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="sans-serif-medium"
                 android:textAllCaps="true"
-                android:textColor="?attr/paper_color"
+                android:textColor="@color/base100"
                 tools:text="ADD CAPTION" />
         </LinearLayout>
 

@@ -1,6 +1,5 @@
 package org.wikipedia.edit.preview;
 
-import android.app.ProgressDialog;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -65,7 +64,6 @@ public class EditPreviewFragment extends Fragment {
     private List<EditSummaryTag> summaryTags;
     private EditSummaryTag otherTag;
 
-    private ProgressDialog progressDialog;
     private EditFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -175,11 +173,6 @@ public class EditPreviewFragment extends Fragment {
                 displayPreview(previewHTML);
             }
         }
-
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
-        progressDialog.setCancelable(false);
     }
 
     public void setCustomSummary(String summary) {
@@ -270,15 +263,13 @@ public class EditPreviewFragment extends Fragment {
      */
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(requireActivity());
-        progressDialog.show();
+        parentActivity.showProgressBar(true);
 
         disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doFinally(() -> {
-                    if (progressDialog.isShowing()) {
-                        progressDialog.dismiss();
-                    }
+                    parentActivity.showProgressBar(false);
                 })
                 .subscribe(response -> {
                     displayPreview(response.result());
@@ -359,13 +350,5 @@ public class EditPreviewFragment extends Fragment {
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
         }
-    }
-
-    @Override
-    public void onDetach() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
-        super.onDetach();
     }
 }

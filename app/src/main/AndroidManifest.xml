@@ -82,7 +82,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
-            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".page.PageActivity"
@@ -103,10 +102,6 @@
                      so http and https apply to all prefixes-->
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="org.wikipedia.app_shortcut" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity

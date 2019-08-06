@@ -37,10 +37,13 @@ import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 import static org.wikipedia.Constants.InvokeSource;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -59,7 +62,7 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_page_summary) TextView pageSummaryText;
     @BindView(R.id.view_description_edit_container) ViewGroup descriptionEditContainer;
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
-    @BindView(R.id.label_text) TextView labelText;
+    @BindView(R.id.view_description_edit_page_summary_label) TextView pageSummaryLabel;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditBottomBarView bottomBarContainer;
 
     @Nullable private String originalDescription;
@@ -101,6 +104,7 @@ public class DescriptionEditView extends LinearLayout {
         this.pageTitle = pageTitle;
         originalDescription = pageTitle.getDescription();
         setHintText();
+        setHelperText();
         setDescription(originalDescription);
         setReviewHeaderText(false);
     }
@@ -108,6 +112,16 @@ public class DescriptionEditView extends LinearLayout {
     private void setHintText() {
         pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
         pageDescriptionLayout.setHint(getHintText(pageTitle.getWikiSite().languageCode()));
+    }
+
+    private void setHelperText() {
+        if (invokeSource == PAGE_ACTIVITY
+                || invokeSource == SUGGESTED_EDITS_ADD_DESC
+                || invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+            pageDescriptionLayout.setHelperText(getContext().getString(R.string.description_edit_helper_text_lowercase_warning));
+        }
     }
 
     private int getHeaderTextRes(boolean inReview) {
@@ -192,10 +206,12 @@ public class DescriptionEditView extends LinearLayout {
         suggestedEditsSummary = isTranslationEdit ? targetSummary : sourceSummary;
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
-        labelText.setText(getLabelText(sourceSummary.getLang()));
+        pageSummaryLabel.setText(getLabelText(sourceSummary.getLang()));
         pageSummaryText.setText(StringUtil.strip(StringUtils.capitalize(StringUtil.removeHTMLTags(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
                 ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
-        if (pageSummaryText.getText().toString().isEmpty()) {
+        if (pageSummaryText.getText().toString().isEmpty()
+                || ((invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION))
+                && !TextUtils.isEmpty(sourceSummary.getPageTitle().getDescription())) {
             pageSummaryContainer.setVisibility(GONE);
         }
         setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
