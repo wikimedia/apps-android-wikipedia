@@ -71,7 +71,6 @@
   <string name="langlinks_no_match" fuzzy="true">Ձեր հարցումով լեզուներ չեն գտնվել:</string>
   <string name="langlinks_activity_title">Այլ լեզուներ</string>
   <string name="menu_save_changes">Հիշել փոփոխությունները</string>
-  <string name="dialog_saving_in_progress">Հրապարակվում է...</string>
   <string name="edit_saved_successfully">Խմբագրումը հրապարակվեց</string>
   <string name="dialog_message_edit_failed">Չհաջողվեց պահպանել խմբագրումը</string>
   <string name="dialog_message_edit_failed_retry">Կրկին փորձել</string>

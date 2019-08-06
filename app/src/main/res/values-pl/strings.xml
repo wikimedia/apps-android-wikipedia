@@ -104,7 +104,6 @@
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
-  <string name="dialog_saving_in_progress">Publikowanie...</string>
   <string name="edit_saved_successfully">Edycja została opublikowana!</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
@@ -182,7 +181,6 @@
   <string name="create_account_ip_block_details">Szczegóły</string>
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
-  <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
   <string name="preferences_heading_syncing">Synchronizowanie</string>
@@ -643,6 +641,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Więcej Informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>

@@ -95,7 +95,6 @@
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="langlinks_your_wikipedia_languages">Omat Wikipedia-kielet</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
-  <string name="dialog_saving_in_progress">Julkaistaan...</string>
   <string name="edit_saved_successfully">Muokkaus julkaistu!</string>
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>
   <string name="dialog_message_edit_failed_retry">Yritä uudelleen</string>
@@ -173,7 +172,6 @@
   <string name="create_account_ip_block_details">Tiedot</string>
   <string name="preferences_general_heading">Yleiset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
-  <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua…</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="preferences_heading_syncing">Synkronoidaan</string>
@@ -645,13 +643,14 @@
   <string name="suggested_edits_task_translate_caption_description">Käännä kuvatekstit muille kielille</string>
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua artikkelikuvausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Taiteilija</string>
   <string name="suggested_edits_image_caption_summary_title_author">Tekijä</string>
   <string name="suggested_edits_image_caption_summary_title_source">Lähde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Lisenssi</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Päiväys</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 muokkaus</item>
     <item quantity="other">%d muokkausta</item>
