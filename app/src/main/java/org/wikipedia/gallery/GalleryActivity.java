@@ -600,8 +600,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             imageCaptionDisposable.dispose();
         }
 
-        // TODO: replace when the Media endpoint updates structured captions immediately after editing.
-
         imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

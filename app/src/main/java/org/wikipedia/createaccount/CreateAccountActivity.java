@@ -312,10 +312,9 @@ public class CreateAccountActivity extends BaseActivity {
                                          @NonNull CharSequence password,
                                          @NonNull CharSequence passwordRepeat,
                                          @NonNull CharSequence email) {
-        //if (!USERNAME_PATTERN.matcher(username).matches()) {
-            //return ValidateResult.INVALID_USERNAME;
-        //} else
-        if (password.length() < PASSWORD_MIN_LENGTH) {
+        if (!USERNAME_PATTERN.matcher(username).matches()) {
+            return ValidateResult.INVALID_USERNAME;
+        } else if (password.length() < PASSWORD_MIN_LENGTH) {
             return ValidateResult.INVALID_PASSWORD;
         } else if (!passwordRepeat.toString().equals(password.toString())) {
             return ValidateResult.PASSWORD_MISMATCH;
