@@ -18,7 +18,7 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setMargin( top: Int, right: Int, bottom: Int, left: Int): String {
+    fun setMargin(top: Int, right: Int, bottom: Int, left: Int): String {
         return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top, right, bottom, left)
     }
 
@@ -30,6 +30,10 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun getTextSelection(): String {
         return String.format("pagelib.c1.InteractionHandling.getSelectionInfo()")
+    }
+
+    fun getOffsets(): String {
+        return String.format("pagelib.c1.Sections.getOffsets(document.body);")
     }
 
     @JvmStatic
