@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +39,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
@@ -269,8 +269,10 @@ public class LeadImagesHandler {
     }
 
     private void initArticleHeaderView() {
-        pageHeaderView.addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
-                                                  int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
+        pageHeaderView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+            LeadImagesHandler.this.setWebViewPaddingTop();
+            parentFragment.getWebView().setVisibility(VISIBLE);
+        });
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onImageClicked() {

@@ -681,9 +681,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
+                pageFragment.getWebView().setVisibility(View.GONE);
                 loadMainPage(TabPosition.NEW_TAB_FOREGROUND);
                 animateTabsButton();
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
+                pageFragment.getWebView().setVisibility(View.GONE);
                 pageFragment.reloadFromBackstack();
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
