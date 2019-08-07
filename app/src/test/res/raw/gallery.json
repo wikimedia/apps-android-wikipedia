@@ -2,210 +2,23 @@
   "revision": "854945118",
   "tid": "048d1a3a-a007-11e8-a249-b9bc3181aba8",
   "items": [{
-    "section_id": 0,
+    "title": "File:BarackObamaportrait.jpg",
+    "section_id": 11,
     "type": "image",
-    "showInGallery": true,
-    "titles": {
-      "canonical": "File:Flag_of_the_United_States.svg",
-      "normalized": "File:Flag of the United States.svg",
-      "display": "File:Flag of the United States.svg"
+    "caption": {
+      "html": "The official portrait of Obama as a member of the United States Senate",
+      "text": "The official portrait of Obama as a member of the United States Senate"
     },
-    "thumbnail": {
-      "source": "http://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png",
-      "width": 320,
-      "height": 168,
-      "mime": "image/png"
-    },
-    "original": {
-      "source": "http://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
-      "mime": "image/svg+xml"
-    },
-    "file_page": "http://en.wikipedia.org/wiki/File:Flag_of_the_United_States.svg",
-    "license": {
-      "type": "PD",
-      "code": "pd"
-    }
-  }, {
-    "section_id": 1,
-    "type": "image",
-    "showInGallery": true,
-    "titles": {
-      "canonical": "File:Great_Seal_of_the_United_States_(obverse).svg",
-      "normalized": "File:Great Seal of the United States (obverse).svg",
-      "display": "File:Great Seal of the United States (obverse).svg"
-    },
-    "thumbnail": {
-      "source": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Great_Seal_of_the_United_States_%28obverse%29.svg/320px-Great_Seal_of_the_United_States_%28obverse%29.svg.png",
-      "width": 320,
-      "height": 320,
-      "mime": "image/png"
-    },
-    "original": {
-      "source": "http://upload.wikimedia.org/wikipedia/commons/5/5c/Great_Seal_of_the_United_States_%28obverse%29.svg",
-      "mime": "image/svg+xml"
-    },
-    "file_page": "https://commons.wikimedia.org/wiki/File:Great_Seal_of_the_United_States_(obverse).svg",
-    "artist": {
-      "html": "U.S. Government",
-      "name": "U.S. Government"
-    },
-    "credit": "Extracted from PDF version of <i>Our Flag</i>, available <a rel=\"nofollow\" class=\"external text\" href=\"http://www.senate.gov/reference/reference_index_subjects/Flags_vrd.htm\">here</a> (direct PDF URL <a rel=\"nofollow\" class=\"external text\" href=\"http://www.senate.gov/reference/resources/pdf/ourflag.pdf\">here</a>.)",
-    "license": {
-      "type": "Public domain",
-      "code": "pd"
-    },
-    "description": {
-      "html": "Obverse of the <a href=\"https://en.wikipedia.org/wiki/Great_Seal_of_the_United_States\" class=\"extiw\" title=\"en:Great Seal of the United States\">Great Seal of the United States</a>.",
-      "text": "Obverse of the Great Seal of the United States.",
-      "lang": "en"
-    }
-  }, {
-    "section_id": 2,
-    "type": "audio",
-    "audio_type": "generic",
-    "showInGallery": true,
-    "titles": {
-      "canonical": "File:Star_Spangled_Banner_instrumental.ogg",
-      "normalized": "File:Star Spangled Banner instrumental.ogg",
-      "display": "File:Star Spangled Banner instrumental.ogg"
-    },
-    "thumbnail": {
-      "source": "http://en.wikipedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png",
-      "width": 320,
-      "height": 320,
-      "mime": "image/jpeg"
-    },
-    "original": {
-      "source": "http://upload.wikimedia.org/wikipedia/commons/6/65/Star_Spangled_Banner_instrumental.ogg",
-      "mime": "application/ogg"
-    },
-    "file_page": "https://commons.wikimedia.org/wiki/File:Star_Spangled_Banner_instrumental.ogg",
-    "duration": 78.262857142857,
-    "credit": "<p><a rel=\"nofollow\" class=\"external free\" href=\"https://web.archive.org/web/20041019005037/http://www.navyband.navy.mil/anthems/ANTHEMS/United%20States.mp3\">https://web.archive.org/web/20041019005037/http://www.navyband.navy.mil/anthems/ANTHEMS/United%20States.mp3</a>\n</p>\n<ul>\n<li><a rel=\"nofollow\" class=\"external free\" href=\"https://web.archive.org/web/20030506222549/http://www.navyband.navy.mil:80/anthems/Honors%20Music/Honors/Four%20Ruffles%20and%20Flourishes%20and%20the%20National%20Anthem.MP3\">https://web.archive.org/web/20030506222549/http://www.navyband.navy.mil:80/anthems/Honors%20Music/Honors/Four%20Ruffles%20and%20Flourishes%20and%20the%20National%20Anthem.MP3</a></li>\n<li><a rel=\"nofollow\" class=\"external free\" href=\"https://web.archive.org/web/20030827205544/http://www.navyband.navy.mil:80/anthems/Honors%20Music/Parade%20the%20Colors/Star%20Spangled%20Banner.MP3\">https://web.archive.org/web/20030827205544/http://www.navyband.navy.mil:80/anthems/Honors%20Music/Parade%20the%20Colors/Star%20Spangled%20Banner.MP3</a></li>\n</ul>",
-    "license": {
-      "type": "Public domain",
-      "code": "pd"
-    },
-    "description": {
-      "html": "The <a href=\"https://en.wikipedia.org/wiki/national_anthem\" class=\"extiw\" title=\"en:national anthem\">national anthem</a> of the <a href=\"https://en.wikipedia.org/wiki/United_States\" class=\"extiw\" title=\"en:United States\">United States of America</a>, originally, music of <a href=\"https://en.wikipedia.org/wiki/The_Anacreontic_Song\" class=\"extiw\" title=\"en:The Anacreontic Song\">The Anacreontic Song</a>, performed by the U.S. Navy Band.",
-      "text": "The national anthem of the United States of America, originally, music of The Anacreontic Song, performed by the U.S. Navy Band.",
-      "lang": "en"
-    }
-  }, {
-    "section_id": 3,
-    "type": "audio",
-    "audio_type": "generic",
-    "showInGallery": true,
-    "titles": {
-      "canonical": "File:March,_Colonel_John_R._Bourgeois,_Director_·_John_Philip_Sousa_·_United_States_Marine_Band.ogg",
-      "normalized": "File:March, \"The Stars and Stripes Forever\" · Colonel John R. Bourgeois, Director · John Philip Sousa · United States Marine Band.ogg",
-      "display": "File:March, \"The Stars and Stripes Forever\" · Colonel John R. Bourgeois, Director · John Philip Sousa · United States Marine Band.ogg"
-    },
-    "thumbnail": {
-      "source": "http://en.wikipedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png",
-      "width": 320,
-      "height": 320,
-      "mime": "image/jpeg"
-    },
-    "original": {
-      "source": "http://upload.wikimedia.org/wikipedia/commons/7/7e/March%2C_%22The_Stars_and_Stripes_Forever%22_%C2%B7_Colonel_John_R._Bourgeois%2C_Director_%C2%B7_John_Philip_Sousa_%C2%B7_United_States_Marine_Band.ogg",
-      "mime": "application/ogg"
-    },
-    "file_page": "https://commons.wikimedia.org/wiki/File:March,_%22The_Stars_and_Stripes_Forever%22_%C2%B7_Colonel_John_R._Bourgeois,_Director_%C2%B7_John_Philip_Sousa_%C2%B7_United_States_Marine_Band.ogg",
-    "duration": 226.51766666667,
-    "credit": "Album: \"On Tour\"",
-    "license": {
-      "type": "Public domain",
-      "code": "pd"
-    },
-    "description": {
-      "html": "John Philip Sousa's march \"<a href=\"https://en.wikipedia.org/wiki/The_Stars_and_Stripes_Forever\" class=\"extiw\" title=\"en:The Stars and Stripes Forever\">The Stars and Stripes Forever</a>\", performed by the U.S. Marine Band.",
-      "text": "John Philip Sousa's march \"The Stars and Stripes Forever\", performed by the U.S. Marine Band.",
-      "lang": "en"
-    }
-  }, {
-    "section_id": 4,
+    "showInGallery": true
+  },
+  {
+    "title": "File:20090124_WeeklyAddress.ogv",
+    "section_id": 22,
     "type": "video",
     "caption": {
-      "html": "In a video, team members share the challenges of <a rel=\"mw:WikiLink\" href=\"./Mars_Science_Laboratory\" title=\"Mars Science Laboratory\" id=\"mwEw\">Mars Science Laboratory</a>'s (<a rel=\"mw:WikiLink\" href=\"./Curiosity_(rover)\" title=\"Curiosity (rover)\" id=\"mwFA\"><i id=\"mwFQ\">Curiosity</i></a>) final minutes to landing on the surface of <a rel=\"mw:WikiLink\" href=\"./Mars\" title=\"Mars\" id=\"mwFg\">Mars</a>.",
-      "text": "In a video, team members share the challenges of Mars Science Laboratory's (Curiosity) final minutes to landing on the surface of Mars."
+      "html": "Obama presents his first <a rel=\"mw:WikiLink/Interwiki\" href=\"https://commons.wikimedia.org/wiki/Obama%20Administration%20weekly%20video%20addresses\" title=\"commons:Obama Administration weekly video addresses\" id=\"mwBJk\">weekly address</a> as President of the United States on January 24, 2009, discussing the <a rel=\"mw:WikiLink\" href=\"./American_Recovery_and_Reinvestment_Act_of_2009\" title=\"American Recovery and Reinvestment Act of 2009\" id=\"mwBJo\">American Recovery and Reinvestment Act of 2009</a>",
+      "text": "Obama presents his first weekly address as President of the United States on January 24, 2009, discussing the American Recovery and Reinvestment Act of 2009"
     },
-    "sources": [{
-      "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv",
-      "mime": "video/ogg",
-      "codecs": ["theora", "vorbis"],
-      "name": "Original Ogg file, 1,280 × 720 (2.39 Mbps)",
-      "short_name": "Ogg source",
-      "width": "1280",
-      "height": "720"
-    }, {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv/Curiosity%27s_Seven_Minutes_of_Terror.ogv.160p.webm",
-      "mime": "video/webm",
-      "codecs": ["vp8", "vorbis"],
-      "name": "Low bandwidth WebM (160P)",
-      "short_name": "WebM 160P",
-      "width": "284",
-      "height": "160"
-    }, {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv/Curiosity%27s_Seven_Minutes_of_Terror.ogv.240p.webm",
-      "mime": "video/webm",
-      "codecs": ["vp8", "vorbis"],
-      "name": "Small WebM (240P)",
-      "short_name": "WebM 240P",
-      "width": "426",
-      "height": "240"
-    }, {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv/Curiosity%27s_Seven_Minutes_of_Terror.ogv.360p.webm",
-      "mime": "video/webm",
-      "codecs": ["vp8", "vorbis"],
-      "name": "WebM (360P)",
-      "short_name": "WebM 360P",
-      "width": "640",
-      "height": "360"
-    }, {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv/Curiosity%27s_Seven_Minutes_of_Terror.ogv.480p.webm",
-      "mime": "video/webm",
-      "codecs": ["vp8", "vorbis"],
-      "name": "SD WebM (480P)",
-      "short_name": "WebM 480P",
-      "width": "854",
-      "height": "480"
-    }, {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv/Curiosity%27s_Seven_Minutes_of_Terror.ogv.720p.webm",
-      "mime": "video/webm",
-      "codecs": ["vp8", "vorbis"],
-      "name": "HD WebM (720P)",
-      "short_name": "WebM 720P",
-      "width": "1280",
-      "height": "720"
-    }],
-    "showInGallery": true,
-    "titles": {
-      "canonical": "File:Curiosity's_Seven_Minutes_of_Terror.ogv",
-      "normalized": "File:Curiosity's Seven Minutes of Terror.ogv",
-      "display": "File:Curiosity's Seven Minutes of Terror.ogv"
-    },
-    "thumbnail": {
-      "source": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Curiosity%27s_Seven_Minutes_of_Terror.ogv/320px--Curiosity%27s_Seven_Minutes_of_Terror.ogv.jpg",
-      "width": 320,
-      "height": 180,
-      "mime": "image/jpeg"
-    },
-    "file_page": "https://commons.wikimedia.org/wiki/File:Curiosity%27s_Seven_Minutes_of_Terror.ogv",
-    "duration": 306.47283333333,
-    "artist": {
-      "html": "NASA",
-      "name": "NASA"
-    },
-    "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.jpl.nasa.gov/video/details.php?id=1090\">http://www.jpl.nasa.gov/video/details.php?id=1090</a>",
-    "license": {
-      "type": "Public domain",
-      "code": "pd"
-    },
-    "description": {
-      "html": "Team members share the challenges of <a href=\"https://en.wikipedia.org/wiki/Mars_Science_Laboratory\" class=\"extiw\" title=\"w:Mars Science Laboratory\">Mars Science Laboratory</a>'s (<a href=\"https://en.wikipedia.org/wiki/Curiosity_(rover)\" class=\"extiw\" title=\"en:Curiosity (rover)\">Curiosity</a>) final minutes to landing on the surface of Mars.",
-      "text": "Team members share the challenges of Mars Science Laboratory's (Curiosity) final minutes to landing on the surface of Mars.",
-      "lang": "en"
-    }
+    "showInGallery": true
   }]
 }

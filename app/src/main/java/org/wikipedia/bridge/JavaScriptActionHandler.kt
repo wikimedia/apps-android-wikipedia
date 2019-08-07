@@ -14,17 +14,27 @@ import org.wikipedia.util.L10nUtil.formatDateRelative
 object JavaScriptActionHandler {
     @JvmStatic
     fun setHandler(): String {
-        return ("pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})")
+        return "pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})"
     }
 
     @JvmStatic
-    fun setMargin( top: Int, right: Int, bottom: Int, left: Int): String {
+    fun setMargin(top: Int, right: Int, bottom: Int, left: Int): String {
         return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top, right, bottom, left)
     }
 
     @JvmStatic
     fun setScrollTop(top: Int): String {
         return String.format("pagelib.c1.Page.setScrollTop(%d)", top)
+    }
+
+    @JvmStatic
+    fun getTextSelection(): String {
+        return "pagelib.c1.InteractionHandling.getSelectionInfo()"
+    }
+
+    @JvmStatic
+    fun getOffsets(): String {
+        return "pagelib.c1.Sections.getOffsets(document.body);"
     }
 
     @JvmStatic
@@ -38,8 +48,8 @@ object JavaScriptActionHandler {
                 "areTablesInitiallyExpanded: %b," +
                 "textSizeAdjustmentPercentage: '100%%'," +
                 "loadImages: %b" +
-                "})", BuildConfig.VERSION_NAME, app.getCurrentTheme().getFunnelName().toUpperCase(),
-                (app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()),
+                "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
+                (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
                 !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 

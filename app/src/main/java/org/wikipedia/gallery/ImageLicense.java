@@ -27,7 +27,7 @@ public class ImageLicense implements Serializable {
         this.licenseUrl = metadata.licenseUrl();
     }
 
-    private ImageLicense(@NonNull String license, @NonNull String licenseShortName, @NonNull String licenseUrl) {
+    public ImageLicense(@NonNull String license, @NonNull String licenseShortName, @NonNull String licenseUrl) {
         this.license = license;
         this.licenseShortName = licenseShortName;
         this.licenseUrl = licenseUrl;
