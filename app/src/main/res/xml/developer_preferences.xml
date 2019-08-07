@@ -28,24 +28,6 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_restbase_heading">
 
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_use_restbase_manual"
-            android:title="@string/preference_key_use_restbase_manual" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_use_restbase"
-            android:title="@string/preference_key_use_restbase" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_restbase_ticket"
-            android:title="@string/preference_key_restbase_ticket" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="@string/preference_key_request_successes"
-            android:title="@string/preference_key_request_successes" />
-
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_restbase_uri_format"

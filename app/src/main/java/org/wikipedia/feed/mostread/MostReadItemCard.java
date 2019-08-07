@@ -7,16 +7,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
 public class MostReadItemCard extends Card {
-    @NonNull private final RbPageSummary page;
+    @NonNull private final PageSummary page;
     @NonNull private final WikiSite wiki;
 
-    MostReadItemCard(@NonNull RbPageSummary page, @NonNull WikiSite wiki) {
+    MostReadItemCard(@NonNull PageSummary page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }

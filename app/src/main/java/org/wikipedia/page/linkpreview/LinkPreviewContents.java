@@ -9,7 +9,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 
@@ -41,7 +40,7 @@ public class LinkPreviewContents {
         title = new PageTitle(pageSummary.getTitle(), wiki);
         disambiguation = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
         String extractStr;
-        if (pageSummary instanceof RbPageSummary) {
+        if (pageSummary instanceof PageSummary) {
             extractStr = pageSummary.getExtractHtml();
         } else {
             extractStr = createLegacyExtractText(pageSummary, title.getWikiSite());

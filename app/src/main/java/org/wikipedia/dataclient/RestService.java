@@ -4,11 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageRemaining;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
-import org.wikipedia.dataclient.restbase.page.RbPageLead;
-import org.wikipedia.dataclient.restbase.page.RbPageRemaining;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.aggregated.AggregatedFeedContent;
 import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailability;
@@ -56,8 +56,8 @@ public interface RestService {
     })
     @GET("page/summary/{title}")
     @NonNull
-    Observable<RbPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
-                                         @NonNull @Path("title") String title);
+    Observable<PageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
+                                       @NonNull @Path("title") String title);
 
     /**
      * Gets the lead section and initial metadata of a given title.
@@ -70,10 +70,10 @@ public interface RestService {
     })
     @GET("page/mobile-sections-lead/{title}")
     @NonNull
-    Observable<Response<RbPageLead>> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
-                                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                    @Nullable @Header("Referer") String referrerUrl,
-                                                    @NonNull @Path("title") String title);
+    Observable<Response<PageLead>> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
+                                                  @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                  @Nullable @Header("Referer") String referrerUrl,
+                                                  @NonNull @Path("title") String title);
 
     /**
      * Gets the remaining sections of a given title.
@@ -82,9 +82,9 @@ public interface RestService {
      */
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
     @GET(REST_PAGE_SECTIONS_URL)
-    @NonNull Observable<Response<RbPageRemaining>> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
-                                                                        @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                                        @NonNull @Path("title") String title);
+    @NonNull Observable<Response<PageRemaining>> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                      @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                      @NonNull @Path("title") String title);
     /**
      * TODO: remove this if we find a way to get the request url before the observable object being executed
      * Gets the remaining sections request url of a given title.
@@ -93,7 +93,7 @@ public interface RestService {
      */
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
     @GET(REST_PAGE_SECTIONS_URL)
-    @NonNull Call<RbPageRemaining> getRemainingSectionsUrl(@Nullable @Header("Cache-Control") String cacheControl,
+    @NonNull Call<PageRemaining> getRemainingSectionsUrl(@Nullable @Header("Cache-Control") String cacheControl,
                                                            @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
                                                            @NonNull @Path("title") String title);
 
@@ -110,7 +110,7 @@ public interface RestService {
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET("page/random/summary")
-    @NonNull Observable<RbPageSummary> getRandomSummary();
+    @NonNull Observable<PageSummary> getRandomSummary();
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET("page/related/{title}")

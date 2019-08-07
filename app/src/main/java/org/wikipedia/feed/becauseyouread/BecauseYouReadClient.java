@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.history.HistoryEntry;
@@ -50,10 +50,10 @@ public class BecauseYouReadClient implements FeedClient {
                         cb::error));
     }
 
-    @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull List<RbPageSummary> results,
+    @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull List<PageSummary> results,
                                                              @NonNull HistoryEntry entry) {
         List<BecauseYouReadItemCard> itemCards = new ArrayList<>();
-        for (RbPageSummary result : results) {
+        for (PageSummary result : results) {
             itemCards.add(new BecauseYouReadItemCard(result.getPageTitle(entry.getTitle().getWikiSite())));
         }
         return new BecauseYouReadCard(entry, itemCards);

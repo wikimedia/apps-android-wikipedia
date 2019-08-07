@@ -13,7 +13,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
-import org.wikipedia.dataclient.page.PageClientFactory;
+import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
@@ -244,7 +244,7 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+        disposables.add(new PageClient()
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())

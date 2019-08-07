@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
@@ -16,10 +16,10 @@ import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 class NewsLinkCard extends Card {
-    @NonNull private RbPageSummary page;
+    @NonNull private PageSummary page;
     @NonNull private WikiSite wiki;
 
-    NewsLinkCard(@NonNull RbPageSummary page, @NonNull WikiSite wiki) {
+    NewsLinkCard(@NonNull PageSummary page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }
