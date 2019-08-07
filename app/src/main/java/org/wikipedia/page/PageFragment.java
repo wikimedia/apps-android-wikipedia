@@ -793,9 +793,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
-
-        setupToC(model, pageFragmentLoadState.isFirstPage());
-        editHandler.setPage(model.getPage());
         initPageScrollFunnel();
 
         if (model.getReadingListPage() != null) {
@@ -809,6 +806,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     ReadingListDbHelper.instance().updatePage(page);
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
+            setupToC(model, pageFragmentLoadState.isFirstPage());
+            editHandler.setPage(model.getPage());
         }
 
         checkAndShowBookmarkOnboarding();
