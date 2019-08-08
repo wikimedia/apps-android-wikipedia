@@ -10,6 +10,8 @@ import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.RestService;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
@@ -21,6 +23,7 @@ import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.references.References;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -59,6 +62,10 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull private final PageImageUrlParser pageImageUrlParser
             = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
     private SavedPageSyncNotification savedPageSyncNotification;
+    private final String[] CSS_STYLE_URLS = {"https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base",
+                                            "https://meta.wikimedia.org/api/rest_v1/data/css/mobile/pagelib",
+                                            "https://meta.wikimedia.org/api/rest_v1/data/javascript/mobile/pagelib",
+                                            "https://en.wikipedia.org/api/rest_v1/data/css/mobile/site"};
 
     public SavedPageSyncService() {
         savedPageSyncNotification = SavedPageSyncNotification.getInstance();
@@ -153,7 +160,7 @@ public class SavedPageSyncService extends JobIntentService {
                 .subscribeOn(Schedulers.io())
                 .subscribe(imageUrls -> {
                     for (String url : imageUrls) {
-                        Request request = makeImageRequest(pageTitle.getWikiSite(), url)
+                        Request request = makeUrlRequest(CacheControl.FORCE_CACHE, pageTitle.getWikiSite(), url)
                                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
                                 .build();
                         try {
@@ -234,10 +241,11 @@ public class SavedPageSyncService extends JobIntentService {
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+        Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
+        Observable.zip(leadCall, sectionsCall, referencesCall, (leadRsp, sectionsRsp, referencesRsp) -> {
             long totalSize = 0;
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);
@@ -245,6 +253,7 @@ public class SavedPageSyncService extends JobIntentService {
             page.downloadProgress(SECTIONS_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             totalSize += responseSize(sectionsRsp);
+            totalSize += responseSize(referencesRsp);
             Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
             imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
 
@@ -255,6 +264,8 @@ public class SavedPageSyncService extends JobIntentService {
                 imageUrls.add(page.thumbUrl());
             }
             page.description(leadRsp.body().getDescription());
+
+            totalSize += reqMobileHTML(pageTitle);
 
             if (Prefs.isImageDownloadEnabled()) {
                 totalSize += reqSaveImages(page, imageUrls);
@@ -288,6 +299,22 @@ public class SavedPageSyncService extends JobIntentService {
         return new PageClient().sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
     }
 
+    private long reqMobileHTML(@NonNull PageTitle pageTitle) throws IOException {
+        // TODO: handle "delete" offline
+        long downloadSize = reqSaveUrl(CacheControl.FORCE_NETWORK, pageTitle.getWikiSite(), pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getConvertedText());
+
+        for (String cssStyleUrl : CSS_STYLE_URLS) {
+            downloadSize += reqSaveUrl(null, pageTitle.getWikiSite(), cssStyleUrl);
+        }
+
+        return downloadSize;
+    }
+
+    private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull PageTitle pageTitle) {
+        // TODO: check if it needs "FORCE_NETWORK" header
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(pageTitle.getConvertedText());
+    }
+
     private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
         int numOfImages = urls.size();
         long totalSize = 0;
@@ -298,7 +325,7 @@ public class SavedPageSyncService extends JobIntentService {
                 throw new InterruptedException("Sync paused or cancelled.");
             }
             try {
-                totalSize += reqSaveImage(page.wiki(), url);
+                totalSize += reqSaveUrl(CacheControl.FORCE_NETWORK, page.wiki(), url);
                 percentage += updateRate;
                 page.downloadProgress((int) percentage);
                 WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
@@ -315,8 +342,9 @@ public class SavedPageSyncService extends JobIntentService {
         return totalSize;
     }
 
-    private long reqSaveImage(@NonNull WikiSite wiki, @NonNull String url) throws IOException {
-        Request request = makeImageRequest(wiki, url)
+    private long reqSaveUrl(@Nullable CacheControl cacheControl, @NonNull WikiSite wiki, @NonNull String url) throws IOException {
+        Request request = makeUrlRequest(cacheControl, wiki, url)
+                .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .build();
 
@@ -330,10 +358,12 @@ public class SavedPageSyncService extends JobIntentService {
         return responseSize(rsp);
     }
 
-    @NonNull private Request.Builder makeImageRequest(@NonNull WikiSite wiki, @NonNull String url) {
-        return new Request.Builder()
-                .cacheControl(CacheControl.FORCE_NETWORK)
-                .url(UriUtil.resolveProtocolRelativeUrl(wiki, url));
+    @NonNull private Request.Builder makeUrlRequest(@Nullable CacheControl cacheControl, @NonNull WikiSite wiki, @NonNull String url) {
+        if (cacheControl != null) {
+            return new Request.Builder().cacheControl(cacheControl).url(UriUtil.resolveProtocolRelativeUrl(wiki, url));
+        } else {
+            return new Request.Builder().url(url);
+        }
     }
 
     private void persistPageThumbnail(@NonNull PageTitle title, @NonNull String url) {
