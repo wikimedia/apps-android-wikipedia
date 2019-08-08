@@ -801,7 +801,9 @@ public final class Prefs {
     }
 
     public static void setSuggestedEditsAddDescriptionsUnlocked(boolean unlocked) {
-        setBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, unlocked);
+        if (!isSuggestedEditsUnlockOverride()) {
+            setBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, unlocked);
+        }
     }
 
     public static boolean isSuggestedEditsTranslateDescriptionsUnlocked() {
@@ -809,7 +811,9 @@ public final class Prefs {
     }
 
     public static void setSuggestedEditsTranslateDescriptionsUnlocked(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
+        if (!isSuggestedEditsUnlockOverride()) {
+            setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
+        }
     }
 
     public static boolean showSuggestedEditsMultilingualTeaserTask() {
@@ -825,7 +829,9 @@ public final class Prefs {
     }
 
     public static void setSuggestedEditsAddCaptionsUnlocked(boolean unlocked) {
-        setBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, unlocked);
+        if (!isSuggestedEditsUnlockOverride()) {
+            setBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, unlocked);
+        }
     }
 
     public static boolean isSuggestedEditsTranslateCaptionsUnlocked() {
@@ -833,7 +839,13 @@ public final class Prefs {
     }
 
     public static void setSuggestedEditsTranslateCaptionsUnlocked(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, enabled);
+        if (!isSuggestedEditsUnlockOverride()) {
+            setBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, enabled);
+        }
+    }
+
+    public static boolean isSuggestedEditsUnlockOverride() {
+        return getBoolean(R.string.preference_key_suggested_edits_unlock_override, false);
     }
 
     public static boolean wasLoggedOutInBackground() {
