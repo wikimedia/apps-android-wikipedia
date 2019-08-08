@@ -271,7 +271,6 @@ public class LeadImagesHandler {
     private void initArticleHeaderView() {
         pageHeaderView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
             LeadImagesHandler.this.setWebViewPaddingTop();
-            parentFragment.getWebView().setVisibility(VISIBLE);
         });
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
