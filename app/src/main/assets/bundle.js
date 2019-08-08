@@ -462,7 +462,7 @@ function fetchCategories() {
         categoriesRequest.abort();
     }
     categoriesRequest = new XMLHttpRequest();
-    categoriesRequest.open('GET', "/w/api.php?format=json&formatversion=2&action=query&prop=categories&clprop=hidden&cllimit=500&titles=" + window.pageTitle);
+    categoriesRequest.open('GET', "/w/api.php?format=json&formatversion=2&action=query&prop=categories&clprop=hidden&cllimit=500&titles=" + window.pageTitle.replace(/<[^>]*>/g, ''));
     categoriesRequest.sequence = window.sequence;
     if (window.apiLevel > 19 && window.responseType !== 'json') {
         categoriesRequest.responseType = 'json';

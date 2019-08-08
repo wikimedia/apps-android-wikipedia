@@ -25,11 +25,15 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.Namespace;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.util.ClipboardUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PageItemView;
@@ -44,7 +48,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class CategoryActivity extends BaseActivity {
+import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+
+public class CategoryActivity extends BaseActivity implements LinkPreviewDialog.Callback {
     private static final String EXTRA_TITLE = "categoryTitle";
 
     @BindView(R.id.category_error) WikiErrorView errorView;
@@ -137,7 +143,6 @@ public class CategoryActivity extends BaseActivity {
         } else {
             HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_CATEGORY);
             bottomSheetPresenter.show(getSupportFragmentManager(), LinkPreviewDialog.newInstance(entry, null));
-            //startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.getTitle()));
         }
     }
 
@@ -216,6 +221,28 @@ public class CategoryActivity extends BaseActivity {
                     }
                     categoryRecycler.getAdapter().notifyDataSetChanged();
                 }, L::e));
+    }
+
+    @Override
+    public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
+        startActivity(inNewTab ? PageActivity.newIntentForNewTab(this, entry, entry.getTitle())
+                : PageActivity.newIntentForCurrentTab(this, entry, entry.getTitle()));
+    }
+
+    @Override
+    public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
+        ClipboardUtil.setPlainText(this, null, title.getCanonicalUri());
+        FeedbackUtil.showMessage(this, R.string.address_copied);
+    }
+
+    @Override
+    public void onLinkPreviewAddToList(@NonNull PageTitle title) {
+        bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, LINK_PREVIEW_MENU);
+    }
+
+    @Override
+    public void onLinkPreviewShareLink(@NonNull PageTitle title) {
+        ShareUtil.shareText(this, title);
     }
 
     private class CategoryItemHolder extends RecyclerView.ViewHolder {
