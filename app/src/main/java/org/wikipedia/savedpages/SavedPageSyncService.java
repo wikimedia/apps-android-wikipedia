@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
@@ -300,7 +299,6 @@ public class SavedPageSyncService extends JobIntentService {
                                @NonNull String saveOfflineHeader,
                                @NonNull ReadingListPage page,
                                @NonNull PageTitle pageTitle) throws IOException, InterruptedException {
-        // TODO: handle "delete" offline
         long downloadSize = 0;
         Request request = makeUrlRequest(cacheControl, pageTitle.getWikiSite(),
                 pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getConvertedText())
@@ -318,12 +316,10 @@ public class SavedPageSyncService extends JobIntentService {
             downloadSize = reqSaveImages(page, urls, MOBILE_HTML_SECTION_PROGRESS, REFERENCES_PROGRESS);
         }
 
-        rsp.body().close();
-
         downloadSize += responseSize(rsp);
 
         for (String cssStyleUrl : CSS_STYLE_URLS) {
-            downloadSize += reqSaveUrl(null, pageTitle.getWikiSite(), cssStyleUrl);
+            downloadSize += reqSaveUrl(cacheControl, saveOfflineHeader, pageTitle.getWikiSite(), cssStyleUrl);
         }
 
         return downloadSize;
@@ -335,12 +331,11 @@ public class SavedPageSyncService extends JobIntentService {
         float percentage = progressStart;
         float updateRate = (progressEnd - percentage) / numOfImages;
         for (String url : urls) {
-            L.d("reqSaveImages url " + url);
             if (savedPageSyncNotification.isSyncPaused() || savedPageSyncNotification.isSyncCanceled()) {
                 throw new InterruptedException("Sync paused or cancelled.");
             }
             try {
-                totalSize += reqSaveUrl(CacheControl.FORCE_NETWORK, page.wiki(), url);
+                totalSize += reqSaveUrl(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, page.wiki(), url);
                 percentage += updateRate;
                 page.downloadProgress((int) percentage);
                 WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
@@ -357,9 +352,12 @@ public class SavedPageSyncService extends JobIntentService {
         return totalSize;
     }
 
-    private long reqSaveUrl(@Nullable CacheControl cacheControl, @NonNull WikiSite wiki, @NonNull String url) throws IOException {
+    private long reqSaveUrl(@NonNull CacheControl cacheControl,
+                            @NonNull String saveOfflineHeader,
+                            @NonNull WikiSite wiki,
+                            @NonNull String url) throws IOException {
         Request request = makeUrlRequest(cacheControl, wiki, url)
-                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
+                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, saveOfflineHeader)
                 .build();
 
         Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
@@ -372,12 +370,8 @@ public class SavedPageSyncService extends JobIntentService {
         return responseSize(rsp);
     }
 
-    @NonNull private Request.Builder makeUrlRequest(@Nullable CacheControl cacheControl, @NonNull WikiSite wiki, @NonNull String url) {
-        if (cacheControl != null) {
-            return new Request.Builder().cacheControl(cacheControl).url(UriUtil.resolveProtocolRelativeUrl(wiki, url));
-        } else {
-            return new Request.Builder().url(url);
-        }
+    @NonNull private Request.Builder makeUrlRequest(@NonNull CacheControl cacheControl, @NonNull WikiSite wiki, @NonNull String url) {
+        return new Request.Builder().cacheControl(cacheControl).url(UriUtil.resolveProtocolRelativeUrl(wiki, url));
     }
 
     private void persistPageThumbnail(@NonNull PageTitle title, @NonNull String url) {
