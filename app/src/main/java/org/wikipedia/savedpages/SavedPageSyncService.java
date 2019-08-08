@@ -147,6 +147,7 @@ public class SavedPageSyncService extends JobIntentService {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
                 reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, referencesRsp) -> {
+                    reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, page, pageTitle);
                     Set<String> imageUrls = new HashSet<>();
                     if (leadRsp.body() != null) {
                         imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
@@ -248,7 +249,7 @@ public class SavedPageSyncService extends JobIntentService {
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-            totalSize += reqMobileHTML(page, pageTitle);
+            totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, page, pageTitle);
             page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             totalSize += responseSize(referencesRsp);
@@ -292,17 +293,19 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
                                                                                   @NonNull String saveOfflineHeader,
                                                                                   @NonNull PageTitle pageTitle) {
-        // TODO: check if it needs "FORCE_NETWORK" header
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(cacheControl.toString(), saveOfflineHeader, pageTitle.getConvertedText());
     }
 
-    private long reqMobileHTML(@NonNull ReadingListPage page, @NonNull PageTitle pageTitle) throws IOException, InterruptedException {
+    private long reqMobileHTML(@NonNull CacheControl cacheControl,
+                               @NonNull String saveOfflineHeader,
+                               @NonNull ReadingListPage page,
+                               @NonNull PageTitle pageTitle) throws IOException, InterruptedException {
         // TODO: handle "delete" offline
         long downloadSize = 0;
-        Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, pageTitle.getWikiSite(),
+        Request request = makeUrlRequest(cacheControl, pageTitle.getWikiSite(),
                 pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getConvertedText())
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
-                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
+                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, saveOfflineHeader)
                 .build();
 
         Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
