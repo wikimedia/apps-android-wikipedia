@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageMetadata;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
@@ -115,6 +116,9 @@ public interface RestService {
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
+
+    @GET("page/metadata/{title}")
+    @NonNull Observable<PageMetadata> getMetadata(@Path("title") String title);
 
     @GET("page/media-list/{title}")
     @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
