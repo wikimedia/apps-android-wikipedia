@@ -62,12 +62,6 @@ public class SavedPageSyncService extends JobIntentService {
             = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
     private SavedPageSyncNotification savedPageSyncNotification;
 
-    // TODO: move these urls to a proper location
-    private final String[] CSS_STYLE_URLS = {"https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base",
-                                            "https://meta.wikimedia.org/api/rest_v1/data/css/mobile/pagelib",
-                                            "https://meta.wikimedia.org/api/rest_v1/data/javascript/mobile/pagelib",
-                                            "https://en.wikipedia.org/api/rest_v1/data/css/mobile/site"};
-
     public SavedPageSyncService() {
         savedPageSyncNotification = SavedPageSyncNotification.getInstance();
     }
@@ -314,13 +308,15 @@ public class SavedPageSyncService extends JobIntentService {
             // TODO: fetch lazy-load images urls
             Set<String> urls = new HashSet<>(pageImageUrlParser.parse(body));
             downloadSize = reqSaveImages(page, urls, MOBILE_HTML_SECTION_PROGRESS, REFERENCES_PROGRESS);
+
+            // download page css and javascript files
+            List<String> componentsUrls = new PageComponentsUrlParser().parse(body);
+            for (String url : componentsUrls) {
+                downloadSize += reqSaveUrl(cacheControl, saveOfflineHeader, pageTitle.getWikiSite(), url);
+            }
         }
 
         downloadSize += responseSize(rsp);
-
-        for (String cssStyleUrl : CSS_STYLE_URLS) {
-            downloadSize += reqSaveUrl(cacheControl, saveOfflineHeader, pageTitle.getWikiSite(), cssStyleUrl);
-        }
 
         return downloadSize;
     }
