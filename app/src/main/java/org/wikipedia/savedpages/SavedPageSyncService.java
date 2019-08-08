@@ -18,7 +18,6 @@ import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
@@ -63,6 +62,8 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull private final PageImageUrlParser pageImageUrlParser
             = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
     private SavedPageSyncNotification savedPageSyncNotification;
+
+    // TODO: move these urls to a proper location
     private final String[] CSS_STYLE_URLS = {"https://meta.wikimedia.org/api/rest_v1/data/css/mobile/base",
                                             "https://meta.wikimedia.org/api/rest_v1/data/css/mobile/pagelib",
                                             "https://meta.wikimedia.org/api/rest_v1/data/javascript/mobile/pagelib",
@@ -145,16 +146,13 @@ public class SavedPageSyncService extends JobIntentService {
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqPageSections(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, sectionsRsp) -> {
+                reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, referencesRsp) -> {
                     Set<String> imageUrls = new HashSet<>();
                     if (leadRsp.body() != null) {
                         imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
                         if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
                             imageUrls.add(pageTitle.getThumbUrl());
                         }
-                    }
-                    if (sectionsRsp.body() != null) {
-                        imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
                     }
                     return imageUrls;
                 })
@@ -241,7 +239,7 @@ public class SavedPageSyncService extends JobIntentService {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
-        Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(pageTitle);
+        Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
@@ -266,7 +264,6 @@ public class SavedPageSyncService extends JobIntentService {
             }
             page.description(leadRsp.body().getDescription());
 
-
             if (Prefs.isImageDownloadEnabled()) {
                 totalSize += reqSaveImages(page, imageUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
             }
@@ -284,19 +281,19 @@ public class SavedPageSyncService extends JobIntentService {
         return pageSize[0];
     }
 
-    @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@Nullable CacheControl cacheControl,
-                                                                          @Nullable String saveOfflineHeader,
+    @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@NonNull CacheControl cacheControl,
+                                                                          @NonNull String saveOfflineHeader,
                                                                           @NonNull PageTitle pageTitle) {
         String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
         return new PageClient().lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
 
-    @NonNull private Observable<retrofit2.Response<PageRemaining>> reqPageSections(@Nullable CacheControl cacheControl,
-                                                         @Nullable String saveOfflineHeader,
-                                                         @NonNull PageTitle pageTitle) {
-        String title = pageTitle.getPrefixedText();
-        return new PageClient().sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
+    @NonNull private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
+                                                                                  @NonNull String saveOfflineHeader,
+                                                                                  @NonNull PageTitle pageTitle) {
+        // TODO: check if it needs "FORCE_NETWORK" header
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(cacheControl.toString(), saveOfflineHeader, pageTitle.getConvertedText());
     }
 
     private long reqMobileHTML(@NonNull ReadingListPage page, @NonNull PageTitle pageTitle) throws IOException, InterruptedException {
@@ -313,7 +310,7 @@ public class SavedPageSyncService extends JobIntentService {
         // download images in the HTML
         if (rsp.body() != null && Prefs.isImageDownloadEnabled()) {
             String body = rsp.body().string();
-            // TODO: the mobile html uses "data-src=" to load the image.
+            // TODO: fetch lazy-load images urls
             Set<String> urls = new HashSet<>(pageImageUrlParser.parse(body));
             downloadSize = reqSaveImages(page, urls, MOBILE_HTML_SECTION_PROGRESS, REFERENCES_PROGRESS);
         }
@@ -327,11 +324,6 @@ public class SavedPageSyncService extends JobIntentService {
         }
 
         return downloadSize;
-    }
-
-    private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull PageTitle pageTitle) {
-        // TODO: check if it needs "FORCE_NETWORK" header
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(pageTitle.getConvertedText());
     }
 
     private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Set<String> urls, int progressStart, int progressEnd) throws IOException, InterruptedException {

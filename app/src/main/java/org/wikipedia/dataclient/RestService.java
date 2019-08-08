@@ -136,7 +136,9 @@ public interface RestService {
     @NonNull Observable<FeedAvailability> getFeedAvailability();
 
     @GET("page/references/{title}")
-    @NonNull Observable<Response<References>> getReferences(@Path("title") String title);
+    @NonNull Observable<Response<References>> getReferences(@Nullable @Header("Cache-Control") String cacheControl,
+                                                            @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                            @Path("title") String title);
 
     // ------- Reading lists -------
 
