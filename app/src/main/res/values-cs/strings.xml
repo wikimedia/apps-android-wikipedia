@@ -322,7 +322,7 @@
   <string name="page_offline_notice_add_to_reading_list">Tip: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
   <string name="page_offline_notice_last_date">Právě čtete verzi tohoto článku, která může být neaktuální. Tato verze byla uložena %s.</string>
   <string name="button_get_directions">Najít trasu</string>
-  <string name="error_no_maps_app">Nepodařilo se najít žádnou aplikaci, která poskytuje navigaci.</string>
+  <string name="error_no_maps_app">Tuto akci nemůže provést žádná aplikace.</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy článků</string>
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="preference_title_collapse_tables">Sbalit tabulky</string>
