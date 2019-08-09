@@ -100,13 +100,11 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
-import static org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor.SAVE_HEADER;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
@@ -1298,11 +1296,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private Observable<References> getReferences() {
-        return references == null
-                ? ServiceFactory.getRest(getTitle().getWikiSite())
-                    .getReferences(CacheControl.FORCE_CACHE.toString(), SAVE_HEADER, getTitle().getConvertedText())
-                    .flatMap(rsp -> rsp.body() == null ? Observable.empty() : Observable.just(rsp.body()))
-                : Observable.just(references);
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText()) : Observable.just(references);
     }
 
     void openImageInGallery(@NonNull String language) {

@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.events.PageDownloadEvent;
+import org.wikipedia.gallery.MediaList;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
@@ -53,7 +54,8 @@ public class SavedPageSyncService extends JobIntentService {
     private static final int ENQUEUE_DELAY_MILLIS = 2000;
     public static final int LEAD_SECTION_PROGRESS = 25;
     public static final int MOBILE_HTML_SECTION_PROGRESS = 50;
-    public static final int REFERENCES_PROGRESS = 60;
+    public static final int MEDIA_LIST_PROGRESS = 60;
+    public static final int REFERENCES_PROGRESS = 70;
 
     private static Runnable ENQUEUE_RUNNABLE = () -> enqueueWork(WikipediaApp.getInstance(),
             SavedPageSyncService.class, JOB_ID, new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
@@ -139,8 +141,9 @@ public class SavedPageSyncService extends JobIntentService {
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, referencesRsp) -> {
-                    reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, page, pageTitle);
+                reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
+                reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, mediaListRsp, referencesRsp) -> {
+                    reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
                     Set<String> imageUrls = new HashSet<>();
                     if (leadRsp.body() != null) {
                         imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
@@ -233,17 +236,21 @@ public class SavedPageSyncService extends JobIntentService {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+        Observable<retrofit2.Response<MediaList>> mediaListCall = reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(leadCall, referencesCall, (leadRsp, referencesRsp) -> {
+        Observable.zip(leadCall, mediaListCall, referencesCall, (leadRsp, mediaListRsp, referencesRsp) -> {
             long totalSize = 0;
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-            totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, page, pageTitle);
+            totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
             page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
+            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+            totalSize += responseSize(mediaListRsp);
+            page.downloadProgress(MEDIA_LIST_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             totalSize += responseSize(referencesRsp);
             page.downloadProgress(REFERENCES_PROGRESS);
@@ -275,7 +282,9 @@ public class SavedPageSyncService extends JobIntentService {
         return pageSize[0];
     }
 
-    @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@NonNull CacheControl cacheControl,
+    // TODO: will be replaced by metadata and summary endpoints
+    @NonNull
+    private Observable<retrofit2.Response<PageLead>> reqPageLead(@NonNull CacheControl cacheControl,
                                                                           @NonNull String saveOfflineHeader,
                                                                           @NonNull PageTitle pageTitle) {
         String title = pageTitle.getPrefixedText();
@@ -283,7 +292,16 @@ public class SavedPageSyncService extends JobIntentService {
         return new PageClient().lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
 
-    @NonNull private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
+    @NonNull
+    private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull CacheControl cacheControl,
+                                                                   @NonNull String saveOfflineHeader,
+                                                                   @NonNull PageTitle pageTitle) {
+        // TODO: query the image urls and will be able to show the images for offline reading
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(cacheControl.toString(), saveOfflineHeader, pageTitle.getConvertedText());
+    }
+
+    @NonNull
+    private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
                                                                                   @NonNull String saveOfflineHeader,
                                                                                   @NonNull PageTitle pageTitle) {
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(cacheControl.toString(), saveOfflineHeader, pageTitle.getConvertedText());
@@ -291,8 +309,7 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long reqMobileHTML(@NonNull CacheControl cacheControl,
                                @NonNull String saveOfflineHeader,
-                               @NonNull ReadingListPage page,
-                               @NonNull PageTitle pageTitle) throws IOException, InterruptedException {
+                               @NonNull PageTitle pageTitle) throws IOException {
         long downloadSize = 0;
         Request request = makeUrlRequest(cacheControl, pageTitle.getWikiSite(),
                 pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getConvertedText())
@@ -302,14 +319,9 @@ public class SavedPageSyncService extends JobIntentService {
 
         Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
-        // download images in the HTML
-        if (rsp.body() != null && Prefs.isImageDownloadEnabled()) {
+        // Don't delete CSS and JavaScript files since they are shared.
+        if (rsp.body() != null && !saveOfflineHeader.equals(OfflineCacheInterceptor.SAVE_HEADER_DELETE)) {
             String body = rsp.body().string();
-            // TODO: fetch lazy-load images urls
-            Set<String> urls = new HashSet<>(pageImageUrlParser.parse(body));
-            downloadSize = reqSaveImages(page, urls, MOBILE_HTML_SECTION_PROGRESS, REFERENCES_PROGRESS);
-
-            // download page css and javascript files
             List<String> componentsUrls = new PageComponentsUrlParser().parse(body);
             for (String url : componentsUrls) {
                 downloadSize += reqSaveUrl(cacheControl, saveOfflineHeader, pageTitle.getWikiSite(), url);

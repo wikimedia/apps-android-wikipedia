@@ -119,6 +119,11 @@ public interface RestService {
     @GET("page/media-list/{title}")
     @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
 
+    @GET("page/media-list/{title}")
+    @NonNull Observable<Response<MediaList>> getMediaList(@Nullable @Header("Cache-Control") String cacheControl,
+                                                          @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                          @Path("title") String title);
+
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
 
@@ -134,6 +139,9 @@ public interface RestService {
 
     @GET("feed/availability")
     @NonNull Observable<FeedAvailability> getFeedAvailability();
+
+    @GET("page/references/{title}")
+    @NonNull Observable<References> getReferences(@Path("title") String title);
 
     @GET("page/references/{title}")
     @NonNull Observable<Response<References>> getReferences(@Nullable @Header("Cache-Control") String cacheControl,
