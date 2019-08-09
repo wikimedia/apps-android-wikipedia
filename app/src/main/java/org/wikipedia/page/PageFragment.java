@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -422,6 +423,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                L.d("ttfp: " + activeTimer.getElapsedMillis());
                 if (!isAdded()) {
                     return;
                 }
