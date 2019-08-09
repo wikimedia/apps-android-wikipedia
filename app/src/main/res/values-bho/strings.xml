@@ -9,53 +9,80 @@
   <string name="app_name_beta">विकिपीडिया बीटा</string>
   <string name="app_name_alpha">विकिपीडिया अल्फा</string>
   <string name="wikimedia">विकिमीडिया</string>
+  <string name="nav_item_back">पाछे</string>
+  <string name="page_tabs_back">पाछे</string>
+  <string name="nav_item_forward">आगे</string>
   <string name="search_hint">विकिपीडिया में खोजीं</string>
   <string name="search_hint_search_history">खोज इतिहास</string>
+  <string name="search_hint_search_languages">भाषा खोजल जाय</string>
+  <string name="search_hint_search_my_lists_and_articles">हमार लिस्ट आ लेख में खोजीं</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
   <string name="page_error_retry">दुबारा कोसिस करीं</string>
+  <string name="card_offline_error_retry">दुबारा कोसिस करीं</string>
+  <string name="storage_access_error_retry">दुबारा कोसिस करीं</string>
+  <string name="article_load_error_retry">दुबारा कोसिस करीं</string>
+  <string name="offline_load_error_retry">दुबारा कोसिस करीं</string>
   <string name="page_error_back_to_main">पाछे जाईं</string>
+  <string name="error_back">पाछे जाईं</string>
   <string name="menu_clear_all_history">इतिहास साफ करीं</string>
   <string name="history_item_deleted">%s इतिहास से हटावल गइल</string>
   <string name="history_items_deleted">%d लेख इतिहास से हटावल गइल</string>
   <string name="history_item_delete_undo">पहिले नियर करीं</string>
+  <string name="notification_archive_undo">वापस लीं</string>
+  <string name="app_settings">एप सेटिंग सभ</string>
   <string name="dialog_title_clear_history">ब्राउजिंग इतिहास साफ करीं</string>
   <string name="dialog_message_clear_history">ई आपके सगरी ब्राउजिंग इतिहास साफ करी, आ कौनों वर्तमान खुलल टैब भी बंद कर दी। निश्चित बानी?</string>
+  <string name="dialog_message_clear_history_yes">हँऽ</string>
+  <string name="dialog_message_clear_history_no">ना</string>
   <string name="share_via">साझा करीं</string>
+  <string name="image_share_via">साझा करे के साधन</string>
   <string name="search_redirect_from">%s से अनुप्रेषित</string>
   <string name="menu_page_show_tabs">टैब देखावल जाय</string>
   <string name="menu_page_other_languages">भासा बदलीं</string>
   <string name="menu_page_find_in_page">पन्ना पर खोजीं</string>
+  <string name="edit_section_find_in_page">पन्ना में खोजीं</string>
   <string name="menu_page_font_and_theme">फॉन्ट आ थीम</string>
   <string name="menu_page_add_to_list">पढ़ाई सूची में जोड़ीं</string>
+  <string name="feed_card_add_to_list">पढ़ाई सूची में जोड़ीं</string>
   <string name="menu_page_share">साझा करे के कड़ी</string>
+  <string name="menu_page_open_a_new_tab">नया टैब खोलीं</string>
+  <string name="menu_page_reading_lists">पढ़ाई लिस्टसभ</string>
+  <string name="menu_page_recently_viewed">हाल में देखल</string>
   <string name="menu_long_press_open_page">खोलीं</string>
   <string name="menu_long_press_open_in_new_tab">नया टैब में खोलीं</string>
   <string name="menu_long_press_copy_page">कड़ी के पता कॉपी करीं</string>
   <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">परिभाषित करीं</string>
   <string name="menu_text_select_share">साझा करीं</string>
+  <string name="share">साझा करीं</string>
+  <string name="on_this_day_page_share">साझा करीं</string>
+  <string name="reading_list_page_share">साझा करीं</string>
   <string name="menu_text_select_edit_here">संपादन इहाँ करीं</string>
   <string name="nav_item_nearby">आसपास</string>
   <string name="nearby_zoom_to_location">नक्सा के कौनों जगह पर जूम करीं</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;ओपनस्ट्रीटमैप&lt;/a&gt; योगदान</string>
   <string name="last_updated_text">%s पर अंतिम अपडेट भइल रहल</string>
-  <string name="talk_page_link_text" fuzzy="true">बातचीत</string>
+  <string name="talk_page_link_text">बातचीत पन्ना देखीं</string>
+  <string name="edit_history_link_text">संपादन इतिहास देखीं</string>
+  <string name="map_view_link_text">नक्सा पर देखीं</string>
+  <string name="other_languages_indication_text">दुसरी भाषा में पढ़ीं</string>
+  <string name="language_count_link_text">अउरी %d भाषा में मौजूद</string>
   <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के तहत उपलब्ध बा अगर कुछ अन्य जानकारी न बतावल गइल होखे</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">सहेजे के मतलब बा आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी,  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">सहेजे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
-  <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
+  <string name="edit_save_action_license_logged_in">प्रकाशित करे के मतलब बा की आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
+  <string name="edit_save_action_license_anon">प्रकाशित करे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
+  <string name="preference_title_language">विकिपीडिया भाषासभ</string>
   <string name="langlinks_filter_hint">खोजीं</string>
   <string name="langlinks_empty">इ पन्ना अन्य भाषा में मौजूद नइखे</string>
-  <string name="langlinks_no_match" fuzzy="true">आपके पुछार से मिलत कौनों भाषा ना मिलल।</string>
+  <string name="langlinks_no_match">कौनों भाषा ना मिलल</string>
   <string name="langlinks_activity_title">दुसरी भाषा में</string>
+  <string name="langlinks_your_wikipedia_languages">राउर विकिपीडिया भाषा</string>
   <string name="menu_save_changes">बदलाव प्रकाशित करीं</string>
-  <string name="dialog_saving_in_progress">प्रकाशित कइल जात बा...</string>
   <string name="edit_saved_successfully">संपादन प्रकाशित भइल!</string>
   <string name="dialog_message_edit_failed">संपादन फेल हो गइल!</string>
   <string name="dialog_message_edit_failed_retry">दुबारा कोसिस करीं</string>
   <string name="dialog_message_edit_failed_cancel">कैंसिल</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">बदलाव अभिन ले सहेजल नइखे गइल। का आप निश्चित बानी पन्ना छोड़ के हटे खातिर?</string>
+  <string name="dialog_message_leaving_edit">बदलाव अभिन ले प्रकाशित नइखे गइल। का आप निश्चित बानी पन्ना छोड़ के हटे खातिर?</string>
   <string name="dialog_message_leaving_edit_leave">छोड़ीं</string>
   <string name="dialog_message_leaving_edit_stay">रुकीं</string>
   <string name="menu_show_toc">बिसयसूची</string>
@@ -64,20 +91,36 @@
   <string name="search_reading_lists_no_results">रीडिंग लिस्ट सभ में कवनों रिजल्ट ना मिलल</string>
   <string name="search_history_no_results">इतिहास में कवनों रिजल्ट ना मिलल</string>
   <string name="edit_section_captcha_message">ऑटोमेटिक स्पैम से सुरक्षा खातिर, नीचे लउकत शब्द डालीं</string>
+  <string name="edit_section_captcha_request_an_account_message">फोटो नइखे लउकत? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;खाता खाती अनुरोध करीं&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ऊपर के शब्द के दोबारा डालीं</string>
   <string name="title_captcha">कैप्चा डालीं</string>
   <string name="edit_section_captcha_reload">कैप्चा के दोबारा लोड करे खातिर टैप करीं</string>
   <string name="nav_item_login">विकिपीडिया पर खाता में प्रवेश करीं</string>
   <string name="login_username_hint">प्रयोगकर्तानाँव</string>
   <string name="login_password_hint">गुप्तशब्द (पासवर्ड)</string>
+  <string name="account_creation_password_hint">गुप्तशब्द (पासवर्ड)</string>
   <string name="login_2fa_hint">टू-फैक्टर ऑथेन्टिकेशन कोड</string>
   <string name="login_2fa_other_workflow_error_msg">टू-फैक्टर ऑथेन्टिकेशन जरूरी बा! मुख्य कामकाज पर लवटीं आ आपन 2एफए टोकन के साथ खाता में प्रवेश करीं, तब फिर दोबारा कोसिस करीं।</string>
+  <string name="onboarding_card_login">लॉग इन</string>
+  <string name="page_editing_login">लॉग इन</string>
+  <string name="reading_lists_sync_login">लॉग इन</string>
+  <string name="create_account_login">लॉग इन</string>
   <string name="menu_login">खाता में प्रवेश</string>
   <string name="login_activity_title">विकिपीडिया पर खाता में प्रवेश करीं</string>
   <string name="login_in_progress_dialog_message">रउवाँ के खाता में प्रवेश करावल जा रहल बा...</string>
   <string name="login_success_toast">खाता में प्रवेश सफल भइल!</string>
+  <string name="reset_password_title">आपन पासवर्ड सेट करीं</string>
+  <string name="reset_password_description">आप टंपरौरी पासवर्ड से लॉग इन बाड़ीं। लॉग इन पूरा करे खाती हेइजा नाया पासवर्ड सेट करीं।</string>
+  <string name="reset_password_hint">नाया पासवर्ड</string>
+  <string name="reset_password_button">सहेजीं आ लॉग इन करीं</string>
   <string name="preference_title_logout">खाता से बाहर</string>
   <string name="toast_logout_complete">खाता से बाहर हो गइलीं</string>
+  <string name="logout_prompt">आप एह समय जेतना डिवाइस सभ से लॉग इन होखब ऊ सगरी से लॉग आउट हो जाइब। आगे बढ़ल चाहत बानी?</string>
+  <string name="logout_dialog_cancel_button_text">कैंसिल</string>
+  <string name="logged_out_in_background_title">खाता से बाहर हो गइलीं</string>
+  <string name="logged_out_in_background_dialog">आप विकिपीडिया पर अपने खाता से बहरें हो गइल बाड़ीं। दोबारा लॉग इन कइल चाहब?</string>
+  <string name="logged_out_in_background_login">लॉग इन</string>
+  <string name="logged_out_in_background_cancel">कैंसिल</string>
   <string name="history_empty_title">हाल में देखल कवनों लेख नइखे</string>
   <string name="history_empty_message">आप इहाँ का पढ़त रहल बानी ओपर नजर फेरीं</string>
   <string name="search_empty_message">अपना भासा में ज्ञानकोश में खोजीं आ पढ़ीं</string>
@@ -101,7 +144,6 @@
   <string name="create_account_button">खाता खोली</string>
   <string name="preferences_general_heading">जनरल</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप अक्सर पूछल जाए वाला सवाल</string>
-  <string name="edit_preview_fetching_dialog_message">झलक हासिल कइल जाता...</string>
   <string name="send_feedback">एप फीडबैक भेजीं</string>
   <string name="create_account_account_created_toast">खाता बनावल गइल!</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">विकिमीडिया के एलाऊ करीं की जब आप खाता में प्रवेश करीं तब आपके रीडिंग लिस्ट के सिंक करे</string>

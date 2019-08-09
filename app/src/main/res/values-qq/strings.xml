@@ -299,6 +299,8 @@
   <string name="captcha_image">Content description of the actual captcha image the user has to recognize to proceed.</string>
   <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.\n{{Identical|Fair use}}</string>
   <string name="gallery_uploader_unknown">Text displayed when the uploader of a media item is not known.</string>
+  <string name="gallery_not_available_offline_snackbar">Message shown when users tapping on the images in an article while the device is offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">The label for the action button to dismiss the snackbar.</string>
   <string name="menu_new_tab">Text hint for the menu button used for creating a new tab.</string>
   <string name="menu_close_all_tabs">Text hint for the menu button used for closing all tabs.</string>
   <string name="close_all_tabs_confirm">Confirmation message shown when closing all tabs.</string>

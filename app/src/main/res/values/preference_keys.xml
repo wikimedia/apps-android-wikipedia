@@ -101,6 +101,7 @@
     <string name="preference_key_show_bookmark_tooltip">showBookmarkTooltip</string>
     <string name="preference_key_overflow_reading_lists_option_click_count">overflowReadingListsClickCount</string>
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
+    <string name="preference_key_suggested_edits_unlock_override">suggestedEditsUnlockOverride</string>
     <string name="preference_key_suggested_edits_add_descriptions_unlocked">suggestedEditsAddDescriptionsUnlocked</string>
     <string name="preference_key_suggested_edits_translate_descriptions_unlocked">suggestedEditsTranslateDescriptionsUnlocked</string>
     <string name="preference_key_suggested_edits_add_captions_unlocked">suggestedEditsAddCaptionsUnlocked</string>
