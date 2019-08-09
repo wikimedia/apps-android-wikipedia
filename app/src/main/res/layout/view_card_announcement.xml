@@ -33,7 +33,7 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
-        <TextView
+        <Button
             android:id="@+id/view_announcement_action_negative"
             style="@style/TransparentButton"
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:text="@string/view_announcement_card_negative_action"
             android:textColor="?attr/secondary_text_color" />
 
-        <TextView
+        <Button
             android:id="@+id/view_announcement_action_positive"
             style="@style/App.Button.Blue"
             android:textColor="@android:color/white"
