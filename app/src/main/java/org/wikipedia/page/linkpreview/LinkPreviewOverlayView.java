@@ -3,8 +3,8 @@ package org.wikipedia.page.linkpreview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -21,9 +21,9 @@ public class LinkPreviewOverlayView extends FrameLayout {
         void onTertiaryClick();
     }
 
-    @BindView(R.id.link_preview_primary_button) TextView primaryButton;
-    @BindView(R.id.link_preview_secondary_button) TextView secondaryButton;
-    @BindView(R.id.link_preview_tertiary_button) View tertiaryButton;
+    @BindView(R.id.link_preview_primary_button) Button primaryButton;
+    @BindView(R.id.link_preview_secondary_button) Button secondaryButton;
+    @BindView(R.id.link_preview_tertiary_button) Button tertiaryButton;
 
     @Nullable private Callback callback;
 
