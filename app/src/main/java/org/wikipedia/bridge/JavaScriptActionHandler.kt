@@ -18,8 +18,8 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setMargin(top: Int, right: Int, bottom: Int, left: Int): String {
-        return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top, right, bottom, left)
+    fun setTopMargin(top: Int): String {
+        return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
     }
 
     @JvmStatic
@@ -38,18 +38,20 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setUp(): String {
+    fun setUp(topMargin: Int): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         return String.format("pagelib.c1.Page.setup({" +
                 "platform: pagelib.c1.Platforms.ANDROID," +
                 "clientVersion: '%s'," +
                 "theme: pagelib.c1.Themes.%s," +
                 "dimImages: %b," +
+                "margins: { top: '%dpx', right: '%dpx', bottom: '%dpx', left: '%dpx' }," +
                 "areTablesInitiallyExpanded: %b," +
                 "textSizeAdjustmentPercentage: '100%%'," +
                 "loadImages: %b" +
                 "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
                 (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
+                topMargin + 16, 16, 48, 16,
                 !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 
