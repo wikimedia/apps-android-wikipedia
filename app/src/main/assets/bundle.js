@@ -462,7 +462,9 @@ function fetchCategories() {
         categoriesRequest.abort();
     }
     categoriesRequest = new XMLHttpRequest();
-    categoriesRequest.open('GET', "/w/api.php?format=json&formatversion=2&action=query&prop=categories&clprop=hidden&cllimit=500&titles=" + window.pageTitle.replace(/<[^>]*>/g, ''));
+
+    var plainTextTitle = window.pageTitle.replace(/<[^>]*>/g, '');
+    categoriesRequest.open('GET', "/w/api.php?format=json&formatversion=2&action=query&prop=categories&clprop=hidden&cllimit=500&titles=" + plainTextTitle);
     categoriesRequest.sequence = window.sequence;
     if (window.apiLevel > 19 && window.responseType !== 'json') {
         categoriesRequest.responseType = 'json';
@@ -475,13 +477,10 @@ function fetchCategories() {
             return;
         }
         try {
-            // On API <20, the XMLHttpRequest does not support responseType = json,
-            // so we have to call JSON.parse() ourselves.
-            var json = window.apiLevel > 19 ? this.response : JSON.parse(this.response);
-
-            for (var pageId in json.query.pages) {
-                if( json.query.pages.hasOwnProperty(pageId) ) {
-                    layoutCategories(json.query.pages[pageId].categories);
+            var query = this.response.query;
+            for (var pageId in query.pages) {
+                if( query.pages.hasOwnProperty(pageId) ) {
+                    layoutCategories(query.pages[pageId].categories);
                 }
             }
         } catch (e) {
