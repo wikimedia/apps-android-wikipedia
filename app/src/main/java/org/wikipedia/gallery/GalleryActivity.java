@@ -478,7 +478,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     public void finishWithPageResult(@NonNull PageTitle resultTitle, @NonNull HistoryEntry historyEntry) {
-        Intent intent = PageActivity.newIntentForCurrentTab(GalleryActivity.this, historyEntry, resultTitle);
+        Intent intent = PageActivity.newIntentForCurrentTab(GalleryActivity.this, historyEntry, resultTitle, false);
         setResult(ACTIVITY_RESULT_PAGE_SELECTED, intent);
         finish();
     }
