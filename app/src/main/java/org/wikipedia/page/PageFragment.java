@@ -426,8 +426,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     return;
                 }
                 pageFragmentLoadState.onPageFinished();
+                leadImagesHandler.beginLayout();
                 updateProgressBar(false, true, 0);
-                bridge.execute(JavaScriptActionHandler.setUp());
+
+                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getTopMarginForContent()));
 
                 onPageLoadComplete();
             }
@@ -493,7 +495,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
-            pageFragmentLoadState.layoutLeadImage();
+            pageFragmentLoadState.onConfigurationChanged();
         }
     }
 
