@@ -2,7 +2,6 @@ package org.wikipedia.dataclient.okhttp;
 
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.webkit.MimeTypeMap;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -19,7 +18,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +36,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
-    private static final String ASSETS_URL_PATH = "/android_asset/";
-    private static final String PCS_CSS_BASE = "/data/css/mobile/base";
-    private static final String PCS_CSS_PAGELIB = "/data/css/mobile/pagelib";
 
     @NonNull public abstract PageViewModel getModel();
 
@@ -51,14 +46,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         }
 
         try {
-            if (request.getUrl().toString().contains(ASSETS_URL_PATH)) {
-                final int statusCode = 200;
-                String[] urlArr = request.getUrl().toString().split(ASSETS_URL_PATH);
-                return new WebResourceResponse(MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(request.getUrl().toString())),
-                        "utf-8", statusCode, "OK",
-                        Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open(urlArr[urlArr.length - 1]));
-            }
-
             Response rsp = request(request);
             if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
                 rsp.close();
@@ -73,29 +60,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                         getInputStream(rsp));
             }
         } catch (Exception e) {
-
-            if (request.getUrl().toString().contains(PCS_CSS_BASE)) {
-                // This means that we failed to fetch the base CSS for our page (probably due to
-                // being offline), so replace it with our pre-packaged fallback.
-                final int statusCode = 200;
-                try {
-                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("styles.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            } else if (request.getUrl().toString().contains(PCS_CSS_PAGELIB)) {
-                // This means that we failed to fetch the page-library CSS (probably due to
-                // being offline), so replace it with our pre-packaged fallback.
-                final int statusCode = 200;
-                try {
-                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("wikimedia-page-library.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            }
-
             L.e(e);
         }
         return null;
