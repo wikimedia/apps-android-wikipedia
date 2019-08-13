@@ -809,6 +809,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     ReadingListDbHelper.instance().updatePage(page);
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
+        }
+
+        if (!errorState) {
             setupToC(model, pageFragmentLoadState.isFirstPage());
             editHandler.setPage(model.getPage());
         }
