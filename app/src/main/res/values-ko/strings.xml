@@ -294,6 +294,7 @@
   <string name="captcha_image">보안 영상</string>
   <string name="gallery_fair_use_license">공정 이용</string>
   <string name="gallery_uploader_unknown">업로더 알 수 없음</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">숨기기</string>
   <string name="menu_new_tab">새 탭</string>
   <string name="menu_close_all_tabs">모든 탭 닫기</string>
   <string name="close_all_tabs_confirm">모든 탭을 닫으시겠습니까?</string>

@@ -314,6 +314,7 @@
   <string name="captcha_image">Código captcha</string>
   <string name="gallery_fair_use_license">Uso legítimo</string>
   <string name="gallery_uploader_unknown">Cargador desconocido</string>
+  <string name="gallery_not_available_offline_snackbar">La vista de galería no está disponible sin conexión.</string>
   <string name="menu_new_tab">Pestaña nueva</string>
   <string name="menu_close_all_tabs">Cerrar todas las pestañas</string>
   <string name="close_all_tabs_confirm">¿Confirmas que quieres cerrar todas las pestañas?</string>
