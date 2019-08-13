@@ -112,7 +112,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="-4dp"
             android:layout_marginTop="16dp"
@@ -122,15 +122,14 @@
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_light"
                     style="@style/App.Button.White"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_light" />
 
                 <View
@@ -148,17 +147,16 @@
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_sepia"
                     style="@style/App.Button.White"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_sepia"
-                    app:backgroundTint="@color/papyrus" />
+                    android:backgroundTint="@color/papyrus"/>
 
                 <View
                     android:id="@+id/button_theme_sepia_highlight"
@@ -175,15 +173,14 @@
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_dark"
                     style="@style/App.Button.Gray"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_dark" />
 
                 <View
@@ -201,15 +198,14 @@
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_black"
                     style="@style/App.Button.Black"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_black" />
 
                 <View

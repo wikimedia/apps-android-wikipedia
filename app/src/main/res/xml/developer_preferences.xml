@@ -282,6 +282,10 @@
             android:title="@string/preference_key_show_suggested_edits_multilingual_teaser_task" />
 
         <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_unlock_override"
+            android:title="@string/preference_key_suggested_edits_unlock_override" />
+
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_suggested_edits_add_descriptions_unlocked"
             android:title="@string/preference_key_suggested_edits_add_descriptions_unlocked" />
 

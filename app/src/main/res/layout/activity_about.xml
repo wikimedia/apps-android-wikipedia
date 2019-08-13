@@ -130,7 +130,7 @@
                 android:textColor="?attr/material_theme_secondary_color"
                 android:textIsSelectable="true" />
 
-            <TextView
+            <Button
                 android:id="@+id/send_feedback_text"
                 style="@style/TransparentButton"
                 android:layout_width="wrap_content"
