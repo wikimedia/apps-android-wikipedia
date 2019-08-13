@@ -280,6 +280,8 @@
   <string name="captcha_image">Сликичка за проверка</string>
   <string name="gallery_fair_use_license">Праведна употреба</string>
   <string name="gallery_uploader_unknown">непознат подигач</string>
+  <string name="gallery_not_available_offline_snackbar">Галерискиот преглед не е достапен вонмрежно.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Тргни</string>
   <string name="menu_new_tab">Ново јазиче</string>
   <string name="menu_close_all_tabs">Затвори ги сите јазичиња</string>
   <string name="close_all_tabs_confirm">Дали сигурно сакате да ги затворите сите јазичиња?</string>

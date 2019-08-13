@@ -293,6 +293,8 @@
   <string name="captcha_image">Зображення captcha</string>
   <string name="gallery_fair_use_license">Добросовісне використання</string>
   <string name="gallery_uploader_unknown">Завантаживший невідомий</string>
+  <string name="gallery_not_available_offline_snackbar">Режим галереї є недоступним в офлайні.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Відхилити</string>
   <string name="menu_new_tab">Нова вкладка</string>
   <string name="menu_close_all_tabs">Закрити всі вкладки</string>
   <string name="close_all_tabs_confirm">Ви впевнені, що хочете закрити всі вкладки?</string>

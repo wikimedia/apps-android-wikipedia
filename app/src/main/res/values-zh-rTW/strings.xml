@@ -294,6 +294,8 @@
   <string name="captcha_image">驗證碼圖片</string>
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">未知上傳者</string>
+  <string name="gallery_not_available_offline_snackbar">圖庫檢視無法在離線時可用。</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">關閉</string>
   <string name="menu_new_tab">新增分頁</string>
   <string name="menu_close_all_tabs">關閉所有分頁</string>
   <string name="close_all_tabs_confirm">確定要關閉所有分頁嗎？</string>
