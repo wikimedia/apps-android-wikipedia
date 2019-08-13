@@ -600,9 +600,6 @@
   <string name="suggested_edits_image_caption_summary_title_source">ߛߎ߲</string>
   <string name="suggested_edits_image_caption_summary_title_license">ߕߌ߰ߦߊ</string>
   <string name="suggested_edits_image_caption_summary_title_date">ߕߎ߬ߡߊ߬ߘߊ</string>
-  <plurals name="suggested_edits_contribution_count">
-    <item quantity="other">ߞߋߟߋ߲߫=ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲</item>
-  </plurals>
   <string name="suggested_edits_feed_card_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ (%s) ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
