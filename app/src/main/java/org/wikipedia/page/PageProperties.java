@@ -8,7 +8,9 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.dataclient.page.PageLeadProperties;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageMetadata;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
@@ -49,7 +51,7 @@ public class PageProperties implements Parcelable {
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
-    public PageProperties(PageLeadProperties core) {
+    public PageProperties(PageLead core) {
         pageId = core.getId();
         namespace = core.getNamespace();
         revisionId = core.getRevision();
@@ -57,6 +59,44 @@ public class PageProperties implements Parcelable {
         titlePronunciationUrl = core.getTitlePronunciationUrl();
         geo = core.getGeo();
         editProtectionStatus = core.getFirstAllowedEditorRole();
+        languageCount = core.getLanguageCount();
+
+        // todo: don't hardcode this here
+        leadImageUrl = core.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
+
+        leadImageName = core.getLeadImageFileName();
+        lastModified = new Date();
+        String lastModifiedText = core.getLastModified();
+        if (lastModifiedText != null) {
+            try {
+                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
+            } catch (ParseException e) {
+                L.d("Failed to parse date: " + lastModifiedText);
+            }
+        }
+        // assume formatversion=2 is used so we get real booleans from the API
+        canEdit = core.isEditable();
+
+        isMainPage = core.isMainPage();
+        isDisambiguationPage = core.isDisambiguation();
+        wikiBaseItem = core.getWikiBaseItem();
+        descriptionSource = core.getDescriptionSource();
+    }
+
+    public PageProperties(@NonNull PageMetadata metadata, @NonNull PageSummary summary) {
+        pageId = summary.getPageId();
+        namespace = summary.getNamespace();
+        revisionId = summary.getRevision();
+        displayTitleText = defaultString(summary.getDisplayTitle());
+
+        // TODO:
+        //titlePronunciationUrl = summary.getTitlePronunciationUrl();
+
+        // TODO:
+        //geo = core.getGeo();
+
+        editProtectionStatus = core.getFirstAllowedEditorRole();
+
         languageCount = core.getLanguageCount();
 
         // todo: don't hardcode this here

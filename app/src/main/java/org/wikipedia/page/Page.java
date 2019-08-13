@@ -3,6 +3,9 @@ package org.wikipedia.page;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.dataclient.page.PageMetadata;
+import org.wikipedia.dataclient.page.PageSummary;
+
 import java.util.List;
 
 /**
@@ -19,6 +22,11 @@ public class Page {
         this.title = title;
         this.sections = sections;
         this.pageProperties = pageProperties;
+    }
+
+    public Page(@NonNull PageMetadata metadata, @NonNull PageSummary summary) {
+        pageProperties = new PageProperties(metadata, summary);
+        
     }
 
     @NonNull public PageTitle getTitle() {

@@ -7,47 +7,48 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 
 /**
  * Represents a summary of a page, useful for page previews.
  */
+@SuppressWarnings("unused")
 public class PageSummary {
     public static final String TYPE_STANDARD = "standard";
     public static final String TYPE_DISAMBIGUATION = "disambiguation";
     public static final String TYPE_MAIN_PAGE = "mainpage";
     public static final String TYPE_NO_EXTRACT = "no-extract";
 
-    @SuppressWarnings("unused") @Nullable private String type;
-    @SuppressWarnings("unused,NullableProblems") @Required
-    @NonNull private String title;
-    @SuppressWarnings("unused") @Nullable private String normalizedtitle;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
-    @SuppressWarnings("unused") @Nullable private NamespaceContainer namespace;
-    @SuppressWarnings("unused") @Nullable private String extract;
-    @SuppressWarnings("unused") @Nullable @SerializedName("extract_html") private String extractHtml;
-    @SuppressWarnings("unused") @Nullable private String description;
-    @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
-    @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
-    @SuppressWarnings("unused") @Nullable private String lang;
-    @SuppressWarnings("unused") private int pageid;
+    @Nullable private String type;
+    @Nullable private String title;
+    @Nullable private String normalizedtitle;
+    @Nullable private String displaytitle;
+    @Nullable private NamespaceContainer namespace;
+    @Nullable private String extract;
+    @Nullable @SerializedName("extract_html") private String extractHtml;
+    @Nullable private String description;
+    @Nullable private Thumbnail thumbnail;
+    @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
+    @Nullable private String lang;
+    private long revision;
+    private int pageid;
 
     @NonNull
     public String getTitle() {
-        return title;
+        return StringUtils.defaultString(title);
     }
 
     @NonNull
     public String getDisplayTitle() {
-        return displaytitle;
+        return StringUtils.defaultString(displaytitle, getTitle());
     }
 
     @NonNull
     public String getConvertedTitle() {
-        return title;
+        return getTitle();
     }
 
     @NonNull
@@ -82,7 +83,7 @@ public class PageSummary {
 
     @NonNull
     public String getNormalizedTitle() {
-        return normalizedtitle == null ? title : normalizedtitle;
+        return StringUtils.defaultString(normalizedtitle, getTitle());
     }
 
     @Nullable
@@ -99,8 +100,13 @@ public class PageSummary {
         return pageid;
     }
 
+    public long getRevision() {
+        return revision;
+    }
+
+    @NonNull
     public String getLang() {
-        return lang;
+        return StringUtils.defaultString(lang);
     }
 
     /**

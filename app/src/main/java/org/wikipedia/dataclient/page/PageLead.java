@@ -22,7 +22,7 @@ import java.util.List;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 
-public class PageLead implements PageLeadProperties {
+public class PageLead {
     @SuppressWarnings("unused") private int ns;
     @SuppressWarnings("unused") private int id;
     @SuppressWarnings("unused") private long revision;
@@ -74,27 +74,23 @@ public class PageLead implements PageLeadProperties {
         return new PageProperties(this);
     }
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @NonNull @Override public Namespace getNamespace() {
+    @NonNull public Namespace getNamespace() {
         return Namespace.of(ns);
     }
 
-    @Override
     public long getRevision() {
         return revision;
     }
 
-    @Override
     @Nullable
     public String getLastModified() {
         return lastmodified;
     }
 
-    @Override
     @Nullable
     public String getTitlePronunciationUrl() {
         return titlePronunciation == null
@@ -102,36 +98,30 @@ public class PageLead implements PageLeadProperties {
                 : UriUtil.resolveProtocolRelativeUrl(titlePronunciation.getUrl());
     }
 
-    @Override
     @Nullable
     public Location getGeo() {
         return geo;
     }
 
-    @Override
     public int getLanguageCount() {
         return languagecount;
     }
 
-    @Override
     @Nullable
     public String getDisplayTitle() {
         return displaytitle;
     }
 
-    @Override
     @Nullable
     public String getRedirected() {
         return redirected;
     }
 
-    @Override
     @Nullable
     public String getNormalizedTitle() {
         return normalizedtitle;
     }
 
-    @Override
     @Nullable
     public String getWikiBaseItem() {
         return wikiBaseItem;
@@ -142,37 +132,31 @@ public class PageLead implements PageLeadProperties {
         return description;
     }
 
-    @Override
     @Nullable
     public String getDescriptionSource() {
         return descriptionSource;
     }
 
-    @Override
     @Nullable
     public String getLeadImageUrl(int leadImageWidth) {
         return image != null ? image.getUrl(leadImageWidth) : null;
     }
 
-    @Override
     @Nullable
     public String getThumbUrl() {
         return image != null ? image.getUrl(PREFERRED_THUMB_SIZE) : null;
     }
 
-    @Override
     @Nullable
     public String getLeadImageFileName() {
         return image != null ? image.getFileName() : null;
     }
 
-    @Override
     @Nullable
     public String getFirstAllowedEditorRole() {
         return protection != null ? protection.getFirstAllowedEditorRole() : null;
     }
 
-    @Override
     public boolean isEditable() {
         return editable || isLoggedInUserAllowedToEdit();
     }
@@ -181,17 +165,15 @@ public class PageLead implements PageLeadProperties {
         return protection != null && AccountUtil.isMemberOf(protection.getEditRoles());
     }
 
-    @Override
     public boolean isMainPage() {
         return mainpage;
     }
 
-    @Override
     public boolean isDisambiguation() {
         return disambiguation;
     }
 
-    @Override @NonNull public List<Section> getSections() {
+    @NonNull public List<Section> getSections() {
         return sections == null ? Collections.emptyList() : sections;
     }
 

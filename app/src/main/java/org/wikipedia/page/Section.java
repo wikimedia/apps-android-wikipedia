@@ -20,27 +20,6 @@ public class Section {
     private String anchor;
     private String text;
 
-    // TODO: can we get rid of this? It's not efficient to
-    public static Section fromJson(JSONObject json) {
-        return GsonUtil.getDefaultGson().fromJson(json.toString(), Section.class);
-    }
-
-    // TODO: get rid of this; problem is how to interop Gson and org.json.JSONObject
-    // We're using this to send the section over the JS bridge
-    public JSONObject toJSON() {
-        try {
-            JSONObject data = new JSONObject();
-            data.put("id", id);
-            data.put("toclevel", toclevel);
-            data.put("line", line);
-            data.put("anchor", anchor);
-            data.put("text", text);
-            return data;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     /** Default constructor used by Gson deserialization. Good for setting default values. */
     public Section() {
         toclevel = 1;

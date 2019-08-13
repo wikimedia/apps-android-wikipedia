@@ -11,9 +11,12 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageMetadata;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -31,6 +34,7 @@ import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
@@ -243,7 +247,53 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient()
+
+
+        disposables.add(Observable.zip(ServiceFactory.getRest(model.getTitle().getWikiSite()).getMetadata(model.getTitle().getPrefixedText()),
+                ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText()),
+                new BiFunction<PageMetadata, PageSummary, Page>() {
+                    @Override
+                    public Page apply(PageMetadata pageMetadata, PageSummary pageSummary) throws Exception {
+
+                        Page page = pageLead.toPage(model.getTitle());
+
+                        return null;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(rsp -> {
+                    app.getSessionFunnel().leadSectionFetchEnd();
+
+                    Page page = pageLead.toPage(model.getTitle());
+
+                    PageLead lead = rsp.body();
+                    pageLoadLeadSectionComplete(lead);
+
+                    bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
+
+                    //if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                    //        || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                    //    showPageOfflineMessage(rsp.raw().header("date", ""));
+                    //}
+                }, t -> {
+                    L.e("PageLead error: ", t);
+                    commonSectionFetchOnCatch(t);
+                }));
+
+/*
+        disposables.add(Observable.zip(ServiceFactory.getRest(model.getTitle().getWikiSite()).getMetadata(model.getTitle().getPrefixedText()),
+                ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText()),
+                new BiFunction<PageMetadata, PageSummary, Page>() {
+                    @Override
+                    public Page apply(PageMetadata pageMetadata, PageSummary pageSummary) throws Exception {
+                        return null;
+                    }
+                })
+
+
+
+                new PageClient()
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
@@ -262,6 +312,7 @@ public class PageFragmentLoadState {
                     L.e("PageLead error: ", t);
                     commonSectionFetchOnCatch(t);
                 }));
+*/
 
         // And finally, start blasting the HTML into the WebView.
         bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
