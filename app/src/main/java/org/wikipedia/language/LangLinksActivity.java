@@ -458,7 +458,7 @@ public class LangLinksActivity extends BaseActivity {
             PageTitle langLink = languageEntries.get(pos);
             app.language().addMruLanguageCode(langLink.getWikiSite().languageCode());
             HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
-            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
+            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink, false);
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
             hideSoftKeyboard(LangLinksActivity.this);
             finish();

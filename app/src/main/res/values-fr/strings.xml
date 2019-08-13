@@ -308,6 +308,8 @@
   <string name="captcha_image">Image Captcha</string>
   <string name="gallery_fair_use_license">Utilisation normale</string>
   <string name="gallery_uploader_unknown">Téléverseur inconnu</string>
+  <string name="gallery_not_available_offline_snackbar">Affichage de la galerie non disponible hors ligne.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Rejeter</string>
   <string name="menu_new_tab">Nouvel onglet</string>
   <string name="menu_close_all_tabs">Fermer tous les onglets</string>
   <string name="close_all_tabs_confirm">Êtes-vous sûr de vouloir fermer tous les onglets ?</string>

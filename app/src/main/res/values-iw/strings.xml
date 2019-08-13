@@ -291,6 +291,8 @@
   <string name="captcha_image">תמונת אישור</string>
   <string name="gallery_fair_use_license">שימוש הוגן</string>
   <string name="gallery_uploader_unknown">המעלה אינו ידוע</string>
+  <string name="gallery_not_available_offline_snackbar">תצוגת הגלריה אינה זמינה ללא חיבור לאינטרנט</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">התעלמות</string>
   <string name="menu_new_tab">הלשונית הבאה</string>
   <string name="menu_close_all_tabs">סגירת כל הלשוניות</string>
   <string name="close_all_tabs_confirm">האם ברצונך באמת לסגור את כל הלשוניות?</string>
