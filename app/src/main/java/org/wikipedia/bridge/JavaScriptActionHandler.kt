@@ -49,7 +49,7 @@ object JavaScriptActionHandler {
                 "areTablesInitiallyExpanded: %b," +
                 "textSizeAdjustmentPercentage: '100%%'," +
                 "loadImages: %b" +
-                "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
+                "}, function() { console.log('>>>done<<<'); } )", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
                 (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
                 topMargin + 16, 16, 48, 16,
                 !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())

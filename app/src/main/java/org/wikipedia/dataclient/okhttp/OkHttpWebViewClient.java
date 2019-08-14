@@ -12,12 +12,14 @@ import androidx.annotation.NonNull;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageViewModel;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +48,19 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         }
 
         try {
+
+
+            if (request.getUrl().getPath().contains("javascript/mobile/pagelib")) {
+                return new WebResourceResponse("application/javascript",
+                        "utf-8",
+                        200,
+                        "OK",
+                        Collections.emptyMap(),
+                        view.getContext().getAssets().open("wikimedia-page-library-pcs.js"));
+            }
+
+
+
             Response rsp = request(request);
             if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
                 rsp.close();

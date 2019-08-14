@@ -430,9 +430,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 leadImagesHandler.beginLayout();
                 updateProgressBar(false, true, 0);
 
-                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getTopMarginForContent()));
+                webView.setVisibility(View.INVISIBLE);
 
-                onPageLoadComplete();
+                L.d(">>>>>>>> first draw: " + activeTimer.getElapsedMillis());
+
+                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getTopMarginForContent()));
             }
         });
     }
@@ -628,6 +630,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
 
+        webView.setVisibility(View.INVISIBLE);
+
         // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
 
@@ -816,6 +820,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             editHandler.setPage(model.getPage());
         }
 
+        webView.setVisibility(View.VISIBLE);
+
         checkAndShowBookmarkOnboarding();
     }
 
@@ -925,6 +931,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         };
         bridge.addListener("link_clicked", linkHandler);
+
+        bridge.addListener("onPageFinished", (String messageType, JSONObject messagePayload) -> {
+
+            L.d(">>>>>>>> setup complete: " + activeTimer.getElapsedMillis());
+
+            onPageLoadComplete();
+        });
 
         bridge.addListener("reference_clicked", (String messageType, JSONObject messagePayload) -> {
             if (!isAdded()) {

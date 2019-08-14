@@ -120,6 +120,15 @@ public class CommunicationBridge {
         @Override
         public boolean onConsoleMessage(@NonNull ConsoleMessage consoleMessage) {
             L.d(consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
+
+            // TODO: HACK
+            if (consoleMessage.message().equals(">>>done<<<")) {
+                List<JSEventListener> listeners = eventListeners.get("onPageFinished");
+                for (JSEventListener listener : listeners) {
+                    listener.onMessage("onPageFinished", new JSONObject());
+                }
+            }
+
             return true;
         }
     }
