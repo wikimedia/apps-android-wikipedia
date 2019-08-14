@@ -819,6 +819,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!errorState) {
             setupToC(model, pageFragmentLoadState.isFirstPage());
             editHandler.setPage(model.getPage());
+            webView.setVisibility(View.VISIBLE);
         }
 
         checkAndShowBookmarkOnboarding();
