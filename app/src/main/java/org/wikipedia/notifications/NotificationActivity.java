@@ -268,9 +268,9 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         for (Notification n : notificationList) {
 
             // TODO: remove this condition when the time is right.
-            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
+            if ((n.category().equals(Notification.CATEGORY_SYSTEM_NO_EMAIL) && Prefs.notificationWelcomeEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                    || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
                     || Prefs.showAllNotifications()) {
 
                 if (!TextUtils.isEmpty(currentSearchQuery) && n.getContents() != null
@@ -450,23 +450,23 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             this.container = container;
             Notification n = container.notification;
 
-            String description = n.type();
+            String description = n.category();
             int iconResId = R.drawable.ic_wikipedia_w;
             int iconBackColor = R.color.base0;
 
-            switch (n.type()) {
-                case Notification.TYPE_EDIT_USER_TALK:
+            switch (n.category()) {
+                case Notification.CATEGORY_EDIT_USER_TALK:
                     iconResId = R.drawable.ic_chat_white_24dp;
                     break;
-                case Notification.TYPE_REVERTED:
+                case Notification.CATEGORY_REVERTED:
                     iconResId = R.drawable.ic_rotate_left_white_24dp;
                     iconBackColor = R.color.red50;
                     break;
-                case Notification.TYPE_EDIT_THANK:
+                case Notification.CATEGORY_EDIT_THANK:
                     iconResId = R.drawable.ic_usertalk_constructive;
                     iconBackColor = R.color.green50;
                     break;
-                case Notification.TYPE_EDIT_MILESTONE:
+                case Notification.CATEGORY_THANK_YOU_EDIT:
                     iconResId = R.drawable.ic_mode_edit_white_24dp;
                     iconBackColor = R.color.accent50;
                     break;

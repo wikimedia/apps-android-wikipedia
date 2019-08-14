@@ -45,7 +45,7 @@ public class NotificationClientTest extends MockRetrofitTest {
     @Test public void testNotificationReverted() throws Throwable {
         String json = TestFileUtil.readRawFile("notification_revert.json");
         Notification n = GsonUnmarshaller.unmarshal(Notification.class, json);
-        assertThat(n.type(), is(Notification.TYPE_REVERTED));
+        assertThat(n.type(), is(Notification.CATEGORY_REVERTED));
         assertThat(n.wiki(), is("wikidatawiki"));
         assertThat(n.agent().name(), is("User1"));
         assertThat(n.isFromWikidata(), is(true));

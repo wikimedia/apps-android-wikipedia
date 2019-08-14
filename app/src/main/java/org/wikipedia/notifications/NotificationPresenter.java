@@ -53,21 +53,21 @@ public final class NotificationPresenter {
 
         Intent activityIntent = NotificationActivity.newIntent(context);
 
-        switch (n.type()) {
-            case Notification.TYPE_EDIT_USER_TALK:
+        switch (n.category()) {
+            case Notification.CATEGORY_EDIT_USER_TALK:
                 icon = R.drawable.ic_chat_white_24dp;
                 color = R.color.accent50;
                 break;
-            case Notification.TYPE_REVERTED:
+            case Notification.CATEGORY_REVERTED:
                 icon = R.drawable.ic_rotate_left_white_24dp;
                 color = R.color.red50;
                 builder.setPriority(NotificationCompat.PRIORITY_MAX);
                 break;
-            case Notification.TYPE_EDIT_THANK:
+            case Notification.CATEGORY_EDIT_THANK:
                 icon = R.drawable.ic_usertalk_constructive;
                 color = R.color.green50;
                 break;
-            case Notification.TYPE_EDIT_MILESTONE:
+            case Notification.CATEGORY_THANK_YOU_EDIT:
                 icon = R.drawable.ic_mode_edit_white_24dp;
                 color = R.color.accent50;
                 break;

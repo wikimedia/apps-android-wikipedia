@@ -18,15 +18,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Notification {
-    public static final String TYPE_EDIT_USER_TALK = "edit-user-talk";
-    public static final String TYPE_REVERTED = "reverted";
-    public static final String TYPE_EDIT_THANK = "edit-thank";
-    public static final String TYPE_WELCOME = "welcome";
-    public static final String TYPE_EDIT_MILESTONE = "thank-you-edit";
-    public static final String TYPE_LOGIN_SUCCESS = "login-success";
-    public static final String TYPE_LOGIN_FAIL_NEW = "login-fail-new";
-    public static final String TYPE_LOGIN_FAIL_KNOWN = "login-fail-known";
-    public static final String TYPE_FOREIGN = "foreign";
+    public static final String CATEGORY_SYSTEM = "system";
+    public static final String CATEGORY_SYSTEM_NO_EMAIL = "system-noemail";
+    public static final String CATEGORY_THANK_YOU_EDIT = "thank-you-edit";
+    public static final String CATEGORY_EDIT_USER_TALK = "edit-user-talk";
+    public static final String CATEGORY_EDIT_THANK = "edit-thank";
+    public static final String CATEGORY_REVERTED = "reverted";
+    public static final String CATEGORY_LOGIN_FAIL = "login-fail";
+    public static final String CATEGORY_MENTION = "mention";
 
     @SuppressWarnings("unused,NullableProblems") @Nullable private String wiki;
     @SuppressWarnings("unused") private long id;
@@ -54,6 +53,10 @@ public class Notification {
 
     @NonNull public String type() {
         return StringUtils.defaultString(type);
+    }
+
+    @NonNull public String category() {
+        return StringUtils.defaultString(category);
     }
 
     @Nullable public Agent agent() {

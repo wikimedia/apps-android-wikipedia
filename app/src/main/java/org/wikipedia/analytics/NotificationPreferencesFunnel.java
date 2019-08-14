@@ -24,9 +24,9 @@ public class NotificationPreferencesFunnel extends Funnel {
 
     public void done() {
         Map<String, Boolean> toggleMap = new HashMap<>();
-        toggleMap.put(Notification.TYPE_WELCOME, Prefs.notificationWelcomeEnabled());
-        toggleMap.put(Notification.TYPE_EDIT_THANK, Prefs.notificationThanksEnabled());
-        toggleMap.put(Notification.TYPE_EDIT_MILESTONE, Prefs.notificationMilestoneEnabled());
+        toggleMap.put(Notification.CATEGORY_SYSTEM_NO_EMAIL, Prefs.notificationWelcomeEnabled());
+        toggleMap.put(Notification.CATEGORY_EDIT_THANK, Prefs.notificationThanksEnabled());
+        toggleMap.put(Notification.CATEGORY_THANK_YOU_EDIT, Prefs.notificationMilestoneEnabled());
 
         log(
                 "type_toggles", GsonMarshaller.marshal(toggleMap),
