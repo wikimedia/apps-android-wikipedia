@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
@@ -26,10 +26,10 @@ import butterknife.Unbinder;
 
 public abstract class OnboardingFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.fragment_pager) ViewPager viewPager;
-    @BindView(R.id.fragment_onboarding_skip_button) View skipButton;
+    @BindView(R.id.fragment_onboarding_skip_button) Button skipButton;
     @BindView(R.id.fragment_onboarding_forward_button) View forwardButton;
-    @BindView(R.id.fragment_onboarding_done_button) TextView doneButton;
     @BindView(R.id.view_onboarding_page_indicator) PageIndicatorView pageIndicatorView;
+    @BindView(R.id.fragment_onboarding_done_button) Button doneButton;
     private Unbinder unbinder;
     private PagerAdapter adapter;
 

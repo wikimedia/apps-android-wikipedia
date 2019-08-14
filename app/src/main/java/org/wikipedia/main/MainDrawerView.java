@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -34,7 +35,7 @@ public class MainDrawerView extends ScrollView {
     }
 
     @BindView(R.id.main_drawer_account_name) TextView accountNameView;
-    @BindView(R.id.main_drawer_login_button) TextView loginLogoutButton;
+    @BindView(R.id.main_drawer_login_button) Button loginLogoutButton;
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
     @BindView(R.id.edit_icon_dot) ImageView editOptionIndicatorDot;
     @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;

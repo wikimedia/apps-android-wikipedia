@@ -292,6 +292,8 @@
   <string name="captcha_image">Captcha kép</string>
   <string name="gallery_fair_use_license">Fair use (méltányos használat)</string>
   <string name="gallery_uploader_unknown">Feltöltő ismeretlen</string>
+  <string name="gallery_not_available_offline_snackbar">A galéria-nézet offline nem elérhető.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Elrejt</string>
   <string name="menu_new_tab">Új fül</string>
   <string name="menu_close_all_tabs">Az összes lap bezárása</string>
   <string name="close_all_tabs_confirm">Biztosan be akarod zárni az összes lapot?</string>
@@ -614,6 +616,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_license_notice" fuzzy="true">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
+  <string name="description_edit_helper_text_lowercase_warning">általában kis kezdőbetűvel kezdődik</string>
   <string name="description_edit_success_saved" fuzzy="true">Leírás közzétéve!</string>
   <string name="description_edit_success_saved_snackbar" fuzzy="true">Leírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
@@ -694,8 +697,9 @@
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>
   <string name="suggested_edits_image_preview_dialog_source">Forrás/fényképész</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">További információk</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">További információ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>

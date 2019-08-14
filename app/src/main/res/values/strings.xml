@@ -288,6 +288,8 @@
     <string name="captcha_image">Captcha image</string>
     <string name="gallery_fair_use_license">Fair use</string>
     <string name="gallery_uploader_unknown">Uploader unknown</string>
+    <string name="gallery_not_available_offline_snackbar">Gallery view not available offline.</string>
+    <string name="gallery_not_available_offline_snackbar_dismiss">Dismiss</string>
     <string name="menu_new_tab">New tab</string>
     <string name="menu_close_all_tabs">Close all tabs</string>
     <string name="close_all_tabs_confirm">Are you sure you want to close all tabs?</string>

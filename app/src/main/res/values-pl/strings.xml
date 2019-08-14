@@ -304,6 +304,8 @@
   <string name="captcha_image">Obrazek captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Przesyłający nieznany</string>
+  <string name="gallery_not_available_offline_snackbar">Podgląd galerii nie jest dostępny gdy jesteś offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Odrzuć</string>
   <string name="menu_new_tab">Nowa karta</string>
   <string name="menu_close_all_tabs">Zamknij wszystkie karty</string>
   <string name="close_all_tabs_confirm">Czy na pewno chcesz zamknąć wszystkie karty?</string>
@@ -641,6 +643,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Więcej Informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>

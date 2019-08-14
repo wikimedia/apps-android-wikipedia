@@ -105,7 +105,7 @@
                         android:text="@string/email_recommendation_message"
                         android:textSize="12sp" />
 
-                    <TextView
+                    <Button
                         android:id="@+id/create_account_submit_button"
                         style="@style/App.Button.Blue"
                         android:layout_width="match_parent"

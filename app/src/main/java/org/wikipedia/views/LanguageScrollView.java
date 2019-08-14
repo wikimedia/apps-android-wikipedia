@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -42,7 +43,7 @@ public class LanguageScrollView extends ConstraintLayout {
     }
 
     @BindView(R.id.horizontal_scroll_languages) TabLayout horizontalLanguageScroll;
-    @BindView(R.id.more_languages) TextView moreButton;
+    @BindView(R.id.more_languages) Button moreButton;
     @BindView(R.id.horizontal_scroll_languages_gradient) View gradientView;
     private Callback callback;
     private List<String> languagecodes;

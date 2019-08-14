@@ -134,7 +134,7 @@
 
     </LinearLayout>
 
-    <TextView
+    <Button
         android:id="@+id/onboarding_button"
         style="@style/App.Button.Blue"
         android:layout_gravity="end"
