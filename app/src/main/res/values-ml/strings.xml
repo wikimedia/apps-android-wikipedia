@@ -216,6 +216,8 @@
   <string name="cc_logo">ക്രീയേറ്റീവ് കോമൺസ് അനുമതിപത്രം</string>
   <string name="captcha_image">ക്യാപ്ച ചിത്രം</string>
   <string name="gallery_fair_use_license">ന്യായോപയോഗം</string>
+  <string name="gallery_not_available_offline_snackbar">ചിത്രശാല ദൃശ്യം ഓഫ്‌ലൈനായി ലഭ്യമല്ല.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">ഒഴിവാക്കുക</string>
   <string name="menu_new_tab">പുതിയ ടാബ്</string>
   <string name="menu_close_all_tabs">എല്ലാ ടാബുകളും അടയ്ക്കുക</string>
   <string name="close_all_tabs_confirm">എല്ലാടാബുകളും അടയ്ക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>

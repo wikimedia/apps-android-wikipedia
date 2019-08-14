@@ -306,6 +306,8 @@
   <string name="captcha_image">Imagem CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader desconhecido</string>
+  <string name="gallery_not_available_offline_snackbar">A vista da galeria não está disponível offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Ignorar</string>
   <string name="menu_new_tab">Nova guia</string>
   <string name="menu_close_all_tabs">Fechar todas as guias</string>
   <string name="close_all_tabs_confirm">Tem certeza de que deseja fechar todas as guias?</string>

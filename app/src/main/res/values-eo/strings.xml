@@ -287,6 +287,8 @@
   <string name="captcha_image">Captcha-bildo</string>
   <string name="gallery_fair_use_license">Justa uzo</string>
   <string name="gallery_uploader_unknown">Alŝutanto nekonata</string>
+  <string name="gallery_not_available_offline_snackbar">Galeria vido ne estas havebla senkonekte.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Fermi</string>
   <string name="menu_new_tab">Nova langeto</string>
   <string name="menu_close_all_tabs">Egale ĉiuj langetojn</string>
   <string name="close_all_tabs_confirm">Ĉu vi certas, ke vi volas fermi ĉiujn langetojn?</string>
