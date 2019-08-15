@@ -92,6 +92,7 @@ public class SearchResultsFragment extends Fragment {
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
+        searchErrorView.setBackClickListener((v) -> requireActivity().finish());
         searchErrorView.setRetryClickListener((v) -> {
             searchErrorView.setVisibility(View.GONE);
             startSearch(currentSearchTerm, true);
