@@ -130,7 +130,10 @@
                     style="@style/App.Button.White"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/color_theme_light" />
+                    android:text="@string/color_theme_light"
+                    android:textSize="12sp"
+                    android:ellipsize="end"
+                    android:singleLine="true"/>
 
                 <View
                     android:id="@+id/button_theme_light_highlight"
@@ -156,6 +159,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/color_theme_sepia"
+                    android:textSize="12sp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:backgroundTint="@color/papyrus"/>
 
                 <View
@@ -181,7 +187,10 @@
                     style="@style/App.Button.Gray"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/color_theme_dark" />
+                    android:text="@string/color_theme_dark"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="12sp" />
 
                 <View
                     android:id="@+id/button_theme_dark_highlight"
@@ -206,7 +215,10 @@
                     style="@style/App.Button.Black"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/color_theme_black" />
+                    android:text="@string/color_theme_black"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="12sp" />
 
                 <View
                     android:id="@+id/button_theme_black_highlight"
