@@ -12,7 +12,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:minHeight="48dp">
 
         <Button
             android:id="@+id/link_preview_tertiary_button"
@@ -22,9 +23,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:paddingStart="8dp"
-            android:paddingTop="16dp"
             android:paddingEnd="8dp"
-            android:paddingBottom="16dp"
             android:text="@string/button_get_directions"
             android:textColor="@color/base30" />
 
@@ -37,9 +36,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="8dp"
-            android:paddingTop="16dp"
             android:paddingEnd="8dp"
-            android:paddingBottom="16dp"
             android:text="@string/menu_long_press_open_in_new_tab"
             android:textColor="?attr/colorAccent" />
 
@@ -52,9 +49,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="8dp"
-            android:paddingTop="16dp"
             android:paddingEnd="8dp"
-            android:paddingBottom="16dp"
             android:text="@string/button_continue_to_article"
             android:textColor="?attr/colorAccent" />
 
