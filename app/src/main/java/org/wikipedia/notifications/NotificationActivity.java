@@ -456,19 +456,27 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
             switch (n.category()) {
                 case Notification.CATEGORY_EDIT_USER_TALK:
-                    iconResId = R.drawable.ic_chat_white_24dp;
+                    iconResId = R.drawable.ic_talk_bubbles;
+                    iconBackColor = R.color.accent50;
                     break;
                 case Notification.CATEGORY_REVERTED:
-                    iconResId = R.drawable.ic_rotate_left_white_24dp;
-                    iconBackColor = R.color.red50;
+                    iconResId = R.drawable.ic_revert;
+                    iconBackColor = R.color.accent50;
                     break;
                 case Notification.CATEGORY_EDIT_THANK:
-                    iconResId = R.drawable.ic_usertalk_constructive;
-                    iconBackColor = R.color.green50;
+                    iconResId = R.drawable.ic_user_talk;
                     break;
                 case Notification.CATEGORY_THANK_YOU_EDIT:
-                    iconResId = R.drawable.ic_mode_edit_white_24dp;
-                    iconBackColor = R.color.accent50;
+                    iconResId = R.drawable.ic_edit_progressive;
+                    break;
+                case Notification.CATEGORY_MENTION:
+                    iconResId = R.drawable.ic_mention;
+                    break;
+                case Notification.CATEGORY_LOGIN_FAIL:
+                    iconResId = R.drawable.ic_user_avatar;
+                    break;
+                case Notification.CATEGORY_SYSTEM:
+                    iconResId = R.drawable.ic_speech_bubbles;
                     break;
                 default:
                     break;
