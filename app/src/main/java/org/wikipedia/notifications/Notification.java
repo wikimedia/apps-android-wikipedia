@@ -27,17 +27,17 @@ public class Notification {
     public static final String CATEGORY_LOGIN_FAIL = "login-fail";
     public static final String CATEGORY_MENTION = "mention";
 
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String wiki;
+    @SuppressWarnings("unused") @Nullable private String wiki;
     @SuppressWarnings("unused") private long id;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String type;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String category;
+    @SuppressWarnings("unused") @Nullable private String type;
+    @SuppressWarnings("unused") @Nullable private String category;
     @SuppressWarnings("unused") private long revid;
 
-    @SuppressWarnings("unused,NullableProblems") @Nullable private Title title;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private Agent agent;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private Timestamp timestamp;
-    @SuppressWarnings("unused,NullableProblems") @SerializedName("*") @Nullable private Contents contents;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private Map<String, Source> sources;
+    @SuppressWarnings("unused") @Nullable private Title title;
+    @SuppressWarnings("unused") @Nullable private Agent agent;
+    @SuppressWarnings("unused") @Nullable private Timestamp timestamp;
+    @SuppressWarnings("unused") @SerializedName("*") @Nullable private Contents contents;
+    @SuppressWarnings("unused") @Nullable private Map<String, Source> sources;
 
     @NonNull public String wiki() {
         return StringUtils.defaultString(wiki);
@@ -96,8 +96,8 @@ public class Notification {
     }
 
     public static class Title {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String full;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String text;
+        @SuppressWarnings("unused") @Nullable private String full;
+        @SuppressWarnings("unused") @Nullable private String text;
         @SuppressWarnings("unused") @Nullable private String namespace;
         @SuppressWarnings("unused") @SerializedName("namespace-key") private int namespaceKey;
 
@@ -120,7 +120,7 @@ public class Notification {
 
     public static class Agent {
         @SuppressWarnings("unused") private int id;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String name;
+        @SuppressWarnings("unused") @Nullable private String name;
 
         @NonNull public String name() {
             return StringUtils.defaultString(name);
@@ -128,7 +128,7 @@ public class Notification {
     }
 
     public static class Timestamp {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String utciso8601;
+        @SuppressWarnings("unused") @Nullable private String utciso8601;
 
         public Date date() {
             try {
@@ -141,11 +141,11 @@ public class Notification {
     }
 
     public static class Link {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String url;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String label;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String tooltip;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String description;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String icon;
+        @SuppressWarnings("unused") @Nullable private String url;
+        @SuppressWarnings("unused") @Nullable private String label;
+        @SuppressWarnings("unused") @Nullable private String tooltip;
+        @SuppressWarnings("unused") @Nullable private String description;
+        @SuppressWarnings("unused") @Nullable private String icon;
 
         @NonNull public String getUrl() {
             return StringUtils.defaultString(url);
@@ -165,8 +165,8 @@ public class Notification {
     }
 
     public static class Links {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private JsonElement primary;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private List<Link> secondary;
+        @SuppressWarnings("unused") @Nullable private JsonElement primary;
+        @SuppressWarnings("unused") @Nullable private List<Link> secondary;
         private Link primaryLink;
 
         @Nullable public Link getPrimary() {
@@ -185,9 +185,9 @@ public class Notification {
     }
 
     public static class Source {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String title;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String url;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String base;
+        @SuppressWarnings("unused") @Nullable private String title;
+        @SuppressWarnings("unused") @Nullable private String url;
+        @SuppressWarnings("unused") @Nullable private String base;
 
         @NonNull public String getTitle() {
             return StringUtils.defaultString(title);
@@ -203,12 +203,12 @@ public class Notification {
     }
 
     public static class Contents {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String header;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String compactHeader;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String body;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String icon;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String iconUrl;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private Links links;
+        @SuppressWarnings("unused") @Nullable private String header;
+        @SuppressWarnings("unused") @Nullable private String compactHeader;
+        @SuppressWarnings("unused") @Nullable private String body;
+        @SuppressWarnings("unused") @Nullable private String icon;
+        @SuppressWarnings("unused") @Nullable private String iconUrl;
+        @SuppressWarnings("unused") @Nullable private Links links;
 
         @NonNull public String getHeader() {
             return StringUtils.defaultString(header);
@@ -233,7 +233,7 @@ public class Notification {
 
     public static class UnreadNotificationWikiItem {
         @SuppressWarnings("unused") private int totalCount;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private Source source;
+        @SuppressWarnings("unused") @Nullable private Source source;
 
         public int getTotalCount() {
             return totalCount;
@@ -245,8 +245,8 @@ public class Notification {
     }
 
     public static class SeenTime {
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String alert;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String message;
+        @SuppressWarnings("unused") @Nullable private String alert;
+        @SuppressWarnings("unused") @Nullable private String message;
 
         @Nullable public String getAlert() {
             return alert;
