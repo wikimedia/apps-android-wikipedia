@@ -131,7 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/color_theme_light"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/theme_chooser_button_text_size"
                     android:ellipsize="end"
                     android:singleLine="true"/>
 
@@ -159,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/color_theme_sepia"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/theme_chooser_button_text_size"
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:backgroundTint="@color/papyrus"/>
@@ -188,9 +188,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/color_theme_dark"
+                    android:textSize="@dimen/theme_chooser_button_text_size"
                     android:ellipsize="end"
-                    android:singleLine="true"
-                    android:textSize="12sp" />
+                    android:singleLine="true" />
 
                 <View
                     android:id="@+id/button_theme_dark_highlight"
@@ -216,9 +216,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/color_theme_black"
+                    android:textSize="@dimen/theme_chooser_button_text_size"
                     android:ellipsize="end"
-                    android:singleLine="true"
-                    android:textSize="12sp" />
+                    android:singleLine="true" />
 
                 <View
                     android:id="@+id/button_theme_black_highlight"
