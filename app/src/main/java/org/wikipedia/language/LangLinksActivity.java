@@ -95,6 +95,7 @@ public class LangLinksActivity extends BaseActivity {
 
         fetchLangLinks();
 
+        langLinksError.setBackClickListener((v) -> onBackPressed());
         langLinksError.setRetryClickListener((v) -> {
             ViewAnimations.crossFade(langLinksError, langLinksProgress);
             fetchLangLinks();
