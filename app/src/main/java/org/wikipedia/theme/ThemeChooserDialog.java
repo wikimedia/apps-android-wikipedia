@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -102,6 +104,13 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         updateComponents();
         disableBackgroundDim();
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        BottomSheetBehavior.from((View) getView().getParent()).setPeekHeight(DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.themeChooserSheetPeekHeight)));
     }
 
     @Override

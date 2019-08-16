@@ -99,6 +99,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         ButterKnife.bind(this);
 
         errorView.setRetryClickListener((v) -> beginUpdateList());
+        errorView.setBackClickListener((v) -> onBackPressed());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DrawableItemDecoration(this, R.attr.list_separator_drawable));
