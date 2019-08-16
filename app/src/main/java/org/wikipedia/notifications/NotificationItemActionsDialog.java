@@ -170,6 +170,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
         @Override
         public void onExternalLinkClicked(@NonNull Uri uri) {
             try {
+                // TODO: handle "change password" since it will open a blank page in PageActivity
                 startActivity(new Intent(Intent.ACTION_VIEW).setData(uri));
             } catch (Exception e) {
                 L.e(e);
