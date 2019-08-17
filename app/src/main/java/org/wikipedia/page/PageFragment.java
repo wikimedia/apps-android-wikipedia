@@ -100,7 +100,6 @@ import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
-import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
@@ -644,12 +643,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     /**
-     * Update the WebView's font size, based on the specified font size multiplier from the app
-     * preferences. The default text zoom starts from 100, which is by percentage.
+     * Update the WebView's base font size, based on the specified font size from the app
+     * preferences.
      */
-    @SuppressWarnings("checkstyle:magicnumber")
     public void updateFontSize() {
-        webView.getSettings().setTextZoom(100 + getTextSizeMultiplier() * 10);
+        webView.getSettings().setDefaultFontSize((int) app.getFontSize(requireActivity().getWindow()));
     }
 
     public void updateBookmarkAndMenuOptions() {
