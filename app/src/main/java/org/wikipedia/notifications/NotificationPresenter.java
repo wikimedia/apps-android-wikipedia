@@ -31,8 +31,8 @@ public final class NotificationPresenter {
 
     public static void showNotification(@NonNull Context context, @NonNull Notification n, @NonNull String wikiSiteName) {
         String title;
-        @DrawableRes int iconResId = R.drawable.ic_wikipedia_w;
-        @ColorRes int iconColor = R.color.base30;
+        @DrawableRes int iconResId = R.drawable.ic_speech_bubbles;
+        @ColorRes int iconColor = R.color.accent50;
 
         NotificationCompat.Builder builder = getDefaultBuilder(context);
 
@@ -53,37 +53,25 @@ public final class NotificationPresenter {
 
         Intent activityIntent = NotificationActivity.newIntent(context);
 
-        switch (n.category()) {
-            case Notification.CATEGORY_EDIT_USER_TALK:
-                iconResId = R.drawable.ic_edit_user_talk;
-                iconColor = R.color.accent50;
-                break;
-            case Notification.CATEGORY_REVERTED:
-                iconResId = R.drawable.ic_revert;
-                iconColor = R.color.base20;
-                break;
-            case Notification.CATEGORY_EDIT_THANK:
-                iconResId = R.drawable.ic_user_talk;
-                iconColor = R.color.green50;
-                break;
-            case Notification.CATEGORY_THANK_YOU_EDIT:
-                iconResId = R.drawable.ic_edit_progressive;
-                iconColor = R.color.accent50;
-                break;
-            case Notification.CATEGORY_MENTION:
-                iconResId = R.drawable.ic_mention;
-                iconColor = R.color.accent50;
-                break;
-            case Notification.CATEGORY_LOGIN_FAIL:
-                iconResId = R.drawable.ic_user_avatar;
-                iconColor = R.color.base0;
-                break;
-            case Notification.CATEGORY_SYSTEM:
-                iconResId = R.drawable.ic_speech_bubbles;
-                iconColor = R.color.accent50;
-                break;
-            default:
-                break;
+        String s = n.category();
+        if (Notification.CATEGORY_EDIT_USER_TALK.equals(s)) {
+            iconResId = R.drawable.ic_edit_user_talk;
+            iconColor = R.color.accent50;
+        } else if (Notification.CATEGORY_REVERTED.equals(s)) {
+            iconResId = R.drawable.ic_revert;
+            iconColor = R.color.base20;
+        } else if (Notification.CATEGORY_EDIT_THANK.equals(s)) {
+            iconResId = R.drawable.ic_user_talk;
+            iconColor = R.color.green50;
+        } else if (Notification.CATEGORY_THANK_YOU_EDIT.equals(s)) {
+            iconResId = R.drawable.ic_edit_progressive;
+            iconColor = R.color.accent50;
+        } else if (s.startsWith(Notification.CATEGORY_MENTION)) {
+            iconResId = R.drawable.ic_mention;
+            iconColor = R.color.accent50;
+        } else if (Notification.CATEGORY_LOGIN_FAIL.equals(s)) {
+            iconResId = R.drawable.ic_user_avatar;
+            iconColor = R.color.base0;
         }
 
         showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, iconResId, iconColor, activityIntent);

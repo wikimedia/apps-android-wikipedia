@@ -176,10 +176,13 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             locallyKnownModified = true;
 
             // TODO: remove these conditions when the time is right.
-            if ((n.category().equals(Notification.CATEGORY_SYSTEM_NO_EMAIL) && Prefs.notificationWelcomeEnabled())
+            if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
                     || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
                     || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
                     || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                    || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                    || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
                     || Prefs.showAllNotifications()) {
 
                 NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());

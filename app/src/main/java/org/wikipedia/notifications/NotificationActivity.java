@@ -269,9 +269,13 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         for (Notification n : notificationList) {
 
             // TODO: remove this condition when the time is right.
-            if ((n.category().equals(Notification.CATEGORY_SYSTEM_NO_EMAIL) && Prefs.notificationWelcomeEnabled())
+            if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
                     || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
                     || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
+                    || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                    || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                    || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
                     || Prefs.showAllNotifications()) {
 
                 if (!TextUtils.isEmpty(currentSearchQuery) && n.getContents() != null
@@ -452,41 +456,30 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             Notification n = container.notification;
 
             String description = n.category();
-            int iconResId = R.drawable.ic_wikipedia_w;
-            int iconBackColor = R.color.base0;
+            int iconResId = R.drawable.ic_speech_bubbles;
+            int iconBackColor = R.color.accent50;
 
-            switch (n.category()) {
-                case Notification.CATEGORY_EDIT_USER_TALK:
-                    iconResId = R.drawable.ic_edit_user_talk;
-                    iconBackColor = R.color.accent50;
-                    break;
-                case Notification.CATEGORY_REVERTED:
-                    iconResId = R.drawable.ic_revert;
-                    iconBackColor = R.color.base20;
-                    break;
-                case Notification.CATEGORY_EDIT_THANK:
-                    iconResId = R.drawable.ic_user_talk;
-                    iconBackColor = R.color.green50;
-                    break;
-                case Notification.CATEGORY_THANK_YOU_EDIT:
-                    iconResId = R.drawable.ic_edit_progressive;
-                    iconBackColor = R.color.accent50;
-                    break;
-                case Notification.CATEGORY_MENTION:
-                    iconResId = R.drawable.ic_mention;
-                    iconBackColor = R.color.accent50;
-                    break;
-                case Notification.CATEGORY_LOGIN_FAIL:
-                    iconResId = R.drawable.ic_user_avatar;
-                    iconBackColor = R.color.base0;
-                    break;
-                case Notification.CATEGORY_SYSTEM:
-                    iconResId = R.drawable.ic_speech_bubbles;
-                    iconBackColor = R.color.accent50;
-                    break;
-                default:
-                    break;
+            String s = n.category();
+            if (Notification.CATEGORY_EDIT_USER_TALK.equals(s)) {
+                iconResId = R.drawable.ic_edit_user_talk;
+                iconBackColor = R.color.accent50;
+            } else if (Notification.CATEGORY_REVERTED.equals(s)) {
+                iconResId = R.drawable.ic_revert;
+                iconBackColor = R.color.base20;
+            } else if (Notification.CATEGORY_EDIT_THANK.equals(s)) {
+                iconResId = R.drawable.ic_user_talk;
+                iconBackColor = R.color.green50;
+            } else if (Notification.CATEGORY_THANK_YOU_EDIT.equals(s)) {
+                iconResId = R.drawable.ic_edit_progressive;
+                iconBackColor = R.color.accent50;
+            } else if (s.startsWith(Notification.CATEGORY_MENTION)) {
+                iconResId = R.drawable.ic_mention;
+                iconBackColor = R.color.accent50;
+            } else if (Notification.CATEGORY_LOGIN_FAIL.equals(s)) {
+                iconResId = R.drawable.ic_user_avatar;
+                iconBackColor = R.color.base0;
             }
+
             imageView.setImageResource(iconResId);
             DrawableCompat.setTint(imageBackgroundView.getDrawable(),
                     ContextCompat.getColor(NotificationActivity.this, iconBackColor));
