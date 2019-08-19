@@ -235,12 +235,16 @@ bridge.registerListener( "setMargins", function( payload ) {
 });
 
 bridge.registerListener( "setPaddingTop", function( payload ) {
-    document.body.style.paddingTop = payload.paddingTop + "px";
+    setPaddingTop( payload.paddingTop );
 });
 
 bridge.registerListener( "setPaddingBottom", function( payload ) {
     document.body.style.paddingBottom = payload.paddingBottom + "px";
 });
+
+function setPaddingTop( paddingTop ) {
+    document.body.style.paddingTop = paddingTop + "px";
+}
 
 function getLeadParagraph() {
     var text = "";
@@ -318,6 +322,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     clearContents();
     setWindowAttributes(payload);
     window.offline = false;
+
+    setPaddingTop(payload.paddingTop);
 
     pagelib.DimImagesTransform.dim( window, window.dimImages );
 

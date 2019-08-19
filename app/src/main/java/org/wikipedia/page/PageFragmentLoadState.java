@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.SparseArray;
@@ -9,8 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
@@ -213,20 +210,17 @@ public class PageFragmentLoadState {
         sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
     }
 
-    public void layoutLeadImage() {
-        leadImagesHandler.beginLayout((sequence) -> {
-            if (fragment.isAdded()) {
-                fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-            }
-        }, sequenceNumber.get());
+    public void onConfigurationChanged() {
+        leadImagesHandler.loadLeadImage();
+        leadImagesHandler.setWebViewPaddingTop();
+        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 
     public boolean isFirstPage() {
         return currentTab.getBackStack().size() <= 1 && !webView.canGoBack();
     }
 
-    @VisibleForTesting
-    protected void commonSectionFetchOnCatch(@NonNull Throwable caught, int startSequenceNum) {
+    private void commonSectionFetchOnCatch(@NonNull Throwable caught, int startSequenceNum) {
         if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
@@ -332,8 +326,7 @@ public class PageFragmentLoadState {
         pageLoadLeadSection(sequenceNumber.get());
     }
 
-    @VisibleForTesting
-    protected void pageLoadLeadSection(final int startSequenceNum) {
+    private void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
         disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
@@ -360,10 +353,6 @@ public class PageFragmentLoadState {
         model.getTitleOriginal().setThumbUrl(thumbUrl);
     }
 
-    private void layoutLeadImage(@Nullable Runnable runnable) {
-        leadImagesHandler.beginLayout(new LeadImageLayoutListener(runnable), sequenceNumber.get());
-    }
-
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
@@ -386,7 +375,7 @@ public class PageFragmentLoadState {
     private JSONObject marginPayload() {
         try {
             return new JSONObject()
-                    .put("marginTop", DimenUtil.roundedPxToDp(getResources().getDimension(R.dimen.activity_vertical_margin)));
+                    .put("marginTop", DimenUtil.roundedPxToDp(fragment.getResources().getDimension(R.dimen.activity_vertical_margin)));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -423,7 +412,8 @@ public class PageFragmentLoadState {
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())
                 .put("theme", app.getCurrentTheme().getMarshallingId())
                 .put("imagePlaceholderBackgroundColor", "#" + Integer.toHexString(ResourceUtil.getThemedColor(fragment.requireContext(), android.R.attr.colorBackground) & 0xFFFFFF))
-                .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages());
+                .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages())
+                .put("paddingTop", leadImagesHandler.getPaddingTop());
     }
 
     private JSONObject leadSectionPayload(@NonNull Page page) {
@@ -528,18 +518,14 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
-        layoutLeadImage(() -> {
-            if (!fragment.isAdded()) {
-                return;
-            }
-            fragment.requireActivity().invalidateOptionsMenu();
-            pageLoadRemainingSections(sequenceNumber.get());
-        });
+        leadImagesHandler.loadLeadImage();
+
+        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+        fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
         final HistoryEntry curEntry = model.getCurEntry();
-        model.setCurEntry(
-                new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
+        model.setCurEntry(new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
         model.getCurEntry().setReferrer(curEntry.getReferrer());
 
         // Save the thumbnail URL to the DB
@@ -547,12 +533,9 @@ public class PageFragmentLoadState {
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
         updateThumbnail(pageImage.getImageName());
-    }
 
-    private void pageLoadRemainingSections(final int startSequenceNum) {
-        if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
-            return;
-        }
+        pageLoadDisplayLeadSection();
+
         app.getSessionFunnel().restSectionsFetchStart();
 
         Request request = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
@@ -561,33 +544,6 @@ public class PageFragmentLoadState {
                                     model.getTitle().getPrefixedText());
 
         queueRemainingSections(request);
-    }
-
-    private Resources getResources() {
-        return fragment.getResources();
-    }
-
-    private class LeadImageLayoutListener implements LeadImagesHandler.OnLeadImageLayoutListener {
-        @Nullable private final Runnable runnable;
-
-        LeadImageLayoutListener(@Nullable Runnable runnable) {
-            this.runnable = runnable;
-        }
-
-        @Override
-        public void onLayoutComplete(int sequence) {
-            if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
-                return;
-            }
-            fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-
-            if (runnable != null) {
-                // when the lead image is laid out, load the lead section and the rest
-                // of the sections into the webview.
-                pageLoadDisplayLeadSection();
-                runnable.run();
-            }
-        }
     }
 
     private abstract class SynchronousBridgeListener implements CommunicationBridge.JSEventListener {
