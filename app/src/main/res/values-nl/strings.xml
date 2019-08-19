@@ -661,6 +661,7 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_title">U hebt \"Artikelbeschrijvingen toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">U hebt \"Artikelbeschrijvingen vertalen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_notification_text">Voorgestelde bewerkingen</string>
+  <string name="suggested_edits_unlock_notification_button">Ja, laten we beginnen</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">U hebt de taak \"Afbeeldingsbijschriften toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">U hebt \"Afbeeldingsbijschriften toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">U hebt de taak \"Afbeeldingsbijschriften vertalen\" ontgrendeld</string>
