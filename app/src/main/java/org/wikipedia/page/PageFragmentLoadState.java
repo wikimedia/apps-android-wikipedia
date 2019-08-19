@@ -360,8 +360,6 @@ public class PageFragmentLoadState {
 
         sendLeadSectionPayload(page);
 
-        sendMiscPayload(page);
-
         if (webView.getVisibility() != View.VISIBLE) {
             webView.setVisibility(View.VISIBLE);
         }
@@ -413,7 +411,9 @@ public class PageFragmentLoadState {
                 .put("theme", app.getCurrentTheme().getMarshallingId())
                 .put("imagePlaceholderBackgroundColor", "#" + Integer.toHexString(ResourceUtil.getThemedColor(fragment.requireContext(), android.R.attr.colorBackground) & 0xFFFFFF))
                 .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages())
-                .put("paddingTop", leadImagesHandler.getPaddingTop());
+                .put("paddingTop", leadImagesHandler.getPaddingTop())
+                .put("noedit", !isPageEditable(page)) // Controls whether edit pencils are visible.
+                .put("protect", page.isProtected());
     }
 
     private JSONObject leadSectionPayload(@NonNull Page page) {
@@ -429,22 +429,6 @@ public class PageFragmentLoadState {
     private SparseArray<String> localizedStrings(Page page) {
         return getStringsForArticleLanguage(page.getTitle(),
                 ResourceUtil.getIdArray(fragment.requireContext(), R.array.page_localized_string_ids));
-    }
-
-
-    private void sendMiscPayload(Page page) {
-        JSONObject miscPayload = miscPayload(page);
-        bridge.sendMessage("setPageProtected", miscPayload);
-    }
-
-    private JSONObject miscPayload(Page page) {
-        try {
-            return new JSONObject()
-                    .put("noedit", !isPageEditable(page)) // Controls whether edit pencils are visible.
-                    .put("protect", page.isProtected());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private boolean isPageEditable(Page page) {

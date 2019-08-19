@@ -7,6 +7,10 @@ var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewpo
 pagelib.PlatformTransform.classify( window );
 pagelib.CompatibilityTransform.enableSupport( document );
 
+bridge.registerListener( "setDecorOffset", function( payload ) {
+    transformer.setDecorOffset(payload.offset);
+} );
+
 bridge.registerListener( "setMargins", function( payload ) {
     document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
 });
@@ -104,6 +108,20 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.offline = false;
 
     setPaddingTop(payload.paddingTop);
+
+    var el = document.getElementsByTagName( "html" )[0];
+    if (!el.classList.contains("page-protected") && payload.protect) {
+        el.classList.add("page-protected");
+    }
+    else if (el.classList.contains("page-protected") && !payload.protect) {
+        el.classList.remove("page-protected");
+    }
+    if (!el.classList.contains("no-editing") && payload.noedit) {
+        el.classList.add("no-editing");
+    }
+    else if (el.classList.contains("no-editing") && !payload.noedit) {
+        el.classList.remove("no-editing");
+    }
 
     pagelib.DimImagesTransform.dim( window, window.dimImages );
 
