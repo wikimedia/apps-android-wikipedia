@@ -135,10 +135,6 @@ public class PageFragmentLoadState {
             leadImagesHandler.hide();
         }
 
-        // Reload the stub index.html into the WebView, which will cause any wiki-specific
-        // CSS to be loaded automatically.
-        bridge.resetHtml("index.html", model.getTitle().getWikiSite().url());
-
         pageLoadCheckReadingLists();
     }
 

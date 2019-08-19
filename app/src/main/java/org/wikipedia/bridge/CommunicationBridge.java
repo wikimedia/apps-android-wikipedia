@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.log.L;
 
@@ -62,15 +63,15 @@ public class CommunicationBridge {
                 CommunicationBridge.this.webView.loadUrl(jsString);
             }
         });
+
+        resetHtml("index.html", Service.WIKIPEDIA_URL);
     }
 
     public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl) {
         String html = "";
         try {
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
-                    .replace("$wikiurl", wikiUrl)
-                    .replace("$pageLibThemeClass", WikipediaApp.getInstance().getCurrentTheme().getPageLibClass())
-                    .replace("$pageLibDimImgClass", WikipediaApp.getInstance().getCurrentTheme().isDark() ? "pagelib_dim_images" : "");
+                    .replace("$wikiurl", wikiUrl);
 
         } catch (IOException e) {
             e.printStackTrace();

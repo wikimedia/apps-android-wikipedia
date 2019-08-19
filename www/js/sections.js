@@ -100,24 +100,40 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).innerHTML = "";
     window.scrollTo( 0, 0 );
 
+    // Set the base URL for the whole page in the HEAD tag.
+    document.head.getElementsByTagName( "base" )[0].setAttribute("href", payload.siteBaseUrl);
+
+    // Set the URL for the wiki-specific CSS.
+    var localStyleTag = document.getElementById( "localSiteStylesheet" );
+    var localStyleUrl = payload.siteBaseUrl + "/api/rest_v1/data/css/mobile/site";
+    if (localStyleTag.getAttribute("href") !== localStyleUrl) {
+        localStyleTag.setAttribute("href", localStyleUrl);
+    }
+
+
+
+
+    var htmlTag = document.getElementsByTagName( "html" )[0];
+    var htmlClasses = "";
+    htmlClasses += "pagelib_theme_" + payload.theme;
+    if (payload.dimImages) {
+        htmlClasses += " pagelib_dim_images";
+    }
+    if (payload.protect) {
+        htmlClasses += " page-protected";
+    }
+    if (payload.noedit) {
+        htmlClasses += " no-editing";
+    }
+    htmlTag.class = htmlClasses;
+
+
+
+
     setWindowAttributes(payload);
     window.offline = false;
 
     setPaddingTop(payload.paddingTop);
-
-    var el = document.getElementsByTagName( "html" )[0];
-    if (!el.classList.contains("page-protected") && payload.protect) {
-        el.classList.add("page-protected");
-    }
-    else if (el.classList.contains("page-protected") && !payload.protect) {
-        el.classList.remove("page-protected");
-    }
-    if (!el.classList.contains("no-editing") && payload.noedit) {
-        el.classList.add("no-editing");
-    }
-    else if (el.classList.contains("no-editing") && !payload.noedit) {
-        el.classList.remove("no-editing");
-    }
 
     pagelib.DimImagesTransform.dim( window, window.dimImages );
 
