@@ -25,7 +25,7 @@ public class Notification {
     public static final String CATEGORY_EDIT_THANK = "edit-thank";
     public static final String CATEGORY_REVERTED = "reverted";
     public static final String CATEGORY_LOGIN_FAIL = "login-fail";
-    public static final String CATEGORY_MENTION = "mention";
+    public static final String CATEGORY_MENTION = "mention"; // combines "mention", "mention-failure" and "mention-success"
 
     @SuppressWarnings("unused") @Nullable private String wiki;
     @SuppressWarnings("unused") private long id;
