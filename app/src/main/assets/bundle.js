@@ -206,10 +206,6 @@ bridge.registerListener( "setDecorOffset", function( payload ) {
     transformer.setDecorOffset(payload.offset);
 } );
 
-bridge.registerListener( "setMargins", function( payload ) {
-    document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
-});
-
 bridge.registerListener( "setPaddingTop", function( payload ) {
     setPaddingTop( payload.paddingTop );
 });

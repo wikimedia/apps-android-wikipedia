@@ -32,7 +32,6 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -356,8 +355,6 @@ public class PageFragmentLoadState {
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        bridge.sendMessage("setMargins", marginPayload());
-
         sendLeadSectionPayload(page);
 
         if (webView.getVisibility() != View.VISIBLE) {
@@ -367,15 +364,6 @@ public class PageFragmentLoadState {
         refreshView.setRefreshing(false);
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-    }
-
-    private JSONObject marginPayload() {
-        try {
-            return new JSONObject()
-                    .put("marginTop", DimenUtil.roundedPxToDp(fragment.getResources().getDimension(R.dimen.activity_vertical_margin)));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
         }
     }
 
