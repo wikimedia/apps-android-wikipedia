@@ -156,8 +156,8 @@ public class TabActivity extends BaseActivity {
             @Override
             public void onShowTab(@NonNull Context context, @NonNull TabSwitcher tabSwitcher, @NonNull View view,
                                   @NonNull Tab tab, int index, int viewType, @Nullable Bundle savedInstanceState) {
-                int tabIndex = app.getTabList().size() - index - 1;
-                if (viewType == 1) {
+                int tabIndex = app.getTabCount() - index - 1;
+                if (viewType == 1 || tabIndex < 0 || app.getTabList().get(tabIndex) == null) {
                     return;
                 }
                 TextView titleText = view.findViewById(R.id.tab_article_title);
