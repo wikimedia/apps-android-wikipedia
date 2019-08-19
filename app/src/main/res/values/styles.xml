@@ -278,7 +278,7 @@
         <item name="android:textColor">?attr/secondary_text_color</item>
     </style>
 
-    <style name="TransparentButton" parent="@style/Widget.AppCompat.Button.Borderless">
+    <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
