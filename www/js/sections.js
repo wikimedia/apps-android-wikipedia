@@ -7,10 +7,6 @@ var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewpo
 pagelib.PlatformTransform.classify( window );
 pagelib.CompatibilityTransform.enableSupport( document );
 
-bridge.registerListener( "clearContents", function() {
-    clearContents();
-});
-
 bridge.registerListener( "setMargins", function( payload ) {
     document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
 });
@@ -100,7 +96,10 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var lazyDocument;
 
     // This might be a refresh! Clear out all contents!
-    clearContents();
+    lazyLoadTransformer.deregister();
+    document.getElementById( "content" ).innerHTML = "";
+    window.scrollTo( 0, 0 );
+
     setWindowAttributes(payload);
     window.offline = false;
 
@@ -125,12 +124,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     applySectionTransforms(content, true);
 });
-
-function clearContents() {
-    lazyLoadTransformer.deregister();
-    document.getElementById( "content" ).innerHTML = "";
-    window.scrollTo( 0, 0 );
-}
 
 function elementsForSection( section ) {
     var content, lazyDocument;
