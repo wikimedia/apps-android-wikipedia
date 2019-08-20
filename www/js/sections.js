@@ -110,6 +110,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     while (contentElem.firstChild) {
         contentElem.firstChild.remove();
     }
+    window.scrollTo( 0, 0 );
 
     setWindowAttributes(payload);
     window.offline = false;
