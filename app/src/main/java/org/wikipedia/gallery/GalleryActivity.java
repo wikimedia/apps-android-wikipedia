@@ -247,6 +247,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     @Override public void onDestroy() {
         disposables.clear();
+        disposeImageCaptionDisposable();
         galleryPager.removeOnPageChangeListener(pageChangeListener);
         pageChangeListener = null;
 
@@ -363,6 +364,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
         }
         return true;
+    }
+
+    private void disposeImageCaptionDisposable() {
+        if (imageCaptionDisposable != null && !imageCaptionDisposable.isDisposed()) {
+            imageCaptionDisposable.dispose();
+        }
     }
 
     private class GalleryPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
@@ -596,9 +603,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
-        if (imageCaptionDisposable != null && !imageCaptionDisposable.isDisposed()) {
-            imageCaptionDisposable.dispose();
-        }
+        disposeImageCaptionDisposable();
 
         imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
