@@ -220,61 +220,54 @@ public class PageFragmentLoadState {
     }
 
     private void setUpBridgeListeners() {
-        bridge.addListener("loadRemainingError", new SynchronousBridgeListener() {
-            @Override
-            public void onMessage(JSONObject payload) {
-                try {
-                    if (model.getTitle() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
-                        return;
-                    }
-                    int sequence = payload.getInt("sequence");
-                    int status = payload.getInt("status");
-                    commonSectionFetchOnCatch(new HttpStatusException(new okhttp3.Response.Builder()
-                            .code(status).protocol(Protocol.HTTP_1_1).message("")
-                            .request(new okhttp3.Request.Builder()
-                                    .url(model.getTitle().getMobileUri()).build()).build()),
-                            sequence);
-                } catch (JSONException e) {
-                    L.logRemoteErrorIfProd(e);
+        bridge.addListener("loadRemainingError", (messageType, payload) -> {
+            try {
+                if (!fragment.isAdded() || model.getTitle() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
+                    return;
                 }
+                commonSectionFetchOnCatch(new HttpStatusException(new okhttp3.Response.Builder()
+                        .code(payload.getInt("status")).protocol(Protocol.HTTP_1_1).message("")
+                        .request(new Request.Builder()
+                                .url(model.getTitle().getMobileUri()).build()).build()),
+                        payload.getInt("sequence"));
+            } catch (JSONException e) {
+                L.logRemoteErrorIfProd(e);
             }
         });
-        bridge.addListener("pageLoadComplete", new SynchronousBridgeListener() {
-            @Override
-            public void onMessage(JSONObject payload) {
-                app.getSessionFunnel().restSectionsFetchEnd();
-
-                if (fragment.callback() != null) {
-                    fragment.callback().onPageUpdateProgressBar(false, true, 0);
-                }
-
-                try {
-                    if (model.getPage() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
-                        return;
-                    }
-                    if (payload.has("sections")) {
-                        // augment our current Page object with updated Sections received from JS
-                        List<Section> sectionList = new ArrayList<>();
-                        JSONArray sections = payload.getJSONArray("sections");
-                        for (int i = 0; i < sections.length(); i++) {
-                            JSONObject s = sections.getJSONObject(i);
-                            sectionList.add(new Section(s.getInt("id"),
-                                    s.getInt("toclevel") - 1,
-                                    s.getString("line"),
-                                    s.getString("anchor"),
-                                    ""));
-                        }
-                        Page page = model.getPage();
-                        page.getSections().addAll(sectionList);
-                    }
-                } catch (JSONException e) {
-                    L.e(e);
-                }
-
-                loading = false;
-                networkErrorCallback = null;
-                fragment.onPageLoadComplete();
+        bridge.addListener("pageLoadComplete", (messageType, payload) -> {
+            if (!fragment.isAdded()) {
+                return;
             }
+            app.getSessionFunnel().restSectionsFetchEnd();
+            if (fragment.callback() != null) {
+                fragment.callback().onPageUpdateProgressBar(false, true, 0);
+            }
+            try {
+                if (model.getPage() == null || !sequenceNumber.inSync(payload.getInt("sequence"))) {
+                    return;
+                }
+                if (payload.has("sections")) {
+                    // augment our current Page object with updated Sections received from JS
+                    List<Section> sectionList = new ArrayList<>();
+                    JSONArray sections = payload.getJSONArray("sections");
+                    for (int i = 0; i < sections.length(); i++) {
+                        JSONObject s = sections.getJSONObject(i);
+                        sectionList.add(new Section(s.getInt("id"),
+                                s.getInt("toclevel") - 1,
+                                s.getString("line"),
+                                s.getString("anchor"),
+                                ""));
+                    }
+                    Page page = model.getPage();
+                    page.getSections().addAll(sectionList);
+                }
+            } catch (JSONException e) {
+                L.e(e);
+            }
+
+            loading = false;
+            networkErrorCallback = null;
+            fragment.onPageLoadComplete();
         });
     }
 
@@ -503,24 +496,6 @@ public class PageFragmentLoadState {
                                     model.getTitle().getPrefixedText());
 
         queueRemainingSections(request);
-    }
-
-    private abstract class SynchronousBridgeListener implements CommunicationBridge.JSEventListener {
-        private static final String BRIDGE_PAYLOAD_SEQUENCE = "sequence";
-
-        @Override
-        public void onMessage(String message, JSONObject payload) {
-            if (fragment.isAdded() && inSync(payload)) {
-                onMessage(payload);
-            }
-        }
-
-        protected abstract void onMessage(JSONObject payload);
-
-        private boolean inSync(JSONObject payload) {
-            return sequenceNumber.inSync(payload.optInt(BRIDGE_PAYLOAD_SEQUENCE,
-                    sequenceNumber.get() - 1));
-        }
     }
 
     /**
