@@ -209,6 +209,9 @@ public class GalleryItemFragment extends Fragment {
      * @param pagerPosition    The pager's current position that is displayed to the user.
      */
     public void onUpdatePosition(int fragmentPosition, int pagerPosition) {
+        if (!isAdded()) {
+            return;
+        }
         if (fragmentPosition != pagerPosition) {
             // update stuff if our position is not "current" within the ViewPager...
             if (mediaController != null) {
