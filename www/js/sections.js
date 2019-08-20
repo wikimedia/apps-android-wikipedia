@@ -149,6 +149,9 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     applySectionTransforms(content, true);
     contentElem.appendChild( content );
+
+    // and immediately queue the request to load the remaining sections of the article.
+    queueRemainingSections( payload.remainingUrl, payload.sequence, payload.fragment )
 });
 
 function getSectionFragment( section ) {
@@ -224,14 +227,14 @@ function displayRemainingSections(json, sequence, fragment) {
 
 var remainingRequest;
 
-bridge.registerListener( "queueRemainingSections", function ( payload ) {
+function queueRemainingSections( url, sequence, fragment ) {
     if (remainingRequest) {
         remainingRequest.abort();
     }
     remainingRequest = new XMLHttpRequest();
-    remainingRequest.open('GET', payload.url);
-    remainingRequest.sequence = payload.sequence;
-    remainingRequest.fragment = payload.fragment;
+    remainingRequest.open('GET', url);
+    remainingRequest.sequence = sequence;
+    remainingRequest.fragment = fragment;
     remainingRequest.responseType = 'json';
 
     remainingRequest.onreadystatechange = function() {
@@ -262,7 +265,7 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
         }
     };
     remainingRequest.send();
-});
+}
 
 bridge.registerListener( "scrollToSection", function ( payload ) {
     scrollToSection( payload.anchor );

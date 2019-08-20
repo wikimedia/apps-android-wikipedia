@@ -327,15 +327,15 @@ public class PageFragmentLoadState {
                 }));
     }
 
-    private void updateThumbnail(String thumbUrl) {
-        model.getTitle().setThumbUrl(thumbUrl);
-        model.getTitleOriginal().setThumbUrl(thumbUrl);
-    }
-
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        sendLeadSectionPayload(page);
+        Request remainingRequest = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
+                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                        model.getTitle().getPrefixedText());
+
+        sendLeadSectionPayload(page, remainingRequest.url().toString());
 
         if (webView.getVisibility() != View.VISIBLE) {
             webView.setVisibility(View.VISIBLE);
@@ -347,10 +347,10 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void sendLeadSectionPayload(Page page) {
-        JSONObject leadSectionPayload = leadSectionPayload(page);
+    private void sendLeadSectionPayload(@NonNull Page page, @NonNull String remainingUrl) {
+        JSONObject leadSectionPayload = leadSectionPayload(page, remainingUrl);
         bridge.sendMessage("displayLeadSection", leadSectionPayload);
-        L.d("Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
+        app.getSessionFunnel().restSectionsFetchStart();
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -384,11 +384,25 @@ public class PageFragmentLoadState {
                 .put("protect", page.isProtected());
     }
 
-    private JSONObject leadSectionPayload(@NonNull Page page) {
-
+    private JSONObject leadSectionPayload(@NonNull Page page, @NonNull String remainingUrl) {
         try {
-            return setLeadSectionMetadata(new JSONObject(), page)
-                    .put("section", page.getSections().get(0).toJSON());
+            JSONObject wrapper = setLeadSectionMetadata(new JSONObject(), page)
+                    .put("section", page.getSections().get(0).toJSON())
+                    .put("remainingUrl", remainingUrl);
+
+            if (sectionTargetFromIntent > 0 && sectionTargetFromIntent < model.getPage().getSections().size()) {
+                //if we have a section to scroll to (from our Intent):
+                wrapper.put("fragment", model.getPage().getSections().get(sectionTargetFromIntent).getAnchor());
+            } else if (sectionTargetFromTitle != null) {
+                //if we have a section to scroll to (from our PageTitle):
+                wrapper.put("fragment", sectionTargetFromTitle);
+            } else if (!TextUtils.isEmpty(model.getTitle().getFragment())) {
+                // It's possible, that the link was a redirect and the new title has a fragment
+                // scroll to it, if there was no fragment so far
+                wrapper.put("fragment", model.getTitle().getFragment());
+            }
+
+            return wrapper;
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -406,7 +420,7 @@ public class PageFragmentLoadState {
     }
 
     private boolean isAnonEditingDisabled() {
-        return getRemoteConfig().optBoolean("disableAnonEditing", false);
+        return app.getRemoteConfig().getConfig().optBoolean("disableAnonEditing", false);
     }
 
     private void showPageOfflineMessage(@NonNull String dateHeader) {
@@ -421,37 +435,6 @@ public class PageFragmentLoadState {
                     Toast.LENGTH_LONG).show();
         } catch (ParseException e) {
             // ignore
-        }
-    }
-
-    private JSONObject getRemoteConfig() {
-        return app.getRemoteConfig().getConfig();
-    }
-
-    private void queueRemainingSections(@NonNull Request request) {
-        if (fragment.callback() != null) {
-            fragment.callback().onPageUpdateProgressBar(true, true, 0);
-        }
-        try {
-            JSONObject wrapper = new JSONObject();
-            wrapper.put("sequence", sequenceNumber.get());
-            wrapper.put("url", request.url());
-
-            if (sectionTargetFromIntent > 0 && sectionTargetFromIntent < model.getPage().getSections().size()) {
-                //if we have a section to scroll to (from our Intent):
-                wrapper.put("fragment", model.getPage().getSections().get(sectionTargetFromIntent).getAnchor());
-            } else if (sectionTargetFromTitle != null) {
-                //if we have a section to scroll to (from our PageTitle):
-                wrapper.put("fragment", sectionTargetFromTitle);
-            } else if (!TextUtils.isEmpty(model.getTitle().getFragment())) {
-                // It's possible, that the link was a redirect and the new title has a fragment
-                // scroll to it, if there was no fragment so far
-                wrapper.put("fragment", model.getTitle().getFragment());
-            }
-
-            bridge.sendMessage("queueRemainingSections", wrapper);
-        } catch (JSONException e) {
-            L.logRemoteErrorIfProd(e);
         }
     }
 
@@ -484,18 +467,10 @@ public class PageFragmentLoadState {
         PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
-        updateThumbnail(pageImage.getImageName());
+        model.getTitle().setThumbUrl(pageImage.getImageName());
+        model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
 
         pageLoadDisplayLeadSection();
-
-        app.getSessionFunnel().restSectionsFetchStart();
-
-        Request request = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                            .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
-                                    model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                                    model.getTitle().getPrefixedText());
-
-        queueRemainingSections(request);
     }
 
     /**
