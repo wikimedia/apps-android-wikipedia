@@ -298,12 +298,16 @@ function setOrUnsetClass( tag, className, set ) {
 bridge.registerListener( "displayLeadSection", function( payload ) {
     lazyLoadTransformer.deregister();
 
+    var htmlTag = document.getElementsByTagName( "html" )[0];
     var contentElem = document.getElementById( "content" );
 
+    // clear all the content!
     while (contentElem.firstChild) {
         contentElem.firstChild.remove();
     }
-    window.scrollTo( 0, 0 );
+
+    setWindowAttributes(payload);
+    window.offline = false;
 
     // Set the base URL for the whole page in the HEAD tag.
     document.head.getElementsByTagName( "base" )[0].setAttribute("href", payload.siteBaseUrl);
@@ -315,8 +319,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         localStyleTag.setAttribute("href", localStyleUrl);
     }
 
-    var htmlTag = document.getElementsByTagName( "html" )[0];
-
     if (!htmlTag.classList.contains(payload.theme)) {
         // theme change, which means we can clear out all other classes from the html tag
         htmlTag.className = "";
@@ -325,9 +327,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     setOrUnsetClass(htmlTag, "pagelib_dim_images", payload.dimImages);
     setOrUnsetClass(htmlTag, "page-protected", payload.protect);
     setOrUnsetClass(htmlTag, "no-editing", payload.noedit);
-
-    setWindowAttributes(payload);
-    window.offline = false;
 
     setPaddingTop(payload.paddingTop);
 
@@ -338,17 +337,12 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         setTitleElement(contentElem, payload.section);
     }
 
-    var frag = document.createDocumentFragment();
     var content = document.createElement( "div" );
-    frag.appendChild(content);
     content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
     applySectionTransforms(content, true);
-
-    // append the content to the DOM now, so that we can obtain
-    // dimension measurements for items.
-    contentElem.appendChild( frag );
+    contentElem.appendChild( content );
 });
 
 function getSectionFragment( section ) {
