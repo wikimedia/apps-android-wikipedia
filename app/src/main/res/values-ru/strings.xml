@@ -678,7 +678,7 @@
   <string name="suggested_edits_edit_translation_button">Редактировать перевод</string>
   <string name="suggested_edits_add_caption_button">Добавить описание</string>
   <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
-  <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
+  <string name="suggested_edits_review_image_caption">Проверьте описание</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_no_description">У этого файла отсутствует описание</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
