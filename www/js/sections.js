@@ -92,12 +92,22 @@ function setTitleElement( parentNode, section ) {
     parentNode.appendChild(container);
 }
 
-bridge.registerListener( "displayLeadSection", function( payload ) {
-    var lazyDocument;
+function setOrUnsetClass( tag, className, set ) {
+    if (set && !tag.classList.contains(className)) {
+        tag.classList.add(className);
+    } else if (!set && tag.classList.contains(className)) {
+        tag.classList.remove(className);
+    }
+}
 
-    // This might be a refresh! Clear out all contents!
+bridge.registerListener( "displayLeadSection", function( payload ) {
     lazyLoadTransformer.deregister();
-    document.getElementById( "content" ).innerHTML = "";
+
+    var contentElem = document.getElementById( "content" );
+
+    while (contentElem.firstChild) {
+        contentElem.firstChild.remove();
+    }
     window.scrollTo( 0, 0 );
 
     // Set the base URL for the whole page in the HEAD tag.
@@ -110,25 +120,16 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         localStyleTag.setAttribute("href", localStyleUrl);
     }
 
-
-
-
     var htmlTag = document.getElementsByTagName( "html" )[0];
-    var htmlClasses = "";
-    htmlClasses += "pagelib_theme_" + payload.theme;
-    if (payload.dimImages) {
-        htmlClasses += " pagelib_dim_images";
-    }
-    if (payload.protect) {
-        htmlClasses += " page-protected";
-    }
-    if (payload.noedit) {
-        htmlClasses += " no-editing";
-    }
-    htmlTag.class = htmlClasses;
 
-
-
+    if (!htmlTag.classList.contains(payload.theme)) {
+        // theme change, which means we can clear out all other classes from the html tag
+        htmlTag.className = "";
+        htmlTag.classList.add(payload.theme);
+    }
+    setOrUnsetClass(htmlTag, "pagelib_dim_images", payload.dimImages);
+    setOrUnsetClass(htmlTag, "page-protected", payload.protect);
+    setOrUnsetClass(htmlTag, "no-editing", payload.noedit);
 
     setWindowAttributes(payload);
     window.offline = false;
@@ -137,36 +138,38 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     pagelib.DimImagesTransform.dim( window, window.dimImages );
 
-    var contentElem = document.getElementById( "content" );
     contentElem.setAttribute( "dir", window.directionality );
     if (!window.isMainPage) {
         setTitleElement(contentElem, payload.section);
     }
 
-    lazyDocument = document.implementation.createHTMLDocument( );
-    var content = lazyDocument.createElement( "div" );
+    var frag = document.createDocumentFragment();
+    var content = document.createElement( "div" );
+    frag.appendChild(content);
     content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
+    applySectionTransforms(content, true);
+
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
-    document.getElementById( "content" ).appendChild( content );
-
-    applySectionTransforms(content, true);
+    contentElem.appendChild( frag );
 });
 
-function elementsForSection( section ) {
-    var content, lazyDocument;
+function getSectionFragment( section ) {
+    var content;
     var header = pagelib.EditTransform.newEditSectionHeader(document,
               section.id, section.toclevel + 1, section.line, !section.noedit);
     header.id = section.anchor;
     header.setAttribute( 'data-id', section.id );
-    lazyDocument = document.implementation.createHTMLDocument( );
-    content = lazyDocument.createElement( "div" );
+    var frag = document.createDocumentFragment();
+    content = document.createElement( "div" );
+    frag.appendChild(header);
+    frag.appendChild(content);
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
     applySectionTransforms(content, false);
-    return [ header, content ];
+    return frag;
 }
 
 function applySectionTransforms( content, isLeadSection ) {
@@ -201,19 +204,25 @@ function displayRemainingSections(json, sequence, fragment) {
     var contentWrapper = document.getElementById( "content" );
     var response = { "sequence": sequence };
 
+    var frag = document.createDocumentFragment();
+    var allowScrollToSection = false;
     json.sections.forEach(function (section) {
-        elementsForSection(section).forEach(function (element) {
-            contentWrapper.appendChild(element);
-        });
-        // do we have a section to scroll to?
+        frag.appendChild(getSectionFragment(section));
         if ( typeof fragment === "string" && fragment.length > 0 && section.anchor === fragment) {
-            scrollToSection( fragment );
+            allowScrollToSection = true;
         }
     });
+
+    contentWrapper.appendChild(frag);
 
     transformer.transform( "fixAudio", document );
     transformer.transform( "hideTables", document );
     transformer.transform( "showIssues", document );
+
+    if (allowScrollToSection) {
+        scrollToSection( fragment );
+    }
+
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", response );
 }

@@ -392,7 +392,7 @@ public class PageFragmentLoadState {
                 .put("apiLevel", Build.VERSION.SDK_INT)
                 .put("showImages", Prefs.isImageDownloadEnabled())
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())
-                .put("theme", app.getCurrentTheme().getMarshallingId())
+                .put("theme", app.getCurrentTheme().getPageLibClass())
                 .put("imagePlaceholderBackgroundColor", "#" + Integer.toHexString(ResourceUtil.getThemedColor(fragment.requireContext(), android.R.attr.colorBackground) & 0xFFFFFF))
                 .put("dimImages", app.getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages())
                 .put("paddingTop", leadImagesHandler.getPaddingTop())
