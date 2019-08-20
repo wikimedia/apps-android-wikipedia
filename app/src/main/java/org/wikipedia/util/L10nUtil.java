@@ -159,6 +159,12 @@ public final class L10nUtil {
                                                            @StringRes int[] strings) {
         Configuration config = getCurrentConfiguration();
         Locale systemLocale = ConfigurationCompat.getLocale(config);
+        if (systemLocale.getLanguage().equals(targetLocale.getLanguage())) {
+            SparseArray<String> localizedStrings = new SparseArray<>();
+            for (int stringRes : strings) {
+                localizedStrings.put(stringRes, WikipediaApp.getInstance().getString(stringRes));
+            }
+        }
         setDesiredLocale(config, targetLocale);
         SparseArray<String> localizedStrings = getTargetStrings(strings, config);
         config.setLocale(systemLocale);
