@@ -47,6 +47,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 public class EditPreviewFragment extends Fragment {
@@ -92,7 +93,7 @@ public class EditPreviewFragment extends Fragment {
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url());
+        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url(), getThemedColor(requireActivity(), R.attr.paper_color));
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
