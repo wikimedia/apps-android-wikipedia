@@ -378,7 +378,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         public void onPageSelected(int position) {
             // the pager has settled on a new position
             layOutGalleryDescription();
-            galleryAdapter.notifyFragments(position);
             if (currentPosition != -1 && getCurrentItem() != null) {
                 if (position < currentPosition) {
                     funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
@@ -601,14 +600,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             infoContainer.setVisibility(View.GONE);
             return;
         }
-        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
-
         disposeImageCaptionDisposable();
-
         imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(this::updateGalleryDescription)
+                .doAfterTerminate(this::updateGalleryDescription)
                 .subscribe(captions -> getCurrentItem().getMediaInfo().setCaptions(captions),
                         L::e);
     }
