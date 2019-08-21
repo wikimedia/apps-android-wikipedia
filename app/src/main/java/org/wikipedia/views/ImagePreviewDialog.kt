@@ -84,7 +84,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageExtMetadata(suggestedEditsSummary.title)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally { setImageDetails() }
+                    .doAfterTerminate { setImageDetails() }
                     .subscribe({ response ->
                         val page = response.query()!!.pages()!![0]
                         if (page.imageInfo() != null) {
