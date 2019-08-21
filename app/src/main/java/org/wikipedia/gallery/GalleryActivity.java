@@ -600,6 +600,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             infoContainer.setVisibility(View.GONE);
             return;
         }
+        updateProgressBar(true);
         disposeImageCaptionDisposable();
         imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
@@ -610,6 +611,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     public void updateGalleryDescription() {
+        updateProgressBar(false);
         GalleryItemFragment item = getCurrentItem();
         if (item == null) {
             infoContainer.setVisibility(View.GONE);
