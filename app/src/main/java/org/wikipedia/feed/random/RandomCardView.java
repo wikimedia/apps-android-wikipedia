@@ -68,7 +68,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
                             }
                     );
                 })
-                .doFinally(() -> setProgress(false))
+                .doAfterTerminate(() -> setProgress(false))
                 .subscribe(pageTitle -> {
                     if (getCallback() != null && getCard() != null) {
                         getCallback().onSelectPage(getCard(),
