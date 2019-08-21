@@ -546,6 +546,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void applyGalleryList(@NonNull List<MediaListItem> list) {
+        if (list.isEmpty()) {
+            showError(new Throwable());
+            FeedbackUtil.showMessage(this, R.string.gallery_error_draw_failed);
+            return;
+        }
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
         // first, verify that the collection contains the item that the user
