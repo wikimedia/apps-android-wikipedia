@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
@@ -281,6 +281,7 @@
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
@@ -465,7 +466,7 @@
     </style>
 
     <style name="LongPressAlertDialogStyle" parent="AlertDialogStyle">
-        <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
+        <item name="android:backgroundTint">?attr/paper_color</item>
         <item name="android:background">?attr/paper_color</item>
     </style>
 
