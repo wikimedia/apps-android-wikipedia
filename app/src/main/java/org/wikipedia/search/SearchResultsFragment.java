@@ -227,7 +227,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .doFinally(() -> updateProgressBar(false))
+                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(View.GONE);
                     handleResults(results, searchTerm, startTime);
@@ -318,7 +318,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .doFinally(() -> updateProgressBar(false))
+                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);

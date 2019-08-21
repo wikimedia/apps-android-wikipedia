@@ -661,7 +661,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void updateBookmarkAndMenuOptionsFromDao() {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
                     requireActivity().invalidateOptionsMenu();
                 })

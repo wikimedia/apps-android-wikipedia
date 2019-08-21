@@ -251,7 +251,7 @@ public class GalleryItemFragment extends Fragment {
         disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMediaInfo(mediaListItem.getTitle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     updateProgressBar(false);
                     parentActivity.supportInvalidateOptionsMenu();
                     parentActivity.layOutGalleryDescription();
