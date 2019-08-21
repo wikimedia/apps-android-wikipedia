@@ -608,7 +608,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(this::updateGalleryDescription)
+                .doAfterTerminate(this::updateGalleryDescription)
                 .subscribe(captions -> getCurrentItem().getMediaInfo().setCaptions(captions),
                         L::e);
     }

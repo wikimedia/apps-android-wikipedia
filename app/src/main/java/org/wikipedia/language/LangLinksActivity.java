@@ -213,7 +213,7 @@ public class LangLinksActivity extends BaseActivity {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .map(SiteMatrix::getSites)
-                    .doFinally(() -> {
+                    .doAfterTerminate(() -> {
                         langLinksProgress.setVisibility(View.INVISIBLE);
                         adapter.notifyDataSetChanged();
                     })
