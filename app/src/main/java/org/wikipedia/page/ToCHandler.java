@@ -78,6 +78,16 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private boolean showOnboading;
     private int currentItemSelected;
 
+    private Runnable requestSectionsRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (!fragment.isAdded() || fragment.isLoading()) {
+                return;
+            }
+            bridge.sendMessage("requestSectionData", new JSONObject());
+        }
+    };
+
     ToCHandler(final PageFragment fragment, ViewGroup tocContainer, PageScrollerView scrollerView,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
@@ -220,7 +230,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     @Override
     public void onContentHeightChanged(int contentHeight) {
         if (!fragment.isLoading()) {
-            bridge.sendMessage("requestSectionData", new JSONObject());
+            final int debounceDelay = 500;
+            webView.removeCallbacks(requestSectionsRunnable);
+            webView.postDelayed(requestSectionsRunnable, debounceDelay);
         }
     }
 

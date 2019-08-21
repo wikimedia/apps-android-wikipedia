@@ -482,7 +482,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
-            pageFragmentLoadState.layoutLeadImage();
+            pageFragmentLoadState.onConfigurationChanged();
         }
     }
 
@@ -661,7 +661,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void updateBookmarkAndMenuOptionsFromDao() {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
                     requireActivity().invalidateOptionsMenu();
                 })

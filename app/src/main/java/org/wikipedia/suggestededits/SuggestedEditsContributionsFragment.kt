@@ -84,7 +84,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally {
+                .doAfterTerminate {
                     progressBar.visibility = View.GONE
                     contributionsText.visibility = View.VISIBLE
                     swipeRefreshLayout.isRefreshing = false
