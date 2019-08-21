@@ -380,7 +380,7 @@ public class WikipediaApp extends Application {
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> ServiceFactory.get(getWikiSite()).postLogout(response.query().csrfToken()).subscribeOn(Schedulers.io()))
-                .doAfterTerminate(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
+                .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
                 .subscribe(response -> L.d("Logout complete."), L::e);
     }
 
