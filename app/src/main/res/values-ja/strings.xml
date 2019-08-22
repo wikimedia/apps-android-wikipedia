@@ -302,6 +302,8 @@
   <string name="captcha_image">CAPTCHA 画像</string>
   <string name="gallery_fair_use_license">フェアユース</string>
   <string name="gallery_uploader_unknown">アップロード者不明</string>
+  <string name="gallery_not_available_offline_snackbar">ギャラリービューはオフラインでは利用できません</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">閉じる</string>
   <string name="menu_new_tab">新規タブ</string>
   <string name="menu_close_all_tabs">全てのタブを閉じる</string>
   <string name="close_all_tabs_confirm">本当に全てのタブを閉じてよろしいですか？</string>
@@ -625,6 +627,7 @@
   <string name="description_edit_help_wikidata_guide">記述を書くためのWikidataガイド</string>
   <string name="description_edit_anon_limit">記事の説明を編集していただきありがとうございます。追加で編集を行うには、ウィキペディアアカウントにログインしてください。</string>
   <string name="description_edit_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
+  <string name="description_edit_helper_text_lowercase_warning">通常は小文字で書き始めます</string>
   <string name="description_edit_success_saved">記事の説明が公開されました！</string>
   <string name="description_edit_success_saved_snackbar">記事の説明が公開されました！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">記事の説明が公開されました！ (%s)</string>
