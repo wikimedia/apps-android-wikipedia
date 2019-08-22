@@ -111,7 +111,7 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp">
 
-                <TextView
+                <Button
                     android:id="@+id/unlockActionNegativeButton"
                     style="@style/TransparentButton"
                     android:layout_width="wrap_content"
@@ -119,7 +119,7 @@
                     android:textColor="?attr/secondary_text_color"
                     tools:text="Not for me" />
 
-                <TextView
+                <Button
                     android:id="@+id/unlockActionPositiveButton"
                     style="@style/TransparentButton"
                     android:layout_width="wrap_content"

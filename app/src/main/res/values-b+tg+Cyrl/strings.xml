@@ -105,6 +105,7 @@
   <string name="logged_out_in_background_login">Вуруд</string>
   <string name="logged_out_in_background_cancel">Тамом кардан</string>
   <string name="history_empty_message" fuzzy="true">Шояд шумо ҳамаи онҳоро тоза карда бошед. Даъфаи дигар вақте ба саҳифае меравед шумо ба он саҳифа бори дигар аз инҷо рафта метавонед.</string>
+  <string name="search_empty_message_multilingual_upgrade">Дар дигар забонҳои Википедиа хондан</string>
   <string name="create_account_username_hint">Номи корбар</string>
   <string name="create_account_activity_title">Эҷоди ҳисоб</string>
   <string name="create_account_email_hint">Email (Ихтиёрӣ)</string>
@@ -116,13 +117,17 @@
   <string name="preferences_general_heading">Умумӣ</string>
   <string name="wikipedia_app_faq">Саволҳои Ҳмаёни Википедиа</string>
   <string name="create_account_account_created_toast">Ҳисоб эҷод шуд!</string>
+  <string name="preferences_privacy_settings_heading">Ҳарими хусусӣ</string>
+  <string name="history_search_list_hint">Ҷустан дар таърих</string>
+  <string name="page_protected_can_not_edit_title">Ин саҳифаи ҳизф шудааст</string>
   <string name="settings_item_preferences">Танзимот</string>
   <string name="settings_activity_title">Танзимот</string>
   <string name="about_description">Дар бораи афзунаи Википедия</string>
   <string name="terms_of_use_description">Шартҳои истифода</string>
   <string name="about_libraries_heading" fuzzy="true">китобхонаҳои истифодашуда</string>
-  <string name="about_translators_heading" fuzzy="true">тарҷумонҳо</string>
+  <string name="about_translators_heading">Тарҷумонҳо</string>
   <string name="about_translators_translatewiki">Ин афзуна тавассути тарҷумонҳо ихтиёриҳо дар &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; тарҷума шудааст.</string>
+  <string name="about_app_license_heading">Иҷозатнома</string>
   <string name="about_wmf">Маҳсули кори &lt;a href=\"https://wikimediafoundation.org/\"&gt;Бунёди Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">Дар бораи</string>
   <string name="edit_next">Баъдӣ</string>

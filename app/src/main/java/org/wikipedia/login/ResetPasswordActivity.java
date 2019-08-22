@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,7 +41,7 @@ public class ResetPasswordActivity extends BaseActivity {
     @BindView(R.id.reset_password_repeat) TextInputLayout passwordRepeatInput;
     @BindView(R.id.login_2fa_text) EditText twoFactorText;
     @BindView(R.id.view_login_error) WikiErrorView errorView;
-    @BindView(R.id.login_button) TextView loginButton;
+    @BindView(R.id.login_button) Button loginButton;
     @BindView(R.id.view_progress_bar) ProgressBar progressBar;
 
     @Nullable private String firstStepToken;

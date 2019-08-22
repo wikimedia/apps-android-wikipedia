@@ -325,6 +325,7 @@
   <string name="description_edit_success_done">Atlikta</string>
   <string name="description_edit_success_did_you_know">Ar žinote?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Pradėti redagavimą</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Žiūrėti</string>
   <string name="onboarding_skip">Praleisti</string>
   <string name="onboarding_continue">Tęsti</string>
   <string name="onboarding_get_started">Pradėti</string>

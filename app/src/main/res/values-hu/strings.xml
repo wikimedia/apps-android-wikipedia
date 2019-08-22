@@ -292,6 +292,8 @@
   <string name="captcha_image">Captcha kép</string>
   <string name="gallery_fair_use_license">Fair use (méltányos használat)</string>
   <string name="gallery_uploader_unknown">Feltöltő ismeretlen</string>
+  <string name="gallery_not_available_offline_snackbar">A galéria-nézet offline nem elérhető.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Elrejt</string>
   <string name="menu_new_tab">Új fül</string>
   <string name="menu_close_all_tabs">Az összes lap bezárása</string>
   <string name="close_all_tabs_confirm">Biztosan be akarod zárni az összes lapot?</string>
@@ -697,6 +699,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
   <string name="suggested_edits_image_preview_dialog_more_info">További információ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>

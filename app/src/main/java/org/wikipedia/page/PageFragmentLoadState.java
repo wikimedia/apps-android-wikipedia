@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import org.wikipedia.R;
@@ -187,12 +186,12 @@ public class PageFragmentLoadState {
         sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
     }
 
-    public void layoutLeadImage() {
-        leadImagesHandler.beginLayout((sequence) -> {
-            if (fragment.isAdded()) {
-                fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-            }
-        }, sequenceNumber.get());
+    public void onConfigurationChanged() {
+        leadImagesHandler.beginLayout();
+        if (fragment.isAdded()) {
+            fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+        }
+        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMarginForContent()));
     }
 
     public boolean isFirstPage() {
@@ -273,10 +272,6 @@ public class PageFragmentLoadState {
         model.getTitleOriginal().setThumbUrl(thumbUrl);
     }
 
-    private void layoutLeadImage(@Nullable Runnable runnable) {
-        leadImagesHandler.beginLayout(new LeadImageLayoutListener(runnable), sequenceNumber.get());
-    }
-
     private void showPageOfflineMessage(@NonNull String dateHeader) {
         if (!fragment.isAdded()) {
             return;
@@ -309,12 +304,8 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
-        layoutLeadImage(() -> {
-            if (!fragment.isAdded()) {
-                return;
-            }
-            fragment.requireActivity().invalidateOptionsMenu();
-        });
+        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+        fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
         final HistoryEntry curEntry = model.getCurEntry();
@@ -327,30 +318,6 @@ public class PageFragmentLoadState {
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
         updateThumbnail(pageImage.getImageName());
-    }
-
-
-
-    private class LeadImageLayoutListener implements LeadImagesHandler.OnLeadImageLayoutListener {
-        @Nullable private final Runnable runnable;
-
-        LeadImageLayoutListener(@Nullable Runnable runnable) {
-            this.runnable = runnable;
-        }
-
-        @Override
-        public void onLayoutComplete(int sequence) {
-            if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
-                return;
-            }
-            fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-
-            if (runnable != null) {
-                // when the lead image is laid out, load the lead section and the rest
-                // of the sections into the webview.
-                runnable.run();
-            }
-        }
     }
 
     /**

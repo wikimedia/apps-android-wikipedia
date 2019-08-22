@@ -290,6 +290,8 @@
   <string name="captcha_image">Captcha-bild</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Okänd uppladdare</string>
+  <string name="gallery_not_available_offline_snackbar">Gallerivyn är inte tillgänglig utan uppkoppling.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Stäng</string>
   <string name="menu_new_tab">Ny flik</string>
   <string name="menu_close_all_tabs">Stäng alla flikar</string>
   <string name="close_all_tabs_confirm">Är du säker på att du vill stänga alla flikar?</string>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Space;
@@ -27,7 +28,7 @@ import static org.wikipedia.util.ThrowableUtil.isOffline;
 public class WikiErrorView extends LinearLayout {
     @BindView(R.id.view_wiki_error_icon) ImageView icon;
     @BindView(R.id.view_wiki_error_text) TextView errorText;
-    @BindView(R.id.view_wiki_error_button) TextView button;
+    @BindView(R.id.view_wiki_error_button) Button button;
     @BindView(R.id.view_wiki_error_footer_text) TextView footerText;
     @BindView(R.id.view_wiki_error_article_content_top_offset) Space contentTopOffset;
     @BindView(R.id.view_wiki_error_article_tab_layout_offset) Space tabLayoutOffset;

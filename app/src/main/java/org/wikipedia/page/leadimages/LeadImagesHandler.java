@@ -16,7 +16,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -46,6 +45,7 @@ import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAP
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
 public class LeadImagesHandler {
     /**
@@ -54,10 +54,6 @@ public class LeadImagesHandler {
      * the page title.
      */
     private static final int MIN_SCREEN_HEIGHT_DP = 480;
-
-    public interface OnLeadImageLayoutListener {
-        void onLayoutComplete(int sequence);
-    }
 
     @NonNull private final PageFragment parentFragment;
     @NonNull private final CommunicationBridge bridge;
@@ -105,69 +101,24 @@ public class LeadImagesHandler {
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
-    /**
-     * Triggers a chain of events that will lay out the lead image, page title, and other
-     * elements, at the end of which the WebView contents may begin to be composed.
-     * These events (performed asynchronously) are in the following order:
-     * - Dynamically resize the page title TextView and, if necessary, adjust its font size
-     * based on the length of our page title.
-     * - Dynamically resize the lead image container view and restyle it, if necessary, depending
-     * on whether the page contains a lead image, and whether our screen resolution is high
-     * enough to warrant a lead image.
-     * - Send a "padding" event to the WebView so that any subsequent content that's added to it
-     * will be correctly offset to account for the lead image view (or lack of it)
-     * - Make the lead image view visible.
-     * - Fire a callback to the provided Listener indicating that the rest of the WebView content
-     * can now be loaded.
-     * - Fetch and display the WikiData description for this page, if available.
-     * <p/>
-     * Realistically, the whole process will happen very quickly, and almost unnoticeably to the
-     * user. But it still needs to be asynchronous because we're dynamically laying out views, and
-     * because the padding "event" that we send to the WebView must come before any other content
-     * is sent to it, so that the effect doesn't look jarring to the user.
-     *
-     * @param listener Listener that will receive an event when the layout is completed.
-     */
-    public void beginLayout(OnLeadImageLayoutListener listener,
-                            int sequence) {
+    public int getTopMarginForContent() {
+        return (isMainPage() || !isLeadImageEnabled())
+                ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
+                : Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar());
+    }
+
+    public void beginLayout() {
         if (getPage() == null) {
             return;
         }
         initDisplayDimensions();
         loadLeadImage();
-        layoutViews(listener, sequence);
-    }
-
-    /**
-     * The final step in the layout process:
-     * Apply sizing and styling to our page title and lead image views, based on how large our
-     * page title ended up, and whether we should display the lead image.
-     *
-     * @param listener Listener that will receive an event when the layout is completed.
-     */
-    private void layoutViews(OnLeadImageLayoutListener listener, int sequence) {
-        if (!isFragmentAdded()) {
-            return;
-        }
 
         if (isMainPage()) {
             pageHeaderView.hide();
-            // explicitly set WebView padding, since onLayoutChange will not be called.
-            setWebViewPaddingTop();
         } else {
             pageHeaderView.show(isLeadImageEnabled());
         }
-
-        // tell our listener that it's ok to start loading the rest of the WebView content
-        listener.onLayoutComplete(sequence);
-    }
-
-    @SuppressWarnings("checkstyle:magicnumber")
-    private void setWebViewPaddingTop() {
-        int topPadding = isMainPage()
-                ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
-                : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar());
-        bridge.execute(JavaScriptActionHandler.setMargin(topPadding + 16, 16, 48, 16));
     }
 
     /**
@@ -269,9 +220,6 @@ public class LeadImagesHandler {
     }
 
     private void initArticleHeaderView() {
-        pageHeaderView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
-            LeadImagesHandler.this.setWebViewPaddingTop();
-        });
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onImageClicked() {
@@ -316,10 +264,6 @@ public class LeadImagesHandler {
     @Nullable
     private Page getPage() {
         return parentFragment.getPage();
-    }
-
-    private boolean isFragmentAdded() {
-        return parentFragment.isAdded();
     }
 
     private FragmentActivity getActivity() {
