@@ -225,7 +225,7 @@ public class DescriptionEditFragment extends Fragment {
             disposables.add(new PageClient().summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally(() -> setUpEditView(savedInstanceState))
+                    .doAfterTerminate(() -> setUpEditView(savedInstanceState))
                     .subscribe(summary -> sourceSummary.setExtractHtml(summary.getExtractHtml()), L::e));
         } else {
             setUpEditView(savedInstanceState);

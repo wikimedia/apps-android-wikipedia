@@ -198,7 +198,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { siteMatrix = it; }
-                .doFinally { initLanguageSpinners() }
+                .doAfterTerminate { initLanguageSpinners() }
                 .subscribe({
                     app.language().appLanguageCodes.forEach {
                         languageList.add(getLanguageLocalName(it))

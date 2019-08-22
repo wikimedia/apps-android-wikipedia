@@ -29,7 +29,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
@@ -43,7 +42,6 @@ import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
 public class LeadImagesHandler {
@@ -100,25 +98,12 @@ public class LeadImagesHandler {
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
-    public int getTopMarginForContent() {
-        return (isMainPage() || !isLeadImageEnabled())
-                ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
-                : Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar());
+
+    public int getPaddingTop() {
+        return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar())
+                : Math.round(parentFragment.requireActivity().getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / DimenUtil.getDensityScalar());
     }
 
-    public void beginLayout() {
-        if (getPage() == null) {
-            return;
-        }
-        initDisplayDimensions();
-        loadLeadImage();
-
-        if (isMainPage()) {
-            pageHeaderView.hide();
-        } else {
-            pageHeaderView.show(isLeadImageEnabled());
-        }
-    }
 
     /**
      * Determines and sets displayHeightDp for the lead images layout.
@@ -127,18 +112,14 @@ public class LeadImagesHandler {
         displayHeightDp = (int) (DimenUtil.getDisplayHeightPx() / DimenUtil.getDensityScalar());
     }
 
-    private void loadLeadImage() {
-        String leadImageUrl = getLeadImageUrl();
-        if (leadImageUrl == null) {
-            loadLeadImage(null);
-        } else {
-            loadLeadImage(leadImageUrl);
+    public void loadLeadImage() {
+        String url = getLeadImageUrl();
+        if (getPage() == null) {
+            return;
         }
-    }
-
-    private void loadLeadImage(@Nullable String url) {
+        initDisplayDimensions();
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
-            pageHeaderView.show(isLeadImageEnabled());
+            pageHeaderView.show();
             pageHeaderView.loadImage(url);
             updateCallToAction();
         } else {
@@ -240,12 +221,11 @@ public class LeadImagesHandler {
     public void openImageInGallery(@Nullable  String language) {
         if (getPage() != null && isLeadImageEnabled()) {
             String imageName = getPage().getPageProperties().getLeadImageName();
-            String imageUrl = getPage().getPageProperties().getLeadImageUrl();
-            if (imageName != null && imageUrl != null) {
+            if (imageName != null) {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                        parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
+                        parentFragment.getTitleOriginal(), filename, wiki,
                         GalleryFunnel.SOURCE_LEAD_IMAGE),
                         Constants.ACTIVITY_REQUEST_GALLERY);
             }

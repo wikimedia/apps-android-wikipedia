@@ -108,14 +108,12 @@ import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
-import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
-import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -427,10 +425,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     return;
                 }
                 pageFragmentLoadState.onPageFinished();
-                leadImagesHandler.beginLayout();
                 updateProgressBar(false, true, 0);
 
-                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getTopMarginForContent()));
+                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
 
                 onPageLoadComplete();
             }
@@ -657,12 +654,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     /**
-     * Update the WebView's font size, based on the specified font size multiplier from the app
-     * preferences. The default text zoom starts from 100, which is by percentage.
+     * Update the WebView's base font size, based on the specified font size from the app
+     * preferences.
      */
-    @SuppressWarnings("checkstyle:magicnumber")
     public void updateFontSize() {
-        webView.getSettings().setTextZoom(100 + getTextSizeMultiplier() * 10);
+        webView.getSettings().setDefaultFontSize((int) app.getFontSize(requireActivity().getWindow()));
     }
 
     public void updateBookmarkAndMenuOptions() {
@@ -676,7 +672,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void updateBookmarkAndMenuOptionsFromDao() {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
                     requireActivity().invalidateOptionsMenu();
                 })
@@ -962,20 +958,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 if (href.startsWith("./File:")) {
                     if (app.isOnline()) {
                         String filename = UriUtil.removeInternalLinkPrefix(href);
-                        String fileUrl = null;
-
-                        // Set the lead image url manually if the filename equals to the lead image file name.
-                        if (getPage() != null && !TextUtils.isEmpty(getPage().getPageProperties().getLeadImageName())) {
-                            String leadImageName = addUnderscores(getPage().getPageProperties().getLeadImageName());
-                            String leadImageUrl = getPage().getPageProperties().getLeadImageUrl();
-                            if (filename.contains(leadImageName) && leadImageUrl != null) {
-                                fileUrl = UriUtil.resolveProtocolRelativeUrl(leadImageUrl);
-                            }
-                        }
                         WikiSite wiki = model.getTitle().getWikiSite();
                         requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                                model.getTitleOriginal(), filename, fileUrl, wiki,
-                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                                model.getTitleOriginal(), filename, wiki, GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                                 ACTIVITY_REQUEST_GALLERY);
                     } else {
                         Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
