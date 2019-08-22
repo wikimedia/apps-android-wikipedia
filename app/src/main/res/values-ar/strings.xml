@@ -302,6 +302,8 @@
   <string name="captcha_image">صورة الكابتشا</string>
   <string name="gallery_fair_use_license">استخدام عادل</string>
   <string name="gallery_uploader_unknown">الرافع غير معروف</string>
+  <string name="gallery_not_available_offline_snackbar">عرض المعرض غير متاح دون اتصال.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">رفض</string>
   <string name="menu_new_tab">لسان جديد</string>
   <string name="menu_close_all_tabs">أغلق كافة التبويبات</string>
   <string name="close_all_tabs_confirm">هل أنت متأكد من أنك تريد إغلاق كافة علامات التبويب؟</string>

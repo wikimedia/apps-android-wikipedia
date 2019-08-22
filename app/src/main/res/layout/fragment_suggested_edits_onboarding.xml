@@ -24,7 +24,7 @@
         android:layout_marginBottom="48dp"
         android:background="?attr/chart_shade5" />
 
-    <TextView
+    <Button
         android:id="@+id/getStartedButton"
         style="@style/TransparentButton"
         android:layout_width="wrap_content"

@@ -50,7 +50,7 @@
                     android:textColor="@color/base30"
                     android:textSize="16sp" />
 
-                <TextView
+                <Button
                     android:id="@+id/view_wiki_error_button"
                     style="@style/App.Button.White"
                     android:layout_margin="16dp"

@@ -30,6 +30,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
@@ -426,8 +427,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     return;
                 }
                 pageFragmentLoadState.onPageFinished();
+                leadImagesHandler.beginLayout();
                 updateProgressBar(false, true, 0);
-                bridge.execute(JavaScriptActionHandler.setUp());
+
+                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getTopMarginForContent()));
 
                 onPageLoadComplete();
             }
@@ -493,7 +496,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
-            pageFragmentLoadState.layoutLeadImage();
+            pageFragmentLoadState.onConfigurationChanged();
         }
     }
 
@@ -806,6 +809,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     ReadingListDbHelper.instance().updatePage(page);
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
+        }
+
+        if (!errorState) {
             setupToC(model, pageFragmentLoadState.isFirstPage());
             editHandler.setPage(model.getPage());
         }
@@ -954,23 +960,28 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             try {
                 String href = decodeURL(messagePayload.getString("href"));
                 if (href.startsWith("./File:")) {
-                    String filename = UriUtil.removeInternalLinkPrefix(href);
-                    String fileUrl = null;
+                    if (app.isOnline()) {
+                        String filename = UriUtil.removeInternalLinkPrefix(href);
+                        String fileUrl = null;
 
-                    // Set the lead image url manually if the filename equals to the lead image file name.
-                    if (getPage() != null && !TextUtils.isEmpty(getPage().getPageProperties().getLeadImageName())) {
-                        String leadImageName = addUnderscores(getPage().getPageProperties().getLeadImageName());
-                        String leadImageUrl = getPage().getPageProperties().getLeadImageUrl();
-                        if (filename.contains(leadImageName) && leadImageUrl != null) {
-                            fileUrl = UriUtil.resolveProtocolRelativeUrl(leadImageUrl);
+                        // Set the lead image url manually if the filename equals to the lead image file name.
+                        if (getPage() != null && !TextUtils.isEmpty(getPage().getPageProperties().getLeadImageName())) {
+                            String leadImageName = addUnderscores(getPage().getPageProperties().getLeadImageName());
+                            String leadImageUrl = getPage().getPageProperties().getLeadImageUrl();
+                            if (filename.contains(leadImageName) && leadImageUrl != null) {
+                                fileUrl = UriUtil.resolveProtocolRelativeUrl(leadImageUrl);
+                            }
                         }
+                        WikiSite wiki = model.getTitle().getWikiSite();
+                        requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                                model.getTitleOriginal(), filename, fileUrl, wiki,
+                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                                ACTIVITY_REQUEST_GALLERY);
+                    } else {
+                        Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+                        snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
+                        snackbar.show();
                     }
-
-                    WikiSite wiki = model.getTitle().getWikiSite();
-                    requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                            model.getTitleOriginal(), filename, fileUrl, wiki,
-                            GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                            ACTIVITY_REQUEST_GALLERY);
                 } else {
                     linkHandler.onUrlClick(href, messagePayload.optString("title"), "");
                 }

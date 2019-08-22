@@ -304,6 +304,8 @@
   <string name="captcha_image">Obrazek captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Przesyłający nieznany</string>
+  <string name="gallery_not_available_offline_snackbar">Podgląd galerii nie jest dostępny gdy jesteś offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Odrzuć</string>
   <string name="menu_new_tab">Nowa karta</string>
   <string name="menu_close_all_tabs">Zamknij wszystkie karty</string>
   <string name="close_all_tabs_confirm">Czy na pewno chcesz zamknąć wszystkie karty?</string>
