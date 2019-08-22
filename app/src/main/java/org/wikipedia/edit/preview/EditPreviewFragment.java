@@ -32,12 +32,10 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.log.L;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -86,7 +84,7 @@ public class EditPreviewFragment extends Fragment {
                 parentActivity.supportInvalidateOptionsMenu();
                 //Save the html received from the the wikitext to mobile-html transform, to use in the savedInstanceState
                 webview.evaluateJavascript(
-                        "(function() { return ('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>'); })();",
+                        "(function() { return (document.documentElement.outerHTML); })();",
                         html -> {
                             previewHTML = html;
                         });
@@ -211,15 +209,9 @@ public class EditPreviewFragment extends Fragment {
         parentActivity.showProgressBar(true);
         String url = model.getTitle().getWikiSite().uri() + PAGE_HTML_PREVIEW_ENDPOINT + title.getPrefixedText();
         String postData;
-        try {
-            postData = "wikitext=" + URLEncoder.encode(wikiText, "UTF-8");
-            webview.postUrl(url, postData.getBytes());
+        postData = "wikitext=" + UriUtil.encodeURL(wikiText);
+        webview.postUrl(url, postData.getBytes());
 
-
-        } catch (UnsupportedEncodingException e) {
-            parentActivity.showError(e.getCause());
-            L.e(e.getCause());
-        }
         setUpWebView();
     }
 
