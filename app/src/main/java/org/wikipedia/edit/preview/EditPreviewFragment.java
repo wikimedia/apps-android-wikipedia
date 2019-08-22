@@ -269,9 +269,7 @@ public class EditPreviewFragment extends Fragment {
         disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
-                    parentActivity.showProgressBar(false);
-                })
+                .doAfterTerminate(() -> parentActivity.showProgressBar(false))
                 .subscribe(response -> {
                     displayPreview(response.result());
                     previewHTML = response.result();
