@@ -31,7 +31,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
@@ -232,12 +231,11 @@ public class LeadImagesHandler {
     public void openImageInGallery(@Nullable  String language) {
         if (getPage() != null && isLeadImageEnabled()) {
             String imageName = getPage().getPageProperties().getLeadImageName();
-            String imageUrl = getPage().getPageProperties().getLeadImageUrl();
-            if (imageName != null && imageUrl != null) {
+            if (imageName != null) {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                        parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
+                        parentFragment.getTitleOriginal(), filename, wiki,
                         GalleryFunnel.SOURCE_LEAD_IMAGE),
                         Constants.ACTIVITY_REQUEST_GALLERY);
             }

@@ -94,7 +94,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_FILENAME = "filename";
-    public static final String EXTRA_IMAGEURL = "imageUrl";
     public static final String EXTRA_WIKI = "wiki";
     public static final String EXTRA_SOURCE = "source";
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
@@ -136,7 +135,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * then this will be non-null.
      */
     private String initialFilename;
-    private String initialImageUrl;
 
     /**
      * If we come back from savedInstanceState, then this will be the previous pager position.
@@ -159,16 +157,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @NonNull
     public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
                                    @NonNull String filename, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, pageTitle, filename, null,  wiki, source);
-    }
-
-    @NonNull
-    public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
-                                   @NonNull String filename, @Nullable String imageUrl, @NonNull WikiSite wiki, int source) {
         Intent intent = new Intent()
                 .setClass(context, GalleryActivity.class)
                 .putExtra(EXTRA_FILENAME, filename)
-                .putExtra(EXTRA_IMAGEURL, imageUrl)
                 .putExtra(EXTRA_WIKI, wiki)
                 .putExtra(EXTRA_SOURCE, source);
         if (pageTitle != null) {
@@ -208,7 +199,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         }
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
-        initialImageUrl = getIntent().getStringExtra(EXTRA_IMAGEURL);
         sourceWiki = getIntent().getParcelableExtra(EXTRA_WIKI);
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);
@@ -561,9 +551,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                     break;
                 }
             }
-            if (initialImagePos == -1 && initialImageUrl != null) {
-                // the requested image is not present in the gallery collection, so
-                // add it manually.
+            if (initialImagePos == -1) {
+                // the requested image is not present in the gallery collection, so add it manually.
                 // (this can happen if the user clicked on an SVG file, since we hide SVGs
                 // by default in the gallery; or lead image in the PageHeader or in the info box)
                 initialImagePos = 0;
