@@ -100,7 +100,7 @@ def get_output_apk_file_name(flavor):
     return 'app/build/outputs/apk/' + flavor + '/release/app-' + flavor + '-release.apk'
 
 def get_output_bundle_file_name(flavor):
-    return 'app/build/outputs/bundle/' + flavor + 'Release/app.aab'
+    return 'app/build/outputs/bundle/' + flavor + 'Release/app-' + flavor + '-release.aab'
 
 
 def get_android_home():

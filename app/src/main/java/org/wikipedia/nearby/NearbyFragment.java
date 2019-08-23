@@ -426,7 +426,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
                         }
                         return pages;
                     })
-                    .doFinally(() -> onLoaded())
+                    .doAfterTerminate(() -> onLoaded())
                     .subscribe(pages -> {
                         if (clearResultsOnNextCall) {
                             currentResults.clear();
