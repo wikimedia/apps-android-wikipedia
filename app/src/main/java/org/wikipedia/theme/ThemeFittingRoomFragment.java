@@ -61,7 +61,7 @@ public class ThemeFittingRoomFragment extends Fragment {
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ChangeTextSizeEvent) {
                 updateTextSize();
                 testText.post(() -> WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent()));

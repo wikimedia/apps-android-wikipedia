@@ -701,10 +701,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    @NonNull public ViewGroup getTabLayout() {
-        return tabLayout;
-    }
-
     public View getHeaderView() {
         return pageHeaderView;
     }

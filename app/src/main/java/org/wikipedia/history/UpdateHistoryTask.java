@@ -21,7 +21,7 @@ public class UpdateHistoryTask implements Action {
     }
 
     @Override
-    public void run() throws Exception {
+    public void run() {
         DatabaseClient<HistoryEntry> client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class);
         client.upsert(new HistoryEntry(entry.getTitle(),
                         entry.getTimestamp(),

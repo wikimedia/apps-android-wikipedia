@@ -17,7 +17,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -806,10 +805,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
         Intent intent = SearchActivity.newIntent(this, source, query);
         startActivity(intent);
-    }
-
-    @NonNull public ViewGroup getTabLayout() {
-        return pageFragment.getTabLayout();
     }
 
     private class EventBusConsumer implements Consumer<Object> {
