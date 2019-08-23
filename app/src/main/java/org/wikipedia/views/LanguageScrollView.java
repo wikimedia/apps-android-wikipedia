@@ -1,11 +1,8 @@
 package org.wikipedia.views;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.view.ViewCompat;
 
 import com.google.android.material.tabs.TabLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.ResourceUtil;
 
 import java.util.List;
 
@@ -43,7 +38,6 @@ public class LanguageScrollView extends ConstraintLayout {
     }
 
     @BindView(R.id.horizontal_scroll_languages) TabLayout horizontalLanguageScroll;
-    @BindView(R.id.horizontal_scroll_languages_gradient) View gradientView;
     private Callback callback;
     private List<String> languageCodes;
 
@@ -82,17 +76,6 @@ public class LanguageScrollView extends ConstraintLayout {
                 updateTabView(true, tab);
             }
         });
-    }
-
-    @SuppressLint("DrawAllocation")
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        if (gradientView.getBackground() == null) {
-            gradientView.setBackground(new GradientDrawable(ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_LTR
-                    ? GradientDrawable.Orientation.LEFT_RIGHT : GradientDrawable.Orientation.RIGHT_LEFT,
-                    new int[]{Color.TRANSPARENT, ResourceUtil.getThemedColor(getContext(), R.attr.page_toolbar_color)}));
-        }
     }
 
     private void updateTabView(boolean selected, TabLayout.Tab tab) {
