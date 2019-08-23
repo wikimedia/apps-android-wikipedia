@@ -620,11 +620,16 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
         if (app.language().getAppLanguageCodes().size() > 1 && captionEditable) {
-            for (String lang : app.language().getAppLanguageCodes()) {
-                if (!item.getMediaInfo().getCaptions().containsKey(lang)) {
-                    allowTranslate = true;
-                    targetLanguageCode = lang;
-                    break;
+            if (!item.getMediaInfo().getCaptions().containsKey(sourceWiki.languageCode())) {
+                allowTranslate = true;
+                targetLanguageCode = sourceWiki.languageCode();
+            } else {
+                for (String lang : app.language().getAppLanguageCodes()) {
+                    if (!item.getMediaInfo().getCaptions().containsKey(lang)) {
+                        allowTranslate = true;
+                        targetLanguageCode = lang;
+                        break;
+                    }
                 }
             }
         }
