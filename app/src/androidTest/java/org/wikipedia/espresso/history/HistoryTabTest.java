@@ -149,7 +149,7 @@ public class HistoryTabTest {
         }
     }
 
-    public void testEmptyHistoryTab(String mode) throws Exception {
+    public void testEmptyHistoryTab(String mode) {
 
         whileWithMaxSteps(
                 () -> !viewIsDisplayed(R.id.fragment_feed_feed),
