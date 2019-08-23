@@ -556,6 +556,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 // (this can happen if the user clicked on an SVG file, since we hide SVGs
                 // by default in the gallery; or lead image in the PageHeader or in the info box)
                 initialImagePos = 0;
+                list = new ArrayList<>(list);
                 list.add(initialImagePos, new MediaListItem(initialFilename));
             }
         }
