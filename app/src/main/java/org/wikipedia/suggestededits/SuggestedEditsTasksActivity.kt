@@ -26,7 +26,7 @@ class SuggestedEditsTasksActivity : SingleFragmentActivity<SuggestedEditsTasksFr
                 startActivity(SuggestedEditsCardsActivity.newIntent(this, source))
             }
         } else {
-            SuggestedEditsFunnel.get()
+            SuggestedEditsFunnel.get(NAV_MENU)
         }
     }
 
