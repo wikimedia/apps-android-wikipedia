@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
@@ -46,6 +47,8 @@ import org.wikipedia.views.WikiDrawerLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -60,6 +63,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
     @BindView(R.id.drawer_icon_dot) View drawerIconDot;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private boolean controlNavTabInFragment;
 
@@ -74,6 +78,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
         AppShortcuts.setShortcuts(this);
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
@@ -319,5 +324,20 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
             closeMainDrawer();
         }
+    }
+
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) {
+            if (event instanceof ThemeChangeEvent) {
+                MainActivity.this.recreate();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        disposables.dispose();
     }
 }

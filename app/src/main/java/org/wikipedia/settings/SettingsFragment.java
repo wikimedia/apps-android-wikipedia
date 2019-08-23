@@ -13,6 +13,7 @@ import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
 import org.wikipedia.events.ReadingListsEnabledStatusEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
+import org.wikipedia.events.ThemeChangeEvent;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -24,6 +25,7 @@ public class SettingsFragment extends PreferenceLoaderFragment {
 
     private SettingsPreferenceLoader preferenceLoader;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private boolean hasThemeChanged;
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,11 @@ public class SettingsFragment extends PreferenceLoaderFragment {
             preferenceLoader.updateLanguagePrefSummary();
         });
         getActivity().invalidateOptionsMenu();
+        if (hasThemeChanged) {
+            if (getActivity() instanceof SettingsActivity) {
+                getActivity().recreate();
+            }
+        }
     }
 
     @Override
@@ -117,6 +124,8 @@ public class SettingsFragment extends PreferenceLoaderFragment {
                 setReadingListSyncPref(false);
             } else if (event instanceof ReadingListsEnableSyncStatusEvent) {
                 setReadingListSyncPref(Prefs.isReadingListSyncEnabled());
+            } else if (event instanceof ThemeChangeEvent) {
+                hasThemeChanged = true;
             }
         }
     }

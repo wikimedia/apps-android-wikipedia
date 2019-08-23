@@ -45,6 +45,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
+import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -831,6 +832,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                         pageFragment.updateBookmarkAndMenuOptionsFromDao();
                     }
                 }
+            } else if (event instanceof ThemeChangeEvent) {
+                PageActivity.this.recreate();
             }
         }
     }

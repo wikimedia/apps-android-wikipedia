@@ -38,7 +38,6 @@ import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
-import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -71,7 +70,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         exclusiveBusMethods = new ExclusiveBusConsumer();
-        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new NonExclusiveBusConsumer()));
         setTheme();
         removeSplashBackground();
 
@@ -250,18 +248,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                             -> startActivity(LoginActivity.newIntent(BaseActivity.this, LoginFunnel.SOURCE_LOGOUT_BACKGROUND)))
                     .setNegativeButton(R.string.logged_out_in_background_cancel, null)
                     .show();
-        }
-    }
-
-    /**
-     * Bus consumer that should be registered by all created activities.
-     */
-    private class NonExclusiveBusConsumer implements Consumer<Object> {
-        @Override
-        public void accept(Object event) throws Exception {
-            if (event instanceof ThemeChangeEvent) {
-                BaseActivity.this.recreate();
-            }
         }
     }
 
