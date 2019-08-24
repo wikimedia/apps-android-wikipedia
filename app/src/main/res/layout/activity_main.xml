@@ -40,7 +40,8 @@
                     android:id="@+id/drawer_icon_layout"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless">
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/main_drawer_content_description">
 
                     <ImageView
                         android:id="@+id/drawer_icon_menu"

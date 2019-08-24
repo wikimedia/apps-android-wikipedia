@@ -107,6 +107,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         drawerView.setCallback(new DrawerViewCallback());
         shouldShowMainDrawer(true);
         setUpHomeMenuIcon();
+        FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
     }
 
     @Override
@@ -142,6 +143,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             tabCountsView.updateTabCount();
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
+            FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
         }
         return true;
     }
