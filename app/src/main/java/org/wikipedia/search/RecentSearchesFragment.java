@@ -19,6 +19,7 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.SearchHistoryContract;
@@ -56,16 +57,13 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         View rootView = inflater.inflate(R.layout.fragment_search_recent, container, false);
         ButterKnife.bind(this, rootView);
 
-        deleteButton.setOnClickListener((view) -> {
-            new AlertDialog.Builder(getContext())
-                    .setMessage(getString(R.string.clear_recent_searches_confirm))
-                    .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes), (dialog, id) -> {
-                        Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(RecentSearch.class).deleteAll())
-                                .subscribeOn(Schedulers.io()).subscribe();
-                    })
-                    .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
-                    .create().show();
-        });
+        deleteButton.setOnClickListener((view) ->
+                new AlertDialog.Builder(requireContext())
+                        .setMessage(getString(R.string.clear_recent_searches_confirm))
+                        .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes), (dialog, id) ->
+                                Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(RecentSearch.class).deleteAll()).subscribeOn(Schedulers.io()).subscribe())
+                        .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
+                        .create().show());
         FeedbackUtil.setToolbarButtonLongPressToast(deleteButton);
 
         return rootView;
@@ -92,29 +90,27 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             }
         });
 
-        LoaderManager supportLoaderManager = getLoaderManager();
+        LoaderManager supportLoaderManager = LoaderManager.getInstance(this);
         supportLoaderManager.initLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
         supportLoaderManager.restartLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getLoaderManager().destroyLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID);
+        LoaderManager.getInstance(this).destroyLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID);
         super.onDestroyView();
     }
 
+    @NotNull
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         Uri uri = SearchHistoryContract.Query.URI;
-        final String[] projection = null;
-        final String selection = null;
-        final String[] selectionArgs = null;
         String order = SearchHistoryContract.Query.ORDER_MRU;
-        return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
+        return new CursorLoader(requireContext(), uri, null, null, null, order);
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
+    public void onLoadFinished(@NotNull Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
         if (!isAdded()) {
             return;
         }
@@ -153,11 +149,11 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoaderLoader) {
+    public void onLoaderReset(@NotNull Loader<Cursor> cursorLoaderLoader) {
         adapter.changeCursor(null);
     }
 
-    public void updateList() {
+    void updateList() {
         adapter.notifyDataSetChanged();
     }
 
@@ -184,7 +180,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             return getEntry(cursor).getText();
         }
 
-        public RecentSearch getEntry(Cursor cursor) {
+        RecentSearch getEntry(Cursor cursor) {
             return RecentSearch.DATABASE_TABLE.fromCursor(cursor);
         }
     }
