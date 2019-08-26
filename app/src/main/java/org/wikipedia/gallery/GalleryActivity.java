@@ -556,6 +556,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 // (this can happen if the user clicked on an SVG file, since we hide SVGs
                 // by default in the gallery; or lead image in the PageHeader or in the info box)
                 initialImagePos = 0;
+                list = new ArrayList<>(list);
                 list.add(initialImagePos, new MediaListItem(initialFilename));
             }
         }
@@ -619,11 +620,16 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
         if (app.language().getAppLanguageCodes().size() > 1 && captionEditable) {
-            for (String lang : app.language().getAppLanguageCodes()) {
-                if (!item.getMediaInfo().getCaptions().containsKey(lang)) {
-                    allowTranslate = true;
-                    targetLanguageCode = lang;
-                    break;
+            if (!item.getMediaInfo().getCaptions().containsKey(sourceWiki.languageCode())) {
+                allowTranslate = true;
+                targetLanguageCode = sourceWiki.languageCode();
+            } else {
+                for (String lang : app.language().getAppLanguageCodes()) {
+                    if (!item.getMediaInfo().getCaptions().containsKey(lang)) {
+                        allowTranslate = true;
+                        targetLanguageCode = lang;
+                        break;
+                    }
                 }
             }
         }
