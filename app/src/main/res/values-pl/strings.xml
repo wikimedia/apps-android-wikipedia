@@ -104,7 +104,6 @@
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
   <string name="menu_save_changes">Opublikuj zmiany</string>
-  <string name="dialog_saving_in_progress">Publikowanie...</string>
   <string name="edit_saved_successfully">Edycja została opublikowana!</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
@@ -182,7 +181,6 @@
   <string name="create_account_ip_block_details">Szczegóły</string>
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
-  <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
   <string name="preferences_heading_syncing">Synchronizowanie</string>
@@ -306,6 +304,8 @@
   <string name="captcha_image">Obrazek captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Przesyłający nieznany</string>
+  <string name="gallery_not_available_offline_snackbar">Podgląd galerii nie jest dostępny gdy jesteś offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Odrzuć</string>
   <string name="menu_new_tab">Nowa karta</string>
   <string name="menu_close_all_tabs">Zamknij wszystkie karty</string>
   <string name="close_all_tabs_confirm">Czy na pewno chcesz zamknąć wszystkie karty?</string>
@@ -603,19 +603,30 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Anuluj</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
-  <string name="description_edit_text_hint" fuzzy="true">Opis tytułu</string>
+  <string name="description_edit_text_hint">Opis artykułu</string>
+  <string name="description_edit_article_description_label_per_language">Artykuł (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Opis artykułu (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Opis obrazu (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Podpisy obrazka (%s)</string>
   <string name="description_edit_save">Opublikuj</string>
-  <string name="description_edit_add_description" fuzzy="true">Dodaj opis tytułu</string>
-  <string name="description_edit_edit_description" fuzzy="true">Edytuj opis</string>
+  <string name="description_edit_read">Czytaj</string>
+  <string name="description_edit_add_description">Dodaj opis artykułu</string>
+  <string name="description_edit_translate_description">Przetłumacz opis artykułu</string>
+  <string name="description_edit_edit_description">Edytuj opis artykułu</string>
   <string name="description_edit_add_image_caption">Dodaj podpis obrazu</string>
   <string name="description_edit_edit_image_caption">Edytuj podpis obrazu</string>
+  <string name="description_edit_translate_image_caption">Przetłumacz podpis obrazu</string>
   <string name="description_edit_cancel_hint">Anuluj</string>
+  <string name="description_edit_help_title">Informacje: Opisy artykułów</string>
   <string name="description_edit_help_about_wikidata">O Wikidanych</string>
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved" fuzzy="true">Opis opublikowany!</string>
+  <string name="description_edit_anon_limit">Dziękujemy za Twoje zainteresowanie edytowaniem opisów artykułów! Aby wprowadzić dodatkowe zmiany, zaloguj się na swoje konto w Wikipedii.</string>
+  <string name="description_edit_success_saved">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Podpis pod zdjęciem opublikowany!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Podpis pod zdjęciem opublikowany! (%s)</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
   <string name="description_edit_tutorial_title_descriptions">Opis artykułu</string>
@@ -625,25 +636,45 @@
   <string name="suggested_edits_add_descriptions">Dodaj opisy artykułów</string>
   <string name="suggested_edits_translate_descriptions">Przetłumacz opisy artykułów</string>
   <string name="suggested_edits_add_image_captions">Dodaj podpisy obrazu</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Sprawdź opis</string>
+  <string name="suggested_edits_review_description">Sprawdź opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
+  <string name="suggested_edits_edit_description_button">Edytuj opis</string>
+  <string name="suggested_edits_add_translation_button">Dodaj tłumaczenie</string>
+  <string name="suggested_edits_edit_translation_button">Edytuj tłumaczenie</string>
+  <string name="suggested_edits_add_caption_button">Dodaj podpis</string>
+  <string name="suggested_edits_edit_caption_button">Edytuj podpis</string>
+  <string name="suggested_edits_review_image_caption">Sprawdź podpis obrazu</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Odblokowałeś zadanie „Dodaj opisy”</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odblokowałeś zadanie „Dodaj opisy”</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odblokowałeś zadanie „Przetłumacz opisy artykułów”</string>
   <string name="suggested_edits_unlock_dialog_no">Może później</string>
   <string name="suggested_edits_menu_info">Informacje</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Dodaj opisy tytułów</string>
+  <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
+  <string name="suggested_edits_task_translation_title">Przetłumacz opisy artykułów</string>
+  <string name="suggested_edits_task_image_caption_title">Dodaj podpisy obrazu</string>
+  <string name="suggested_edits_task_multilingual_negative">Nie dla mnie</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
+  <string name="suggested_edits_feed_card_title">Sugerowane edycje</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Źródło/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Więcej Informacji</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Więcej informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodaj podpis obrazu (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis (%s)</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
+  <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Anuluj</string>
@@ -666,7 +697,7 @@
   <string name="onboarding_got_it">Wszystko jasne</string>
   <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj lub edytuj języki</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true">Wolna encyklopedia\n...w prawie 300 językach</string>
+  <string name="onboarding_welcome_title_v2">Wolna encyklopedia\n...w prawie 300 językach</string>
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>

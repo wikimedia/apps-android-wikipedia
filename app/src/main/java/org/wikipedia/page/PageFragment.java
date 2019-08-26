@@ -29,6 +29,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -99,7 +100,6 @@ import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
-import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
@@ -107,7 +107,6 @@ import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
-import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -482,7 +481,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
-            pageFragmentLoadState.layoutLeadImage();
+            pageFragmentLoadState.onConfigurationChanged();
         }
     }
 
@@ -643,12 +642,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     /**
-     * Update the WebView's font size, based on the specified font size multiplier from the app
-     * preferences. The default text zoom starts from 100, which is by percentage.
+     * Update the WebView's base font size, based on the specified font size from the app
+     * preferences.
      */
-    @SuppressWarnings("checkstyle:magicnumber")
     public void updateFontSize() {
-        webView.getSettings().setTextZoom(100 + getTextSizeMultiplier() * 10);
+        webView.getSettings().setDefaultFontSize((int) app.getFontSize(requireActivity().getWindow()));
     }
 
     public void updateBookmarkAndMenuOptions() {
@@ -663,7 +661,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
                     requireActivity().invalidateOptionsMenu();
                 })
@@ -702,10 +700,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (getPage() != null) {
             ShareUtil.shareText(requireActivity(), getPage().getTitle());
         }
-    }
-
-    @NonNull public ViewGroup getTabLayout() {
-        return tabLayout;
     }
 
     public View getHeaderView() {
@@ -934,23 +928,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             try {
                 String href = decodeURL(messagePayload.getString("href"));
                 if (href.startsWith("/wiki/")) {
-                    String filename = UriUtil.removeInternalLinkPrefix(href);
-                    String fileUrl = null;
+                    if (app.isOnline()) {
+                        String filename = UriUtil.removeInternalLinkPrefix(href);
 
-                    // Set the lead image url manually if the filename equals to the lead image file name.
-                    if (getPage() != null && !TextUtils.isEmpty(getPage().getPageProperties().getLeadImageName())) {
-                        String leadImageName = addUnderscores(getPage().getPageProperties().getLeadImageName());
-                        String leadImageUrl = getPage().getPageProperties().getLeadImageUrl();
-                        if (filename.contains(leadImageName) && leadImageUrl != null) {
-                            fileUrl = UriUtil.resolveProtocolRelativeUrl(leadImageUrl);
-                        }
+                        WikiSite wiki = model.getTitle().getWikiSite();
+                        requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                                model.getTitleOriginal(), filename, wiki, GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                                ACTIVITY_REQUEST_GALLERY);
+                    } else {
+                        Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+                        snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
+                        snackbar.show();
                     }
-
-                    WikiSite wiki = model.getTitle().getWikiSite();
-                    requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                            model.getTitleOriginal(), filename, fileUrl, wiki,
-                            GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                            ACTIVITY_REQUEST_GALLERY);
                 } else {
                     linkHandler.onUrlClick(href, messagePayload.optString("title"), "");
                 }
@@ -1246,8 +1235,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return leadImagesHandler.getCallToActionEditLang();
     }
 
-    void openImageInGallery() {
-        leadImagesHandler.openImageInGallery();
+    void openImageInGallery(@NonNull String language) {
+        leadImagesHandler.openImageInGallery(language);
     }
 
 }

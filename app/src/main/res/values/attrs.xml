@@ -45,6 +45,7 @@
     <attr name="chip_background_color" format="color"/>
     <attr name="chip_text_color" format="color"/>
     <attr name="suggestions_background_color" format="color"/>
+    <attr name="color_group_52" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />

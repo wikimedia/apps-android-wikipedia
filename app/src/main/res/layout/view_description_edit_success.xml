@@ -50,7 +50,7 @@
                 android:textColor="@color/base70"
                 android:textSize="15sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/view_description_edit_success_done_button"
                 style="@style/App.Button.Blue"
                 android:text="@string/description_edit_success_done" />

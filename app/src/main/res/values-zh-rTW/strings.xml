@@ -94,7 +94,6 @@
   <string name="langlinks_activity_title">其他語言</string>
   <string name="langlinks_your_wikipedia_languages">您的維基百科語言</string>
   <string name="menu_save_changes">發佈修改</string>
-  <string name="dialog_saving_in_progress">發佈中…</string>
   <string name="edit_saved_successfully">已發佈編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
@@ -116,8 +115,8 @@
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
-  <string name="login_2fa_hint">雙重認證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙重認證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_hint">雙因素驗證代碼</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙因素驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -172,7 +171,6 @@
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
-  <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
   <string name="preferences_heading_syncing">同步</string>
@@ -296,6 +294,8 @@
   <string name="captcha_image">驗證碼圖片</string>
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">未知上傳者</string>
+  <string name="gallery_not_available_offline_snackbar">圖庫檢視無法在離線時可用。</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">關閉</string>
   <string name="menu_new_tab">新增分頁</string>
   <string name="menu_close_all_tabs">關閉所有分頁</string>
   <string name="close_all_tabs_confirm">確定要關閉所有分頁嗎？</string>
@@ -620,6 +620,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯條目描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
+  <string name="description_edit_helper_text_lowercase_warning">通常以小寫字母作開頭</string>
   <string name="description_edit_success_saved">已發佈條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發佈！（%s）</string>
@@ -709,6 +710,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
   <string name="suggested_edits_article_cta_image_caption">新增圖片說明（%s）</string>
+  <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增說明（%s）</string>
   <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>

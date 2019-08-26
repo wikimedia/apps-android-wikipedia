@@ -916,7 +916,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ReadingListSyncEvent) {
                 updateReadingListData();
             } else if (event instanceof PageDownloadEvent) {

@@ -55,7 +55,6 @@
   <string name="langlinks_no_match" fuzzy="true">Һеҙҙең һорау буйынса телдәр табылманы.</string>
   <string name="langlinks_activity_title">Башҡа телдәр</string>
   <string name="menu_save_changes" fuzzy="true">Үҙгәрештәрҙе һаҡларға</string>
-  <string name="dialog_saving_in_progress">Һаҡлана…</string>
   <string name="edit_saved_successfully">Үҙгәртеү һаҡланды!</string>
   <string name="dialog_message_edit_failed">Мөхәррирләү хатаһы!</string>
   <string name="dialog_message_edit_failed_retry">Ҡабатлау</string>
@@ -93,7 +92,6 @@
   <string name="create_account_button">Иҫәп яҙмаһын булдырырға</string>
   <string name="preferences_general_heading">Дөйөм</string>
   <string name="wikipedia_app_faq">Википедия ҡушымтаһы буйынса йыш бирелгән һорауҙар</string>
-  <string name="edit_preview_fetching_dialog_message">Алдан ҡарауҙы сығарыу…</string>
   <string name="send_feedback">Ҡушымта тураһында баһалама ебәрергә</string>
   <string name="create_account_account_created_toast">Иҫәп яҙмаһы  булдырылды!</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>

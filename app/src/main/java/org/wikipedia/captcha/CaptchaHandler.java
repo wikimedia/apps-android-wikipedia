@@ -1,11 +1,11 @@
 package org.wikipedia.captcha;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -42,17 +42,15 @@ public class CaptchaHandler {
     private final WikiSite wiki;
     private final View primaryView;
     private final String prevTitle;
-    private ProgressDialog progressDialog;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private String token;
     @Nullable private CaptchaResult captchaResult;
 
-    public CaptchaHandler(final Activity activity, final WikiSite wiki, final ProgressDialog progressDialog,
-                          final View primaryView, final String prevTitle, final String submitButtonText) {
+    public CaptchaHandler(final Activity activity, final WikiSite wiki, final View primaryView,
+                          final String prevTitle, final String submitButtonText) {
         this.activity = activity;
         this.wiki = wiki;
-        this.progressDialog = progressDialog;
         this.primaryView = primaryView;
         this.prevTitle = prevTitle;
 
@@ -61,7 +59,7 @@ public class CaptchaHandler {
         captchaImage = activity.findViewById(R.id.captcha_image);
         captchaText = ((TextInputLayout) activity.findViewById(R.id.captcha_text)).getEditText();
         captchaProgress = activity.findViewById(R.id.captcha_image_progress);
-        TextView submitButton = activity.findViewById(R.id.captcha_submit_button);
+        Button submitButton = activity.findViewById(R.id.captcha_submit_button);
 
         if (submitButtonText != null) {
             submitButton.setText(submitButtonText);
@@ -76,7 +74,7 @@ public class CaptchaHandler {
             disposables.add(ServiceFactory.get(wiki).getNewCaptcha()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally(() -> captchaProgress.setVisibility(View.GONE))
+                    .doAfterTerminate(() -> captchaProgress.setVisibility(View.GONE))
                     .subscribe(response -> {
                         captchaResult = new CaptchaResult(response.captchaId());
                         handleCaptcha(true);
@@ -152,9 +150,6 @@ public class CaptchaHandler {
                     @Override
                     public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
                         ((AppCompatActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
-                        if (progressDialog.isShowing()) {
-                            progressDialog.hide();
-                        }
 
                         // for our Dark theme, show a "negative image" of the captcha!
                         final int maxColorVal = 255;

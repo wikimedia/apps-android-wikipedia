@@ -67,6 +67,7 @@
             android:layout_height="80dp" />
 
         <LinearLayout
+            android:id="@+id/gallery_description_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
@@ -120,23 +121,24 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="12dp"
                 android:paddingBottom="16dp"
+                android:gravity="center_vertical"
                 android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    app:srcCompat="@drawable/ic_add_circle_black_24dp"
-                    app:tint="?attr/colorAccent"
-                    android:contentDescription="@null"/>
+                    android:layout_width="@dimen/app_shortcut_icon_size"
+                    android:layout_height="@dimen/app_shortcut_icon_size"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
                 <TextView
                     android:id="@+id/gallery_caption_translate_button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="4dp"
-                    android:textColor="?attr/colorAccent"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textAllCaps="true"
+                    android:textColor="@color/base100"
+                    android:letterSpacing="0.1" />
 
             </LinearLayout>
 

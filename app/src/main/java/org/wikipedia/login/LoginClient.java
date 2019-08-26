@@ -227,9 +227,9 @@ public class LoginClient {
                 if ("UI".equals(status)) {
                     if (requests != null) {
                         for (Request req : requests) {
-                            if ("TOTPAuthenticationRequest".equals(req.id())) {
+                            if (req.id().endsWith("TOTPAuthenticationRequest")) {
                                 return new LoginOAuthResult(site, status, userName, password, message);
-                            } else if ("MediaWiki\\Auth\\PasswordAuthenticationRequest".equals(req.id())) {
+                            } else if (req.id().endsWith("PasswordAuthenticationRequest")) {
                                 return new LoginResetPasswordResult(site, status, userName, password, message);
                             }
                         }
@@ -250,8 +250,8 @@ public class LoginClient {
             @SuppressWarnings("unused") @Nullable private String account;
             @SuppressWarnings("unused") @Nullable private Map<String, RequestField> fields;
 
-            @Nullable String id() {
-                return id;
+            @NonNull String id() {
+                return StringUtils.defaultString(id);
             }
         }
 

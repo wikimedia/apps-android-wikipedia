@@ -16,6 +16,9 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 class EditClient {
+
+    @Nullable private Call<Edit> editCall;
+
     public interface Callback {
         void success(@NonNull Call<Edit> call, @NonNull EditResult result);
         void failure(@NonNull Call<Edit> call, @NonNull Throwable caught);
@@ -35,11 +38,14 @@ class EditClient {
                        @NonNull String text, @NonNull String token, @NonNull String summary,
                        @Nullable String baseTimeStamp, boolean loggedIn, @Nullable String captchaId,
                        @Nullable String captchaWord, @NonNull final Callback cb) {
-        Call<Edit> call = service.postEditSubmit(title.getRequestUrlText(), section, summary, loggedIn ? "user" : null,
+        editCall = service.postEditSubmit(title.getPrefixedText(), section, summary, loggedIn ? "user" : null,
                 text, baseTimeStamp, token, captchaId, captchaWord);
-        call.enqueue(new retrofit2.Callback<Edit>() {
+        editCall.enqueue(new retrofit2.Callback<Edit>() {
             @Override
             public void onResponse(@NonNull Call<Edit> call, @NonNull Response<Edit> response) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 if (response.body().hasEditResult()) {
                     handleEditResult(response.body().edit(), call, cb);
                 } else {
@@ -49,10 +55,21 @@ class EditClient {
 
             @Override
             public void onFailure(@NonNull Call<Edit> call, @NonNull Throwable t) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 cb.failure(call, t);
             }
         });
-        return call;
+        return editCall;
+    }
+
+    public void cancel() {
+        if (editCall == null) {
+            return;
+        }
+        editCall.cancel();
+        editCall = null;
     }
 
     private void handleEditResult(@NonNull Edit.Result result, @NonNull Call<Edit> call,

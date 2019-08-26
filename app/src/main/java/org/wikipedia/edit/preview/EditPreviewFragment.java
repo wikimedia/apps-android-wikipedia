@@ -1,6 +1,5 @@
 package org.wikipedia.edit.preview;
 
-import android.app.ProgressDialog;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -48,6 +47,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 public class EditPreviewFragment extends Fragment {
@@ -65,7 +65,6 @@ public class EditPreviewFragment extends Fragment {
     private List<EditSummaryTag> summaryTags;
     private EditSummaryTag otherTag;
 
-    private ProgressDialog progressDialog;
     private EditFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -94,7 +93,7 @@ public class EditPreviewFragment extends Fragment {
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url());
+        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url(), getThemedColor(requireActivity(), R.attr.paper_color));
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
@@ -175,11 +174,6 @@ public class EditPreviewFragment extends Fragment {
                 displayPreview(previewHTML);
             }
         }
-
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
-        progressDialog.setCancelable(false);
     }
 
     public void setCustomSummary(String summary) {
@@ -270,16 +264,12 @@ public class EditPreviewFragment extends Fragment {
      */
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(requireActivity());
-        progressDialog.show();
+        parentActivity.showProgressBar(true);
 
         disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getRequestUrlText(), wikiText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
-                    if (progressDialog.isShowing()) {
-                        progressDialog.dismiss();
-                    }
-                })
+                .doAfterTerminate(() -> parentActivity.showProgressBar(false))
                 .subscribe(response -> {
                     displayPreview(response.result());
                     previewHTML = response.result();
@@ -359,13 +349,5 @@ public class EditPreviewFragment extends Fragment {
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
         }
-    }
-
-    @Override
-    public void onDetach() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
-        super.onDetach();
     }
 }
