@@ -82,8 +82,8 @@ public class GalleryItemFragment extends Fragment {
     @Nullable private PageTitle pageTitle;
     @Nullable private MediaListItem mediaListItem;
 
-    private PageTitle imageTitle;
-    public PageTitle getImageTitle() {
+    @Nullable private PageTitle imageTitle;
+    @Nullable public PageTitle getImageTitle() {
         return imageTitle;
     }
 
