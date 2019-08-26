@@ -299,6 +299,5 @@ public class LoginActivity extends BaseActivity {
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
-        L.logRemoteErrorIfProd(caught);
     }
 }
