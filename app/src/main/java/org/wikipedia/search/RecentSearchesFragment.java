@@ -19,7 +19,6 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.SearchHistoryContract;
@@ -101,7 +100,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         super.onDestroyView();
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         Uri uri = SearchHistoryContract.Query.URI;
@@ -110,7 +109,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     }
 
     @Override
-    public void onLoadFinished(@NotNull Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
+    public void onLoadFinished(@NonNull Loader<Cursor> cursorLoaderLoader, Cursor cursorLoader) {
         if (!isAdded()) {
             return;
         }
@@ -141,15 +140,14 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         }
     }
 
-    @OnClick(R.id.add_languages_button)
-    void onAddLangButtonClick() {
+    @OnClick(R.id.add_languages_button) void onAddLangButtonClick() {
         if (callback != null) {
             callback.onAddLanguageClicked();
         }
     }
 
     @Override
-    public void onLoaderReset(@NotNull Loader<Cursor> cursorLoaderLoader) {
+    public void onLoaderReset(@NonNull Loader<Cursor> cursorLoaderLoader) {
         adapter.changeCursor(null);
     }
 
