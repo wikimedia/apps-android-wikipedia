@@ -236,7 +236,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        tabsButton.updateTabCount();
+        if (!isDestroyed()) {
+            tabsButton.updateTabCount();
+        }
         return false;
     }
 
