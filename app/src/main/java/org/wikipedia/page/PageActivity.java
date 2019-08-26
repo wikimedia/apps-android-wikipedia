@@ -345,9 +345,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 return;
             }
             loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND);
-        } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
+        } else if ((ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
                 || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())
-                || ACTION_LOAD_IN_CURRENT_TAB_SQUASH.equals(intent.getAction())) {
+                || ACTION_LOAD_IN_CURRENT_TAB_SQUASH.equals(intent.getAction()))
+                && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())) {
@@ -360,7 +361,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER));
             }
-        } else if (ACTION_LOAD_FROM_EXISTING_TAB.equals(intent.getAction())) {
+        } else if (ACTION_LOAD_FROM_EXISTING_TAB.equals(intent.getAction())
+                && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
