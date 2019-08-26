@@ -178,9 +178,10 @@ public final class StringUtil {
     @NonNull
     public static SpannableStringBuilder boldenSubstrings(@NonNull String text, @NonNull List<String> subStrings) {
         SpannableStringBuilder sb = new SpannableStringBuilder(text);
+        String textLowerCase = text.toLowerCase();
         for (String subString : subStrings) {
-            int index = text.toLowerCase().indexOf(subString.toLowerCase());
-            if (index != -1) {
+            int index = textLowerCase.indexOf(subString.toLowerCase());
+            if (index != -1 && index + subString.length() < sb.length()) {
                 sb.setSpan(new TypefaceSpan("sans-serif-medium"),
                         index, index + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
             }
