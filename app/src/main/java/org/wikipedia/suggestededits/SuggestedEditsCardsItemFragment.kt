@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.Namespace
@@ -127,8 +128,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribe({ response ->
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
-                                val title = page.title()
                                 val imageInfo = page.imageInfo()!!
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
                                 sourceSummary = SuggestedEditsSummary(
                                         title,
@@ -168,8 +169,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .subscribe({ response ->
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
-                                val title = page.title()
                                 val imageInfo = page.imageInfo()!!
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
                                 sourceSummary = SuggestedEditsSummary(
                                         title,
