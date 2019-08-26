@@ -368,7 +368,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         public void onPageSelected(int position) {
             // the pager has settled on a new position
             layOutGalleryDescription();
-            if (currentPosition != -1 && getCurrentItem() != null) {
+            if (currentPosition != -1 && getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
                 if (position < currentPosition) {
                     funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
                 } else if (position > currentPosition) {
