@@ -238,7 +238,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof WebViewInvalidateEvent) {
                 updatingFont = false;
                 updateComponents();
