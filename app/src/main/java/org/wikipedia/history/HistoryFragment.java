@@ -111,7 +111,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyList.setLayoutManager(new LinearLayoutManager(getContext()));
         historyList.setAdapter(adapter);
 
-        requireActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
         return view;
     }
 
@@ -129,7 +129,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onDestroyView() {
-        requireActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
+        LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
         adapter.setCursor(null);
         unbinder.unbind();
@@ -321,7 +321,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private void restartLoader() {
-        requireActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        LoaderManager.getInstance(requireActivity()).restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
     }
 
     private class LoaderCallback implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -338,10 +338,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             }
 
             Uri uri = PageHistoryContract.PageWithImage.URI;
-            final String[] projection = null;
             String order = PageHistoryContract.PageWithImage.ORDER_MRU;
-            return new CursorLoader(requireContext().getApplicationContext(),
-                    uri, projection, selection, selectionArgs, order);
+            return new CursorLoader(requireContext().getApplicationContext(), uri, null, selection, selectionArgs, order);
         }
 
         @Override
