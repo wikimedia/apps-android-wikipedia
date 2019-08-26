@@ -401,7 +401,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onBackPressed() {
         // log the "gallery close" event only upon explicit closing of the activity
         // (back button, or home-as-up button in the toolbar)
-        if (getCurrentItem() != null) {
+        if (getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
             funnel.logGalleryClose(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
         }
         super.onBackPressed();
@@ -586,7 +586,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      */
     public void layOutGalleryDescription() {
         GalleryItemFragment item = getCurrentItem();
-        if (item == null) {
+        if (item == null || item.getImageTitle() == null) {
             infoContainer.setVisibility(View.GONE);
             return;
         }
