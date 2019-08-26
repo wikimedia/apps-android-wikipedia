@@ -84,7 +84,7 @@
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/language_scroll_container"
+        android:id="@+id/search_language_scroll_view_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/page_toolbar_color"
@@ -98,9 +98,11 @@
             android:background="?attr/material_theme_border_color" />
 
         <org.wikipedia.views.LanguageScrollView
-            android:id="@+id/lang_scroll"
+            android:id="@+id/search_language_scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="48dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
 
     </LinearLayout>
 
