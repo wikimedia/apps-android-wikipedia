@@ -60,11 +60,9 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
             actionViewPositive.setVisibility(VISIBLE);
             actionViewNegative.setVisibility(VISIBLE);
             actionViewPositive.setText(card.actionTitle());
-            actionViewPositive.setContentDescription(getContext().getString(R.string.content_description_for_button, card.actionTitle()));
         }
         if (!TextUtils.isEmpty(card.negativeText())) {
             actionViewNegative.setText(card.negativeText());
-            actionViewNegative.setContentDescription(getContext().getString(R.string.content_description_for_button, card.negativeText()));
         } else {
             actionViewNegative.setVisibility(GONE);
         }

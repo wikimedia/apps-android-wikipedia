@@ -48,7 +48,6 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         adapter = getAdapter();
         viewPager.setAdapter(adapter);
         doneButton.setText(getDoneButtonText());
-        doneButton.setContentDescription(getString(R.string.content_description_for_button, getString(getDoneButtonText())));
         updateButtonState();
         updatePageIndicatorContentDescription();
         return view;
