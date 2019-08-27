@@ -69,9 +69,9 @@
   <string name="map_view_link_text">نقشي تي ڏسو</string>
   <string name="other_languages_indication_text">ٻي ٻوليءَ ۾ پڙھو</string>
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
-  <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت موجود آھي نہ تہ ٻي صورت ۾ نوٽ ٿيل آهي</string>
-  <string name="edit_save_action_license_logged_in">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ يقينن پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
-  <string name="edit_save_action_license_anon">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. سنوارون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
+  <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; ھيٺ موجود آھي نہ تہ ٻي صورت واضع ڪيل آھي</string>
+  <string name="edit_save_action_license_logged_in">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي جاري ڪرڻ لاءِ راضي آھيو.</string>
+  <string name="edit_save_action_license_anon">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻوليون</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
@@ -187,8 +187,8 @@
   <string name="about_contributors_heading">ڀاڱيدارَ</string>
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
-  <string name="about_app_license_heading">لائسنس</string>
-  <string name="about_app_license">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; جي تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. جيسيتائين ٻي صورت ۾ وضاحت ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي ڀاڱيداري لائسنس جي تحت موجود آھي&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">اجازتنامو</string>
+  <string name="about_app_license">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ھيٺ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. نہ تہ ٻي صورت واضع ڪيل آھي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي-ونڊ&lt;/a&gt; ھيٺ موجود آھي.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن&lt;/a&gt; جي مصنوع</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو بدلائجي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -248,7 +248,7 @@
   <string name="about_article_section">هن مضمون بابت</string>
   <string name="menu_gallery_visit_page">فائيل جي صفحي ڏانھن وڃو</string>
   <string name="gallery_error_draw_failed">عڪس چِٽجي نہ سگھيو.</string>
-  <string name="license_title">%s لاءِ لائسنس</string>
+  <string name="license_title">%s لاءِ اجازتنامو</string>
   <string name="gallery_menu_share">ونڊيو</string>
   <string name="gallery_share_error">ونڊجي نہ سگھيو عڪس: %s</string>
   <string name="gallery_save_progress">فائيل ڊائونلوڊ ڪندي…</string>
@@ -262,7 +262,7 @@
   <string name="share_snippet_button">بطور عڪس ونڊيو</string>
   <string name="share_normal_button">بطور ٽيڪسٽ ونڊيو</string>
   <string name="snippet_share_preview_image_desc">عڪس تي نگاھ وجھو</string>
-  <string name="cc_logo">تخليقي گڏيل لائيسنس</string>
+  <string name="cc_logo">ڪريئيٽو ڪامنز اجازتنامو</string>
   <string name="captcha_image">ڪيپچا عڪس</string>
   <string name="gallery_fair_use_license">واجب استعمال</string>
   <string name="gallery_uploader_unknown">اڻڄاتل چاڙهيندڙ</string>
@@ -478,6 +478,7 @@
   <string name="preference_title_notification_welcome">ڀليڪار</string>
   <string name="preference_summary_notification_welcome">ھڪ کاتو کوليو ويو آھي</string>
   <string name="preference_title_notification_milestone">سنگ ميل</string>
+  <string name="preference_summary_notification_milestone">ڪي سنوار انگ پڄي چڪا آھن</string>
   <string name="preference_title_notification_thanks">مھرباني</string>
   <string name="preference_summary_notification_thanks">ڪوئي توھان جي ڪنھن سنوار لاءِ مھرباني چئي ٿو</string>
   <string name="preference_title_notification_revert">ورايو</string>
@@ -518,6 +519,7 @@
   <string name="feed_configure_menu_reset">ڏنل نظارو ٻيھر لڳايو</string>
   <string name="feed_configure_menu_select_all">سڀ ڏيکاريو</string>
   <string name="feed_configure_menu_deselect_all">سڀ لڪايو</string>
+  <string name="feed_configure_language_warning">ياد رھي تہ پتن جا سڀ قسم سڀني وڪيپيڊيا ٻولين ۾ موجود ناھن. پنھنجون چونڊيل ٻوليون ترتيبن ۾ سنواريو.</string>
   <string name="feed_item_type_news">ھاڻوڪن واقعن بابت مضمون</string>
   <string name="feed_item_type_on_this_day">ھن ڏينھن تي تاريخ ۾ واقعا</string>
   <string name="feed_item_type_because_you_read">توھان جي سوانح مان تازيل پڙھيل مضمونن تي ٻڌل صلاحون</string>
@@ -553,7 +555,7 @@
   <string name="description_edit_help_wikidata_guide">تشريحون لکڻ لاءِ وڪيڊيٽا رھنما (گائيڊ)</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">مضمونن جي تشريحن کي سنوارڻ واري توھان جي لاڳيتي دلچسپيءَ لاءِ مھرباني! وڌيڪ سنوارون ڪرڻ لاءِ، پنھنجي وڪيپيڊيا کاتي ۾ داخل ٿيو.</string>
-  <string name="description_edit_license_notice">مضمون جي تشريح تبديل ڪرڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون اريووڪيبلي &lt;a href=\"%2$s\"&gt;ڪريئيٽوِ ڪامنز سيسيزيرو&lt;/a&gt; لائسنس تحت ڏيان ٿو.</string>
+  <string name="description_edit_license_notice">مضمون جي تشريح تبديل ڪرڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون بغير رد ڪئي &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="description_edit_helper_text_lowercase_warning">عام طور تي ننڍن اکرن کان شروع ڪريو</string>
   <string name="description_edit_success_saved">مضمون جي تشريح ڇپجي وئي!</string>
   <string name="description_edit_success_saved_snackbar">مضمون جي تشريح ڇپجي وئي!</string>
@@ -585,22 +587,33 @@
   <string name="suggested_edits_my_contributions">منھنجون ڀاڱيداريون</string>
   <string name="suggested_edits_no_description">ھن فائيل کي تشريح ڪونھي</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">توھان \"مضمونن جون تشريحون وجھو\" ڪم کولي ورتو</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">توھان جي ڀاڱيدارين لاءِ مھرباني! جيتوڻيڪ توھان سنوارڻ ۾ ڏاڍا ڀلا آھيو، اسان تشريح کان سواءِ مضمون جي فھرست جوڙي آھي. ڇا توھان اسان کي وڪيپيڊيا بھتر بڻائڻ ۾ اسان جي مدد ڪري سگھو ٿا؟</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">توھان \"مضمونن جون تشريح تشريحون ترجمايو\" ڪم کولي ورتو</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">توھان جي گھڻين ڀاڱيدارين تي مبارڪون، اسان متاثر آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
   <string name="suggested_edits_unlock_dialog_no">بعد ۾ شايد</string>
   <string name="suggested_edits_unlock_dialog_yes">ھا، ھلو تہ ھلون</string>
   <string name="suggested_edits_unlock_add_descriptions_notification_title">توھان \"مضمونن جون تشريحون وجھو\" کولي ورتو</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">توھان \"مضمون جون تشريحون ترجمايو\" کولو ورتو</string>
   <string name="suggested_edits_unlock_notification_text">صلاح-ڏنل سنوارون</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">صلاح-ڏنل سنوارون\n\nتوھان جي سڀني ڀاڱيدارين مھرباني. جيتوڻيڪ توھان سنوارڻ ۾ ڏاڍا ڀلا آھيو، اسان تشريح گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد ڪري سگھو ٿا؟</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">صلاح-ڏنل سنورون\n\nتوھان جي گھڻين ڀاڱيدارين تي مبارڪون، اسان متاثر آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
   <string name="suggested_edits_unlock_notification_button">ھا، ھلو تہ ھلون</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">توھن \"عڪسن جا عنوان وجھو\" ڪم کولي ورتو</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">توھان \"عڪسن جا عنوان وجھو\" کولي ورتو</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">عڪسن جي عنوانن جي سڀ سنوارن لاءِ توھان جي مھرباني! جيتوڻيڪ توھان کي عڪسن ۾ عنوان وجھڻ پسند آھي، اسان عنوان گھرندڙ عڪسن جي فھرست جوڙي آھي. ڇا توھان اسان جي وڪيپيڊيا کي سنوارڻ ۾ مدد ڪري سگھو ٿا؟</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">صلاح-ڏنل سنوارون\n\nعڪسن جي عنوانن جي سڀ سنوارن لاءِ توھان جي مھرباني! جيتوڻيڪ توھان کي عڪسن ۾ عنوان وجھڻ پسند آھي، اسان عنوان گھرندڙ عڪسن جي فھرست جوڙي آھي. ڇا توھان اسان جي وڪيپيڊيا کي سنوارڻ ۾ مدد ڪري سگھو ٿا؟</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">توھان \"عڪسن جا عنوان ترجمايو\" ڪم کولو ورتو</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">توھان \"عڪسن جا عنوان ترجمايو\" کولو ورتو</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">توھان جي گھڻين ڀاڱيدارين تي مبارڪون - اسان عجب ۾ آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">صلاح-ڏنل سنوارون\n\nتوھان جي گھڻين ڀاڱيدارين تي مبارڪون - اسان عجب ۾ آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
+  <string name="suggested_edits_license_notice">تشريح وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ ڏيڻ لاءِ راضي آھيان.</string>
+  <string name="suggested_edits_image_caption_license_notice">عڪسن جا عنوان وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪندي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="suggested_edits_menu_info">ڄاڻ</string>
   <string name="suggested_edits_tasks_activity_title">صلاح-ڏنل سنوارون</string>
   <string name="suggested_edits_task_add_description_title">مضمون جو تشريحون وجھو</string>
   <string name="suggested_edits_task_add_description_description">مضمونن ۾ بغير تشريحن جي ڀاڱيداري ڪريو</string>
   <string name="suggested_edits_task_translation_title">مضمون جون تشريحون ترجمايو</string>
+  <string name="suggested_edits_task_translation_description">تشريحن کي ٻولين وچ ۾ ترجمايو.</string>
   <string name="suggested_edits_task_image_caption_title">عڪس جا عنوان وجھو</string>
   <string name="suggested_edits_task_image_caption_description">عڪسن ۾ رھيل مختصر عنوان وجھو</string>
   <string name="suggested_edits_task_translate_caption_title">عڪس جا عنوان ترجمايو</string>
@@ -614,7 +627,7 @@
   <string name="suggested_edits_image_caption_summary_title_artist">فنڪار</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
   <string name="suggested_edits_image_caption_summary_title_source">ذريعو</string>
-  <string name="suggested_edits_image_caption_summary_title_license">لائسنس</string>
+  <string name="suggested_edits_image_caption_summary_title_license">اجازتنامو</string>
   <string name="suggested_edits_image_caption_summary_title_date">تاريخ</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 ڀاڱيداري</item>
@@ -641,7 +654,7 @@
   <string name="description_edit_revert_intro">اسان ڄاڻون ٿا توھان ڀرپور ڪوشش ڪئي، پر ھڪ جائزيڪار کي ڪو شڪ آھي. توھان جي سنوار ورائي وڃڻ جي سببن ۾ شامل آھن:</string>
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>
   <string name="description_edit_revert_reason2">توھان جي ڀاڱيداري ڪو تجربو يا تخريبڪاري وانگر لڳي</string>
-  <string name="description_edit_revert_history">جيڪڏھن توھان دلچسپي رکو ٿا، تہ پوءِ &lt;a href=\"%1$s\"&gt;ترميمن جي سوانح&lt;/a&gt; ڏسو.</string>
+  <string name="description_edit_revert_history">جيڪڏھن توھان دلچسپي رکو ٿا، تہ پوءِ &lt;a href=\"%1$s\"&gt;سنوارن جي سوانح&lt;/a&gt; ڏسو.</string>
   <string name="description_edit_login_cancel_button_text">رد</string>
   <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
   <string name="offline_read_final_rationale">توھان جي اوزار تي اسٽوريج تائين پھچ لاءِ اجازت گھربل آھي تہ جيئن آفلائين لائبريري استعمال ڪري سگھجي.</string>

@@ -1,5 +1,6 @@
 package org.wikipedia.page.leadimages;
 
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -93,6 +94,7 @@ public class LeadImagesHandler {
 
     public boolean isLeadImageEnabled() {
         return isImageDownloadEnabled()
+                && !(getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
                 && !isMainPage()
                 && !TextUtils.isEmpty(getLeadImageUrl());

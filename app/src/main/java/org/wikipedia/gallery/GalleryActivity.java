@@ -368,7 +368,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         public void onPageSelected(int position) {
             // the pager has settled on a new position
             layOutGalleryDescription();
-            if (currentPosition != -1 && getCurrentItem() != null) {
+            if (currentPosition != -1 && getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
                 if (position < currentPosition) {
                     funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
                 } else if (position > currentPosition) {
@@ -401,7 +401,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onBackPressed() {
         // log the "gallery close" event only upon explicit closing of the activity
         // (back button, or home-as-up button in the toolbar)
-        if (getCurrentItem() != null) {
+        if (getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
             funnel.logGalleryClose(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
         }
         super.onBackPressed();
@@ -556,6 +556,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 // (this can happen if the user clicked on an SVG file, since we hide SVGs
                 // by default in the gallery; or lead image in the PageHeader or in the info box)
                 initialImagePos = 0;
+                list = new ArrayList<>(list);
                 list.add(initialImagePos, new MediaListItem(initialFilename));
             }
         }
@@ -585,7 +586,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      */
     public void layOutGalleryDescription() {
         GalleryItemFragment item = getCurrentItem();
-        if (item == null) {
+        if (item == null || item.getImageTitle() == null) {
             infoContainer.setVisibility(View.GONE);
             return;
         }
@@ -619,11 +620,16 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
         if (app.language().getAppLanguageCodes().size() > 1 && captionEditable) {
-            for (String lang : app.language().getAppLanguageCodes()) {
-                if (!item.getMediaInfo().getCaptions().containsKey(lang)) {
-                    allowTranslate = true;
-                    targetLanguageCode = lang;
-                    break;
+            if (!item.getMediaInfo().getCaptions().containsKey(sourceWiki.languageCode())) {
+                allowTranslate = true;
+                targetLanguageCode = sourceWiki.languageCode();
+            } else {
+                for (String lang : app.language().getAppLanguageCodes()) {
+                    if (!item.getMediaInfo().getCaptions().containsKey(lang)) {
+                        allowTranslate = true;
+                        targetLanguageCode = lang;
+                        break;
+                    }
                 }
             }
         }

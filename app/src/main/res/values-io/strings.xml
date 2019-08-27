@@ -304,10 +304,11 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
   <string name="reading_list_sort">Klasifikar</string>
+  <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
   <string name="reading_list_sort_by_name_desc">Ordenar segun nomo (inversa)</string>
   <string name="reading_list_sort_by_recent">Ordenar segun antiqueso (unesme la maxim recenta)</string>
-  <string name="reading_list_sort_by_recent_desc">Ordenar segun antiqueso (unesma la maxim antiqua)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar segun antiqueso (unesme la maxim antiqua)</string>
   <string name="reading_list_sort_by_created">Organizar segun dato di kreado (unesme la maxim recenta)</string>
   <string name="reading_list_sort_by_created_desc">Organizar segun dato di kreado (unesme la maxim antiqua)</string>
   <string name="reading_list_menu_delete">Efacar la listo</string>
