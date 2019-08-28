@@ -92,7 +92,9 @@ public class RbPageSummary implements PageSummary {
 
     @NonNull
     public PageTitle getPageTitle(@NonNull WikiSite wiki) {
-        return new PageTitle(getTitle(), wiki, getThumbnailUrl(), getDescription());
+        PageTitle pageTitle = new PageTitle(getDisplayTitle(), wiki, getThumbnailUrl(), getDescription());
+        pageTitle.setConvertedText(getConvertedTitle());
+        return pageTitle;
     }
 
     public int getPageId() {

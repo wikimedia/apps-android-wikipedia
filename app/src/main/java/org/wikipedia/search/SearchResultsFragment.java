@@ -30,6 +30,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
@@ -318,8 +319,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(results -> {
+                .map(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
                     log(resultList, startTime);
@@ -330,7 +330,28 @@ public class SearchResultsFragment extends Fragment {
 
                     // full text special:
                     SearchResultsFragment.this.lastFullTextResults = results;
-                    displayResults(resultList);
+                    return displayResults(resultList);
+                })
+                .flatMapIterable(list -> {
+                    return list;
+                })
+                .flatMap(searchResult ->
+                        ServiceFactory
+                                .getRest(WikiSite.forLanguageCode(getSearchLanguageCode()))
+                                .getSummary(null, searchResult.getPageTitle().getConvertedText())
+                                .subscribeOn(Schedulers.io()))
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(summary -> {
+                    return new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode())));
+                })
+                .toList()
+                .doAfterTerminate(() -> updateProgressBar(false))
+                .subscribe(results -> {
+                    // TODO: not to mess up the search result
+                    // TODO: use lambda when done
+                    totalResults.clear();
+                    totalResults.addAll(results);
+                    getAdapter().notifyDataSetChanged();
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
@@ -381,7 +402,7 @@ public class SearchResultsFragment extends Fragment {
      *
      * @param results List of results to display. If null, clears the list of suggestions & hides it.
      */
-    private void displayResults(List<SearchResult> results) {
+    private List<SearchResult> displayResults(List<SearchResult> results) {
         for (SearchResult newResult : results) {
             boolean contains = false;
             for (SearchResult result : totalResults) {
@@ -404,6 +425,8 @@ public class SearchResultsFragment extends Fragment {
         }
 
         getAdapter().notifyDataSetChanged();
+
+        return totalResults;
     }
 
     private class SearchResultsFragmentLongPressHandler
