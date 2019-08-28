@@ -29,11 +29,13 @@
   <string name="history_items_deleted">%d Artikelen aus dem Verlaf vum Browser erausgeholl</string>
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
   <string name="notification_archive_undo">Réckgängeg maachen</string>
+  <string name="app_settings">Astellunge vun der App</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
   <string name="dialog_message_clear_history_no">Neen</string>
   <string name="share_via">Deelen iwwer</string>
+  <string name="image_share_via">Deelen iwwer</string>
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
@@ -41,7 +43,9 @@
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
+  <string name="feed_card_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="menu_page_share">Link deelen</string>
+  <string name="menu_page_open_a_new_tab">En neien Tab opmaachen</string>
   <string name="menu_page_reading_lists">Lieslëschten</string>
   <string name="menu_page_recently_viewed">Rezent gekuckt</string>
   <string name="menu_long_press_open_page">Opmaachen</string>
@@ -92,6 +96,7 @@
   <string name="login_password_hint">Passwuert</string>
   <string name="account_creation_password_hint">Passwuert</string>
   <string name="login_2fa_hint">Code fir Authentifikatioun mat zwee Elementer</string>
+  <string name="onboarding_card_login">Aloggen</string>
   <string name="page_editing_login">Aloggen</string>
   <string name="reading_lists_sync_login">Aloggen</string>
   <string name="create_account_login">Aloggen</string>
@@ -248,6 +253,7 @@
   <string name="captcha_image">Captcha-Bild</string>
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Eroplueder onbekannt</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Verwerfen</string>
   <string name="menu_new_tab">Neien Tab</string>
   <string name="menu_close_all_tabs">All Tabs zoumaachen</string>
   <string name="close_all_tabs_confirm">Sidd Dir sécher datt Dir all Tabs zoumaache wëllt?</string>
@@ -472,7 +478,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s gelies</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
   <string name="onboarding_negative_action">Nee, merci</string>
-  <string name="view_offline_card_text">Et ka keen INhalt geluede gi wann Dir offline sidd.</string>
+  <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
   <string name="view_static_card_save_button_label">Späicheren</string>
   <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>

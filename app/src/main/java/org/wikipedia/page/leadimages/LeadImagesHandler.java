@@ -1,10 +1,10 @@
 package org.wikipedia.page.leadimages;
 
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,7 +32,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
@@ -46,7 +45,7 @@ import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
 public class LeadImagesHandler {
     /**
@@ -55,10 +54,6 @@ public class LeadImagesHandler {
      * the page title.
      */
     private static final int MIN_SCREEN_HEIGHT_DP = 480;
-
-    public interface OnLeadImageLayoutListener {
-        void onLayoutComplete(int sequence);
-    }
 
     @NonNull private final PageFragment parentFragment;
     @NonNull private final CommunicationBridge bridge;
@@ -101,74 +96,21 @@ public class LeadImagesHandler {
 
     public boolean isLeadImageEnabled() {
         return isImageDownloadEnabled()
+                && !(getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
                 && !isMainPage()
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
-    /**
-     * Triggers a chain of events that will lay out the lead image, page title, and other
-     * elements, at the end of which the WebView contents may begin to be composed.
-     * These events (performed asynchronously) are in the following order:
-     * - Dynamically resize the page title TextView and, if necessary, adjust its font size
-     * based on the length of our page title.
-     * - Dynamically resize the lead image container view and restyle it, if necessary, depending
-     * on whether the page contains a lead image, and whether our screen resolution is high
-     * enough to warrant a lead image.
-     * - Send a "padding" event to the WebView so that any subsequent content that's added to it
-     * will be correctly offset to account for the lead image view (or lack of it)
-     * - Make the lead image view visible.
-     * - Fire a callback to the provided Listener indicating that the rest of the WebView content
-     * can now be loaded.
-     * - Fetch and display the WikiData description for this page, if available.
-     * <p/>
-     * Realistically, the whole process will happen very quickly, and almost unnoticeably to the
-     * user. But it still needs to be asynchronous because we're dynamically laying out views, and
-     * because the padding "event" that we send to the WebView must come before any other content
-     * is sent to it, so that the effect doesn't look jarring to the user.
-     *
-     * @param listener Listener that will receive an event when the layout is completed.
-     */
-    public void beginLayout(OnLeadImageLayoutListener listener,
-                            int sequence) {
-        if (getPage() == null) {
-            return;
-        }
-        initDisplayDimensions();
-        loadLeadImage();
-        layoutViews(listener, sequence);
+    public int getPaddingTop() {
+        return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar())
+                : Math.round(parentFragment.requireActivity().getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / DimenUtil.getDensityScalar());
     }
 
-    /**
-     * The final step in the layout process:
-     * Apply sizing and styling to our page title and lead image views, based on how large our
-     * page title ended up, and whether we should display the lead image.
-     *
-     * @param listener Listener that will receive an event when the layout is completed.
-     */
-    private void layoutViews(OnLeadImageLayoutListener listener, int sequence) {
-        if (!isFragmentAdded()) {
-            return;
-        }
-
-        if (isMainPage()) {
-            pageHeaderView.hide();
-            // explicitly set WebView padding, since onLayoutChange will not be called.
-            setWebViewPaddingTop();
-        } else {
-            pageHeaderView.show(isLeadImageEnabled());
-        }
-
-        // tell our listener that it's ok to start loading the rest of the WebView content
-        listener.onLayoutComplete(sequence);
-    }
-
-    private void setWebViewPaddingTop() {
+    public void setWebViewPaddingTop() {
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingTop", isMainPage()
-                    ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
-                    : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar()));
+            payload.put("paddingTop", getPaddingTop());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -182,18 +124,14 @@ public class LeadImagesHandler {
         displayHeightDp = (int) (DimenUtil.getDisplayHeightPx() / DimenUtil.getDensityScalar());
     }
 
-    private void loadLeadImage() {
-        String leadImageUrl = getLeadImageUrl();
-        if (leadImageUrl == null) {
-            loadLeadImage(null);
-        } else {
-            loadLeadImage(leadImageUrl);
+    public void loadLeadImage() {
+        String url = getLeadImageUrl();
+        if (getPage() == null) {
+            return;
         }
-    }
-
-    private void loadLeadImage(@Nullable String url) {
+        initDisplayDimensions();
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
-            pageHeaderView.show(isLeadImageEnabled());
+            pageHeaderView.show();
             pageHeaderView.loadImage(url);
             updateCallToAction();
         } else {
@@ -274,8 +212,6 @@ public class LeadImagesHandler {
     }
 
     private void initArticleHeaderView() {
-        pageHeaderView.addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
-                                                  int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onImageClicked() {
@@ -297,12 +233,11 @@ public class LeadImagesHandler {
     public void openImageInGallery(@Nullable  String language) {
         if (getPage() != null && isLeadImageEnabled()) {
             String imageName = getPage().getPageProperties().getLeadImageName();
-            String imageUrl = getPage().getPageProperties().getLeadImageUrl();
-            if (imageName != null && imageUrl != null) {
+            if (imageName != null) {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                        parentFragment.getTitleOriginal(), filename, UriUtil.resolveProtocolRelativeUrl(imageUrl), wiki,
+                        parentFragment.getTitleOriginal(), filename, wiki,
                         GalleryFunnel.SOURCE_LEAD_IMAGE),
                         Constants.ACTIVITY_REQUEST_GALLERY);
             }

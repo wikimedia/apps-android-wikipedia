@@ -294,6 +294,8 @@
   <string name="captcha_image">Obrázek CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Původce neznámý</string>
+  <string name="gallery_not_available_offline_snackbar">Zobrazení galerie není k dispozici offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Zavřít</string>
   <string name="menu_new_tab">Nová záložka</string>
   <string name="menu_close_all_tabs">Zavřít všechny záložky</string>
   <string name="close_all_tabs_confirm">Jste si jisti, že chcete zavřít všechny záložky?</string>
@@ -322,7 +324,7 @@
   <string name="page_offline_notice_add_to_reading_list">Tip: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
   <string name="page_offline_notice_last_date">Právě čtete verzi tohoto článku, která může být neaktuální. Tato verze byla uložena %s.</string>
   <string name="button_get_directions">Najít trasu</string>
-  <string name="error_no_maps_app">Nepodařilo se najít žádnou aplikaci, která poskytuje navigaci.</string>
+  <string name="error_no_maps_app">Tuto akci nemůže provést žádná aplikace.</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy článků</string>
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="preference_title_collapse_tables">Sbalit tabulky</string>
@@ -687,7 +689,7 @@
   <string name="suggested_edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuto, dokud needitujete %d titulky obrázků</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zamčeno, dokud nevytvoříte %d ověřené popisy článků</string>
-  <string name="suggested_edits_task_multilingual_negative">Není pro mě</string>
+  <string name="suggested_edits_task_multilingual_negative">Ne, děkuji</string>
   <string name="suggested_edits_task_multilingual_positive">Přidat jazyky</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umělec</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>

@@ -3,6 +3,7 @@ package org.wikipedia.feed.suggestededits
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
@@ -20,5 +21,9 @@ class SuggestedEditsCard(wiki: WikiSite,
 
     override fun title(): String {
         return WikipediaApp.getInstance().getString(R.string.suggested_edits_feed_card_title)
+    }
+
+    fun logImpression() {
+        SuggestedEditsFunnel.get(InvokeSource.FEED).impression(invokeSource)
     }
 }

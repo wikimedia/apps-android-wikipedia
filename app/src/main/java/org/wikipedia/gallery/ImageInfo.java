@@ -83,6 +83,10 @@ public class ImageInfo implements Serializable {
         return StringUtils.defaultString(timestamp);
     }
 
+    @NonNull public String getCommonsUrl() {
+        return StringUtils.defaultString(descriptionUrl);
+    }
+
     @Nullable public ExtMetadata getMetadata() {
         return metadata;
     }

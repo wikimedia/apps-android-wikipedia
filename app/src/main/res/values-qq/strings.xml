@@ -34,6 +34,7 @@
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
+  <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
@@ -299,6 +300,8 @@
   <string name="captcha_image">Content description of the actual captcha image the user has to recognize to proceed.</string>
   <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.\n{{Identical|Fair use}}</string>
   <string name="gallery_uploader_unknown">Text displayed when the uploader of a media item is not known.</string>
+  <string name="gallery_not_available_offline_snackbar">Message shown when users tapping on the images in an article while the device is offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">The label for the action button to dismiss the snackbar.</string>
   <string name="menu_new_tab">Text hint for the menu button used for creating a new tab.</string>
   <string name="menu_close_all_tabs">Text hint for the menu button used for closing all tabs.</string>
   <string name="close_all_tabs_confirm">Confirmation message shown when closing all tabs.</string>
@@ -797,6 +800,7 @@
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
   <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
+  <string name="main_drawer_content_description">Label of content description for the button of opening the main navigation drawer</string>
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
@@ -804,4 +808,5 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
 </resources>

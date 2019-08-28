@@ -94,15 +94,11 @@
         android:text="@string/create_account_already_have"
         android:textColor="?attr/material_theme_primary_color" />
 
-    <TextView
+    <Button
         android:id="@+id/create_account_login_button"
         style="@style/TransparentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-8dp"
-        android:layout_marginBottom="0dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:text="@string/create_account_login"
         android:textColor="?attr/colorAccent" />
 

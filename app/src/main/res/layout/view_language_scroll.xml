@@ -13,8 +13,8 @@
         android:background="?attr/page_toolbar_color"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
+        android:requiresFadingEdge="horizontal"
+        android:fadingEdgeLength="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/more_languages"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,21 +30,11 @@
         app:tabPaddingTop="8dp"
         app:tabSelectedTextColor="?attr/colorAccent" />
 
-    <View
-        android:id="@+id/horizontal_scroll_languages_gradient"
-        android:layout_width="24dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/more_languages"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
+    <Button
         android:id="@+id/more_languages"
         style="@style/TransparentButton"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:minWidth="0dp"
         android:text="@string/more_language_options"
         android:textColor="?attr/colorAccent"

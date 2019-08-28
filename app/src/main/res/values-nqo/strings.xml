@@ -263,6 +263,7 @@
   <string name="captcha_image">ߢߏ߰ߛߏ߬ߢߊ߯ߛߊ ߖߌ߬ߦߊ߬ߓߍ</string>
   <string name="gallery_fair_use_license">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߘߝߊߣߍ߲</string>
   <string name="gallery_uploader_unknown">ߟߊ߬ߦߟߍ߬ߟߊ߬ ߡߊߟߐ߲ߓߊߟߌ</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">ߊ߬ ߟߊߕߊ߲߬ߞߌ߲</string>
   <string name="menu_new_tab">ߕߍߟߍ߲߫ ߞߎߘߊ߫</string>
   <string name="menu_close_all_tabs">ߕߍߟߍ߲ ߓߍ߯ ߘߊߕߎ߲߯</string>
   <string name="close_all_tabs_confirm">ߌ ߟߊߣߴߊ߬ ߟߊ߫ ߞߏ߫ ߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߕߍߟߍ߲ ߓߍ߯ ߘߊߕߎ߲߯؟</string>
@@ -272,6 +273,7 @@
   <string name="tab_item_closed">%s ߓߘߊ߫ ߕߎ߲߯.</string>
   <string name="all_tab_items_closed">ߕߍߟߍ߲ ߓߍ߯ ߓߘߊ߫ ߘߊߕߎ߲߯.</string>
   <string name="tool_tip_bookmark_icon_title">ߊ߬ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="tool_tip_bookmark_icon_text">ߟߡߊߡߙߎߝߋ ߛߌ߲ߞߐ߲ ߛߐ߲߬ߞߌ߲߫ ߞߊ߬ ߞߎߡߘߊ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="page_view_in_browser">ߞߐߜߍ ߦߋ߫ ߛߏ߲߯ߓߊߟߊ߲ ߘߐ߫</string>
   <string name="tool_tip_toc_title">ߞߣߐߘߐ ߟߎ߬ ߥߟߊ߬ߟߋ߲ ߠߊߛߐ߬ߘߐ߲߬ ߖߏߣߊ</string>
   <string name="error_response_malformed">ߖߋ߬ߓߌ߬ߟߌ ߡߍ߲ ߛߐ߬ߘߐ߲߬ߣߍ߲߫ ߡߊ߬ߛߐ߬ߟߊ ߟߊ߫߸ ߏ߬ ߡߊ߫ ߖߙߎߡߎ߲ߦߊ߫ ߞߏߢߊ߬.</string>
@@ -304,6 +306,7 @@
   <string name="error_page_does_not_exist">ߞߐߜߍ ߣߌ߲߬ ߕߴߦߋ߲߬</string>
   <string name="view_wiki_error_message_offline">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
   <string name="reference_title">ߦߟߌߡߊߛߙߋ %s</string>
+  <string name="preference_title_prefer_offline_content">ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߫ ߞߣߐߘߐ ߟߎ߬ ߞߊ߬ߣߌ߲߬ߒ߬ߕߋ߬ߦߊ</string>
   <string name="crash_report_dialog_title">ߤߊߞߍ߬ߕߏ߫߸ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߓߘߊ߫ ߜߊߛߊ߲߫ ߛߋ߲߬ߧߊ߫ ߕߊ߬ߡߌ߲߬ߣߍ߲</string>
   <string name="crash_report_dialog_dont_send_button">ߌ ߕߐ߬ߡߐ߲߬</string>
   <string name="crash_report_dialog_always_send_button">ߊ߬ ߗߋ߫ ߝߣߊ߫</string>
@@ -466,6 +469,7 @@
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
   <string name="preference_title_notification_welcome">ߌ ߣߌ߫ ߛߣߍ߫</string>
   <string name="preference_summary_notification_welcome">ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߛߌ߲ߘߌ߫</string>
+  <string name="preference_title_notification_milestone">ߛߊ߯ߘߊ߫ ߣߝߊ߬ߡߊ</string>
   <string name="preference_summary_notification_milestone">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߏ߫ ߟߎ߫ ߦߙߌߞߊ ߓߘߊ߫ ߛߋ߫</string>
   <string name="preference_title_notification_thanks">ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="preference_summary_notification_thanks">ߘߏߕߌ߰ ߓߘߴߌ ߞߎ߲ߟߎ߲ߖߋ߫ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫</string>
@@ -485,8 +489,13 @@
   <string name="menu_feed_overflow_label">ߢߣߊߕߊߟߌ߫ ߜߘߍ߫ ߟߎ߫</string>
   <string name="feed_featured_image_share_subject">ߖߌ߬ߦߊ߬ߓߍ߬ ߡߊߦߋߙߋ߲ߣߍ߲ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
   <string name="feed">ߛߏ߲߯ߓߊߟߌ</string>
+  <string name="most_read_list_card_title">ߝߊ߲ߞߊ߲ߠߌ߲</string>
   <string name="view_static_card_icon_content_description">ߔߊ߬ߔߘߊ ߛߌ߲ߞߐ߲</string>
   <string name="view_card_news_title">ߞߎߘߊ ߟߎ߬ ߘߐ߫</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">yesterday</item>
+    <item quantity="other">%d days ago</item>
+  </plurals>
   <string name="view_continue_reading_card_subtitle_today">ߓߌ߬</string>
   <string name="view_continue_reading_card_subtitle_read_date">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ %s</string>
   <string name="view_announcement_card_negative_action">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
@@ -576,18 +585,34 @@
   <string name="suggested_edits_task_add_description_title">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_task_add_description_description">ߞߊ߬ ߓߟߏߡߊߜߍ߲ ߞߍ߫ ߦߌߟߡߊ ߘߐ߫ ߞߵߊ߬ ߕߘߍ߬ ߌ ߡߊ߫ ߛߓߍߟߌ߫ ߞߍ߫</string>
   <string name="suggested_edits_task_translation_title">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬</string>
+  <string name="suggested_edits_task_translation_description">ߞߊ߲߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬ ߞߎߡߘߊ ߞߊ߲ ߘߐ߫.</string>
+  <string name="suggested_edits_task_image_caption_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
+  <string name="suggested_edits_task_image_caption_description">ߝߍ߬ߛߓߍ߬ߟߌ߬ ߞߐߢߌ߬ߣߊ߬ߣߍ߲߫ ߛߘߎ߬ߡߊ߲ ߠߎ߬ ߟߊߘߏ߲߬</string>
+  <string name="suggested_edits_task_translate_caption_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬</string>
+  <string name="suggested_edits_task_translate_caption_description">ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬ ߞߊ߲߫ ߜߘߍ ߟߎ߬ ߘߐ߫</string>
+  <string name="suggested_edits_task_multilingual_title">ߡߊ߬ߛߙߋ߬ ߛߌߦߊߡߊ߲߫ ߠߎ߫ ߞߊ߲ߥߙߍ߫ ߡߊߦߟߍߡߊ߲ߠߊ ߟߎ߬ ߦߋ߫</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">ߊ߬ ߛߐ߰ߣߍ߲߫ ߠߋ߬ ߝߏ߫ ߣߴߌ ߞߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ %d ߡߊߦߟߍ߬ߡߊ߲߫.</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">ߊ߬ ߣߍ߰ߣߍ߲ ߠߋ߬ ߝߏ߫ ߌ ߣߊ߬ ߞߎߡߘߊ %d ߟߎ߫ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫ (ߝߛߍ߬ߝߛߍ߬)</string>
   <string name="suggested_edits_task_multilingual_negative">ߒߠߋ ߕߊ߫ ߕߍ߫</string>
   <string name="suggested_edits_task_multilingual_positive">ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_caption_summary_title_author">ߛߓߍߦߟߊ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ߛߎ߲</string>
   <string name="suggested_edits_image_caption_summary_title_license">ߕߌ߰ߦߊ</string>
   <string name="suggested_edits_image_caption_summary_title_date">ߕߎ߬ߡߊ߬ߘߊ</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 contribution</item>
+    <item quantity="other">%d contributions</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ (%s) ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_preview_dialog_date">ߕߎ߬ߡߊ߬ߘߊ</string>
   <string name="suggested_edits_image_preview_dialog_source">ߖߌ߬ߦߊ߬ߕߊ߬ߟߊ߲/ߛߎ߲</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="suggested_edits_image_preview_dialog_more_info">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߬ ߜߘߍ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ߞߐߕߐ߮ ߞߐߜߍ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
   <string name="suggested_edits_article_cta_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
@@ -596,7 +621,14 @@
   <string name="suggested_edits_feed_card_translate_image_caption">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
+  <string name="description_edit_revert_reason1">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߟߎ߬ ߡߊ߫ &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt; ߘߏ߫ ߘߐ߫ ߞߋߟߋ߲߫ ߠߊߓߊ߬ߕߏ߬.</string>
+  <string name="description_edit_revert_reason2">ߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߞߍ߫ ߣߍ߲߫ ߦߏ߫ ߘߊ߲߬ߕߍ߰ߟߌ߫ ߥߟߊ߫ ߞߏߘߐߕߌߢߍ߫.</string>
+  <string name="description_edit_revert_history">ߣߴߌ ߡߣߊ߬ߦߋ߬ߣߍ߲߬ ߞߍ߫ ߘߊ߫߸ ߣߌ߲߬ ߘߐߜߍ߫ &lt;a href=\"%1$s\"&gt;ߘߐ߬ߝߐ ߡߊߦߟߍ߬ߡߊ߲߫&lt;/a&gt;</string>
   <string name="description_edit_login_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="offline_read_permission_rationale">ߌ ߟߊ߫ ߞߍߟߊ߲ ߟߊ߬ߡߙߊ߬ߟߌ߬ ߦߙߐ ߟߊߛߐ߬ߘߐ߲ ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߞߊ߬ߣߌ߲߬ ߣߍ߲߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߛߏ߲߯ߓߊߟߌ ߘߐ߫</string>
+  <string name="offline_read_final_rationale">ߌ ߟߊ߫ ߞߍߟߊ߲ ߟߊ߬ߡߙߊ߬ߟߌ߬ ߦߙߐ ߟߊߛߐ߬ߘߐ߲ ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߞߊ߬ߣߌ߲߬ ߣߍ߲߫ ߞߊ߬ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߛߓߍߘߊ ߟߊߓߊ߯ߙߊ߫.</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">ߊ ߟߊߜߊ߲߫</string>
   <string name="onboarding_continue">ߘߊߓߊ߲ߠߌ߲</string>
   <string name="onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
@@ -619,6 +651,10 @@
   <string name="more_events_text">ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
   <string name="this_year">ߢߌ߬ߣߊ߲߬</string>
   <string name="back_to_top">ߌ ߞߐߛߊ߬ߦߌ߬ ߛߊ߲ߝߍ߬</string>
+  <plurals name="diff_years">
+    <item quantity="one">Last year</item>
+    <item quantity="other">%d years ago</item>
+  </plurals>
   <string name="languages_list_activity_title">ߞߊ߲ ߘߏ߫ ߛߎߥߊ߲ߘߌ߫</string>
   <string name="languages_list_all_text">ߞߊ߲ ߠߎ߬ ߓߍ߯</string>
   <string name="wikipedia_languages_title">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬</string>

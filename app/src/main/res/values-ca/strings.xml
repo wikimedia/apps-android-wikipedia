@@ -292,6 +292,8 @@
   <string name="captcha_image">Imatge Captcha</string>
   <string name="gallery_fair_use_license">Fair use (ús raonable)</string>
   <string name="gallery_uploader_unknown">Carregador no conegut</string>
+  <string name="gallery_not_available_offline_snackbar">La vista de galeria no està disponible fora de línia.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Descarta</string>
   <string name="menu_new_tab">Pestanya nova</string>
   <string name="menu_close_all_tabs">Tanca totes les pestanyes</string>
   <string name="close_all_tabs_confirm">Esteu segur que voleu tancar totes les pestanyes?</string>

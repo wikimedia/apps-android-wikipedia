@@ -238,7 +238,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
   <string name="about_translators_heading">Переводчики</string>
@@ -323,6 +323,8 @@
   <string name="captcha_image">Капча-изображение</string>
   <string name="gallery_fair_use_license">Добросовестное использование</string>
   <string name="gallery_uploader_unknown">Загрузивший неизвестен</string>
+  <string name="gallery_not_available_offline_snackbar">Режим галереи недоступен без подключения к Интернету.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Закрыть</string>
   <string name="menu_new_tab">Новая вкладка</string>
   <string name="menu_close_all_tabs">Закрыть все вкладки</string>
   <string name="close_all_tabs_confirm">Вы уверены, что хотите закрыть все вкладки?</string>
@@ -676,7 +678,7 @@
   <string name="suggested_edits_edit_translation_button">Редактировать перевод</string>
   <string name="suggested_edits_add_caption_button">Добавить описание</string>
   <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
-  <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
+  <string name="suggested_edits_review_image_caption">Проверьте описание</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_no_description">У этого файла отсутствует описание</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>

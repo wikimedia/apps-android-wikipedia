@@ -10,6 +10,7 @@
     <string name="page_tabs_back">Back</string>
     <string name="nav_item_forward">Forward</string>
     <string name="search_hint">Search Wikipedia</string>
+    <string name="search_hint_voice_search">Voice input search</string>
     <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
@@ -287,6 +288,8 @@
     <string name="captcha_image">Captcha image</string>
     <string name="gallery_fair_use_license">Fair use</string>
     <string name="gallery_uploader_unknown">Uploader unknown</string>
+    <string name="gallery_not_available_offline_snackbar">Gallery view not available offline.</string>
+    <string name="gallery_not_available_offline_snackbar_dismiss">Dismiss</string>
     <string name="menu_new_tab">New tab</string>
     <string name="menu_close_all_tabs">Close all tabs</string>
     <string name="close_all_tabs_confirm">Are you sure you want to close all tabs?</string>
@@ -833,6 +836,10 @@
     <string name="account_editing_blocked_dialog_cancel_button_text">Cancel</string>
     <!-- /Editing -->
 
+    <!-- Content description -->
+    <string name="content_description_for_page_indicator">Page %1$d of %2$d</string>
+    <!-- /Content description -->
+
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
     <string name="wikitext_link">Link</string>
@@ -844,6 +851,7 @@
 
     <string name="main_drawer_open">Open</string>
     <string name="main_drawer_close">Close</string>
+    <string name="main_drawer_content_description">Open main navigation drawer</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>

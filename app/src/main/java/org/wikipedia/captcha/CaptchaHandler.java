@@ -5,6 +5,7 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -58,7 +59,7 @@ public class CaptchaHandler {
         captchaImage = activity.findViewById(R.id.captcha_image);
         captchaText = ((TextInputLayout) activity.findViewById(R.id.captcha_text)).getEditText();
         captchaProgress = activity.findViewById(R.id.captcha_image_progress);
-        TextView submitButton = activity.findViewById(R.id.captcha_submit_button);
+        Button submitButton = activity.findViewById(R.id.captcha_submit_button);
 
         if (submitButtonText != null) {
             submitButton.setText(submitButtonText);
@@ -73,7 +74,7 @@ public class CaptchaHandler {
             disposables.add(ServiceFactory.get(wiki).getNewCaptcha()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally(() -> captchaProgress.setVisibility(View.GONE))
+                    .doAfterTerminate(() -> captchaProgress.setVisibility(View.GONE))
                     .subscribe(response -> {
                         captchaResult = new CaptchaResult(response.captchaId());
                         handleCaptcha(true);

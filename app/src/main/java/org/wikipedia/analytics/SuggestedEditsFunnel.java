@@ -12,6 +12,11 @@ import org.wikipedia.json.GsonUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.wikipedia.Constants.InvokeSource.FEED;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
 import static org.wikipedia.Constants.InvokeSource.ONBOARDING_DIALOG;
@@ -48,11 +53,17 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     public static SuggestedEditsFunnel get(InvokeSource invokeSource) {
         if (INSTANCE == null) {
             INSTANCE = new SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource);
+        } else if (INSTANCE.invokeSource != invokeSource) {
+            INSTANCE.log();
+            INSTANCE = new SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource);
         }
         return INSTANCE;
     }
 
     public static SuggestedEditsFunnel get() {
+        if (INSTANCE != null && INSTANCE.invokeSource != NAV_MENU) {
+            return INSTANCE;
+        }
         return get(NAV_MENU);
     }
 
@@ -65,13 +76,13 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public void impression(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.impressions++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.impressions++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             statsCollection.addCaptionStats.impressions++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             statsCollection.translateCaptionStats.impressions++;
         }
     }
@@ -79,13 +90,13 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
 
     public void click(String title, InvokeSource source) {
         SuggestedEditStats stats;
-        if (source == SUGGESTED_EDITS_ADD_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
             stats = statsCollection.addDescriptionStats;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
             stats = statsCollection.translateDescriptionStats;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             stats = statsCollection.addCaptionStats;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             stats = statsCollection.translateCaptionStats;
         } else {
             return;
@@ -102,37 +113,37 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public void cancel(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.cancels++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.cancels++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             statsCollection.addCaptionStats.cancels++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             statsCollection.translateCaptionStats.cancels++;
         }
     }
 
     public void success(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.successes++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.successes++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             statsCollection.addCaptionStats.successes++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             statsCollection.translateCaptionStats.successes++;
         }
     }
 
     public void failure(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC) {
+        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
             statsCollection.addDescriptionStats.failures++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
             statsCollection.translateDescriptionStats.failures++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
             statsCollection.addCaptionStats.failures++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             statsCollection.translateCaptionStats.failures++;
         }
     }
@@ -151,7 +162,9 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
                 "help_opened", helpOpenedCount,
                 "scorecard_opened", contributionsOpenedCount,
                 "source", (invokeSource == ONBOARDING_DIALOG ? "dialog"
-                        : invokeSource == NOTIFICATION ? "notification" : "menu")
+                        : invokeSource == NOTIFICATION ? "notification"
+                        : invokeSource == FEED ? "feed"
+                        : "menu")
         );
     }
 
