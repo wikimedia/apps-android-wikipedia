@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
@@ -319,7 +318,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .map(results -> {
+                .flatMapIterable(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
                     log(resultList, startTime);
@@ -332,9 +331,6 @@ public class SearchResultsFragment extends Fragment {
                     SearchResultsFragment.this.lastFullTextResults = results;
                     return displayResults(resultList);
                 })
-                .flatMapIterable(list -> {
-                    return list;
-                })
                 .flatMap(searchResult ->
                         ServiceFactory
                                 .getRest(WikiSite.forLanguageCode(getSearchLanguageCode()))
@@ -342,15 +338,20 @@ public class SearchResultsFragment extends Fragment {
                                 .subscribeOn(Schedulers.io()))
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(summary -> {
-                    return new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode())));
+                    for (int i = 0; i < totalResults.size(); i++) {
+                        if (totalResults.get(i).getPageTitle().getConvertedText().equals(summary.getConvertedTitle())) {
+                            // replace with original one
+                            totalResults.set(i, new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode()))));
+                            break;
+                        }
+                    }
+                    return totalResults;
                 })
                 .toList()
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
-                    // TODO: not to mess up the search result
                     // TODO: use lambda when done
-                    totalResults.clear();
-                    totalResults.addAll(results);
+                    // TODO: have correct title for new page (e.g.: Search IoT in zh wiki)
                     getAdapter().notifyDataSetChanged();
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
