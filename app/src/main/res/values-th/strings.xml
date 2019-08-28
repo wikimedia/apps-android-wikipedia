@@ -167,7 +167,11 @@
   <string name="wikipedia_app_faq">คำถามที่พบบ่อยเกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="send_feedback">ส่งคำติชมแอป</string>
   <string name="create_account_account_created_toast">สร้างบัญชีแล้ว!</string>
-  <string name="preference_summary_sync_reading_lists" fuzzy="true">อนุญาตให้วิกิมีเดียทำการซิงค์รายการอ่านของคุณเมื่อคุณล็อกอิน</string>
+  <string name="preferences_heading_syncing">กำลังรับข้อมูล</string>
+  <string name="preferences_heading_experimental">ประสบการณ์</string>
+  <string name="preference_title_sync_reading_lists_from_account">กำลังรับรายการอ่านล่าสุด</string>
+  <string name="preference_title_download_reading_list_articles">บันทึกรายการอ่าน</string>
+  <string name="preference_summary_sync_reading_lists">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชีของคุณ</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>

@@ -258,7 +258,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private class NonExclusiveBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ThemeChangeEvent) {
                 BaseActivity.this.recreate();
             }
@@ -270,7 +270,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private class ExclusiveBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof NetworkConnectEvent) {
                 SavedPageSyncService.enqueue();
             } else if (event instanceof SplitLargeListsEvent) {
