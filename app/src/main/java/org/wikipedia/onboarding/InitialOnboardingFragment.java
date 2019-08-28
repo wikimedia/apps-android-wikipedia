@@ -77,7 +77,7 @@ public class InitialOnboardingFragment extends OnboardingFragment {
         @Override
         public void onListActionButtonClicked(@NonNull OnboardingPageView view) {
             onboardingPageView = view;
-            requireContext().startActivity(WikipediaLanguagesActivity.newIntent(getContext(), LanguageSettingsInvokeSource.ONBOARDING.text()));
+            requireContext().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), LanguageSettingsInvokeSource.ONBOARDING.text()));
         }
 
         @Nullable OnboardingPageView getOnboardingPageView() {

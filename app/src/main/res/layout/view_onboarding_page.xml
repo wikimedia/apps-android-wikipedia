@@ -49,6 +49,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:textColor="?attr/material_theme_primary_color"
                     android:textSize="24sp"
+                    android:focusableInTouchMode="true"
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
