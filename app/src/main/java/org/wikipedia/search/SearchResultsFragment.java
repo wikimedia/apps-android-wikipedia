@@ -338,7 +338,7 @@ public class SearchResultsFragment extends Fragment {
                                 .getSummary(null, searchResult.getPageTitle().getConvertedText())
                                 .subscribeOn(Schedulers.io()))
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(summary -> {
+                .concatMapIterable(summary -> {
                     for (int i = 0; i < totalResults.size(); i++) {
                         if (totalResults.get(i).getPageTitle().getConvertedText().equals(summary.getConvertedTitle())) {
                             // replace with original one
@@ -349,10 +349,14 @@ public class SearchResultsFragment extends Fragment {
                     return totalResults;
                 })
                 .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(results -> {
+                .toList()
+                .subscribe(result -> {
                     // TODO: use lambda when done
                     // TODO: have correct title for new page (e.g.: Search IoT in zh wiki)
                     // TODO: handle cache
+                    L.d("doFullTextSearch subscribe called");
+                    cache(result, searchTerm);
+                    log(result, startTime);
                     getAdapter().notifyDataSetChanged();
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
