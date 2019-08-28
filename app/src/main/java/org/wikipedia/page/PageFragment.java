@@ -429,10 +429,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 pageFragmentLoadState.onPageFinished();
                 leadImagesHandler.beginLayout();
                 updateProgressBar(false, true, 0);
-                webView.setVisibility(View.VISIBLE);
                 bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getTopMarginForContent()));
-
-                onPageLoadComplete();
             }
         });
     }
@@ -794,6 +791,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onPageLoadComplete() {
+        webView.setVisibility(View.VISIBLE);
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
@@ -1045,6 +1043,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             if (model.getTitle() != null) {
                 visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getMobileUri()));
             }
+        });
+
+        bridge.addListener("setup_complete", (String messageType, JSONObject messagePayload) -> {
+           onPageLoadComplete();
         });
     }
 
