@@ -30,6 +30,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
@@ -347,14 +348,15 @@ public class SearchResultsFragment extends Fragment {
                     }
                     return totalResults;
                 })
-                .toList()
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     // TODO: use lambda when done
                     // TODO: have correct title for new page (e.g.: Search IoT in zh wiki)
+                    // TODO: handle cache
                     getAdapter().notifyDataSetChanged();
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
+                    L.d("doFullTextSearch error " + throwable );
                     logError(true, startTime);
                 }));
     }
