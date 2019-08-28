@@ -229,9 +229,32 @@ public class SearchResultsFragment extends Fragment {
                     return new SearchResults();
                 })
                 .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(results -> {
+                .flatMapIterable(results -> {
                     searchErrorView.setVisibility(View.GONE);
-                    handleResults(results, searchTerm, startTime);
+                    handleResults(results, startTime);
+                    return results.getResults();
+                })
+                .flatMap(searchResult ->
+                        ServiceFactory
+                                .getRest(WikiSite.forLanguageCode(getSearchLanguageCode()))
+                                .getSummary(null, searchResult.getPageTitle().getConvertedText())
+                                .subscribeOn(Schedulers.io()))
+                .observeOn(AndroidSchedulers.mainThread())
+                .concatMapIterable(summary -> {
+                    for (int i = 0; i < totalResults.size(); i++) {
+                        L.d("doTitlePrefixSearch " + totalResults.get(i).getPageTitle().getConvertedText() + " = " + summary.getConvertedTitle());
+                        if (StringUtil.addUnderscores(totalResults.get(i).getPageTitle().getConvertedText()).equals(StringUtil.addUnderscores(summary.getConvertedTitle()))) {
+                            // replace with original one
+                            totalResults.set(i, new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode()))));
+                            break;
+                        }
+                    }
+                    return totalResults;
+                })
+                .toList()
+                .subscribe(results -> {
+                    cache(results, searchTerm);
+                    getAdapter().notifyDataSetChanged();
                 }, caught -> {
                     searchEmptyView.setVisibility(View.GONE);
                     searchErrorView.setVisibility(View.VISIBLE);
@@ -241,7 +264,7 @@ public class SearchResultsFragment extends Fragment {
                 }));
     }
 
-    private void handleResults(@NonNull SearchResults results, @NonNull String searchTerm, long startTime) {
+    private void handleResults(@NonNull SearchResults results, long startTime) {
         List<SearchResult> resultList = results.getResults();
         // To ease data analysis and better make the funnel track with user behaviour,
         // only transmit search results events if there are a nonzero number of results
@@ -252,9 +275,6 @@ public class SearchResultsFragment extends Fragment {
         }
 
         handleSuggestion(results.getSuggestion());
-
-        // add titles to cache...
-        searchResultsCache.put(getSearchLanguageCode() + "-" + searchTerm, resultList);
 
         // scroll to top, but post it to the message queue, because it should be done
         // after the data set is updated.
@@ -319,10 +339,9 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
+                .doAfterTerminate(() -> updateProgressBar(false))
                 .flatMapIterable(results -> {
                     List<SearchResult> resultList = results.getResults();
-                    cache(resultList, searchTerm);
-                    log(resultList, startTime);
                     if (clearOnSuccess) {
                         clearResults(false);
                     }
@@ -340,7 +359,7 @@ public class SearchResultsFragment extends Fragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .concatMapIterable(summary -> {
                     for (int i = 0; i < totalResults.size(); i++) {
-                        if (totalResults.get(i).getPageTitle().getConvertedText().equals(summary.getConvertedTitle())) {
+                        if (StringUtil.addUnderscores(totalResults.get(i).getPageTitle().getConvertedText()).equals(StringUtil.addUnderscores(summary.getConvertedTitle()))) {
                             // replace with original one
                             totalResults.set(i, new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode()))));
                             break;
@@ -348,19 +367,16 @@ public class SearchResultsFragment extends Fragment {
                     }
                     return totalResults;
                 })
-                .doAfterTerminate(() -> updateProgressBar(false))
                 .toList()
                 .subscribe(result -> {
                     // TODO: use lambda when done
                     // TODO: have correct title for new page (e.g.: Search IoT in zh wiki)
-                    // TODO: handle cache
-                    L.d("doFullTextSearch subscribe called");
                     cache(result, searchTerm);
                     log(result, startTime);
                     getAdapter().notifyDataSetChanged();
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
-                    L.d("doFullTextSearch error " + throwable );
+                    L.d("doFullTextSearch error " + throwable);
                     logError(true, startTime);
                 }));
     }
@@ -413,7 +429,7 @@ public class SearchResultsFragment extends Fragment {
         for (SearchResult newResult : results) {
             boolean contains = false;
             for (SearchResult result : totalResults) {
-                if (newResult.getPageTitle().equals(result.getPageTitle())) {
+                if (newResult.getPageTitle().getConvertedText().equals(result.getPageTitle().getConvertedText())) {
                     contains = true;
                     break;
                 }
@@ -578,6 +594,8 @@ public class SearchResultsFragment extends Fragment {
         if (cachedTitles != null) {
             cachedTitles.addAll(resultList);
             searchResultsCache.put(cacheKey, cachedTitles);
+        } else {
+            searchResultsCache.put(cacheKey, resultList);
         }
     }
 
