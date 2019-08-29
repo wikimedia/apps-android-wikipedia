@@ -825,56 +825,12 @@ public final class Prefs {
         setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
     }
 
-    public static boolean isSuggestedEditsAddDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsAddDescriptionsUnlocked(boolean unlocked) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, unlocked);
-        }
-    }
-
-    public static boolean isSuggestedEditsTranslateDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsTranslateDescriptionsUnlocked(boolean enabled) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
-        }
-    }
-
     public static boolean showSuggestedEditsMultilingualTeaserTask() {
         return getBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, true);
     }
 
     public static void setShowSuggestedEditsMultilingualTeaserTask(boolean showTask) {
         setBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, showTask);
-    }
-
-    public static boolean isSuggestedEditsAddCaptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsAddCaptionsUnlocked(boolean unlocked) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, unlocked);
-        }
-    }
-
-    public static boolean isSuggestedEditsTranslateCaptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsTranslateCaptionsUnlocked(boolean enabled) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, enabled);
-        }
-    }
-
-    public static boolean isSuggestedEditsUnlockOverride() {
-        return getBoolean(R.string.preference_key_suggested_edits_unlock_override, false);
     }
 
     public static boolean wasLoggedOutInBackground() {

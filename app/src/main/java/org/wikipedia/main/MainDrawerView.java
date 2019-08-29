@@ -71,10 +71,7 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
             notificationsContainer.setVisibility(View.VISIBLE);
-            if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()
-                    || Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
-                editTasksContainer.setVisibility(VISIBLE);
-            }
+            editTasksContainer.setVisibility(VISIBLE);
             maybeShowIndicatorDots();
         } else {
             accountNameView.setVisibility(GONE);

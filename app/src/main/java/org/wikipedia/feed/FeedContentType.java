@@ -110,18 +110,10 @@ public enum FeedContentType implements EnumCode {
 
     List<InvokeSource> getUnlockedEditingPrivileges() {
         List<InvokeSource> unlockedTypes = new ArrayList<>();
-        if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_ADD_DESC);
-        }
-        if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
-        }
-        if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
-        }
-        if (Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
-        }
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_ADD_DESC);
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
         return unlockedTypes;
     }
 
