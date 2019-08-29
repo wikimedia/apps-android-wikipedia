@@ -538,7 +538,7 @@ public class SearchResultsFragment extends Fragment {
             }
 
             // highlight search term within the text
-            StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
+            StringUtil.boldenKeywordText(pageTitleText, StringUtil.removeHTMLTags(result.getPageTitle().getDisplayText()), currentSearchTerm);
 
             searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
             ViewUtil.loadImageUrlInto(searchResultItemImage,
