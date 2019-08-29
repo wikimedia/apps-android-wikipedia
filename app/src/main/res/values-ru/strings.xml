@@ -58,6 +58,7 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Вперёд</string>
   <string name="search_hint">Поиск по Википедии</string>
+  <string name="search_hint_voice_search">Голосовой поиск</string>
   <string name="search_hint_search_history">История поиска</string>
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
@@ -631,6 +632,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
+  <string name="feed_accessibility_card_text" fuzzy="true">Вы достигли конца ленты.</string>
+  <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="description_edit_text_hint">Описание статьи</string>
   <string name="description_edit_article_description_label_per_language">Статья %s</string>
   <string name="description_edit_translate_article_description_hint_per_language">Описаниe статей (%s)</string>
@@ -816,6 +819,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ОК</string>
   <string name="reverted_edit_dialog_ok_button_text">ОК</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Отмена</string>
+  <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Ссылка</string>
@@ -826,6 +830,7 @@
   <string name="wikitext_preview_link">Предпросмотр ссылки</string>
   <string name="main_drawer_open">Открыть</string>
   <string name="main_drawer_close">Закрыть</string>
+  <string name="main_drawer_content_description">Открыть основное меню</string>
   <string name="main_drawer_help">Справка</string>
   <string name="main_drawer_login">Войти в Википедию</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>

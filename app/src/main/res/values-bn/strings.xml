@@ -26,6 +26,7 @@
   <string name="page_tabs_back">পিছনে</string>
   <string name="nav_item_forward">সামনে যান</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
+  <string name="search_hint_voice_search">কণ্ঠ দ্বারা অনুসন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="search_hint_search_my_lists_and_articles">আমার তালিকা এবং নিবন্ধে সন্ধান করুন</string>
@@ -609,6 +610,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ঠিক আছে</string>
   <string name="reverted_edit_dialog_ok_button_text">ঠিক আছে</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">বাতিল</string>
+  <string name="content_description_for_page_indicator">পাতা %2$d-এর %1$d</string>
   <string name="wikitext_bold">গাঢ়</string>
   <string name="wikitext_italic">বাঁকা</string>
   <string name="wikitext_template">টেমপ্লেট</string>
