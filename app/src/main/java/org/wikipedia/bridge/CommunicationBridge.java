@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.dataclient.RestService;
+import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -37,6 +39,7 @@ public class CommunicationBridge {
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
+    ActiveTimer timer=new ActiveTimer();
 
     public interface JSEventListener {
         void onMessage(String messageType, JSONObject messagePayload);
@@ -54,6 +57,7 @@ public class CommunicationBridge {
     }
 
     public void onPageFinished() {
+        Log.e("####","TIME"+timer.getMs());
         isDOMReady = true;
         for (String jsString : pendingJSMessages) {
             webView.loadUrl(jsString);
@@ -63,7 +67,8 @@ public class CommunicationBridge {
     public void resetHtml(@NonNull String wikiUrl, String title) {
         isDOMReady = false;
         pendingJSMessages.clear();
-        webView.loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
+        timer.reset();
+        webView.loadUrl("http://localhost:6927/en.wikipedia.org/v1/page/mobile-html/Dog");
         execute(JavaScriptActionHandler.setHandler());
     }
 

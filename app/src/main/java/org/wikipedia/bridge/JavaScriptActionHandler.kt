@@ -18,6 +18,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun getData(): String {
+        return "pagelib.c1.Page.load('http://192.168.0.28:6927/en.wikipedia.org/v1/page/mobile-html/Dog').then(result => { console.log('done') })"
+    }
+
+    @JvmStatic
     fun setTopMargin(top: Int): String {
         return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
     }

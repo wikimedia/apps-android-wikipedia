@@ -26,4 +26,8 @@ public class ActiveTimer {
     public int getElapsedSec() {
         return (int) TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - startMillis);
     }
+
+    public int getMs() {
+        return (int) ((int) System.currentTimeMillis() - startMillis);
+    }
 }
