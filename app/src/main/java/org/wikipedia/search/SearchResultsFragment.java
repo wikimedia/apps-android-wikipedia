@@ -172,7 +172,7 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        List<SearchResult> cacheResult = searchResultsCache.get(getSearchLanguageCode() + "-" + term);
+        List<SearchResult> cacheResult = getCache(term);
         if (cacheResult != null && !cacheResult.isEmpty()) {
             clearResults();
             displayResults(cacheResult);
@@ -351,19 +351,20 @@ public class SearchResultsFragment extends Fragment {
                 .concatMapIterable(summary -> {
                     for (int i = 0; i < totalResults.size(); i++) {
                         if (StringUtil.addUnderscores(totalResults.get(i).getPageTitle().getConvertedText()).equals(StringUtil.addUnderscores(summary.getConvertedTitle()))) {
-                            // replace with original one
+                            // update the item in the current list AND the cache list
                             totalResults.set(i, new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode()))));
+                            List<SearchResult> cacheResult = getCache(currentSearchTerm);
+                            if (cacheResult != null && !cacheResult.isEmpty()) {
+                                cacheResult.set(i, new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode()))));
+                            }
                             break;
                         }
                     }
                     return totalResults;
                 })
-                .toList()
-                .subscribe(result -> {
-                    // TODO: handle cache
-                    getAdapter().notifyDataSetChanged();
-                }, throwable -> {
-                    // Should not be noticeable
+                .toList() // make it as a list to prevent multiple notifyDataSetChanged()
+                .subscribe(result -> getAdapter().notifyDataSetChanged(), throwable -> {
+                    // Show warning silently.
                     L.d("Failed on loading page summary: " + throwable);
                 }));
     }
@@ -572,6 +573,11 @@ public class SearchResultsFragment extends Fragment {
         public boolean onLongClick(View v) {
             return false;
         }
+    }
+
+    @Nullable
+    private List<SearchResult> getCache(@NonNull String searchTerm) {
+        return searchResultsCache.get(getSearchLanguageCode() + "-" + searchTerm);
     }
 
     private void cache(@NonNull List<SearchResult> resultList, @NonNull String searchTerm) {
