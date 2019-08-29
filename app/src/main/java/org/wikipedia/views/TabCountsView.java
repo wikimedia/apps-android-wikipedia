@@ -50,6 +50,7 @@ public class TabCountsView extends FrameLayout {
         final int buttonWidth = 48;
         setLayoutParams(new ViewGroup.LayoutParams(DimenUtil.roundedDpToPx(buttonWidth), ViewGroup.LayoutParams.MATCH_PARENT));
         setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackgroundBorderless));
+        setContentDescription(getContext().getString(R.string.menu_page_show_tabs));
     }
 
     public void updateTabCount() {

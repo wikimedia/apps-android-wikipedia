@@ -271,6 +271,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
         enableUserLocationMarker();
         if (lastCameraPos != null) {
             mapboxMap.setCameraPosition(lastCameraPos);
+            fetchNearbyPages();
         } else {
             goToUserLocationOrPromptPermissions();
         }
@@ -325,7 +326,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
             LocationComponent locationComponent = mapboxMap.getLocationComponent();
             locationComponent.activateLocationComponent(requireActivity(), mapboxMap.getStyle(), options);
             locationComponent.setLocationComponentEnabled(true);
-            locationComponent.setCameraMode(CameraMode.TRACKING);
+            locationComponent.setCameraMode(CameraMode.NONE);
             locationComponent.setRenderMode(RenderMode.COMPASS);
         }
     }
@@ -341,6 +342,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
         }
 
         if (locationPermitted()) {
+            enableUserLocationMarker();
             Location location = mapboxMap.getLocationComponent().getLastKnownLocation();
             if (location != null) {
                 goToLocation(location);
