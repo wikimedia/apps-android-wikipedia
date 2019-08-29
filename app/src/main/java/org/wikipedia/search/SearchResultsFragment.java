@@ -43,6 +43,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -229,32 +230,11 @@ public class SearchResultsFragment extends Fragment {
                     return new SearchResults();
                 })
                 .doAfterTerminate(() -> updateProgressBar(false))
-                .flatMapIterable(results -> {
+                .subscribe(results -> {
                     searchErrorView.setVisibility(View.GONE);
                     handleResults(results, startTime);
-                    return results.getResults();
-                })
-                .flatMap(searchResult ->
-                        ServiceFactory
-                                .getRest(WikiSite.forLanguageCode(getSearchLanguageCode()))
-                                .getSummary(null, searchResult.getPageTitle().getConvertedText())
-                                .subscribeOn(Schedulers.io()))
-                .observeOn(AndroidSchedulers.mainThread())
-                .concatMapIterable(summary -> {
-                    for (int i = 0; i < totalResults.size(); i++) {
-                        L.d("doTitlePrefixSearch " + totalResults.get(i).getPageTitle().getConvertedText() + " = " + summary.getConvertedTitle());
-                        if (StringUtil.addUnderscores(totalResults.get(i).getPageTitle().getConvertedText()).equals(StringUtil.addUnderscores(summary.getConvertedTitle()))) {
-                            // replace with original one
-                            totalResults.set(i, new SearchResult(summary.getPageTitle(WikiSite.forLanguageCode(getSearchLanguageCode()))));
-                            break;
-                        }
-                    }
-                    return totalResults;
-                })
-                .toList()
-                .subscribe(results -> {
-                    cache(results, searchTerm);
-                    getAdapter().notifyDataSetChanged();
+                    cache(results.getResults(), searchTerm);
+                    updateDisplayTitle(results.getResults());
                 }, caught -> {
                     searchEmptyView.setVisibility(View.GONE);
                     searchErrorView.setVisibility(View.VISIBLE);
@@ -340,7 +320,7 @@ public class SearchResultsFragment extends Fragment {
                     return new SearchResults();
                 })
                 .doAfterTerminate(() -> updateProgressBar(false))
-                .flatMapIterable(results -> {
+                .subscribe(results -> {
                     List<SearchResult> resultList = results.getResults();
                     if (clearOnSuccess) {
                         clearResults(false);
@@ -349,13 +329,24 @@ public class SearchResultsFragment extends Fragment {
 
                     // full text special:
                     SearchResultsFragment.this.lastFullTextResults = results;
-                    return displayResults(resultList);
-                })
+                    displayResults(resultList);
+                    cache(resultList, searchTerm);
+                    log(resultList, startTime);
+                    getAdapter().notifyDataSetChanged();
+                    updateDisplayTitle(results.getResults());
+                }, throwable -> {
+                    // If there's an error, just log it and let the existing prefix search results be.
+                    logError(true, startTime);
+                }));
+    }
+
+    private void updateDisplayTitle(@NonNull List<SearchResult> list) {
+        // The process of updating displaytitle should be run silently and does not interrupt the existing search process.
+        disposables.add(Observable.fromIterable(list)
                 .flatMap(searchResult ->
-                        ServiceFactory
-                                .getRest(WikiSite.forLanguageCode(getSearchLanguageCode()))
-                                .getSummary(null, searchResult.getPageTitle().getConvertedText())
-                                .subscribeOn(Schedulers.io()))
+                        ServiceFactory.getRest(WikiSite.forLanguageCode(getSearchLanguageCode()))
+                                .getSummary(null, searchResult.getPageTitle().getConvertedText()))
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .concatMapIterable(summary -> {
                     for (int i = 0; i < totalResults.size(); i++) {
@@ -369,15 +360,11 @@ public class SearchResultsFragment extends Fragment {
                 })
                 .toList()
                 .subscribe(result -> {
-                    // TODO: use lambda when done
-                    // TODO: have correct title for new page (e.g.: Search IoT in zh wiki)
-                    cache(result, searchTerm);
-                    log(result, startTime);
+                    // TODO: handle cache
                     getAdapter().notifyDataSetChanged();
                 }, throwable -> {
-                    // If there's an error, just log it and let the existing prefix search results be.
-                    L.d("doFullTextSearch error " + throwable);
-                    logError(true, startTime);
+                    // Should not be noticeable
+                    L.d("Failed on loading page summary: " + throwable);
                 }));
     }
 
@@ -425,11 +412,12 @@ public class SearchResultsFragment extends Fragment {
      *
      * @param results List of results to display. If null, clears the list of suggestions & hides it.
      */
-    private List<SearchResult> displayResults(List<SearchResult> results) {
+    private void displayResults(List<SearchResult> results) {
         for (SearchResult newResult : results) {
             boolean contains = false;
             for (SearchResult result : totalResults) {
-                if (newResult.getPageTitle().getConvertedText().equals(result.getPageTitle().getConvertedText())) {
+                if (StringUtil.addUnderscores(newResult.getPageTitle().getConvertedText())
+                        .equals(StringUtil.addUnderscores(result.getPageTitle().getConvertedText()))) {
                     contains = true;
                     break;
                 }
@@ -448,8 +436,6 @@ public class SearchResultsFragment extends Fragment {
         }
 
         getAdapter().notifyDataSetChanged();
-
-        return totalResults;
     }
 
     private class SearchResultsFragmentLongPressHandler
