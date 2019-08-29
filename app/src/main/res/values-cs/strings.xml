@@ -29,6 +29,7 @@
   <string name="page_tabs_back">Zpět</string>
   <string name="nav_item_forward">Dále</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
+  <string name="search_hint_voice_search">Hlasové vyhledávání</string>
   <string name="search_hint_search_history">Hledat v historii</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
@@ -789,6 +790,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušit</string>
+  <string name="content_description_for_page_indicator">Článek %1$d z %2$d</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>

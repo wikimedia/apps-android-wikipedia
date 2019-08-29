@@ -31,6 +31,7 @@
   <string name="page_tabs_back">뒤로</string>
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
+  <string name="search_hint_voice_search">음성 입력 검색</string>
   <string name="search_hint_search_history">역사 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="search_hint_search_my_lists_and_articles">내 목록 및 문서 검색</string>
@@ -778,6 +779,7 @@
   <string name="edit_conflict_dialog_ok_button_text">확인</string>
   <string name="reverted_edit_dialog_ok_button_text">확인</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">취소</string>
+  <string name="content_description_for_page_indicator">페이지 %2$d 중 %1$d</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
   <string name="wikitext_link">링크</string>
