@@ -615,7 +615,7 @@
     <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Explore feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
     <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
     <string name="feed_lang_selection_dialog_cancel_button_text">Cancel</string>
-    <string name="feed_accessibility_card_text">You reach the bottom of the feed.</string>
+    <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
     <string name="feed_accessibility_card_load_more_button">Load more</string>
     <!-- /The Feed -->
 
