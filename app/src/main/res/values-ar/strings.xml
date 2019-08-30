@@ -37,6 +37,7 @@
   <string name="page_tabs_back">رجوع</string>
   <string name="nav_item_forward">إلى الأمام</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
+  <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
   <string name="search_hint_search_history">البحث في التاريخ</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
@@ -608,6 +609,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">حسنا</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
+  <string name="feed_accessibility_card_text" fuzzy="true">وصلت إلى أسفل التغذية.</string>
+  <string name="feed_accessibility_card_load_more_button">تحميل المزيد</string>
   <string name="description_edit_text_hint">وصف المقالة</string>
   <string name="description_edit_article_description_label_per_language">مقالة (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">وصف المقالة (%s)</string>
@@ -793,6 +796,7 @@
   <string name="edit_conflict_dialog_ok_button_text">حسنا</string>
   <string name="reverted_edit_dialog_ok_button_text">حسنا</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">إلغاء</string>
+  <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
   <string name="wikitext_link">وصلة</string>
@@ -803,6 +807,7 @@
   <string name="wikitext_preview_link">معاينة الرابط</string>
   <string name="main_drawer_open">مفتوح</string>
   <string name="main_drawer_close">إغلاق</string>
+  <string name="main_drawer_content_description">افتح درج التصفح الرئيسي</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
   <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>
