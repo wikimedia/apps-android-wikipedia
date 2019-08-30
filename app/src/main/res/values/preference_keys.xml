@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="preference_key_language">content_language</string>
     <string name="preference_key_cookie_map">cookie_map</string>
     <string name="preference_key_remote_config">remote_config</string>
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
@@ -27,8 +26,6 @@
     <string name="preference_key_mediawiki_base_uri_supports_lang_code">mediaWikiBaseUriSupportsLangCode</string>
     <string name="preference_key_retrofit_log_level">retrofitLog</string>
     <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
-    <string name="preference_key_login_username">username</string>
-    <string name="preference_key_login_password">password</string>
     <string name="preference_key_login_user_id_map">userIDMap</string>
     <string name="preference_key_login_groups">groups</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
@@ -44,7 +41,6 @@
     <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
     <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
     <string name="preference_key_reading_list_page_sort_mode">readingListPageSortMode</string>
-    <string name="preference_key_reading_list_sync_rev">readingListSyncRev</string>
     <string name="preference_key_page_last_shown">pageLastShown</string>
     <string name="preference_key_feed_hidden_cards">feedHiddenCards</string>
     <string name="preference_key_memory_leak_test">memoryLeakTest</string>
