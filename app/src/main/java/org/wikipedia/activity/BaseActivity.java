@@ -57,6 +57,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.appshortcuts.AppShortcuts.APP_SHORTCUT_ID;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private static ExclusiveBusConsumer EXCLUSIVE_BUS_METHODS;
@@ -77,7 +78,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
                 && AppShortcuts.ACTION_APP_SHORTCUT.equals(getIntent().getAction())) {
             getIntent().putExtra(INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS);
-            String shortcutId = getIntent().getStringExtra("APP_SHORTCUT_ID");
+            String shortcutId = getIntent().getStringExtra(APP_SHORTCUT_ID);
             if (!TextUtils.isEmpty(shortcutId)) {
                 getApplicationContext().getSystemService(ShortcutManager.class)
                         .reportShortcutUsed(shortcutId);
@@ -257,7 +258,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private class NonExclusiveBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ThemeChangeEvent) {
                 BaseActivity.this.recreate();
             }
@@ -269,7 +270,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private class ExclusiveBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof NetworkConnectEvent) {
                 SavedPageSyncService.enqueue();
             } else if (event instanceof SplitLargeListsEvent) {

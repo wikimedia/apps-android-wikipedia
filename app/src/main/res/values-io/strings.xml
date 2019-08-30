@@ -77,7 +77,6 @@
   <string name="langlinks_activity_title">Altra lingui</string>
   <string name="langlinks_your_wikipedia_languages">Lingui de vua Wikipedio</string>
   <string name="menu_save_changes">Publikigar chanji</string>
-  <string name="dialog_saving_in_progress">Publikigas…</string>
   <string name="edit_saved_successfully">Modifiko publikigita!</string>
   <string name="dialog_message_edit_failed">Modifiko faliis!</string>
   <string name="dialog_message_edit_failed_retry">Riprobar</string>
@@ -148,7 +147,6 @@
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">generale</string>
   <string name="wikipedia_app_faq">FAQ pri la Wikipedio</string>
-  <string name="edit_preview_fetching_dialog_message">Adportanta previdado...</string>
   <string name="send_feedback">Retrosendar informi pri l\' app</string>
   <string name="create_account_account_created_toast">Konto kreesis!</string>
   <string name="preferences_heading_syncing">Sinkronigo</string>
@@ -303,10 +301,11 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
   <string name="reading_list_sort">Klasifikar</string>
+  <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
   <string name="reading_list_sort_by_name_desc">Ordenar segun nomo (inversa)</string>
   <string name="reading_list_sort_by_recent">Ordenar segun antiqueso (unesme la maxim recenta)</string>
-  <string name="reading_list_sort_by_recent_desc">Ordenar segun antiqueso (unesma la maxim antiqua)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar segun antiqueso (unesme la maxim antiqua)</string>
   <string name="reading_list_sort_by_created">Organizar segun dato di kreado (unesme la maxim recenta)</string>
   <string name="reading_list_sort_by_created_desc">Organizar segun dato di kreado (unesme la maxim antiqua)</string>
   <string name="reading_list_menu_delete">Efacar la listo</string>
@@ -321,6 +320,7 @@
   <string name="reading_lists_onboarding_got_it">Me komprenas</string>
   <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
+  <string name="reading_lists_menu_sort_by">Ordinar segun</string>
   <string name="notification_syncing_cancel_button">Nihiligar</string>
   <string name="view_featured_image_card_download">Deskargar</string>
   <string name="menu_feed_overflow_label">Plusa selekti</string>

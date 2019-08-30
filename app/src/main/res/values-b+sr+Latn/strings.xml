@@ -59,7 +59,6 @@
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="langlinks_your_wikipedia_languages">Vaši jezici Vikipedije</string>
   <string name="menu_save_changes">Objavi promene</string>
-  <string name="dialog_saving_in_progress">Objavljivanje…</string>
   <string name="edit_saved_successfully">Izmena je objavljena.</string>
   <string name="dialog_message_edit_failed">Uređivanje nije uspelo.</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
@@ -125,7 +124,6 @@
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Opšte</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji Vikipedija</string>
-  <string name="edit_preview_fetching_dialog_message">Dobavljanje pregleda…</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Nalog je otvoren.</string>
   <string name="preferences_heading_syncing">Sinhronizacija</string>

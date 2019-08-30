@@ -60,7 +60,6 @@
   <string name="langlinks_no_match" fuzzy="true">आपल्या शोधत असलेली भाषा सापडली नाही.</string>
   <string name="langlinks_activity_title">इतर भाषा</string>
   <string name="menu_save_changes">आपले बदल प्रकाशित करा</string>
-  <string name="dialog_saving_in_progress">प्रकाशन होत आहे…</string>
   <string name="edit_saved_successfully">संपादन जतन झाले!</string>
   <string name="dialog_message_edit_failed">संपादन होऊ शकले नाही!</string>
   <string name="dialog_message_edit_failed_retry">पुन्हा प्रयत्न करा</string>
@@ -111,7 +110,6 @@
   <string name="create_account_button">खाते बनवा</string>
   <string name="preferences_general_heading">सर्वसामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया अॅप नेविप्र(एफ.ए.क्यू.)</string>
-  <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
   <string name="send_feedback">अॅपबद्दलची प्रतिक्रिया पाठवा</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
   <string name="preferences_heading_syncing">देवाण-घेवाण</string>

@@ -40,15 +40,12 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -76,9 +73,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         WikipediaApp.getInstance().checkCrashes(this);
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
-
-        Completable.fromAction(() -> AppShortcuts.setShortcuts(getApplicationContext()))
-                .subscribeOn(Schedulers.newThread()).subscribe(() -> { }, L::e);
+        AppShortcuts.setShortcuts(this);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
@@ -112,6 +107,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         drawerView.setCallback(new DrawerViewCallback());
         shouldShowMainDrawer(true);
         setUpHomeMenuIcon();
+        FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
     }
 
     @Override
@@ -147,6 +143,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             tabCountsView.updateTabCount();
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
+            FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
         }
         return true;
     }
@@ -165,14 +162,14 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onTabChanged(@NonNull NavTab tab) {
         if (tab.equals(NavTab.EXPLORE)) {
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
-            getSupportActionBar().setTitle("");
+            toolbar.setTitle("");
             controlNavTabInFragment = false;
         } else {
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
             hamburgerAndWordmarkLayout.setVisibility(GONE);
-            getSupportActionBar().setTitle(tab.text());
+            toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
         shouldShowMainDrawer(!controlNavTabInFragment);

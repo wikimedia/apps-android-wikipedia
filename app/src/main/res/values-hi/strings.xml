@@ -76,7 +76,6 @@
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>
   <string name="langlinks_your_wikipedia_languages">आपकी विकिपीडिया भाषाएं</string>
   <string name="menu_save_changes">परिवर्तन प्रकाशित करें</string>
-  <string name="dialog_saving_in_progress">प्रकाशित किया जा रहा है…</string>
   <string name="edit_saved_successfully">सम्पादन प्रकाशित किया गया!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल रहा!</string>
   <string name="dialog_message_edit_failed_retry">पुन: प्रयास करें</string>
@@ -136,7 +135,6 @@
   <string name="create_account_ip_block_details">विवरण</string>
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">प्रीव्यू लाया जा रहा है…</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
   <string name="preferences_heading_syncing">सिंक हो रहा है</string>

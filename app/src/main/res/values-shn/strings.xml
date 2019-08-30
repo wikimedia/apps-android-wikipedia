@@ -76,7 +76,6 @@
   <string name="langlinks_activity_title">ၽႃႇသႃႇၵႂၢမ်း တၢင်ႇၸိူဝ်း</string>
   <string name="langlinks_your_wikipedia_languages">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး သူၸဝ်ႈ</string>
   <string name="menu_save_changes">ပိုၼ်ဢွၵ်ႇ လွင်ႈလႅၵ်ႈလၢႆႈ</string>
-  <string name="dialog_saving_in_progress">တိုၵ်ႉပိုၼ်ဢွၵ်ႇယူႇ...</string>
   <string name="edit_saved_successfully">လွင်ႈမႄးထတ်း ပိုၼ်ဢွၵ်ႇယဝ်ႉယဝ်ႈ!</string>
   <string name="dialog_message_edit_failed">လွင်ႈမႄးထတ်း ဢမ်ႇၶႅမ်ႉလႅပ်ႈ!</string>
   <string name="dialog_message_edit_failed_retry">ၶိုၼ်းၶတ်းၸႂ်တူၺ်း</string>
@@ -154,7 +153,6 @@
   <string name="create_account_ip_block_details">ႁူဝ်ယွႆႈ</string>
   <string name="preferences_general_heading">ၵူႈလွင်ႈလွင်ႈ</string>
   <string name="wikipedia_app_faq">ၶေႃႈၵႆႉထၢမ်တွပ်ႇ တႃႇဢႅပ်ႉ ဝီႇၶီႇၽီးတီးယႃး</string>
-  <string name="edit_preview_fetching_dialog_message">တိုၵ်ႉႁွင်ႉဢဝ် ႁၢင်ႈလူင်ႈၼႃႈ...</string>
   <string name="send_feedback">သူင်ႇ ၶေႃႈၶၼ်ပၢၵ်ႇ ၸူးဢႅပ်ႉ</string>
   <string name="create_account_account_created_toast">ၵေႃႇသၢင်ႈ ဢၶွင်ႉ ယဝ်ႉယဝ်ႈ!</string>
   <string name="preferences_heading_syncing">ၶူၼ်းၽဵင်ႇ</string>

@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Gson POJO for a standard image info object as returned by the API ImageInfo module
@@ -28,6 +31,16 @@ public class ImageInfo implements Serializable {
     @SerializedName("extmetadata")@Nullable private ExtMetadata metadata;
     @Nullable private String user;
     @Nullable private String timestamp;
+    @Nullable private List<Derivative> derivatives;
+    @Nullable private Map<String, String> captions;
+
+    @NonNull public Map<String, String> getCaptions() {
+        return captions != null ? captions : Collections.emptyMap();
+    }
+
+    public void setCaptions(@NonNull Map<String, String> captions) {
+        this.captions = captions;
+    }
 
     @NonNull
     public String getSource() {
@@ -70,7 +83,37 @@ public class ImageInfo implements Serializable {
         return StringUtils.defaultString(timestamp);
     }
 
+    @NonNull public String getCommonsUrl() {
+        return StringUtils.defaultString(descriptionUrl);
+    }
+
     @Nullable public ExtMetadata getMetadata() {
         return metadata;
+    }
+
+    @NonNull public List<Derivative> getDerivatives() {
+        return derivatives != null ? derivatives : Collections.emptyList();
+    }
+
+    @Nullable public Derivative getBestDerivative() {
+        if (derivatives == null || derivatives.size() == 0) {
+            return null;
+        }
+        // TODO: make this smarter.
+        return derivatives.get(derivatives.size() - 1);
+    }
+
+    public static class Derivative {
+        private String src;
+        private String type;
+        private String title;
+        private String shorttitle;
+        private int width;
+        private int height;
+        private long bandwidth;
+
+        @NonNull public String getSrc() {
+            return StringUtils.defaultString(src);
+        }
     }
 }

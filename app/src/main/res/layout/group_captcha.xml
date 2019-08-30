@@ -85,7 +85,7 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <Button
         android:id="@+id/captcha_submit_button"
         style="@style/App.Button.Blue"
         android:layout_width="match_parent"

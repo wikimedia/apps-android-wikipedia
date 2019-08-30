@@ -21,6 +21,7 @@
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>
+  <string name="error_back">Vegere</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
   <string name="history_item_deleted">%s ji dîroka gerokê hate rakirin</string>
   <string name="history_items_deleted">%d gotar ji dîrokê hatin rakirin</string>
@@ -63,7 +64,6 @@
   <string name="langlinks_activity_title">Zimanên din</string>
   <string name="langlinks_your_wikipedia_languages">Zimanên te yên Wîkîpediyayê</string>
   <string name="menu_save_changes">Guhertinan biweşîne</string>
-  <string name="dialog_saving_in_progress">Tê weşandin...</string>
   <string name="edit_saved_successfully">Guherandin hate weşandin!</string>
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>
@@ -96,6 +96,7 @@
   <string name="reset_password_button">Tomar bike û têkeve</string>
   <string name="preference_title_logout">Derkeve</string>
   <string name="toast_logout_complete">Hate derketin</string>
+  <string name="logged_out_in_background_cancel">Betal bike</string>
   <string name="history_empty_title">Rûpelên ku te di demên dawî de dîtibe tine ne!</string>
   <string name="history_empty_message">Yên ku te xwendiye ji vir bişopîne.</string>
   <string name="search_empty_message">Ansîklopediya azad bi zimanê xwe bixwîne û lê bigere</string>

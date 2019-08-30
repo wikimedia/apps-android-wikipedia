@@ -92,7 +92,6 @@
   <string name="langlinks_activity_title">Outras línguas</string>
   <string name="langlinks_your_wikipedia_languages">As suas línguas da Wikipédia</string>
   <string name="menu_save_changes">Publicar alterações</string>
-  <string name="dialog_saving_in_progress">A publicar…</string>
   <string name="edit_saved_successfully">Edição publicada!</string>
   <string name="dialog_message_edit_failed">A edição falhou!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
@@ -170,7 +169,6 @@
   <string name="create_account_ip_block_details">Detalhes</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes sobre a aplicação Wikipédia</string>
-  <string name="edit_preview_fetching_dialog_message">A obter a antevisão…</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="preferences_heading_syncing">Sincronização</string>
@@ -618,6 +616,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Agradecemos o seu interesse contínuo em editar descrições de artigos! Para realizar edições adicionais autentique-se com a sua conta da Wikipédia, por favor.</string>
   <string name="description_edit_license_notice">Ao alterar a descrição do artigo, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">começar normalmente com uma letra minúscula</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>

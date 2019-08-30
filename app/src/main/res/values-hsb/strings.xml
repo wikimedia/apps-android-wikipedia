@@ -57,7 +57,6 @@
   <string name="langlinks_activity_title">Druhe rěče</string>
   <string name="langlinks_your_wikipedia_languages">Twoje rěčne wersije</string>
   <string name="menu_save_changes">Změny wozjewić</string>
-  <string name="dialog_saving_in_progress">Wozjewju...</string>
   <string name="edit_saved_successfully">Změna wozjewjena!</string>
   <string name="dialog_message_edit_failed">Wobdźěłanje njeje so poradźiło!</string>
   <string name="dialog_message_edit_failed_retry">Hišće raz spytać</string>
@@ -122,7 +121,6 @@
   <string name="create_account_ip_block_details">Podrobnosće</string>
   <string name="preferences_general_heading">Powšitkowny</string>
   <string name="wikipedia_app_faq">Huste prašenja wo app</string>
-  <string name="edit_preview_fetching_dialog_message">Wobstaram přehlad...</string>
   <string name="send_feedback">Feedback wo app wotpósłać</string>
   <string name="create_account_account_created_toast">Konto załožene!</string>
   <string name="preferences_heading_syncing">Synchronizowanje</string>

@@ -72,7 +72,6 @@
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
   <string name="langlinks_your_wikipedia_languages">तपाईँका विकिपिडिया भाषाहरू</string>
   <string name="menu_save_changes">परिवर्तनहरू प्रकाशित गर्नुहोस्</string>
-  <string name="dialog_saving_in_progress">प्रकाशन गर्दै…</string>
   <string name="edit_saved_successfully">प्रकाशित भएकोलाई सम्पादन गर्नुहोस्!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
   <string name="dialog_message_edit_failed_retry">पुनः प्रयास गर्नुहोस्</string>
@@ -145,7 +144,6 @@
   <string name="create_account_ip_block_details">विवरणहरू</string>
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपिडिया अनुप्रयोगबारे प्रायः सोधिने प्रश्नहरू</string>
-  <string name="edit_preview_fetching_dialog_message">पूर्वावलोकन तयार गरिँदै…</string>
   <string name="send_feedback">अनुप्रयोगबारे प्रतिक्रिया पठाउनुहोस्</string>
   <string name="create_account_account_created_toast">खाता सिर्जना गरियो!</string>
   <string name="preferences_heading_syncing">सिङ्कगर्दै</string>
@@ -210,7 +208,7 @@
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
   <string name="button_clear_all_recent_searches">भर्खरैका खोजहरू खाली गर्नुहोस्</string>
-  <string name="clear_recent_searches_confirm">के तपाईं साँच्चिकै आफ्नो खोज इतिहास खाली गर्न चाहनुहुन्छ?</string>
+  <string name="clear_recent_searches_confirm">के तपाईँ साच्चै आफ्नो खोज इतिहास खाली गर्न चाहनुहुन्छ?</string>
   <string name="clear_recent_searches_confirm_yes">हो</string>
   <string name="clear_recent_searches_confirm_no">होइन</string>
   <string name="error_browser_not_found">वेब पृष्ठ खोल्न सकिएन (कुनै ब्राउजर अनुप्रयोग फेला परेन)।</string>
@@ -248,7 +246,7 @@
   <string name="gallery_uploader_unknown">अज्ञात अपलोडकर्ता</string>
   <string name="menu_new_tab">नयाँ ट्याब</string>
   <string name="menu_close_all_tabs">सबै ट्याबहरू बन्द गर्नुहोस्</string>
-  <string name="close_all_tabs_confirm">के तपाईं साँच्चिकै सबै ट्याबहरू बन्द गर्न चाहनुहुन्छ?</string>
+  <string name="close_all_tabs_confirm">के तपाईँ साँच्चिकै सबै ट्याबहरू बन्द गर्न चाहनुहुन्छ?</string>
   <string name="close_all_tabs_confirm_yes">हो</string>
   <string name="close_all_tabs_confirm_no">होइन</string>
   <string name="button_close_tab">ट्याब बन्द गर्नुहोस्</string>

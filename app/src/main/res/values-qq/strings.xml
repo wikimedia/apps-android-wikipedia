@@ -34,6 +34,7 @@
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
+  <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
@@ -96,7 +97,6 @@
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.\n{{Identical|Otherlanguages}}</string>
   <string name="langlinks_your_wikipedia_languages">Section header text that shows user list of languages the current article is available in.</string>
   <string name="menu_save_changes">{{Identical|Publish changes}}</string>
-  <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.\n{{Identical|Publishing}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
   <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.\n{{Identical|Retry}}</string>
@@ -174,7 +174,6 @@
   <string name="create_account_ip_block_details">Button label that shows details that describe an IP address block.</string>
   <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
   <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
-  <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_heading_syncing">Section title for preferences related to syncing</string>
@@ -298,6 +297,8 @@
   <string name="captcha_image">Content description of the actual captcha image the user has to recognize to proceed.</string>
   <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.\n{{Identical|Fair use}}</string>
   <string name="gallery_uploader_unknown">Text displayed when the uploader of a media item is not known.</string>
+  <string name="gallery_not_available_offline_snackbar">Message shown when users tapping on the images in an article while the device is offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">The label for the action button to dismiss the snackbar.</string>
   <string name="menu_new_tab">Text hint for the menu button used for creating a new tab.</string>
   <string name="menu_close_all_tabs">Text hint for the menu button used for closing all tabs.</string>
   <string name="close_all_tabs_confirm">Confirmation message shown when closing all tabs.</string>
@@ -602,6 +603,8 @@
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for feed card language selection.\n{{Identical|OK}}</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
+  <string name="feed_accessibility_card_text">Short description for the accessibility card that tells user it is the bottom of the explore feed.</string>
+  <string name="feed_accessibility_card_load_more_button">Button lable for manually loading more cards to the explore feed.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
   <string name="description_edit_article_description_label_per_language">Label that prompts the user that the summary of the article shows under the label. %s represents the language of the description.</string>
   <string name="description_edit_translate_article_description_hint_per_language">Hint text that is shown when the description field is empty. %s represents the language of the description.</string>
@@ -797,10 +800,12 @@
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
   <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
+  <string name="main_drawer_content_description">Label of content description for the button of opening the main navigation drawer</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
 </resources>

@@ -16,6 +16,7 @@
   <string name="search_hint">Ҷустуҷӯи Википедия</string>
   <string name="search_hint_search_history">Ҷустан дар таърих</string>
   <string name="search_hint_search_languages">Ҷустани забон</string>
+  <string name="search_hint_search_my_lists_and_articles">Ҷустани мақолаҳо ва рӯйхатҳои ман</string>
   <string name="nav_item_history">Таърих</string>
   <string name="error_network_error">Ба Интернет пайваст шуда наметавонам.</string>
   <string name="page_error_retry">Дубора саъй кунед</string>
@@ -26,6 +27,8 @@
   <string name="page_error_back_to_main">Аз нав оғоз намоед</string>
   <string name="error_back">Аз нав оғоз намоед</string>
   <string name="menu_clear_all_history">Тозакунии таърих</string>
+  <string name="history_item_deleted">%s аз таърих тоза шуд</string>
+  <string name="history_items_deleted">%d мақолаҳо аз таърих тоза шуданд</string>
   <string name="history_item_delete_undo">Ботил</string>
   <string name="notification_archive_undo">Ботил</string>
   <string name="dialog_title_clear_history">Тозакунии таърихи мурур</string>
@@ -64,7 +67,6 @@
   <string name="langlinks_activity_title">Дигар забонҳо</string>
   <string name="langlinks_your_wikipedia_languages">Забонҳои Википедиаи Шумо</string>
   <string name="menu_save_changes">Нашри тағйирот</string>
-  <string name="dialog_saving_in_progress">Нашр шуда истодааст ...</string>
   <string name="edit_saved_successfully">Вироиш нашр шуд!</string>
   <string name="dialog_message_edit_failed">Вироиш муваффақ шуд!</string>
   <string name="dialog_message_edit_failed_retry">Дубора саъй кунед</string>
@@ -92,9 +94,16 @@
   <string name="login_in_progress_dialog_message">Дар ҳоли вуруд ба...</string>
   <string name="login_success_toast">Вуруд бо муваффақият!</string>
   <string name="reset_password_title">Гузарвожаи худро ворид кунед</string>
+  <string name="reset_password_hint">Калимаи нави убур:</string>
+  <string name="reset_password_button">Захира ва вуруд</string>
   <string name="preference_title_logout">Хуруҷ</string>
   <string name="toast_logout_complete">Хориҷ шудед</string>
+  <string name="logout_dialog_cancel_button_text">Тамом кардан</string>
+  <string name="logged_out_in_background_title">Хориҷ шудед</string>
+  <string name="logged_out_in_background_login">Вуруд</string>
+  <string name="logged_out_in_background_cancel">Тамом кардан</string>
   <string name="history_empty_message" fuzzy="true">Шояд шумо ҳамаи онҳоро тоза карда бошед. Даъфаи дигар вақте ба саҳифае меравед шумо ба он саҳифа бори дигар аз инҷо рафта метавонед.</string>
+  <string name="search_empty_message_multilingual_upgrade">Дар дигар забонҳои Википедиа хондан</string>
   <string name="create_account_username_hint">Номи корбар</string>
   <string name="create_account_activity_title">Эҷоди ҳисоб</string>
   <string name="create_account_email_hint">Email (Ихтиёрӣ)</string>
@@ -104,14 +113,19 @@
   <string name="create_account_next">Баъдӣ</string>
   <string name="create_account_button">Эҷоди ҳисоб</string>
   <string name="preferences_general_heading">Умумӣ</string>
+  <string name="wikipedia_app_faq">Саволҳои Ҳмаёни Википедиа</string>
   <string name="create_account_account_created_toast">Ҳисоб эҷод шуд!</string>
+  <string name="preferences_privacy_settings_heading">Ҳарими хусусӣ</string>
+  <string name="history_search_list_hint">Ҷустан дар таърих</string>
+  <string name="page_protected_can_not_edit_title">Ин саҳифаи ҳизф шудааст</string>
   <string name="settings_item_preferences">Танзимот</string>
   <string name="settings_activity_title">Танзимот</string>
   <string name="about_description">Дар бораи афзунаи Википедия</string>
   <string name="terms_of_use_description">Шартҳои истифода</string>
   <string name="about_libraries_heading" fuzzy="true">китобхонаҳои истифодашуда</string>
-  <string name="about_translators_heading" fuzzy="true">тарҷумонҳо</string>
+  <string name="about_translators_heading">Тарҷумонҳо</string>
   <string name="about_translators_translatewiki">Ин афзуна тавассути тарҷумонҳо ихтиёриҳо дар &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; тарҷума шудааст.</string>
+  <string name="about_app_license_heading">Иҷозатнома</string>
   <string name="about_wmf">Маҳсули кори &lt;a href=\"https://wikimediafoundation.org/\"&gt;Бунёди Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">Дар бораи</string>
   <string name="edit_next">Баъдӣ</string>

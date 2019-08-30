@@ -53,7 +53,6 @@
   <string name="langlinks_no_match">Nije pronađen nijedan jezik</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="menu_save_changes">Objavi izmjene</string>
-  <string name="dialog_saving_in_progress">Objavljujem...</string>
   <string name="edit_saved_successfully">Izmjena je objavljena!</string>
   <string name="dialog_message_edit_failed">Čuvanje izmjene nije uspjelo!</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
@@ -105,7 +104,6 @@
   <string name="create_account_name_unavailable">Korisničko ime \"%s\" nije dostupno. Izaberite drugo.</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji</string>
-  <string name="edit_preview_fetching_dialog_message">Učitavam pregled...</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Korisnički račun napravljen!</string>
   <string name="preferences_heading_syncing">Sinhronizacija</string>
@@ -411,7 +409,7 @@
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>
   <string name="description_edit_success_article_edit_hint">Aplikacijom možete i uređivati članke. Sljedeći put pokušajte popraviti tipfelere ili dodati kraće rečenice tako što ćete dodirnuti ikonu ^1</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Opisi naslova</string>
+  <string name="description_edit_tutorial_title_descriptions">Opisi članaka</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Sažima članak da bi čitaoci na prvi pogled mogli razumjeti o čemu se radi</string>
   <string name="description_edit_tutorial_keep_it_short">Neka bude kratko</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno da bude 1 red, od 2 do 12 riječi</string>
@@ -455,7 +453,7 @@
   <string name="wikipedia_languages_title">Jezik Wikipedije</string>
   <string name="wikipedia_languages_your_languages_text">Vaši jezici</string>
   <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Ukloni</string>
+  <string name="wikipedia_languages_remove_text">Ukloni jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ukloni jezik</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Da uklonim izabrani/-e jezik(e)?</string>
   <string name="wikipedia_languages_remove_dialog_content">Sadržaj na stranici \"Istraži\" i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>

@@ -41,6 +41,7 @@
   <string name="page_tabs_back">Voltar</string>
   <string name="nav_item_forward">Avançar</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
+  <string name="search_hint_voice_search">Pesquisa por entrada de voz</string>
   <string name="search_hint_search_history">Histórico de pesquisa</string>
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar minhas listas e artigos</string>
@@ -103,7 +104,6 @@
   <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="langlinks_your_wikipedia_languages">Seus idiomas da Wikipedia</string>
   <string name="menu_save_changes">Publicar alterações</string>
-  <string name="dialog_saving_in_progress">Publicando…</string>
   <string name="edit_saved_successfully">Edição publicada!</string>
   <string name="dialog_message_edit_failed">Falha de edição!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
@@ -181,7 +181,6 @@
   <string name="create_account_ip_block_details">Detalhes</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes do aplicativo da Wikipédia</string>
-  <string name="edit_preview_fetching_dialog_message">Processando pré-visualização…</string>
   <string name="send_feedback">Enviar comentários sobre o aplicativo</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="preferences_heading_syncing">Sincronização</string>
@@ -305,6 +304,8 @@
   <string name="captcha_image">Imagem CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader desconhecido</string>
+  <string name="gallery_not_available_offline_snackbar">A vista da galeria não está disponível offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Ignorar</string>
   <string name="menu_new_tab">Nova guia</string>
   <string name="menu_close_all_tabs">Fechar todas as guias</string>
   <string name="close_all_tabs_confirm">Tem certeza de que deseja fechar todas as guias?</string>
@@ -609,6 +610,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize seu feed de Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora você pode escolher o que mostrar em seu feed, e também priorizar seus tipos de conteúdo favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
+  <string name="feed_accessibility_card_text" fuzzy="true">Você atinge a parte inferior do feed.</string>
+  <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
   <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrição do artigo (%s)</string>
@@ -629,6 +632,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Obrigado pelo seu interesse contínuo em editar descrições de artigos! Para fazer edições adicionais, faça o login na sua conta da Wikipédia.</string>
   <string name="description_edit_license_notice">Ao alterar a descrição do artigo, concordo com as &lt;a href=\"%1$s\"&gt;Condições de Uso&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">geralmente começam com uma letra minúscula</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
@@ -793,6 +797,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
+  <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Link</string>
@@ -803,6 +808,7 @@
   <string name="wikitext_preview_link">Pré-visualização de Link</string>
   <string name="main_drawer_open">Abrir</string>
   <string name="main_drawer_close">Fechar</string>
+  <string name="main_drawer_content_description">Abrir a gaveta de navegação principal</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / Juntar na Wikipédia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

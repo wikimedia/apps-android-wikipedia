@@ -83,7 +83,6 @@
   <string name="langlinks_activity_title">Outras linguas</string>
   <string name="langlinks_your_wikipedia_languages">As súas linguas de Wikipédia</string>
   <string name="menu_save_changes">Publicar os cambios</string>
-  <string name="dialog_saving_in_progress">Publicando…</string>
   <string name="edit_saved_successfully">Publicouse a edición!</string>
   <string name="dialog_message_edit_failed">Fallou a edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
@@ -161,7 +160,6 @@
   <string name="create_account_ip_block_details">Detalles</string>
   <string name="preferences_general_heading">Xeral</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes sobre a aplicación da Wikipedia</string>
-  <string name="edit_preview_fetching_dialog_message">Procesando a vista previa…</string>
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
   <string name="create_account_account_created_toast">Conta creada!</string>
   <string name="preferences_heading_syncing">Sincronización</string>

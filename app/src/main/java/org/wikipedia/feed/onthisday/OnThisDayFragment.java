@@ -158,7 +158,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> progressBar.setVisibility(View.GONE))
+                .doAfterTerminate(() -> progressBar.setVisibility(View.GONE))
                 .subscribe(response -> {
                     onThisDay = response;
                     eventsRecycler.setVisibility(View.VISIBLE);

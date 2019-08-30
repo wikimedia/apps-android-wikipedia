@@ -10,6 +10,7 @@
     <string name="page_tabs_back">Back</string>
     <string name="nav_item_forward">Forward</string>
     <string name="search_hint">Search Wikipedia</string>
+    <string name="search_hint_voice_search">Voice input search</string>
     <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
@@ -81,7 +82,6 @@
     <string name="langlinks_activity_title">Other languages</string>
     <string name="langlinks_your_wikipedia_languages">Your Wikipedia languages</string>
     <string name="menu_save_changes">Publish changes</string>
-    <string name="dialog_saving_in_progress">Publishing…</string>
     <string name="edit_saved_successfully">Edit published!</string>
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
@@ -159,7 +159,6 @@
     <string name="create_account_ip_block_details">Details</string>
     <string name="preferences_general_heading">General</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-    <string name="edit_preview_fetching_dialog_message">Fetching preview…</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="preferences_heading_syncing">Syncing</string>
@@ -284,6 +283,8 @@
     <string name="captcha_image">Captcha image</string>
     <string name="gallery_fair_use_license">Fair use</string>
     <string name="gallery_uploader_unknown">Uploader unknown</string>
+    <string name="gallery_not_available_offline_snackbar">Gallery view not available offline.</string>
+    <string name="gallery_not_available_offline_snackbar_dismiss">Dismiss</string>
     <string name="menu_new_tab">New tab</string>
     <string name="menu_close_all_tabs">Close all tabs</string>
     <string name="close_all_tabs_confirm">Are you sure you want to close all tabs?</string>
@@ -609,6 +610,8 @@
     <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Explore feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
     <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
     <string name="feed_lang_selection_dialog_cancel_button_text">Cancel</string>
+    <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
+    <string name="feed_accessibility_card_load_more_button">Load more</string>
     <!-- /The Feed -->
 
     <!-- Description editing -->
@@ -830,6 +833,10 @@
     <string name="account_editing_blocked_dialog_cancel_button_text">Cancel</string>
     <!-- /Editing -->
 
+    <!-- Content description -->
+    <string name="content_description_for_page_indicator">Page %1$d of %2$d</string>
+    <!-- /Content description -->
+
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
     <string name="wikitext_link">Link</string>
@@ -841,6 +848,7 @@
 
     <string name="main_drawer_open">Open</string>
     <string name="main_drawer_close">Close</string>
+    <string name="main_drawer_content_description">Open main navigation drawer</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>

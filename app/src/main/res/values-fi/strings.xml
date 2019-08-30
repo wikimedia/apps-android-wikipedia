@@ -92,7 +92,6 @@
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="langlinks_your_wikipedia_languages">Omat Wikipedia-kielet</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
-  <string name="dialog_saving_in_progress">Julkaistaan...</string>
   <string name="edit_saved_successfully">Muokkaus julkaistu!</string>
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>
   <string name="dialog_message_edit_failed_retry">Yritä uudelleen</string>
@@ -170,7 +169,6 @@
   <string name="create_account_ip_block_details">Tiedot</string>
   <string name="preferences_general_heading">Yleiset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
-  <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua…</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="preferences_heading_syncing">Synkronoidaan</string>
@@ -624,7 +622,11 @@
   <string name="suggested_edits_translate_descriptions">Käännä artikkelin kuvaukset</string>
   <string name="suggested_edits_review_description">Esikatsele artikkelin kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
+  <string name="suggested_edits_edit_description_button">Muokkaa kuvausta</string>
+  <string name="suggested_edits_add_translation_button">Lisää käännös</string>
+  <string name="suggested_edits_edit_translation_button">Muokkaa käännöstä</string>
   <string name="suggested_edits_my_contributions">Omat muokkaukset</string>
+  <string name="suggested_edits_no_description">Tällä tiedostolla ei ole kuvausta</string>
   <string name="suggested_edits_unlock_dialog_no">Ehkä myöhemmin</string>
   <string name="suggested_edits_unlock_dialog_yes">Kyllä, mennään</string>
   <string name="suggested_edits_unlock_notification_text">Ehdotetut muokkaukset</string>
@@ -642,13 +644,14 @@
   <string name="suggested_edits_task_translate_caption_description">Käännä kuvatekstit muille kielille</string>
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua artikkelikuvausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Taiteilija</string>
   <string name="suggested_edits_image_caption_summary_title_author">Tekijä</string>
   <string name="suggested_edits_image_caption_summary_title_source">Lähde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Lisenssi</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Päiväys</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 muokkaus</item>
     <item quantity="other">%d muokkausta</item>
@@ -656,7 +659,11 @@
   <string name="suggested_edits_feed_card_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_tutorial_message">Tervetuloa pikamuokkauksen uuteen kotiin Wikipedia-sovelluksessa. Muokkauksesi ovat hyvin arvostettuja. Iloista muokkaamista!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Taiteilija</string>
+  <string name="suggested_edits_image_preview_dialog_date">Päiväys</string>
+  <string name="suggested_edits_image_preview_dialog_source">Lähde/Valokuvaaja</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensointi</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Lisätietoja</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Tiedostosivu Wikimedia Commonsissa</string>
   <string name="suggested_edits_article_cta_snackbar_action">Näytä</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>

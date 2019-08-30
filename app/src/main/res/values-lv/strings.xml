@@ -59,7 +59,6 @@
   <string name="langlinks_empty">Šī lapa nav pieejama citās valodās</string>
   <string name="langlinks_activity_title">Citas valodas</string>
   <string name="menu_save_changes">Publicēt izmaiņas</string>
-  <string name="dialog_saving_in_progress">Publicē...</string>
   <string name="edit_saved_successfully">Labojums publicēts!</string>
   <string name="dialog_message_edit_failed">Neizdevās labot!</string>
   <string name="dialog_message_edit_failed_retry">Mēģināt vēlreiz</string>

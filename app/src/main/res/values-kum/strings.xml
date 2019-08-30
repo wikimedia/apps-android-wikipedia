@@ -59,7 +59,6 @@
   <string name="langlinks_activity_title">Башгъа тиллер</string>
   <string name="langlinks_your_wikipedia_languages">Сени Википедия тиллеринг</string>
   <string name="menu_save_changes">Алышынывланы басмаламакъ</string>
-  <string name="dialog_saving_in_progress">Сакълана…</string>
   <string name="edit_saved_successfully">Тюзлев сакълангъан!</string>
   <string name="dialog_message_edit_failed">Тюзлев хаталы!</string>
   <string name="dialog_message_edit_failed_retry">Такрар</string>

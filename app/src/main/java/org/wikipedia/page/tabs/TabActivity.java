@@ -156,8 +156,8 @@ public class TabActivity extends BaseActivity {
             @Override
             public void onShowTab(@NonNull Context context, @NonNull TabSwitcher tabSwitcher, @NonNull View view,
                                   @NonNull Tab tab, int index, int viewType, @Nullable Bundle savedInstanceState) {
-                int tabIndex = app.getTabList().size() - index - 1;
-                if (viewType == 1) {
+                int tabIndex = app.getTabCount() - index - 1;
+                if (viewType == 1 || tabIndex < 0 || app.getTabList().get(tabIndex) == null) {
                     return;
                 }
                 TextView titleText = view.findViewById(R.id.tab_article_title);
@@ -296,6 +296,9 @@ public class TabActivity extends BaseActivity {
     }
 
     private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
+        if (appTab.getBackStackPositionTitle() == null) {
+            return;
+        }
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
             app.getTabList().add(appTabIndex, appTab);

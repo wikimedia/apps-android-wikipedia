@@ -80,7 +80,6 @@
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="langlinks_your_wikipedia_languages">Vaši jezici Wikipedije</string>
   <string name="menu_save_changes">Objavi izmjene</string>
-  <string name="dialog_saving_in_progress">Objavljivanje...</string>
   <string name="edit_saved_successfully">Uređivanje je objavljeno!</string>
   <string name="dialog_message_edit_failed">Greška u uređivanju.</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
@@ -150,7 +149,6 @@
   <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji Wikipedija</string>
-  <string name="edit_preview_fetching_dialog_message">Dohvaćanje pretpregleda…</string>
   <string name="send_feedback">Pošalji povratnu informaciju o aplikaciji</string>
   <string name="create_account_account_created_toast">Suradnički račun otvoren.</string>
   <string name="preferences_heading_syncing">Sinkronizacija</string>

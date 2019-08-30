@@ -52,7 +52,6 @@
   <string name="langlinks_no_match" fuzzy="true">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
   <string name="langlinks_activity_title">Autras lengas</string>
   <string name="menu_save_changes">Publicar las modificacions</string>
-  <string name="dialog_saving_in_progress">Publicacion en cors…</string>
   <string name="edit_saved_successfully">Modificacion publicada !</string>
   <string name="dialog_message_edit_failed">Fracàs de l’enregistrament !</string>
   <string name="dialog_message_edit_failed_retry">Ensajar tornarmai</string>
@@ -95,7 +94,6 @@
   <string name="create_account_button">Crear un compte</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">FAQ de las aplicacions Wikipèdia</string>
-  <string name="edit_preview_fetching_dialog_message">Recèrca d’un apercebut…</string>
   <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>
   <string name="create_account_account_created_toast">Compte creat !</string>
   <string name="preferences_privacy_settings_heading">Confidencialitat</string>

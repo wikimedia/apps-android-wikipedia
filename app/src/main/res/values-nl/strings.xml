@@ -17,6 +17,7 @@
 * Mirolith
 * Optilete
 * Patio
+* RadioAzureus
 * Robin van der Vliet
 * Romaine
 * SPQRobin
@@ -98,7 +99,6 @@
   <string name="langlinks_activity_title">Andere talen</string>
   <string name="langlinks_your_wikipedia_languages">Uw Wikipediatalen</string>
   <string name="menu_save_changes">Wijzigingen publiceren</string>
-  <string name="dialog_saving_in_progress">Bezig met publiceren...</string>
   <string name="edit_saved_successfully">Bewerking gepubliceerd!</string>
   <string name="dialog_message_edit_failed">Bewerking mislukt!</string>
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
@@ -136,7 +136,7 @@
   <string name="reset_password_button">Opslaan en aanmelden</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="logout_prompt" fuzzy="true">Weet u zeker dat u wilt afmelden?</string>
+  <string name="logout_prompt">Je logt nu uit op alle apparaten waar je nu op ingelogd bent. Wilt u doorgaan?</string>
   <string name="logout_dialog_cancel_button_text">Annuleren</string>
   <string name="logged_out_in_background_title">Afgemeld</string>
   <string name="logged_out_in_background_dialog">U bent afgemeld bij Wikipedia. Wilt u zich opnieuw aanmelden?</string>
@@ -176,7 +176,6 @@
   <string name="create_account_ip_block_details">Details</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
-  <string name="edit_preview_fetching_dialog_message">Voorvertoning aan het ophalen…</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="create_account_account_created_toast">Account aangemaakt!</string>
   <string name="preferences_heading_syncing">Synchroniseren</string>
@@ -215,6 +214,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
   <string name="about_translators_heading">Vertalers</string>
@@ -299,6 +299,7 @@
   <string name="captcha_image">Captcha-afbeelding</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader onbekend</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Sluiten</string>
   <string name="menu_new_tab">Nieuw tabblad</string>
   <string name="menu_close_all_tabs">Alle tabbladen sluiten</string>
   <string name="close_all_tabs_confirm">Weet u zeker dat u alle tabbladen wilt sluiten?</string>
@@ -604,6 +605,9 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="description_edit_text_hint">Artikelbeschrijving</string>
+  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Artikelbeschrijving (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Afbeeldingsbijschrift (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Afbeeldingsbijschriften (%s)</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_read">Lezen</string>
@@ -620,6 +624,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Bedankt voor uw blijvende interesse in het bewerken van artikelbeschrijvingen! Om extra bewerkingen te maken, gelieve in te loggen op uw Wikipedia-profiel.</string>
   <string name="description_edit_license_notice">Bij het veranderen van de artikelbeschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
+  <string name="description_edit_helper_text_lowercase_warning">begint meestal met een kleine letter</string>
   <string name="description_edit_success_saved">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschrijving gepubliceerd!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeschrijving gepubliceerd! (%s)</string>
@@ -639,7 +644,7 @@
   <string name="suggested_edits_translate_descriptions">Artikelbeschrijvingen vertalen</string>
   <string name="suggested_edits_add_image_captions">Afbeeldingsbijschriften toevoegen</string>
   <string name="suggested_edits_translate_image_captions">Afbeeldingsbijschriften vertalen</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Review Beschrijving</string>
+  <string name="suggested_edits_review_description">Review Artikelbeschrijving</string>
   <string name="suggested_edits_add_description_button">Beschrijving toevoegen</string>
   <string name="suggested_edits_edit_description_button">Beschrijving bewerken</string>
   <string name="suggested_edits_add_translation_button">Vertaling toevoegen</string>
@@ -655,6 +660,7 @@
   <string name="suggested_edits_unlock_add_descriptions_notification_title">U hebt \"Artikelbeschrijvingen toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_descriptions_notification_title">U hebt \"Artikelbeschrijvingen vertalen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_notification_text">Voorgestelde bewerkingen</string>
+  <string name="suggested_edits_unlock_notification_button">Ja, laten we beginnen</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">U hebt de taak \"Afbeeldingsbijschriften toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">U hebt \"Afbeeldingsbijschriften toevoegen\" ontgrendeld</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">U hebt de taak \"Afbeeldingsbijschriften vertalen\" ontgrendeld</string>
@@ -693,6 +699,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licentie</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Meer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Weergeven</string>
   <string name="suggested_edits_feed_card_add_image_caption">Bijschrift toevoegen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bijschrift toevoegen (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschrijving toevoegen</string>
@@ -711,9 +718,9 @@
   <string name="onboarding_get_started">Aan de slag</string>
   <string name="onboarding_maybe_later">Nu niet</string>
   <string name="onboarding_explore_title">Nieuwe manieren om te ontdekken</string>
-  <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een steeds bijgewerkt overzicht op Verkennen. &lt;br/&gt; &lt;b&gt;Pas&lt;/b&gt; het overzicht aan uw interesses aan – of u nou geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt;of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een steeds bijgewerkt overzicht op Verkennen. &lt;br/&gt; &lt;b&gt;Pas&lt;/b&gt; het overzicht aan uw interesses aan – of u nu geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt; of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
-  <string name="onboarding_reading_list_sync_text_v2">U kunt leeslijsten maken van artikelen die u later wilt lezen, zelfs als u offline bent. &lt;br /&gt; Log in op uw Wikipedia-account om uw leeslijsten te synchroniseren. &lt;a href=\"#login\"&gt;Creëer een Wikipedia-aacount en neem deel&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">U kunt leeslijsten maken van artikelen die u later wilt lezen, zelfs als u offline bent. &lt;br/&gt;Log in op uw Wikipedia-account om uw leeslijsten te synchroniseren. &lt;a href=\"#login\"&gt;Creëer een Wikipedia-account en neem deel&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Gegevens anoniem versturen</string>
   <string name="onboarding_analytics_offline_text">Help de app te verbeteren door ons te laten weten hoe u hem gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Leer meer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Uw gebruiksgegevens verzenden</string>

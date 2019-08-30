@@ -50,7 +50,6 @@
   <string name="langlinks_activity_title">Fiteny hafa</string>
   <string name="langlinks_your_wikipedia_languages">Ny teny Wikipedianao</string>
   <string name="menu_save_changes">Hamoaka ny fiovana</string>
-  <string name="dialog_saving_in_progress">An-dalam-pamoahana...</string>
   <string name="edit_saved_successfully">Navoaka ny fiovana!</string>
   <string name="dialog_message_edit_failed">Tsy nahomby ny fandraiketana!</string>
   <string name="dialog_message_edit_failed_retry">Andramana indray</string>

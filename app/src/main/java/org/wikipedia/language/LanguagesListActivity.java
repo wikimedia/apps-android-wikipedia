@@ -339,7 +339,7 @@ public class LanguagesListActivity extends BaseActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(SiteMatrix::getSites)
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     progressBar.setVisibility(View.INVISIBLE);
                     adapter.notifyDataSetChanged();
                 })

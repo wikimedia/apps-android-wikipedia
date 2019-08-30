@@ -80,7 +80,6 @@
   <string name="langlinks_activity_title">Yezhoù all</string>
   <string name="langlinks_your_wikipedia_languages">Ho yezhoù Wikipedia</string>
   <string name="menu_save_changes">Embann ar c\'hemmoù</string>
-  <string name="dialog_saving_in_progress">Oc\'h embann...</string>
   <string name="edit_saved_successfully">Kemmoù embannet !</string>
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>
   <string name="dialog_message_edit_failed_retry">Klask en-dro</string>
@@ -152,7 +151,6 @@
   <string name="create_account_ip_block_details">Munudoù</string>
   <string name="preferences_general_heading">Hollek</string>
   <string name="wikipedia_app_faq">Arload FAG Wikipedia</string>
-  <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="preferences_heading_syncing">Sinkronelaat</string>

@@ -58,6 +58,7 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Вперёд</string>
   <string name="search_hint">Поиск по Википедии</string>
+  <string name="search_hint_voice_search">Голосовой поиск</string>
   <string name="search_hint_search_history">История поиска</string>
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
@@ -120,7 +121,6 @@
   <string name="langlinks_activity_title">Другие языки</string>
   <string name="langlinks_your_wikipedia_languages">Ваши языки Википедии</string>
   <string name="menu_save_changes">Опубликовать изменения</string>
-  <string name="dialog_saving_in_progress">Сохраняется…</string>
   <string name="edit_saved_successfully">Правка сохранена!</string>
   <string name="dialog_message_edit_failed">Ошибка редактирования!</string>
   <string name="dialog_message_edit_failed_retry">Повторить</string>
@@ -198,7 +198,6 @@
   <string name="create_account_ip_block_details">Подробности</string>
   <string name="preferences_general_heading">Общие</string>
   <string name="wikipedia_app_faq">Частые вопросы о приложении «Википедия»</string>
-  <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
   <string name="send_feedback">Обратная связь</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="preferences_heading_syncing">Синхронизация</string>
@@ -237,7 +236,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
   <string name="about_translators_heading">Переводчики</string>
@@ -322,6 +321,8 @@
   <string name="captcha_image">Капча-изображение</string>
   <string name="gallery_fair_use_license">Добросовестное использование</string>
   <string name="gallery_uploader_unknown">Загрузивший неизвестен</string>
+  <string name="gallery_not_available_offline_snackbar">Режим галереи недоступен без подключения к Интернету.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Закрыть</string>
   <string name="menu_new_tab">Новая вкладка</string>
   <string name="menu_close_all_tabs">Закрыть все вкладки</string>
   <string name="close_all_tabs_confirm">Вы уверены, что хотите закрыть все вкладки?</string>
@@ -628,6 +629,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
+  <string name="feed_accessibility_card_text" fuzzy="true">Вы достигли конца ленты.</string>
+  <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="description_edit_text_hint">Описание статьи</string>
   <string name="description_edit_article_description_label_per_language">Статья %s</string>
   <string name="description_edit_translate_article_description_hint_per_language">Описаниe статей (%s)</string>
@@ -648,6 +651,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
   <string name="description_edit_anon_limit">Спасибо за ваш интерес к редактированию описаний статей! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">обычно начинается с маленькой буквы</string>
   <string name="description_edit_success_saved">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
@@ -674,7 +678,7 @@
   <string name="suggested_edits_edit_translation_button">Редактировать перевод</string>
   <string name="suggested_edits_add_caption_button">Добавить описание</string>
   <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
-  <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
+  <string name="suggested_edits_review_image_caption">Проверьте описание</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_no_description">У этого файла отсутствует описание</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
@@ -812,6 +816,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ОК</string>
   <string name="reverted_edit_dialog_ok_button_text">ОК</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Отмена</string>
+  <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Ссылка</string>
@@ -822,6 +827,7 @@
   <string name="wikitext_preview_link">Предпросмотр ссылки</string>
   <string name="main_drawer_open">Открыть</string>
   <string name="main_drawer_close">Закрыть</string>
+  <string name="main_drawer_content_description">Открыть основное меню</string>
   <string name="main_drawer_help">Справка</string>
   <string name="main_drawer_login">Войти в Википедию</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
