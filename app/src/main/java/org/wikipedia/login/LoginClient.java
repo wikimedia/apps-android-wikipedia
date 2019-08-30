@@ -78,13 +78,19 @@ public class LoginClient {
                     } else {
                         cb.error(new IOException("Login failed. Unexpected response."));
                     }
-                    return Observable.just(loginResult);
+                    return Observable.empty();
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(loginResult -> {
-                    // TODO: handle group login
-                    cb.success(loginResult);
-                }, cb::error));
+                    if (loginResult != null) {
+                        cb.success(loginResult);
+                    } else {
+                        cb.error(new Throwable("Login succeeded but getting group information failed. "));
+                    }
+                }, caught -> {
+                    L.e("Login process failed. " + caught);
+                    cb.error(caught);
+                }));
     }
 
     public void loginBlocking(@NonNull final WikiSite wiki, @NonNull final String userName,
@@ -165,20 +171,6 @@ public class LoginClient {
                     L.v("Found user ID " + id + " for " + wiki.subdomain());
                     return loginResult;
                 });
-//        disposables.add(ServiceFactory.get(wiki).getUserInfo(userName)
-//                .subscribeOn(Schedulers.io())
-//                .map(response -> {
-//                    ListUserResponse user = response.query().getUserResponse(userName);
-//                    int id = response.query().userInfo().id();
-//                    loginResult.setUserId(id);
-//                    loginResult.setGroups(user.getGroups());
-//                    return loginResult;
-//                    cb.success(loginResult);
-//                    L.v("Found user ID " + id + " for " + wiki.subdomain());
-//                }, caught -> {
-//                    L.e("Login succeeded but getting group information failed. " + caught);
-//                    cb.error(caught);
-//                }));
     }
 
     public void cancel() {
