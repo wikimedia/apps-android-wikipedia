@@ -166,10 +166,13 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             locallyKnownModified = true;
 
             // TODO: remove these conditions when the time is right.
-            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
-                    || (n.type().equals(Notification.TYPE_REVERTED) && Prefs.notificationRevertEnabled())
+            if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                    || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
+                    || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                    || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                    || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
                     || Prefs.showAllNotifications()) {
 
                 NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());

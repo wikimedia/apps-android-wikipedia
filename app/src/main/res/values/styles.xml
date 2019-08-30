@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
@@ -24,6 +24,7 @@
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <!-- Theme for dialog after long pressing on internal links -->
         <item name="android:alertDialogTheme">@style/LongPressAlertDialogStyle</item>
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -465,7 +466,7 @@
     </style>
 
     <style name="LongPressAlertDialogStyle" parent="AlertDialogStyle">
-        <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
+        <item name="android:backgroundTint">?attr/paper_color</item>
         <item name="android:background">?attr/paper_color</item>
     </style>
 
