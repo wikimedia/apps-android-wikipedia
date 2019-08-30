@@ -1,0 +1,91 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "notifications": {
+      "list": [
+        {
+          "wiki": "enwiki",
+          "id": "87425134",
+          "type": "mention-summary",
+          "category": "mention",
+          "timestamp": {
+            "utciso8601": "2016-09-07T18:16:25Z",
+            "utcunix": "1473272185",
+            "unix": "1473272185",
+            "utcmw": "20160907181625",
+            "mw": "20160907141625",
+            "date": "7 September"
+          },
+          "title": {
+            "full": "PageTitle",
+            "namespace": "User",
+            "namespace-key": 2,
+            "text": "PageTitle"
+          },
+          "agent": {
+            "id": 19707259,
+            "name": "User1"
+          },
+          "revid": 738229987,
+          "read": "20170105211531",
+          "targetpages": []
+        },
+        {
+          "wiki": "enwiki",
+          "id": "87425134",
+          "type": "flow-mention",
+          "category": "mention-failure",
+          "timestamp": {
+            "utciso8601": "2016-09-07T18:16:25Z",
+            "utcunix": "1473272185",
+            "unix": "1473272185",
+            "utcmw": "20160907181625",
+            "mw": "20160907141625",
+            "date": "7 September"
+          },
+          "title": {
+            "full": "PageTitle",
+            "namespace": "User",
+            "namespace-key": 2,
+            "text": "PageTitle"
+          },
+          "agent": {
+            "id": 19707259,
+            "name": "User1"
+          },
+          "revid": 738229987,
+          "read": "20170105211531",
+          "targetpages": []
+        },
+        {
+          "wiki": "enwiki",
+          "id": "87425134",
+          "type": "mention-summary",
+          "category": "mention-success",
+          "timestamp": {
+            "utciso8601": "2016-09-07T18:16:25Z",
+            "utcunix": "1473272185",
+            "unix": "1473272185",
+            "utcmw": "20160907181625",
+            "mw": "20160907141625",
+            "date": "7 September"
+          },
+          "title": {
+            "full": "PageTitle",
+            "namespace": "User",
+            "namespace-key": 2,
+            "text": "PageTitle"
+          },
+          "agent": {
+            "id": 19707259,
+            "name": "User1"
+          },
+          "revid": 738229987,
+          "read": "20170105211531",
+          "targetpages": []
+        }
+      ],
+      "continue": null
+    }
+  }
+}

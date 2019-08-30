@@ -31,8 +31,8 @@ public final class NotificationPresenter {
 
     public static void showNotification(@NonNull Context context, @NonNull Notification n, @NonNull String wikiSiteName) {
         String title;
-        @DrawableRes int icon = R.drawable.ic_wikipedia_w;
-        @ColorRes int color = R.color.base30;
+        @DrawableRes int iconResId = R.drawable.ic_speech_bubbles;
+        @ColorRes int iconColor = R.color.accent50;
 
         NotificationCompat.Builder builder = getDefaultBuilder(context);
 
@@ -53,29 +53,28 @@ public final class NotificationPresenter {
 
         Intent activityIntent = NotificationActivity.newIntent(context);
 
-        switch (n.type()) {
-            case Notification.TYPE_EDIT_USER_TALK:
-                icon = R.drawable.ic_chat_white_24dp;
-                color = R.color.accent50;
-                break;
-            case Notification.TYPE_REVERTED:
-                icon = R.drawable.ic_rotate_left_white_24dp;
-                color = R.color.red50;
-                builder.setPriority(NotificationCompat.PRIORITY_MAX);
-                break;
-            case Notification.TYPE_EDIT_THANK:
-                icon = R.drawable.ic_usertalk_constructive;
-                color = R.color.green50;
-                break;
-            case Notification.TYPE_EDIT_MILESTONE:
-                icon = R.drawable.ic_mode_edit_white_24dp;
-                color = R.color.accent50;
-                break;
-            default:
-                break;
+        String s = n.category();
+        if (Notification.CATEGORY_EDIT_USER_TALK.equals(s)) {
+            iconResId = R.drawable.ic_edit_user_talk;
+            iconColor = R.color.accent50;
+        } else if (Notification.CATEGORY_REVERTED.equals(s)) {
+            iconResId = R.drawable.ic_revert;
+            iconColor = R.color.base20;
+        } else if (Notification.CATEGORY_EDIT_THANK.equals(s)) {
+            iconResId = R.drawable.ic_user_talk;
+            iconColor = R.color.green50;
+        } else if (Notification.CATEGORY_THANK_YOU_EDIT.equals(s)) {
+            iconResId = R.drawable.ic_edit_progressive;
+            iconColor = R.color.accent50;
+        } else if (s.startsWith(Notification.CATEGORY_MENTION)) {
+            iconResId = R.drawable.ic_mention;
+            iconColor = R.color.accent50;
+        } else if (Notification.CATEGORY_LOGIN_FAIL.equals(s)) {
+            iconResId = R.drawable.ic_user_avatar;
+            iconColor = R.color.base0;
         }
 
-        showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, icon, color, activityIntent);
+        showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, iconResId, iconColor, activityIntent);
     }
 
     public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context) {
