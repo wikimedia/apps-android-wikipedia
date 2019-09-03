@@ -459,7 +459,6 @@
   <string name="notifications_view_unread">Προβολή μη αναγνωσμένων</string>
   <string name="notifications_poll_enable_positive">Ενεργοποιημένο</string>
   <string name="notifications_poll_enable_negative">Όχι τώρα</string>
-  <string name="preference_title_notification_welcome">Καλωσορίσατε</string>
   <string name="preference_title_notification_milestone">Ορόσημο</string>
   <string name="preference_title_notification_thanks">Ευχαριστίες</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
