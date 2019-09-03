@@ -178,6 +178,15 @@ public final class Prefs {
     }
 
     @Nullable
+    public static String getLoginToken() {
+        return getString(R.string.preference_key_login_token, null);
+    }
+
+    public static void setLoginToken(@Nullable String loginToken) {
+        setString(R.string.preference_key_login_token, loginToken);
+    }
+
+    @Nullable
     public static String getMruLanguageCodeCsv() {
         return getString(R.string.preference_key_language_mru, null);
     }
@@ -904,7 +913,6 @@ public final class Prefs {
     public static void shouldShowDescriptionEditSuccessPrompt(boolean enabled) {
         setBoolean(R.string.preference_key_show_description_edit_success_prompt, enabled);
     }
-
 
     private Prefs() { }
 }

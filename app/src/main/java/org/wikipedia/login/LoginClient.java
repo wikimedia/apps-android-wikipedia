@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwResponse;
 import org.wikipedia.json.GsonUtil;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -46,14 +47,17 @@ public class LoginClient {
         cancel();
         disposables.add(getLoginToken(wiki)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(loginToken -> login(wiki, userName, password, null, null, loginToken, cb), cb::error));
+                .subscribe(loginToken -> {
+                    Prefs.setLoginToken(loginToken);
+                    login(wiki, userName, password, null, null, loginToken, cb);
+                }, cb::error));
     }
 
     void login(@NonNull final WikiSite wiki, @NonNull final String userName, @NonNull final String password,
                                     @Nullable final String retypedPassword, @Nullable final String twoFactorCode,
                                     @Nullable final String loginToken, @NonNull final LoginCallback cb) {
 
-        disposables.add(getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, loginToken)
+        disposables.add(getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, StringUtils.defaultString(loginToken, Prefs.getLoginToken()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(loginResponse -> {
