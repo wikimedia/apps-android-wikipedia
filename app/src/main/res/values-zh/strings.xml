@@ -551,8 +551,6 @@
   <string name="preference_title_notification_poll">投票通知</string>
   <string name="preference_summary_notification_poll">允许应用使用数据在后台检查新通知。</string>
   <string name="preference_category_notification_types">应用内通知类型</string>
-  <string name="preference_title_notification_welcome">欢迎</string>
-  <string name="preference_summary_notification_welcome">已创建一个账户</string>
   <string name="preference_title_notification_milestone">里程碑</string>
   <string name="preference_summary_notification_milestone">已达成某个编辑数</string>
   <string name="preference_title_notification_thanks">感谢</string>

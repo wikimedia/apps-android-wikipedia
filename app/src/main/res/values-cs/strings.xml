@@ -543,8 +543,6 @@
   <string name="preference_title_notification_poll">Kontrola nových upozornění</string>
   <string name="preference_summary_notification_poll">Povolit aplikaci používaní dat ke kontrole nových upozornění na pozadí.</string>
   <string name="preference_category_notification_types">Typy upozornění v aplikaci</string>
-  <string name="preference_title_notification_welcome">Vítejte</string>
-  <string name="preference_summary_notification_welcome">Účet je vytvořen</string>
   <string name="preference_title_notification_milestone">Milník</string>
   <string name="preference_summary_notification_milestone">Dosáhli jste určitého počtu editací</string>
   <string name="preference_title_notification_thanks">Poděkování</string>
@@ -604,6 +602,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
+  <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
+  <string name="feed_accessibility_card_load_more_button">Načíst další</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_article_description_label_per_language">Článek (v jazyce %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Popis článku (v jazyce %s)</string>
@@ -801,6 +801,7 @@
   <string name="wikitext_preview_link">Náhled odkazu</string>
   <string name="main_drawer_open">Otevřít</string>
   <string name="main_drawer_close">Zavřít</string>
+  <string name="main_drawer_content_description">Otevřete hlavní nabídku</string>
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit/zaregistrovat se do Wikipedie</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
