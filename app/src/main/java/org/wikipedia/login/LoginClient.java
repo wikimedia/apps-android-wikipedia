@@ -63,7 +63,7 @@ public class LoginClient {
                             // The server could do some transformations on user names, e.g. on some
                             // wikis is uppercases the first letter.
                             String actualUserName = loginResult.getUserName();
-                            return getExtendedInfo(wiki, actualUserName, loginResult, cb);
+                            return getExtendedInfo(wiki, actualUserName, loginResult);
                         } else if ("UI".equals(loginResult.getStatus())) {
                             if (loginResult instanceof LoginOAuthResult) {
                                 cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
@@ -160,7 +160,7 @@ public class LoginClient {
     }
 
     private Observable<LoginResult> getExtendedInfo(@NonNull final WikiSite wiki, @NonNull String userName,
-                                 @NonNull final LoginResult loginResult, @NonNull final LoginCallback cb) {
+                                 @NonNull final LoginResult loginResult) {
         return ServiceFactory.get(wiki).getUserInfo(userName)
                 .subscribeOn(Schedulers.io())
                 .map(response -> {
