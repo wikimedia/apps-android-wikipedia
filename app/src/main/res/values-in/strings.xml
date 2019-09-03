@@ -536,8 +536,6 @@
   <string name="preference_title_notification_poll">Pilih pemberitahuan</string>
   <string name="preference_summary_notification_poll">Izinkan aplikasi menggunakan data untuk memeriksa pemberitahuan baru di latar belakang.</string>
   <string name="preference_category_notification_types">Jenis pemberitahuan dalam aplikasi</string>
-  <string name="preference_title_notification_welcome">Selamat datang</string>
-  <string name="preference_summary_notification_welcome">Akun telah dibuat</string>
   <string name="preference_title_notification_milestone">Pencapaian</string>
   <string name="preference_summary_notification_milestone">Jumlah suntingan tertentu tercapai</string>
   <string name="preference_title_notification_thanks">Terima kasih</string>

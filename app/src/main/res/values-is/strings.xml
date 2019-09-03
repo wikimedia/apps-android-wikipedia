@@ -522,8 +522,6 @@
   <string name="preference_title_notification_poll">Tilkynningar kannana</string>
   <string name="preference_summary_notification_poll">Leyfa forritinu að nota farsímagagnasamband til að athuga með tilkynningar í bakgrunni.</string>
   <string name="preference_category_notification_types">Tegundir tilkynninga innan forrits</string>
-  <string name="preference_title_notification_welcome">Velkomin</string>
-  <string name="preference_summary_notification_welcome">Aðgangur búinn til</string>
   <string name="preference_title_notification_milestone">Vegalengdarsteinn</string>
   <string name="preference_summary_notification_milestone">Þú hefur náð ákveðnum fjölda breytinga</string>
   <string name="preference_title_notification_thanks">Þakkir</string>

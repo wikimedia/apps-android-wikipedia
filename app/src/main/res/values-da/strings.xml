@@ -530,8 +530,6 @@
   <string name="preference_title_notification_poll">Hent notifikationer</string>
   <string name="preference_summary_notification_poll">Lad appen bruge data for at hente nye notifikationer i baggrunden.</string>
   <string name="preference_category_notification_types">Notifikationstyper i appen</string>
-  <string name="preference_title_notification_welcome">Velkommen</string>
-  <string name="preference_summary_notification_welcome">En konto er oprettet</string>
   <string name="preference_title_notification_milestone">Milepæle</string>
   <string name="preference_summary_notification_milestone">Visse antal redigeringer er opnået</string>
   <string name="preference_title_notification_thanks">Tak</string>

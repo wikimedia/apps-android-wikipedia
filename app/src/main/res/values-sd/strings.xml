@@ -14,6 +14,7 @@
   <string name="page_tabs_back">واپس</string>
   <string name="nav_item_forward">اڳتي</string>
   <string name="search_hint">وڪيپيڊيا ۾ ڳوليو</string>
+  <string name="search_hint_voice_search">زباني ٻڌايل ڳولا</string>
   <string name="search_hint_search_history">سوانح ۾ ڳوليو</string>
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
   <string name="search_hint_search_my_lists_and_articles">منھنجون فھرستون ۽ مضمون ڳوليو</string>
@@ -475,8 +476,6 @@
   <string name="notifications_mark_unread">نہ-پڙھيل طور نشان لڳايو</string>
   <string name="preference_summary_notification_poll">پسمنظر ۾ اطلاع چڪاسڻ لاءِ ايپ کي پسمنظر ۾ ڊيٽا ھلائڻ جي اجازت ڏيو.</string>
   <string name="preference_category_notification_types">ايپ-۾ اطلاعن جا قسم</string>
-  <string name="preference_title_notification_welcome">ڀليڪار</string>
-  <string name="preference_summary_notification_welcome">ھڪ کاتو کوليو ويو آھي</string>
   <string name="preference_title_notification_milestone">سنگ ميل</string>
   <string name="preference_summary_notification_milestone">ڪي سنوار انگ پڄي چڪا آھن</string>
   <string name="preference_title_notification_thanks">مھرباني</string>
@@ -536,6 +535,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;پنھنجي کوجنا پھچ کي پنھنجايو&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;توھان ھاڻي اھو چونڊي سگھو ٿا تہ توھان جي پھچ تي ڇا ڏيکاريو وڃي، ۽ پنھنجي مواد جي پسنديده قسمن کي ترجيح پڻ ڏئي سگھو ٿا.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ٺيڪ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">رد</string>
+  <string name="feed_accessibility_card_text">توھان رسد جي تري تائين پھچي چڪا آھيو.</string>
+  <string name="feed_accessibility_card_load_more_button">وڌيڪ لاھيو</string>
   <string name="description_edit_text_hint">مضمون جي تشريح</string>
   <string name="description_edit_article_description_label_per_language">مضمون (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">مضمون جي تشريح (%s)</string>
@@ -715,6 +716,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ٺيڪ</string>
   <string name="reverted_edit_dialog_ok_button_text">ٺيڪ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">رد</string>
+  <string name="content_description_for_page_indicator">%2$d مان %1$d صفحو</string>
   <string name="wikitext_bold">گھري</string>
   <string name="wikitext_italic">ٽيڏي</string>
   <string name="wikitext_link">ڳنڍڻو</string>
@@ -725,6 +727,7 @@
   <string name="wikitext_preview_link">پيش-نگاھ ڳنڍڻو</string>
   <string name="main_drawer_open">کوليو</string>
   <string name="main_drawer_close">بند ڪريو</string>
+  <string name="main_drawer_content_description">مک نيويگيشن دراز کوليو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="main_drawer_login">وڪيپيڊيا ۾ داخل ٿيو/ شامل ٿيو</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٺيڪ</string>
