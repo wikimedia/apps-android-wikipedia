@@ -539,8 +539,6 @@
   <string name="preference_title_notification_poll">Опитування сповіщень</string>
   <string name="preference_summary_notification_poll">Дозволити застосунку використовувати дані, щоб фоновим процесом перевіряти, чи є нові сповіщення.</string>
   <string name="preference_category_notification_types">Типи сповіщень у застосунку</string>
-  <string name="preference_title_notification_welcome">Ласкаво просимо</string>
-  <string name="preference_summary_notification_welcome">Створено обліковий запис</string>
   <string name="preference_title_notification_milestone">Віха</string>
   <string name="preference_summary_notification_milestone">Досягнуто певної кількості редагувань</string>
   <string name="preference_title_notification_thanks">Дякуємо</string>
@@ -602,7 +600,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці, і налаштувати пріоритетність улюблених типів матеріалів.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
-  <string name="feed_accessibility_card_text" fuzzy="true">Ви досягли кінця стрічки.</string>
+  <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
   <string name="feed_accessibility_card_load_more_button">Завантажити ще</string>
   <string name="description_edit_text_hint">Опис статті</string>
   <string name="description_edit_article_description_label_per_language">Стаття (%s)</string>
