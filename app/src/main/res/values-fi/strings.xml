@@ -535,8 +535,6 @@
   <string name="notifications_mark_unread">Merkitse lukemattomaksi</string>
   <string name="preference_summary_notification_poll">Salli sovelluksen käyttää dataa uusien ilmoituksien tarkistamiseen taustalla.</string>
   <string name="preference_category_notification_types">Sovelluksensisäisten ilmoitusten tyypit</string>
-  <string name="preference_title_notification_welcome">Tervetuloa</string>
-  <string name="preference_summary_notification_welcome">Käyttäjätunnus luodaan</string>
   <string name="preference_title_notification_milestone">Virstanpylväs</string>
   <string name="preference_summary_notification_milestone">Tietty muokkausmäärä saavutetaan</string>
   <string name="preference_title_notification_thanks">Kiitokset</string>

@@ -571,8 +571,6 @@
   <string name="preference_title_notification_poll">Извещения об опросах</string>
   <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
   <string name="preference_category_notification_types">Виды уведомлений в приложении</string>
-  <string name="preference_title_notification_welcome">Добро пожаловать</string>
-  <string name="preference_summary_notification_welcome">Учётная запись создана</string>
   <string name="preference_title_notification_milestone">Этап</string>
   <string name="preference_summary_notification_milestone">Достигнуто определённое число правок</string>
   <string name="preference_title_notification_thanks">Благодарности</string>

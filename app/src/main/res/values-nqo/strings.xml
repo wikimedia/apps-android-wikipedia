@@ -467,8 +467,6 @@
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
-  <string name="preference_title_notification_welcome">ߌ ߣߌ߫ ߛߣߍ߫</string>
-  <string name="preference_summary_notification_welcome">ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߛߌ߲ߘߌ߫</string>
   <string name="preference_title_notification_milestone">ߛߊ߯ߘߊ߫ ߣߝߊ߬ߡߊ</string>
   <string name="preference_summary_notification_milestone">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߏ߫ ߟߎ߫ ߦߙߌߞߊ ߓߘߊ߫ ߛߋ߫</string>
   <string name="preference_title_notification_thanks">ߌ ߞߎߟߎ߲ߖߋ߫</string>
