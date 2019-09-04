@@ -18,7 +18,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.settings.Prefs;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,11 +72,7 @@ public class WikiErrorView extends LinearLayout {
         ErrorType errorType = getErrorType(caught);
         icon.setImageDrawable(AppCompatResources.getDrawable(getContext(), errorType.icon()));
         if (caught instanceof MwException) {
-            if (caught.getMessage().contains("logintoken")) {
-                errorText.setText(caught.getMessage() + " \n Login token from api: " + Prefs.getLoginToken());
-            } else {
-                errorText.setText(caught.getMessage());
-            }
+            errorText.setText(caught.getMessage());
         } else {
             errorText.setText(resources.getString(errorType.text()));
         }

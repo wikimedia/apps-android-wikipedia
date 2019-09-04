@@ -212,7 +212,7 @@ public interface Service {
                                                            @Nullable @Field("captchaWord") String captchaWord);
 
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=query&meta=tokens&type=login")
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
     @NonNull Observable<JsonElement> getLoginToken();
 
     @Headers("Cache-Control: no-cache")

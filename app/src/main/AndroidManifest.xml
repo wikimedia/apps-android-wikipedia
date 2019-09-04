@@ -51,7 +51,6 @@
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config" tools:targetApi="24"
         android:allowBackup="true"
         android:fullBackupContent="@xml/full_backup_rules"
         tools:replace="android:allowBackup"

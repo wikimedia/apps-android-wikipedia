@@ -31,7 +31,6 @@
     <string name="preference_key_login_password">password</string>
     <string name="preference_key_login_user_id_map">userIDMap</string>
     <string name="preference_key_login_groups">groups</string>
-    <string name="preference_key_login_token">loginToken</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
     <string name="preference_key_last_run_time_format">%s-lastrun</string>
     <string name="preference_key_tabs">tabs</string>
