@@ -7,21 +7,21 @@ var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewpo
 pagelib.PlatformTransform.classify( window );
 pagelib.CompatibilityTransform.enableSupport( document );
 
-bridge.registerListener( "clearContents", function() {
-    clearContents();
-});
-
-bridge.registerListener( "setMargins", function( payload ) {
-    document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
-});
+bridge.registerListener( "setDecorOffset", function( payload ) {
+    transformer.setDecorOffset(payload.offset);
+} );
 
 bridge.registerListener( "setPaddingTop", function( payload ) {
-    document.body.style.paddingTop = payload.paddingTop + "px";
+    setPaddingTop( payload.paddingTop );
 });
 
 bridge.registerListener( "setPaddingBottom", function( payload ) {
     document.body.style.paddingBottom = payload.paddingBottom + "px";
 });
+
+function setPaddingTop( paddingTop ) {
+    document.body.style.paddingTop = paddingTop + "px";
+}
 
 function getLeadParagraph() {
     var text = "";
@@ -76,6 +76,8 @@ function setWindowAttributes( payload ) {
     window.siteLanguage = payload.siteLanguage;
     window.showImages = payload.showImages;
     window.collapseTables = payload.collapseTables;
+    window.dimImages = payload.dimImages;
+    window.imagePlaceholderBackgroundColor = payload.imagePlaceholderBackgroundColor;
 }
 
 function setTitleElement( parentNode, section ) {
@@ -90,51 +92,82 @@ function setTitleElement( parentNode, section ) {
     parentNode.appendChild(container);
 }
 
-bridge.registerListener( "displayLeadSection", function( payload ) {
-    var lazyDocument;
+function setOrUnsetClass( tag, className, set ) {
+    if (set && !tag.classList.contains(className)) {
+        tag.classList.add(className);
+    } else if (!set && tag.classList.contains(className)) {
+        tag.classList.remove(className);
+    }
+}
 
-    // This might be a refresh! Clear out all contents!
-    clearContents();
+bridge.registerListener( "displayLeadSection", function( payload ) {
+    lazyLoadTransformer.deregister();
+
+    var htmlTag = document.getElementsByTagName( "html" )[0];
+    var contentElem = document.getElementById( "content" );
+
+    // clear all the content!
+    while (contentElem.firstChild) {
+        contentElem.firstChild.remove();
+    }
+    window.scrollTo( 0, 0 );
+
     setWindowAttributes(payload);
     window.offline = false;
 
+    // Set the base URL for the whole page in the HEAD tag.
+    document.head.getElementsByTagName( "base" )[0].setAttribute("href", payload.siteBaseUrl);
 
-    var contentElem = document.getElementById( "content" );
+    // Set the URL for the wiki-specific CSS.
+    var localStyleTag = document.getElementById( "localSiteStylesheet" );
+    var localStyleUrl = payload.siteBaseUrl + "/api/rest_v1/data/css/mobile/site";
+    if (localStyleTag.getAttribute("href") !== localStyleUrl) {
+        localStyleTag.setAttribute("href", localStyleUrl);
+    }
+
+    if (!htmlTag.classList.contains(payload.theme)) {
+        // theme change, which means we can clear out all other classes from the html tag
+        htmlTag.className = "";
+        htmlTag.classList.add(payload.theme);
+    }
+    setOrUnsetClass(htmlTag, "pagelib_dim_images", payload.dimImages);
+    setOrUnsetClass(htmlTag, "page-protected", payload.protect);
+    setOrUnsetClass(htmlTag, "no-editing", payload.noedit);
+
+    setPaddingTop(payload.paddingTop);
+
+    pagelib.DimImagesTransform.dim( window, window.dimImages );
+
     contentElem.setAttribute( "dir", window.directionality );
     if (!window.isMainPage) {
         setTitleElement(contentElem, payload.section);
     }
 
-    lazyDocument = document.implementation.createHTMLDocument( );
-    var content = lazyDocument.createElement( "div" );
+    var content = document.createElement( "div" );
     content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
-    // append the content to the DOM now, so that we can obtain
-    // dimension measurements for items.
-    document.getElementById( "content" ).appendChild( content );
-
     applySectionTransforms(content, true);
+    contentElem.appendChild( content );
+
+    // and immediately queue the request to load the remaining sections of the article.
+    queueRemainingSections( payload.remainingUrl, payload.sequence, payload.fragment )
 });
 
-function clearContents() {
-    lazyLoadTransformer.deregister();
-    document.getElementById( "content" ).innerHTML = "";
-    window.scrollTo( 0, 0 );
-}
-
-function elementsForSection( section ) {
-    var content, lazyDocument;
+function getSectionFragment( section ) {
+    var content;
     var header = pagelib.EditTransform.newEditSectionHeader(document,
               section.id, section.toclevel + 1, section.line, !section.noedit);
     header.id = section.anchor;
     header.setAttribute( 'data-id', section.id );
-    lazyDocument = document.implementation.createHTMLDocument( );
-    content = lazyDocument.createElement( "div" );
+    var frag = document.createDocumentFragment();
+    content = document.createElement( "div" );
+    frag.appendChild(header);
+    frag.appendChild(content);
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
     applySectionTransforms(content, false);
-    return [ header, content ];
+    return frag;
 }
 
 function applySectionTransforms( content, isLeadSection ) {
@@ -169,36 +202,41 @@ function displayRemainingSections(json, sequence, fragment) {
     var contentWrapper = document.getElementById( "content" );
     var response = { "sequence": sequence };
 
+    var frag = document.createDocumentFragment();
+    var allowScrollToSection = false;
     json.sections.forEach(function (section) {
-        elementsForSection(section).forEach(function (element) {
-            contentWrapper.appendChild(element);
-        });
-        // do we have a section to scroll to?
+        frag.appendChild(getSectionFragment(section));
         if ( typeof fragment === "string" && fragment.length > 0 && section.anchor === fragment) {
-            scrollToSection( fragment );
+            allowScrollToSection = true;
         }
     });
+
+    contentWrapper.appendChild(frag);
 
     transformer.transform( "fixAudio", document );
     transformer.transform( "hideTables", document );
     transformer.transform( "showIssues", document );
+
+    if (allowScrollToSection) {
+        scrollToSection( fragment );
+    }
+
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", response );
 }
 
 var remainingRequest;
 
-bridge.registerListener( "queueRemainingSections", function ( payload ) {
+function queueRemainingSections( url, sequence, fragment ) {
     if (remainingRequest) {
         remainingRequest.abort();
     }
     remainingRequest = new XMLHttpRequest();
-    remainingRequest.open('GET', payload.url);
-    remainingRequest.sequence = payload.sequence;
-    remainingRequest.fragment = payload.fragment;
-    if (window.apiLevel > 19 && window.responseType !== 'json') {
-        remainingRequest.responseType = 'json';
-    }
+    remainingRequest.open('GET', url);
+    remainingRequest.sequence = sequence;
+    remainingRequest.fragment = fragment;
+    remainingRequest.responseType = 'json';
+
     remainingRequest.onreadystatechange = function() {
         if (this.readyState !== XMLHttpRequest.DONE || this.status === 0 || this.sequence !== window.sequence) {
             return;
@@ -208,9 +246,7 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
             return;
         }
         try {
-            // On API <20, the XMLHttpRequest does not support responseType = json,
-            // so we have to call JSON.parse() ourselves.
-            var sectionsObj = window.apiLevel > 19 ? this.response : JSON.parse(this.response);
+            var sectionsObj = this.response;
             if (sectionsObj.mobileview) {
                 // If it's a mobileview response, the "sections" object will be one level deeper.
                 sectionsObj = sectionsObj.mobileview;
@@ -229,7 +265,7 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
         }
     };
     remainingRequest.send();
-});
+}
 
 bridge.registerListener( "scrollToSection", function ( payload ) {
     scrollToSection( payload.anchor );

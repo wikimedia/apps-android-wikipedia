@@ -1,18 +1,19 @@
 package org.wikipedia.page;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
-public class PageContainerLongPressHandler implements LongPressHandler.ContextMenuListener,
-        LongPressHandler.WebViewContextMenuListener{
+public class PageContainerLongPressHandler implements LongPressHandler.OverflowMenuListener,
+        LongPressHandler.WebViewOverflowMenuListener{
     @NonNull
     private final PageFragment fragment;
 
@@ -27,7 +28,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.ContextMe
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        fragment.openInNewBackgroundTabFromMenu(title, entry);
+        fragment.openInNewBackgroundTab(title, entry);
     }
 
     @Override
@@ -42,13 +43,19 @@ public class PageContainerLongPressHandler implements LongPressHandler.ContextMe
     }
 
     @Override
-    public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
+    public void onAddToList(PageTitle title, InvokeSource source) {
         fragment.addToReadingList(title, source);
     }
 
     @Override
     public WikiSite getWikiSite() {
         return fragment.getTitleOriginal().getWikiSite();
+    }
+
+    @Nullable
+    @Override
+    public String getReferrer() {
+        return fragment.getTitle() != null ? fragment.getTitle().getCanonicalUri() : null;
     }
 
     private void copyLink(String url) {

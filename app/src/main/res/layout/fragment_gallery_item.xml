@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/gallery_item_container"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gallery_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <FrameLayout
         android:id="@+id/gallery_video_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        tools:visibility="visible"
-        >
+        tools:visibility="visible">
+
         <VideoView
             android:id="@+id/gallery_video"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center" />
+
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/gallery_video_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:actualImageScaleType="fitCenter"
             android:contentDescription="@null"
-            />
+            app:actualImageScaleType="fitCenter" />
+
         <ImageView
             android:id="@+id/gallery_video_play_button"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_play_circle"
             android:contentDescription="@null"
-            />
+            app:srcCompat="@drawable/ic_play_circle" />
     </FrameLayout>
+
     <org.wikipedia.views.ZoomableDraweeViewWithBackground
         android:id="@+id/gallery_image"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:actualImageScaleType="fitCenter"
         android:contentDescription="@null"
-        />
+        android:visibility="gone"
+        app:actualImageScaleType="fitCenter" />
+
     <ProgressBar
         android:id="@+id/gallery_item_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"
-        tools:visibility="visible"
-        />
+        tools:visibility="visible" />
 </FrameLayout>

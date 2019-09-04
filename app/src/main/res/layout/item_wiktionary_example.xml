@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.AppTextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.AppTextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_wiktionary_example"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="2dp"
-    android:textStyle="italic"
     android:lineSpacingMultiplier="1.1"
     android:linksClickable="true"
-    android:textColor="?attr/primary_text_color"/>
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="2dp"
+    android:textColor="?attr/primary_text_color"
+    android:textStyle="italic" />

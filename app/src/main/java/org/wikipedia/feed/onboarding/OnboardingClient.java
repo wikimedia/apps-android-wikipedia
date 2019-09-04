@@ -1,7 +1,8 @@
 package org.wikipedia.feed.onboarding;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;

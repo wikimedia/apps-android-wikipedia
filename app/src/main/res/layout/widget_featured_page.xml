@@ -7,39 +7,41 @@
     android:layout_height="wrap_content"
     android:background="@drawable/widget_shape_background"
     android:foreground="?android:attr/selectableItemBackground">
+
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:src="@mipmap/launcher"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:contentDescription="@null"
-        android:layout_gravity="center_vertical"/>
+        android:src="@mipmap/launcher" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:gravity="center_vertical"
         android:background="@drawable/widget_shape_inner"
-        android:orientation="vertical">
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="8dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:text="@string/widget_title_featured_page"
-            android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="@color/base30"
-            />
+            android:maxLines="1"
+            android:text="@string/widget_title_featured_page"
+            android:textColor="@color/base30" />
+
         <TextView
             android:id="@+id/widget_content_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/base10"
-            android:maxLines="2"
-            android:ellipsize="end"
-            tools:text="Sample content"
-            />
+            tools:text="Sample content" />
     </LinearLayout>
 </LinearLayout>

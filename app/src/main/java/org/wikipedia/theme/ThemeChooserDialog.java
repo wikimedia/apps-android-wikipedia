@@ -2,16 +2,19 @@ package org.wikipedia.theme;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -101,6 +104,13 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         updateComponents();
         disableBackgroundDim();
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        BottomSheetBehavior.from((View) getView().getParent()).setPeekHeight(DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.themeChooserSheetPeekHeight)));
     }
 
     @Override
@@ -228,7 +238,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof WebViewInvalidateEvent) {
                 updatingFont = false;
                 updateComponents();

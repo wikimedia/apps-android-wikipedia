@@ -7,8 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
@@ -80,11 +81,7 @@ public class AlphaUpdateChecker extends RecurringTask {
                 .setContentIntent(pintent)
                 .setAutoCancel(true);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
-        } else {
-            notificationBuilder.setSmallIcon(R.mipmap.launcher);
-        }
+        notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(1, notificationBuilder.build());

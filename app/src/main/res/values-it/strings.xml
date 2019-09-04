@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Albe Albe 460
 * Albe Albe460
 * Beta16
 * Bsitzmann
+* Dbrant
 * Elitre
 * FRacco
 * Federico Mugnaini
@@ -15,6 +17,7 @@
 * Giacomo Checchin
 * Gianfranco
 * Greis
+* JackLantern
 * LACLARETTA
 * Lorelai87
 * Macofe
@@ -28,6 +31,7 @@
 * Samuele2002
 * Sarah Bernabei
 * Selven
+* Senpremì
 * Simoarmanni
 * Statix64
 * SuperVirtual
@@ -107,7 +111,6 @@
   <string name="langlinks_activity_title">Altre lingue</string>
   <string name="langlinks_your_wikipedia_languages">Le tue lingue di Wikipedia</string>
   <string name="menu_save_changes">Pubblica modifiche</string>
-  <string name="dialog_saving_in_progress">Pubblicazione…</string>
   <string name="edit_saved_successfully">Modifica pubblicata!</string>
   <string name="dialog_message_edit_failed">Modifica non riuscita!</string>
   <string name="dialog_message_edit_failed_retry">Riprova</string>
@@ -145,6 +148,12 @@
   <string name="reset_password_button">Salva ed accedi</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
+  <string name="logout_prompt">Questo ti disconnetterà da tutti i dispositivi in cui sei attualmente connesso. Vuoi continuare?</string>
+  <string name="logout_dialog_cancel_button_text">Annulla</string>
+  <string name="logged_out_in_background_title">Disconnesso</string>
+  <string name="logged_out_in_background_dialog">Sei stato disconnesso da Wikipedia. Vuoi effettuare di nuovo l\'accesso?</string>
+  <string name="logged_out_in_background_login">Entra</string>
+  <string name="logged_out_in_background_cancel">Annulla</string>
   <string name="history_empty_title">Nessuna voce visualizzata recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="history_offline_articles_toast">Alcune voci nella cronologia potrebbero non essere visualizzabili offline.</string>
@@ -179,7 +188,6 @@
   <string name="create_account_ip_block_details">Dettagli</string>
   <string name="preferences_general_heading">Generale</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="edit_preview_fetching_dialog_message">Recupero anteprima…</string>
   <string name="send_feedback">Invia commento sull\'applicazione</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
   <string name="preferences_heading_syncing">Sincronizzazione</string>
@@ -212,11 +220,13 @@
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="about_wikipedia_url">https://it.m.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
   <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Librerie usate</string>
   <string name="about_contributors_heading">Collaboratori</string>
   <string name="about_translators_heading">Traduttori</string>
@@ -290,6 +300,7 @@
   <string name="gallery_save_success">File salvato correttamente.</string>
   <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>
   <string name="gallery_save_image_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio delle immagini.</string>
+  <string name="gallery_add_image_caption_in_language_button">Aggiungi didascalia immagine (%s)</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>
   <string name="snippet_share_intro">\"%1$s\" su @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca per espandere</string>
@@ -361,7 +372,7 @@
   <string name="article_menu_bar_bookmark">Aggiungi questa voce ad un elenco lettura</string>
   <string name="article_menu_bar_share">Condividi il collegamento alla voce</string>
   <string name="article_header_edit_hint">Modifica…</string>
-  <string name="article_header_edit_description">Modifica la descrizione del titolo</string>
+  <string name="article_header_edit_description">Modifica la descrizione della voce</string>
   <string name="article_header_edit_lead_section">Modifica introduzione</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Chiaro</string>
@@ -391,9 +402,9 @@
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordina per data di aggiunta (più recenti)</string>
-  <string name="reading_list_sort_by_recent_desc">Ordina per data di aggiunta (più vecchi)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordina per data di aggiunta (meno recenti)</string>
   <string name="reading_list_sort_by_created">Ordina per data creazione (più recente)</string>
-  <string name="reading_list_sort_by_created_desc">Ordina per data creazione (più vecchia)</string>
+  <string name="reading_list_sort_by_created_desc">Ordina per data di creazione (meno recente)</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
@@ -423,6 +434,7 @@
   <string name="reading_list_add_to_other_list">Aggiungi ad un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
+  <string name="reading_list_select_item">Seleziona</string>
   <string name="reading_list_confirm_remove_article_from_offline">Rimuovi da offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s non sarà più disponibile offline per tutti gli elenchi di lettura:</string>
@@ -447,6 +459,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Impostazioni</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Attiva la sincronizzazione degli elenchi di lettura?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Le voci salvate negli elenchi di lettura possono ora essere sincronizzati con la tua utenza Wikipedia. &lt;a href=\"#faq\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non mostrarmelo di nuovo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Attiva sincronizzazione</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, grazie</string>
@@ -462,6 +475,7 @@
   <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
   <string name="no_user_lists_msg">Crea elenchi per luoghi in cui viaggiare, argomenti preferiti e molto altro ancora</string>
+  <string name="reading_list_saved_list_rename">%1$s (creato dall\'utente)</string>
   <string name="split_reading_list_message">C\'è un limite di %d voci per elenco di lettura. Gli elenchi esistenti con più di questo limite sono stati suddivisi in più elenchi.</string>
   <string name="reading_list_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_lists_limit_message">Impossibile creare un altro elenco. Hai raggiunto il limite di 100 elenchi di lettura per utenza.</string>
@@ -479,6 +493,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">Elenchi di lettura sincronizzati correttamente</string>
   <string name="reading_list_menu_last_sync">Ultima sincronizzazione: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Annulla</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Annulla</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Annulla</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Annulla</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_reverted_title">Modifica annullata</string>
   <string name="notification_channel_description">Progresso dello scaricamento</string>
@@ -509,15 +530,17 @@
   <string name="notifications_poll_enable_title">Attiva le notifiche</string>
   <string name="notifications_poll_enable_positive">Attiva</string>
   <string name="notifications_poll_enable_negative">Non ora</string>
+  <string name="notifications_empty_message">Hai letto tutte le notifiche!</string>
   <string name="notifications_view_archived_button_text">Vedi notifiche archiviate</string>
   <string name="notification_preferences_title">Preferenze sulle notifiche</string>
   <string name="notifications_mark_unread">Segna come non letto</string>
   <string name="preference_summary_notification_poll">Consenti all\'applicazione di utilizzare i dati per verificare nuove notifiche in background.</string>
-  <string name="preference_title_notification_welcome">Benvenuto</string>
+  <string name="preference_category_notification_types">Tipi di notifiche in-app</string>
   <string name="preference_title_notification_milestone">Pietra miliare</string>
   <string name="preference_title_notification_thanks">Ringraziamenti</string>
   <string name="preference_summary_notification_thanks">Qualcuno ti ha ringraziato per una modifica</string>
-  <string name="view_continue_reading_card_title">Continua a leggere</string>
+  <string name="preference_title_notification_revert">Ripristina</string>
+  <string name="preference_summary_notification_revert">Uno dei tuoi contributi è stato annullato</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_card_subtitle">Sfoglia voci casuali da leggere da Wikipedia.</string>
@@ -551,57 +574,142 @@
   <string name="view_static_card_save_button_label">Salva</string>
   <string name="view_featured_article_footer_saved_button_label">Salvato</string>
   <string name="feed_configure_activity_title">Personalizza il feed</string>
+  <string name="feed_configure_menu_reset">Ripristina visualizzazione predefinita</string>
   <string name="feed_configure_menu_select_all">Mostra tutto</string>
   <string name="feed_configure_menu_deselect_all">Nascondi tutto</string>
   <string name="feed_configure_language_warning">Nota che non tutti i tipi di contenuti sono disponibili in tutte le lingue di Wikipedia. Modifica la tua lingua selezionata nelle impostazioni.</string>
   <string name="feed_item_type_news">Voci su eventi attuali</string>
   <string name="feed_item_type_on_this_day">Eventi nella storia in questo giorno</string>
   <string name="feed_item_type_because_you_read">Suggerimenti basati su una voce letta di recente dalla tua cronologia</string>
+  <string name="feed_item_type_featured_article">Voce del giorno su Wikipedia</string>
   <string name="feed_item_type_trending">Voci più viste al giorno</string>
   <string name="feed_item_type_featured_image">Immagine in primo piano quotidiana di Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
+  <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
   <string name="feed_configure_onboarding_action">Personalizza</string>
-  <string name="description_edit_text_hint">Descrizione del titolo</string>
-  <string name="description_edit_text_hint_per_language">descrizione in %s</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Annulla</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
+  <string name="description_edit_text_hint">Descrizione della voce</string>
+  <string name="description_edit_article_description_label_per_language">Voce (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Descrizione voce (%s)</string>
+  <string name="description_edit_add_caption_label_per_language">Descrizione immagine (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Didascalia immagine (%s)</string>
   <string name="description_edit_save">Pubblica</string>
-  <string name="description_edit_article">Voce</string>
   <string name="description_edit_read">Leggi</string>
-  <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
-  <string name="description_edit_edit_description">Modifica descrizione</string>
-  <string name="add_translation">Aggiungi traduzione in %s</string>
+  <string name="description_edit_add_description">Aggiungi una descrizione della voce</string>
+  <string name="description_edit_translate_description">Traduci la descrizione della voce</string>
+  <string name="description_edit_edit_description">Modifica la descrizione della voce</string>
+  <string name="description_edit_add_image_caption">Aggiungi didascalia immagine</string>
+  <string name="description_edit_edit_image_caption">Modifica didascalia immagine</string>
+  <string name="description_edit_translate_image_caption">Traduci didascalia immagine</string>
   <string name="description_edit_cancel_hint">Annulla</string>
-  <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
+  <string name="description_edit_help_title">Informazioni: descrizioni della voce</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guida di Wikidata per la scrittura di descrizioni</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
-  <string name="description_edit_success_saved">Descrizione pubblicata!</string>
-  <string name="description_edit_success_saved_snackbar">Descrizione pubblicata!</string>
+  <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni della voce! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
+  <string name="description_edit_helper_text_lowercase_warning">generalmente inizia con una lettera minuscola</string>
+  <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
+  <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Didascalia dell\'immagine pubblicata!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Didascalia dell\'immagine pubblicata! (%s)</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
-  <string name="description_edit_tutorial_title_descriptions">Descrizioni del titolo</string>
+  <string name="description_edit_success_article_edit_hint">Puoi anche modificare le voci all\'interno di questa applicazione. Prova a correggere errori di battitura e frasi di piccole dimensioni facendo clic sull\'icona ^1 la prossima volta</string>
+  <string name="description_edit_tutorial_title_descriptions">Descrizioni della voce</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Riassume una voce per aiutare i lettori a capire l\'argomento a colpo d\'occhio</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
-  <string name="editactionfeed_add_title_descriptions">Aggiungi descrizioni</string>
-  <string name="editactionfeed_translate_descriptions">Traduci le descrizioni del titolo</string>
-  <string name="editactionfeed_add_description_button">Aggiungi descrizione</string>
-  <string name="editactionfeed_my_contributions">I miei contributi</string>
-  <string name="editactionfeed_from_language">Da:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Ulteriori informazioni</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Ulteriori informazioni</string>
-  <string name="editactionfeed_added_by_you">Aggiunto da te:</string>
-  <string name="editactionfeed_translated_by_you">Tradotto da te:</string>
+  <string name="suggested_edits_add_descriptions">Aggiungi descrizioni della voce</string>
+  <string name="suggested_edits_translate_descriptions">Traduci descrizioni della voce</string>
+  <string name="suggested_edits_add_image_captions">Aggiungi didascalie immagini</string>
+  <string name="suggested_edits_translate_image_captions">Traduci didascalie immagini</string>
+  <string name="suggested_edits_review_description">Revisiona descrizione della voce</string>
+  <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
+  <string name="suggested_edits_edit_description_button">Modifica descrizione</string>
+  <string name="suggested_edits_add_translation_button">Aggiungi traduzione</string>
+  <string name="suggested_edits_edit_translation_button">Modifica traduzione</string>
+  <string name="suggested_edits_add_caption_button">Aggiungi didascalia</string>
+  <string name="suggested_edits_edit_caption_button">Modifica didascalia</string>
+  <string name="suggested_edits_review_image_caption">Rivedi didascalia immagine</string>
+  <string name="suggested_edits_my_contributions">I miei contributi</string>
+  <string name="suggested_edits_no_description">Questo file non ha alcuna descrizione</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Hai sbloccato l\'attività \"Aggiungi descrizioni della voce\"</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grazie per tutti i tuoi contributi! Dato che sei molto bravo a modificare, abbiamo compilato un elenco di voci con descrizioni mancanti. Vuoi aiutarci a migliorare Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Hai sbloccato l\'attività \"Traduci descrizioni della voce\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulazioni per i tuoi numerosi contributi, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni delle descrizione. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
+  <string name="suggested_edits_unlock_dialog_no">Forse più tardi</string>
+  <string name="suggested_edits_unlock_dialog_yes">Si, partiamo</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Hai sbloccato \"Aggiungi descrizioni della voce\"</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Hai sbloccato \"Traduci descrizioni della voce\"</string>
+  <string name="suggested_edits_unlock_notification_text">Modifiche suggerite</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Modifiche suggerite\n\nGrazie per tutti i tuoi contributi. Dato che sei molto bravo a modificare, abbiamo compilato un elenco di voci con descrizioni mancanti. Vuoi aiutarci a migliorare Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Modifiche suggerite\n\nCongratulazioni per i tuoi numerosi contributi, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di voci che richiedono traduzioni di descrizione. Vuoi continuare ad aiutarci a migliorare Wikipedia?</string>
+  <string name="suggested_edits_unlock_notification_button">Si, partiamo</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Hai sbloccato l\'attività \"Aggiungi didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Hai sbloccato \"Aggiungi didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Hai sbloccato l\'attività \"Traduci didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Hai sbloccato \"Traduci didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Congratulazioni per le tue numerose modifiche alle didascalie delle immagini, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di immagini che richiedono traduzioni delle didascalie. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
+  <string name="suggested_edits_license_notice">Aggiungendo la descrizione, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Aggiungendo la didascalia all\'immagine, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_menu_info">Informazioni</string>
+  <string name="suggested_edits_tasks_activity_title">Modifiche suggerite</string>
+  <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni della voce</string>
+  <string name="suggested_edits_task_add_description_description">Contribuire alle voci senza descrizioni</string>
+  <string name="suggested_edits_task_translation_title">Traduci descrizioni della voce</string>
+  <string name="suggested_edits_task_translation_description">Traduci le descrizioni attraverso le lingue della voce.</string>
+  <string name="suggested_edits_task_image_caption_title">Aggiungi didascalie immagini</string>
+  <string name="suggested_edits_task_image_caption_description">Aggiungi brevi didascalie mancanti alle immagini</string>
+  <string name="suggested_edits_task_translate_caption_title">Traduci didascalie immagini</string>
+  <string name="suggested_edits_task_translate_caption_description">Traduci didascalie in altre lingue</string>
+  <string name="suggested_edits_task_multilingual_title">Più attività per editori multilingue</string>
+  <string name="suggested_edits_task_multilingual_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloccato fino a quando non avrai modificato %d didascalie di immagini</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai modificato %d descrizioni di voci (verificate)</string>
+  <string name="suggested_edits_task_multilingual_negative">Non per me</string>
+  <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Autore</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licenza</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 contributo</item>
+    <item quantity="other">%d contributi</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">Modifiche suggerite</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Aggiungi descrizione della voce (%s)</string>
+  <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
+  <string name="suggested_edits_image_preview_dialog_date">Data</string>
+  <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotografo</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Ulteriori informazioni</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagina del file su Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Aggiungi didascalia (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Visualizza</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
+  <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Annulla</string>
   <string name="offline_read_permission_rationale">Per accedere allo spazio di archiviazione sul tuo dispositivo per la navigazione offline è richiesto un permesso.</string>
   <string name="offline_read_final_rationale">Per utilizzare la libreria offline è necessaria l\'autorizzazione per accedere allo spazio di archiviazione sul dispositivo.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 minuto rimasto</item>
-    <item quantity="other">%d minuti rimasti</item>
-  </plurals>
   <string name="onboarding_skip">Salta</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Inizia</string>
@@ -613,11 +721,14 @@
   <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>
   <string name="onboarding_create_account_preferences">Salva le tue preferenze</string>
   <string name="onboarding_got_it">Capito</string>
+  <string name="onboarding_multilingual_secondary_text">Abbiamo trovato quanto segue sul tuo dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Aggiungi o modifica lingue</string>
   <string name="onboarding_welcome_title_v2">L\'enciclopedia libera\n…in più di 300 lingue</string>
   <string name="app_shortcuts_random">Una pagina a caso</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
+  <string name="more_trending_text">Voci correlate</string>
+  <string name="top_on_this_day">Di tendenza il %1$s</string>
   <string name="on_this_day_card_title">In questo giorno</string>
   <string name="more_events_text">Altro in questo giorno</string>
   <string name="events_count_text">%1$s eventi dal %2$s–%3$d</string>
@@ -648,40 +759,29 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Al momento hai varianti del cinese tradizionale e del cinese semplificato impostate nelle lingue dell\'applicazione. Aggiorna le impostazioni della lingua dell\'applicazione?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Modifica lingue</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">No, grazie</string>
+  <string name="remove_language_dialog_cancel_button_text">Annulla</string>
+  <string name="remove_language_dialog_ok_button_text">OK</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">OK</string>
+  <string name="protected_page_warning_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">OK</string>
+  <string name="edit_conflict_dialog_ok_button_text">OK</string>
+  <string name="reverted_edit_dialog_ok_button_text">OK</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Annulla</string>
+  <string name="content_description_for_page_indicator">Pagina %1$d di %2$d</string>
+  <string name="wikitext_bold">Grassetto</string>
+  <string name="wikitext_italic">Corsivo</string>
+  <string name="wikitext_link">Collegamento</string>
+  <string name="wikitext_bulleted_list">Elenco puntato</string>
+  <string name="wikitext_numbered_list">Elenco numerato</string>
+  <string name="wikitext_template">Template</string>
+  <string name="wikitext_reference">Riferimento</string>
+  <string name="wikitext_preview_link">Anteprima collegamento</string>
   <string name="main_drawer_open">Apri</string>
   <string name="main_drawer_close">Chiudi</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
-  <string name="title_description_task_title">Aggiungi descrizioni</string>
-  <string name="title_description_task_description">Contribuire alle voci senza descrizioni</string>
-  <string name="image_caption_task_title">Didascalia immagini</string>
-  <string name="image_caption_task_description">Aggiungi didascalie alle immagini</string>
-  <string name="multilingual_task_title">Più attività per editori multilingue</string>
-  <string name="multilingual_task_description">Le attività di traduzione sono disponibili se leggi e scrivi in ​​più di una lingua di Wikipedia.</string>
-  <string name="translation_task_title">Traduci descrizioni</string>
-  <string name="translation_task_description">Traduci le descrizioni attraverso le lingue della voce.</string>
-  <string name="image_caption_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
-  <string name="translate_description_edit_disable_text">Bloccato fino a quando non avrai apportato %d contributi verificati</string>
-  <string name="multilingual_task_negative">Non per me</string>
-  <string name="multilingual_task_positive">Aggiungi lingue</string>
-  <string name="translation_source_description">Descrizione in %s:</string>
-  <string name="translate_caption_task_title">Traduci didascalie immagini</string>
-  <string name="translate_caption_task_description">Traduci didascalie in altre lingue</string>
-  <plurals name="edit_action_contribution_count">
-    <item quantity="one">1 contributo</item>
-    <item quantity="other">%d contributi</item>
-  </plurals>
-  <string name="add_title_descriptions_dialog_title">Aggiungi descrizioni del titolo</string>
-  <string name="add_title_descriptions_dialog_message">Ora puoi aiutare a migliorare Wikipedia aggiungendo descrizioni che appaiono sotto i titoli nelle voci. Puoi configurare le tue lingue in qualsiasi momento.</string>
-  <string name="add_translate_descriptions_dialog_title">Stai traducendo le descrizioni dei titoli per la prima volta</string>
-  <string name="description_edit_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
-  <string name="translation_description_edit_task_unlock_title">La traduzione delle descrizioni dei titoli è stata sbloccata!</string>
-  <string name="translation_description_edit_task_unlock_body">Abbiamo notato che ti piace modificare le descrizioni dei titoli e leggere Wikipedia in più lingue. Dai un\'occhiata a questa attività che dà accesso alla traduzione di più descrizioni dei titoli!</string>
-  <string name="title_description_editing_skip">Salta</string>
-  <string name="title_description_get_started">Inizia</string>
-  <string name="translate_description_get_started">Inizia</string>
-  <string name="edit_tasks_onboarding_get_started">Inizia</string>
-  <string name="translate_descriptions_maybe_later">Forse più tardi</string>
-  <string name="title_descriptions_onboarding_got_it">Capito</string>
-  <string name="translate_descriptions_onboarding_got_it">Capito</string>
+  <string name="custom_date_picker_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_ok_button_text">OK</string>
+  <string name="text_input_dialog_cancel_button_text">Annulla</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Annulla</string>
 </resources>

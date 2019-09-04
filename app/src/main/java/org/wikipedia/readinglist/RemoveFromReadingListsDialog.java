@@ -1,9 +1,10 @@
 package org.wikipedia.readinglist;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -51,7 +52,7 @@ public class RemoveFromReadingListsDialog {
 
         new AlertDialog.Builder(context)
                 .setTitle(R.string.reading_list_remove_from_lists)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                .setPositiveButton(R.string.reading_list_remove_list_dialog_ok_button_text, (dialog, which) -> {
                     boolean atLeastOneSelected = false;
                     List<ReadingList> newLists = new ArrayList<>();
                     for (int i = 0; i < listNames.length; i++) {
@@ -66,7 +67,7 @@ public class RemoveFromReadingListsDialog {
                         callback.onDeleted(newLists, listsContainingPage.get(0).pages().get(0));
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
                 .setMultiChoiceItems(listNames, selected, (dialog, which, checked) -> selected[which] = checked)
                 .create()
                 .show();

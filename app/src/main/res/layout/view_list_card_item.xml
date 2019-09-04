@@ -1,60 +1,48 @@
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.support.constraint.ConstraintLayout"
-    tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:paddingBottom="16dp"
     tools:paddingTop="16dp"
-    tools:paddingBottom="16dp">
-
-    <com.facebook.drawee.view.SimpleDraweeView
-        style="@style/SimpleDraweeViewPlaceholder"
-        android:id="@+id/view_list_card_item_image"
-        android:layout_width="@dimen/view_list_card_item_image"
-        android:layout_height="@dimen/view_list_card_item_image"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="2dp" />
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <TextView
         android:id="@+id/view_list_card_item_title"
         style="@style/MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/view_list_card_item_subtitle"
-        app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_menu"
-        app:layout_constraintStart_toEndOf="@+id/view_list_card_item_image"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/view_list_card_item_subtitle"
+        style="@style/MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        app:layout_constraintStart_toStartOf="@+id/view_list_card_item_title"
-        app:layout_constraintEnd_toEndOf="@+id/view_list_card_item_title"
-        app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
         app:layout_constraintBottom_toBottomOf="parent"
-        style="@style/MaterialListSubtitle"
-        tools:text="Lorem ipsum"/>
+        app:layout_constraintEnd_toEndOf="@+id/view_list_card_item_title"
+        app:layout_constraintStart_toStartOf="@+id/view_list_card_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
+        tools:text="Lorem ipsum" />
 
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/view_list_card_item_menu"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintTop_toTopOf="@+id/view_list_card_item_title"
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/view_list_card_item_image"
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        app:tint="?attr/material_theme_de_emphasised_color"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/abc_action_menu_overflow_description"
-        tools:visibility="visible"/>
+        app:layout_constraintStart_toEndOf="@+id/view_list_card_item_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundedCornerRadius="2dp" />
 
 </merge>

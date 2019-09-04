@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,25 +12,26 @@
         android:layout_height="24dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="12dp"
+        android:contentDescription="@null"
         android:tint="?colorPrimary"
-        app:srcCompat="@drawable/ic_add_gray_themed_24dp"
-        app:tint="@color/base30"
-        android:contentDescription="@null"/>
+        app:srcCompat="@drawable/ic_add_gray_white_24dp"
+        app:tint="@color/base30" />
+
     <TextView
         android:id="@+id/wiki_language_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="8sp"
+        android:paddingStart="16dp"
         android:paddingTop="16dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         android:text="@string/wikipedia_languages_add_language_text"
         android:textAllCaps="true"
-        android:textSize="14sp"
-        android:lineSpacingExtra="8sp"
         android:textColor="?colorAccent"
-        android:fontFamily="sans-serif-medium"
-        tools:text="Lorem ipsum"/>
+        android:textSize="14sp"
+        tools:text="Lorem ipsum" />
 
 </LinearLayout>

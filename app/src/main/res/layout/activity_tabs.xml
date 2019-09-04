@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tab_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,43 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="?android:attr/windowBackground"
+        android:background="?android:attr/colorBackground"
         app:layoutPolicy="auto"
         app:tabBackgroundColor="?attr/main_toolbar_color"
-        app:tabContentBackgroundColor="?attr/paper_color"/>
+        app:tabContentBackgroundColor="?attr/paper_color" />
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/tab_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?android:attr/windowBackground"
+        android:background="?android:attr/colorBackground"
         android:theme="@style/TabToolbarTheme">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="end|center_vertical">
-            <FrameLayout
-                android:id="@+id/tab_counts_view_container"
+
+            <org.wikipedia.views.TabCountsView
+                android:id="@+id/tab_counts_view"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/page_tabs_back">
-                <org.wikipedia.views.TabCountsView
-                    android:id="@+id/tab_counts_view"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:textSize="12sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textColor="?attr/main_toolbar_icon_color"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:background="?attr/page_tab_counts_shape_border"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    tools:text="3"/>
-            </FrameLayout>
+                android:contentDescription="@string/page_tabs_back" />
         </LinearLayout>
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 </FrameLayout>

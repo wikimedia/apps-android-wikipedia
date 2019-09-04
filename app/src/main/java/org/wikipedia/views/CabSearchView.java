@@ -1,8 +1,6 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.SearchView;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -10,6 +8,9 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.appcompat.widget.SearchView;
 
 import org.wikipedia.R;
 import org.wikipedia.richtext.RichTextUtil;
@@ -31,7 +32,7 @@ public class CabSearchView extends SearchView {
     }
 
     public CabSearchView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.support.v7.appcompat.R.attr.searchViewStyle);
+        this(context, attrs, androidx.appcompat.R.attr.searchViewStyle);
     }
 
     public CabSearchView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -73,7 +74,7 @@ public class CabSearchView extends SearchView {
 
         } else {
             searchCloseBtn.setVisibility(VISIBLE);
-            searchCloseBtn.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_close_themed_24dp));
+            searchCloseBtn.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.ic_close_themed_24dp));
         }
     }
 

@@ -2,19 +2,20 @@ package org.wikipedia.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -22,30 +23,30 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.editactionfeed.EditTasksActivity;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
+import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
 
-import static android.view.Gravity.START;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
@@ -72,9 +73,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         WikipediaApp.getInstance().checkCrashes(this);
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
-
-        Completable.fromAction(() -> AppShortcuts.setShortcuts(getApplicationContext()))
-                .subscribeOn(Schedulers.newThread()).subscribe();
+        AppShortcuts.setShortcuts(this);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
@@ -108,6 +107,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         drawerView.setCallback(new DrawerViewCallback());
         shouldShowMainDrawer(true);
         setUpHomeMenuIcon();
+        FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
     }
 
     @Override
@@ -116,6 +116,36 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         // update main nav drawer after rotating screen
         drawerView.updateState();
         setUpHomeMenuIcon();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
+        if (WikipediaApp.getInstance().getTabCount() < 1) {
+            tabsItem.setVisible(false);
+        } else {
+            tabsItem.setVisible(true);
+            TabCountsView tabCountsView = new TabCountsView(this);
+            tabCountsView.setOnClickListener(v -> {
+                if (WikipediaApp.getInstance().getTabCount() == 1) {
+                    startActivity(PageActivity.newIntent(MainActivity.this));
+                } else {
+                    startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
+                }
+            });
+            tabCountsView.updateTabCount();
+            tabsItem.setActionView(tabCountsView);
+            tabsItem.expandActionView();
+            FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
+        }
+        return true;
     }
 
     @LayoutRes
@@ -132,14 +162,14 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onTabChanged(@NonNull NavTab tab) {
         if (tab.equals(NavTab.EXPLORE)) {
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
-            getSupportActionBar().setTitle("");
+            toolbar.setTitle("");
             controlNavTabInFragment = false;
         } else {
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
             hamburgerAndWordmarkLayout.setVisibility(GONE);
-            getSupportActionBar().setTitle(tab.text());
+            toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
         shouldShowMainDrawer(!controlNavTabInFragment);
@@ -147,11 +177,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     void setUpHomeMenuIcon() {
-        drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() && ReleaseUtil.isPreBetaRelease() ? VISIBLE : GONE);
+        drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() ? VISIBLE : GONE);
     }
 
     @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
-        drawerLayout.openDrawer(START);
+        drawerLayout.openDrawer(GravityCompat.START);
     }
 
     @Override
@@ -160,14 +190,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         if (!controlNavTabInFragment) {
             getFragment().setBottomNavVisible(false);
         }
-        getFragment().getFloatingQueueView().hide();
     }
 
     @Override
     public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         getFragment().setBottomNavVisible(true);
-        getFragment().getFloatingQueueView().show();
     }
 
     @Override
@@ -198,22 +226,14 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
             return;
         }
         if (getFragment().onBackPressed()) {
             return;
         }
         super.onBackPressed();
-    }
-
-    public boolean isFloatingQueueEnabled() {
-        return getFragment().getFloatingQueueView().getVisibility() == VISIBLE;
-    }
-
-    public View getFloatingQueueImageView() {
-        return getFragment().getFloatingQueueView().getImageView();
     }
 
     public void closeMainDrawer() {
@@ -237,16 +257,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     protected void setToolbarElevationDefault() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getToolbar().setElevation(DimenUtil
-                    .dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
-        }
+        getToolbar().setElevation(DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
     }
 
     protected void clearToolbarElevation() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getToolbar().setElevation(0f);
-        }
+        getToolbar().setElevation(0f);
     }
 
     private class DrawerViewCallback implements MainDrawerView.Callback {
@@ -254,7 +269,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (AccountUtil.isLoggedIn()) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setMessage(R.string.logout_prompt)
-                        .setNegativeButton(android.R.string.cancel, null)
+                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
@@ -263,6 +278,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
+                            Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
                         }).show();
             } else {
                 getFragment().onLoginRequested();
@@ -293,7 +310,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         public void editingTasksClick() {
             Prefs.setShowEditMenuOptionIndicator(false);
             drawerView.maybeShowIndicatorDots();
-            startActivity(EditTasksActivity.newIntent(MainActivity.this));
+
+            startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
+                    : SuggestedEditsTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY));
+
             closeMainDrawer();
         }
 

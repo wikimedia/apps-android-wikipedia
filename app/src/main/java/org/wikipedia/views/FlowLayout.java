@@ -2,10 +2,11 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.core.view.ViewCompat;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.util.DimenUtil;

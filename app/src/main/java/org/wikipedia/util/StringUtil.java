@@ -1,25 +1,25 @@
 package org.wikipedia.util;
 
 import android.os.Build;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
-import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
@@ -59,14 +59,14 @@ public final class StringUtil {
         try {
             // Create MD5 Hash
             MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes("utf-8"));
+            digest.update(s.getBytes(StandardCharsets.UTF_8));
             byte[] messageDigest = digest.digest();
 
             final int maxByteVal = 0xFF;
             for (byte b : messageDigest) {
                 hexStr.append(Integer.toHexString(maxByteVal & b));
             }
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+        } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
         return hexStr.toString();
@@ -120,7 +120,7 @@ public final class StringUtil {
 
     public static String removeNamespace(@NonNull String text) {
         if (text.length() > text.indexOf(":")) {
-            return text.substring(text.indexOf(":") + 1, text.length());
+            return text.substring(text.indexOf(":") + 1);
         } else {
             return text;
         }
@@ -178,12 +178,11 @@ public final class StringUtil {
     @NonNull
     public static SpannableStringBuilder boldenSubstrings(@NonNull String text, @NonNull List<String> subStrings) {
         SpannableStringBuilder sb = new SpannableStringBuilder(text);
+        String textLowerCase = text.toLowerCase();
         for (String subString : subStrings) {
-            int index = text.toLowerCase().indexOf(subString.toLowerCase());
-            if (index != -1) {
-                sb.setSpan(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                        ? new TypefaceSpan("sans-serif-medium")
-                        : new StyleSpan(android.graphics.Typeface.BOLD),
+            int index = textLowerCase.indexOf(subString.toLowerCase());
+            if (index != -1 && index + subString.length() < sb.length()) {
+                sb.setSpan(new TypefaceSpan("sans-serif-medium"),
                         index, index + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
             }
         }

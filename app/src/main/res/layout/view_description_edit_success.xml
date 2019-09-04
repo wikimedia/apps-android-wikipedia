@@ -1,57 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="bottom|center_horizontal">
+        android:gravity="bottom|center_horizontal"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/view_success_edit_center_text_container"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="48dp"/>
+                android:layout_height="48dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="18dp"
-                app:srcCompat="@drawable/ic_illustration_description_success"
-                android:contentDescription="@null"/>
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_illustration_description_success" />
 
             <org.wikipedia.views.AppTextView
+                style="@style/TextViewCentered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                style="@style/TextViewCentered"
+                android:fontFamily="sans-serif-light"
                 android:text="@string/description_edit_success_saved"
                 android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-light"/>
+                android:textSize="30sp" />
 
             <org.wikipedia.views.AppTextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_marginBottom="36dp"
                 style="@style/TextViewCentered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="36dp"
                 android:text="@string/description_edit_success_encouragement"
-                android:textColor="@color/base70"
                 android:textAlignment="center"
-                android:textSize="15sp"/>
+                android:textColor="@color/base70"
+                android:textSize="15sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/view_description_edit_success_done_button"
                 style="@style/App.Button.Blue"
                 android:text="@string/description_edit_success_done" />
@@ -59,40 +58,40 @@
 
         <LinearLayout
             android:id="@+id/view_success_edit_did_you_know_container"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginBottom="16dp"
-            android:padding="16dp"
+            android:layout_weight="0"
             android:background="@drawable/shape_border_1dp_gray"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <org.wikipedia.views.AppTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
                 android:text="@string/description_edit_success_did_you_know"
-                android:textStyle="bold"
                 android:textColor="@color/base70"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <org.wikipedia.views.AppTextViewWithImages
                 android:id="@+id/view_description_edit_success_hint_text"
+                style="@style/TextViewCentered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextViewCentered"
-                android:maxWidth="336dp"
                 android:layout_gravity="center"
-                android:textColor="@color/base70"
-                android:textSize="14sp"
-                android:textAlignment="center"
                 android:includeFontPadding="false"
-                android:lineSpacingMultiplier="1.21" />
+                android:lineSpacingMultiplier="1.21"
+                android:maxWidth="336dp"
+                android:textAlignment="center"
+                android:textColor="@color/base70"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

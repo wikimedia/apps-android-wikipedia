@@ -1,9 +1,10 @@
 package org.wikipedia.navtab;
 
 import android.content.Context;
-import android.support.design.widget.BottomNavigationView;
 import android.util.AttributeSet;
 import android.view.Menu;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavTabLayout extends BottomNavigationView {
 

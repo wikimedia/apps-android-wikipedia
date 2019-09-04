@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
-    tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
-    tools:orientation="vertical">
+    tools:layout_width="match_parent"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
 
     <TextView
         android:id="@+id/view_onboarding_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="12dp"
-        android:textStyle="bold"
-        android:textSize="14sp"
         android:lineSpacingMultiplier="1.21"
-        tools:text="Lorem ipsum"/>
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Lorem ipsum" />
 
     <TextView
         android:id="@+id/view_onboarding_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:layout_marginBottom="12dp"
-        android:textSize="14sp"
-        android:textColorLink="@android:color/white"
         android:lineSpacingMultiplier="1.21"
-        tools:text="Lorem ipsum"/>
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textSize="14sp"
+        tools:text="Lorem ipsum" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginBottom="8dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp">
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
 
-        <TextView
+        <Button
             android:id="@+id/view_onboarding_action_negative"
             style="@style/TransparentButton"
             android:layout_width="wrap_content"
@@ -51,11 +50,11 @@
             android:text="@string/onboarding_negative_action"
             android:textColor="@android:color/white" />
 
-        <TextView
+        <Button
             android:id="@+id/view_onboarding_action_positive"
             style="@style/App.Button.White"
             android:textColor="@color/accent50"
-            tools:text="Lorem ipsum"/>
+            tools:text="Lorem ipsum" />
     </LinearLayout>
 
 </merge>

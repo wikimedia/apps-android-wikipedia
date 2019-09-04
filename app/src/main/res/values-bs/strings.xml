@@ -56,7 +56,6 @@
   <string name="langlinks_no_match">Nije pronađen nijedan jezik</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="menu_save_changes">Objavi izmjene</string>
-  <string name="dialog_saving_in_progress">Objavljujem...</string>
   <string name="edit_saved_successfully">Izmjena je objavljena!</string>
   <string name="dialog_message_edit_failed">Čuvanje izmjene nije uspjelo!</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
@@ -108,7 +107,6 @@
   <string name="create_account_name_unavailable">Korisničko ime \"%s\" nije dostupno. Izaberite drugo.</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji</string>
-  <string name="edit_preview_fetching_dialog_message">Učitavam pregled...</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Korisnički račun napravljen!</string>
   <string name="preferences_heading_syncing">Sinhronizacija</string>
@@ -259,7 +257,7 @@
   <string name="article_menu_bar_bookmark">Dodaj ovaj članak na spisak za čitanje</string>
   <string name="article_menu_bar_share">Podijeli link ovog članka</string>
   <string name="article_header_edit_hint">Uredi...</string>
-  <string name="article_header_edit_description">Uredi opis naslova</string>
+  <string name="article_header_edit_description" fuzzy="true">Uredi opis naslova</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Svijetla</string>
@@ -354,7 +352,6 @@
   <string name="notification_channel_name" fuzzy="true">Sinhronizacija</string>
   <string name="notification_syncing_title" fuzzy="true">Preuzimam %1$d članak/-(a)ka…</string>
   <string name="notification_syncing_description" fuzzy="true">Preostalo članaka: %1$d</string>
-  <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
   <string name="view_random_card_subtitle">Prelistajte nasumično izabrane članke s Wikipedije.</string>
@@ -399,23 +396,23 @@
   <string name="feed_item_type_randomizer">Daje nasumične stranice za čitanje</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite stranicu \"Istraži\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Možete izabrati šta će se prikazati na stranici i dati prednost Vašim omiljenim vrstama sadržaja.</string>
-  <string name="description_edit_text_hint">Napišite opis!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Napišite opis!</string>
   <string name="description_edit_save">Objavi</string>
-  <string name="description_edit_add_description">Dodaj opis naslova</string>
-  <string name="description_edit_edit_description">Uredi opis</string>
+  <string name="description_edit_add_description" fuzzy="true">Dodaj opis naslova</string>
+  <string name="description_edit_edit_description" fuzzy="true">Uredi opis</string>
   <string name="description_edit_cancel_hint">Odustani</string>
-  <string name="description_edit_help_title">Pomoć: opis naslova</string>
+  <string name="description_edit_help_title" fuzzy="true">Pomoć: opis naslova</string>
   <string name="description_edit_help_about_wikidata">O Wikipodacima</string>
   <string name="description_edit_help_wikidata_guide">Vodič o pisanju opisa na Wikipodacima</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
-  <string name="description_edit_license_notice">Mijenjanjem opisa naslova prihvatam &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažem da svoj doprinos objavim pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Opis je objavljen!</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Mijenjanjem opisa naslova prihvatam &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažem da svoj doprinos objavim pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Opis je objavljen!</string>
   <string name="description_edit_success_encouragement">Upravo ste svima poboljšali Wikipediju</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>
   <string name="description_edit_success_article_edit_hint">Aplikacijom možete i uređivati članke. Sljedeći put pokušajte popraviti tipfelere ili dodati kraće rečenice tako što ćete dodirnuti ikonu ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Opisi naslova</string>
+  <string name="description_edit_tutorial_title_descriptions">Opisi članaka</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Sažima članak da bi čitaoci na prvi pogled mogli razumjeti o čemu se radi</string>
   <string name="description_edit_tutorial_keep_it_short">Neka bude kratko</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno da bude 1 red, od 2 do 12 riječi</string>
@@ -426,10 +423,6 @@
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Vaš doprinos djelovao je kao eksperiment ili vandalizam.</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">Preostala jedna minuta</item>
-    <item quantity="other">Preostale %d minute</item>
-  </plurals>
   <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nastavi</string>
   <string name="onboarding_get_started">Započnite</string>
@@ -463,7 +456,7 @@
   <string name="wikipedia_languages_title">Jezik Wikipedije</string>
   <string name="wikipedia_languages_your_languages_text">Vaši jezici</string>
   <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
-  <string name="wikipedia_languages_remove_text" fuzzy="true">Ukloni</string>
+  <string name="wikipedia_languages_remove_text">Ukloni jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ukloni jezik</string>
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Da uklonim izabrani/-e jezik(e)?</string>
   <string name="wikipedia_languages_remove_dialog_content">Sadržaj na stranici \"Istraži\" i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>

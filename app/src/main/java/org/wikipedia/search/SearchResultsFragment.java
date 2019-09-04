@@ -3,10 +3,6 @@ package org.wikipedia.search;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.util.LruCache;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +11,15 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.LruCache;
+import androidx.fragment.app.Fragment;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -25,7 +29,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -38,19 +41,18 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemClick;
 import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
         void onSearchResultCopyLink(@NonNull PageTitle title);
-        void onSearchResultAddToList(@NonNull PageTitle title,
-                                     @NonNull AddToReadingListDialog.InvokeSource source);
+        void onSearchResultAddToList(@NonNull PageTitle title, @NonNull InvokeSource source);
         void onSearchResultShareLink(@NonNull PageTitle title);
         void onSearchProgressBar(boolean enabled);
         void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
@@ -90,6 +92,7 @@ public class SearchResultsFragment extends Fragment {
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
+        searchErrorView.setBackClickListener((v) -> requireActivity().finish());
         searchErrorView.setRetryClickListener((v) -> {
             searchErrorView.setVisibility(View.GONE);
             startSearch(currentSearchTerm, true);
@@ -121,14 +124,6 @@ public class SearchResultsFragment extends Fragment {
         super.onDestroy();
     }
 
-    @OnItemClick(R.id.search_results_list) void onItemClick(ListView view, int position) {
-        Callback callback = callback();
-        if (callback != null) {
-            PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-            callback.navigateToTitle(item, false, position);
-        }
-    }
-
     @OnClick(R.id.search_suggestion) void onSuggestionClick(View view) {
         Callback callback = callback();
         String suggestion = (String) searchSuggestion.getTag();
@@ -149,6 +144,10 @@ public class SearchResultsFragment extends Fragment {
 
     public boolean isShowing() {
         return searchResultsDisplay.getVisibility() == View.VISIBLE;
+    }
+
+    public void setLayoutDirection(@NonNull String langCode) {
+        setConditionalLayoutDirection(searchResultsList, langCode);
     }
 
     /**
@@ -228,7 +227,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .doFinally(() -> updateProgressBar(false))
+                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(View.GONE);
                     handleResults(results, searchTerm, startTime);
@@ -319,7 +318,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .doFinally(() -> updateProgressBar(false))
+                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
@@ -408,7 +407,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.ListViewContextMenuListener {
+            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
         private int lastPositionRequested;
 
         @Override
@@ -450,8 +449,7 @@ public class SearchResultsFragment extends Fragment {
         }
 
         @Override
-        public void onAddToList(@NonNull PageTitle title,
-                                @NonNull AddToReadingListDialog.InvokeSource source) {
+        public void onAddToList(@NonNull PageTitle title, @NonNull InvokeSource source) {
             Callback callback = callback();
             if (callback != null) {
                 callback.onSearchResultAddToList(title, source);
@@ -459,7 +457,7 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private final class SearchResultAdapter extends BaseAdapter {
+    private final class SearchResultAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener {
         private final LayoutInflater inflater;
 
         SearchResultAdapter(LayoutInflater inflater) {
@@ -485,10 +483,13 @@ public class SearchResultsFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item_search_result, parent, false);
+                convertView.setOnClickListener(this);
+                convertView.setOnLongClickListener(this);
             }
             TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = (SearchResult) getItem(position);
 
+            SimpleDraweeView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
             GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
             TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
             View redirectArrow = convertView.findViewById(R.id.page_list_item_redirect_arrow);
@@ -506,7 +507,8 @@ public class SearchResultsFragment extends Fragment {
             // highlight search term within the text
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
-            ViewUtil.loadImageUrlInto(convertView.findViewById(R.id.page_list_item_image),
+            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
+            ViewUtil.loadImageUrlInto(searchResultItemImage,
                     result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
@@ -521,7 +523,22 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
 
+            convertView.setTag(position);
             return convertView;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Callback callback = callback();
+            int position = (int) v.getTag();
+            if (callback != null && position < totalResults.size()) {
+                callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+            }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            return false;
         }
     }
 

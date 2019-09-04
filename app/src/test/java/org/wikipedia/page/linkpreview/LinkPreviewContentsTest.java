@@ -27,7 +27,7 @@ public class LinkPreviewContentsTest {
         rbPageSummary = GsonUnmarshaller.unmarshal(RbPageSummary.class, json);
     }
 
-    @Test public void testExtractHasSuperscripts() throws Throwable {
+    @Test public void testExtractHasSuperscripts() {
         LinkPreviewContents linkPreviewContents = new LinkPreviewContents(rbPageSummary, TEST);
         SpannableStringBuilder extract = (SpannableStringBuilder) linkPreviewContents.getExtract();
         assertThat(extract.getSpans(0, extract.length(), SuperscriptSpan.class),

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.support.v7.widget.CardView"
+    tools:layout_height="48dp"
     tools:layout_width="wrap_content"
-    tools:layout_height="48dp">
+    tools:parentTag="androidx.cardview.widget.CardView">
 
     <ImageView
         android:id="@+id/wikitext_button_image"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:contentDescription="@null"
         android:padding="12dp"
-        app:tint="?attr/material_theme_secondary_color"
-        android:contentDescription="@null"/>
+        app:tint="?attr/material_theme_secondary_color" />
 
     <TextView
         android:id="@+id/wikitext_button_text"
@@ -21,23 +20,23 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
         android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
         android:fontFamily="monospace"
         android:textSize="16sp"
-        tools:text="[[]]"/>
+        tools:text="[[]]" />
 
     <TextView
         android:id="@+id/wikitext_button_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="2dp"
         android:textColor="?attr/material_theme_secondary_color"
         android:textSize="9sp"
-        tools:text="Link"/>
+        tools:text="Link" />
 
 </merge>

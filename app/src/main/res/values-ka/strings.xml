@@ -56,7 +56,6 @@
   <string name="langlinks_no_match" fuzzy="true">თქვენს მოთხოვნაზე არც ერთი ენა არ მოიძებნა.</string>
   <string name="langlinks_activity_title">სხვა ენები</string>
   <string name="menu_save_changes">ცვლილებების გამოქვეყნება</string>
-  <string name="dialog_saving_in_progress">გამოქვეყნება…</string>
   <string name="edit_saved_successfully">ცვლილება გამოქვეყნდა!</string>
   <string name="dialog_message_edit_failed">ცვლილება ვერ მოხერხდა!</string>
   <string name="dialog_message_edit_failed_retry">გამეორება</string>
@@ -107,7 +106,6 @@
   <string name="create_account_button">ანგარიშის შექმნა</string>
   <string name="preferences_general_heading">მთავარი</string>
   <string name="wikipedia_app_faq">ვიკიპედიის აპლიკაციის ხდშ</string>
-  <string name="edit_preview_fetching_dialog_message">წინასწარი გადახედვის რეჟიმი…</string>
   <string name="send_feedback">შეაფასეთ აპლიკაცია</string>
   <string name="create_account_account_created_toast">ანგარიში შექმნილია!</string>
   <string name="preferences_privacy_settings_heading">უსაფრთხოება</string>
@@ -238,7 +236,7 @@
   <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_header_edit_hint">რედაქტირება</string>
-  <string name="article_header_edit_description">სათაურის აღწერილობის რედაქტირება</string>
+  <string name="article_header_edit_description" fuzzy="true">სათაურის აღწერილობის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>
   <string name="color_theme_select">თემა</string>
   <string name="color_theme_light">ნათელი</string>
@@ -290,7 +288,6 @@
   <string name="notification_channel_name" fuzzy="true">სინქრონიზაცია</string>
   <string name="notification_syncing_title" fuzzy="true">იტვირთება %1$d სტატია…</string>
   <string name="notification_syncing_description" fuzzy="true">დარჩა %1$d სტატია</string>
-  <string name="view_continue_reading_card_title">განაგრძე კითხვა</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_title">შემთხვევითი</string>
   <string name="view_random_card_subtitle">გადაფურცლეთ ვიკიპედიის შემთხვევითი სტატიების წასაკითხად.</string>
@@ -319,23 +316,19 @@
   <string name="view_featured_article_footer_saved_button_label">შენახულია</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">ყველას არჩევა</string>
   <string name="feed_configure_menu_deselect_all" fuzzy="true">არჩევის გაუქმება</string>
-  <string name="description_edit_text_hint">სათაურის აღწერა</string>
+  <string name="description_edit_text_hint" fuzzy="true">სათაურის აღწერა</string>
   <string name="description_edit_save">გამოქვეყნება</string>
-  <string name="description_edit_add_description">სათაურის აღწერის დამატება</string>
-  <string name="description_edit_edit_description">აღწერის რედაქტირება</string>
+  <string name="description_edit_add_description" fuzzy="true">სათაურის აღწერის დამატება</string>
+  <string name="description_edit_edit_description" fuzzy="true">აღწერის რედაქტირება</string>
   <string name="description_edit_cancel_hint">გაუქმება</string>
   <string name="description_edit_help_about_wikidata">ვიკიმონაცემების შესახებ</string>
-  <string name="description_edit_success_saved">აღწერა გამოქვეყნდა!</string>
+  <string name="description_edit_success_saved" fuzzy="true">აღწერა გამოქვეყნდა!</string>
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
-  <string name="description_edit_tutorial_title_descriptions">სათაურის აღწერილობა</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">სათაურის აღწერილობა</string>
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="size_mb">%.2f მბ</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">დარჩა 1 წუთი</item>
-    <item quantity="other">დარჩა %d წუთი</item>
-  </plurals>
   <string name="onboarding_skip">გამოტოვება</string>
   <string name="onboarding_continue">გაგრძელება</string>
   <string name="onboarding_get_started">დაწყება</string>

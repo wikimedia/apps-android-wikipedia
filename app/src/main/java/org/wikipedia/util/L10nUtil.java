@@ -3,10 +3,11 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.util.SparseArray;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -158,6 +159,12 @@ public final class L10nUtil {
                                                            @StringRes int[] strings) {
         Configuration config = getCurrentConfiguration();
         Locale systemLocale = ConfigurationCompat.getLocale(config);
+        if (systemLocale.getLanguage().equals(targetLocale.getLanguage())) {
+            SparseArray<String> localizedStrings = new SparseArray<>();
+            for (int stringRes : strings) {
+                localizedStrings.put(stringRes, WikipediaApp.getInstance().getString(stringRes));
+            }
+        }
         setDesiredLocale(config, targetLocale);
         SparseArray<String> localizedStrings = getTargetStrings(strings, config);
         config.setLocale(systemLocale);

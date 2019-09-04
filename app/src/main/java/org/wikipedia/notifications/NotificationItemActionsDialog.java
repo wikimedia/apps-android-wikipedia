@@ -4,15 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -50,6 +51,9 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     @BindView(R.id.notification_action_tertiary) View tertiaryView;
     @BindView(R.id.notification_action_tertiary_icon) AppCompatImageView tertiaryImageView;
     @BindView(R.id.notification_action_tertiary_text) TextView tertiaryTextView;
+
+    private static final String ARG_NOTIFICATION = "notification";
+
     private Unbinder unbinder;
 
     private Notification notification;
@@ -59,7 +63,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     public static NotificationItemActionsDialog newInstance(@NonNull Notification notification) {
         NotificationItemActionsDialog instance = new NotificationItemActionsDialog();
         Bundle args = new Bundle();
-        args.putString("notification", GsonUtil.getDefaultGson().toJson(notification));
+        args.putString(ARG_NOTIFICATION, GsonUtil.getDefaultGson().toJson(notification));
         instance.setArguments(args);
         return instance;
     }
@@ -68,7 +72,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.view_notification_actions, container);
         unbinder = ButterKnife.bind(this, view);
-        notification = GsonUtil.getDefaultGson().fromJson(getArguments().getString("notification"), Notification.class);
+        notification = GsonUtil.getDefaultGson().fromJson(getArguments().getString(ARG_NOTIFICATION), Notification.class);
         linkHandler = new NotificationLinkHandler(requireContext());
 
         if (notification.getContents() != null) {
@@ -169,6 +173,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
         @Override
         public void onExternalLinkClicked(@NonNull Uri uri) {
             try {
+                // TODO: handle "change password" since it will open a blank page in PageActivity
                 startActivity(new Intent(Intent.ACTION_VIEW).setData(uri));
             } catch (Exception e) {
                 L.e(e);

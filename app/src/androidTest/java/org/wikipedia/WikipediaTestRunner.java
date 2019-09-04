@@ -3,8 +3,9 @@ package org.wikipedia;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnitRunner;
+
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnitRunner;
 
 import org.wikipedia.dataclient.okhttp.TestStubInterceptor;
 import org.wikipedia.espresso.MockInstrumentationInterceptor;
@@ -21,7 +22,7 @@ public class WikipediaTestRunner extends AndroidJUnitRunner {
     @Override
     public void onStart() {
         deviceRequirementsCheck();
-        TestStubInterceptor.setCallback(new MockInstrumentationInterceptor(InstrumentationRegistry.getContext()));
+        TestStubInterceptor.Companion.setCALLBACK(new MockInstrumentationInterceptor(InstrumentationRegistry.getContext()));
         clearAppInfo();
         disableOnboarding();
         cleanUpComparisonResults();

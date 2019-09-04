@@ -1,62 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Abijeet Patro
+* Aram1985
+* Kareyac
+* Xelgen
+* Աշոտ1997
+* Դավիթ Սարոյան
+-->
 <resources>
   <string name="app_name_prod">Վիքիպեդիա</string>
   <string name="app_name_beta">Վիքիպեդիա Բետա</string>
   <string name="app_name_alpha">Վիքիպեդիա Ալֆա</string>
   <string name="wikimedia">Վիքիմեդիա</string>
+  <string name="nav_item_back">Հետ</string>
+  <string name="page_tabs_back">Հետ</string>
+  <string name="nav_item_forward">Առաջ</string>
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
+  <string name="search_hint_search_history">Որոնումների պատմություն</string>
   <string name="nav_item_history">Պատմություն</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
-  <string name="page_error_retry">Կրկնել</string>
+  <string name="page_error_retry">Կրկին փորձել</string>
+  <string name="card_offline_error_retry">Կրկին փորձել</string>
+  <string name="storage_access_error_retry">Կրկին փորձել</string>
+  <string name="article_load_error_retry">Կրկին փորձել</string>
+  <string name="offline_load_error_retry">Կրկին փորձել</string>
   <string name="page_error_back_to_main">Հետ գնալ</string>
+  <string name="error_back">Հետ գնալ</string>
   <string name="menu_clear_all_history">Մաքրել պատմությունը</string>
-  <string name="dialog_title_clear_history">Մաքրել հիշապահեստը</string>
-    <string name="share_via">Կիսվել…</string>
-  <string name="menu_page_show_tabs">Ցուցադրել աղյուսակները</string>
+  <string name="history_item_deleted">%s հոդվածը հեռացվել է դիտումների պատմությունց</string>
+  <string name="history_items_deleted">%d հոդվածներ հեռացվել են դիտումների պատմությունից</string>
+  <string name="history_item_delete_undo">Հետ շրջել</string>
+  <string name="notification_archive_undo">Հետ շրջել</string>
+  <string name="app_settings">Հավելվածի կարգավորումներ</string>
+  <string name="dialog_title_clear_history">Մաքրել դիտումների պատմությունը</string>
+  <string name="dialog_message_clear_history_yes">Այո</string>
+  <string name="dialog_message_clear_history_no">Ոչ</string>
+  <string name="share_via">Կիսվել…</string>
+  <string name="image_share_via">Կիսվել…</string>
+  <string name="search_redirect_from">Վերահղված է %s-ից</string>
+  <string name="menu_page_show_tabs">Ցուցադրել ներդիրները</string>
   <string name="menu_page_other_languages">Փոխել լեզուն</string>
   <string name="menu_page_find_in_page">Գտնել էջում</string>
-  <string name="menu_page_font_and_theme">Տառատեսակ և ձևավորում</string>
+  <string name="edit_section_find_in_page">Գտնել էջում</string>
+  <string name="menu_page_font_and_theme">Տառատեսակ և արտաքին տեսք</string>
   <string name="menu_page_add_to_list">Ավելացնել ընթերցացանկում</string>
   <string name="menu_page_share">Կիսվել հղումով</string>
+  <string name="menu_page_open_a_new_tab">Բացել նոր ներդիրում</string>
   <string name="menu_long_press_open_page">Բացել</string>
-  <string name="menu_long_press_open_in_new_tab">Բացել նոր պատուհանում</string>
-  <string name="menu_long_press_copy_page">Պատճենել հղումը</string>
+  <string name="menu_long_press_open_in_new_tab">Բացել նոր ներդիրում</string>
+  <string name="menu_long_press_copy_page">Պատճենել հղման հասցեն</string>
   <string name="menu_text_select_copy">Պատճենել</string>
-  <string name="menu_text_select_define">Բնորոշում</string>
+  <string name="menu_text_select_define">Բացատրել</string>
   <string name="menu_text_select_share">Կիսվել</string>
-  <string name="menu_text_select_edit_here">Խմբագրել այստեղ</string>
+  <string name="share">Կիսվել</string>
+  <string name="on_this_day_page_share">Կիսվել</string>
+  <string name="reading_list_page_share">Կիսվել</string>
+  <string name="menu_text_select_edit_here">Խմբագրել այստեղից</string>
   <string name="nav_item_nearby">Մոտակայքում</string>
   <string name="nearby_zoom_to_location">Վայրը մեծացնել քարտեզի վրա</string>
-  <string name="last_updated_text">Վերջին անգամ թարմացվել է %s</string>
+  <string name="last_updated_text">Վերջին անգամ խմբագրվել է %s</string>
+  <string name="talk_page_link_text" fuzzy="true">Քննարկում</string>
+  <string name="edit_history_link_text" fuzzy="true">Խմբագրել պատմությունը</string>
+  <string name="map_view_link_text">Դիտել քարտեզի վրա</string>
+  <string name="language_count_link_text">Հասանելի է %d այլ լեզուներով</string>
   <string name="content_license_html">Բովանդակությունը հասանելի է &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո, եթե այլ բան նշված չէ</string>
-  <string name="edit_save_action_license_logged_in">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները անվերադարձ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; արտոնագրի ներքո հրապարակելուն։</string>
-  <string name="preference_title_language">Վիքիպեդիայի լեզուն</string>
-    <string name="langlinks_filter_hint">Որոնել</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները անվերադարձ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; արտոնագրի ներքո հրապարակելուն։</string>
+  <string name="preference_title_language" fuzzy="true">Վիքիպեդիայի լեզուն</string>
+  <string name="langlinks_filter_hint">Որոնել</string>
   <string name="langlinks_empty">Այս էջը այլ լեզվով հասանելի չէ։</string>
-  <string name="langlinks_no_match">Ձեր հարցումով լեզուներ չեն գտնվել:</string>
+  <string name="langlinks_no_match" fuzzy="true">Ձեր հարցումով լեզուներ չեն գտնվել:</string>
   <string name="langlinks_activity_title">Այլ լեզուներ</string>
   <string name="menu_save_changes">Հիշել փոփոխությունները</string>
-  <string name="dialog_saving_in_progress">Պահպանվում է…</string>
-  <string name="edit_saved_successfully">Խմբագրումը պահպանվեց</string>
-  <string name="dialog_message_edit_failed">Խմբագրումը չեղարկվեց</string>
-  <string name="dialog_message_edit_failed_retry">Կրկնել</string>
+  <string name="edit_saved_successfully">Խմբագրումը հրապարակվեց</string>
+  <string name="dialog_message_edit_failed">Չհաջողվեց պահպանել խմբագրումը</string>
+  <string name="dialog_message_edit_failed_retry">Կրկին փորձել</string>
   <string name="dialog_message_edit_failed_cancel">Չեղարկել</string>
-  <string name="dialog_message_leaving_edit">Ձեր փոփոխությունները դեռևս պահպանված չեն: Ցանկանու՞մ եք լքել այս էջը:</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Ձեր փոփոխությունները դեռևս պահպանված չեն: Ցանկանու՞մ եք լքել այս էջը:</string>
   <string name="dialog_message_leaving_edit_leave">Հեռանալ</string>
   <string name="dialog_message_leaving_edit_stay">Մնալ</string>
   <string name="menu_show_toc">Բովանդակություն</string>
   <string name="search_no_results_found">Ոչինչ չի գտնվել</string>
   <string name="title_captcha">Մուտքագրեք քափչան</string>
-  <string name="nav_item_login">Մուտք գործել Վիքիպեդիա</string>
+  <string name="nav_item_login">Մտնել Վիքիպեդիա</string>
   <string name="login_username_hint">Մասնակցային անուն</string>
   <string name="login_password_hint">Գաղտնաբառ</string>
+  <string name="account_creation_password_hint">Գաղտնաբառ</string>
+  <string name="onboarding_card_login">Մտնել</string>
+  <string name="page_editing_login">Մտնել</string>
+  <string name="reading_lists_sync_login">Մտնել</string>
+  <string name="create_account_login">Մտնել</string>
   <string name="menu_login">Մուտք գործել</string>
   <string name="login_activity_title">Մուտք գործել Վիքիպեդիա</string>
   <string name="login_success_toast">Հաջող մուտք</string>
+  <string name="reset_password_hint">Նոր գաղտնաբառ</string>
   <string name="preference_title_logout">Դուրս գալ</string>
-  <string name="history_empty_title">Վերջնադիտված էջեր չկան</string>
+  <string name="history_empty_title">Վերջերս դիտված էջեր չկան</string>
   <string name="wp_stylized">&lt;big&gt;Վ&lt;/big&gt;ԻՔԻՊԵԴԻ&lt;big&gt;Ա&lt;/big&gt;</string>
   <string name="create_account_username_hint">Մասնակցային անուն</string>
+  <string name="login_forgot_password">Մոռացե՞լ եք գաղտնաբառը</string>
+  <string name="create_account_already_have">Դուք արդեն գրանցվա՞ծ եք։</string>
   <string name="create_account_activity_title">Ստեղծել մասնակցային հաշիվ</string>
   <string name="dialog_create_account_checking_progress">Ստուգում</string>
   <string name="create_account_email_hint">Էլփոստ (ոչ պարտադիր)</string>
@@ -65,13 +107,112 @@
   <string name="create_account_email_error">Սխալ էլփոստի հասցե</string>
   <string name="create_account_next">Հաջորդ</string>
   <string name="create_account_button">Ստեղծել մասնակցային հաշիվ</string>
+  <string name="create_account_ip_block_details">Մանրամասներ</string>
   <string name="preferences_general_heading">Ընդհանուր</string>
-    <string name="create_account_account_created_toast">Հաշիվը ստեղծված է</string>
+  <string name="create_account_account_created_toast">Հաշիվը ստեղծված է</string>
+  <string name="preferences_heading_experimental">Փորձնական</string>
+  <string name="preferences_privacy_settings_heading">Գաղտնիություն</string>
+  <string name="preference_title_eventlogging_opt_in">Ուղարկել օգտագործման մասին տեղեկություններ</string>
+  <string name="settings_item_preferences">Կարգավորումներ</string>
+  <string name="settings_activity_title">Կարգավորումներ</string>
+  <string name="privacy_policy_description">Գաղտնիության քաղաքականություն</string>
+  <string name="terms_of_use_description">Օգտագործման պայմաններ</string>
   <string name="about_contributors_heading" fuzzy="true">հեղինակներ</string>
   <string name="about_translators_heading" fuzzy="true">թարգմանիչներ</string>
   <string name="about_translators_translatewiki">Այս ծրագիրը թարգմանվել է կամավոր թարգմանիչների կողմից՝ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; կայքում։</string>
+  <string name="about_app_license_heading">Արտոնագիր</string>
+  <string name="about_activity_title">Ծրագրի մասին</string>
+  <string name="edit_abandon_confirm_yes">Այո</string>
+  <string name="edit_abandon_confirm_no">Ոչ</string>
   <string name="edit_next">Հաջորդ</string>
-  <string name="edit_done">Հիշել</string>
+  <string name="edit_done" fuzzy="true">Պահպանել</string>
   <string name="edit_preview">Նախադիտել</string>
+  <string name="edit_undo">Հետ շրջել</string>
+  <string name="edit_redo">Կրկին անել</string>
+  <string name="edit_zoom_in">Խոշորացնել</string>
+  <string name="edit_zoom_out">Հեռվացնել</string>
   <string name="edit_summary_tag_other">Այլ</string>
+  <string name="text_size_select">Տառաչափ</string>
+  <string name="page_similar_titles">Նմանատիպ էջեր</string>
+  <string name="clear_recent_searches_confirm_yes">Այո</string>
+  <string name="clear_recent_searches_confirm_no">Ոչ</string>
+  <string name="table_infobox">Համառոտ փաստեր</string>
+  <string name="table_other">Մանրամասն տեղեկատվություն</string>
+  <string name="table_close">Փակել</string>
+  <string name="dialog_close_description">Փակել</string>
+  <string name="preference_title_show_images">Ցույց տալ նկարներ</string>
+  <string name="dialog_title_download_only_over_wifi_allow">РазԹույլ տալ</string>
+  <string name="read_more_section">Կարդալ ավելին</string>
+  <string name="about_article_section">Այս հոդվածի մասին</string>
+  <string name="license_title">Արտոնագիր %s -ի համար</string>
+  <string name="gallery_menu_share">Կիսվել</string>
+  <string name="close_all_tabs_confirm_yes">Այո</string>
+  <string name="close_all_tabs_confirm_no">Ոչ</string>
+  <string name="nav_item_donate">Օգնե՜նք Վիքիպեդիային</string>
+  <string name="crash_report_dialog_dont_send_button">Բաց թողնել</string>
+  <string name="crash_report_dialog_always_send_button">Միշտ ուղարկել</string>
+  <string name="crash_report_dialog_send_button">Ուղարկել</string>
+  <string name="crash_report_quit">Ելք</string>
+  <string name="article_header_edit_hint">Խմբագրել...</string>
+  <string name="color_theme_dark">Մուք</string>
+  <string name="color_theme_black">Սև</string>
+  <string name="reading_list_create_new">Ստեղծել նորը</string>
+  <string name="reading_list_menu_rename" fuzzy="true">Վերանվանել</string>
+  <string name="reading_list_item_delete_undo">Հետ շրջել</string>
+  <string name="reading_lists_onboarding_for_example">Օրինակ</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Այո</string>
+  <string name="reading_lists_confirm_remote_delete_no">Ոչ</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Չեղարկել</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Մուտք գործել</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Լավ</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Կարգավորումներ</string>
+  <string name="user_option_sync_label">Նախընտրություններ</string>
+  <string name="notification_syncing_resume_button">Շարունակել</string>
+  <string name="notification_syncing_cancel_button">Չեղարկել</string>
+  <string name="notifications_poll_enable_negative">Հիմա չէ</string>
+  <string name="preference_title_notification_milestone">Փուլ</string>
+  <string name="preference_title_notification_thanks">Շնորհակալություն</string>
+  <string name="preference_title_notification_revert">Հետ շրջել</string>
+  <string name="preference_summary_notification_revert">Ձեր խմբագրումներից մեկը շրջվել է</string>
+  <string name="view_featured_image_card_download">Ներբեռնել</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">Երեկ</item>
+    <item quantity="other">%d օր արաջ</item>
+  </plurals>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Այսօր</string>
+  <string name="onboarding_negative_action">Ոչ, շնորհակալություն</string>
+  <string name="view_featured_article_card_title">Ընտրյալ հոդված</string>
+  <string name="view_featured_article_footer_save_button_label">Հիշել</string>
+  <string name="view_static_card_save_button_label">Հիշել</string>
+  <string name="description_edit_save" fuzzy="true">Հիշել</string>
+  <string name="description_edit_read">Կարդալ</string>
+  <string name="description_edit_add_description" fuzzy="true">Ավելացնել նկարագրություն</string>
+  <string name="description_edit_cancel_hint">Չեղարկել</string>
+  <string name="description_edit_help_about_wikidata">Վիքիտվյալների մասին</string>
+  <string name="description_edit_success_done">Արված է</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Սկսել խմբագրել</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Ավելացնել նկարագրություններ</string>
+  <string name="suggested_edits_my_contributions">Իմ ներդրումներ</string>
+  <string name="suggested_edits_unlock_dialog_yes">Այո, եկեք գնանք</string>
+  <string name="suggested_edits_unlock_notification_button">Այո, եկեք գնանք</string>
+  <string name="onboarding_skip">Բաց թողնել</string>
+  <string name="onboarding_continue">Շարունակել</string>
+  <string name="app_shortcuts_continue_reading">Շարունակել կարդալ</string>
+  <string name="app_shortcuts_search">Որոնել</string>
+  <string name="back_to_top">Ետ էջի վերև</string>
+  <string name="languages_list_all_text">Բոլոր լեզուները</string>
+  <string name="wikipedia_languages_title">Վիքիպեդիայի լեզուներ</string>
+  <string name="wikipedia_languages_your_languages_text">Ձեր լեզուներ</string>
+  <string name="wikipedia_languages_add_language_text">Ավելացնել լեզուներ</string>
+  <string name="more_language_options">ավելին</string>
+  <string name="wikitext_bold">Թավատառ</string>
+  <string name="wikitext_italic">Շեղատառ</string>
+  <string name="wikitext_link">Հղում</string>
+  <string name="wikitext_bulleted_list">Չհամարակալած ցանկ</string>
+  <string name="wikitext_numbered_list">Համարակալած ցանկ</string>
+  <string name="wikitext_template">Կաղապար</string>
+  <string name="wikitext_reference">Ծանոթագրություն</string>
+  <string name="main_drawer_open">Բացել</string>
+  <string name="main_drawer_close">Փակել</string>
+  <string name="main_drawer_help">Օգնություն</string>
 </resources>

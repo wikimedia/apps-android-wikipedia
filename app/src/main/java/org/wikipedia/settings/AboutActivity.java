@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -27,7 +29,7 @@ public class AboutActivity extends BaseActivity {
     @BindView(R.id.about_translators) TextView translatorsTextView;
     @BindView(R.id.activity_about_libraries) TextView librariesTextView;
     @BindView(R.id.about_app_license) TextView appLicenseTextView;
-    @BindView(R.id.send_feedback_text) TextView feedbackTextView;
+    @BindView(R.id.send_feedback_text) Button feedbackTextView;
     @BindView(R.id.about_wmf) TextView wmfTextView;
 
     @Override

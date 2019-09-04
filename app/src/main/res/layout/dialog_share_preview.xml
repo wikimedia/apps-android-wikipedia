@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:padding="8dp"
-    android:background="?attr/paper_color">
+    android:background="?attr/paper_color"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,16 +13,16 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/close_button"
+            style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="end|center_vertical"
-            style="@style/Widget.AppCompat.ImageButton"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/dialog_close_description"
             app:srcCompat="@drawable/ic_close_white_24dp"
-            app:tint="?attr/material_theme_secondary_color"
-            android:contentDescription="@string/dialog_close_description"/>
+            app:tint="?attr/material_theme_secondary_color" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -38,21 +37,21 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:src="?attr/lead_image_drawable"
-                android:contentDescription="@string/snippet_share_preview_image_desc" />
+                android:contentDescription="@string/snippet_share_preview_image_desc"
+                android:src="?attr/lead_image_drawable" />
 
-            <TextView
+            <Button
                 android:id="@+id/share_as_image_button"
                 style="@style/App.Button.Blue"
-                android:layout_margin="0dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
                 android:text="@string/share_snippet_button" />
 
-            <TextView
+            <Button
                 android:id="@+id/share_as_text_button"
                 style="@style/App.Button.Blue"
-                android:layout_margin="0dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="0dp"
                 android:text="@string/share_normal_button" />
 
         </LinearLayout>

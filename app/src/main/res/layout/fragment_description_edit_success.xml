@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.descriptions.DescriptionEditSuccessView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.descriptions.DescriptionEditSuccessView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_description_edit_success_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />

@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.15" />
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -37,8 +37,8 @@
                 android:layout_marginTop="32dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin">
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/view_onboarding_page_primary_text"
@@ -49,6 +49,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:textColor="?attr/material_theme_primary_color"
                     android:textSize="24sp"
+                    android:focusableInTouchMode="true"
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
@@ -73,8 +74,8 @@
                     android:id="@+id/view_onboarding_page_switch_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
                     android:layout_marginTop="6dp"
+                    android:layout_marginBottom="8dp"
                     android:orientation="vertical">
 
                     <View
@@ -82,14 +83,14 @@
                         android:layout_height="0.5dp"
                         android:background="?attr/chart_shade5" />
 
-                    <android.support.v7.widget.SwitchCompat
+                    <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/view_onboarding_page_switch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
                         android:textColor="?attr/material_theme_primary_color"
                         app:theme="@style/OnboardingSwitch"
                         tools:text="Lorem ipsum" />
@@ -104,15 +105,15 @@
                     android:id="@+id/view_onboarding_page_tertiary_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginTop="40dp"
+                    android:layout_marginBottom="16dp"
                     android:text="@string/description_edit_tutorial_promise"
                     android:textColor="?attr/material_theme_secondary_color"
                     android:textSize="12sp" />
 
             </LinearLayout>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
     <!-- Bottom control offset -->
     <View
         android:layout_width="match_parent"

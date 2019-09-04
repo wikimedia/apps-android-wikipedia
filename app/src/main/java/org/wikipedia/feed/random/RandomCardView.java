@@ -2,9 +2,9 @@ package org.wikipedia.feed.random;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -27,9 +27,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
 
     public RandomCardView(@NonNull Context context) {
         super(context);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setTransitionName(getString(R.string.transition_random_activity));
-        }
+        setTransitionName(getString(R.string.transition_random_activity));
     }
 
     @Override public void setCard(@NonNull RandomCard card) {
@@ -70,7 +68,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
                             }
                     );
                 })
-                .doFinally(() -> setProgress(false))
+                .doAfterTerminate(() -> setProgress(false))
                 .subscribe(pageTitle -> {
                     if (getCallback() != null && getCard() != null) {
                         getCallback().onSelectPage(getCard(),

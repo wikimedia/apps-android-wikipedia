@@ -56,7 +56,6 @@
   <string name="langlinks_no_match">Nerasta kalbų</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
   <string name="menu_save_changes">Paskelbti pakeitimus</string>
-  <string name="dialog_saving_in_progress">Skelbiama...</string>
   <string name="edit_saved_successfully">Redagavimas paskelbtas!</string>
   <string name="dialog_message_edit_failed">Išsaugoti nepavyko!</string>
   <string name="dialog_message_edit_failed_retry">Bandyti dar kartą</string>
@@ -102,7 +101,6 @@
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="preferences_general_heading">Bendras</string>
   <string name="wikipedia_app_faq">Vikipedijos programėlės DUK</string>
-  <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra…</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
   <string name="preferences_privacy_settings_heading">Privatumas</string>
@@ -232,7 +230,7 @@
   <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_header_edit_hint">Redaguoti...</string>
-  <string name="article_header_edit_description">Redaguoti pavadinimo aprašymą</string>
+  <string name="article_header_edit_description" fuzzy="true">Redaguoti pavadinimo aprašymą</string>
   <string name="article_header_edit_lead_section">Redaguoti įžangą</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Šviesi</string>
@@ -289,7 +287,6 @@
   <string name="notification_syncing_pause_button">Sustabdyti</string>
   <string name="notification_syncing_resume_button">Tęsti</string>
   <string name="notification_syncing_cancel_button">Atšaukti</string>
-  <string name="view_continue_reading_card_title">Skaityti toliau</string>
   <string name="view_because_you_read_card_title">Nes jūs skaitėte</string>
   <string name="view_random_card_title">Atsitiktinis</string>
   <string name="view_random_card_subtitle" fuzzy="true">Skaityti atsitiktinį straipsnį iš Vikipedijos</string>
@@ -316,18 +313,19 @@
   <string name="view_featured_article_footer_saved_button_label">Išsaugota</string>
   <string name="feed_configure_menu_select_all">Rodyti viską</string>
   <string name="feed_configure_menu_deselect_all">Paslėpti viską</string>
-  <string name="description_edit_text_hint">Pavadinimo aprašymas</string>
+  <string name="description_edit_text_hint" fuzzy="true">Pavadinimo aprašymas</string>
   <string name="description_edit_save">Paskelbti</string>
-  <string name="description_edit_add_description">Pridėti pavadinimo aprašymą</string>
-  <string name="description_edit_edit_description">Redaguoti aprašymą</string>
+  <string name="description_edit_add_description" fuzzy="true">Pridėti pavadinimo aprašymą</string>
+  <string name="description_edit_edit_description" fuzzy="true">Redaguoti aprašymą</string>
   <string name="description_edit_cancel_hint">Atšaukti</string>
   <string name="description_edit_help_about_wikidata">Apie Vikiduomenis</string>
   <string name="description_edit_help_wikidata_guide">Vikiduomenų gidas aprašymų rašymui</string>
-  <string name="description_edit_success_saved">Aprašymas paskelbtas!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Aprašymas paskelbtas!</string>
   <string name="description_edit_success_encouragement">Jūs ką tik padarėte Vikipediją geresne visiems</string>
   <string name="description_edit_success_done">Atlikta</string>
   <string name="description_edit_success_did_you_know">Ar žinote?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Pradėti redagavimą</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Žiūrėti</string>
   <string name="onboarding_skip">Praleisti</string>
   <string name="onboarding_continue">Tęsti</string>
   <string name="onboarding_get_started">Pradėti</string>

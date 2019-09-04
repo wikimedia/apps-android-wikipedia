@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="12dp"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <Space
         android:id="@+id/view_card_offline_top_padding"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <TextView
+        style="@style/MaterialMediumSecondaryCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/view_offline_card_text"
-        style="@style/MaterialMediumSecondaryCaption" />
+        android:text="@string/view_offline_card_text" />
 
-    <TextView
+    <Button
         android:id="@+id/view_card_offline_button_retry"
         style="@style/App.Button.White"
         android:layout_margin="8dp"
-        android:text="@string/card_offline_error_retry"/>
+        android:text="@string/card_offline_error_retry" />
 </LinearLayout>

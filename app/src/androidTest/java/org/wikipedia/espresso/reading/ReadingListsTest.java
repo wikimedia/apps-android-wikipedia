@@ -4,11 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.test.espresso.DataInteraction;
-import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.rule.GrantPermissionRule;
-import android.support.test.runner.AndroidJUnit4;
+
+import androidx.test.espresso.DataInteraction;
+import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.rule.GrantPermissionRule;
+import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -24,16 +25,14 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.PrefsIoUtil;
 
-import static android.support.test.espresso.Espresso.onData;
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static android.support.test.espresso.action.ViewActions.replaceText;
-import static android.support.test.espresso.action.ViewActions.typeText;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.espresso.Espresso.onData;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.wikipedia.espresso.util.CompareTools.assertScreenshotWithinTolerance;
@@ -106,13 +105,13 @@ public final class ReadingListsTest {
     private void captureMyListsTabWithUserCreatedLists(String mode) {
         onView(withId(R.id.menu_search_lists)).perform(click());
 
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("obama"));
+        onView(withId(R.id.search_src_text)).perform(typeText("obama"));
         waitFor(WAIT_FOR_1000);
 
         ScreenshotTools.snap("ReadingListSearchWithResults" + mode);
         waitFor(WAIT_FOR_1000);
 
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("oooo"));
+        onView(withId(R.id.search_src_text)).perform(typeText("oooo"));
         ScreenshotTools.snap("ReadingListSearchWithNoResults" + mode);
 
         pressBack();
@@ -125,12 +124,12 @@ public final class ReadingListsTest {
         pressBack();
         waitFor(WAIT_FOR_1000);
         onView(withId(R.id.menu_search_lists)).perform(click());
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("my"));
+        onView(withId(R.id.search_src_text)).perform(typeText("my"));
         waitFor(WAIT_FOR_1000);
         ScreenshotTools.snap("ReadingListsSearchWithResults" + mode);
         waitFor(WAIT_FOR_1000);
 
-        onView(withId(android.support.design.R.id.search_src_text)).perform(typeText("ooo"));
+        onView(withId(R.id.search_src_text)).perform(typeText("ooo"));
         ScreenshotTools.snap("ReadingListsSearchWithNoResults" + mode);
         waitFor(WAIT_FOR_1000);
 
@@ -160,112 +159,10 @@ public final class ReadingListsTest {
         waitFor(WAIT_FOR_1000);
         ScreenshotTools.snap("DefaultListNonEmpty" + mode);
         waitFor(WAIT_FOR_1000);
-
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.item_overflow_menu)));
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("DefaultListOverflow" + mode);
-        waitFor(WAIT_FOR_1000);
-
-        onView(withText("Save all for offline")).perform(click());
-        waitFor(WAIT_FOR_500);
-        ScreenshotTools.snap("ReadingListSaveOffline" + mode);
-
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.item_overflow_menu)));
-        waitFor(WAIT_FOR_1000);
-
         onView(withText("Remove all from offline")).perform(click());
         waitFor(WAIT_FOR_500);
         ScreenshotTools.snap("ReadingListRemoveOffline" + mode);
         waitFor(WAIT_FOR_1000);
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, ViewTools.clickChildViewWithId(R.id.page_list_item_action_primary)));
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("ReadingListFragmentArticleOverflow" + mode);
-        waitFor(WAIT_FOR_1000);
-        onView(withText("Add to another reading list")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("AddToAnotherListDialog" + mode);
-
-        onView(withText("Create new")).perform(click());
-        waitFor(WAIT_FOR_2000);
-        ScreenshotTools.snap("CreateNewReadingListDialog" + mode);
-
-        onView(withText("OK")).perform(click());
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, ViewTools.clickChildViewWithId(R.id.page_list_item_action_primary)));
-        waitFor(WAIT_FOR_1000);
-        onView(withText("Add to another reading list")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        onView(withText("Create new")).perform(click());
-
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("CreateNewReadingListDialogNameError" + mode);
-
-        onView(withText("Cancel")).perform(click());
-        pressBack();
-
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, ViewTools.clickChildViewWithId(R.id.page_list_item_action_primary)));
-        onView(withText("Remove from Saved")).perform(click());
-        ScreenshotTools.snap("ArticleDeletedRationale" + mode);
-
-        pressBack();
-        onView(withId(R.id.reading_list_list)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(1, click()));
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.item_overflow_menu)));
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("ListOverflow" + mode);
-        waitFor(WAIT_FOR_1000);
-
-        onView(withText("Rename")).perform(click());
-        waitFor(WAIT_FOR_1000);
-
-        ScreenshotTools.snap("ListRenameDialog" + mode);
-
-        onView(withText("Cancel")).perform(click());
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.item_overflow_menu)));
-        waitFor(WAIT_FOR_1000);
-
-        onView(withText("Edit description")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("ListEditDescDialog" + mode);
-
-        onView(withId(R.id.text_input)).perform(replaceText("test"), closeSoftKeyboard());
-
-        onView(withText("OK")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("ListWithDesc" + mode);
-
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.item_overflow_menu)));
-        waitFor(WAIT_FOR_1000);
-
-        onView(withText("Edit description")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("ListEditDescDialogWithPreviousText" + mode);
-        waitFor(WAIT_FOR_1000);
-
-        onView(withText("Cancel")).perform(click());
-        onView(withId(R.id.reading_list_contents)).perform(
-                RecyclerViewActions.actionOnItemAtPosition(0, ViewTools.clickChildViewWithId(R.id.item_overflow_menu)));
-        waitFor(WAIT_FOR_1000);
-
-        onView(withText("Delete list")).perform(click());
-        waitFor(WAIT_FOR_1000);
-        ScreenshotTools.snap("ListDeleteConfirmationDialog" + mode);
-
-        onView(withText("Cancel")).perform(click());
-
-        onView(withId(R.id.menu_sort_options)).perform(click());
-        waitFor(WAIT_FOR_1000);
-
-        ScreenshotTools.snap("ReadingListSortMenu" + mode);
-        waitFor(WAIT_FOR_1000);
-
     }
 
     private void captureAddingArticleToDefaultList(String mode) {

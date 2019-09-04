@@ -1,11 +1,13 @@
 package org.wikipedia.onboarding;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.page.LinkMovementMethodExt;
@@ -22,8 +24,8 @@ public class OnboardingView extends LinearLayout {
 
     @BindView(R.id.view_onboarding_title) TextView titleView;
     @BindView(R.id.view_onboarding_text) TextView textView;
-    @BindView(R.id.view_onboarding_action_positive) TextView actionViewPositive;
-    @BindView(R.id.view_onboarding_action_negative) TextView actionViewNegative;
+    @BindView(R.id.view_onboarding_action_positive) Button actionViewPositive;
+    @BindView(R.id.view_onboarding_action_negative) Button actionViewNegative;
 
     @Nullable private Callback callback;
 

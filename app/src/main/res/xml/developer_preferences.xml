@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.preference.PreferenceScreen
+<androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/preferences_developer_feature_testing_heading">
@@ -252,8 +252,8 @@
             android:title="@string/preference_key_show_remove_chinese_variant_prompt" />
 
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_edit_action_add_title_descriptions_onboarding"
-            android:title="@string/preference_key_show_edit_action_add_title_descriptions_onboarding" />
+            android:key="@string/preference_key_show_description_edit_success_prompt"
+            android:title="@string/preference_key_show_description_edit_success_prompt" />
 
     </PreferenceCategory>
 
@@ -290,4 +290,67 @@
 
     </PreferenceCategory>
 
-</android.support.v7.preference.PreferenceScreen>
+    <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_edit_tasks_onboarding"
+            android:title="@string/preference_key_show_edit_tasks_onboarding" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_suggested_edits_multilingual_teaser_task"
+            android:title="@string/preference_key_show_suggested_edits_multilingual_teaser_task" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_unlock_override"
+            android:title="@string/preference_key_suggested_edits_unlock_override" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_add_descriptions_unlocked"
+            android:title="@string/preference_key_suggested_edits_add_descriptions_unlocked" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_translate_descriptions_unlocked"
+            android:title="@string/preference_key_suggested_edits_translate_descriptions_unlocked" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_add_captions_unlocked"
+            android:title="@string/preference_key_suggested_edits_add_captions_unlocked" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_translate_captions_unlocked"
+            android:title="@string/preference_key_suggested_edits_translate_captions_unlocked" />
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_add_description_dialog"
+            android:title="@string/preferences_developer_suggested_edits_add_description_dialog"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_add_description_notification"
+            android:title="@string/preferences_developer_suggested_edits_add_description_notification"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_translate_description_dialog"
+            android:title="@string/preferences_developer_suggested_edits_translate_description_dialog"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_translate_description_notification"
+            android:title="@string/preferences_developer_suggested_edits_translate_description_notification"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_add_caption_dialog"
+            android:title="@string/preferences_developer_suggested_edits_add_caption_dialog"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_add_caption_notification"
+            android:title="@string/preferences_developer_suggested_edits_add_caption_notification"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_translate_caption_dialog"
+            android:title="@string/preferences_developer_suggested_edits_translate_caption_dialog"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_translate_caption_notification"
+            android:title="@string/preferences_developer_suggested_edits_translate_caption_notification"/>
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

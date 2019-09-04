@@ -1,10 +1,11 @@
 package org.wikipedia.settings;
 
 import android.os.Bundle;
-import android.support.v7.preference.SwitchPreferenceCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import androidx.preference.SwitchPreferenceCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -26,11 +27,6 @@ public class SettingsFragment extends PreferenceLoaderFragment {
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            requireActivity().finish();
-            startActivity(requireActivity().getIntent());
-        }
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
@@ -107,7 +103,7 @@ public class SettingsFragment extends PreferenceLoaderFragment {
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ReadingListsMergeLocalDialogEvent) {
                 setReadingListSyncPref(true);
             } else if (event instanceof ReadingListsEnabledStatusEvent) {

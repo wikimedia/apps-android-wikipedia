@@ -10,16 +10,16 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Layout;
 import android.text.Spanned;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.gallery.ImageLicense;
@@ -192,15 +192,8 @@ public final class SnippetImage {
         if (isArticleRTL) {
             left = WIDTH - HORIZONTAL_PADDING - textLayout.getWidth();
         }
-        int marginBottomTotal = marginBottom;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            // versions < 5.0 don't compensate for bottom margin correctly when line
-            // spacing is less than 1.0, so we'll compensate ourselves
-            final int marginBoost = 10;
-            marginBottomTotal += marginBoost;
-        }
 
-        top = top - marginBottomTotal - textLayout.getHeight();
+        top = top - marginBottom - textLayout.getHeight();
         canvas.save();
         canvas.translate(left, top);
         textLayout.draw(canvas);
@@ -220,7 +213,7 @@ public final class SnippetImage {
             left = right - SnippetImage.ICONS_WIDTH;
         }
 
-        Drawable d = ContextCompat.getDrawable(context,
+        Drawable d = AppCompatResources.getDrawable(context,
                 shouldDefaultToCCLicense(leadImageBitmap, license)
                         ? R.drawable.ic_license_cc : license.getLicenseIcon());
         d.setBounds(left, top, right, bottom);
@@ -244,7 +237,7 @@ public final class SnippetImage {
         final int bottom = HEIGHT - BOTTOM_PADDING;
         final int top = bottom - height;
 
-        Drawable d = ContextCompat.getDrawable(context, R.drawable.wp_wordmark);
+        Drawable d = AppCompatResources.getDrawable(context, R.drawable.wp_wordmark);
         DrawableCompat.setTint(d, Color.LTGRAY);
 
         int left = WIDTH - HORIZONTAL_PADDING - width;

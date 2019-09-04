@@ -2,12 +2,13 @@ package org.wikipedia.settings;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
 
 import org.wikipedia.R;
 

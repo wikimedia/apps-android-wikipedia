@@ -2,14 +2,16 @@ package org.wikipedia.language;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.LocaleListCompat;
 import android.text.TextUtils;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.os.LocaleListCompat;
+
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.StringUtil;
 
@@ -122,13 +124,11 @@ public final class LanguageUtil {
     }
 
     @NonNull private static String chineseLanguageCodeToWikiLanguageCode(@NonNull Locale locale) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            String script = locale.getScript();
-            switch (script) {
-                case "Hans": return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
-                case "Hant": return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
-                default: break;
-            }
+        String script = locale.getScript();
+        switch (script) {
+            case "Hans": return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
+            case "Hant": return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
+            default: break;
         }
 
         // Guess based on country. If the guess is incorrect, the user must explicitly choose the
@@ -140,6 +140,18 @@ public final class LanguageUtil {
 
     private static boolean isTraditionalChinesePredominantInCountry(@Nullable String country) {
         return TRADITIONAL_CHINESE_COUNTRY_CODES.contains(country);
+    }
+
+    @NonNull
+    public static String getFirstSelectedChineseVariant() {
+        String firstSelectedChineseLangCode = null;
+        for (String langCode : WikipediaApp.getInstance().language().getAppLanguageCodes()) {
+            if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+                firstSelectedChineseLangCode = langCode;
+                break;
+            }
+        }
+        return StringUtils.defaultString(firstSelectedChineseLangCode, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
     }
 
     private LanguageUtil() { }

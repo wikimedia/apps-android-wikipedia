@@ -1,9 +1,10 @@
 package org.wikipedia.language;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
@@ -23,12 +24,6 @@ public class AppLanguageState {
     @NonNull
     private final AppLanguageLookUpTable appLanguageLookUpTable;
 
-    // The language code used by the app when the article language is unspecified. It's possible for
-    // this code to be unsupported if the languages supported changes.
-    // TODO: Remove in April 2019
-    @Nullable
-    private String appLanguageCode;
-
     // Language codes that have been explicitly chosen by the user in most recently used order. This
     // list includes both app and article languages.
     @NonNull
@@ -39,7 +34,6 @@ public class AppLanguageState {
 
     public AppLanguageState(@NonNull Context context) {
         appLanguageLookUpTable = new AppLanguageLookUpTable(context);
-        appLanguageCode = Prefs.getAppLanguageCode();
         mruLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getMruLanguageCodeCsv())));
         appLanguageCodes = new ArrayList<>(StringUtil.csvToList(defaultString(Prefs.getAppLanguageCodeCsv())));
         initAppLanguageCodes();
@@ -81,9 +75,7 @@ public class AppLanguageState {
 
     private void initAppLanguageCodes() {
         if (appLanguageCodes.isEmpty()) {
-            if (!TextUtils.isEmpty(appLanguageCode)) {
-                addAppLanguageCode(appLanguageCode);
-            } else if (Prefs.isInitialOnboardingEnabled()) {
+            if (Prefs.isInitialOnboardingEnabled()) {
                 setAppLanguageCodes(getRemainingAvailableLanguageCodes());
             } else {
                 // If user has never changed app language before

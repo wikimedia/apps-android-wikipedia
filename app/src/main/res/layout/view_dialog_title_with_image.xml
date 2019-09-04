@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
-    tools:orientation="vertical">
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="96dp"
@@ -16,13 +15,14 @@
 
     <TextView
         android:id="@+id/title"
+        style="?android:attr/windowTitleStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:lineSpacingExtra="4sp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:singleLine="false"
-        style="?android:attr/windowTitleStyle"
-        tools:text="Lorem ipsum"/>
+        tools:text="Lorem ipsum" />
 
 </merge>

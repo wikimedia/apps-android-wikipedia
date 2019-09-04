@@ -7,13 +7,6 @@ import android.graphics.PointF;
 import android.location.Location;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.util.Pair;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +14,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.util.Pair;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -48,7 +49,6 @@ import org.wikipedia.dataclient.mwapi.NearbyPage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.main.MainActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -163,10 +163,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
     @Override
     public void onResume() {
         mapView.onResume();
-
-        locationButton.animate().translationY(((MainActivity) requireActivity()).isFloatingQueueEnabled()
-                ? -((MainActivity) requireActivity()).getFloatingQueueImageView().getHeight() : 0).start();
-
         super.onResume();
     }
 
@@ -275,6 +271,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
         enableUserLocationMarker();
         if (lastCameraPos != null) {
             mapboxMap.setCameraPosition(lastCameraPos);
+            fetchNearbyPages();
         } else {
             goToUserLocationOrPromptPermissions();
         }
@@ -329,7 +326,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
             LocationComponent locationComponent = mapboxMap.getLocationComponent();
             locationComponent.activateLocationComponent(requireActivity(), mapboxMap.getStyle(), options);
             locationComponent.setLocationComponentEnabled(true);
-            locationComponent.setCameraMode(CameraMode.TRACKING);
+            locationComponent.setCameraMode(CameraMode.NONE);
             locationComponent.setRenderMode(RenderMode.COMPASS);
         }
     }
@@ -345,6 +342,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
         }
 
         if (locationPermitted()) {
+            enableUserLocationMarker();
             Location location = mapboxMap.getLocationComponent().getLastKnownLocation();
             if (location != null) {
                 goToLocation(location);
@@ -430,7 +428,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Styl
                         }
                         return pages;
                     })
-                    .doFinally(() -> onLoaded())
+                    .doAfterTerminate(() -> onLoaded())
                     .subscribe(pages -> {
                         if (clearResultsOnNextCall) {
                             currentResults.clear();

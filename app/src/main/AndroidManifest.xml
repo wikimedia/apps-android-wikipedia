@@ -102,11 +102,7 @@
                      https://developer.android.com/training/app-links/deep-linking.html
                      so http and https apply to all prefixes-->
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
-                <data android:host="*.wikipedia.org" android:pathPattern="/zh-.*" android:scheme="https" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="org.wikipedia.app_shortcut" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
@@ -146,10 +142,10 @@
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".editactionfeed.AddTitleDescriptionsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ActionBar"
-            android:parentActivityName=".editactionfeed.EditTasksActivity"/>
+            android:name=".suggestededits.SuggestedEditsCardsActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.ActionBar.SuggestedEdits"
+            android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
@@ -254,9 +250,18 @@
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".editactionfeed.EditTasksActivity"
-            android:label="@string/edit_tasks_activity_title"
+            android:name=".suggestededits.SuggestedEditsTasksActivity"
+            android:launchMode="singleTask"
+            android:label="@string/suggested_edits_tasks_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
+
+        <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionsActivity"
+            android:label="@string/suggested_edits_my_contributions"
+            android:theme="@style/AppTheme.ActionBar" />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"
@@ -270,7 +275,7 @@
             android:label="@string/user_option_sync_label" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

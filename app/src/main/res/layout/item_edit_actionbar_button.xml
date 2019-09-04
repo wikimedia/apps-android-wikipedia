@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/edit_actionbar_button_text"
+    style="@style/TransparentButton"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    style="@style/TransparentButton"
+    android:gravity="center_vertical"
     android:minWidth="1dp"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    android:gravity="center_vertical"
-    tools:text="Next"/>
+    tools:text="Next" />

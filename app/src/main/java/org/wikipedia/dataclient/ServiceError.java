@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * The API reported an error in the payload.

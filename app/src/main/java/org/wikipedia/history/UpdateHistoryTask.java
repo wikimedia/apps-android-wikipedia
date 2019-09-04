@@ -1,7 +1,8 @@
 package org.wikipedia.history;
 
 import android.database.Cursor;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseClient;
@@ -20,7 +21,7 @@ public class UpdateHistoryTask implements Action {
     }
 
     @Override
-    public void run() throws Exception {
+    public void run() {
         DatabaseClient<HistoryEntry> client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class);
         client.upsert(new HistoryEntry(entry.getTitle(),
                         entry.getTimestamp(),

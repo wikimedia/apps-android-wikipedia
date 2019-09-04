@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1917 Ekim Devrimi
+* Abijeet Patro
 * Gorizon
 * Gırd
 * Kumkumuk
@@ -19,6 +20,7 @@
   <string name="search_hint">Wikipediya de cı geyre</string>
   <string name="search_hint_search_history">Tarixê cıgeyrayışi</string>
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
+  <string name="search_hint_search_my_lists_and_articles">Meqaleyan û listanê mı cı geyre</string>
   <string name="nav_item_history">Tarix</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
   <string name="page_error_retry">Anciya bıcerrebne</string>
@@ -30,6 +32,7 @@
   <string name="error_back">Peyser şo</string>
   <string name="menu_clear_all_history">verore cı besterne</string>
   <string name="history_item_deleted">%s, tarixê cıgeyrayoği ra esteriya</string>
+  <string name="history_items_deleted">%d meqaleyi tarixi ra esteriyê</string>
   <string name="history_item_delete_undo">Peyser biya</string>
   <string name="notification_archive_undo">Peyser biya</string>
   <string name="app_settings">Eyarê Appi</string>
@@ -69,6 +72,7 @@
   <string name="edit_history_link_text">Tarixê vurnayışi bıvênên</string>
   <string name="map_view_link_text">Xerita sero bıvênên</string>
   <string name="other_languages_indication_text">Zıwanê binan de bıwanê</string>
+  <string name="language_count_link_text">%d zıwananê binan de esto</string>
   <string name="content_license_html">Eger dimlaşt nêvaciyeno, zerrek bınê &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de ravêreno.</string>
   <string name="preference_title_language">Zıwanê Wikipedia</string>
   <string name="langlinks_filter_hint">Cı geyre</string>
@@ -76,8 +80,7 @@
   <string name="langlinks_no_match">Zıwan nêvineya</string>
   <string name="langlinks_activity_title">Zıwanê bini</string>
   <string name="langlinks_your_wikipedia_languages">Zıwanê Wikipedia ya şıma</string>
-  <string name="menu_save_changes">Vırnayışan qeyd ke</string>
-  <string name="dialog_saving_in_progress">Weşaniyeno...</string>
+  <string name="menu_save_changes">Vurnayışan qeyd ke</string>
   <string name="edit_saved_successfully">Vurnayış qeyd bi!</string>
   <string name="dialog_message_edit_failed">Vırnayış xırabiya!</string>
   <string name="dialog_message_edit_failed_retry">Anciya bıcerrebne</string>
@@ -101,24 +104,39 @@
   <string name="login_success_toast">Hesab abıya!</string>
   <string name="preference_title_logout">Bıveciye</string>
   <string name="toast_logout_complete">Ronıştış racneya</string>
+  <string name="logout_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="logged_out_in_background_title">Veciya</string>
+  <string name="logged_out_in_background_login">Cı kewe</string>
+  <string name="logged_out_in_background_cancel">Bıtexelne</string>
   <string name="history_empty_title">Pelê peyêni çıniyê</string>
   <string name="history_empty_message">Wanıyayışanê ho tiya teqib bıkerê</string>
+  <string name="search_empty_message_multilingual_upgrade">Tayêna zıwanen de ebe Wikipediya cı geyre</string>
+  <string name="delete_selected_items">Obceyanê weçinıteyan bestere</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Namey karberi</string>
+  <string name="login_dont_have_account">Hesabê şıma çıniyo?</string>
+  <string name="login_join_wikipedia">Paredarê Wikipediya be</string>
+  <string name="login_forgot_password">Parolaya xo kerda xo vira?</string>
+  <string name="create_account_already_have">Hesabê şıma xora esto?</string>
   <string name="create_account_activity_title">Yew hesab ake</string>
   <string name="dialog_create_account_checking_progress">Teyid kerden</string>
   <string name="create_account_email_hint">Eposta (opsiyonel)</string>
   <string name="create_account_password_repeat_hint">Paroler fına bınuse</string>
   <string name="create_account_passwords_mismatch_error">Paroley zey pê niyê</string>
   <string name="create_account_email_error">Adresê eposta raşt niya</string>
+  <string name="create_account_username_error">Nameyê karberi de karakterê xırabeyi</string>
+  <string name="create_account_password_error">Parola nêvêrena</string>
   <string name="create_account_generic_error">Hesab nêvıraziya yo</string>
   <string name="create_account_next">Bahdoyên</string>
+  <string name="email_recommendation_dialog_title">Bê adresa e-posteyi wa hesab vıraziyo?</string>
   <string name="create_account_button">Hesab vıraze</string>
+  <string name="create_account_ip_block_details">Detayi</string>
   <string name="preferences_general_heading">Bıngeh</string>
   <string name="wikipedia_app_faq">Wikipedia App PZP</string>
-  <string name="edit_preview_fetching_dialog_message">Verqayti ano...</string>
   <string name="send_feedback">Verpersê tetbiqi bırışe</string>
   <string name="create_account_account_created_toast">Hesab vıraziya!</string>
+  <string name="preferences_heading_syncing">Senkronize beno</string>
+  <string name="preferences_heading_experimental">Cerrebın</string>
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
   <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
   <string name="settings_item_preferences">Eyari</string>
@@ -126,6 +144,13 @@
   <string name="about_description">Heqdê dezgehda Wikipedia</string>
   <string name="privacy_policy_description">Politikaya nımıteyiye</string>
   <string name="terms_of_use_description">Şertê gurenayışi</string>
+  <string name="about_wikipedia_url">https://diq.m.wikipedia.org/wiki/Wikipedia:Heqa_cı_de</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Karkerdena kıtıbxani</string>
   <string name="about_contributors_heading">İştırakkerdoği</string>
   <string name="about_translators_heading">Açarnayoği</string>
@@ -155,7 +180,7 @@
   <string name="clear_recent_searches_confirm_yes">Eya</string>
   <string name="clear_recent_searches_confirm_no">Nê</string>
   <string name="table_infobox">Pratik zanage</string>
-  <string name="table_other">Vêşi zanage</string>
+  <string name="table_other">Tayêna melumat</string>
   <string name="table_close">Kip ke</string>
   <string name="widget_name_featured_page">Perê bestıyayeyê Wikipedia</string>
   <string name="widget_title_featured_page">Ewro ra zerreko weçiniyaye</string>
@@ -188,20 +213,34 @@
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Açığ</string>
   <string name="color_theme_dark">Çığ</string>
+  <string name="color_theme_black">Siya</string>
+  <string name="color_theme_sepia">Sepya</string>
+  <string name="color_theme_test_title">Metınê nımuneyi</string>
+  <string name="nav_item_reading_lists">Listeyê mı</string>
   <string name="reading_list_create_new">Newe vıraze</string>
   <string name="reading_list_added_to_named">Debya %s tede</string>
   <string name="reading_list_added_view_button">Listi Bıvin</string>
-  <string name="reading_list_sort">Ratın</string>
+  <string name="format_reading_list_statistical_summary_singular">1 meqale, %1$.2f MB</string>
+  <string name="reading_list_sort">Weçine</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
   <string name="reading_list_sort_by_name_desc">Gorey nami ratın (çep ra)</string>
   <string name="reading_list_sort_by_recent">Tarixê dekerdışi gore ratın (tewr newe)</string>
   <string name="reading_lists_item_deleted">%s listan ra dariya we</string>
   <string name="reading_list_item_delete_undo">Peyser bıgê</string>
+  <string name="reading_list_select_item">Weçine</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bıtexelne</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Cı kewe</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">TEMAM</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Eyari</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">TEMAM</string>
+  <string name="reading_list_delete_dialog_ok_button_text">TEMAM</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Bıtexelne</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Bıtexelne</string>
+  <string name="reading_list_split_dialog_ok_button_text">TEMAM</string>
   <string name="notification_syncing_pause_button">Bıvındarne</string>
   <string name="notification_syncing_cancel_button">Bıtexelne</string>
   <string name="view_featured_image_card_download">Biya war</string>
@@ -222,36 +261,55 @@
   <string name="view_featured_article_footer_save_button_label">Qeyd ke</string>
   <string name="view_static_card_save_button_label">Qeyd ke</string>
   <string name="view_featured_article_footer_saved_button_label">Qeyd bi</string>
-  <string name="description_edit_text_hint">Şınasnayış sernamey</string>
-  <string name="description_edit_text_hint_per_language">arezekerdışê %s</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">TEMAM</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="description_edit_text_hint" fuzzy="true">Şınasnayış sernamey</string>
   <string name="description_edit_save">Bıweşane</string>
-  <string name="description_edit_article">Meqale</string>
   <string name="description_edit_read">Bıwane</string>
-  <string name="description_edit_add_description">Şınasnayışê sernamey cı kerê</string>
+  <string name="description_edit_add_description" fuzzy="true">Şınasnayışê sernamey cı kerê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
-  <string name="editactionfeed_add_title_descriptions">Arezekerdış cı ke</string>
-  <string name="editactionfeed_add_description_button">Arezekerdış cı ke</string>
-  <string name="editactionfeed_my_contributions">İştirakê mı</string>
-  <string name="editactionfeed_from_language">Rıştoğ:</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Tayêna bımuse</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Tayêna bımuse</string>
-  <string name="editactionfeed_to_language">Gırewtoğ:</string>
+  <string name="suggested_edits_add_descriptions" fuzzy="true">Arezekerdış cı ke</string>
+  <string name="suggested_edits_add_description_button">Arezekerdış cı ke</string>
+  <string name="suggested_edits_add_translation_button" fuzzy="true">Açarnayış cı ke</string>
+  <string name="suggested_edits_edit_translation_button" fuzzy="true">Çarnayışi bıvurne</string>
+  <string name="suggested_edits_my_contributions">İştirakê mı</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
+  <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
+  <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true"/>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Seba iştiakanê şıma rê teşekur kem. A fıkıtyayım ke şıma qayılê resiman rê nuştey resimi cı kerê, ma lista resimanê ke nuştey resimi çıniyo ma ê arêday pêser. Şıma şenê marê seba Wikipedia ravêr berdışi rê peşti bıdê</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true"/>
+  <string name="suggested_edits_menu_info">Melumat</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
+  <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
   <string name="onboarding_get_started">Dest pêke</string>
   <string name="onboarding_maybe_later">Belkiya badêna</string>
   <string name="onboarding_welcome_title_v2">Ensiklopediya xosere\n… 300 ra zêde zıwanan de</string>
+  <string name="app_shortcuts_random">Raştameye</string>
   <string name="app_shortcuts_search">Cı geyre</string>
-  <string name="title_description_task_title">Arezekerdış cı ke</string>
-  <string name="multilingual_task_positive">Zıwanan cı ke</string>
-  <string name="translation_source_description">arezekerdışê %s:</string>
-  <string name="title_description_editing_skip">Ravêre</string>
-  <string name="title_description_get_started">Dest pêke</string>
-  <string name="translate_description_get_started">Dest pêke</string>
-  <string name="edit_tasks_onboarding_get_started">Dest pêke</string>
-  <string name="translate_descriptions_maybe_later">Belkiya badêna</string>
-  <string name="title_descriptions_onboarding_got_it">Mı fehm kerd!</string>
-  <string name="translate_descriptions_onboarding_got_it">Mı fehm kerd!</string>
+  <string name="remove_language_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="remove_language_dialog_ok_button_text">TEMAM</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">TEMAM</string>
+  <string name="protected_page_warning_dialog_ok_button_text">TEMAM</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">TEMAM</string>
+  <string name="edit_conflict_dialog_ok_button_text">TEMAM</string>
+  <string name="reverted_edit_dialog_ok_button_text">TEMAM</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="wikitext_bold">Qalınd</string>
+  <string name="wikitext_italic">Namıte</string>
+  <string name="wikitext_link">Gıre</string>
+  <string name="wikitext_template">Şablon</string>
+  <string name="wikitext_reference">Çıme</string>
+  <string name="custom_date_picker_dialog_ok_button_text">TEMAM</string>
+  <string name="text_input_dialog_ok_button_text">TEMAM</string>
+  <string name="text_input_dialog_cancel_button_text">Bıtexelne</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Bıtexelne</string>
 </resources>

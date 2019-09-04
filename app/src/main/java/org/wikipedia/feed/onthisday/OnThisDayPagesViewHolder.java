@@ -1,27 +1,21 @@
 package org.wikipedia.feed.onthisday;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ResourceUtil;
@@ -32,10 +26,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-
-import static org.wikipedia.page.PageActivity.ACTION_LOAD_IN_NEW_TAB;
-import static org.wikipedia.page.PageActivity.EXTRA_HISTORYENTRY;
-import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 
 public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     public interface ItemCallBack {
@@ -73,7 +63,12 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setImage(@Nullable String url) {
-        pageItemImageView.loadImage(url == null ? null : Uri.parse(url));
+        if (url == null) {
+            pageItemImageView.setVisibility(View.GONE);
+        } else {
+            pageItemImageView.setVisibility(View.VISIBLE);
+            pageItemImageView.loadImage(Uri.parse(url));
+        }
     }
 
     @NonNull public OnThisDayPagesViewHolder setCallback(@Nullable ItemCallBack itemCallback) {
@@ -82,25 +77,11 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     @OnClick(R.id.parent) void onBaseViewClicked() {
-        Context context = WikipediaApp.getInstance().getApplicationContext();
         PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
-        Bundle bundle = null;
-        if (activity instanceof MainActivity) {
-            bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, ((MainActivity) activity)
-                    .getFloatingQueueImageView(), ViewCompat.getTransitionName(((MainActivity) activity)
-                    .getFloatingQueueImageView())).toBundle();
-        }
-
-        Intent intent = new Intent(ACTION_LOAD_IN_NEW_TAB)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .setClass(activity, PageActivity.class)
-                .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, pageTitle);
-
-        activity.startActivity(intent, bundle);
+        activity.startActivity(PageActivity.newIntentForCurrentTab(activity, entry, pageTitle));
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {

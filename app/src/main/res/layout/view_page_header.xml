@@ -1,11 +1,10 @@
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.widget.LinearLayout"
-    tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
-    tools:orientation="vertical">
+    tools:layout_width="match_parent"
+    tools:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,17 +14,49 @@
             android:id="@+id/view_page_header_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:placeholderImage="?lead_image_drawable"
-            app:placeholderImageScaleType="centerCrop"
+            android:contentDescription="@null"
+            app:actualImageScaleType="focusCrop"
+            app:backgroundImage="?android:colorBackground"
             app:failureImage="?lead_image_drawable"
             app:failureImageScaleType="centerCrop"
-            app:actualImageScaleType="focusCrop"
-            android:contentDescription="@null" />
+            app:placeholderImageScaleType="centerCrop" />
 
         <View
-            android:id="@+id/view_page_header_image_gradient"
+            android:id="@+id/view_page_header_image_gradient_top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/view_page_header_image_gradient_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/call_to_action_container"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/app_shortcut_icon_size"
+                android:layout_height="@dimen/app_shortcut_icon_size"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_add_gray_white_24dp" />
+
+            <TextView
+                android:id="@+id/call_to_action_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:textAllCaps="true"
+                android:textColor="@color/base100"
+                android:letterSpacing="0.1" />
+        </LinearLayout>
 
     </FrameLayout>
 

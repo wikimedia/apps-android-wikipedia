@@ -5,6 +5,7 @@
 * George Animal
 * Ghybu
 * Kur
+* Mirzali
 -->
 <resources>
   <string name="app_name_prod">Wîkîpediya</string>
@@ -20,6 +21,7 @@
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>
+  <string name="error_back">Vegere</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
   <string name="history_item_deleted">%s ji dîroka gerokê hate rakirin</string>
   <string name="history_items_deleted">%d gotar ji dîrokê hatin rakirin</string>
@@ -65,7 +67,6 @@
   <string name="langlinks_activity_title">Zimanên din</string>
   <string name="langlinks_your_wikipedia_languages">Zimanên te yên Wîkîpediyayê</string>
   <string name="menu_save_changes">Guhertinan biweşîne</string>
-  <string name="dialog_saving_in_progress">Tê weşandin...</string>
   <string name="edit_saved_successfully">Guherandin hate weşandin!</string>
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>
@@ -98,6 +99,7 @@
   <string name="reset_password_button">Tomar bike û têkeve</string>
   <string name="preference_title_logout">Derkeve</string>
   <string name="toast_logout_complete">Hate derketin</string>
+  <string name="logged_out_in_background_cancel">Betal bike</string>
   <string name="history_empty_title">Rûpelên ku te di demên dawî de dîtibe tine ne!</string>
   <string name="history_empty_message">Yên ku te xwendiye ji vir bişopîne.</string>
   <string name="search_empty_message">Ansîklopediya azad bi zimanê xwe bixwîne û lê bigere</string>
@@ -209,6 +211,7 @@
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
   <string name="reading_list_item_delete_undo">Betal bike</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
+  <string name="reading_list_select_item">Bibijêre</string>
   <string name="reading_lists_confirm_remote_delete_yes">Erê</string>
   <string name="reading_lists_confirm_remote_delete_no">Na</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Betal bike</string>
@@ -216,7 +219,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Mîheng</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Têkeve / xwe qeyd bike</string>
   <string name="notification_syncing_cancel_button">Betal bike</string>
-  <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
@@ -232,7 +234,13 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
-  <string name="editactionfeed_to_language">Bo:</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyan zêde bikin\"</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Tu vekirî ye \"kelepên wêneyan zêde bike\"</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyên bişkojk\" vekirî ne</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Spas, ji bo hemû beşdariyên te! Tu sepanê di gelek zimanan de bi kar tînî, lewma em lîsteyeke wêneyên ku wergerandina sernavan ji bo wan pêwîst e berhev kirin. Gelo tu yê berdewam bî alîkirkina me, da ku em Wîkîpediyayê çêtir bikin?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Ji bo hemû beşdariya spas! Hûn di gelek zimanan de bi kar tîne ziman, da ku em hewceyek lîsteyek pêdivî ye ku hewceyê wergeran çêbikin. Ma hûn berdewam bikin ku alîkariya me bi Wîkîpediyayê çêtir bikin?</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>

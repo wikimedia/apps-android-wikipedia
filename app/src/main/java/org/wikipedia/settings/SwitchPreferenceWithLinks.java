@@ -2,12 +2,13 @@ package org.wikipedia.settings;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.preference.PreferenceViewHolder;
 
 import org.wikipedia.R;
 import org.wikipedia.page.LinkMovementMethodExt;
@@ -44,7 +45,7 @@ public class SwitchPreferenceWithLinks extends SwitchPreferenceMultiLine {
         TextView view = (TextView) holder.findViewById(android.R.id.summary);
         view.setMovementMethod(movementMethod);
         view.setOnClickListener(onClickListener);
-        view.setBackground(ContextCompat.getDrawable(getContext(),
+        view.setBackground(AppCompatResources.getDrawable(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackgroundBorderless)));
     }
 }

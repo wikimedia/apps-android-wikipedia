@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/notifications_refresh_view"
@@ -11,40 +10,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/notifications_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"/>
+            android:scrollbars="vertical" />
 
         <LinearLayout
             android:id="@+id/notifications_empty_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_gravity="center_vertical"
-            android:gravity="center">
+            tools:visibility="visible">
 
             <ImageView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_notifications_empty"
-                android:contentDescription="@null"/>
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_notifications_empty" />
 
             <TextView
+                style="@style/MaterialMediumSecondaryCaption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/MaterialMediumSecondaryCaption"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/notifications_empty_message"/>
+                android:text="@string/notifications_empty_message" />
 
-            <TextView
+            <Button
                 android:id="@+id/notifications_view_archived_button"
                 style="@style/App.Button.White"
-                android:text="@string/notifications_view_archived_button_text"/>
+                android:text="@string/notifications_view_archived_button_text" />
 
         </LinearLayout>
 
@@ -53,15 +52,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"/>
+            android:orientation="vertical" />
 
         <ProgressBar
             android:id="@+id/notifications_progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_gravity="bottom|end"/>
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp" />
 
     </FrameLayout>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,6 +1,6 @@
 package org.wikipedia.feed.image;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.gallery.ImageInfo;

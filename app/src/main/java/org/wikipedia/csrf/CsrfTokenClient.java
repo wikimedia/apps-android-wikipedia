@@ -1,10 +1,11 @@
 package org.wikipedia.csrf;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -14,8 +15,10 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -96,6 +99,9 @@ public class CsrfTokenClient {
                 request(callback);
             }, callback);
         } else {
+            if (retries >= MAX_RETRIES) {
+                bailWithLogout();
+            }
             callback.failure(caught);
         }
     }
@@ -132,7 +138,7 @@ public class CsrfTokenClient {
                 });
     }
 
-    @NonNull public String getTokenBlocking() throws Throwable {
+    @NonNull public String getTokenBlocking() throws Exception {
         String token = "";
         Service service = ServiceFactory.get(csrfWikiSite);
 
@@ -144,7 +150,7 @@ public class CsrfTokenClient {
                             AccountUtil.getPassword(), "");
                 }
 
-                Response<MwQueryResponse> response = service.getCsrfToken().execute();
+                Response<MwQueryResponse> response = service.getCsrfTokenCall().execute();
                 if (response.body() == null || response.body().query() == null
                         || TextUtils.isEmpty(response.body().query().csrfToken())) {
                     continue;
@@ -159,14 +165,24 @@ public class CsrfTokenClient {
             }
         }
         if (TextUtils.isEmpty(token) || token.equals(ANON_TOKEN)) {
+            if (!TextUtils.isEmpty(token) && token.equals(ANON_TOKEN)) {
+                bailWithLogout();
+            }
             throw new IOException("Invalid token, or login failure.");
         }
         return token;
     }
 
+    private void bailWithLogout() {
+        // Signal to the rest of the app that we're explicitly logging out in the background.
+        WikipediaApp.getInstance().logOut();
+        Prefs.setLoggedOutInBackground(true);
+        WikipediaApp.getInstance().getBus().post(new LoggedOutInBackgroundEvent());
+    }
+
     @VisibleForTesting @NonNull Call<MwQueryResponse> requestToken(@NonNull Service service,
                                                                    @NonNull final Callback cb) {
-        Call<MwQueryResponse> call = service.getCsrfToken();
+        Call<MwQueryResponse> call = service.getCsrfTokenCall();
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call, @NonNull Response<MwQueryResponse> response) {

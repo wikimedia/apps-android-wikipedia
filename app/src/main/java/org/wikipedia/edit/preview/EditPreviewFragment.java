@@ -1,19 +1,19 @@
 package org.wikipedia.edit.preview;
 
-import android.app.ProgressDialog;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +21,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
@@ -41,9 +42,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import retrofit2.Call;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 public class EditPreviewFragment extends Fragment {
@@ -61,8 +65,8 @@ public class EditPreviewFragment extends Fragment {
     private List<EditSummaryTag> summaryTags;
     private EditSummaryTag otherTag;
 
-    private ProgressDialog progressDialog;
     private EditFunnel funnel;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -89,7 +93,7 @@ public class EditPreviewFragment extends Fragment {
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url());
+        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url(), getThemedColor(requireActivity(), R.attr.paper_color));
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
@@ -170,11 +174,6 @@ public class EditPreviewFragment extends Fragment {
                 displayPreview(previewHTML);
             }
         }
-
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(getString(R.string.edit_preview_fetching_dialog_message));
-        progressDialog.setCancelable(false);
     }
 
     public void setCustomSummary(String summary) {
@@ -197,7 +196,7 @@ public class EditPreviewFragment extends Fragment {
 
                 @Override
                 public void onInternalLinkClicked(@NonNull final PageTitle title) {
-                    showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForNewTab(getContext(),
+                    showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForCurrentTab(getContext(),
                             new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
                 }
 
@@ -265,33 +264,20 @@ public class EditPreviewFragment extends Fragment {
      */
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(requireActivity());
-        progressDialog.show();
+        parentActivity.showProgressBar(true);
 
-        new EditPreviewClient().request(parentActivity.getPageTitle().getWikiSite(), title, wikiText,
-                new EditPreviewClient.Callback() {
-            @Override
-            public void success(@NonNull Call<EditPreview> call, @NonNull String preview) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                displayPreview(preview);
-                previewHTML = preview;
-                parentActivity.supportInvalidateOptionsMenu();
-                progressDialog.dismiss();
-            }
-
-            @Override
-            public void failure(@NonNull Call<EditPreview> call, @NonNull Throwable caught) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                parentActivity.showError(caught);
-                L.e(caught);
-            }
-        });
+        disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate(() -> parentActivity.showProgressBar(false))
+                .subscribe(response -> {
+                    displayPreview(response.result());
+                    previewHTML = response.result();
+                    parentActivity.supportInvalidateOptionsMenu();
+                }, throwable -> {
+                    parentActivity.showError(throwable);
+                    L.e(throwable);
+                }));
     }
 
     /**
@@ -322,7 +308,12 @@ public class EditPreviewFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        webview.destroy();
+        disposables.clear();
+        if (webview != null) {
+            webview.clearAllListeners();
+            ((ViewGroup) webview.getParent()).removeView(webview);
+            webview = null;
+        }
         super.onDestroyView();
     }
 
@@ -358,13 +349,5 @@ public class EditPreviewFragment extends Fragment {
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
         }
-    }
-
-    @Override
-    public void onDetach() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
-        super.onDetach();
     }
 }

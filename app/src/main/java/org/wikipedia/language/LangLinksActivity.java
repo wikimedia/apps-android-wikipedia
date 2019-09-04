@@ -3,12 +3,6 @@ package org.wikipedia.language;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -94,6 +95,7 @@ public class LangLinksActivity extends BaseActivity {
 
         fetchLangLinks();
 
+        langLinksError.setBackClickListener((v) -> onBackPressed());
         langLinksError.setRetryClickListener((v) -> {
             ViewAnimations.crossFade(langLinksError, langLinksProgress);
             fetchLangLinks();
@@ -185,7 +187,9 @@ public class LangLinksActivity extends BaseActivity {
         List<PageTitle> list = new ArrayList<>();
 
         for (PageTitle entry : languageEntries) {
-            if (app.language().getAppLanguageCodes().contains(entry.getWikiSite().languageCode())) {
+            if ((entry.getWikiSite().languageCode().equals(AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE)
+                    && app.language().getAppLanguageCodes().contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE))
+                    || app.language().getAppLanguageCodes().contains(entry.getWikiSite().languageCode())) {
                 list.add(entry);
             }
         }
@@ -209,7 +213,7 @@ public class LangLinksActivity extends BaseActivity {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .map(SiteMatrix::getSites)
-                    .doFinally(() -> {
+                    .doAfterTerminate(() -> {
                         langLinksProgress.setVisibility(View.INVISIBLE);
                         adapter.notifyDataSetChanged();
                     })
@@ -455,7 +459,7 @@ public class LangLinksActivity extends BaseActivity {
             PageTitle langLink = languageEntries.get(pos);
             app.language().addMruLanguageCode(langLink.getWikiSite().languageCode());
             HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
-            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
+            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink, false);
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
             hideSoftKeyboard(LangLinksActivity.this);
             finish();

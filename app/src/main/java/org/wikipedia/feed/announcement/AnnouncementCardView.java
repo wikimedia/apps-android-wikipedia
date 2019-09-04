@@ -2,12 +2,14 @@ package org.wikipedia.feed.announcement;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
@@ -30,8 +32,8 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
 
     @BindView(R.id.view_announcement_header_image) FaceAndColorDetectImageView headerImageView;
     @BindView(R.id.view_announcement_text) TextView textView;
-    @BindView(R.id.view_announcement_action_positive) TextView actionViewPositive;
-    @BindView(R.id.view_announcement_action_negative) TextView actionViewNegative;
+    @BindView(R.id.view_announcement_action_positive) Button actionViewPositive;
+    @BindView(R.id.view_announcement_action_negative) Button actionViewNegative;
     @BindView(R.id.view_announcement_footer_text) TextView footerTextView;
     @BindView(R.id.view_announcement_footer_border) View footerBorderView;
 

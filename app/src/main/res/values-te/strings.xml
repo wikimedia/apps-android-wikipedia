@@ -14,14 +14,21 @@
   <string name="app_name_beta">వికీపీడియా బీటా</string>
   <string name="app_name_alpha">వికీపీడియా ఆల్ఫా</string>
   <string name="wikimedia">వికీమీడియా</string>
+  <string name="nav_item_back">వెనుకకు</string>
+  <string name="page_tabs_back">వెనుకకు</string>
+  <string name="nav_item_forward">ముందుకు</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
-  <string name="error_network_error" fuzzy="true">ఇంటర్నెట్ తో అనుసందానం ఏర్పరచలేకపోయాము.</string>
+  <string name="error_network_error">అంతర్జాలానికి అనుసంధానం కాలేకపోయాం.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
+  <string name="card_offline_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="page_error_back_to_main">వెనక్కి వెళ్ళు</string>
+  <string name="error_back">వెనుకకు వెళ్ళు</string>
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
-  <string name="dialog_title_clear_history" fuzzy="true">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
+  <string name="dialog_title_clear_history">విహరణ చరిత్రను తుడిచివేయి</string>
   <string name="dialog_message_clear_history" fuzzy="true">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
+  <string name="dialog_message_clear_history_yes">అవును</string>
+  <string name="dialog_message_clear_history_no">కాదు</string>
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను ఎంచుకోండి</string>
@@ -45,8 +52,7 @@
   <string name="langlinks_no_match" fuzzy="true">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.\n\n.</string>
   <string name="langlinks_activity_title">ఇతర భాషలు</string>
   <string name="menu_save_changes" fuzzy="true">మార్పులను భద్రపరచు</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">భద్రపరుస్తున్నాం…</string>
-  <string name="edit_saved_successfully" fuzzy="true">సవరణ భద్రపరచపడింది!</string>
+  <string name="edit_saved_successfully">దిద్దుబాటు ప్రచురించబడింది!</string>
   <string name="dialog_message_edit_failed">సవరణ విఫలమయ్యింది!</string>
   <string name="dialog_message_edit_failed_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_message_edit_failed_cancel">రద్దుచేయి</string>
@@ -62,30 +68,41 @@
   <string name="nav_item_login">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
+  <string name="account_creation_password_hint">సంకేతపదం</string>
   <string name="menu_login">లాగినవండి</string>
   <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_in_progress_dialog_message">మిమల్ని లాగిన్ చేస్తున్నాము…</string>
   <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
   <string name="preference_title_logout">నిష్క్రమించండి</string>
   <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
-  <string name="history_empty_title" fuzzy="true">ఇటీవలి పేజీలు ఏమీ లేవు.</string>
+  <string name="logout_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="logged_out_in_background_cancel">రద్దుచేయి</string>
+  <string name="history_empty_title">ఇటీవల చూసిన వ్యాసాలు ఏమీలేవు</string>
   <string name="history_empty_message" fuzzy="true">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం\nమీరు ఒక పేజీకి వెళ్ళినప్పుడు మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>
+  <string name="login_dont_have_account">ఖాతా లేదా?</string>
+  <string name="login_join_wikipedia">వికీపీడియాలో చేరండి</string>
+  <string name="login_forgot_password">మీ సంకేతపదం మర్చిపోయారా?</string>
+  <string name="create_account_already_have">మీకు ఇప్పటికే ఖాతా ఉందా?</string>
   <string name="create_account_activity_title">ఖాతా సృష్టించుకోండి</string>
   <string name="dialog_create_account_checking_progress">ధృవీకరిస్తోంది</string>
   <string name="create_account_email_hint">ఈమెయిలు (ఐచ్చికం)</string>
   <string name="create_account_password_repeat_hint">సంకేతపదాన్ని పునరావృతం చేయండి</string>
   <string name="create_account_passwords_mismatch_error">భద్రతపదాలు సరిపోలుట లేదు</string>
   <string name="create_account_email_error">చెల్లని ఈమెయిలు చిరునామా</string>
+  <string name="create_account_username_error">వాడుకరి పేరులో చెల్లని అక్షరాలు</string>
+  <string name="create_account_password_error">ఆ సంకేతపదం చెల్లదు</string>
   <string name="create_account_generic_error">ఖాతాను సృష్టించలేకపోయాం</string>
   <string name="create_account_next">తదుపరి</string>
+  <string name="email_recommendation_dialog_title">ఈమెయిలు చిరునామా లేకుండా ఖాతా సృష్టించాలా?</string>
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
+  <string name="create_account_ip_block_details">వివరాలు</string>
   <string name="preferences_general_heading">సాధారణం</string>
   <string name="wikipedia_app_faq">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
-  <string name="edit_preview_fetching_dialog_message">ప్రివ్యూ వస్తుంది…</string>
   <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
+  <string name="preferences_heading_experimental">ప్రయోగాత్మకం</string>
   <string name="preferences_privacy_settings_heading">అంతరంగికత</string>
   <string name="preference_title_eventlogging_opt_in">వాడుక నివేదికని పంపండి</string>
   <string name="preference_summary_eventlogging_opt_in">ఈ అనువర్తనం మెరుగుపరచుటకు, మీరు ఈ అనువర్తనం ఎలా వాడుతున్నారో అన్న సమాచారం సేకరించటానికి వికీపీడియాకి అనుమతి ఇవ్వండి</string>
@@ -112,12 +129,14 @@
   <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
   <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
+  <string name="edit_abandon_confirm_yes">అవును</string>
+  <string name="edit_abandon_confirm_no">కాదు</string>
   <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>
   <string name="user_logged_in_blocked_from_editing">ఈ వికీని సవరించకుండా మీ వాడుక ఖాతా నిరోధించబడింది.</string>
   <string name="user_anon_blocked_from_editing">సవరించకుండా మీ ఐపి చిరునామా నిరోధించబడింది</string>
   <string name="edit_how_page_improved">మీరు పేజీని ఎలా మెరుగుపరచారు?</string>
   <string name="edit_next">తదుపరి</string>
-  <string name="edit_done" fuzzy="true">భద్రపరచు</string>
+  <string name="edit_done">ప్రచురించు</string>
   <string name="edit_preview">మునుజూపు</string>
   <string name="edit_summary_tag_typo">అక్షర దోషం స్థిరం</string>
   <string name="edit_summary_tag_grammar">వ్యాకరణం స్థిరం</string>
@@ -148,7 +167,9 @@
   <string name="dialog_close_description">మూయు</string>
   <string name="preference_title_show_images">బొమ్మలు చూపించు</string>
   <string name="preference_summary_show_images" fuzzy="true">పేజిలలో చిత్రాన్ని లోడ్ చేయండి లేదా చేయవద్దు. మీ డేటా కనెక్షన్ మెల్లగా కానీ పరిమితంగా కానీ ఉంటే ఈ అమర్పుని ఎంచుకోవద్దు.</string>
+  <string name="dialog_title_download_only_over_wifi_allow">అనుమతించు</string>
   <string name="read_more_section">మరింత చదువు</string>
+  <string name="about_article_section">ఈ వ్యాసం గురించి</string>
   <string name="menu_gallery_visit_page">దస్త్ర పేజీకి వెళ్ళు</string>
   <string name="gallery_error_draw_failed">బొమ్మను పొందలేకపోతున్నాము.</string>
   <string name="license_title" fuzzy="true">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
@@ -181,28 +202,93 @@
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
   <string name="color_theme_dark">చీకటి</string>
+  <string name="color_theme_black">నలుపు</string>
+  <string name="color_theme_test_title">నమూనా పాఠ్యం</string>
+  <string name="text_size_percent_default">%s (అప్రమేయం)</string>
   <string name="nav_item_reading_lists">నా జాబితాలు</string>
   <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
   <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">అంతరిక్షం!</string>
   <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">రద్దుచేయి</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">సరే</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">అమరికలు</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">సరే</string>
+  <string name="reading_list_delete_dialog_ok_button_text">సరే</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">రద్దుచేయి</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">రద్దుచేయి</string>
+  <string name="reading_list_split_dialog_ok_button_text">సరే</string>
   <string name="user_option_sync_label">అభిరుచులు</string>
+  <string name="notification_syncing_cancel_button">రద్దుచేయి</string>
+  <string name="notifications_poll_enable_positive">చేతనించు</string>
+  <string name="notifications_poll_enable_negative">ఇప్పుడు కాదు</string>
+  <string name="preference_title_notification_milestone">మైలురాయి</string>
+  <string name="preference_title_notification_thanks">కృతజ్ఞతలు</string>
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>
   <string name="view_card_news_title">వార్తల్లో</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">నిన్న</item>
     <item quantity="other">%d రోజుల క్రితం</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">నేడు</string>
-  <string name="description_edit_text_hint">శీర్షిక వివరణ</string>
-  <string name="description_edit_save" fuzzy="true">భద్రపరచు</string>
-  <string name="description_edit_edit_description">వివరణను మార్చు</string>
+  <string name="view_continue_reading_card_subtitle_today">నేడు</string>
+  <string name="view_featured_article_footer_save_button_label">భద్రపరచు</string>
+  <string name="view_static_card_save_button_label">భద్రపరచు</string>
+  <string name="view_featured_article_footer_saved_button_label">భద్రపరచబడింది</string>
+  <string name="feed_configure_menu_select_all">అన్నీ చూపించు</string>
+  <string name="feed_configure_menu_deselect_all">అన్నీ దాచు</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">సరే</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">సరే</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="description_edit_text_hint" fuzzy="true">శీర్షిక వివరణ</string>
+  <string name="description_edit_save">ప్రచురించు</string>
+  <string name="description_edit_edit_description" fuzzy="true">వివరణను మార్చు</string>
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>
   <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
   <string name="description_edit_success_saved" fuzzy="true">వివరణ భద్రమయ్యింది!</string>
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
-  <string name="description_edit_tutorial_title_descriptions">శీర్షిక వివరణలు</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">శీర్షిక వివరణలు</string>
+  <string name="suggested_edits_menu_info">సమాచారం</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
+  <string name="description_edit_login_cancel_button_text">రద్దుచేయి</string>
+  <string name="onboarding_continue">కొనసాగించు</string>
+  <string name="onboarding_get_started">మొదలుపెట్టు</string>
+  <string name="onboarding_maybe_later">మరెప్పుడైనా</string>
+  <string name="onboarding_got_it">అర్థమైంది</string>
+  <string name="app_shortcuts_search">వెతకండి</string>
+  <string name="more_trending_text">ఇలాంటివే మరిన్ని</string>
+  <string name="on_this_day_card_title">ఈ రోజున</string>
+  <string name="this_year">ఈ సంవత్సరం</string>
+  <string name="back_to_top">తిరిగి పైకి</string>
+  <plurals name="diff_years">
+    <item quantity="one">పోయిన సంవత్సరం</item>
+    <item quantity="other">%d సంవత్సరాల క్రితం</item>
+  </plurals>
+  <string name="languages_list_all_text">భాషలన్నీ</string>
+  <string name="wikipedia_languages_your_languages_text">మీ భాషలు</string>
+  <string name="more_language_options">మరిన్ని</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">వద్దులే</string>
+  <string name="remove_language_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="remove_language_dialog_ok_button_text">సరే</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">సరే</string>
+  <string name="protected_page_warning_dialog_ok_button_text">సరే</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">సరే</string>
+  <string name="edit_conflict_dialog_ok_button_text">సరే</string>
+  <string name="reverted_edit_dialog_ok_button_text">సరే</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="wikitext_bold">బొద్దు</string>
+  <string name="wikitext_italic">వాలు</string>
+  <string name="wikitext_link">లంకెచేయి</string>
+  <string name="wikitext_bulleted_list">బిందు జాబితా</string>
+  <string name="wikitext_numbered_list">సంఖ్యా జాబితా</string>
+  <string name="wikitext_template">మూస</string>
+  <string name="main_drawer_help">సహాయం</string>
+  <string name="custom_date_picker_dialog_ok_button_text">సరే</string>
+  <string name="text_input_dialog_ok_button_text">సరే</string>
+  <string name="text_input_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">రద్దుచేయి</string>
 </resources>

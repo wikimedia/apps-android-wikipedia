@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.WikiDrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.WikiDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_drawer"
@@ -16,9 +15,9 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/single_fragment_toolbar"
             style="@style/ToolbarStyle"
             android:layout_width="match_parent"
@@ -26,7 +25,9 @@
             android:background="?attr/main_toolbar_color"
             android:elevation="4dp"
             android:theme="@style/ToolbarTheme"
-            app:titleTextColor="?attr/main_toolbar_title_color">
+            android:layout_marginStart="-12dp"
+            app:titleTextColor="?attr/main_toolbar_title_color"
+            app:titleMarginStart="28dp">
 
             <LinearLayout
                 android:id="@+id/hamburger_and_wordmark_layout"
@@ -39,15 +40,15 @@
                     android:id="@+id/drawer_icon_layout"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="-12dp"
-                    android:background="?attr/selectableItemBackgroundBorderless">
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/main_drawer_content_description">
 
                     <ImageView
                         android:id="@+id/drawer_icon_menu"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:contentDescription="@null"
+                        android:contentDescription="@string/main_drawer_content_description"
                         app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
                     <ImageView
@@ -55,11 +56,11 @@
                         android:layout_width="8dp"
                         android:layout_height="8dp"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"
                         android:layout_marginStart="8dp"
+                        android:layout_marginBottom="8dp"
                         android:contentDescription="@null"
-                        android:visibility="gone"
                         android:tint="?attr/colorAccent"
+                        android:visibility="gone"
                         app:srcCompat="@drawable/shape_circle" />
                 </FrameLayout>
 
@@ -72,7 +73,7 @@
                     app:srcCompat="@drawable/feed_header_wordmark"
                     app:tint="?attr/main_toolbar_title_color" />
             </LinearLayout>
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
     </FrameLayout>
 
     <org.wikipedia.main.MainDrawerView

@@ -7,15 +7,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
@@ -25,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -55,6 +59,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
             locallyKnownNotifications = Prefs.getLocallyKnownNotifications();
             pollNotifications(context);
+            pollEditorTaskCounts(context);
         }
     }
 
@@ -98,7 +103,28 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                     }
                     Prefs.setRemoteNotificationsSeenTime(lastNotificationTime);
                     retrieveNotifications(context);
-                }, L::e);
+                }, t -> {
+                    if (t instanceof MwException && ((MwException)t).getError().getTitle().equals("login-required")) {
+                        assertLoggedIn();
+                    }
+                    L.e(t);
+                });
+    }
+
+    public void assertLoggedIn() {
+        // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
+        // and should automatically log us out if the credentials are no longer valid.
+        Completable.fromAction(() -> new CsrfTokenClient(WikipediaApp.getInstance().getWikiSite(), WikipediaApp.getInstance().getWikiSite())
+                .getTokenBlocking()).subscribeOn(Schedulers.io())
+                .subscribe();
+    }
+
+    @SuppressLint("CheckResult")
+    public static void pollEditorTaskCounts(@NonNull final Context context) {
+        ServiceFactory.get(new WikiSite(Service.WIKIDATA_URL)).getEditorTaskCounts()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> NotificationEditorTasksHandler.dispatchEditorTaskResults(context, response.query().editorTaskCounts()), L::e);
     }
 
     @SuppressLint("CheckResult")
@@ -150,17 +176,17 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             locallyKnownModified = true;
 
             // TODO: remove these conditions when the time is right.
-            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
+            if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                    || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
+                    || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                    || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                    || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
                     || Prefs.showAllNotifications()) {
 
                 NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
 
-            }
-
-            if (n.type().equals(Notification.TYPE_REVERTED) && n.isFromWikidata()) {
-                Prefs.incrementTotalUserDescriptionsReverted();
             }
         }
 

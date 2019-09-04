@@ -2,24 +2,23 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.AttrRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.chip.Chip;
-import android.support.design.chip.ChipGroup;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.TextViewCompat;
+
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -49,13 +48,12 @@ public class PageItemView<T> extends ConstraintLayout {
         void onThumbClick(@Nullable T item);
         void onActionClick(@Nullable T item, @NonNull View view);
         void onSecondaryActionClick(@Nullable T item, @NonNull View view);
-        void onListChipClick(@Nullable ReadingList readingList);
+        void onListChipClick(@NonNull ReadingList readingList);
     }
 
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
-    @BindView(R.id.page_list_item_action_primary) ImageView primaryActionView;
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
@@ -66,6 +64,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
+    @Nullable private String imageUrl;
     private boolean selected;
 
     public PageItemView(@NonNull Context context) {
@@ -106,20 +105,8 @@ public class PageItemView<T> extends ConstraintLayout {
     }
 
     public void setImageUrl(@Nullable String url) {
-        ViewUtil.loadImageUrlInto(imageView, url);
-    }
-
-    public void setActionIcon(@DrawableRes int id) {
-        primaryActionView.setImageResource(id);
-        primaryActionView.setVisibility(VISIBLE);
-    }
-
-    public void setActionHint(@StringRes int id) {
-        primaryActionView.setContentDescription(getContext().getString(id));
-    }
-
-    public void setActionTint(@AttrRes int tint) {
-        DrawableCompat.setTint(primaryActionView.getDrawable(), ResourceUtil.getThemedColor(getContext(), tint));
+        imageUrl = url;
+        updateSelectedState();
     }
 
     public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
@@ -204,12 +191,6 @@ public class PageItemView<T> extends ConstraintLayout {
         }
     }
 
-    @OnClick(R.id.page_list_item_action_primary) void onActionClick(View v) {
-        if (callback != null) {
-            callback.onActionClick(item, v);
-        }
-    }
-
     @OnClick(R.id.page_list_item_action_secondary) void onSecondaryActionClick() {
         if (callback != null) {
             callback.onSecondaryActionClick(item, this);
@@ -225,18 +206,23 @@ public class PageItemView<T> extends ConstraintLayout {
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
+            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
 
-        FeedbackUtil.setToolbarButtonLongPressToast(primaryActionView);
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
     private void updateSelectedState() {
-        imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
-        // TODO: animate?
-        setBackgroundColor(getThemedColor(getContext(),
-                selected ? R.attr.multi_select_background_color : R.attr.paper_color));
+        if (selected) {
+            imageSelectedView.setVisibility(VISIBLE);
+            imageView.setVisibility(GONE);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
+        } else {
+            imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
+            ViewUtil.loadImageUrlInto(imageView, imageUrl);
+            imageSelectedView.setVisibility(GONE);
+            setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

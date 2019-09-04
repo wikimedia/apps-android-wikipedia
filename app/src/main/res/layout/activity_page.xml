@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_page_container"
@@ -9,10 +8,10 @@
     android:background="@color/base10">
 
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/page_fragment"
         android:name="org.wikipedia.page.PageFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout="@layout/fragment_page"
         tools:layout="@layout/fragment_page" />
 
@@ -23,69 +22,56 @@
         android:background="?attr/page_toolbar_color"
         android:elevation="4dp">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/page_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/PageToolbarTheme"
-            app:titleTextColor="?attr/page_toolbar_icon_color"
-            app:navigationIcon="@drawable/ic_icon_w_back">
+            app:titleTextColor="?attr/page_toolbar_icon_color">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|end">
-                <android.support.v7.widget.AppCompatImageView
+
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/page_toolbar_button_search"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
-                    android:contentDescription="@string/search_hint"
                     android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/search_hint"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
                     app:srcCompat="@drawable/ic_search_themed_24dp"
-                    app:tint="?attr/page_toolbar_icon_color"/>
-                <FrameLayout
-                    android:id="@+id/page_toolbar_button_tabs_container"
+                    app:tint="?attr/page_toolbar_icon_color" />
+
+                <org.wikipedia.views.TabCountsView
+                    android:id="@+id/page_toolbar_button_tabs"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/menu_page_show_tabs">
-                    <org.wikipedia.views.TabCountsView
-                        android:id="@+id/page_toolbar_button_show_tabs"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:textSize="12sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:textColor="?attr/material_theme_secondary_color"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textAlignment="center"
-                        android:background="?attr/page_tab_counts_shape_border"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
-                        tools:text="3"/>
-                </FrameLayout>
-                <android.support.v7.widget.AppCompatImageView
+                    android:contentDescription="@string/menu_page_show_tabs"></org.wikipedia.views.TabCountsView>
+
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/page_toolbar_button_show_overflow_menu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
-                    android:contentDescription="@string/menu_feed_overflow_label"
                     android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/menu_feed_overflow_label"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
                     app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                    app:tint="?attr/page_toolbar_icon_color"/>
+                    app:tint="?attr/page_toolbar_icon_color" />
             </LinearLayout>
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <ProgressBar
             android:id="@+id/page_progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-7dp"
             android:layout_gravity="top"
-            android:max="10000"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+            android:layout_marginTop="-7dp"
+            android:max="10000" />
 
     </FrameLayout>
 
@@ -94,33 +80,33 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:visibility="gone"
-        tools:visibility="visible"
-        android:elevation="6dp"
         android:background="?android:colorBackground"
-        tools:background="@color/base80">
+        android:elevation="6dp"
+        android:visibility="gone"
+        tools:background="@color/base80"
+        tools:visibility="visible">
 
         <org.wikipedia.views.SwipeableListView
             android:id="@+id/toc_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="64dp"
-            android:paddingBottom="64dp"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:scrollbars="none"
-            android:listSelector="?android:attr/selectableItemBackground" />
+            android:listSelector="?android:attr/selectableItemBackground"
+            android:paddingTop="64dp"
+            android:paddingBottom="64dp"
+            android:scrollbars="none" />
 
         <ImageView
             android:layout_width="37dp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:layout_marginTop="-4dp"
-            android:layout_marginBottom="-4dp"
             android:layout_marginEnd="-2dp"
-            android:src="@drawable/toc_dotted_line"
+            android:layout_marginBottom="-4dp"
             android:contentDescription="@null"
-            android:layerType="software"/>
+            android:layerType="software"
+            android:src="@drawable/toc_dotted_line" />
 
     </FrameLayout>
 
@@ -129,10 +115,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="end"
+        android:background="@drawable/shape_circle"
+        android:clickable="true"
         android:elevation="8dp"
-        app:srcCompat="@drawable/ic_unfold_more_black_24dp"
-        app:tint="?attr/colorAccent"
+        android:focusable="true"
         android:scaleType="center"
-        android:clickable="true"/>
+        app:backgroundTint="?attr/toc_scroller_button_color"
+        app:srcCompat="@drawable/ic_unfold_more_black_24dp"
+        app:tint="?attr/colorAccent" />
 
 </FrameLayout>

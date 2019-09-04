@@ -4,15 +4,19 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.log.L;
 
@@ -21,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 /**
  * Two-way communications bridge between JS in a WebView and Java.
@@ -61,15 +67,17 @@ public class CommunicationBridge {
                 CommunicationBridge.this.webView.loadUrl(jsString);
             }
         });
+
+        resetHtml("index.html", Service.WIKIPEDIA_URL, getThemedColor(webView.getContext(), R.attr.paper_color));
     }
 
-    public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl) {
+    public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl, @ColorInt int backgroundColor) {
         String html = "";
         try {
             html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
                     .replace("$wikiurl", wikiUrl)
-                    .replace("$pageLibThemeClass", WikipediaApp.getInstance().getCurrentTheme().getPageLibClass())
-                    .replace("$pageLibDimImgClass", WikipediaApp.getInstance().getCurrentTheme().isDark() ? "pagelib_dim_images" : "");
+                    .replace("$themeClass", WikipediaApp.getInstance().getCurrentTheme().getPageLibClass())
+                    .replace("$themeBackground", Integer.toHexString(backgroundColor).substring(2));
 
         } catch (IOException e) {
             e.printStackTrace();

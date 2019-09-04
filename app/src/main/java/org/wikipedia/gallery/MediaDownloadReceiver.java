@@ -9,12 +9,14 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.image.FeaturedImage;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FileUtil;
 
 import java.io.File;
@@ -38,21 +40,21 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         performDownloadRequest(context, Uri.parse(featuredImage.getOriginal().getSource()), targetDirectory, filename, null);
     }
 
-    public static void download(@NonNull Context context, @NonNull GalleryItem galleryItem) {
-        String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(galleryItem.getTitles().getCanonical()));
-        String fileUrl = galleryItem.getOriginal().getSource();
+    public static void download(@NonNull Context context, @NonNull PageTitle imageTitle, @NonNull ImageInfo mediaInfo) {
+        String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(imageTitle.getDisplayText()));
+        String fileUrl = mediaInfo.getOriginalUrl();
         String targetDirectoryType;
-        if (FileUtil.isVideo(galleryItem.getType())) {
+        if (FileUtil.isVideo(mediaInfo.getMimeType()) && mediaInfo.getBestDerivative() != null) {
             targetDirectoryType = Environment.DIRECTORY_MOVIES;
-            fileUrl = galleryItem.getOriginalVideoSource().getOriginalUrl();
-        } else if (FileUtil.isAudio(galleryItem.getType())) {
+            fileUrl = mediaInfo.getBestDerivative().getSrc();
+        } else if (FileUtil.isAudio(mediaInfo.getMimeType())) {
             targetDirectoryType = Environment.DIRECTORY_MUSIC;
-        } else if (FileUtil.isImage(galleryItem.getType())) {
+        } else if (FileUtil.isImage(mediaInfo.getMimeType())) {
             targetDirectoryType = Environment.DIRECTORY_PICTURES;
         } else {
             targetDirectoryType = Environment.DIRECTORY_DOWNLOADS;
         }
-        performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, galleryItem.getType());
+        performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, mediaInfo.getMimeType());
     }
 
     private static void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,

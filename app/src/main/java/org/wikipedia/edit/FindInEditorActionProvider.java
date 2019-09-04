@@ -1,10 +1,11 @@
 package org.wikipedia.edit;
 
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.view.ActionMode;
 import android.view.View;
 import android.widget.ScrollView;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.util.DimenUtil;

@@ -1,8 +1,9 @@
 package org.wikipedia.espresso;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import org.wikipedia.dataclient.okhttp.TestStubInterceptor;
 import org.wikipedia.util.FileUtil;

@@ -1,11 +1,12 @@
 package org.wikipedia.readinglist;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
@@ -21,24 +22,27 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         void onToggleItemOffline(@NonNull ReadingListPage page);
         void onShareItem(@NonNull ReadingListPage page);
         void onAddItemToOther(@NonNull ReadingListPage page);
+        void onSelectItem(@NonNull ReadingListPage page);
         void onDeleteItem(@NonNull ReadingListPage page);
     }
 
     private static final String ARG_READING_LIST_NAME = "readingListName";
     private static final String ARG_READING_LIST_SIZE = "readingListSize";
     private static final String ARG_READING_LIST_PAGE = "readingListPage";
+    private static final String ARG_READING_LIST_HAS_ACTION_MODE = "hasActionMode";
 
     private ReadingListPage readingListPage;
     private ReadingListItemActionsView actionsView;
     private ItemActionsCallback itemActionsCallback = new ItemActionsCallback();
 
     @NonNull
-    public static ReadingListItemActionsDialog newInstance(@NonNull List<ReadingList> lists, @NonNull ReadingListPage page) {
+    public static ReadingListItemActionsDialog newInstance(@NonNull List<ReadingList> lists, @NonNull ReadingListPage page, boolean hasActionMode) {
         ReadingListItemActionsDialog instance = new ReadingListItemActionsDialog();
         Bundle args = new Bundle();
         args.putString(ARG_READING_LIST_NAME, lists.get(0).title());
         args.putInt(ARG_READING_LIST_SIZE, lists.size());
         args.putSerializable(ARG_READING_LIST_PAGE, page);
+        args.putBoolean(ARG_READING_LIST_HAS_ACTION_MODE, hasActionMode);
         instance.setArguments(args);
         return instance;
     }
@@ -53,7 +57,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         String removeFromListText = getArguments().getInt(ARG_READING_LIST_SIZE) == 1
                 ? getString(R.string.reading_list_remove_from_list, getArguments().getString(ARG_READING_LIST_NAME))
                 : getString(R.string.reading_list_remove_from_lists);
-        actionsView.setState(readingListPage.title(), removeFromListText, readingListPage.offline());
+        actionsView.setState(readingListPage.title(), removeFromListText, readingListPage.offline(), getArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE));
         return actionsView;
     }
 
@@ -86,6 +90,14 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
             dismiss();
             if (callback() != null) {
                 callback().onAddItemToOther(readingListPage);
+            }
+        }
+
+        @Override
+        public void onSelect() {
+            dismiss();
+            if (callback() != null) {
+                callback().onSelectItem(readingListPage);
             }
         }
 

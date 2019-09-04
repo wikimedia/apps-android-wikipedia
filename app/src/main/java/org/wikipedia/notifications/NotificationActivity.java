@@ -3,23 +3,25 @@ package org.wikipedia.notifications;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -97,6 +99,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         ButterKnife.bind(this);
 
         errorView.setRetryClickListener((v) -> beginUpdateList());
+        errorView.setBackClickListener((v) -> onBackPressed());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DrawableItemDecoration(this, R.attr.list_separator_drawable));
@@ -266,9 +269,13 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         for (Notification n : notificationList) {
 
             // TODO: remove this condition when the time is right.
-            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
+            if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                    || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
+                    || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                    || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                    || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
                     || Prefs.showAllNotifications()) {
 
                 if (!TextUtils.isEmpty(currentSearchQuery) && n.getContents() != null
@@ -398,7 +405,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     @Override
     public void onActionPageTitle(@NonNull PageTitle pageTitle) {
-        startActivity(PageActivity.newIntentForNewTab(this,
+        startActivity(PageActivity.newIntentForCurrentTab(this,
                 new HistoryEntry(pageTitle, HistoryEntry.SOURCE_NOTIFICATION), pageTitle));
     }
 
@@ -448,29 +455,31 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             this.container = container;
             Notification n = container.notification;
 
-            String description = n.type();
-            int iconResId = R.drawable.ic_wikipedia_w;
-            int iconBackColor = R.color.base0;
+            String description = n.category();
+            int iconResId = R.drawable.ic_speech_bubbles;
+            int iconBackColor = R.color.accent50;
 
-            switch (n.type()) {
-                case Notification.TYPE_EDIT_USER_TALK:
-                    iconResId = R.drawable.ic_chat_white_24dp;
-                    break;
-                case Notification.TYPE_REVERTED:
-                    iconResId = R.drawable.ic_rotate_left_white_24dp;
-                    iconBackColor = R.color.red50;
-                    break;
-                case Notification.TYPE_EDIT_THANK:
-                    iconResId = R.drawable.ic_usertalk_constructive;
-                    iconBackColor = R.color.green50;
-                    break;
-                case Notification.TYPE_EDIT_MILESTONE:
-                    iconResId = R.drawable.ic_mode_edit_white_24dp;
-                    iconBackColor = R.color.accent50;
-                    break;
-                default:
-                    break;
+            String s = n.category();
+            if (Notification.CATEGORY_EDIT_USER_TALK.equals(s)) {
+                iconResId = R.drawable.ic_edit_user_talk;
+                iconBackColor = R.color.accent50;
+            } else if (Notification.CATEGORY_REVERTED.equals(s)) {
+                iconResId = R.drawable.ic_revert;
+                iconBackColor = R.color.base20;
+            } else if (Notification.CATEGORY_EDIT_THANK.equals(s)) {
+                iconResId = R.drawable.ic_user_talk;
+                iconBackColor = R.color.green50;
+            } else if (Notification.CATEGORY_THANK_YOU_EDIT.equals(s)) {
+                iconResId = R.drawable.ic_edit_progressive;
+                iconBackColor = R.color.accent50;
+            } else if (s.startsWith(Notification.CATEGORY_MENTION)) {
+                iconResId = R.drawable.ic_mention;
+                iconBackColor = R.color.accent50;
+            } else if (Notification.CATEGORY_LOGIN_FAIL.equals(s)) {
+                iconResId = R.drawable.ic_user_avatar;
+                iconBackColor = R.color.base0;
             }
+
             imageView.setImageResource(iconResId);
             DrawableCompat.setTint(imageBackgroundView.getDrawable(),
                     ContextCompat.getColor(NotificationActivity.this, iconBackColor));

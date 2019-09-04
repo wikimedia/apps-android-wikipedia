@@ -1,11 +1,12 @@
 package org.wikipedia.history;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ActionMode;
+import androidx.core.view.MenuItemCompat;
 
 import org.wikipedia.views.SearchActionProvider;
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Ash Crow
 * Dishual
 * Envlh
@@ -66,7 +67,7 @@
   <string name="nav_item_nearby">Tostik</string>
   <string name="nearby_zoom_to_location">Zoumañ war ul lec\'h eus ar gartenn</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; Izili</string>
-  <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
+  <string name="last_updated_text">Hizivadenn ziwezhañ %s</string>
   <string name="talk_page_link_text">Gwelet ar bajenn gaozeal</string>
   <string name="edit_history_link_text">Gwelet istor ar c\'hemmoù</string>
   <string name="map_view_link_text">Diskwel war ur gartenn</string>
@@ -82,7 +83,6 @@
   <string name="langlinks_activity_title">Yezhoù all</string>
   <string name="langlinks_your_wikipedia_languages">Ho yezhoù Wikipedia</string>
   <string name="menu_save_changes">Embann ar c\'hemmoù</string>
-  <string name="dialog_saving_in_progress">Oc\'h embann...</string>
   <string name="edit_saved_successfully">Kemmoù embannet !</string>
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>
   <string name="dialog_message_edit_failed_retry">Klask en-dro</string>
@@ -154,7 +154,6 @@
   <string name="create_account_ip_block_details">Munudoù</string>
   <string name="preferences_general_heading">Hollek</string>
   <string name="wikipedia_app_faq">Arload FAG Wikipedia</string>
-  <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="preferences_heading_syncing">Sinkronelaat</string>
@@ -333,7 +332,7 @@
   <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
   <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
   <string name="article_header_edit_hint">Kemmañ...</string>
-  <string name="article_header_edit_description">Kemmañ titl an deskrivadur</string>
+  <string name="article_header_edit_description" fuzzy="true">Kemmañ titl an deskrivadur</string>
   <string name="article_header_edit_lead_section">Kemmañ ar raklavar</string>
   <string name="color_theme_select">Tem</string>
   <string name="color_theme_light">Sklaer</string>
@@ -464,9 +463,9 @@
     <item quantity="one">Sinkronelaat ar %1$d roll…</item>
     <item quantity="other">Sinkronelaat ar %1$d rolloù…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">%1$d 1 roll a chom</item>
-    <item quantity="other">%d roll a chom</item>
+    <item quantity="other">%1$d roll a chom</item>
   </plurals>
   <string name="notification_echo_channel_description">Kemennoù Wikipedia</string>
   <string name="notifications_activity_title">Kemennoù</string>
@@ -486,12 +485,10 @@
   <string name="notifications_view_archived_button_text">Diskwel ar c\'hemennoù diellaouet</string>
   <string name="notifications_mark_unread">Merkañ evel anlennet</string>
   <string name="preference_title_notification_poll">Gweredekaat ar c\'hemennoù</string>
-  <string name="preference_summary_notification_welcome">Ur gont zo bet krouet</string>
   <string name="preference_title_notification_milestone">Maen-bonn</string>
   <string name="preference_summary_notification_milestone">Un toullad mat a gemmoù zo bet tizhet</string>
   <string name="preference_title_notification_thanks">Trugarez</string>
   <string name="preference_summary_notification_thanks">Unan bennak en deus trugarekaet ac\'hanoc\'h evit ur c\'hemenn</string>
-  <string name="view_continue_reading_card_title">Kenderc\'hel da lenn</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
   <string name="view_random_card_title">Dre zegouezh</string>
   <string name="view_random_card_subtitle">Lenn ur pennad dargouezhek eus Wikipedia</string>
@@ -529,30 +526,43 @@
   <string name="feed_configure_menu_deselect_all">Kuzhat pep tra</string>
   <string name="feed_configure_language_warning">Dav eo notenniñ ne c\'haller ket kaout an holl seurtoù kartoù e holl yezhoù Wikipedia.Kemmit ho yezhoù dibabet en Arventennoù.</string>
   <string name="feed_configure_onboarding_action">Personelaat</string>
-  <string name="description_edit_text_hint">Deskrivadur an titl</string>
+  <string name="description_edit_text_hint" fuzzy="true">Deskrivadur an titl</string>
   <string name="description_edit_save">Embann</string>
-  <string name="description_edit_add_description">Ouzhpennañ deskrivadur an titl</string>
-  <string name="description_edit_edit_description">Kemmañ an deskrivadur</string>
+  <string name="description_edit_add_description" fuzzy="true">Ouzhpennañ deskrivadur an titl</string>
+  <string name="description_edit_edit_description" fuzzy="true">Kemmañ an deskrivadur</string>
   <string name="description_edit_cancel_hint">Nullañ</string>
-  <string name="description_edit_help_title">Skoazell : deskrivadurioù an titloù</string>
+  <string name="description_edit_help_title" fuzzy="true">Skoazell : deskrivadurioù an titloù</string>
   <string name="description_edit_help_about_wikidata">Diwar-benn Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Sturlevr Wikidata evit skrivañ deskrivadurioù</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù en deskrivadurioù. Trugarez ! Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia.</string>
-  <string name="description_edit_license_notice">Pa gemann deskrivadur an titl e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
-  <string name="description_edit_success_saved">Embannet eo an deskrivadur !</string>
+  <string name="description_edit_anon_limit" fuzzy="true">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù en deskrivadurioù. Trugarez ! Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Pa gemann deskrivadur an titl e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
+  <string name="description_edit_success_saved" fuzzy="true">Embannet eo an deskrivadur !</string>
   <string name="description_edit_success_encouragement">Emaoc\'h o paouez gwellaat Wikipedia evit mad an holl</string>
   <string name="description_edit_success_done">Graet</string>
   <string name="description_edit_success_did_you_know">Ha gouzout a raec\'h ?</string>
   <string name="description_edit_success_article_edit_hint">Gant an arload-mañ e c\'hallit kemmañ pennadoù ivez. Kentañ tro, grit un taol-esae gant reizhadennoù tipografiezh pe frazennoù berr en ur glikañ war an arlun ^1.</string>
-  <string name="description_edit_tutorial_title_descriptions">Deskrivadurioù an titl</string>
+  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Deskrivadurioù an titl</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Grit un tamm diverrañ d\'ar pennad da skoazellañ al lennerien da gompren an danvez diwar ar c\'hentañ sell.</string>
   <string name="description_edit_tutorial_keep_it_short">Krak ha berr</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">D\'ar gwellañ ul linenn, etre daou ha daouzek ger.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Kregiñ da aozañ</string>
   <string name="description_edit_tutorial_promise">Stagañ a ran ganti ha reiñ a ran ma ger da chom hep drougimplij an arc\'hwel-mañ</string>
-  <string name="editactionfeed_add_title_dialog_learn_more">Gouzout hiroc\'h</string>
-  <string name="editactionfeed_translate_title_dialog_learn_more">Gouzout hiroc\'h</string>
+  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Diwezhatoc\'hik marteze</string>
+  <string name="suggested_edits_task_add_description_title" fuzzy="true">Ouzhpennañ deskvrivadur an titl</string>
+  <string name="suggested_edits_task_add_description_description">Sikour d\'ar pennadoù hep deskrivadurioù titl</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Treiñ deskrivadurioù an titloù</string>
+  <string name="suggested_edits_task_translation_description">Treuzkas deskrivadurioù an titloù e yezhoù all.</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Lakaat un alc\'hwez d\'ar skeudennoù</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Ouzhpennañ alc\'hwezioù d\'ar skeudennoù</string>
+  <string name="suggested_edits_task_translate_caption_description">Treiñ alc\'hwezioù e yezhoù all</string>
+  <string name="suggested_edits_task_multilingual_title">Muioc\'h a drevelloù evit an embannerien liesyezhek</string>
+  <string name="suggested_edits_task_multilingual_description">An trevelloù treiñ a c\'haller kaout ma lennit ha ma skrivit en ouzhpenn ur yezh eus Wikipedia.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Prennit betek m\'ho po lakaet %d kemm da wiriañ en arload</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Prennit keit ha ma n\'ho po ket kemmet %d deskrivadur eus an titloù</string>
+  <string name="suggested_edits_task_multilingual_negative">Ket evidon</string>
+  <string name="suggested_edits_task_multilingual_positive">Ouzhpennañ yezhoù</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Kregiñ</string>
   <string name="description_edit_revert_subtitle">Trugarez evit kemer perzh e Wikipedia !</string>
   <string name="description_edit_revert_intro">Gouzout a reomp hoc\'h eus graet eus ho kwellañ, met un tamm bec\'h zo bet gant unan eus hon adlennerien. Nullet eo bet ho tegasadenn evit an abegoù-mañ moarvat :</string>
   <string name="description_edit_revert_reason1">Ne zoujfe ket ho tegasadenn da unan eus &lt;a href=\"%1$s\"&gt;sturiadoù&lt;/a&gt;.</string>
@@ -561,10 +571,6 @@
   <string name="offline_read_permission_rationale">Ret eo kaout gwir da vont d\'ar skokañ en hoc\'h ardivink evit merdeiñ ezlinenn.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-  <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one">1 vunutenn a chom</item>
-    <item quantity="other">%d munutenn a chom</item>
-  </plurals>
   <string name="onboarding_skip">Lezel a-gostez</string>
   <string name="onboarding_continue">Kenderc\'hel</string>
   <string name="onboarding_maybe_later">Diwezhatoc\'hik marteze</string>
@@ -610,24 +616,4 @@
   <string name="main_drawer_close">Serriñ</string>
   <string name="main_drawer_help">Skoazell</string>
   <string name="main_drawer_login">Kevreañ ouzh/ mont gant Wikipedia</string>
-  <string name="title_description_task_title" fuzzy="true">Ouzhpennañ deskvrivadur an titl</string>
-  <string name="title_description_task_description" fuzzy="true">Sikour d\'ar pennadoù hep deskrivadurioù titl</string>
-  <string name="image_caption_task_title">Lakaat un alc\'hwez d\'ar skeudennoù</string>
-  <string name="image_caption_task_description">Ouzhpennañ alc\'hwezioù d\'ar skeudennoù</string>
-  <string name="multilingual_task_title">Muioc\'h a drevelloù evit an embannerien liesyezhek</string>
-  <string name="multilingual_task_description">An trevelloù treiñ a c\'haller kaout ma lennit ha ma skrivit en ouzhpenn ur yezh eus Wikipedia.</string>
-  <string name="translation_task_title" fuzzy="true">Treiñ deskrivadurioù an titloù</string>
-  <string name="translation_task_description" fuzzy="true">Treuzkas deskrivadurioù an titloù e yezhoù all.</string>
-  <string name="image_caption_edit_disable_text" fuzzy="true">Prennit betek m\'ho po lakaet %d kemm da wiriañ en arload</string>
-  <string name="translate_description_edit_disable_text" fuzzy="true">Prennit keit ha ma n\'ho po ket kemmet %d deskrivadur eus an titloù</string>
-  <string name="multilingual_task_negative">Ket evidon</string>
-  <string name="multilingual_task_positive">Ouzhpennañ yezhoù</string>
-  <string name="translate_caption_task_description">Treiñ alc\'hwezioù e yezhoù all</string>
-  <string name="title_description_editing_skip">Lezel a-gostez</string>
-  <string name="title_description_get_started">Kregiñ</string>
-  <string name="translate_description_get_started">Kregiñ</string>
-  <string name="edit_tasks_onboarding_get_started">Kregiñ</string>
-  <string name="translate_descriptions_maybe_later">Diwezhatoc\'hik marteze</string>
-  <string name="title_descriptions_onboarding_got_it">Mat eo</string>
-  <string name="translate_descriptions_onboarding_got_it">Mat eo</string>
 </resources>

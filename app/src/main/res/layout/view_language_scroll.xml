@@ -2,55 +2,45 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="android.support.constraint.ConstraintLayout"
+    tools:layout_height="match_parent"
     tools:layout_width="match_parent"
-    tools:layout_height="match_parent">
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/horizontal_scroll_languages"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:clipToPadding="false"
-        android:clipChildren="false"
         android:background="?attr/page_toolbar_color"
-        app:layout_constraintTop_toTopOf="parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:requiresFadingEdge="horizontal"
+        android:fadingEdgeLength="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/more_languages"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:tabGravity="fill"
-        app:tabPaddingBottom="8dp"
-        app:tabPaddingEnd="8dp"
-        app:tabPaddingStart="8dp"
-        app:tabPaddingTop="8dp"
         app:tabIndicatorColor="?attr/colorAccent"
         app:tabIndicatorHeight="2dp"
         app:tabMaxWidth="0dp"
         app:tabMode="scrollable"
+        app:tabPaddingBottom="8dp"
+        app:tabPaddingEnd="8dp"
+        app:tabPaddingStart="8dp"
+        app:tabPaddingTop="8dp"
         app:tabSelectedTextColor="?attr/colorAccent" />
 
-    <View
-        android:id="@+id/horizontal_scroll_languages_gradient"
-        android:layout_width="24dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/more_languages"/>
-
-    <TextView
+    <Button
         android:id="@+id/more_languages"
+        style="@style/TransparentButton"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        style="@style/TransparentButton"
         android:minWidth="0dp"
         android:text="@string/more_language_options"
         android:textColor="?attr/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="More" />
 
 </merge>

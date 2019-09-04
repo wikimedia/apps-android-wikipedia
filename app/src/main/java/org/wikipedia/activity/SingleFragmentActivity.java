@@ -1,14 +1,15 @@
 package org.wikipedia.activity;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.fragment.app.Fragment;
 
 import org.wikipedia.R;
 
 /**
- * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
+ * Boilerplate for a FragmentActivity containing a single stack of
  * Fragments.
  */
 public abstract class SingleFragmentActivity<T extends Fragment> extends BaseActivity {

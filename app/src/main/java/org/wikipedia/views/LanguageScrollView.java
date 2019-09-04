@@ -1,17 +1,8 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +10,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.google.android.material.tabs.TabLayout;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.ResourceUtil;
 
 import java.util.List;
 
@@ -40,10 +38,8 @@ public class LanguageScrollView extends ConstraintLayout {
     }
 
     @BindView(R.id.horizontal_scroll_languages) TabLayout horizontalLanguageScroll;
-    @BindView(R.id.more_languages) TextView moreButton;
-    @BindView(R.id.horizontal_scroll_languages_gradient) View gradientView;
     private Callback callback;
-    private List<String> languagecodes;
+    private List<String> languageCodes;
 
     public LanguageScrollView(Context context) {
         super(context);
@@ -82,35 +78,25 @@ public class LanguageScrollView extends ConstraintLayout {
         });
     }
 
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        if (gradientView.getBackground() == null) {
-            gradientView.setBackground(new GradientDrawable(ViewCompat.getLayoutDirection(this) == LAYOUT_DIRECTION_LTR
-                    ? GradientDrawable.Orientation.LEFT_RIGHT : GradientDrawable.Orientation.RIGHT_LEFT,
-                    new int[]{Color.TRANSPARENT, ResourceUtil.getThemedColor(getContext(), R.attr.page_toolbar_color)}));
-        }
-    }
-
     private void updateTabView(boolean selected, TabLayout.Tab tab) {
         if (selected) {
             View view = tab.getCustomView();
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.colorAccent);
                 @ColorInt int paperColor = getThemedColor(getContext(), R.attr.paper_color);
-                Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.lang_button_shape);
+                Drawable drawable = AppCompatResources.getDrawable(getContext(), R.drawable.lang_button_shape);
                 updateTabLanguageCode(view, null, paperColor, drawable, color);
                 updateTabLanguageLabel(view, null, color);
             }
             if (callback != null) {
-                callback.onLanguageTabSelected(languagecodes.get(tab.getPosition()));
+                callback.onLanguageTabSelected(languageCodes.get(tab.getPosition()));
             }
         } else {
             View view = tab.getCustomView();
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color);
                 updateTabLanguageLabel(view, null, color);
-                updateTabLanguageCode(view, null, color, ContextCompat.getDrawable(getContext(), R.drawable.lang_button_shape_border), color);
+                updateTabLanguageCode(view, null, color, AppCompatResources.getDrawable(getContext(), R.drawable.lang_button_shape_border), color);
             }
         }
     }
@@ -123,7 +109,7 @@ public class LanguageScrollView extends ConstraintLayout {
             horizontalLanguageScroll.removeAllTabs();
         }
         this.callback = callback;
-        this.languagecodes = languageCodes;
+        this.languageCodes = languageCodes;
         for (int i = 0; i < languageCodes.size(); i++) {
             TabLayout.Tab tab = horizontalLanguageScroll.newTab();
             tab.setCustomView(createLanguageTab(languageCodes.get(i)));
@@ -141,13 +127,13 @@ public class LanguageScrollView extends ConstraintLayout {
         return tab;
     }
 
-    private void updateTabLanguageLabel(@NonNull View customView, @Nullable String languageCode, @ColorInt Integer textcolor) {
+    private void updateTabLanguageLabel(@NonNull View customView, @Nullable String languageCode, @ColorInt Integer textColor) {
         TextView languageLabelTextView = customView.findViewById(R.id.language_label);
         if (languageCode != null) {
             languageLabelTextView.setText(WikipediaApp.getInstance().language().getAppLanguageLocalizedName(languageCode));
         }
-        if (textcolor != null) {
-            languageLabelTextView.setTextColor(textcolor);
+        if (textColor != null) {
+            languageLabelTextView.setTextColor(textColor);
         }
     }
 

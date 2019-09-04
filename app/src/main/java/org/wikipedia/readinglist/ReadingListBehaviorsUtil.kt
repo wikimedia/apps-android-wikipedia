@@ -1,14 +1,10 @@
 package org.wikipedia.readinglist
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
 import android.text.Spanned
-import android.text.TextUtils
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import androidx.appcompat.app.AlertDialog
+import kotlinx.coroutines.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.readinglist.database.ReadingList
@@ -39,69 +35,67 @@ object ReadingListBehaviorsUtil {
 
     private var allReadingLists = listOf<ReadingList>()
 
+    // Kotlin coroutine
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val scope = CoroutineScope(Dispatchers.Main)
+    private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
+
     fun getListsContainPage(readingListPage: ReadingListPage): List<ReadingList> {
         val lists = mutableListOf<ReadingList>()
-        for (list in allReadingLists) {
-            for (page in list.pages()) {
+        allReadingLists.forEach { list ->
+            list.pages().forEach addToList@{ page ->
                 if (page.title() == readingListPage.title()) {
                     lists.add(list)
-                    break
+                    return@addToList
                 }
             }
         }
         return lists
     }
 
-    fun savePagesForOffline(activity: Activity,
-                            selectedPages: List<ReadingListPage>,
-                            callback: Callback) {
+    fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
-            showMobileDataWarningDialog(activity, DialogInterface.OnClickListener { _, _ -> savePagesForOffline(activity, selectedPages, true, callback) })
+            showMobileDataWarningDialog(activity, DialogInterface.OnClickListener { _, _ ->
+                savePagesForOffline(activity, selectedPages, true)
+                callback.onCompleted()
+            })
         } else {
-            savePagesForOffline(activity, selectedPages, !Prefs.isDownloadingReadingListArticlesEnabled(), callback)
+            savePagesForOffline(activity, selectedPages, !Prefs.isDownloadingReadingListArticlesEnabled())
+            callback.onCompleted()
         }
     }
 
-    private fun savePagesForOffline(activity: Activity,
-                                    selectedPages: List<ReadingListPage>,
-                                    forcedSave: Boolean,
-                                    callback: Callback) {
-        if (!selectedPages.isEmpty()) {
+    private fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, forcedSave: Boolean) {
+        if (selectedPages.isNotEmpty()) {
             for (page in selectedPages) {
                 resetPageProgress(page)
             }
             ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true, forcedSave)
             showMultiSelectOfflineStateChangeSnackbar(activity, selectedPages, true)
-            callback.onCompleted()
         }
     }
 
-    fun removePagesFromOffline(activity: Activity,
-                               selectedPages: List<ReadingListPage>,
-                               callback: Callback) {
-        if (!selectedPages.isEmpty()) {
+    fun removePagesFromOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
+        if (selectedPages.isNotEmpty()) {
             ReadingListDbHelper.instance().markPagesForOffline(selectedPages, false, false)
             showMultiSelectOfflineStateChangeSnackbar(activity, selectedPages, false)
             callback.onCompleted()
         }
     }
 
-    fun deleteReadingList(activity: Activity,
-                          readingList: ReadingList?,
-                          showDialog: Boolean,
-                          callback: Callback) {
+    fun deleteReadingList(activity: Activity, readingList: ReadingList?, showDialog: Boolean, callback: Callback) {
         if (readingList == null) {
             return
         }
         if (showDialog) {
             val alert = AlertDialog.Builder(activity)
             alert.setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title()))
-            alert.setPositiveButton(android.R.string.yes) { _, _ ->
+            alert.setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
                 ReadingListDbHelper.instance().deleteList(readingList)
                 ReadingListDbHelper.instance().markPagesForDeletion(readingList, readingList.pages(), false)
                 callback.onCompleted()
             }
-            alert.setNegativeButton(android.R.string.no, null)
+            alert.setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
             alert.create().show()
         } else {
             ReadingListDbHelper.instance().deleteList(readingList)
@@ -110,23 +104,16 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    @SuppressLint("CheckResult")
-    fun deletePages(activity: Activity,
-                    listsContainPage: List<ReadingList>,
-                    readingListPage: ReadingListPage,
-                    snackbarCallback: SnackbarCallback,
-                    callback: Callback) {
+    fun deletePages(activity: Activity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
         if (listsContainPage.size > 1) {
-            Observable.fromCallable { ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage)) }
-                    .map {ReadingListDbHelper.instance().getListsFromPageOccurrences(it)}
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
-                        RemoveFromReadingListsDialog(it).deleteOrShowDialog(activity) { lists, page ->
-                            showDeletePageFromListsUndoSnackbar(activity, lists, page, snackbarCallback)
-                            callback.onCompleted()
-                        }
-                    }, { L.w(it) })
+            scope.launch(exceptionHandler) {
+                val pages = withContext(dispatcher) { ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(readingListPage)) }
+                val lists = withContext(dispatcher) { ReadingListDbHelper.instance().getListsFromPageOccurrences(pages) }
+                RemoveFromReadingListsDialog(lists).deleteOrShowDialog(activity) { list, page ->
+                    showDeletePageFromListsUndoSnackbar(activity, list, page, snackbarCallback)
+                    callback.onCompleted()
+                }
+            }
         } else {
             ReadingListDbHelper.instance().markPagesForDeletion(listsContainPage[0], listOf(readingListPage))
             listsContainPage[0].pages().remove(readingListPage)
@@ -150,8 +137,7 @@ object ReadingListBehaviorsUtil {
         }
         existingTitles.remove(readingList.title())
 
-        ReadingListTitleDialog.readingListTitleDialog(activity, readingList.title(), readingList.description(), existingTitles
-        ) { text, description ->
+        ReadingListTitleDialog.readingListTitleDialog(activity, readingList.title(), readingList.description(), existingTitles) { text, description ->
             readingList.title(text)
             readingList.description(description)
             readingList.dirty(true)
@@ -160,19 +146,16 @@ object ReadingListBehaviorsUtil {
         }.show()
     }
 
-    private fun showDeletePageFromListsUndoSnackbar(activity: Activity,
-                                                    lists: List<ReadingList>?,
-                                                    page: ReadingListPage,
-                                                    callback: SnackbarCallback) {
+    private fun showDeletePageFromListsUndoSnackbar(activity: Activity, lists: List<ReadingList>?, page: ReadingListPage, callback: SnackbarCallback) {
         if (lists == null) {
             return
         }
-        val message = if (lists.size == 1)
-            String.format(activity.getString(R.string.reading_list_item_deleted), page.title())
-        else
-            String.format(activity.getString(R.string.reading_lists_item_deleted), page.title())
-        val snackbar = FeedbackUtil.makeSnackbar(activity, message,
-                FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(
+                activity,
+                String.format(activity.getString(
+                        if (lists.size == 1) R.string.reading_list_item_deleted else R.string.reading_lists_item_deleted), page.title()),
+                FeedbackUtil.LENGTH_DEFAULT
+        )
         snackbar.setAction(R.string.reading_list_item_delete_undo) {
             ReadingListDbHelper.instance().addPageToLists(lists, page, true)
             callback.onUndoDeleteClicked()
@@ -180,19 +163,17 @@ object ReadingListBehaviorsUtil {
         snackbar.show()
     }
 
-    fun showDeletePagesUndoSnackbar(activity: Activity,
-                                    readingList: ReadingList?,
-                                    pages: List<ReadingListPage>,
-                                    callback: SnackbarCallback) {
+    fun showDeletePagesUndoSnackbar(activity: Activity, readingList: ReadingList?, pages: List<ReadingListPage>, callback: SnackbarCallback) {
         if (readingList == null) {
             return
         }
-        val message = if (pages.size == 1)
-            String.format(activity.getString(R.string.reading_list_item_deleted), pages[0].title())
-        else
-            String.format(activity.getString(R.string.reading_list_items_deleted), pages.size)
-        val snackbar = FeedbackUtil.makeSnackbar(activity, message,
-                FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(
+                activity,
+                String.format(activity.getString(
+                        if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted),
+                        if (pages.size == 1) pages[0].title() else pages.size),
+                FeedbackUtil.LENGTH_DEFAULT
+        )
         snackbar.setAction(R.string.reading_list_item_delete_undo) {
             val newPages = ArrayList<ReadingListPage>()
             for (page in pages) {
@@ -205,15 +186,12 @@ object ReadingListBehaviorsUtil {
         snackbar.show()
     }
 
-    fun showDeleteListUndoSnackbar(activity: Activity,
-                                   readingList: ReadingList?,
-                                   callback: SnackbarCallback) {
+    fun showDeleteListUndoSnackbar(activity: Activity, readingList: ReadingList?, callback: SnackbarCallback) {
         if (readingList == null) {
             return
         }
-        val snackbar = FeedbackUtil.makeSnackbar(activity,
-                String.format(activity.getString(R.string.reading_list_deleted), readingList.title()),
-                FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(activity, String.format(activity.getString(R.string.reading_list_deleted), readingList.title()), FeedbackUtil.LENGTH_DEFAULT)
+
         snackbar.setAction(R.string.reading_list_item_delete_undo) {
             val newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description())
             val newPages = ArrayList<ReadingListPage>()
@@ -223,58 +201,53 @@ object ReadingListBehaviorsUtil {
             ReadingListDbHelper.instance().addPagesToList(newList, newPages, true)
             callback.onUndoDeleteClicked()
         }
+
         snackbar.show()
     }
 
-    @SuppressLint("CheckResult")
     fun togglePageOffline(activity: Activity, page: ReadingListPage?, callback: Callback) {
         if (page == null) {
             return
         }
         if (page.offline()) {
-            Observable.fromCallable { ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(page))}
-                    .map { ReadingListDbHelper.instance().getListsFromPageOccurrences(it)}
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ lists ->
-                        if (lists.size > 1) {
-                            val dialog = AlertDialog.Builder(activity)
-                                    .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
-                                    .setMessage(getConfirmToggleOfflineMessage(activity, page, lists))
-                                    .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline) { _, _ -> toggleOffline(activity, page, callback) }
-                                    .setNegativeButton(android.R.string.cancel, null)
-                                    .create()
-                            dialog.show()
-                        } else {
-                            toggleOffline(activity, page, callback)
-                        }
-                    }, { L.w(it) })
+            scope.launch(exceptionHandler) {
+                val pages = withContext(dispatcher) { ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(page))}
+                val lists = withContext(dispatcher) { ReadingListDbHelper.instance().getListsFromPageOccurrences(pages) }
+                if (lists.size > 1) {
+                    val dialog = AlertDialog.Builder(activity)
+                            .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
+                            .setMessage(getConfirmToggleOfflineMessage(activity, page, lists))
+                            .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline) { _, _ -> toggleOffline(activity, page, callback) }
+                            .setNegativeButton(R.string.reading_list_remove_from_offline_cancel_button_text, null)
+                            .create()
+                    dialog.show()
+                } else {
+                    toggleOffline(activity, page, callback)
+                }
+            }
         } else {
             toggleOffline(activity, page, callback)
         }
     }
 
-    fun toggleOffline(activity: Activity,
-                      page: ReadingListPage,
-                      callback: Callback) {
+    fun toggleOffline(activity: Activity, page: ReadingListPage, callback: Callback) {
         resetPageProgress(page)
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
-            showMobileDataWarningDialog(activity, DialogInterface.OnClickListener { _, _ -> toggleOffline(activity, page, true, callback) })
+            showMobileDataWarningDialog(activity, DialogInterface.OnClickListener { _, _ ->
+                toggleOffline(activity, page, true)
+                callback.onCompleted()
+            })
         } else {
-            toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled(), callback)
+            toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled())
+            callback.onCompleted()
         }
     }
 
-    private fun toggleOffline(activity: Activity,
-                              page: ReadingListPage,
-                              forcedSave: Boolean,
-                              callback: Callback) {
+    private fun toggleOffline(activity: Activity, page: ReadingListPage, forcedSave: Boolean) {
         ReadingListDbHelper.instance().markPageForOffline(page, !page.offline(), forcedSave)
-        FeedbackUtil.showMessage(activity, if (page.offline())
-            activity.resources.getQuantityString(R.plurals.reading_list_article_offline_message, 1)
-        else
-            activity.resources.getQuantityString(R.plurals.reading_list_article_not_offline_message, 1))
-        callback.onCompleted()
+        FeedbackUtil.showMessage(activity,
+                activity.resources.getQuantityString(
+                        if (page.offline()) R.plurals.reading_list_article_offline_message else R.plurals.reading_list_article_not_offline_message, 1))
     }
 
     private fun showMobileDataWarningDialog(activity: Activity, listener: DialogInterface.OnClickListener) {
@@ -282,18 +255,15 @@ object ReadingListBehaviorsUtil {
                 .setTitle(R.string.dialog_title_download_only_over_wifi)
                 .setMessage(R.string.dialog_text_download_only_over_wifi)
                 .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, listener)
-                .setNegativeButton(android.R.string.cancel, null)
+                .setNegativeButton(R.string.reading_list_download_using_mobile_data_cancel_button_text, null)
                 .show()
     }
 
-    private fun showMultiSelectOfflineStateChangeSnackbar(activity: Activity,
-                                                          pages: List<ReadingListPage>,
-                                                          offline: Boolean) {
-        val message = if (offline)
-            activity.resources.getQuantityString(R.plurals.reading_list_article_offline_message, pages.size)
-        else
-            activity.resources.getQuantityString(R.plurals.reading_list_article_not_offline_message, pages.size)
-        FeedbackUtil.showMessage(activity, message)
+    private fun showMultiSelectOfflineStateChangeSnackbar(activity: Activity, pages: List<ReadingListPage>, offline: Boolean) {
+        FeedbackUtil.showMessage(activity,
+                activity.resources.getQuantityString(
+                        if (offline) R.plurals.reading_list_article_offline_message else R.plurals.reading_list_article_not_offline_message, pages.size
+                ))
     }
 
     private fun resetPageProgress(page: ReadingListPage) {
@@ -302,54 +272,47 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    private fun getConfirmToggleOfflineMessage(activity: Activity,
-                                               page: ReadingListPage,
-                                               lists: List<ReadingList>): Spanned {
+    private fun getConfirmToggleOfflineMessage(activity: Activity, page: ReadingListPage, lists: List<ReadingList>): Spanned {
         var result = activity.getString(R.string.reading_list_confirm_remove_article_from_offline_message,
-                "<b>" + page.title() + "</b>")
-        for (list in lists) {
-            result += "<br>&nbsp;&nbsp;<b>&#8226; " + list.title() + "</b>"
+                "<b>${page.title()}</b>")
+        lists.forEach {
+            result += "<br>&nbsp;&nbsp;<b>&#8226; ${it.title()}</b>"
         }
         return StringUtil.fromHtml(result)
     }
 
-    @SuppressLint("CheckResult")
     fun searchListsAndPages(searchQuery: String?, callback: SearchCallback) {
-        Observable.fromCallable { ReadingListDbHelper.instance().allLists }
-                .map {
-                    allReadingLists = it
-                    val list = applySearchQuery(searchQuery, it)
-                    if (TextUtils.isEmpty(searchQuery)) {
-                        ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
-                    }
-                    list
-                }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ callback.onCompleted(it) }, { L.w(it) })
+        scope.launch(exceptionHandler) {
+            allReadingLists = withContext(dispatcher) { ReadingListDbHelper.instance().allLists }
+            val list = withContext(dispatcher) { applySearchQuery(searchQuery, allReadingLists) }
+            if (searchQuery.isNullOrEmpty()) {
+                ReadingList.sortGenericList(list, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
+            }
+            callback.onCompleted(list)
+        }
     }
 
     private fun applySearchQuery(searchQuery: String?, lists: List<ReadingList>): MutableList<Any> {
         val result = mutableListOf<Any>()
 
-        if (TextUtils.isEmpty(searchQuery)) {
+        if (searchQuery.isNullOrEmpty()) {
             result.addAll(lists)
             return result
         }
 
         val normalizedQuery = StringUtils.stripAccents(searchQuery)?.toLowerCase()
         var lastListItemIndex = 0
-        for (list in lists) {
+        lists.forEach { list ->
             if (StringUtils.stripAccents(list.title()).toLowerCase().contains(normalizedQuery!!)) {
                 result.add(lastListItemIndex++, list)
             }
-            for (page in list.pages()) {
+            list.pages().forEach { page ->
                 if (page.title().toLowerCase(Locale.getDefault()).contains(normalizedQuery)) {
                     var noMatch = true
-                    for (item in result) {
-                        if (item is ReadingListPage && item.title() == page.title()) {
+                    result.forEach checkMatch@{
+                        if (it is ReadingListPage && it.title() == page.title()) {
                             noMatch = false
-                            break
+                            return@checkMatch
                         }
                     }
                     if (noMatch) {

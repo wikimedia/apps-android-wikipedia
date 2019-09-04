@@ -18,12 +18,12 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Animatable;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ScrollingView;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
+import androidx.annotation.Nullable;
+import androidx.core.view.ScrollingView;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
 import com.facebook.drawee.controller.AbstractDraweeController;
@@ -56,6 +56,9 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
   private GestureDetector mTapGestureDetector;
   private boolean mAllowTouchInterceptionWhileZoomed = true;
 
+  private boolean mIsDialtoneEnabled = false;
+  private boolean mZoomingEnabled = true;
+
   private final ControllerListener mControllerListener = new BaseControllerListener<Object>() {
     @Override
     public void onFinalImageSet(
@@ -71,12 +74,19 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
     }
   };
 
-  private final ZoomableController.Listener mZoomableListener = new ZoomableController.Listener() {
-    @Override
-    public void onTransformChanged(Matrix transform) {
-      ZoomableDraweeView.this.onTransformChanged(transform);
-    }
-  };
+  private final ZoomableController.Listener mZoomableListener =
+      new ZoomableController.Listener() {
+        @Override
+        public void onTransformBegin(Matrix transform) {}
+
+        @Override
+        public void onTransformChanged(Matrix transform) {
+          ZoomableDraweeView.this.onTransformChanged(transform);
+        }
+
+        @Override
+        public void onTransformEnd(Matrix transform) {}
+      };
 
   private final GestureListenerWrapper mTapListenerWrapper = new GestureListenerWrapper();
 
@@ -117,6 +127,10 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
     mZoomableController = createZoomableController();
     mZoomableController.setListener(mZoomableListener);
     mTapGestureDetector = new GestureDetector(getContext(), mTapListenerWrapper);
+  }
+
+  public void setIsDialtoneEnabled(boolean isDialtoneEnabled) {
+    mIsDialtoneEnabled = isDialtoneEnabled;
   }
 
   /**
@@ -205,6 +219,11 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
     mTapGestureDetector.setIsLongpressEnabled(enabled);
   }
 
+  public void setZoomingEnabled(boolean zoomingEnabled) {
+    mZoomingEnabled = zoomingEnabled;
+    mZoomableController.setEnabled(false);
+  }
+
   /**
    * Sets the image controller.
    */
@@ -287,7 +306,7 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
   public boolean onTouchEvent(MotionEvent event) {
     int a = event.getActionMasked();
     FLog.v(getLogTag(), "onTouchEvent: %d, view %x, received", a, this.hashCode());
-    if (mTapGestureDetector.onTouchEvent(event)) {
+    if (!mIsDialtoneEnabled && mTapGestureDetector.onTouchEvent(event)) {
       FLog.v(
           getLogTag(),
           "onTouchEvent: %d, view %x, handled by tap gesture detector",
@@ -296,7 +315,7 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
       return true;
     }
 
-    if (mZoomableController.onTouchEvent(event)) {
+    if (!mIsDialtoneEnabled && mZoomableController.onTouchEvent(event)) {
       FLog.v(
           getLogTag(),
           "onTouchEvent: %d, view %x, handled by zoomable controller",
@@ -358,7 +377,7 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
 
   private void onFinalImageSet() {
     FLog.v(getLogTag(), "onFinalImageSet: view %x", this.hashCode());
-    if (!mZoomableController.isEnabled()) {
+    if (!mZoomableController.isEnabled() && mZoomingEnabled) {
       mZoomableController.setEnabled(true);
       updateZoomableControllerBounds();
     }

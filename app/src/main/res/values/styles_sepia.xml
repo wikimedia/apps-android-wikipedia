@@ -23,12 +23,10 @@
         <item name="secondary_text_color">@color/masi</item>
         <item name="searchItemBackground">@color/parchment</item>
         <item name="nav_tab_background_color">@color/amate</item>
-        <item name="toc_scroller_button_drawable">@drawable/shape_circle_sepia</item>
         <item name="toc_scroller_button_color">@color/parchment</item>
         <item name="button_background_color">@color/parchment</item>
         <item name="tab_placeholder_text_color">@color/amate</item>
 
-        <item name="text_highlight_color">@color/osage</item>
 
         <item name="chart_shade5">@color/kraft</item>
         <item name="green_highlight_color">@color/green50</item>
@@ -37,6 +35,7 @@
         <item name="paper_color">@color/parchment</item>
         <item name="chip_background_color">@color/amate</item>
         <item name="chip_text_color">@color/masi</item>
+        <item name="suggestions_background_color">@color/dawn</item>
 
     </style>
 

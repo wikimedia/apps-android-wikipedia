@@ -45,6 +45,7 @@
     <color name="osage">#ff9500</color>
     <color name="osage_translucent">#80ff9500</color>
     <color name="parchment">#f8f1e3</color>
+    <color name="dawn">#F2EBE1</color>
 
     <!-- Light and Dark mode consolidation-->
     <color name="black87">#DE000000</color>

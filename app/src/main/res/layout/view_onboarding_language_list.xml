@@ -12,15 +12,15 @@
         android:layout_height="0.5dp"
         android:background="?attr/chart_shade5" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/options_list"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/view_list_card_margin_vertical"
-        android:layout_marginTop="8dp"
-        android:requiresFadingEdge="vertical"/>
+        android:requiresFadingEdge="vertical" />
 
     <View
         android:layout_width="wrap_content"
@@ -31,24 +31,24 @@
         android:id="@+id/add_lang_container"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:gravity="center_vertical"
         android:layout_marginStart="8dp"
-        android:background="?attr/selectableItemBackground">
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:contentDescription="@null"
             android:tint="?attr/colorAccent"
-            app:srcCompat="@drawable/ic_add_gray_themed_24dp"
-            app:tint="@color/base30"
-            android:contentDescription="@null"/>
+            app:srcCompat="@drawable/ic_add_gray_white_24dp"
+            app:tint="@color/base30" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
-            android:layout_marginStart="12dp"
             android:text="@string/onboarding_multilingual_add_language_text"
             android:textAllCaps="true"
             android:textColor="?attr/colorAccent"
