@@ -16,10 +16,11 @@ public interface PageImageHistoryContract {
         StrColumn SITE = new StrColumn(TABLE, "site", "string");
         StrColumn LANG = new StrColumn(TABLE, "lang", "text");
         StrColumn TITLE = new StrColumn(TABLE, "title", "string");
+        StrColumn DISPLAY_TITLE = new StrColumn(TABLE, "displayTitle", "string"); // the "correct" title, e.g. iPhone
         StrColumn NAMESPACE = new StrColumn(TABLE, "namespace", "string");
         StrColumn IMAGE_NAME = new StrColumn(TABLE, "imageName", "string");
 
-        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, TITLE);
+        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, TITLE, DISPLAY_TITLE);
     }
 
     interface Image extends Col {

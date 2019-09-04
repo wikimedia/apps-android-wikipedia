@@ -17,6 +17,7 @@ import org.wikipedia.page.PageTitle;
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_NAMESPACE_ADDED = 7;
     private static final int DB_VER_LANG_ADDED = 10;
+    private static final int DB_VER_DISPLAY_TITLE_ADDED = 19;
 
     public PageImageDatabaseTable() {
         super(PageImageHistoryContract.TABLE, PageImageHistoryContract.Image.URI);
@@ -27,6 +28,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
         PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), wiki);
         String imageName = Col.IMAGE_NAME.val(cursor);
+        title.setDisplayText(Col.DISPLAY_TITLE.val(cursor));
         return new PageImage(title, imageName);
     }
 
@@ -36,7 +38,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
         contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
-        contentValues.put(Col.TITLE.getName(), obj.getTitle().getPrefixedText());
+        contentValues.put(Col.TITLE.getName(), obj.getTitle().getText());
+        contentValues.put(Col.DISPLAY_TITLE.getName(), obj.getTitle().getDisplayText());
         contentValues.put(Col.IMAGE_NAME.getName(), obj.getImageName());
         return contentValues;
     }
@@ -51,6 +54,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
                 return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
                 return new Column<?>[] {Col.LANG};
+            case DB_VER_DISPLAY_TITLE_ADDED:
+                return new Column<?>[] {Col.DISPLAY_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }

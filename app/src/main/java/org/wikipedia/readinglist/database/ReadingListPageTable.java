@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;
+    private static final int DB_VER_CONVERTED_TITLE_ADDED = 19;
 
     public ReadingListPageTable() {
         super(ReadingListPageContract.TABLE, ReadingListPageContract.URI);
@@ -29,6 +30,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         ReadingListPage page = new ReadingListPage(lang == null ? new WikiSite(site) : new WikiSite(site, lang),
                 ReadingListPageContract.Col.NAMESPACE.val(cursor),
                 ReadingListPageContract.Col.TITLE.val(cursor),
+                ReadingListPageContract.Col.CONVERTED_TITLE.val(cursor),
                 ReadingListPageContract.Col.LISTID.val(cursor));
         page.id(ReadingListPageContract.Col.ID.val(cursor));
         page.description(ReadingListPageContract.Col.DESCRIPTION.val(cursor));
@@ -40,6 +42,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         page.status(ReadingListPageContract.Col.STATUS.val(cursor));
         page.sizeBytes(ReadingListPageContract.Col.SIZEBYTES.val(cursor));
         page.remoteId(ReadingListPageContract.Col.REMOTEID.val(cursor));
+        page.lang(ReadingListPageContract.Col.LANG.val(cursor));
         return page;
     }
 
@@ -63,6 +66,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 cols.add(ReadingListPageContract.Col.SIZEBYTES);
                 cols.add(ReadingListPageContract.Col.REMOTEID);
                 return cols.toArray(new Column<?>[cols.size()]);
+            case DB_VER_CONVERTED_TITLE_ADDED:
+                return new Column<?>[] {ReadingListPageContract.Col.CONVERTED_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }

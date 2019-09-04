@@ -24,6 +24,7 @@ public class ReadingListPage implements Serializable {
     @NonNull private final WikiSite wiki;
     @NonNull private final Namespace namespace;
     @NonNull private final String title;
+    @NonNull private final String convertedTitle;
     @Nullable private String description;
     @Nullable private String thumbUrl;
 
@@ -33,7 +34,7 @@ public class ReadingListPage implements Serializable {
     private boolean offline;
     private int status;
     private long sizeBytes;
-
+    private String lang;
     private long revId;
     private long remoteId;
 
@@ -42,10 +43,11 @@ public class ReadingListPage implements Serializable {
     @Nullable private transient String accentAndCaseInvariantTitle;
 
     public ReadingListPage(@NonNull WikiSite wiki, @NonNull Namespace namespace,
-                           @NonNull String title, long listId) {
+                           @NonNull String title, @NonNull String convertedTitle, long listId) {
         this.wiki = wiki;
         this.namespace = namespace;
         this.title = title;
+        this.convertedTitle = convertedTitle;
         this.listId = listId;
     }
 
@@ -53,6 +55,7 @@ public class ReadingListPage implements Serializable {
         this.wiki = title.getWikiSite();
         this.namespace = title.namespace();
         this.title = title.getDisplayText();
+        this.convertedTitle = title.getConvertedText();
         this.thumbUrl = title.getThumbUrl();
         this.description = title.getDescription();
         listId = -1;
@@ -64,7 +67,9 @@ public class ReadingListPage implements Serializable {
     }
 
     public static PageTitle toPageTitle(@NonNull ReadingListPage page) {
-        return new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description());
+        PageTitle pageTitle = new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description());
+        pageTitle.setConvertedText(page.convertedTitle());
+        return pageTitle;
     }
 
     public long id() {
@@ -89,6 +94,10 @@ public class ReadingListPage implements Serializable {
     }
     @NonNull public String title() {
         return title;
+    }
+
+    @NonNull public String convertedTitle() {
+        return convertedTitle;
     }
 
     @NonNull public String accentAndCaseInvariantTitle() {
@@ -142,6 +151,13 @@ public class ReadingListPage implements Serializable {
     }
     public void revId(long revId) {
         this.revId = revId;
+    }
+
+    @NonNull public String lang() {
+        return lang;
+    }
+    public void lang(String lang) {
+        this.lang = lang;
     }
 
     public long remoteId() {
