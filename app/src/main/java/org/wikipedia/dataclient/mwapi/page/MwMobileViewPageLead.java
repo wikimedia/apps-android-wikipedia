@@ -18,7 +18,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 
 import java.util.Collections;
@@ -36,43 +35,8 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
     /** Note: before using this check that #getMobileview != null */
     @Override
     public Page toPage(@NonNull PageTitle title) {
-        return new Page(adjustPageTitle(title, title.getPrefixedText()),
-                mobileview.getSections(),
-                mobileview.toPageProperties());
-    }
-
-    private PageTitle adjustPageTitle(@NonNull PageTitle title, @NonNull String originalPrefixedText) {
-        if (mobileview.getRedirected() != null) {
-            // Handle redirects properly.
-            title = new PageTitle(mobileview.getRedirected(), title.getWikiSite(),
-                    title.getThumbUrl());
-        } else if (mobileview.getNormalizedTitle() != null) {
-            // We care about the normalized title only if we were not redirected
-            title = new PageTitle(mobileview.getNormalizedTitle(), title.getWikiSite(),
-                    title.getThumbUrl());
-        }
-
-        if (mobileview.getDisplayTitle() != null
-                && !StringUtil.removeHTMLTags(title.getDisplayText()).equals(StringUtil.removeHTMLTags(mobileview.getDisplayTitle()))) {
-            title = new PageTitle(StringUtil.removeHTMLTags(mobileview.getDisplayTitle()), title.getWikiSite(),
-                    title.getThumbUrl());
-        }
-
-        if (mobileview.getDisplayTitle() != null
-                && !mobileview.getDisplayTitle().equals(originalPrefixedText)
-                && mobileview.getNormalizedTitle() == null) {
-            // Sometimes the MW api will not give us the "converted" or "redirected" title if switching between Chinese variants
-            // Ticket: https://phabricator.wikimedia.org/T206891#4672777
-            // We can the original prefixed title text (the one we used for calling API) to build the PageTitle
-            title = new PageTitle(originalPrefixedText, title.getWikiSite(), title.getThumbUrl());
-        }
-
-        if (mobileview.getRedirected() != null) {
-            title.setConvertedText(mobileview.getRedirected());
-        }
-
         title.setDescription(mobileview.getDescription());
-        return title;
+        return new Page(title, mobileview.getSections(), mobileview.toPageProperties());
     }
 
     @Override @NonNull public String getLeadSectionContent() {
