@@ -549,8 +549,6 @@
   <string name="preference_title_notification_poll">آگاه‌سازی نظرخواهی‌ها</string>
   <string name="preference_summary_notification_poll">به اپلیکشن اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی پیغام‌های جدید استفاده کند.</string>
   <string name="preference_category_notification_types">انواع اعلانات درون برنامه ای</string>
-  <string name="preference_title_notification_welcome">خوش‌آمدید</string>
-  <string name="preference_summary_notification_welcome">یک حساب کاربری ساخته‌شد.</string>
   <string name="preference_title_notification_milestone">نقطهٔ عطف</string>
   <string name="preference_summary_notification_milestone">ویرایش‌های شما به تعداد مورد نظر رسیده است</string>
   <string name="preference_title_notification_thanks">سپاس</string>
