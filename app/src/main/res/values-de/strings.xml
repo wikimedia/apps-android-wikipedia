@@ -527,8 +527,6 @@
   <string name="preference_title_notification_poll">Benachrichtigungen abfragen</string>
   <string name="preference_summary_notification_poll">Der App erlauben, für die Suche nach neuen Benachrichtigungen im Hintergrund Daten zu verwenden.</string>
   <string name="preference_category_notification_types">In-App-Benachrichtigungstypen</string>
-  <string name="preference_title_notification_welcome">Willkommen</string>
-  <string name="preference_summary_notification_welcome">Es wurde ein Benutzerkonto erstellt</string>
   <string name="preference_title_notification_milestone">Meilenstein</string>
   <string name="preference_summary_notification_milestone">Es wurden bestimmte Bearbeitungszahlen erreicht</string>
   <string name="preference_title_notification_thanks">Dankeschöns</string>

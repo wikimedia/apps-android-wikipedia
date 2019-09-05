@@ -408,8 +408,6 @@
   <string name="notifications_mark_unread">بطور ناخواندہ شدہ نشان زد کریں</string>
   <string name="preference_title_notification_poll">نئی اطلاعات</string>
   <string name="preference_category_notification_types">ایپ میں اطلاعات کی اقسام</string>
-  <string name="preference_title_notification_welcome">خوش آمدید</string>
-  <string name="preference_summary_notification_welcome">ایک کھاتہ تخلیق کیا گیا ہے</string>
   <string name="preference_title_notification_milestone">سنگ میل</string>
   <string name="preference_summary_notification_milestone">صارف کی ترامیم کی مخصوص تعداد عبور کرنے پر اطلاع</string>
   <string name="preference_title_notification_thanks">شکر گزاری</string>
