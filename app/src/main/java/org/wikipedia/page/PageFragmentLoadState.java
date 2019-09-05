@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
@@ -308,23 +309,32 @@ public class PageFragmentLoadState {
     private void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(rsp -> {
-                    app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = rsp.body();
-                    pageLoadLeadSectionComplete(lead, startSequenceNum);
-                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
-                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                        showPageOfflineMessage(rsp.raw().header("date", ""));
-                    }
-                }, t -> {
-                    L.e("PageLead error: ", t);
-                    commonSectionFetchOnCatch(t, startSequenceNum);
-                }));
+        // TODO: redo this after the mobile-html patches got merged.
+        String[] displayText = new String[1];
+        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(null, model.getTitle().getConvertedText())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .flatMap(response -> {
+                            displayText[0] = response.getDisplayTitle();
+                            return PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                                    .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline()
+                                            ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(),
+                                            model.getTitle().getPrefixedText(), calculateLeadImageWidth()).subscribeOn(Schedulers.io());
+                        })
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(rsp -> {
+                            app.getSessionFunnel().leadSectionFetchEnd();
+                            PageLead lead = rsp.body();
+                            pageLoadLeadSectionComplete(lead, displayText[0], startSequenceNum);
+                            if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                                showPageOfflineMessage(rsp.raw().header("date", ""));
+                            }
+                        }, t -> {
+                            L.e("PageLead error: ", t);
+                            commonSectionFetchOnCatch(t, startSequenceNum);
+                        })
+                );
     }
 
     private void pageLoadDisplayLeadSection() {
@@ -438,7 +448,7 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageLead pageLead, int startSequenceNum) {
+    private void pageLoadLeadSectionComplete(PageLead pageLead, @NonNull String displayText, int startSequenceNum) {
         if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
@@ -452,6 +462,8 @@ public class PageFragmentLoadState {
         if (page.getTitle().getDescription() == null) {
             app.getSessionFunnel().noDescription();
         }
+
+        model.getTitle().setDisplayText(displayText);
 
         leadImagesHandler.loadLeadImage();
 
