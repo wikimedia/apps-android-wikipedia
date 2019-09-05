@@ -46,9 +46,7 @@ public class LoginClient {
         cancel();
         disposables.add(getLoginToken(wiki)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(loginToken -> {
-                    login(wiki, userName, password, null, null, loginToken, cb);
-                }, cb::error));
+                .subscribe(loginToken -> login(wiki, userName, password, null, null, loginToken, cb), cb::error));
     }
 
     void login(@NonNull final WikiSite wiki, @NonNull final String userName, @NonNull final String password,
