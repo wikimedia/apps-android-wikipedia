@@ -546,8 +546,6 @@
   <string name="preference_title_notification_poll">Ververs meldingen</string>
   <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
   <string name="preference_category_notification_types">Meldingtypes in de app</string>
-  <string name="preference_title_notification_welcome">Welkom</string>
-  <string name="preference_summary_notification_welcome">Een account is aangemaakt</string>
   <string name="preference_title_notification_milestone">Mijlpaal</string>
   <string name="preference_summary_notification_milestone">Bepaalde bewerkingstellingen zijn bereikt</string>
   <string name="preference_title_notification_thanks">Bedankjes</string>

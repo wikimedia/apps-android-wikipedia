@@ -170,7 +170,6 @@
   <string name="notification_syncing_resume_button">Շարունակել</string>
   <string name="notification_syncing_cancel_button">Չեղարկել</string>
   <string name="notifications_poll_enable_negative">Հիմա չէ</string>
-  <string name="preference_title_notification_welcome">Բարի գալուստ</string>
   <string name="preference_title_notification_milestone">Փուլ</string>
   <string name="preference_title_notification_thanks">Շնորհակալություն</string>
   <string name="preference_title_notification_revert">Հետ շրջել</string>

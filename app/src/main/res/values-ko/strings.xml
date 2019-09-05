@@ -534,8 +534,6 @@
   <string name="preference_title_notification_poll">알림 폴링</string>
   <string name="preference_summary_notification_poll">앱이 백그라운드에서 새 알림을 확인할 수 있게 합니다.</string>
   <string name="preference_category_notification_types">앱 내 알림 유형</string>
-  <string name="preference_title_notification_welcome">환영합니다</string>
-  <string name="preference_summary_notification_welcome">계정이 생성되었습니다</string>
   <string name="preference_title_notification_milestone">마일스톤</string>
   <string name="preference_summary_notification_milestone">특정 편집 수에 도달했습니다</string>
   <string name="preference_title_notification_thanks">감사 표현</string>

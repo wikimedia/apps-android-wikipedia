@@ -511,8 +511,6 @@
   <string name="notifications_mark_unread">Ааҕыллыбатах курдук бэлиэтээ</string>
   <string name="preference_title_notification_poll">Ыйытыктар биллэриилэрэ</string>
   <string name="preference_category_notification_types">Биллэриилэр көрүҥнэрэ</string>
-  <string name="preference_title_notification_welcome">Киирбиккинэн</string>
-  <string name="preference_summary_notification_welcome">Бэлиэ-аат оҥоһулунна</string>
   <string name="preference_title_notification_milestone">Хардыы</string>
   <string name="preference_summary_notification_milestone">Төһө эрэ көннөрүү оҥоһуллубут</string>
   <string name="preference_title_notification_thanks">Махтал</string>

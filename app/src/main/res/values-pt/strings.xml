@@ -538,8 +538,6 @@
   <string name="preference_title_notification_poll">Inquérito sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que a aplicação use tráfego de dados para verificar em segundo plano se existem novas notificações</string>
   <string name="preference_category_notification_types">Tipos de notificações na aplicação</string>
-  <string name="preference_title_notification_welcome">Bem-vindo(a)</string>
-  <string name="preference_summary_notification_welcome">É criada uma conta</string>
   <string name="preference_title_notification_milestone">Objetivo</string>
   <string name="preference_summary_notification_milestone">São atingidos determinados números de edições</string>
   <string name="preference_title_notification_thanks">Agradecimentos</string>
