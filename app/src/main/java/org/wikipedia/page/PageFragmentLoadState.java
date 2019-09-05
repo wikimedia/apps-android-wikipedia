@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
@@ -53,6 +54,7 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Protocol;
 import okhttp3.Request;
+import retrofit2.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
@@ -309,32 +311,31 @@ public class PageFragmentLoadState {
     private void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
+        Observable<RbPageSummary> pageSummaryObservable = ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(null, model.getTitle().getConvertedText());
+        Observable<Response<PageLead>> pageLeadObservable = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth());
+
         // TODO: redo this after the mobile-html patches got merged.
         String[] displayText = new String[1];
-        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(null, model.getTitle().getConvertedText())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .flatMap(response -> {
-                            displayText[0] = response.getDisplayTitle();
-                            return PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                                    .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline()
-                                            ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(),
-                                            model.getTitle().getPrefixedText(), calculateLeadImageWidth()).subscribeOn(Schedulers.io());
-                        })
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(rsp -> {
-                            app.getSessionFunnel().leadSectionFetchEnd();
-                            PageLead lead = rsp.body();
-                            pageLoadLeadSectionComplete(lead, displayText[0], startSequenceNum);
-                            if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
-                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                                showPageOfflineMessage(rsp.raw().header("date", ""));
-                            }
-                        }, t -> {
-                            L.e("PageLead error: ", t);
-                            commonSectionFetchOnCatch(t, startSequenceNum);
-                        })
-                );
+        disposables.add(Observable
+                .zip(pageSummaryObservable, pageLeadObservable, (summaryRsp, leadRsp) -> {
+                    displayText[0] = summaryRsp.getDisplayTitle();
+                    return leadRsp;
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(rsp -> {
+                    app.getSessionFunnel().leadSectionFetchEnd();
+                    PageLead lead = rsp.body();
+                    pageLoadLeadSectionComplete(lead, displayText[0], startSequenceNum);
+                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                        showPageOfflineMessage(rsp.raw().header("date", ""));
+                    }
+                }, t -> {
+                    L.e("PageLead error: ", t);
+                    commonSectionFetchOnCatch(t, startSequenceNum);
+                }));
     }
 
     private void pageLoadDisplayLeadSection() {
