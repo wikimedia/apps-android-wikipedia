@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="preference_key_language">content_language</string>
     <string name="preference_key_cookie_map">cookie_map</string>
     <string name="preference_key_remote_config">remote_config</string>
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
