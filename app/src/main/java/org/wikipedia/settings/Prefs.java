@@ -489,7 +489,7 @@ public final class Prefs {
     }
 
     public static boolean notificationWelcomeEnabled() {
-        return getBoolean(R.string.preference_key_notification_welcome_enable, true);
+        return getBoolean(R.string.preference_key_notification_system_enable, true);
     }
 
     public static boolean notificationMilestoneEnabled() {
@@ -502,6 +502,18 @@ public final class Prefs {
 
     public static boolean notificationRevertEnabled() {
         return getBoolean(R.string.preference_key_notification_revert_enable, true);
+    }
+
+    public static boolean notificationUserTalkEnabled() {
+        return getBoolean(R.string.preference_key_notification_user_talk_enable, true);
+    }
+
+    public static boolean notificationLoginFailEnabled() {
+        return getBoolean(R.string.preference_key_notification_login_fail_enable, true);
+    }
+
+    public static boolean notificationMentionEnabled() {
+        return getBoolean(R.string.preference_key_notification_mention_enable, true);
     }
 
     public static boolean showAllNotifications() {

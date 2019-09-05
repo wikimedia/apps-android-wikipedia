@@ -464,8 +464,6 @@
   <string name="notifications_view_archived_button_text">সংরক্ষণাগারভুক্ত বিজ্ঞপ্তিগুলি দেখুন</string>
   <string name="notification_preferences_title">বিজ্ঞপ্তির পছন্দসমূহ</string>
   <string name="notifications_mark_unread">অপঠিত হিসেবে চিহ্নিত করুন</string>
-  <string name="preference_title_notification_welcome">স্বাগতম</string>
-  <string name="preference_summary_notification_welcome">একটি অ্যাকাউন্ট তৈরি করা হয়েছে</string>
   <string name="preference_title_notification_milestone">মাইলফলক</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
   <string name="preference_title_notification_revert">প্রত্যাবর্তন</string>

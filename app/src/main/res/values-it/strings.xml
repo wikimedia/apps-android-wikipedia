@@ -536,8 +536,6 @@
   <string name="notifications_mark_unread">Segna come non letto</string>
   <string name="preference_summary_notification_poll">Consenti all\'applicazione di utilizzare i dati per verificare nuove notifiche in background.</string>
   <string name="preference_category_notification_types">Tipi di notifiche in-app</string>
-  <string name="preference_title_notification_welcome">Benvenuto</string>
-  <string name="preference_summary_notification_welcome">Un\'utenza è stata creata</string>
   <string name="preference_title_notification_milestone">Pietra miliare</string>
   <string name="preference_title_notification_thanks">Ringraziamenti</string>
   <string name="preference_summary_notification_thanks">Qualcuno ti ha ringraziato per una modifica</string>
