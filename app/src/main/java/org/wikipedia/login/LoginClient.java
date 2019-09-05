@@ -52,8 +52,8 @@ public class LoginClient {
     }
 
     void login(@NonNull final WikiSite wiki, @NonNull final String userName, @NonNull final String password,
-                                    @Nullable final String retypedPassword, @Nullable final String twoFactorCode,
-                                    @Nullable final String loginToken, @NonNull final LoginCallback cb) {
+               @Nullable final String retypedPassword, @Nullable final String twoFactorCode,
+               @NonNull final String loginToken, @NonNull final LoginCallback cb) {
 
         disposables.add(getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, loginToken)
                 .subscribeOn(Schedulers.io())
