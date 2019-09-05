@@ -476,6 +476,11 @@ public class PageFragmentLoadState {
         model.setCurEntry(new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
         model.getCurEntry().setReferrer(curEntry.getReferrer());
 
+        // Update our tab list to prevent ZH variants issue.
+        if (app.getTabList().get(app.getTabCount() - 1) != null) {
+            app.getTabList().get(app.getTabCount() - 1).setBackStackPositionTitle(model.getTitle());
+        }
+
         // Save the thumbnail URL to the DB
         PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
