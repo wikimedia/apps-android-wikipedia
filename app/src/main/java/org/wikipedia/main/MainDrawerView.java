@@ -30,17 +30,14 @@ public class MainDrawerView extends ScrollView {
         void notificationsClick();
         void settingsClick();
         void configureFeedClick();
-        void editingTasksClick();
         void aboutClick();
     }
 
     @BindView(R.id.main_drawer_account_name) TextView accountNameView;
     @BindView(R.id.main_drawer_login_button) Button loginLogoutButton;
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
-    @BindView(R.id.edit_icon_dot) ImageView editOptionIndicatorDot;
     @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
-    @BindView(R.id.main_drawer_app_editing_tasks) ViewGroup editTasksContainer;
     @Nullable Callback callback;
 
     public MainDrawerView(Context context) {
@@ -71,8 +68,6 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
             notificationsContainer.setVisibility(View.VISIBLE);
-            editTasksContainer.setVisibility(VISIBLE);
-            maybeShowIndicatorDots();
         } else {
             accountNameView.setVisibility(GONE);
             loginLogoutButton.setText(getContext().getString(R.string.main_drawer_login));
@@ -80,7 +75,6 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.GONE);
             accountWikiGlobe.setVisibility(View.VISIBLE);
             notificationsContainer.setVisibility(View.GONE);
-            editTasksContainer.setVisibility(GONE);
         }
     }
 
@@ -99,12 +93,6 @@ public class MainDrawerView extends ScrollView {
     @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
         if (callback != null) {
             callback.notificationsClick();
-        }
-    }
-
-    @OnClick(R.id.main_drawer_app_editing_tasks) void onEditingTasksClick() {
-        if (callback != null) {
-            callback.editingTasksClick();
         }
     }
 
@@ -131,14 +119,8 @@ public class MainDrawerView extends ScrollView {
         }
     }
 
-    public void maybeShowIndicatorDots() {
-        editOptionIndicatorDot.setVisibility(Prefs.showEditMenuOptionIndicator() ? VISIBLE : GONE);
-    }
-
-
     private void init() {
         inflate(getContext(), R.layout.view_main_drawer, this);
         ButterKnife.bind(this);
-        maybeShowIndicatorDots();
     }
 }
