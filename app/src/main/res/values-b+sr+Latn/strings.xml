@@ -473,8 +473,6 @@
   <string name="preference_title_notification_poll">Primaj obaveštenja</string>
   <string name="preference_summary_notification_poll">Dozvolite aplikaciji da koristi podatke radi provere da li su dostupna nova obaveštenja.</string>
   <string name="preference_category_notification_types">Tipovi obaveštenja</string>
-  <string name="preference_title_notification_welcome">Dobro došli</string>
-  <string name="preference_summary_notification_welcome">Nalog je otvoren</string>
   <string name="preference_title_notification_milestone">Miljokaz</string>
   <string name="preference_summary_notification_milestone">Dostignut je određeni broj izmena</string>
   <string name="preference_title_notification_thanks">Zahvala</string>

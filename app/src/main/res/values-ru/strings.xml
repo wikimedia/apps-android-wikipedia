@@ -568,14 +568,20 @@
   <string name="preference_title_notification_poll">Извещения об опросах</string>
   <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
   <string name="preference_category_notification_types">Виды уведомлений в приложении</string>
-  <string name="preference_title_notification_welcome">Добро пожаловать</string>
-  <string name="preference_summary_notification_welcome">Учётная запись создана</string>
+  <string name="preference_title_notification_system">Системные</string>
+  <string name="preference_summary_notification_system">Системные сообщения</string>
   <string name="preference_title_notification_milestone">Этап</string>
   <string name="preference_summary_notification_milestone">Достигнуто определённое число правок</string>
   <string name="preference_title_notification_thanks">Благодарности</string>
   <string name="preference_summary_notification_thanks">Кто-то поблагодарил вас за правку</string>
   <string name="preference_title_notification_revert">Откаты правок</string>
   <string name="preference_summary_notification_revert">Одна из ваших правок была откачена</string>
+  <string name="preference_title_notification_login_fail">Вход в систему</string>
+  <string name="preference_summary_notification_login_fail">Ваша активность входов в систему</string>
+  <string name="preference_title_notification_mention">Упоминания вас</string>
+  <string name="preference_summary_notification_mention">Кто-то упомянул вас на странице</string>
+  <string name="preference_title_notification_user_talk">На страницах обсуждений</string>
+  <string name="preference_summary_notification_user_talk">Сообщения со страниц обсуждения</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_card_subtitle">Полистайте подборку случайных статей Википедии.</string>
@@ -629,7 +635,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
-  <string name="feed_accessibility_card_text" fuzzy="true">Вы достигли конца ленты.</string>
+  <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
   <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="description_edit_text_hint">Описание статьи</string>
   <string name="description_edit_article_description_label_per_language">Статья %s</string>

@@ -517,8 +517,6 @@
   <string name="preference_title_notification_poll">ပၼ်သဵင် ၶေႃႈၽၢင်ႉ</string>
   <string name="preference_summary_notification_poll">ၶႂၢင်းပၼ်ဢႅပ်ႉ တွၼ်ႈတႃႇၸႂ်ႉတေႇတႃႇ တႃႇၵူတ်ႇတူၺ်း ၶေႃႈၽၢင်ႉဢၼ်မႂ်ႇ တီႈပိုၼ်ႉလင်။</string>
   <string name="preference_category_notification_types">မဵဝ်းၶေႃႈၽၢင်ႉ ၼႂ်းဢႅပ်ႉ</string>
-  <string name="preference_title_notification_welcome">ႁပ်ႉတွၼ်ႈယူႇၶႃႈ</string>
-  <string name="preference_summary_notification_welcome">ဢၶွင်ႉ ၵေႃႇသၢင်ႈယဝ်ႉယဝ်ႈ</string>
   <string name="preference_title_notification_milestone">လၵ်းႁိၼ်</string>
   <string name="preference_summary_notification_milestone">ႁူဝ်ၼပ်ႉ လွင်ႈမႄးထတ်းၼႄႉၼွၼ်း ႁွတ်ႈၽႅဝ်ထိုင်တီႈမၼ်းယဝ်ႉ</string>
   <string name="preference_title_notification_thanks">ၶွပ်ႈၸႂ်</string>

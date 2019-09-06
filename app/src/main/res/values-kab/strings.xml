@@ -16,6 +16,7 @@
   <string name="page_tabs_back">Uɣal</string>
   <string name="nav_item_forward">Welleh</string>
   <string name="search_hint">Nadi di Wikipedia</string>
+  <string name="search_hint_voice_search">Anadi n yinekcam s taɣect</string>
   <string name="search_hint_search_history">Nadi amazray</string>
   <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
   <string name="search_hint_search_my_lists_and_articles">Nadi deg tibdarin-iw d yimagraden-iw</string>
@@ -91,6 +92,7 @@
   <string name="search_reading_lists_no_results">Ulac igmaḍ di tebdarin n tɣuri</string>
   <string name="search_history_no_results">Ulac igmaḍ deg umazray</string>
   <string name="edit_section_captcha_message">Akken ad tmuddeḍ afus n ummestane mgal ispamen, sekcem awalen ara d-ibanen daw-a</string>
+  <string name="edit_section_captcha_request_an_account_message">D awezɣi uwali n tugna ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Suter amiḍan&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ales awalen n daw-a</string>
   <string name="title_captcha">Sekcem CAPTCHA</string>
   <string name="edit_section_captcha_reload">Sekcem CAPTCHA ad talseḍ asali</string>
@@ -109,10 +111,15 @@
   <string name="login_in_progress_dialog_message">Tuqqna tetteddu...</string>
   <string name="login_success_toast">Yeqqen akken iwata!</string>
   <string name="reset_password_title">Sbadu awal-ik uffir</string>
+  <string name="reset_password_description">Teqqneḍ s wawal uffir askudan. Akken ad fakkeḍ tuqqna, sekcem awal-ik uffir amaynut dagi.</string>
   <string name="reset_password_hint">Awal uffir amaynut</string>
+  <string name="reset_password_button">Sekles sakin qqen</string>
   <string name="preference_title_logout">Ffeɣ</string>
   <string name="toast_logout_complete">Yeffeɣ</string>
   <string name="logout_dialog_cancel_button_text">Sefsex</string>
+  <string name="logged_out_in_background_title">Yeffeɣ</string>
+  <string name="logged_out_in_background_login">Qqen</string>
+  <string name="logged_out_in_background_cancel">Sefsex</string>
   <string name="history_empty_title">Ula d yiwen n umagrad ur twalan ussan-a ineggura</string>
   <string name="history_empty_message">Ḍfeṛ ayen tɣareḍ dagi.</string>
   <string name="search_empty_message">Nadi sakin ɣeṛ tasanayt tilellit s tutlayt-ik</string>
@@ -137,11 +144,13 @@
   <string name="email_recommendation_dialog_create_without_email_action">Kemmel war imayl</string>
   <string name="email_recommendation_dialog_create_with_email_action">Rnu tansa imayl</string>
   <string name="create_account_button">Rnu amiḍan</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ttfaṣil</string>
   <string name="preferences_general_heading">Amatu</string>
   <string name="wikipedia_app_faq">Isteqsiyen FAQ n isnasen Wikipedia</string>
   <string name="send_feedback">Azen-d tikti ɣef usnas</string>
   <string name="create_account_account_created_toast">Amiḍan yettwarna!</string>
+  <string name="preferences_heading_syncing">Amtawi</string>
   <string name="preferences_heading_data_usage">Aseqdec n isefka</string>
   <string name="preferences_heading_experimental">Anermay</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Eǧǧ Wikimedia ad imtawi tibdarin-ik n tɣuri ticki teqqneḍ</string>
@@ -384,6 +393,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Rmed amtawi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ala, tanemmirt</string>
   <string name="reading_list_login_option_reminder_dialog_title">Umuɣen n tɣuri n yimagraden ttwafen-d</string>
+  <string name="default_reading_list_name">Yettwasekles</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi llan s war tuqqna.</item>
@@ -392,8 +402,29 @@
     <item quantity="one">Amagrad -agi ur yezgi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi ur zgin llan s war tuqqna.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">IH</string>
+  <string name="reading_list_delete_dialog_ok_button_text">IH</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Sefsex</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Sefsex</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Sefsex</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Sefsex</string>
+  <string name="reading_list_split_dialog_ok_button_text">IH</string>
   <string name="user_option_sync_label">Ismenyifen</string>
   <string name="notification_reverted_title">Asnifel yettwasefsex</string>
+  <string name="notification_channel_description">Asfari n usader</string>
+  <string name="notification_syncing_pause_button">Rǧu</string>
+  <string name="notification_syncing_resume_button">Kemmel</string>
+  <string name="notification_syncing_cancel_button">Sefsex</string>
+  <string name="notification_echo_channel_description">Ilɣa n Wikipedia</string>
+  <string name="notifications_activity_title">Ilɣa</string>
+  <string name="notifications_activity_title_archived">Ilɣa (taṛcivt)</string>
+  <string name="notifications_search">Nadi ilɣa</string>
+  <string name="notifications_view_unread">Sken wid ur nettwaɣra</string>
+  <string name="notifications_view_archived">Sken taṛcivt</string>
+  <string name="notifications_prefs">Ismenyifen n yilɣa</string>
+  <string name="notifications_archive">Creḍ ttwaɣran sakin ḥrez</string>
+  <string name="notifications_poll_enable_positive">Rmed</string>
+  <string name="notifications_poll_enable_negative">Mačči tura</string>
   <string name="view_because_you_read_card_title">Acku teɣriḍ</string>
   <string name="view_random_card_title">Agacuran</string>
   <string name="view_random_card_subtitle" fuzzy="true">Ɣeṛ amagrad agacuran si Wikipedia</string>

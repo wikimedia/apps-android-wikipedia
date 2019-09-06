@@ -420,8 +420,6 @@
   <string name="notification_preferences_title">Postavke obavijesti</string>
   <string name="notifications_mark_unread">Označi kao nepročitano</string>
   <string name="preference_category_notification_types">Vrste obavijesti unutar aplikacije</string>
-  <string name="preference_title_notification_welcome">Dobro došli</string>
-  <string name="preference_summary_notification_welcome">Račun je stvoren</string>
   <string name="preference_title_notification_thanks">Zahvala</string>
   <string name="preference_title_notification_revert">Vraćanje</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>

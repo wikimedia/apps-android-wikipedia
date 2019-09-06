@@ -525,8 +525,6 @@
   <string name="preference_title_notification_poll">Se etter nye varsler</string>
   <string name="preference_summary_notification_poll">La appen bruke data for å sjekke nye varsler i bakgrunnen.</string>
   <string name="preference_category_notification_types">Varsler i appen</string>
-  <string name="preference_title_notification_welcome">Velkommen</string>
-  <string name="preference_summary_notification_welcome">En konto er opprettet</string>
   <string name="preference_title_notification_milestone">Milepæl</string>
   <string name="preference_summary_notification_milestone">Et bestemt antall redigeringer har blitt nådd</string>
   <string name="preference_title_notification_thanks">Takk</string>

@@ -549,14 +549,20 @@
   <string name="preference_title_notification_poll">Pesquisa sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que o aplicativo use dados para verificar em segundo plano se existem novas notificações</string>
   <string name="preference_category_notification_types">Tipos de notificações no aplicativo</string>
-  <string name="preference_title_notification_welcome">Bem-vindo(a)</string>
-  <string name="preference_summary_notification_welcome">É criada uma conta</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Mensagens do sistema</string>
   <string name="preference_title_notification_milestone">Objetivo</string>
   <string name="preference_summary_notification_milestone">São atingidos determinados números de edições</string>
   <string name="preference_title_notification_thanks">Agradecimento</string>
   <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
   <string name="preference_title_notification_revert">Reverter</string>
   <string name="preference_summary_notification_revert">Uma de suas contribuições foi revertida</string>
+  <string name="preference_title_notification_login_fail">Entrar</string>
+  <string name="preference_summary_notification_login_fail">Suas atividades de entrada</string>
+  <string name="preference_title_notification_mention">Menção</string>
+  <string name="preference_summary_notification_mention">Alguém menciona você em uma página</string>
+  <string name="preference_title_notification_user_talk">Página de discussão</string>
+  <string name="preference_summary_notification_user_talk">Mensagens das páginas de discussão</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Folhear artigos aleatórios para ler a partir da Wikipédia</string>
@@ -610,7 +616,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize seu feed de Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora você pode escolher o que mostrar em seu feed, e também priorizar seus tipos de conteúdo favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="feed_accessibility_card_text" fuzzy="true">Você atinge a parte inferior do feed.</string>
+  <string name="feed_accessibility_card_text">Você atingiu a parte inferior do feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
   <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>

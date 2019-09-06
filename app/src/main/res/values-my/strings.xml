@@ -518,8 +518,6 @@
   <string name="preference_title_notification_poll">အသိပေးချက်များကို မဲဆန္ဒပေးရန်</string>
   <string name="preference_summary_notification_poll">နောက်ခံမှ အသိပေးချက်အသစ်များကို စစ်ဆေးရန် ဒေတာသုံးစွဲခွင့်ကို app အား ခွင့်ပြုမည်။</string>
   <string name="preference_category_notification_types">app ထဲရှိ အသိပေးချက် အမျိူးအစားများ</string>
-  <string name="preference_title_notification_welcome">ကြိုဆိုပါသည်</string>
-  <string name="preference_summary_notification_welcome">အကောင့်တစ်ခု ဖန်တီးခဲ့သည်</string>
   <string name="preference_title_notification_milestone">မှတ်တိုင်</string>
   <string name="preference_summary_notification_milestone">သေချာသော တည်းဖြတ်မှုအရေအတွက် ရောက်ရှိခဲ့ပါသည်</string>
   <string name="preference_title_notification_thanks">ကျေးဇူးတင်ပါသည်</string>

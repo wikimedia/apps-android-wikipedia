@@ -537,14 +537,20 @@
   <string name="preference_title_notification_poll">調查通知</string>
   <string name="preference_summary_notification_poll">允許應用程式在背景執行使用資料來檢查新的通知。</string>
   <string name="preference_category_notification_types">In-app 通知類型</string>
-  <string name="preference_title_notification_welcome">歡迎</string>
-  <string name="preference_summary_notification_welcome">在有帳號被建立時</string>
+  <string name="preference_title_notification_system">系統</string>
+  <string name="preference_summary_notification_system">來自系統的訊息</string>
   <string name="preference_title_notification_milestone">里程碑</string>
   <string name="preference_summary_notification_milestone">當達到某種程度的編輯數</string>
   <string name="preference_title_notification_thanks">感謝</string>
   <string name="preference_summary_notification_thanks">某人感謝您所做的編輯</string>
   <string name="preference_title_notification_revert">回退</string>
   <string name="preference_summary_notification_revert">您所做出的其一貢獻已被回退</string>
+  <string name="preference_title_notification_login_fail">登入</string>
+  <string name="preference_summary_notification_login_fail">您的登入活動</string>
+  <string name="preference_title_notification_mention">提及</string>
+  <string name="preference_summary_notification_mention">有人在頁面裡提及您</string>
+  <string name="preference_title_notification_user_talk">對話頁</string>
+  <string name="preference_summary_notification_user_talk">來自對話頁的訊息</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_card_subtitle">快速翻閱來自維基百科的隨機條目。</string>
@@ -598,7 +604,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索摘要&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的摘要內挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">確認</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
-  <string name="feed_accessibility_card_text" fuzzy="true">您達到摘要下端。</string>
+  <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
   <string name="description_edit_text_hint">條目描述</string>
   <string name="description_edit_article_description_label_per_language">條目（%s）</string>

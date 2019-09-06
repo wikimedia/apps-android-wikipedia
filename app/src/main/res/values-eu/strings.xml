@@ -264,8 +264,8 @@
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia: %2$s -(e)n</string>
   <string name="expand_refs">Ukitu hedatzeko</string>
-  <string name="share_snippet_button">Irudi bezala partekatu</string>
-  <string name="share_normal_button">Testu bezala partekatu</string>
+  <string name="share_snippet_button">Iruditzat partekatu</string>
+  <string name="share_normal_button">Testutzat partekatu</string>
   <string name="snippet_share_preview_image_desc">Aurrikuspen irudia</string>
   <string name="cc_logo">Creative Commons lizentzia</string>
   <string name="captcha_image">Captcha irudia</string>
@@ -494,8 +494,6 @@
   <string name="notifications_empty_message">Jakinarazpenen artean harrapatuta zaude!</string>
   <string name="notifications_view_archived_button_text">Ikusi artxibatutako jakinarazpenak</string>
   <string name="notification_preferences_title">Jakinarazpen lehentasunak</string>
-  <string name="preference_title_notification_welcome">Ongi etorri</string>
-  <string name="preference_summary_notification_welcome">Kontu bat sortu da</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
   <string name="preference_title_notification_revert">Lehengoratu</string>

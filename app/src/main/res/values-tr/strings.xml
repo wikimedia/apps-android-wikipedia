@@ -549,8 +549,6 @@
   <string name="preference_title_notification_poll">Anket tercihleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
   <string name="preference_category_notification_types">Uygulama içi bildirim türleri</string>
-  <string name="preference_title_notification_welcome">Hoş geldiniz</string>
-  <string name="preference_summary_notification_welcome">Bir hesap oluşturuldu</string>
   <string name="preference_title_notification_milestone">Kilometre taşı</string>
   <string name="preference_summary_notification_milestone">Belirli düzenleme sayılarına ulaşıldı</string>
   <string name="preference_title_notification_thanks">Teşekkürler</string>

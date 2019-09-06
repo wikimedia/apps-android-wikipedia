@@ -544,8 +544,6 @@
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
   <string name="preference_category_notification_types">アプリ内通知の種類</string>
-  <string name="preference_title_notification_welcome">ようこそ</string>
-  <string name="preference_summary_notification_welcome">アカウントが作成されました</string>
   <string name="preference_title_notification_milestone">マイルストーン</string>
   <string name="preference_summary_notification_milestone">編集回数が特定の回数に達したとき</string>
   <string name="preference_title_notification_thanks">感謝</string>

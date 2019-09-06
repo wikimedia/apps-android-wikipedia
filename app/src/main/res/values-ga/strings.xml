@@ -493,8 +493,6 @@
   <string name="notifications_mark_unread">Marcáil neamhléite</string>
   <string name="preference_title_notification_poll">Déan faireachán ar fógraí</string>
   <string name="preference_summary_notification_poll">Ceadaigh don aip sonraí a úsáid le seiceáil sa chúlra an bhfuil fógraí nua ann.</string>
-  <string name="preference_title_notification_welcome">Fáilte</string>
-  <string name="preference_summary_notification_welcome">Cruthaítear cuntas</string>
   <string name="preference_title_notification_milestone">Clocha Míle</string>
   <string name="preference_summary_notification_milestone">Sroichtear líonta athruithe áirithe</string>
   <string name="preference_title_notification_thanks">Buíochas</string>

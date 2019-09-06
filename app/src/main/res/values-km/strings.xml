@@ -307,8 +307,6 @@
   <string name="notification_syncing_cancel_button">បោះបង់</string>
   <string name="notification_syncing_title" fuzzy="true">កំពុងទាញយកអត្ថបទចំនួន %1$d …</string>
   <string name="notification_syncing_description" fuzzy="true">នៅសល់អត្ថបទចំនួន %1$d</string>
-  <string name="preference_title_notification_welcome">សូមស្វាគមន៍</string>
-  <string name="preference_summary_notification_welcome">គណនីត្រូវបានបង្កើត</string>
   <string name="preference_title_notification_thanks">ការថ្លែងអំណរគុណ</string>
   <string name="preference_summary_notification_thanks">មាននរណាម្នាក់បានថ្លែងអំណរគុណអ្នកដែលបានធ្វើការកែប្រែមួយ</string>
   <string name="view_because_you_read_card_title">ព្រោះអ្នកបានអាន</string>

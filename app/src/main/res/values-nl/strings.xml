@@ -543,8 +543,6 @@
   <string name="preference_title_notification_poll">Ververs meldingen</string>
   <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
   <string name="preference_category_notification_types">Meldingtypes in de app</string>
-  <string name="preference_title_notification_welcome">Welkom</string>
-  <string name="preference_summary_notification_welcome">Een account is aangemaakt</string>
   <string name="preference_title_notification_milestone">Mijlpaal</string>
   <string name="preference_summary_notification_milestone">Bepaalde bewerkingstellingen zijn bereikt</string>
   <string name="preference_title_notification_thanks">Bedankjes</string>
@@ -604,6 +602,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pas uw Explore-feed aan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu kiezen wat u in uw feed wilt laten zien en ook prioriteit geven aan uw favoriete soorten inhoud.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
+  <string name="feed_accessibility_card_load_more_button">Meer laden</string>
   <string name="description_edit_text_hint">Artikelbeschrijving</string>
   <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeschrijving (%s)</string>

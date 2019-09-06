@@ -30,6 +30,7 @@
   <string name="page_tabs_back">Voltar</string>
   <string name="nav_item_forward">Avançar</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
+  <string name="search_hint_voice_search">Pesquisa com entrada por voz</string>
   <string name="search_hint_search_history">Histórico de pesquisa</string>
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar as minhas listas e artigos</string>
@@ -292,6 +293,8 @@
   <string name="captcha_image">Imagem Captcha</string>
   <string name="gallery_fair_use_license">Uso legítimo</string>
   <string name="gallery_uploader_unknown">Carregador desconhecido</string>
+  <string name="gallery_not_available_offline_snackbar">A vista de galeria não está disponível \'\'offline\'\'.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Ignorar</string>
   <string name="menu_new_tab">Novo separador</string>
   <string name="menu_close_all_tabs">Fechar todos os separadores</string>
   <string name="close_all_tabs_confirm">Tem a certeza que pretende fechar todos os separadores?</string>
@@ -535,14 +538,20 @@
   <string name="preference_title_notification_poll">Inquérito sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que a aplicação use tráfego de dados para verificar em segundo plano se existem novas notificações</string>
   <string name="preference_category_notification_types">Tipos de notificações na aplicação</string>
-  <string name="preference_title_notification_welcome">Bem-vindo(a)</string>
-  <string name="preference_summary_notification_welcome">É criada uma conta</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Mensagens do sistema</string>
   <string name="preference_title_notification_milestone">Objetivo</string>
   <string name="preference_summary_notification_milestone">São atingidos determinados números de edições</string>
   <string name="preference_title_notification_thanks">Agradecimentos</string>
   <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
   <string name="preference_title_notification_revert">Reverter</string>
   <string name="preference_summary_notification_revert">Uma das suas contribuições foi revertida</string>
+  <string name="preference_title_notification_login_fail">Entradas</string>
+  <string name="preference_summary_notification_login_fail">Os seus inícios de sessão</string>
+  <string name="preference_title_notification_mention">Menção</string>
+  <string name="preference_summary_notification_mention">Alguém o menciona numa página</string>
+  <string name="preference_title_notification_user_talk">Página de discussão</string>
+  <string name="preference_summary_notification_user_talk">Mensagens das páginas de discussão</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Folhear aleatoriamente artigos da Wikipédia.</string>
@@ -596,6 +605,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
+  <string name="feed_accessibility_card_text">Atingiu o fim do feed.</string>
+  <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
   <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrição do artigo (%s)</string>
@@ -781,6 +792,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
+  <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Hiperligação</string>
@@ -791,6 +803,7 @@
   <string name="wikitext_preview_link">Antever hiperligação</string>
   <string name="main_drawer_open">Abrir</string>
   <string name="main_drawer_close">Fechar</string>
+  <string name="main_drawer_content_description">Abrir o painel principal de navegação</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar ou registar-se na Wikipédia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

@@ -545,14 +545,20 @@
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
     <string name="preference_category_notification_types">In-app notification types</string>
-    <string name="preference_title_notification_welcome">Welcome</string>
-    <string name="preference_summary_notification_welcome">An account is created</string>
+    <string name="preference_title_notification_system">System</string>
+    <string name="preference_summary_notification_system">Messages from system</string>
     <string name="preference_title_notification_milestone">Milestone</string>
     <string name="preference_summary_notification_milestone">Certain edit counts are reached</string>
     <string name="preference_title_notification_thanks">Thanks</string>
     <string name="preference_summary_notification_thanks">Someone thanks you for an edit</string>
     <string name="preference_title_notification_revert">Revert</string>
     <string name="preference_summary_notification_revert">One of your contributions was reverted</string>
+    <string name="preference_title_notification_login_fail">Login</string>
+    <string name="preference_summary_notification_login_fail">Your log in activities</string>
+    <string name="preference_title_notification_mention">Mention</string>
+    <string name="preference_summary_notification_mention">Someone mentions you in a page</string>
+    <string name="preference_title_notification_user_talk">Talk page</string>
+    <string name="preference_summary_notification_user_talk">Messages from talk pages</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

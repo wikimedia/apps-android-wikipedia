@@ -11,6 +11,7 @@
 * Haytham morsy
 * Helmoony
 * Hhaboh162002
+* HitomiAkane
 * Hocinend1
 * Kassem789
 * Kassem7899
@@ -545,14 +546,20 @@
   <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
   <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
   <string name="preference_category_notification_types">أنواع الإشعارات في التطبيق</string>
-  <string name="preference_title_notification_welcome">مرحبا</string>
-  <string name="preference_summary_notification_welcome">تم إنشاء حساب</string>
+  <string name="preference_title_notification_system">النظام</string>
+  <string name="preference_summary_notification_system">رسائل من النظام</string>
   <string name="preference_title_notification_milestone">معلم</string>
   <string name="preference_summary_notification_milestone">عند الوصول لعدد معين من التعديلات</string>
   <string name="preference_title_notification_thanks">شكرا</string>
   <string name="preference_summary_notification_thanks">شخص ما يشكرك على تعديل ما</string>
   <string name="preference_title_notification_revert">تراجع</string>
   <string name="preference_summary_notification_revert">تم إرجاع إحدى مساهماتك</string>
+  <string name="preference_title_notification_login_fail">تسجيل الدخول</string>
+  <string name="preference_summary_notification_login_fail">سجل دخولك في الأنشطة</string>
+  <string name="preference_title_notification_mention">إشارة</string>
+  <string name="preference_summary_notification_mention">شخص ما يذكرك في صفحة</string>
+  <string name="preference_title_notification_user_talk">صفحة النقاش</string>
+  <string name="preference_summary_notification_user_talk">رسائل من صفحات النقاش</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
   <string name="view_random_card_subtitle">النقر من خلال مقالات عشوائية للقراءة من ويكيبيديا.</string>
@@ -606,7 +613,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">حسنا</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
-  <string name="feed_accessibility_card_text" fuzzy="true">وصلت إلى أسفل التغذية.</string>
+  <string name="feed_accessibility_card_text">وصلت إلى نهاية التغذية.</string>
   <string name="feed_accessibility_card_load_more_button">تحميل المزيد</string>
   <string name="description_edit_text_hint">وصف المقالة</string>
   <string name="description_edit_article_description_label_per_language">مقالة (%s)</string>

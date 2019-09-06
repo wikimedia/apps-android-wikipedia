@@ -339,7 +339,7 @@
   <string name="reading_lists_confirm_remote_delete_no">होइन</string>
   <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेटाउन चाहनुहुन्छ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द गर्नुहोस्</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश (लग इन) गर्नुहोस्</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश गर्नुहोस्</string>
   <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिङ्हरू</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
@@ -361,7 +361,6 @@
   <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="preference_title_notification_poll">पोल जानकारीहरू</string>
-  <string name="preference_title_notification_welcome">स्वागतम्</string>
   <string name="preference_title_notification_thanks">धन्यवाद</string>
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>

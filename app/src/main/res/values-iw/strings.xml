@@ -534,14 +534,20 @@
   <string name="preference_title_notification_poll">דגימת הודעות</string>
   <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
   <string name="preference_category_notification_types">סוגי הודעות באפליקציה</string>
-  <string name="preference_title_notification_welcome">ברוך בואך</string>
-  <string name="preference_summary_notification_welcome">נוצר חשבון</string>
+  <string name="preference_title_notification_system">מערכת</string>
+  <string name="preference_summary_notification_system">הודעות מהמערכת</string>
   <string name="preference_title_notification_milestone">אבן דרך</string>
   <string name="preference_summary_notification_milestone">הגעת למניין עריכות מסוים</string>
   <string name="preference_title_notification_thanks">תודה</string>
   <string name="preference_summary_notification_thanks">מישהו מודה לך על עריכה</string>
   <string name="preference_title_notification_revert">שחזור</string>
   <string name="preference_summary_notification_revert">אחת מהתרומות שלך שוחזרה</string>
+  <string name="preference_title_notification_login_fail">כניסה</string>
+  <string name="preference_summary_notification_login_fail">כניסותיך למערכת</string>
+  <string name="preference_title_notification_mention">אזכור</string>
+  <string name="preference_summary_notification_mention">אוזכרת על ידי מישהו בדף</string>
+  <string name="preference_title_notification_user_talk">דף שיחה</string>
+  <string name="preference_summary_notification_user_talk">הודעות מדפי שיחה</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_card_subtitle">עלעול בערכים אקראיים מוויקיפדיה.</string>
@@ -595,7 +601,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
-  <string name="feed_accessibility_card_text" fuzzy="true">הגעת לסוף ההזנה.</string>
+  <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
   <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
   <string name="description_edit_article_description_label_per_language">ערך (%s)</string>

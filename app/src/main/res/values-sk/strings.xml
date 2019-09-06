@@ -528,8 +528,6 @@
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
   <string name="preference_category_notification_types">Typy notifikácií v aplikácii</string>
-  <string name="preference_title_notification_welcome">Vitajte</string>
-  <string name="preference_summary_notification_welcome">Účet bol vytvorený</string>
   <string name="preference_title_notification_milestone">Míľnik</string>
   <string name="preference_summary_notification_milestone">Dosiahli ste určitého počtu úprav</string>
   <string name="preference_title_notification_thanks">Ďakujeme</string>

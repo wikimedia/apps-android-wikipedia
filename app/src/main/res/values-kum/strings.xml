@@ -194,7 +194,6 @@
   <string name="notification_syncing_resume_button">Давам</string>
   <string name="notification_syncing_cancel_button">Гери алмакъ</string>
   <string name="notifications_activity_title">Билдиривлер</string>
-  <string name="preference_title_notification_welcome">Хош гел</string>
   <string name="preference_title_notification_thanks">Савболлар</string>
   <string name="preference_title_notification_revert">Къайтармакъ</string>
   <string name="view_featured_image_card_download">Юклемек</string>

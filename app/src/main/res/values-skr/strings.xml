@@ -254,7 +254,6 @@
   <string name="notifications_activity_title">اطلاع نامے</string>
   <string name="notifications_poll_enable_positive">فعال کرو</string>
   <string name="notifications_poll_enable_negative">ہُݨ نہ</string>
-  <string name="preference_title_notification_welcome">ست بسم اللہ</string>
   <string name="preference_title_notification_milestone">سنگ میل</string>
   <string name="preference_title_notification_thanks">شکریہ</string>
   <string name="preference_title_notification_revert">واپس</string>

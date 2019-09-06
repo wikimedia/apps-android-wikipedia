@@ -27,24 +27,39 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
         Preference pref = findPreference(R.string.preference_key_notification_poll_enable);
         pref.setOnPreferenceChangeListener(new PollPreferenceListener());
 
-        pref = findPreference(R.string.preference_key_notification_welcome_enable);
-        Drawable drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_wikipedia_w);
-        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.primary_text_color));
+        pref = findPreference(R.string.preference_key_notification_system_enable);
+        Drawable drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_speech_bubbles);
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorAccent));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_milestone_enable);
-        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_mode_edit_white_24dp);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_edit_progressive);
         DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorAccent));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_thanks_enable);
-        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_usertalk_constructive);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_user_talk);
         DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.green50));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_revert_enable);
-        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_rotate_left_white_24dp);
-        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorError));
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_revert);
+        DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.base20));
+        pref.setIcon(drawable);
+
+        pref = findPreference(R.string.preference_key_notification_mention_enable);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_mention);
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorAccent));
+        pref.setIcon(drawable);
+
+        pref = findPreference(R.string.preference_key_notification_login_fail_enable);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_user_avatar);
+        DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.base0));
+        pref.setIcon(drawable);
+
+        pref = findPreference(R.string.preference_key_notification_user_talk_enable);
+        drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_edit_user_talk);
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorAccent));
         pref.setIcon(drawable);
     }
 

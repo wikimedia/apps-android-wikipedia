@@ -473,8 +473,6 @@
   <string name="preference_title_notification_poll">စုတ်မာဲ တင်မကဵုသမ္တီဂမၠိုင်</string>
   <string name="preference_summary_notification_poll">ကဵုအခေါင် အာပ် သွက်ဂွံ စကာ ဒါတာ သွက်ဂွံစဳစောတ် တင်မကဵုသမ္တီတၟိဂမၠိုင် ပ္ဍဲလက္ကရဴ၊၊</string>
   <string name="preference_category_notification_types">ဂကူ တင်မကဵုသမ္တီ အေန်-အာပ်</string>
-  <string name="preference_title_notification_welcome">ဒုင်တၠုင်ရအဴ</string>
-  <string name="preference_summary_notification_welcome">အကံက်မွဲဂှ် ခၞံဗဒှ်လဝ်တုဲ</string>
   <string name="preference_title_notification_milestone">တၟအ်တိုင်စၟတ်သမ္တီ</string>
   <string name="preference_summary_notification_milestone">အပံင်လၟိဟ် မပလေဝ်ဒါန် ဗွဲမချိုတ်ပၠိုတ်ဂှ် စိုပ်အာတရဴရ၊၊</string>
   <string name="preference_title_notification_thanks">တင်ဂုန်ရ</string>
