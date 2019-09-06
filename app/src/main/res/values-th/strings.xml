@@ -280,8 +280,6 @@
   <string name="reading_list_delete_confirm">คุณแน่ใจว่าต้องการลบ %s หรือไม่</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ลงชื่อเข้า</string>
   <string name="user_option_sync_label">การตั้งค่า</string>
-  <string name="preference_title_notification_welcome">ยินดีต้อนรับ</string>
-  <string name="preference_summary_notification_welcome">สร้างบัญชีผู้ใช้แล้ว</string>
   <string name="preference_title_notification_thanks">ขอบคุณ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>

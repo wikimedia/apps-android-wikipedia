@@ -310,7 +310,7 @@ public class PageFragmentLoadState {
 
         disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
+                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(rsp -> {
@@ -333,7 +333,7 @@ public class PageFragmentLoadState {
         Request remainingRequest = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getTitle().getPrefixedText());
+                        model.getTitle().getConvertedText());
 
         sendLeadSectionPayload(page, remainingRequest.url().toString());
 

@@ -28,6 +28,7 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Уперед</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
+  <string name="search_hint_voice_search">Голосовий пошук</string>
   <string name="search_hint_search_history">Історія пошуку</string>
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="search_hint_search_my_lists_and_articles">Пошук у списках для читання</string>
@@ -41,7 +42,7 @@
   <string name="page_error_back_to_main">Повернутися</string>
   <string name="error_back">Повернутися</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
-  <string name="history_item_deleted">%s видалено зі списку</string>
+  <string name="history_item_deleted">%s вилучено зі списку</string>
   <string name="history_items_deleted">%d статей вилучено зі списку</string>
   <string name="history_item_delete_undo">Скасувати</string>
   <string name="notification_archive_undo">Скасувати</string>
@@ -399,7 +400,7 @@
   <string name="reading_list_name_sample">Мій список для читання</string>
   <string name="reading_list_name_hint">Назва цього списку</string>
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
-  <string name="reading_list_item_deleted">%s видалено зі списку</string>
+  <string name="reading_list_item_deleted">%s вилучено зі списку</string>
   <string name="reading_list_items_deleted">%d статей вилучено зі списку</string>
   <string name="reading_lists_item_deleted">%s видалено зі списків</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
@@ -538,14 +539,20 @@
   <string name="preference_title_notification_poll">Опитування сповіщень</string>
   <string name="preference_summary_notification_poll">Дозволити застосунку використовувати дані, щоб фоновим процесом перевіряти, чи є нові сповіщення.</string>
   <string name="preference_category_notification_types">Типи сповіщень у застосунку</string>
-  <string name="preference_title_notification_welcome">Ласкаво просимо</string>
-  <string name="preference_summary_notification_welcome">Створено обліковий запис</string>
+  <string name="preference_title_notification_system">Системні</string>
+  <string name="preference_summary_notification_system">Системні повідомлення</string>
   <string name="preference_title_notification_milestone">Віха</string>
   <string name="preference_summary_notification_milestone">Досягнуто певної кількості редагувань</string>
   <string name="preference_title_notification_thanks">Дякуємо</string>
   <string name="preference_summary_notification_thanks">Хтось подякував вам за редагування</string>
   <string name="preference_title_notification_revert">Відкіт</string>
   <string name="preference_summary_notification_revert">Одне з ваших редагувань було відкочене</string>
+  <string name="preference_title_notification_login_fail">Вхід у систему</string>
+  <string name="preference_summary_notification_login_fail">Ваша активність входів до системи</string>
+  <string name="preference_title_notification_mention">Вас згадано</string>
+  <string name="preference_summary_notification_mention">Хтось згадав вас на сторінці</string>
+  <string name="preference_title_notification_user_talk">На сторінках обговорень</string>
+  <string name="preference_summary_notification_user_talk">Повідомлення зі сторінок обговорень</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
   <string name="view_random_card_subtitle">Гортати випадкові статті з Вікіпедії.</string>
@@ -601,6 +608,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Налаштуйте свою стрічку&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ви можете вибрати, що показувати у своїй стрічці, і налаштувати пріоритетність улюблених типів матеріалів.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Гаразд</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
+  <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
+  <string name="feed_accessibility_card_load_more_button">Завантажити ще</string>
   <string name="description_edit_text_hint">Опис статті</string>
   <string name="description_edit_article_description_label_per_language">Стаття (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис статті (%s)</string>
@@ -786,6 +795,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Гаразд</string>
   <string name="reverted_edit_dialog_ok_button_text">Гаразд</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Скасувати</string>
+  <string name="content_description_for_page_indicator">Крок %1$d з %2$d</string>
   <string name="wikitext_bold">Жирний</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Посилання</string>
@@ -796,6 +806,7 @@
   <string name="wikitext_preview_link">Попередній перегляд посилання</string>
   <string name="main_drawer_open">Відкрити</string>
   <string name="main_drawer_close">Закрити</string>
+  <string name="main_drawer_content_description">Відкрити основное меню</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>

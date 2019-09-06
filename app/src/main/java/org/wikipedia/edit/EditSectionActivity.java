@@ -257,6 +257,7 @@ public class EditSectionActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN) {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
                 updateEditLicenseText();

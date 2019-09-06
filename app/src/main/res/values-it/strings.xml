@@ -536,8 +536,6 @@
   <string name="notifications_mark_unread">Segna come non letto</string>
   <string name="preference_summary_notification_poll">Consenti all\'applicazione di utilizzare i dati per verificare nuove notifiche in background.</string>
   <string name="preference_category_notification_types">Tipi di notifiche in-app</string>
-  <string name="preference_title_notification_welcome">Benvenuto</string>
-  <string name="preference_summary_notification_welcome">Un\'utenza è stata creata</string>
   <string name="preference_title_notification_milestone">Pietra miliare</string>
   <string name="preference_title_notification_thanks">Ringraziamenti</string>
   <string name="preference_summary_notification_thanks">Qualcuno ti ha ringraziato per una modifica</string>
@@ -613,6 +611,7 @@
   <string name="description_edit_help_wikidata_guide">Guida di Wikidata per la scrittura di descrizioni</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni della voce! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
+  <string name="description_edit_helper_text_lowercase_warning">generalmente inizia con una lettera minuscola</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
@@ -768,6 +767,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annulla</string>
+  <string name="content_description_for_page_indicator">Pagina %1$d di %2$d</string>
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>
   <string name="wikitext_link">Collegamento</string>

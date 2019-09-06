@@ -522,8 +522,6 @@
   <string name="preference_title_notification_poll">Comprobar avisos</string>
   <string name="preference_summary_notification_poll">Permitir a la app consumir datos pa buscar avisos nuevos en segundu planu.</string>
   <string name="preference_category_notification_types">Tipos d\'avisos na app</string>
-  <string name="preference_title_notification_welcome">Bienveníos</string>
-  <string name="preference_summary_notification_welcome">Creóse una cuenta</string>
   <string name="preference_title_notification_milestone">Finxu</string>
   <string name="preference_summary_notification_milestone">Algamóse un númberu d\'ediciones</string>
   <string name="preference_title_notification_thanks">Agradecimientos</string>

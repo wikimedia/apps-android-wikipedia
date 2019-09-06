@@ -15,6 +15,7 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Пребарај ја Википедија</string>
+  <string name="search_hint_voice_search">Гласовно пребарување</string>
   <string name="search_hint_search_history">Историја на пребарување</string>
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
@@ -525,14 +526,20 @@
   <string name="preference_title_notification_poll">Известувања за анкети</string>
   <string name="preference_summary_notification_poll">Дозволи му на прилогот да користи податоци за да проверува нови известувања во позадина.</string>
   <string name="preference_category_notification_types">Видови известувања во прилог</string>
-  <string name="preference_title_notification_welcome">Добредојде</string>
-  <string name="preference_summary_notification_welcome">Создадена е сметка</string>
+  <string name="preference_title_notification_system">Систем</string>
+  <string name="preference_summary_notification_system">Пораки за системот</string>
   <string name="preference_title_notification_milestone">Достигнувања</string>
   <string name="preference_summary_notification_milestone">Достигнати се извесни броеви на уредувања</string>
   <string name="preference_title_notification_thanks">Благодарности</string>
   <string name="preference_summary_notification_thanks">Некој ви благодари за уредување</string>
   <string name="preference_title_notification_revert">Отповикај</string>
   <string name="preference_summary_notification_revert">Еден од вашите придонеси е отповикан</string>
+  <string name="preference_title_notification_login_fail">Најава</string>
+  <string name="preference_summary_notification_login_fail">Ваши најави</string>
+  <string name="preference_title_notification_mention">Спомнување</string>
+  <string name="preference_summary_notification_mention">Некој ве спомнува на страница</string>
+  <string name="preference_title_notification_user_talk">Разговорна страница</string>
+  <string name="preference_summary_notification_user_talk">Пораки од разговорни страници</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_card_subtitle">Прелистајте случајни статии од Википедија</string>
@@ -586,6 +593,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
+  <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
+  <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
   <string name="description_edit_article_description_label_per_language">Статија (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис на статијата (%s)</string>
@@ -771,6 +780,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ОК</string>
   <string name="reverted_edit_dialog_ok_button_text">ОК</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Откажи</string>
+  <string name="content_description_for_page_indicator">Страница %1$d од %2$d</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
   <string name="wikitext_link">Врска</string>
@@ -781,6 +791,7 @@
   <string name="wikitext_preview_link">Преглед на врската</string>
   <string name="main_drawer_open">Отвори</string>
   <string name="main_drawer_close">Затвори</string>
+  <string name="main_drawer_content_description">Отвори прегледник</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
