@@ -327,7 +327,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class LoaderCallback implements LoaderManager.LoaderCallbacks<Cursor> {
         @NonNull @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            String titleCol = PageHistoryContract.PageWithImage.TITLE.qualifiedName();
+            String titleCol = PageHistoryContract.PageWithImage.API_TITLE.qualifiedName();
             String selection = null;
             String[] selectionArgs = null;
             String searchStr = currentSearchQuery;

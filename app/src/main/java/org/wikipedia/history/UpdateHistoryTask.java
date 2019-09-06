@@ -35,7 +35,7 @@ public class UpdateHistoryTask implements Action {
         String selection = ":siteCol == ? and :langCol == ? and :titleCol == ?"
                 .replaceAll(":siteCol", PageHistoryContract.Page.SITE.qualifiedName())
                 .replaceAll(":langCol", PageHistoryContract.Page.LANG.qualifiedName())
-                .replaceAll(":titleCol", PageHistoryContract.Page.TITLE.qualifiedName());
+                .replaceAll(":titleCol", PageHistoryContract.Page.API_TITLE.qualifiedName());
         String[] selectionArgs = new String[]{entry.getTitle().getWikiSite().authority(),
                 entry.getTitle().getWikiSite().languageCode(),
                 entry.getTitle().getText()};

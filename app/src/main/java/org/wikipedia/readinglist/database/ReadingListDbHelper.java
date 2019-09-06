@@ -438,7 +438,7 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + ReadingListPageContract.Col.TITLE.getName() + " = ? AND "
+                        + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
                         Integer.toString(title.namespace().code()), title.getDisplayText(),
@@ -470,7 +470,7 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + ReadingListPageContract.Col.TITLE.getName() + " = ? AND "
+                        + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
                         Integer.toString(title.namespace().code()), title.getDisplayText(),
@@ -673,7 +673,7 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + ReadingListPageContract.Col.TITLE.getName() + " = ? AND "
+                        + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LISTID.getName() + " = ? AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),

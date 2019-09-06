@@ -29,8 +29,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         String site = ReadingListPageContract.Col.SITE.val(cursor);
         ReadingListPage page = new ReadingListPage(lang == null ? new WikiSite(site) : new WikiSite(site, lang),
                 ReadingListPageContract.Col.NAMESPACE.val(cursor),
-                ReadingListPageContract.Col.TITLE.val(cursor),
-                ReadingListPageContract.Col.CONVERTED_TITLE.val(cursor),
+                ReadingListPageContract.Col.DISPLAY_TITLE.val(cursor),
+                ReadingListPageContract.Col.API_TITLE.val(cursor),
                 ReadingListPageContract.Col.LISTID.val(cursor));
         page.id(ReadingListPageContract.Col.ID.val(cursor));
         page.description(ReadingListPageContract.Col.DESCRIPTION.val(cursor));
@@ -55,7 +55,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 cols.add(ReadingListPageContract.Col.SITE);
                 cols.add(ReadingListPageContract.Col.LANG);
                 cols.add(ReadingListPageContract.Col.NAMESPACE);
-                cols.add(ReadingListPageContract.Col.TITLE);
+                cols.add(ReadingListPageContract.Col.DISPLAY_TITLE);
                 cols.add(ReadingListPageContract.Col.MTIME);
                 cols.add(ReadingListPageContract.Col.ATIME);
                 cols.add(ReadingListPageContract.Col.THUMBNAIL_URL);
@@ -67,7 +67,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 cols.add(ReadingListPageContract.Col.REMOTEID);
                 return cols.toArray(new Column<?>[cols.size()]);
             case DB_VER_CONVERTED_TITLE_ADDED:
-                return new Column<?>[] {ReadingListPageContract.Col.CONVERTED_TITLE};
+                return new Column<?>[] {ReadingListPageContract.Col.API_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }
@@ -89,8 +89,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         contentValues.put(ReadingListPageContract.Col.SITE.getName(), row.wiki().authority());
         contentValues.put(ReadingListPageContract.Col.LANG.getName(), row.wiki().languageCode());
         contentValues.put(ReadingListPageContract.Col.NAMESPACE.getName(), row.namespace().code());
-        contentValues.put(ReadingListPageContract.Col.TITLE.getName(), row.title());
-        contentValues.put(ReadingListPageContract.Col.CONVERTED_TITLE.getName(), row.convertedTitle());
+        contentValues.put(ReadingListPageContract.Col.DISPLAY_TITLE.getName(), row.title());
+        contentValues.put(ReadingListPageContract.Col.API_TITLE.getName(), row.convertedTitle());
         contentValues.put(ReadingListPageContract.Col.MTIME.getName(), row.mtime());
         contentValues.put(ReadingListPageContract.Col.ATIME.getName(), row.atime());
         contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.getName(), row.thumbUrl());
