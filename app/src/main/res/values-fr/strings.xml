@@ -565,7 +565,7 @@
   <string name="preference_title_notification_login_fail">Connexion</string>
   <string name="preference_summary_notification_login_fail">Votre journal dans les activités</string>
   <string name="preference_title_notification_mention">Mention</string>
-  <string name="preference_summary_notification_mention">Quelqu\'un mentionne votre nom sur une page</string>
+  <string name="preference_summary_notification_mention">Quelqu’un mentionne votre nom sur une page</string>
   <string name="preference_title_notification_user_talk">Page de discussion</string>
   <string name="preference_summary_notification_user_talk">Messages des pages de discussion</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
