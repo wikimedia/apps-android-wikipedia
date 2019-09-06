@@ -53,7 +53,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener{ this.updateUI() }
@@ -114,9 +113,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                     swipeRefreshLayout.isRefreshing = false
                 }
                 .subscribe({ response ->
-                    val editorTaskCounts = response.query()!!.editorTaskCounts()
+                    val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     var totalEdits = 0
-                    for (count in editorTaskCounts!!.descriptionEditsPerLanguage.values) {
+                    for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
                         totalEdits += count
                     }
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
@@ -150,7 +149,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageCaptionsTask.title = getString(R.string.suggested_edits_task_image_caption_title)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_task_image_caption_description)
         addImageCaptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_images)
-        addImageCaptionsTask.disabled = true
 
         translateImageCaptionsTask = SuggestedEditsTask()
         translateImageCaptionsTask.title = getString(R.string.suggested_edits_task_translate_caption_title)
@@ -162,7 +160,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         multilingualTeaserTask.description = getString(R.string.suggested_edits_task_multilingual_description)
         multilingualTeaserTask.showImagePlaceholder = false
         multilingualTeaserTask.showActionLayout = true
-        multilingualTeaserTask.disabled = false
         multilingualTeaserTask.unlockActionPositiveButtonString = getString(R.string.suggested_edits_task_multilingual_positive)
         multilingualTeaserTask.unlockActionNegativeButtonString = getString(R.string.suggested_edits_task_multilingual_negative)
     }
@@ -179,22 +176,16 @@ class SuggestedEditsTasksFragment : Fragment() {
 
             displayedTasks.add(addDescriptionsTask)
             addDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForAddDescriptions)
-            addDescriptionsTask.showActionLayout = false
-            addDescriptionsTask.disabled = false
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 displayedTasks.add(translateDescriptionsTask)
                 translateDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions)
-                translateDescriptionsTask.showActionLayout = false
-                translateDescriptionsTask.disabled = false
             }
 
             val targetForAddCaptions = editorTaskCounts.captionEditTargets[0]
             val targetForTranslateCaptions = editorTaskCounts.captionEditTargets[1]
 
             displayedTasks.add(addImageCaptionsTask)
-            addImageCaptionsTask.disabled = false
-            addImageCaptionsTask.showActionLayout = false
             addImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForAddCaptions)
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
