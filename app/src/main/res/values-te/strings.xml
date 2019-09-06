@@ -225,8 +225,6 @@
   <string name="notification_syncing_cancel_button">రద్దుచేయి</string>
   <string name="notifications_poll_enable_positive">చేతనించు</string>
   <string name="notifications_poll_enable_negative">ఇప్పుడు కాదు</string>
-  <string name="preference_title_notification_welcome">స్వాగతం</string>
-  <string name="preference_summary_notification_welcome">ఖాతా సృష్టించబడింది</string>
   <string name="preference_title_notification_milestone">మైలురాయి</string>
   <string name="preference_title_notification_thanks">కృతజ్ఞతలు</string>
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>

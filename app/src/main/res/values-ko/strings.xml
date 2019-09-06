@@ -10,6 +10,7 @@
 * Hwangjy9
 * Jerrykim306
 * Joolee0104
+* Ktrst
 * Kwj2772
 * Namoroka
 * Nuevo Paso
@@ -31,6 +32,7 @@
   <string name="page_tabs_back">뒤로</string>
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
+  <string name="search_hint_voice_search">음성 입력 검색</string>
   <string name="search_hint_search_history">역사 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="search_hint_search_my_lists_and_articles">내 목록 및 문서 검색</string>
@@ -533,14 +535,20 @@
   <string name="preference_title_notification_poll">알림 폴링</string>
   <string name="preference_summary_notification_poll">앱이 백그라운드에서 새 알림을 확인할 수 있게 합니다.</string>
   <string name="preference_category_notification_types">앱 내 알림 유형</string>
-  <string name="preference_title_notification_welcome">환영합니다</string>
-  <string name="preference_summary_notification_welcome">계정이 생성되었습니다</string>
+  <string name="preference_title_notification_system">시스템</string>
+  <string name="preference_summary_notification_system">시스템 메시지</string>
   <string name="preference_title_notification_milestone">마일스톤</string>
   <string name="preference_summary_notification_milestone">특정 편집 수에 도달했습니다</string>
   <string name="preference_title_notification_thanks">감사 표현</string>
   <string name="preference_summary_notification_thanks">누군가가 편집에 대해 감사를 표했습니다</string>
   <string name="preference_title_notification_revert">되돌리기</string>
   <string name="preference_summary_notification_revert">내 기여 중 한 건이 되돌려졌습니다</string>
+  <string name="preference_title_notification_login_fail">로그인</string>
+  <string name="preference_summary_notification_login_fail">내 로그인 활동</string>
+  <string name="preference_title_notification_mention">언급</string>
+  <string name="preference_summary_notification_mention">누군가가 문서에 당신을 언급했습니다</string>
+  <string name="preference_title_notification_user_talk">토론 문서</string>
+  <string name="preference_summary_notification_user_talk">토크 페이지의 메시지</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
   <string name="view_random_card_subtitle">카드를 넘겨 위키백과에서 임의의 문서를 읽어보세요.</string>
@@ -594,6 +602,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;당신의 둘러보기 피드를 맞춤 관리하세요&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;이제 당신의 피드에 무엇을 표시할지 선택할 수 있고, 당신이 어떤 종류의 컨텐츠를 좋아하는지 우선순위를 매길 수 있습니다.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">확인</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
+  <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="description_edit_text_hint">문서 설명</string>
   <string name="description_edit_article_description_label_per_language">문서 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">문서 설명 (%s)</string>
@@ -778,6 +787,7 @@
   <string name="edit_conflict_dialog_ok_button_text">확인</string>
   <string name="reverted_edit_dialog_ok_button_text">확인</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">취소</string>
+  <string name="content_description_for_page_indicator">페이지 %2$d 중 %1$d</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
   <string name="wikitext_link">링크</string>

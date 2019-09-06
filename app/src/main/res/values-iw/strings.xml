@@ -26,6 +26,7 @@
   <string name="page_tabs_back">חזרה</string>
   <string name="nav_item_forward">התקדמות</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
+  <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
   <string name="search_hint_search_history">היסטוריית חיפוש</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="search_hint_search_my_lists_and_articles">חיפוש ברשימות ובערכים</string>
@@ -536,14 +537,20 @@
   <string name="preference_title_notification_poll">דגימת הודעות</string>
   <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
   <string name="preference_category_notification_types">סוגי הודעות באפליקציה</string>
-  <string name="preference_title_notification_welcome">ברוך בואך</string>
-  <string name="preference_summary_notification_welcome">נוצר חשבון</string>
+  <string name="preference_title_notification_system">מערכת</string>
+  <string name="preference_summary_notification_system">הודעות מהמערכת</string>
   <string name="preference_title_notification_milestone">אבן דרך</string>
   <string name="preference_summary_notification_milestone">הגעת למניין עריכות מסוים</string>
   <string name="preference_title_notification_thanks">תודה</string>
   <string name="preference_summary_notification_thanks">מישהו מודה לך על עריכה</string>
   <string name="preference_title_notification_revert">שחזור</string>
   <string name="preference_summary_notification_revert">אחת מהתרומות שלך שוחזרה</string>
+  <string name="preference_title_notification_login_fail">כניסה</string>
+  <string name="preference_summary_notification_login_fail">כניסותיך למערכת</string>
+  <string name="preference_title_notification_mention">אזכור</string>
+  <string name="preference_summary_notification_mention">אוזכרת על ידי מישהו בדף</string>
+  <string name="preference_title_notification_user_talk">דף שיחה</string>
+  <string name="preference_summary_notification_user_talk">הודעות מדפי שיחה</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_card_subtitle">עלעול בערכים אקראיים מוויקיפדיה.</string>
@@ -597,6 +604,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;תעשו התאמה אישית של ההזנה שלכם&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;אתם יכולים לבחור מה להציג בהזנה שלכם ולתעדף את סוגי התוכן שאתם אוהבים.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">אישור</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
+  <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
+  <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
   <string name="description_edit_article_description_label_per_language">ערך (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">תיאור ערך (%s)</string>
@@ -782,6 +791,7 @@
   <string name="edit_conflict_dialog_ok_button_text">אישור</string>
   <string name="reverted_edit_dialog_ok_button_text">אישור</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">ביטול</string>
+  <string name="content_description_for_page_indicator">דף %1$d מתוך %2$d</string>
   <string name="wikitext_bold">בולט</string>
   <string name="wikitext_italic">נטוי</string>
   <string name="wikitext_link">קישור</string>
@@ -792,6 +802,7 @@
   <string name="wikitext_preview_link">תצוגה מקדימה של קישור</string>
   <string name="main_drawer_open">פתיחה</string>
   <string name="main_drawer_close">סגירה</string>
+  <string name="main_drawer_content_description">פתיחת מגירת הניווט הראשית</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
