@@ -13,6 +13,7 @@ import org.wikipedia.page.Namespace;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A class representing a standard page object as returned by the MediaWiki API.
@@ -36,6 +37,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private String redirectFrom;
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
+    @Nullable private Map<String, String> varianttitles;
 
     @NonNull public String title() {
         return title;
@@ -129,6 +131,14 @@ public class MwQueryPage extends BaseModel {
 
     public void appendTitleFragment(@Nullable String fragment) {
         title += "#" + fragment;
+    }
+
+    public String displayTitle(@NonNull String langCode) {
+        if (varianttitles != null) {
+            return StringUtils.defaultIfEmpty(varianttitles.get(langCode), title);
+        } else {
+            return title;
+        }
     }
 
     public static class Revision {

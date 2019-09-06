@@ -107,6 +107,11 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
+    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @NonNull String convertedText) {
+        this(text, wiki, thumbUrl, description);
+        this.convertedText = convertedText;
+    }
+
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description) {
         this(text, wiki, thumbUrl);
         this.description = description;
