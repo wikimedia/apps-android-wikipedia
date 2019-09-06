@@ -57,12 +57,12 @@ class SuggestedEditsContributionsFragment : Fragment() {
         disposables.clear()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater!!.inflate(R.menu.menu_suggested_edits_tasks, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when (item!!.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
             R.id.menu_help -> {
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 true

@@ -27,8 +27,6 @@
     <string name="preference_key_mediawiki_base_uri_supports_lang_code">mediaWikiBaseUriSupportsLangCode</string>
     <string name="preference_key_retrofit_log_level">retrofitLog</string>
     <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
-    <string name="preference_key_login_username">username</string>
-    <string name="preference_key_login_password">password</string>
     <string name="preference_key_login_user_id_map">userIDMap</string>
     <string name="preference_key_login_groups">groups</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
@@ -44,7 +42,6 @@
     <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
     <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
     <string name="preference_key_reading_list_page_sort_mode">readingListPageSortMode</string>
-    <string name="preference_key_reading_list_sync_rev">readingListSyncRev</string>
     <string name="preference_key_page_last_shown">pageLastShown</string>
     <string name="preference_key_feed_hidden_cards">feedHiddenCards</string>
     <string name="preference_key_memory_leak_test">memoryLeakTest</string>
@@ -62,7 +59,6 @@
     <string name="preference_key_reading_lists_remote_setup_pending">readingListsRemoteSetupPending</string>
     <string name="preference_key_reading_lists_remote_delete_pending">readingListsRemoteDeletePending</string>
     <string name="preference_key_initial_onboarding_enabled">initialOnboardingEnabled</string>
-    <string name="preference_key_reading_lists_current_user_hash">readingListsCurrentUserHash</string>
     <string name="preference_key_permission_asked">permissionAsked</string>
     <string name="preference_key_dim_dark_mode_images">dimDarkModeImages</string>
     <string name="preference_key_notification_poll_reminder">enableNotificationPollingReminder</string>
