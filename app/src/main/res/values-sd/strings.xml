@@ -219,7 +219,7 @@
   <string name="abusefilter_title_warn">هي هڪ غير تخليقي سنوار ٿي سگھي ٿي. ڇا توهان کي پڪ آھي تہ توھان انکي ڇاپڻ چاهيو ٿا؟</string>
   <string name="abusefilter_title_disallow">توهان هي سنوار ڇاپي نٿا سگھو. مھرباني ڪري واپس وڃو ۽ انکي تبديل ڪريو.</string>
   <string name="abusefilter_text_warn">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگھن ٿا:&lt;br/&gt;&lt;br/&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br/&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br/&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br/&gt;· نشانيون ورجائيندي</string>
-  <string name="abusefilter_text_disallow">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري، يا سڌي تخريبڪاري طور سڃاتو آھي.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ صرف اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
+  <string name="abusefilter_text_disallow">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري، يا سڌي تخريبڪاري طور سڃاتو آھي.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ رڳو اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
   <string name="text_size_select">فونٽ جي ماپ</string>
   <string name="page_similar_titles">ھڪجھڙا صفحا</string>
   <string name="search_did_you_mean">ڇا توهان جي مراد %s ھئي؟</string>
@@ -243,7 +243,7 @@
   <string name="preference_summary_show_images">صفحن ۾ عڪسن جو لوڊ ٿيڻ لائق يا نالائق بڻايو. هن ترتيب تان نشان هٽايو جيڪڏهن توهانجو انٽرنيٽ ڪنيڪشن آهستي آهي، يا توهان جو ڊيٽا منصوبو محدود آهي.</string>
   <string name="preference_title_download_only_over_wifi">رڳو واءِ فاءِ ذريعي ڊائونلوڊ ڪيو</string>
   <string name="dialog_title_download_only_over_wifi">موبائيل ڊيٽا سان ڊائونلوڊ ڪرڻ چاهيو ٿا؟</string>
-  <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحن ۾ ″صرف واءِ-فاءِ تي ڊائونلوڊ ڪيو″ کليل آهي. ڇا اوهان اجازت ڏيندو تہ موبائيل ڊيٽا سان ڊائونلوڊ ڪيون؟</string>
+  <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحن ۾ ″رڳو واءِ-فاءِ تي لاھيو″ کليل آهي. ڇا اوھان رڳو ھي لاھ ڪرڻ لاءِ پنھنجو موبائيل ڊيٽا پلان استعمال ڪرڻ جي اجازت ڏيڻ چاھيو ٿا؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="about_article_section">هن مضمون بابت</string>
@@ -700,7 +700,7 @@
     <item quantity="one">چونڊيل ٻولي هٽايون؟</item>
     <item quantity="other">چونڊيل ٻوليون هٽايون؟</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">توھان صرف رھيل وڪيپيڊيا ٻولين لاءِ کوجنا رسد تي مواد ۽ ترت ڳولا ڇاڻيون ڏسندا.</string>
+  <string name="wikipedia_languages_remove_dialog_content">توھان رڳو رھيل وڪيپيڊيا ٻولين لاءِ کوجنا رسد تي مواد ۽ ترت ڳولا ڇاڻيون ڏسندا.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
   <string name="more_language_options">وڌيڪ</string>
