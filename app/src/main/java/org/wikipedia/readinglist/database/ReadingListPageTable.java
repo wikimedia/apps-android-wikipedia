@@ -90,6 +90,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         contentValues.put(ReadingListPageContract.Col.LANG.getName(), row.wiki().languageCode());
         contentValues.put(ReadingListPageContract.Col.NAMESPACE.getName(), row.namespace().code());
         contentValues.put(ReadingListPageContract.Col.TITLE.getName(), row.title());
+        contentValues.put(ReadingListPageContract.Col.CONVERTED_TITLE.getName(), row.convertedTitle());
         contentValues.put(ReadingListPageContract.Col.MTIME.getName(), row.mtime());
         contentValues.put(ReadingListPageContract.Col.ATIME.getName(), row.atime());
         contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.getName(), row.thumbUrl());

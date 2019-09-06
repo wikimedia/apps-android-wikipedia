@@ -313,7 +313,7 @@ public class PageFragmentLoadState {
 
         Observable<RbPageSummary> pageSummaryObservable = ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(null, model.getTitle().getConvertedText());
         Observable<Response<PageLead>> pageLeadObservable = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth());
+                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth());
 
         // TODO: redo this after the mobile-html patches got merged.
         String[] displayText = new String[1];
@@ -344,7 +344,7 @@ public class PageFragmentLoadState {
         Request remainingRequest = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getTitle().getPrefixedText());
+                        model.getTitle().getConvertedText());
 
         sendLeadSectionPayload(page, remainingRequest.url().toString());
 
