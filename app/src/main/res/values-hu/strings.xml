@@ -543,6 +543,11 @@
   <string name="preference_summary_notification_thanks">Valaki megköszönte egy szerkesztésedet</string>
   <string name="preference_title_notification_revert">Visszaállítás</string>
   <string name="preference_summary_notification_revert">Közreműködéseid egyike vissza lett vonva.</string>
+  <string name="preference_title_notification_login_fail">Bejelentkezés</string>
+  <string name="preference_title_notification_mention">Említés</string>
+  <string name="preference_summary_notification_mention">Valaki megemlített egy lapon</string>
+  <string name="preference_title_notification_user_talk">Vitalap</string>
+  <string name="preference_summary_notification_user_talk">Üzenetek vitalapokról</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
   <string name="view_random_card_subtitle">Olvass találomra egy cikket a Wikipédiából.</string>
@@ -596,6 +601,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Szabd testre a Felfedezés hírfolyamodat!&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Mostantól kiválaszthatod, hogy mi jelenjen meg a hírfolyamodban, és át is rendezheted azt, feljebb helyezve a kedvenc tartalomtípusaidat.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
+  <string name="feed_accessibility_card_load_more_button">Továbbiak betöltése</string>
   <string name="description_edit_text_hint" fuzzy="true">Cím leírása</string>
   <string name="description_edit_add_caption_label_per_language">Képleírás (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Képaláírás (%s)</string>
