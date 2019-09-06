@@ -6,10 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -51,7 +51,7 @@ public class LoginActivity extends BaseActivity {
 
     @BindView(R.id.login_username_text) TextInputLayout usernameInput;
     @BindView(R.id.login_password_input) TextInputLayout passwordInput;
-    @BindView(R.id.login_2fa_text) EditText twoFactorText;
+    @BindView(R.id.login_2fa_text) TextInputLayout twoFactorText;
     @BindView(R.id.view_login_error) WikiErrorView errorView;
     @BindView(R.id.login_button) Button loginButton;
     @BindView(R.id.view_progress_bar) ProgressBar progressBar;
@@ -209,11 +209,11 @@ public class LoginActivity extends BaseActivity {
     private void doLogin() {
         final String username = getText(usernameInput).toString();
         final String password = getText(passwordInput).toString();
-        final String twoFactorCode = twoFactorText.getText().toString();
+        final String twoFactorCode = getText(twoFactorText).toString();
 
         showProgressBar(true);
 
-        if (!twoFactorCode.isEmpty()) {
+        if (!TextUtils.isEmpty(twoFactorCode) && !TextUtils.isEmpty(firstStepToken)) {
             loginClient.login(WikipediaApp.getInstance().getWikiSite(), username, password,
                     null, twoFactorCode, firstStepToken, loginCallback);
         } else {
