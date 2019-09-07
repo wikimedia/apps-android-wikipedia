@@ -11,7 +11,6 @@ import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract.Col;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.log.L;
 
 
 // todo: network caching preserves images. Remove this class and drop table?
