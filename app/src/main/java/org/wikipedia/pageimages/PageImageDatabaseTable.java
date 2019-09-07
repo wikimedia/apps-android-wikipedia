@@ -72,7 +72,6 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
                 obj.getTitle().getWikiSite().authority(),
                 obj.getTitle().getWikiSite().languageCode(),
                 obj.getTitle().getNamespace(),
-                obj.getTitle().getConvertedText(),
                 obj.getTitle().getDisplayText()
         };
     }
