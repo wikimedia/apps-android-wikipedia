@@ -438,7 +438,7 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + "( " +ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
+                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
                         + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
@@ -471,7 +471,7 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + "( " +ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
+                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
                         + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
@@ -675,7 +675,7 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + "( " +ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
+                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
                         + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.LISTID.getName() + " = ? AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
