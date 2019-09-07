@@ -39,6 +39,22 @@ public class MwMobileViewPageLead extends MwResponse implements PageLead {
         return new Page(title, mobileview.getSections(), mobileview.toPageProperties());
     }
 
+    // TODO: remove this
+    private PageTitle adjustPageTitle(@NonNull PageTitle title, @NonNull String convertedText) {
+        if (mobileview.getRedirected() != null) {
+            // Handle redirects properly.
+            title = new PageTitle(mobileview.getRedirected(), title.getWikiSite(),
+                    title.getThumbUrl());
+        } else if (mobileview.getNormalizedTitle() != null) {
+            // We care about the normalized title only if we were not redirected
+            title = new PageTitle(mobileview.getNormalizedTitle(), title.getWikiSite(),
+                    title.getThumbUrl());
+        }
+        title.setConvertedText(convertedText);
+        title.setDescription(mobileview.getDescription());
+        return title;
+    }
+
     @Override @NonNull public String getLeadSectionContent() {
         if (mobileview != null) {
             return mobileview.getSections().get(0).getContent();

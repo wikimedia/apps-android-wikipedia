@@ -79,7 +79,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
                 obj.getTitle().getWikiSite().authority(),
                 obj.getTitle().getWikiSite().languageCode(),
                 obj.getTitle().getNamespace(),
-                obj.getTitle().getText()
+                obj.getTitle().getConvertedText(),
+                obj.getTitle().getDisplayText()
         };
     }
 

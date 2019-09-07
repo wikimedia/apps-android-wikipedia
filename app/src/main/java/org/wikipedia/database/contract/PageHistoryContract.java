@@ -25,7 +25,7 @@ public final class PageHistoryContract {
         IntColumn SOURCE = new IntColumn(TABLE, "source", "integer");
         IntColumn TIME_SPENT = new IntColumn(TABLE, "timeSpent", "integer"); // seconds
 
-        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, API_TITLE);
+        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, API_TITLE, DISPLAY_TITLE);
     }
 
     public interface Page extends Col {

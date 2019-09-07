@@ -11,6 +11,7 @@ import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract.Col;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.log.L;
 
 
 // todo: network caching preserves images. Remove this class and drop table?
@@ -38,7 +39,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
         contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
-        contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getText());
+        contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getConvertedText());
         contentValues.put(Col.DISPLAY_TITLE.getName(), obj.getTitle().getDisplayText());
         contentValues.put(Col.IMAGE_NAME.getName(), obj.getImageName());
         return contentValues;
@@ -72,7 +73,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
                 obj.getTitle().getWikiSite().authority(),
                 obj.getTitle().getWikiSite().languageCode(),
                 obj.getTitle().getNamespace(),
-                obj.getTitle().getText()
+                obj.getTitle().getConvertedText(),
+                obj.getTitle().getDisplayText()
         };
     }
 
