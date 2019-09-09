@@ -67,9 +67,7 @@ public class ReadingListPage implements Serializable {
     }
 
     public static PageTitle toPageTitle(@NonNull ReadingListPage page) {
-        PageTitle pageTitle = new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description());
-        pageTitle.setConvertedText(page.convertedTitle());
-        return pageTitle;
+        return new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description(), page.convertedTitle());
     }
 
     public long id() {
