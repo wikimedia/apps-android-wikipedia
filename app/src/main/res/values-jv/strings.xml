@@ -12,6 +12,7 @@
   <string name="page_tabs_back">Balik</string>
   <string name="nav_item_forward">Maju</string>
   <string name="search_hint">Golèk ing Wikipédia</string>
+  <string name="search_hint_voice_search">Golèk sarana swara</string>
   <string name="search_hint_search_history">Golèk ing sajarah</string>
   <string name="search_hint_search_languages">Golèk basa</string>
   <string name="search_hint_search_my_lists_and_articles">Golèk pratélan lan artikelku</string>
@@ -325,7 +326,7 @@
   <string name="article_menu_bar_bookmark">Tambah artikel iki nyang pratélan wacan</string>
   <string name="article_menu_bar_share">Dum pranalané artikel</string>
   <string name="article_header_edit_hint">Mbesut...</string>
-  <string name="article_header_edit_description" fuzzy="true">Besut wedharaning sesirah</string>
+  <string name="article_header_edit_description">Besut wedharaning artikel</string>
   <string name="article_header_edit_lead_section">Besut bebuka</string>
   <string name="color_theme_select">Irah-irahan</string>
   <string name="color_theme_light">Padhang</string>
@@ -368,6 +369,7 @@
   <string name="reading_list_description_hint">Katerangan (manasuka)</string>
   <string name="reading_list_item_deleted">%s dibusak saka pratélan</string>
   <string name="reading_list_items_deleted">%d artikel dibusak saka pratélan</string>
+  <string name="reading_lists_item_deleted">%s kabusek saka pratélan</string>
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>
   <string name="saved_list_empty_title">Durung ana pratélan wacan</string>
@@ -384,6 +386,7 @@
   <string name="reading_list_add_to_other_list">Tambah ing pratélan wewacaan liyané</string>
   <string name="reading_list_remove_from_list">Busak saka %s</string>
   <string name="reading_list_remove_from_lists">Busak saka pratélan wacan</string>
+  <string name="reading_list_select_item">Pilih</string>
   <string name="reading_list_confirm_remove_article_from_offline">Busak saka njaban jaringan</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel katon ing manéka pratélan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s bakal ora ana manèh ing njaban jaringan tumrap kabèh pratélan wacan:</string>
@@ -441,6 +444,7 @@
     <item quantity="other">Artikel-artikel iki ora bakal cumawis manèh nalika ing jaban jaringan.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Pratélan wacan kasil kasinkronisasi</string>
+  <string name="reading_list_menu_last_sync">Singkronisasi pungkasan: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">YA</string>
   <string name="reading_list_delete_dialog_ok_button_text">YA</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Wurung</string>
@@ -498,8 +502,17 @@
   <string name="notifications_view_archived_button_text">Deleng pambiwara kang kaarsip</string>
   <string name="notification_preferences_title">Setèlan pambiwara</string>
   <string name="notifications_mark_unread">Tengeri yèn durung diwaca</string>
+  <string name="preference_title_notification_system">Sistem</string>
+  <string name="preference_summary_notification_system">Layang saka sistem</string>
+  <string name="preference_summary_notification_milestone">Cacah besutan mirunggan wis kacandhak</string>
   <string name="preference_title_notification_thanks">Nuwun</string>
   <string name="preference_summary_notification_thanks">Ana wong kang matur nuwun awit saka pambesuté panjenengan</string>
+  <string name="preference_title_notification_revert">Pulihaké</string>
+  <string name="preference_summary_notification_revert">Salah siji pasumbangmu wis kapulihaké</string>
+  <string name="preference_title_notification_login_fail">Mlebu log</string>
+  <string name="preference_summary_notification_mention">Ana wong kang nyebut jenengmu ing siji kaca</string>
+  <string name="preference_title_notification_user_talk">Parembugan</string>
+  <string name="preference_summary_notification_user_talk">Layang saka parembugan</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_card_subtitle">Waca sembarang artikelé Wikipédia.</string>
@@ -609,11 +622,27 @@
   <string name="suggested_edits_task_translate_caption_description">Pertal katerangan menyang basa liya</string>
   <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>
   <string name="suggested_edits_task_multilingual_positive">Wuwuh basa</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Juru kagunan</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Juru tulis</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lisènsi</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Tanggal</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 pasumbang</item>
     <item quantity="other">%d pasumbang</item>
   </plurals>
+  <string name="suggested_edits_feed_card_title">Besutan kang kaprayogakaké</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Wuwuh wedharaning artikel (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Miwiti</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kateranganing gambar (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Wedharaning gambar (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Juru kagunan</string>
+  <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>
+  <string name="suggested_edits_image_preview_dialog_source">Sumber/Juru foto</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Lisènsi</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Info Candhaké</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kaca barkas ing Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Wuwuh kateranganing gambar (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Deleng</string>
   <string name="suggested_edits_feed_card_add_image_caption">Wuwuh katerangan</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Wuwuh katerangan (%s)</string>
