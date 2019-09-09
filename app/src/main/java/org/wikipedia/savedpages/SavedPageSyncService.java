@@ -10,6 +10,7 @@ import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
@@ -18,6 +19,7 @@ import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
@@ -232,13 +234,16 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-
+        Observable<RbPageSummary> pageSummaryCall = ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getConvertedText());
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
+        Observable.zip(pageSummaryCall, leadCall, sectionsCall, (summaryRsp, leadRsp, sectionsRsp) -> {
+            if (!summaryRsp.getDisplayTitle().equals(pageTitle.getDisplayText())) {
+                page.title(summaryRsp.getDisplayTitle());
+            }
             long totalSize = 0;
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);

@@ -23,7 +23,7 @@ public class ReadingListPage implements Serializable {
     private long listId;
     @NonNull private final WikiSite wiki;
     @NonNull private final Namespace namespace;
-    @NonNull private final String title;
+    @NonNull private String title;
     @NonNull private final String convertedTitle;
     @Nullable private String description;
     @Nullable private String thumbUrl;
@@ -92,6 +92,9 @@ public class ReadingListPage implements Serializable {
     }
     @NonNull public String title() {
         return title;
+    }
+    public void title(String title) {
+        this.title = title;
     }
 
     @NonNull public String convertedTitle() {
