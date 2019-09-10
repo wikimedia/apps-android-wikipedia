@@ -263,7 +263,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), options.toBundle());
+        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), card.image() != null ? options.toBundle() : null);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
