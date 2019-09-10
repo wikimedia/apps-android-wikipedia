@@ -105,6 +105,8 @@ public class DescriptionEditFragment extends Fragment {
                 // disabled polling of notifications, which is were the passive polling takes place.
                 NotificationPollBroadcastReceiver.pollEditorTaskCounts(WikipediaApp.getInstance());
             }
+            Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1);
+            Prefs.updatePrefsToShowSuggestedEditsSurvey();
             Prefs.setLastDescriptionEditTime(new Date().getTime());
             SuggestedEditsFunnel.get().success(invokeSource);
 

@@ -29,6 +29,7 @@ import java.util.Set;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.wikipedia.Constants.VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY;
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.getInt;
@@ -819,6 +820,35 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_description_edit_success_prompt, enabled);
     }
 
+    public static int getSuggestedEditsCountForSurvey() {
+        return getInt(R.string.preference_key_suggested_edits_count_for_survey, 0);
+    }
+
+    public static void setSuggestedEditsCountForSurvey(int count) {
+        setInt(R.string.preference_key_suggested_edits_count_for_survey, count);
+    }
+
+    private static boolean wasSuggestedEditsSurveyClicked() {
+        return getBoolean(R.string.preference_key_suggested_edits_survey_clicked, false);
+    }
+
+    public static void setSuggestedEditsSurveyClicked(boolean surveyClicked) {
+        setBoolean(R.string.preference_key_suggested_edits_survey_clicked, surveyClicked);
+    }
+
+    public static boolean shouldShowSuggestedEditsSurvey() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_survey, false);
+    }
+
+    public static void setShouldShowSuggestedEditsSurvey(boolean showSurvey) {
+        setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
+    }
+
+    public static void updatePrefsToShowSuggestedEditsSurvey() {
+        if (Prefs.getSuggestedEditsCountForSurvey() == 1 || (Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY && !Prefs.wasSuggestedEditsSurveyClicked())) {
+            setShouldShowSuggestedEditsSurvey(true);
+        }
+    }
 
     private Prefs() { }
 }

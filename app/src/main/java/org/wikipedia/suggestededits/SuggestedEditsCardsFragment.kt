@@ -30,6 +30,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.FeedbackUtil
@@ -160,14 +161,16 @@ class SuggestedEditsCardsFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
-            FeedbackUtil.showMessage(this,
-                    when (source) {
-                        SUGGESTED_EDITS_ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        SUGGESTED_EDITS_TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
-                        SUGGESTED_EDITS_TRANSLATE_DESC -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
-                        else -> getString(R.string.description_edit_success_saved_snackbar)
-                    }
-            )
+            if (!Prefs.shouldShowSuggestedEditsSurvey()) {
+                FeedbackUtil.showMessage(this,
+                        when (source) {
+                            SUGGESTED_EDITS_ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                            SUGGESTED_EDITS_TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
+                            SUGGESTED_EDITS_TRANSLATE_DESC -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
+                            else -> getString(R.string.description_edit_success_saved_snackbar)
+                        }
+                )
+            }
             nextPage()
         }
     }

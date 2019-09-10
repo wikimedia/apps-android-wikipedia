@@ -12,12 +12,15 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
@@ -136,6 +139,23 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        maybeRunSurvey();
+    }
+
+    private void maybeRunSurvey() {
+        if (Prefs.shouldShowSuggestedEditsSurvey()) {
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
+            TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
+            actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
+            actionView.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(R.dimen.margin));
+            snackbar.setAction(getString(R.string.suggested_edits_snackbar_survey_action_text), (v) -> openSurveyInBrowser());
+            snackbar.show();
+            Prefs.setShouldShowSuggestedEditsSurvey(false);
+        }
+    }
+
+    private void openSurveyInBrowser() {
+        Prefs.setSuggestedEditsSurveyClicked(true);
     }
 
     @Override public void onDestroyView() {
