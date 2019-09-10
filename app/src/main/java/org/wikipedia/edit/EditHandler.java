@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -21,6 +24,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
@@ -93,7 +97,16 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             } else {
                 startEditingSection(messagePayload.optInt("sectionID"), null);
             }
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(fragment.requireActivity(), fragment.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
+            TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
+            actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
+            actionView.setCompoundDrawablePadding(fragment.requireActivity().getResources().getDimensionPixelOffset(R.dimen.margin));
+            snackbar.setAction("TAKE SURVEY", (v) -> openSurveyInBrowser());
+            snackbar.show();
         }
+    }
+
+    private void openSurveyInBrowser() {
     }
 
     private class EditMenuClickListener implements PopupMenu.OnMenuItemClickListener {
