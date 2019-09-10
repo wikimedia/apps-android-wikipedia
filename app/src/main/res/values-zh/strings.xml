@@ -551,12 +551,15 @@
   <string name="preference_title_notification_poll">投票通知</string>
   <string name="preference_summary_notification_poll">允许应用使用数据在后台检查新通知。</string>
   <string name="preference_category_notification_types">应用内通知类型</string>
+  <string name="preference_title_notification_system">系统</string>
   <string name="preference_title_notification_milestone">里程碑</string>
   <string name="preference_summary_notification_milestone">已达成某个编辑数</string>
   <string name="preference_title_notification_thanks">感谢</string>
   <string name="preference_summary_notification_thanks">有人感谢了您的一次编辑</string>
   <string name="preference_title_notification_revert">回退</string>
   <string name="preference_summary_notification_revert">你其中一条贡献被撤销</string>
+  <string name="preference_title_notification_login_fail">登入</string>
+  <string name="preference_title_notification_user_talk">讨论页</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
   <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
