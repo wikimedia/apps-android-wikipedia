@@ -29,7 +29,6 @@ import java.util.Set;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-import static org.wikipedia.Constants.VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY;
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.getInt;
@@ -828,7 +827,7 @@ public final class Prefs {
         setInt(R.string.preference_key_suggested_edits_count_for_survey, count);
     }
 
-    private static boolean wasSuggestedEditsSurveyClicked() {
+    public static boolean wasSuggestedEditsSurveyClicked() {
         return getBoolean(R.string.preference_key_suggested_edits_survey_clicked, false);
     }
 
@@ -842,12 +841,6 @@ public final class Prefs {
 
     public static void setShouldShowSuggestedEditsSurvey(boolean showSurvey) {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
-    }
-
-    public static void updatePrefsToShowSuggestedEditsSurvey() {
-        if (Prefs.getSuggestedEditsCountForSurvey() == 1 || (Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY && !Prefs.wasSuggestedEditsSurveyClicked())) {
-            setShouldShowSuggestedEditsSurvey(true);
-        }
     }
 
     private Prefs() { }

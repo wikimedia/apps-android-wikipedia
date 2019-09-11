@@ -65,8 +65,10 @@ import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
+import static org.wikipedia.settings.Prefs.setShouldShowSuggestedEditsSurvey;
 import static org.wikipedia.suggestededits.SuggestedEditsCardsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -108,7 +110,9 @@ public class DescriptionEditFragment extends Fragment {
 
             if (WikipediaApp.getInstance().isSurveyLive() && isSuggestedEdits()) {
                 Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1);
-                Prefs.updatePrefsToShowSuggestedEditsSurvey();
+                if (Prefs.getSuggestedEditsCountForSurvey() == 1 || (Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY && !Prefs.wasSuggestedEditsSurveyClicked())) {
+                    setShouldShowSuggestedEditsSurvey(true);
+                }
             }
 
             Prefs.setLastDescriptionEditTime(new Date().getTime());

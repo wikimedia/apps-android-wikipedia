@@ -158,7 +158,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     private void openSurveyInBrowser() {
         Prefs.setSuggestedEditsSurveyClicked(true);
-        UriUtil.visitInExternalBrowser(getContext(), Uri.parse(getString(R.string.survey_url)));
+        UriUtil.visitInExternalBrowser(getContext(), Uri.parse(getString(R.string.suggested_edits_survey_url)));
     }
 
     @Override public void onDestroyView() {
