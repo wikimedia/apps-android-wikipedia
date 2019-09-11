@@ -106,4 +106,7 @@
     <string name="preference_key_show_suggested_edits_multilingual_teaser_task">showSuggestedEditsMultilingualTeaserTask</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
     <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
+    <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>
+    <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
+    <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
 </resources>
