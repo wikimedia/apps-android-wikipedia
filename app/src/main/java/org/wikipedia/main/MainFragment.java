@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -60,6 +61,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
@@ -156,6 +158,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     private void openSurveyInBrowser() {
         Prefs.setSuggestedEditsSurveyClicked(true);
+        UriUtil.visitInExternalBrowser(getContext(), Uri.parse(getString(R.string.survey_url)));
     }
 
     @Override public void onDestroyView() {
