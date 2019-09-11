@@ -191,14 +191,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 displayedTasks.add(translateImageCaptionsTask)
                 translateImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForTranslateCaptions)
-                translateImageCaptionsTask.showActionLayout = false
-                translateImageCaptionsTask.disabled = false
             }
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.showSuggestedEditsMultilingualTeaserTask()) {
                 displayedTasks.add(multilingualTeaserTask)
-                multilingualTeaserTask.showActionLayout = true
-                multilingualTeaserTask.disabled = false
             }
 
         } catch (e: Exception) {

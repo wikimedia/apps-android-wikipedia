@@ -30,7 +30,7 @@ public enum NavTab implements EnumCode {
             return HistoryFragment.newInstance();
         }
     },
-    SE(R.string.nav_item_suggested_edits, R.drawable.ic_mode_edit_themed_24dp) {
+    SUGGESTED_EDITS(R.string.nav_item_suggested_edits, R.drawable.ic_mode_edit_themed_24dp) {
         @NonNull @Override public Fragment newInstance() {
             return SuggestedEditsTasksFragment.Companion.newInstance();
         }
