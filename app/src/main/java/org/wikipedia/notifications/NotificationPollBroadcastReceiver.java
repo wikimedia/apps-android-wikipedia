@@ -84,7 +84,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     @SuppressLint("CheckResult")
     private void pollNotifications(@NonNull final Context context) {
-        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getLastUnreadNotification()
+        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getLastUnreadNotification()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -131,7 +131,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     private void retrieveNotifications(@NonNull final Context context) {
         dbNameWikiSiteMap.clear();
         dbNameWikiSiteMap.clear();
-        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getUnreadNotificationWikis()
+        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getUnreadNotificationWikis()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -150,7 +150,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     @SuppressLint("CheckResult")
     private void getFullNotifications(@NonNull final Context context, @NonNull List<String> foreignWikis) {
-        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getAllNotifications(foreignWikis.isEmpty() ? "*" : TextUtils.join("|", foreignWikis), "!read", null)
+        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getAllNotifications(foreignWikis.isEmpty() ? "*" : TextUtils.join("|", foreignWikis), "!read", null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> onNotificationsComplete(context, response.query().notifications().list()),
