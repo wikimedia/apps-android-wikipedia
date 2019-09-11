@@ -27,6 +27,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.NotificationFunnel;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
@@ -196,7 +197,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             return;
         }
 
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getUnreadNotificationWikis()
+        disposables.add(ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getUnreadNotificationWikis()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -213,7 +214,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     private void getOrContinueNotifications() {
         progressBarView.setVisibility(View.VISIBLE);
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getAllNotifications("*", displayArchived ? "read" : "!read", currentContinueStr)
+        disposables.add(ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getAllNotifications("*", displayArchived ? "read" : "!read", currentContinueStr)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
