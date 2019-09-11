@@ -602,6 +602,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;당신의 둘러보기 피드를 맞춤 관리하세요&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;이제 당신의 피드에 무엇을 표시할지 선택할 수 있고, 당신이 어떤 종류의 컨텐츠를 좋아하는지 우선순위를 매길 수 있습니다.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">확인</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
+  <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="description_edit_text_hint">문서 설명</string>
   <string name="description_edit_article_description_label_per_language">문서 (%s)</string>
@@ -798,6 +799,7 @@
   <string name="wikitext_preview_link">이전 링크</string>
   <string name="main_drawer_open">열기</string>
   <string name="main_drawer_close">닫기</string>
+  <string name="main_drawer_content_description">주 둘러보기 서랍 열기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
   <string name="custom_date_picker_dialog_ok_button_text">확인</string>

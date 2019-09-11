@@ -85,7 +85,7 @@
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
-  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="preference_title_language">Мови Вікіпедії</string>
   <string name="langlinks_filter_hint">Пошук</string>
