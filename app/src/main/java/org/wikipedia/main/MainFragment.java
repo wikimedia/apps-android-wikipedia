@@ -7,17 +7,21 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
@@ -56,6 +60,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
@@ -135,6 +140,24 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        maybeRunSurvey();
+    }
+
+    private void maybeRunSurvey() {
+        if (Prefs.shouldShowSuggestedEditsSurvey() && WikipediaApp.getInstance().isSurveyLive()) {
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
+            TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
+            actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
+            actionView.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(R.dimen.margin));
+            snackbar.setAction(getString(R.string.suggested_edits_snackbar_survey_action_text), (v) -> openSurveyInBrowser());
+            snackbar.show();
+            Prefs.setShouldShowSuggestedEditsSurvey(false);
+        }
+    }
+
+    private void openSurveyInBrowser() {
+        Prefs.setSuggestedEditsSurveyClicked(true);
+        UriUtil.visitInExternalBrowser(getContext(), Uri.parse(getString(R.string.suggested_edits_survey_url)));
     }
 
     @Override public void onDestroyView() {
@@ -262,7 +285,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), options.toBundle());
+        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), card.image() != null ? options.toBundle() : null);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {

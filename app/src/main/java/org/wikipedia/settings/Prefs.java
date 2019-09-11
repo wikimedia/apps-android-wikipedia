@@ -819,6 +819,29 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_description_edit_success_prompt, enabled);
     }
 
+    public static int getSuggestedEditsCountForSurvey() {
+        return getInt(R.string.preference_key_suggested_edits_count_for_survey, 0);
+    }
+
+    public static void setSuggestedEditsCountForSurvey(int count) {
+        setInt(R.string.preference_key_suggested_edits_count_for_survey, count);
+    }
+
+    public static boolean wasSuggestedEditsSurveyClicked() {
+        return getBoolean(R.string.preference_key_suggested_edits_survey_clicked, false);
+    }
+
+    public static void setSuggestedEditsSurveyClicked(boolean surveyClicked) {
+        setBoolean(R.string.preference_key_suggested_edits_survey_clicked, surveyClicked);
+    }
+
+    public static boolean shouldShowSuggestedEditsSurvey() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_survey, false);
+    }
+
+    public static void setShouldShowSuggestedEditsSurvey(boolean showSurvey) {
+        setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
+    }
 
     private Prefs() { }
 }

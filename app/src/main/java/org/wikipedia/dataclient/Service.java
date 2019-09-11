@@ -125,16 +125,18 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getPageImages(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=query&redirects="
-            + "&converttitles=&prop=description|pageimages&piprop=thumbnail"
+            + "&converttitles=&prop=description|pageimages|info&piprop=thumbnail"
             + "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0"
+            + "&inprop=varianttitles"
             + "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<PrefixSearchResponse> prefixSearch(@Query("gpssearch") String title,
                                                      @Query("gpslimit") int maxResults,
                                                      @Query("srsearch") String repeat);
 
     @GET(MW_API_PREFIX + "action=query&converttitles="
-            + "&prop=description|pageimages|pageprops&ppprop=mainpage|disambiguation"
+            + "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation"
             + "&generator=search&gsrnamespace=0&gsrwhat=text"
+            + "&inprop=varianttitles"
             + "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize="
             + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> fullTextSearch(@Query("gsrsearch") String searchTerm,
