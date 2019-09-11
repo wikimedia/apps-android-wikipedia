@@ -143,7 +143,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void maybeRunSurvey() {
-        if (Prefs.shouldShowSuggestedEditsSurvey()) {
+        if (Prefs.shouldShowSuggestedEditsSurvey() && WikipediaApp.getInstance().isSurveyLive()) {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
             TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
             actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);

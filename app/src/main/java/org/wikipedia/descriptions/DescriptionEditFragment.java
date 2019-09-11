@@ -105,8 +105,12 @@ public class DescriptionEditFragment extends Fragment {
                 // disabled polling of notifications, which is were the passive polling takes place.
                 NotificationPollBroadcastReceiver.pollEditorTaskCounts(WikipediaApp.getInstance());
             }
-            Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1);
-            Prefs.updatePrefsToShowSuggestedEditsSurvey();
+
+            if (WikipediaApp.getInstance().isSurveyLive() && isSuggestedEdits()) {
+                Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1);
+                Prefs.updatePrefsToShowSuggestedEditsSurvey();
+            }
+
             Prefs.setLastDescriptionEditTime(new Date().getTime());
             SuggestedEditsFunnel.get().success(invokeSource);
 
@@ -126,6 +130,12 @@ public class DescriptionEditFragment extends Fragment {
             }
         }
     };
+
+    private boolean isSuggestedEdits() {
+        return invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || invokeSource == SUGGESTED_EDITS_ADD_DESC || invokeSource == SUGGESTED_EDITS_ADD_CAPTION
+                || invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION;
+    }
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title,
