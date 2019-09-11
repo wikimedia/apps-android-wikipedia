@@ -1,81 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_main_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="?attr/actionBarSize"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/fragment_main_coordinator"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
 
-        <org.wikipedia.readinglist.NoSwipeViewPager
-            android:id="@+id/fragment_main_view_pager"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/fragment_main_coordinator"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/tooltip_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="2dp"
-            app:cardElevation="10dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <org.wikipedia.readinglist.NoSwipeViewPager
+                android:id="@+id/fragment_main_view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/paper_color">
+                android:layout_height="match_parent" />
 
-                <TextView
-                    android:id="@+id/tooltip_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:paddingTop="14dp"
-                    android:paddingBottom="14dp"
-                    android:lineSpacingExtra="6sp"
-                    android:text="@string/main_tooltip_text"
-                    android:textColor="?attr/material_theme_primary_color"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tooltip_action_button"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-                <Button
-                    android:id="@+id/tooltip_action_button"
-                    style="@style/TransparentButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:text="@string/main_tooltip_action_button"
-                    android:textColor="?attr/colorAccent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tooltip_text"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <org.wikipedia.navtab.NavTabLayout
+            android:id="@+id/fragment_main_nav_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="bottom"
+            android:background="?attr/nav_tab_background_color"
+            android:elevation="6dp"
+            app:itemIconTint="?attr/nav_tab_item_color_state"
+            app:itemTextColor="?attr/nav_tab_item_color_state"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/transparent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <org.wikipedia.navtab.NavTabLayout
-        android:id="@+id/fragment_main_nav_tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="bottom"
-        android:background="?attr/nav_tab_background_color"
-        android:elevation="6dp"
-        app:itemIconTint="?attr/nav_tab_item_color_state"
-        app:itemTextColor="?attr/nav_tab_item_color_state"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@android:color/transparent" />
-
-</LinearLayout>
+</FrameLayout>
