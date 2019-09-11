@@ -27,6 +27,7 @@ public class NavTabLayout extends BottomNavigationView {
         for (int i = 0; i < NavTab.size(); i++) {
             NavTab navTab = NavTab.of(i);
             getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
+            // TODO: add actionView() ?
         }
     }
 }
