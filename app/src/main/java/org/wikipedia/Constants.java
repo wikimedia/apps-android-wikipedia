@@ -58,6 +58,8 @@ public final class Constants {
 
     public static final int MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2;
 
+    public static final int VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY = 3;
+
     public enum InvokeSource {
         CONTEXT_MENU,
         LINK_PREVIEW_MENU,
