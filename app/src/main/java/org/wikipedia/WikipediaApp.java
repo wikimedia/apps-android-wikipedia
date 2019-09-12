@@ -467,7 +467,7 @@ public class WikipediaApp extends Application {
     public boolean isSurveyLive() {
         final int year = 2019;
         final int startDay = 19;
-        final int endDay = 26;
+        final int endDay = 27; //Ends at Sept 27 0:0:0
         Date surveyStartDate = DateUtil.getDateObjectFor(year, SEPTEMBER, startDay);
         Date surveyEndDate = DateUtil.getDateObjectFor(year, SEPTEMBER, endDay);
         return DateUtil.isGivenDateBetweenDates(Calendar.getInstance().getTime(), surveyStartDate, surveyEndDate);
