@@ -750,6 +750,8 @@
     <string name="suggested_edits_feed_card_add_image_caption">Add caption</string>
     <string name="suggested_edits_feed_card_translate_image_caption">Add caption (%s)</string>
     <string name="suggested_edits_feed_card_add_description_button">Add article description</string>
+    <string name="suggested_edits_snackbar_survey_text">How was your editing experience? Please take a moment to fill out the survey about in-app editing.</string>
+    <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
