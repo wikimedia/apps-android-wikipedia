@@ -12,6 +12,9 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -78,6 +81,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
+    @BindView(R.id.pulsing_circle1) ImageView pulsingCircle1;
+    @BindView(R.id.pulsing_circle2) ImageView pulsingCircle2;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
@@ -119,6 +124,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
+
+        Animation pulse = AnimationUtils.loadAnimation(requireContext(), R.anim.pulsing_circle);
+        Animation pulse2 = AnimationUtils.loadAnimation(requireContext(), R.anim.pulsing_circle);
+
+        pulsingCircle1.startAnimation(pulse);
+        pulsingCircle2.postDelayed(() -> pulsingCircle2.startAnimation(pulse2), 800);
         return view;
     }
 
