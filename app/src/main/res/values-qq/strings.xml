@@ -728,6 +728,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
+  <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>
@@ -817,6 +819,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
 </resources>

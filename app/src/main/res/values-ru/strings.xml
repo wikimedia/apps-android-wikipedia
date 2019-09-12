@@ -754,6 +754,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить описание (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
+  <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
