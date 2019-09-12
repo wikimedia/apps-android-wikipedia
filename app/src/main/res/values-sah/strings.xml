@@ -18,6 +18,7 @@
   <string name="page_tabs_back">Төнүн</string>
   <string name="nav_item_forward">Инники</string>
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
+  <string name="search_hint_voice_search">Саҥа көмөтүнэн көрдөөһүн</string>
   <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
   <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
   <string name="search_hint_search_my_lists_and_articles">Ааҕыы испииһэгэр көрдөөһүн</string>
@@ -281,6 +282,8 @@
   <string name="captcha_image">Капча-ойуу</string>
   <string name="gallery_fair_use_license">Сиэрдээх туһаныы</string>
   <string name="gallery_uploader_unknown">Киллэрбит киһи биллибэт</string>
+  <string name="gallery_not_available_offline_snackbar">Интэриниэтэ суох бу эрэсиим үлэлээбэт.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Сап</string>
   <string name="menu_new_tab">Саҥа кыбытык</string>
   <string name="menu_close_all_tabs">Кыбытыктары барытын сап</string>
   <string name="close_all_tabs_confirm">Барытын сабаҕын дуо?</string>
