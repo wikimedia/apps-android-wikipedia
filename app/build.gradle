@@ -135,6 +135,12 @@ android {
             returnDefaultValues = true
         }
     }
+
+    bundle {
+        language {
+            enableSplit false
+        }
+    }
 }
 
 apply from: '../gradle/src/test.gradle'
