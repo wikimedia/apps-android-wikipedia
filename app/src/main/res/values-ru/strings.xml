@@ -704,7 +704,7 @@
   <string name="suggested_edits_unlock_notification_button">Поехали</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже что вам нравится добавлять описания изображений. А мы, вот, и списочек таких изображений приготовили! Ну что, подсобите с описаниями?</string>
   <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
@@ -718,14 +718,14 @@
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
   <string name="suggested_edits_task_translation_title">Перевод описаний статей</string>
   <string name="suggested_edits_task_translation_description">Перевод кратких описаний на другие языки.</string>
-  <string name="suggested_edits_task_image_caption_title">Добавить описание изображений</string>
-  <string name="suggested_edits_task_image_caption_description">Добавление короткие описания изображениям</string>
+  <string name="suggested_edits_task_image_caption_title">Добавление описания изображений</string>
+  <string name="suggested_edits_task_image_caption_description">Добавление кратких описаний изображениям</string>
   <string name="suggested_edits_task_translate_caption_title">Перевод описаний изображений</string>
   <string name="suggested_edits_task_translate_caption_description">Перевод подписей для изображений на другие языки</string>
   <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d описаний статей и они не будут проверены</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Этот функционал будет открыт тогда, когда вы отредактируете %d описаний статей и они будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>

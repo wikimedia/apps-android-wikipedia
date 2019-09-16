@@ -461,4 +461,5 @@
   <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Da uklonim izabrani/-e jezik(e)?</string>
   <string name="wikipedia_languages_remove_dialog_content">Sadržaj na stranici \"Istraži\" i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne mogu ukloniti sve jezike</string>
+  <string name="remove_language_dialog_ok_button_text">U redu</string>
 </resources>

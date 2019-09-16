@@ -701,6 +701,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Rispondi sondaggio</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
