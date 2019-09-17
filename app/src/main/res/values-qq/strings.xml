@@ -821,4 +821,6 @@
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.</string>
+  <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
+  <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
 </resources>

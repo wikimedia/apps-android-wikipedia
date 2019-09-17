@@ -4,18 +4,24 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import kotlinx.android.synthetic.main.view_suggested_edits_task.view.*
+import android.widget.LinearLayout
+import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.R
 
-internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : FrameLayout(context, attrs, defStyle) {
+internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
 
     init {
-        View.inflate(context, R.layout.view_suggested_edits_task, this)
+        View.inflate(context, R.layout.view_suggested_edits_task_item, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
+
+        image.setImageDrawable(task.imageDrawable)
+        title.text = task.title
+        description.text = task.description
+
+/*
         taskTitle.text = task.title
         taskDescription.text = task.description
         taskImage.visibility = if (task.showImagePlaceholder) View.VISIBLE else View.GONE
@@ -40,7 +46,7 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
 
         unlockActionNegativeButton.setOnClickListener {
             callback?.onNegativeActionClick(task)
-        }
+        }*/
     }
 
     interface Callback {
