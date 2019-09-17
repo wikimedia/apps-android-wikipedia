@@ -25,6 +25,7 @@
         <!-- Theme for dialog after long pressing on internal links -->
         <item name="android:alertDialogTheme">@style/LongPressAlertDialogStyle</item>
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+        <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
