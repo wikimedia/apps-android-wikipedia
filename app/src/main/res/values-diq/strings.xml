@@ -287,6 +287,7 @@
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>

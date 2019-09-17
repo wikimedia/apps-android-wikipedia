@@ -24,6 +24,7 @@
 * Tacsipacsi
 * Trizek (WMF)
 * Wladek92
+* Zoranzoki21
 -->
 <resources>
   <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
@@ -215,7 +216,7 @@
   <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
-  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.\n\n{{optional}}</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.\n{{Identical|Translator}}</string>
@@ -728,6 +729,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
+  <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>
