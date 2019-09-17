@@ -727,6 +727,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
+  <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
