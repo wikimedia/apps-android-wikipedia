@@ -6,6 +6,8 @@ import android.view.Menu;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.wikipedia.auth.AccountUtil;
+
 public class NavTabLayout extends BottomNavigationView {
 
     public NavTabLayout(Context context) {
@@ -23,10 +25,20 @@ public class NavTabLayout extends BottomNavigationView {
         setTabViews();
     }
 
-    private void setTabViews() {
+    public void setTabViews() {
         for (int i = 0; i < NavTab.size(); i++) {
             NavTab navTab = NavTab.of(i);
-            getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
+            if (AccountUtil.isLoggedIn()) {
+                getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
+            } else {
+                if (!(NavTab.SUGGESTED_EDITS == navTab)) {
+                    getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
+                }
+            }
         }
+    }
+
+    public void clear() {
+        getMenu().clear();
     }
 }

@@ -31,6 +31,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.events.LoggedOutInBackgroundEvent;
+import org.wikipedia.events.LoginLogoutEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -72,6 +74,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
@@ -88,6 +92,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -125,6 +130,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new MainFragment.EventBusConsumer()));
         return view;
     }
 
@@ -168,6 +174,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onDestroyView() {
         unbinder.unbind();
         unbinder = null;
+        disposables.clear();
         super.onDestroyView();
     }
 
@@ -488,5 +495,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
+    }
+
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) {
+            if (event instanceof LoginLogoutEvent || event instanceof LoggedOutInBackgroundEvent) {
+                tabLayout.clear();
+                tabLayout.setTabViews();
+            }
+        }
     }
 }
