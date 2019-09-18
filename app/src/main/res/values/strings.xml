@@ -871,4 +871,5 @@
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>
     <string name="custom_date_picker_dialog_cancel_button_text">Cancel</string>
+    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you\'ll find more opportunities to contribute to Wikipedia.</string>
 </resources>

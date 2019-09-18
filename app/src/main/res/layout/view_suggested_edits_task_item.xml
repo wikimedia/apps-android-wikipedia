@@ -2,25 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/paper_color"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/image"
+        <LinearLayout
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:contentDescription="@null"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_add_gray_white_24dp"
-            android:tint="?attr/colorAccent" />
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/multi_select_background_color"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_add_gray_white_24dp"
+                android:tint="?attr/colorAccent" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -28,15 +39,17 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:text="@string/suggested_edits_task_action_text_translate" />
+                android:text="@string/suggested_edits_task_action_text_translate"
+                android:textAllCaps="true"
+                android:textColor="?attr/material_theme_primary_color"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:text="@string/suggested_edits_task_action_text_translate" />
+                android:text="@string/suggested_edits_task_action_text_translate"
+                android:textColor="?attr/material_theme_de_emphasised_color" />
 
         </LinearLayout>
     </LinearLayout>
@@ -44,7 +57,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="64dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -65,9 +78,10 @@
                 android:id="@+id/add_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:text="@string/suggested_edits_task_action_text_add"
                 android:textAllCaps="true"
-                android:text="@string/suggested_edits_task_action_text_add" />
+                android:textColor="?attr/colorAccent"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -91,9 +105,10 @@
                 android:id="@+id/suggeted_edits_translate_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:text="@string/suggested_edits_task_action_text_translate"
                 android:textAllCaps="true"
-                android:text="@string/suggested_edits_task_action_text_translate" />
+                android:textColor="?attr/colorAccent"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>

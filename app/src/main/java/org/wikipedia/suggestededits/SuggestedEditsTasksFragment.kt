@@ -59,14 +59,15 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         tasksRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         val topDecorationDp = 16
-        tasksRecyclerView.addItemDecoration(HeaderMarginItemDecoration(topDecorationDp, 0))
         tasksRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, topDecorationDp))
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
-        usernameText.text = AccountUtil.getUserName()
-        userContributionsButton.setOnClickListener {
+        encouragementMessage.text=getString(R.string.suggested_edits_encouragement_message,AccountUtil.getUserName())
+
+        //usernameText.text = AccountUtil.getUserName()
+       /* userContributionsButton.setOnClickListener {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
-        }
+        }*/
         setUpTasks()
     }
 
@@ -101,15 +102,15 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun fetchUserContributions() {
         updateDisplayedTasks(null)
-        contributionsText.visibility = View.GONE
-        progressBar.visibility = View.VISIBLE
+        //contributionsText.visibility = View.GONE
+        //progressBar.visibility = View.VISIBLE
 
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    progressBar.visibility = View.GONE
-                    contributionsText.visibility = View.VISIBLE
+                    //progressBar.visibility = View.GONE
+                    //contributionsText.visibility = View.VISIBLE
                     swipeRefreshLayout.isRefreshing = false
                 }
                 .subscribe({ response ->
@@ -121,7 +122,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
                         totalEdits += count
                     }
-                    contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
+                    //contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
                     updateDisplayedTasks(editorTaskCounts)
                 }, { throwable ->
                     L.e(throwable)
@@ -178,7 +179,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             addDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForAddDescriptions)
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                displayedTasks.add(translateDescriptionsTask)
+                //displayedTasks.add(translateDescriptionsTask)
                 translateDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions)
             }
 
@@ -189,12 +190,12 @@ class SuggestedEditsTasksFragment : Fragment() {
             addImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForAddCaptions)
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                displayedTasks.add(translateImageCaptionsTask)
+                //displayedTasks.add(translateImageCaptionsTask)
                 translateImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForTranslateCaptions)
             }
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.showSuggestedEditsMultilingualTeaserTask()) {
-                displayedTasks.add(multilingualTeaserTask)
+                //displayedTasks.add(multilingualTeaserTask)
             }
 
         } catch (e: Exception) {
