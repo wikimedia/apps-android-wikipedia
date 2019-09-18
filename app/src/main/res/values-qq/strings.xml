@@ -824,4 +824,7 @@
   <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
   <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
   <string name="suggested_edits_encouragement_message">Message text shown to users to encourage them to continue and increase editing.%s represents the user\'s name.</string>
+  <string name="suggested_edits_image_captions">Suggested Edits image captions task title</string>
+  <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.</string>
 </resources>

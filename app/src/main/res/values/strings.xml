@@ -755,6 +755,9 @@
     <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
     <string name="suggested_edits_task_action_text_add">Add</string>
     <string name="suggested_edits_task_action_text_translate">Translate</string>
+    <string name="suggested_edits_image_captions">Image Captions</string>
+    <string name="suggested_edits_image_captions_task_detail">Concisely describe images and help search algorithms to prioritize text for search rankings</string>
+    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions are short phrases designed to disambiguate articles with the same or similar labels.</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

@@ -1,9 +1,11 @@
 package org.wikipedia.suggestededits
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +32,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.FooterMarginItemDecoration
-import org.wikipedia.views.HeaderMarginItemDecoration
 import java.util.*
 
 class SuggestedEditsTasksFragment : Fragment() {
@@ -83,6 +84,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
+        var drawable: Drawable = menu.findItem(R.id.menu_help).getIcon();
+        drawable = DrawableCompat.wrap(drawable);
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(context!!, R.attr.colorAccent));
+        menu.findItem(R.id.menu_help).setIcon(drawable);
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -137,8 +142,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setUpTasks() {
         addDescriptionsTask = SuggestedEditsTask()
-        addDescriptionsTask.title = getString(R.string.suggested_edits_task_add_description_title)
-        addDescriptionsTask.description = getString(R.string.suggested_edits_task_add_description_description)
+        addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
+        addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp)
 
         translateDescriptionsTask = SuggestedEditsTask()
@@ -147,8 +152,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         translateDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions)
 
         addImageCaptionsTask = SuggestedEditsTask()
-        addImageCaptionsTask.title = getString(R.string.suggested_edits_task_image_caption_title)
-        addImageCaptionsTask.description = getString(R.string.suggested_edits_task_image_caption_description)
+        addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
+        addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_images)
 
         translateImageCaptionsTask = SuggestedEditsTask()
