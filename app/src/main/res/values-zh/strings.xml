@@ -691,7 +691,6 @@
   <string name="suggested_edits_tasks_activity_title">编辑提议</string>
   <string name="suggested_edits_task_add_description_title">添加条目描述</string>
   <string name="suggested_edits_task_add_description_description">跳过概述并直接编辑文章</string>
-  <string name="suggested_edits_task_translation_title">翻译条目描述</string>
   <string name="suggested_edits_task_translation_description">将标题说明翻译成其他语言。</string>
   <string name="suggested_edits_task_image_caption_title">添加图片说明</string>
   <string name="suggested_edits_task_image_caption_description">为图片添加简短描述</string>

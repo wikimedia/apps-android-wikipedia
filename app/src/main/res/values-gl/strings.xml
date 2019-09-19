@@ -643,7 +643,6 @@
   <string name="suggested_edits_tasks_activity_title">Edicións suxeridas</string>
   <string name="suggested_edits_task_add_description_title">Engadir descricións de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
-  <string name="suggested_edits_task_translation_title">Traducir descricións de artigos</string>
   <string name="suggested_edits_task_translation_description">Traducir descricións nas linguas dos artigos.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Engadir pés ás imaxes</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Engadir pés ás imaxes</string>

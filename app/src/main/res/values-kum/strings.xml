@@ -221,7 +221,6 @@
   <string name="suggested_edits_unlock_notification_button">Гетдик</string>
   <string name="suggested_edits_menu_info">Маълумат</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Тасвир къошмакъ</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Тасвирлени гёчюрювлери</string>
   <string name="suggested_edits_task_multilingual_negative">Магъа тюгюл</string>
   <string name="suggested_edits_task_multilingual_positive">Тиллер къошмакъ</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Башламакъ</string>

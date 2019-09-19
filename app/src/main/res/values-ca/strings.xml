@@ -683,7 +683,6 @@
   <string name="suggested_edits_tasks_activity_title">Edicions suggerides</string>
   <string name="suggested_edits_task_add_description_title">Afegeix descripcions d\'article</string>
   <string name="suggested_edits_task_add_description_description">Contribuïu a articles sense descripcions</string>
-  <string name="suggested_edits_task_translation_title">Tradueix descripcions d\'article</string>
   <string name="suggested_edits_task_translation_description">Tradueix les descripcions en les diferents llengües de l\'article.</string>
   <string name="suggested_edits_task_image_caption_title">Addició de llegendes a les imatges</string>
   <string name="suggested_edits_task_image_caption_description">Afegeix llegendes curtes a les imatges que no en tenen</string>

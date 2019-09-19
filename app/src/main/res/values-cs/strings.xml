@@ -688,7 +688,6 @@
   <string name="suggested_edits_tasks_activity_title">Navrhování editací</string>
   <string name="suggested_edits_task_add_description_title">Přidat popisy článků</string>
   <string name="suggested_edits_task_add_description_description">Přispět článkům bez popisu</string>
-  <string name="suggested_edits_task_translation_title">Přeložit popisy článků</string>
   <string name="suggested_edits_task_translation_description">Přeložit popisy článků napříč jazyky.</string>
   <string name="suggested_edits_task_image_caption_title">Přidat titulky obrázků</string>
   <string name="suggested_edits_task_image_caption_description">Přidat chybějící krátké titulky k obrázkům</string>

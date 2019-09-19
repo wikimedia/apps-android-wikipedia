@@ -619,7 +619,6 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задачи за приложния редактор</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Добавяне на описания</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Превод на описания</string>
   <string name="suggested_edits_task_translation_description">Превод на описания на други езици.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Описания на картини</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Добавяне на описания на картини</string>

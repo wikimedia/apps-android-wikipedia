@@ -15,14 +15,12 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
 import org.wikipedia.Constants.InvokeSource.*
-import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.EditorTaskCounts
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -106,7 +104,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun fetchUserContributions() {
-        updateDisplayedTasks(null)
         //contributionsText.visibility = View.GONE
         //progressBar.visibility = View.VISIBLE
 
@@ -128,7 +125,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                         totalEdits += count
                     }
                     //contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
-                    updateDisplayedTasks(editorTaskCounts)
                 }, { throwable ->
                     L.e(throwable)
                     FeedbackUtil.showError(requireActivity(), throwable)
@@ -146,69 +142,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp)
 
-        translateDescriptionsTask = SuggestedEditsTask()
-        translateDescriptionsTask.title = getString(R.string.suggested_edits_task_translation_title)
-        translateDescriptionsTask.description = getString(R.string.suggested_edits_task_translation_description)
-        translateDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_translate_title_descriptions)
-
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_images)
-
-        translateImageCaptionsTask = SuggestedEditsTask()
-        translateImageCaptionsTask.title = getString(R.string.suggested_edits_task_translate_caption_title)
-        translateImageCaptionsTask.description = getString(R.string.suggested_edits_task_translate_caption_description)
-        translateImageCaptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_translate)
-
-        multilingualTeaserTask = SuggestedEditsTask()
-        multilingualTeaserTask.title = getString(R.string.suggested_edits_task_multilingual_title)
-        multilingualTeaserTask.description = getString(R.string.suggested_edits_task_multilingual_description)
-        multilingualTeaserTask.showImagePlaceholder = false
-        multilingualTeaserTask.showActionLayout = true
-        multilingualTeaserTask.unlockActionPositiveButtonString = getString(R.string.suggested_edits_task_multilingual_positive)
-        multilingualTeaserTask.unlockActionNegativeButtonString = getString(R.string.suggested_edits_task_multilingual_negative)
     }
 
-    private fun updateDisplayedTasks(editorTaskCounts: EditorTaskCounts?) {
-        displayedTasks.clear()
-        try {
-            if (editorTaskCounts == null) {
-                return
-            }
-
-            val targetForAddDescriptions = editorTaskCounts.descriptionEditTargets[0]
-            val targetForTranslateDescriptions = editorTaskCounts.descriptionEditTargets[1]
-
-            displayedTasks.add(addDescriptionsTask)
-            addDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForAddDescriptions)
-
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                //displayedTasks.add(translateDescriptionsTask)
-                translateDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions)
-            }
-
-            val targetForAddCaptions = editorTaskCounts.captionEditTargets[0]
-            val targetForTranslateCaptions = editorTaskCounts.captionEditTargets[1]
-
-            displayedTasks.add(addImageCaptionsTask)
-            addImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForAddCaptions)
-
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                //displayedTasks.add(translateImageCaptionsTask)
-                translateImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForTranslateCaptions)
-            }
-
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.showSuggestedEditsMultilingualTeaserTask()) {
-                //displayedTasks.add(multilingualTeaserTask)
-            }
-
-        } catch (e: Exception) {
-            L.e(e)
-        } finally {
-            tasksRecyclerView.adapter!!.notifyDataSetChanged()
-        }
-    }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onPositiveActionClick(task: SuggestedEditsTask) {

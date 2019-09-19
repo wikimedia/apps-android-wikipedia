@@ -713,8 +713,6 @@
     <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_task_add_description_title">Add article descriptions</string>
     <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
-    <string name="suggested_edits_task_translation_title">Translate article descriptions</string>
-    <string name="suggested_edits_task_translation_description">Translate descriptions across article languages.</string>
     <string name="suggested_edits_task_image_caption_title">Add image captions</string>
     <string name="suggested_edits_task_image_caption_description">Add missing short captions to images</string>
     <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>

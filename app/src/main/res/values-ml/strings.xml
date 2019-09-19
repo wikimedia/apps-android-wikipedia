@@ -458,7 +458,6 @@
   <string name="suggested_edits_tasks_activity_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
   <string name="suggested_edits_task_add_description_title">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_add_description_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
-  <string name="suggested_edits_task_translation_title">ലേഖനത്തിന്റെ വിവരണങ്ങൾ തർജ്ജമ ചെയ്യുക</string>
   <string name="suggested_edits_task_image_caption_title">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_translate_caption_title">ചിത്രത്തിന്റെ തലവാചകം തർജ്ജമ ചെയ്യുക</string>

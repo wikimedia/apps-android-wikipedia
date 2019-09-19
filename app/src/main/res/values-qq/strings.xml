@@ -691,7 +691,6 @@
   <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
   <string name="suggested_edits_task_add_description_title">Article description task heading.</string>
   <string name="suggested_edits_task_add_description_description">Article description task explanation given to user.</string>
-  <string name="suggested_edits_task_translation_title">Title text of article description translation task.</string>
   <string name="suggested_edits_task_translation_description">Message text of article description translation task.</string>
   <string name="suggested_edits_task_image_caption_title">Image caption tasks heading.</string>
   <string name="suggested_edits_task_image_caption_description">Image caption tasks explanation given to user.</string>
