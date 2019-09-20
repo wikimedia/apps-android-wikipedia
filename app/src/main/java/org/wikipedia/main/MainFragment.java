@@ -480,7 +480,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void setupPulsingIcon() {
-        if (AccountUtil.isLoggedIn() && Prefs.shouldShowBookmarkToolTip()) {
+        if (AccountUtil.isLoggedIn() && Prefs.shouldShowSuggestedEditsTooltip()) {
             tabOverlayLayout.pick(NavTab.NEARBY); // TODO: replace with Suggested Edits tab
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
             snackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.NEARBY)); // TODO: replace with Suggested Edits tab
@@ -488,7 +488,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    public void hideNavTabOverlayLayout() {
+    void hideNavTabOverlayLayout() {
         tabOverlayLayout.hide();
     }
 

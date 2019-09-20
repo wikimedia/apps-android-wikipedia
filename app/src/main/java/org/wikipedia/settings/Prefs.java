@@ -844,7 +844,7 @@ public final class Prefs {
     }
 
     public static boolean shouldShowSuggestedEditsTooltip() {
-        return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, false);
+        return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true);
     }
 
     public static void setShouldShowSuggestedEditsTooltip(boolean enabled) {
