@@ -26,58 +26,11 @@
         android:layout_gravity="bottom"
         android:background="?attr/nav_tab_background_color"
         android:elevation="6dp">
-        <LinearLayout
+
+        <org.wikipedia.navtab.NavTabOverlayLayout
+            android:id="@+id/fragment_main_nav_tab_overlay_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                />
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <ImageView
-                    android:id="@+id/pulsing_circle_outer"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:src="@drawable/shape_circle"
-                    android:tint="?attr/multi_select_background_color"
-                    android:contentDescription="@null"
-                    android:layout_gravity="center"
-                    />
-                <ImageView
-                    android:id="@+id/pulsing_circle_inner"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/shape_circle"
-                    android:tint="?attr/color_group_52"
-                    android:alpha="0.5"
-                    android:contentDescription="@null"
-                    android:layout_gravity="center"
-                    />
-                <ImageView
-                    android:id="@+id/pulsing_base_icon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_explore_black_24dp"
-                    android:tint="?attr/material_theme_primary_color"
-                    android:contentDescription="@null"
-                    android:layout_gravity="center"/>
-            </FrameLayout>
-        </LinearLayout>
+            android:layout_height="match_parent" />
 
         <org.wikipedia.navtab.NavTabLayout
             android:id="@+id/fragment_main_nav_tab_layout"

@@ -14,9 +14,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +31,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -50,6 +48,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
+import org.wikipedia.navtab.NavTabOverlayLayout;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -87,7 +86,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
-    @BindView(R.id.pulsing_circle_outer) ImageView pulsingOuter;
+    @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
@@ -129,10 +128,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
-
-        Animation pulse = AnimationUtils.loadAnimation(requireContext(), R.anim.pulsing_circle);
-
-        pulsingOuter.startAnimation(pulse);
         return view;
     }
 
@@ -217,6 +212,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+        setupPulsingIcon();
     }
 
     @Override
@@ -481,6 +477,21 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).refresh();
         }
+    }
+
+    private void setupPulsingIcon() {
+        // TODO: bind with new suggested edits unlocking logic
+        // TODO: show it after actually got the status of suggested edits unlocked?
+        if (AccountUtil.isLoggedIn() && (Prefs.isSuggestedEditsAddDescriptionsUnlocked() || Prefs.isSuggestedEditsAddCaptionsUnlocked())) {
+            tabOverlayLayout.pick(NavTab.NEARBY); // TODO: replace with Suggested Edits tab
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
+            snackbar.setAction(R.string.main_tooltip_action_button, view -> snackbar.dismiss());
+            snackbar.show();
+        }
+    }
+
+    public void hideNavTabOverlayLayout() {
+        tabOverlayLayout.hide();
     }
 
     public Fragment getCurrentFragment() {
