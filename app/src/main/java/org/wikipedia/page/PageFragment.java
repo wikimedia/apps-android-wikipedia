@@ -532,8 +532,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         tabFunnel.logOpenInNew(app.getTabList().size());
-
-        if (shouldCreateNewTab()) {
+        if (shouldCreateNewTab() || title.isMainPage()) {
             // create a new tab
             Tab tab = new Tab();
             boolean isForeground = position == getForegroundTabPosition();
@@ -542,7 +541,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 pageFragmentLoadState.setTab(tab);
             }
             // put this tab in the requested position
-            app.getTabList().add(position, tab);
+            if (app.getTabCount() == 0) {
+                app.getTabList().clear();
+                app.getTabList().add(tab);
+            } else {
+                app.getTabList().add(position, tab);
+            }
             trimTabCount();
             // add the requested page to its backstack
             tab.getBackStack().add(new PageBackStackItem(title, entry));
