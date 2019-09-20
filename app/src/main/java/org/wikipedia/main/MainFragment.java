@@ -87,8 +87,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
-    @BindView(R.id.pulsing_circle1) ImageView pulsingCircle1;
-    @BindView(R.id.pulsing_circle2) ImageView pulsingCircle2;
+    @BindView(R.id.pulsing_circle_outer) ImageView pulsingOuter;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
@@ -132,10 +131,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
 
         Animation pulse = AnimationUtils.loadAnimation(requireContext(), R.anim.pulsing_circle);
-        Animation pulse2 = AnimationUtils.loadAnimation(requireContext(), R.anim.pulsing_circle);
 
-        pulsingCircle1.startAnimation(pulse);
-        pulsingCircle2.postDelayed(() -> pulsingCircle2.startAnimation(pulse2), 800);
+        pulsingOuter.startAnimation(pulse);
         return view;
     }
 
