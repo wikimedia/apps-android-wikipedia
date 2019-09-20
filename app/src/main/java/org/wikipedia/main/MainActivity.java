@@ -164,13 +164,16 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
             toolbar.setTitle("");
             controlNavTabInFragment = false;
-        } else if (tab.equals(NavTab.NEARBY)) { // TODO: replace with Suggested Edits tab
-            getFragment().hideNavTabOverlayLayout();
-            Prefs.shouldShowBookmarkToolTip(false);
         } else {
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
+            
+            if (tab.equals(NavTab.NEARBY)) { // TODO: replace with Suggested Edits tab
+                getFragment().hideNavTabOverlayLayout();
+                Prefs.shouldShowBookmarkToolTip(false);
+            }
+
             hamburgerAndWordmarkLayout.setVisibility(GONE);
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
