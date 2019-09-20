@@ -16,9 +16,9 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
-        image.setImageDrawable(task.imageDrawable)
-        title.text = task.title
-        description.text = task.description
+        taskImageDetailView.setTitle(task.title!!)
+        taskImageDetailView.setDescription(task.description!!)
+        taskImageDetailView.setImageDrawable(task.imageDrawable!!)
         addContainer.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)

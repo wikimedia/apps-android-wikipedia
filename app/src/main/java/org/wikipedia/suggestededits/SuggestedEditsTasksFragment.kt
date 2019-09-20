@@ -44,6 +44,27 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
+        contributionsStatsView.setTitle("99")
+        contributionsStatsView.setDescription("Contributions")
+        contributionsStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit_white_24dp)!!)
+        contributionsStatsView.setImageBackground(null)
+
+        editStreakStatsView.setTitle("99")
+        editStreakStatsView.setDescription("Edit streak")
+        editStreakStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_timer_black_24dp)!!)
+        editStreakStatsView.setImageBackground(null)
+
+        PageViewStatsView.setTitle("2984")
+        PageViewStatsView.setDescription("Pageviews")
+        PageViewStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_trending_up_black_24dp)!!)
+        PageViewStatsView.setImageBackground(null)
+
+
+        editQualityStatsView.setTitle("Excellent")
+        editQualityStatsView.setDescription("Edit quality")
+        editQualityStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_check_black_24dp)!!)
+        editQualityStatsView.setImageBackground(null)
+
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
@@ -139,7 +160,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp)
+        addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_line_weight_black_24dp)
         displayedTasks.add(addDescriptionsTask)
     }
 

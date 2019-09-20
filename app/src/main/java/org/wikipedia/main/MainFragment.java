@@ -60,6 +60,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -355,7 +356,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void requestUpdateToolbarElevation() {
         Fragment fragment = getCurrentFragment();
-        updateToolbarElevation(!(fragment instanceof FeedFragment) || ((FeedFragment) fragment).shouldElevateToolbar());
+        updateToolbarElevation(!(fragment instanceof FeedFragment || fragment instanceof SuggestedEditsTasksFragment) || (fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
     }
 
     @Override public void onLoading() {
