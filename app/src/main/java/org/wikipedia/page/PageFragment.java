@@ -532,6 +532,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         tabFunnel.logOpenInNew(app.getTabList().size());
+        
         if (shouldCreateNewTab() || title.isMainPage()) {
             // create a new tab
             Tab tab = new Tab();
