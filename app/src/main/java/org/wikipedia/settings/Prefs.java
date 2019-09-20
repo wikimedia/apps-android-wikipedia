@@ -843,5 +843,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
     }
 
+    public static boolean shouldShowSuggestedEditsTooltip() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, false);
+    }
+
+    public static void setShouldShowSuggestedEditsTooltip(boolean enabled) {
+        setBoolean(R.string.preference_key_show_suggested_edits_tooltip, enabled);
+    }
+
     private Prefs() { }
 }

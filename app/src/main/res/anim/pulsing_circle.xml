@@ -13,4 +13,10 @@
         android:repeatMode="reverse"
         android:fillAfter="true"
         android:repeatCount="infinite"/>
+    <alpha
+        android:duration="500"
+        android:fromAlpha="0.3"
+        android:toAlpha="1.0"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"/>
 </set>

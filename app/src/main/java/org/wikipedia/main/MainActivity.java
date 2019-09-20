@@ -164,8 +164,9 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
             toolbar.setTitle("");
             controlNavTabInFragment = false;
-        } else if (tab.equals(NavTab.NEARBY)) {
-            getFragment().hideNavTabOverlayLayout(); // TODO: replace with Suggested Edits tab
+        } else if (tab.equals(NavTab.NEARBY)) { // TODO: replace with Suggested Edits tab
+            getFragment().hideNavTabOverlayLayout();
+            Prefs.shouldShowBookmarkToolTip(false);
         } else {
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();

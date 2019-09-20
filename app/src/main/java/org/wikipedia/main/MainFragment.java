@@ -480,12 +480,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void setupPulsingIcon() {
-        // TODO: bind with new suggested edits unlocking logic
-        // TODO: show it after actually got the status of suggested edits unlocked?
-        if (AccountUtil.isLoggedIn() && (Prefs.isSuggestedEditsAddDescriptionsUnlocked() || Prefs.isSuggestedEditsAddCaptionsUnlocked())) {
+        if (AccountUtil.isLoggedIn() && Prefs.shouldShowBookmarkToolTip()) {
             tabOverlayLayout.pick(NavTab.NEARBY); // TODO: replace with Suggested Edits tab
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
-            snackbar.setAction(R.string.main_tooltip_action_button, view -> snackbar.dismiss());
+            snackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.NEARBY)); // TODO: replace with Suggested Edits tab
             snackbar.show();
         }
     }
