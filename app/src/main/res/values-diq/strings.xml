@@ -190,6 +190,7 @@
   <string name="alpha_update_notification_text">Qandé ronayışi dest pan</string>
   <string name="dialog_close_description">Kip ke</string>
   <string name="preference_title_show_images">Resıman bımocne</string>
+  <string name="read_more_section">Tayêna bıwane</string>
   <string name="gallery_menu_share">Vıla ke</string>
   <string name="snippet_share_intro">\"%1$s\" dı @Wikipedia: %2$s</string>
   <string name="menu_new_tab">Taba newi</string>
@@ -287,6 +288,7 @@
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>

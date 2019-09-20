@@ -10,6 +10,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -156,8 +157,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void maybeRunSurvey() {
+        final float extraLineSpacing = 5.0f;
         if (Prefs.shouldShowSuggestedEditsSurvey() && WikipediaApp.getInstance().isSurveyLive()) {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
+            TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
+            textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, extraLineSpacing, getResources().getDisplayMetrics()), 1.0f);
             TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
             actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
             actionView.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(R.dimen.margin));
