@@ -187,8 +187,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             refreshExploreFeed();
+            setupPulsingIcon();
             ((MainActivity) requireActivity()).setUpHomeMenuIcon();
-            FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            if (!Prefs.shouldShowSuggestedEditsTooltip()) {
+                FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.

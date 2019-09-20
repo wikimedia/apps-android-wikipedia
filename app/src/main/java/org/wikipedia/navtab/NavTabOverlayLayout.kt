@@ -14,6 +14,7 @@ class NavTabOverlayLayout @JvmOverloads constructor(context: Context, attrs: Att
     }
 
     fun pick(navTab: NavTab) {
+        removeAllViews()
         for (i in 0 until NavTab.size()) {
             var childView = View(context)
             if (NavTab.of(i) == navTab) {
@@ -24,6 +25,7 @@ class NavTabOverlayLayout @JvmOverloads constructor(context: Context, attrs: Att
             childView.layoutParams = LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f)
             addView(childView)
         }
+        visibility = VISIBLE
     }
 
     fun hide() {

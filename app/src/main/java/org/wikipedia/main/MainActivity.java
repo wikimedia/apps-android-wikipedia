@@ -286,6 +286,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                             Prefs.setReadingListSyncEnabled(false);
                             Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
                             Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
+                            getFragment().hideNavTabOverlayLayout();
                         }).show();
             } else {
                 getFragment().onLoginRequested();
