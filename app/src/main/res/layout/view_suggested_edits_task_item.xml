@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/taskInfoContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color"
@@ -61,6 +62,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/addContainer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
@@ -75,18 +77,19 @@
                 android:tint="?attr/colorAccent" />
 
             <TextView
-                android:id="@+id/add_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/suggested_edits_task_action_text_add"
                 android:textAllCaps="true"
                 android:textColor="?attr/colorAccent"
-                android:textStyle="bold" />
-
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/suggeted_edits_task_translate_layout"
+            android:id="@+id/translateContainer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
@@ -102,14 +105,15 @@
                 android:tint="?attr/colorAccent" />
 
             <TextView
-                android:id="@+id/suggeted_edits_translate_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/suggested_edits_task_action_text_translate"
                 android:textAllCaps="true"
                 android:textColor="?attr/colorAccent"
-                android:textStyle="bold" />
-
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

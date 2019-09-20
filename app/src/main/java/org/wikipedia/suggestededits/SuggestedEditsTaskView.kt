@@ -16,42 +16,22 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
-
         image.setImageDrawable(task.imageDrawable)
         title.text = task.title
         description.text = task.description
-
-/*
-        taskTitle.text = task.title
-        taskDescription.text = task.description
-        taskImage.visibility = if (task.showImagePlaceholder) View.VISIBLE else View.GONE
-        taskImage.setImageDrawable(task.imageDrawable)
-        taskInfoContainer.alpha = if (task.disabled) 0.56f else 1.0f
-        unlockMessageContainer.visibility = if (task.disabled) View.VISIBLE else View.GONE
-        unlockMessageText.text = task.unlockMessageText
-        unlockActionsContainer.visibility = if (task.disabled) View.GONE else View.VISIBLE
-        unlockActionPositiveButton.text = task.unlockActionPositiveButtonString
-        unlockActionNegativeButton.text = task.unlockActionNegativeButtonString
-        taskActionLayout.visibility = if (task.showActionLayout) View.VISIBLE else View.GONE
-
-        taskInfoContainer.setOnClickListener {
+        addContainer.setOnClickListener {
             if (!task.disabled) {
-                callback?.onViewClick(task)
+                callback?.onViewClick(task, false)
             }
         }
-
-        unlockActionPositiveButton.setOnClickListener {
-            callback?.onPositiveActionClick(task)
+        translateContainer.setOnClickListener {
+            if (!task.disabled) {
+                callback?.onViewClick(task, true)
+            }
         }
-
-        unlockActionNegativeButton.setOnClickListener {
-            callback?.onNegativeActionClick(task)
-        }*/
     }
 
     interface Callback {
-        fun onPositiveActionClick(task: SuggestedEditsTask)
-        fun onNegativeActionClick(task: SuggestedEditsTask)
-        fun onViewClick(task: SuggestedEditsTask)
+        fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean)
     }
 }

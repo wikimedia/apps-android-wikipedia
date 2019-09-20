@@ -13,17 +13,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
-import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.language.LanguageSettingsInvokeSource
-import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -34,10 +29,7 @@ import java.util.*
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
-    private lateinit var translateDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
-    private lateinit var translateImageCaptionsTask: SuggestedEditsTask
-    private lateinit var multilingualTeaserTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -54,20 +46,20 @@ class SuggestedEditsTasksFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener{ this.updateUI() }
+        swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
 
         tasksRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         val topDecorationDp = 16
         tasksRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, topDecorationDp))
+        setUpTasks()
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
-        encouragementMessage.text=getString(R.string.suggested_edits_encouragement_message,AccountUtil.getUserName())
+        encouragementMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
 
         //usernameText.text = AccountUtil.getUserName()
-       /* userContributionsButton.setOnClickListener {
-            startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
-        }*/
-        setUpTasks()
+        /* userContributionsButton.setOnClickListener {
+             startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
+         }*/
     }
 
     override fun onResume() {
@@ -82,10 +74,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
-        var drawable: Drawable = menu.findItem(R.id.menu_help).getIcon();
-        drawable = DrawableCompat.wrap(drawable);
-        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(context!!, R.attr.colorAccent));
-        menu.findItem(R.id.menu_help).setIcon(drawable);
+        var drawable: Drawable = menu.findItem(R.id.menu_help).icon
+        drawable = DrawableCompat.wrap(drawable)
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
+        menu.findItem(R.id.menu_help).icon = drawable
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -137,44 +129,27 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setUpTasks() {
-        addDescriptionsTask = SuggestedEditsTask()
-        addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
-        addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp)
-
+        displayedTasks.clear()
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_images)
+        displayedTasks.add(addImageCaptionsTask)
+
+        addDescriptionsTask = SuggestedEditsTask()
+        addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
+        addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
+        addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_short_text_white_24dp)
+        displayedTasks.add(addDescriptionsTask)
     }
 
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
-        override fun onPositiveActionClick(task: SuggestedEditsTask) {
-            if (task == multilingualTeaserTask) {
-                requireActivity().startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(),
-                        LanguageSettingsInvokeSource.DESCRIPTION_EDITING.text()), ACTIVITY_REQUEST_ADD_A_LANGUAGE)
-            }
-        }
-
-        override fun onNegativeActionClick(task: SuggestedEditsTask) {
-            if (task == multilingualTeaserTask) {
-                val multilingualTaskPosition = displayedTasks.indexOf(multilingualTeaserTask)
-                displayedTasks.remove(multilingualTeaserTask)
-                tasksRecyclerView.adapter!!.notifyItemChanged(multilingualTaskPosition)
-                Prefs.setShowSuggestedEditsMultilingualTeaserTask(false)
-            }
-        }
-
-        override fun onViewClick(task: SuggestedEditsTask) {
+        override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
             if (task == addDescriptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ADD_DESC))
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) SUGGESTED_EDITS_TRANSLATE_DESC else SUGGESTED_EDITS_ADD_DESC))
             } else if (task == addImageCaptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_ADD_CAPTION))
-            } else if (task == translateDescriptionsTask && WikipediaApp.getInstance().language().appLanguageCodes.size > 1) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_TRANSLATE_DESC))
-            } else if (task == translateImageCaptionsTask && WikipediaApp.getInstance().language().appLanguageCodes.size > 1) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), SUGGESTED_EDITS_TRANSLATE_CAPTION))
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) SUGGESTED_EDITS_TRANSLATE_CAPTION else SUGGESTED_EDITS_ADD_CAPTION))
             }
         }
     }
