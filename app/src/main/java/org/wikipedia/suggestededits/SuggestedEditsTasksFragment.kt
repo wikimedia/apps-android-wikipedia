@@ -67,7 +67,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.showCircularProgressBar(true)
         editQualityStatsView.setImageBackgroundTint(R.color.green70)
         editQualityStatsView.setImageParams(DimenUtil.roundedDpToPx(16.0f), DimenUtil.roundedDpToPx(16.0f))
-        editQualityStatsView.setImageTint(R.color.green30)
+        editQualityStatsView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.action_mode_green_background))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }

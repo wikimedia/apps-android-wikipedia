@@ -18,7 +18,7 @@
             android:layout_height="32dp"
             android:visibility="gone"
             app:progressBackgroundColor="@color/green70"
-            app:progressColor="@color/green30" />
+            app:progressColor="?attr/action_mode_green_background" />
 
         <LinearLayout
             android:id="@+id/imageBackground"
