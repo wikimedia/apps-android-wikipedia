@@ -551,6 +551,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             requireActivity().invalidateOptionsMenu();
         } else {
+            pageFragmentLoadState.setTab(getCurrentTab());
             getCurrentTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
     }
