@@ -501,7 +501,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void accept(Object event) {
             if (event instanceof LoginLogoutEvent || event instanceof LoggedOutInBackgroundEvent) {
-                tabLayout.clear();
                 tabLayout.setTabViews();
             }
         }

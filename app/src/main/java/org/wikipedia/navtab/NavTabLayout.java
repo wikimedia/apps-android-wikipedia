@@ -26,19 +26,14 @@ public class NavTabLayout extends BottomNavigationView {
     }
 
     public void setTabViews() {
+        getMenu().clear();
         for (int i = 0; i < NavTab.size(); i++) {
             NavTab navTab = NavTab.of(i);
-            if (AccountUtil.isLoggedIn()) {
-                getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
-            } else {
-                if (!(NavTab.SUGGESTED_EDITS == navTab)) {
-                    getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
-                }
+            if (!AccountUtil.isLoggedIn() && NavTab.SUGGESTED_EDITS == navTab) {
+                continue;
             }
+            getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
         }
     }
 
-    public void clear() {
-        getMenu().clear();
-    }
 }
