@@ -1,7 +1,9 @@
 package org.wikipedia.views;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
+import android.os.Build;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -135,18 +137,26 @@ public class ObservableWebView extends WebView {
     }
 
     public ObservableWebView(Context context) {
-        super(context);
+        super(getFixedContext(context));
         init();
     }
 
     public ObservableWebView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        super(getFixedContext(context), attrs);
         init();
     }
 
     public ObservableWebView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+        super(getFixedContext(context), attrs, defStyle);
         init();
+    }
+
+    private static Context getFixedContext(Context context) {
+        // TODO: remove when this is fixed:
+        // https://issuetracker.google.com/issues/141132133
+        // On Lollipop the current version of AndroidX causes a crash that can only be resolved
+        // by constructing the WebView with a clean Context with blank configuration.
+        return Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1 ? context : context.createConfigurationContext(new Configuration());
     }
 
     private void init() {
