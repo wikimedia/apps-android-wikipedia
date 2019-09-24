@@ -38,6 +38,7 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -65,10 +66,8 @@ import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
-import static org.wikipedia.Constants.VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
-import static org.wikipedia.settings.Prefs.setShouldShowSuggestedEditsSurvey;
 import static org.wikipedia.suggestededits.SuggestedEditsCardsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -108,11 +107,8 @@ public class DescriptionEditFragment extends Fragment {
                 NotificationPollBroadcastReceiver.pollEditorTaskCounts(WikipediaApp.getInstance());
             }
 
-            if (WikipediaApp.getInstance().isSurveyLive() && isSuggestedEdits()) {
-                Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1);
-                if (Prefs.getSuggestedEditsCountForSurvey() == 1 || (Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY && !Prefs.wasSuggestedEditsSurveyClicked())) {
-                    setShouldShowSuggestedEditsSurvey(true);
-                }
+            if (isSuggestedEdits()) {
+                SuggestedEditsSurvey.onEditSuccess();
             }
 
             Prefs.setLastDescriptionEditTime(new Date().getTime());
