@@ -19,6 +19,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -63,8 +64,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setTitle("Excellent")
         editQualityStatsView.setDescription("Edit quality")
         editQualityStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_check_black_24dp)!!)
-        editQualityStatsView.setImageBackground(null)
-
+        editQualityStatsView.showCircularProgressBar(true)
+        editQualityStatsView.setImageBackgroundTint(R.color.green70)
+        editQualityStatsView.setImageParams(DimenUtil.roundedDpToPx(16.0f), DimenUtil.roundedDpToPx(16.0f))
+        editQualityStatsView.setImageTint(R.color.green30)
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
