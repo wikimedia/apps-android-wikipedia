@@ -51,7 +51,7 @@
             android:gravity="center_vertical">
 
             <ImageView
-                android:id="@+id/suggeted_edits_translate_image"
+                android:id="@+id/suggetedEditsTranslateImage"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="32dp"
@@ -61,6 +61,7 @@
                 android:tint="?attr/colorAccent" />
 
             <TextView
+                android:id="@+id/suggetedEditsTranslateActionText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"

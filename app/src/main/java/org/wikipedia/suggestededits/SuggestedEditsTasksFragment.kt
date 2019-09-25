@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
@@ -13,12 +14,17 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
+import org.wikipedia.Constants
+import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.language.LanguageSettingsInvokeSource
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -45,7 +51,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
-        contributionsStatsView.setTitle("99")
         contributionsStatsView.setDescription("Contributions")
         contributionsStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit_white_24dp)!!)
         contributionsStatsView.setImageBackground(null)
@@ -65,7 +70,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setDescription("Edit quality")
         editQualityStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_check_black_24dp)!!)
         editQualityStatsView.showCircularProgressBar(true)
-        editQualityStatsView.setImageBackgroundTint(R.color.green70)
+        editQualityStatsView.setImageBackgroundTint(R.color.green90)
         editQualityStatsView.setImageParams(DimenUtil.roundedDpToPx(16.0f), DimenUtil.roundedDpToPx(16.0f))
         editQualityStatsView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.action_mode_green_background))
 
@@ -104,6 +109,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         menu.findItem(R.id.menu_help).icon = drawable
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
+            tasksRecyclerView.adapter!!.notifyDataSetChanged()
+        }
+
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_help -> {
@@ -120,17 +133,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun fetchUserContributions() {
-        //contributionsText.visibility = View.GONE
-        //progressBar.visibility = View.VISIBLE
-
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    //progressBar.visibility = View.GONE
-                    //contributionsText.visibility = View.VISIBLE
-                    swipeRefreshLayout.isRefreshing = false
-                }
                 .subscribe({ response ->
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     var totalEdits = 0
@@ -140,7 +145,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
                         totalEdits += count
                     }
-                    //contributionsText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_count, totalEdits, totalEdits)
+                    contributionsStatsView.setTitle(totalEdits.toString())
                 }, { throwable ->
                     L.e(throwable)
                     FeedbackUtil.showError(requireActivity(), throwable)
@@ -170,12 +175,21 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
+                showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
+                return
+            }
             if (task == addDescriptionsTask) {
                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) SUGGESTED_EDITS_TRANSLATE_DESC else SUGGESTED_EDITS_ADD_DESC))
             } else if (task == addImageCaptionsTask) {
                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) SUGGESTED_EDITS_TRANSLATE_CAPTION else SUGGESTED_EDITS_ADD_CAPTION))
             }
         }
+    }
+
+    private fun showLanguagesActivity(invokeSource: String) {
+        val intent = WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource)
+        startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE)
     }
 
     internal inner class RecyclerAdapter(tasks: List<SuggestedEditsTask>) : DefaultRecyclerAdapter<SuggestedEditsTask, SuggestedEditsTaskView>(tasks) {
