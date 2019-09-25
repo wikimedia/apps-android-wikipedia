@@ -34,6 +34,8 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
         taskImageDetailView.setTitle(task.title!!)
         taskImageDetailView.setDescription(task.description!!)
         taskImageDetailView.setImageDrawable(task.imageDrawable!!)
+        taskImageDetailView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.themed_icon_color))
+
         addContainer.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
