@@ -48,16 +48,13 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -69,7 +66,6 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
 
-import static java.util.Calendar.SEPTEMBER;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
@@ -462,14 +458,5 @@ public class WikipediaApp extends Application {
 
     public boolean isAnyActivityResumed() {
         return activityLifecycleHandler.isAnyActivityResumed();
-    }
-
-    public boolean isSurveyLive() {
-        final int year = 2019;
-        final int startDay = 19;
-        final int endDay = 27; //Ends Sept 27 0:0:0
-        Date surveyStartDate = DateUtil.getDateObjectFor(year, SEPTEMBER, startDay);
-        Date surveyEndDate = DateUtil.getDateObjectFor(year, SEPTEMBER, endDay);
-        return DateUtil.isGivenDateBetweenDates(Calendar.getInstance().getTime(), surveyStartDate, surveyEndDate);
     }
 }
