@@ -4,6 +4,9 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
@@ -33,6 +36,7 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.FooterMarginItemDecoration
 import java.util.*
+import kotlin.concurrent.schedule
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
@@ -42,6 +46,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
+    private val PADDING_16 = DimenUtil.roundedDpToPx(16.0f)
+    private val PADDING_4 = DimenUtil.dpToPx(4.0f)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -54,16 +60,20 @@ class SuggestedEditsTasksFragment : Fragment() {
         contributionsStatsView.setDescription("Contributions")
         contributionsStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit_white_24dp)!!)
         contributionsStatsView.setImageBackground(null)
+        contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
         editStreakStatsView.setTitle("99")
         editStreakStatsView.setDescription("Edit streak")
         editStreakStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_timer_black_24dp)!!)
         editStreakStatsView.setImageBackground(null)
+        editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
 
-        PageViewStatsView.setTitle("2984")
-        PageViewStatsView.setDescription("Pageviews")
-        PageViewStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_trending_up_black_24dp)!!)
-        PageViewStatsView.setImageBackground(null)
+
+        pageViewStatsView.setTitle("2984")
+        pageViewStatsView.setDescription("Pageviews")
+        pageViewStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_trending_up_black_24dp)!!)
+        pageViewStatsView.setImageBackground(null)
+        pageViewStatsView.setOnClickListener { onUserStatClicked(pageViewStatsView) }
 
 
         editQualityStatsView.setTitle("Excellent")
@@ -73,6 +83,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setImageBackgroundTint(R.color.green90)
         editQualityStatsView.setImageParams(DimenUtil.roundedDpToPx(16.0f), DimenUtil.roundedDpToPx(16.0f))
         editQualityStatsView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.action_mode_green_background))
+        editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
@@ -83,12 +94,74 @@ class SuggestedEditsTasksFragment : Fragment() {
         setUpTasks()
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
-        encouragementMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
+        textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
 
         //usernameText.text = AccountUtil.getUserName()
         /* userContributionsButton.setOnClickListener {
              startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
          }*/
+    }
+
+    private fun onUserStatClicked(view: View) {
+        when (view) {
+            contributionsStatsView -> showContributionsStatsViewTooltip()
+            editStreakStatsView -> showEditStreakStatsViewTooltip()
+            pageViewStatsView -> showPageViewStatsViewTooltip()
+            else -> showEditQualityStatsViewTooltip()
+        }
+    }
+
+    private fun showContributionsStatsViewTooltip() {
+        tooltipLayout.visibility = VISIBLE
+        val param = topTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        param.gravity = Gravity.START
+        topTooltipArrow.layoutParams = param
+        executeAfterTimer(true)
+    }
+
+    private fun executeAfterTimer(isTopTooltip: Boolean) {
+        Timer("TooltipTimer", false).schedule(5000) {
+            requireActivity().runOnUiThread(java.lang.Runnable {
+                if (isTopTooltip) {
+                    tooltipLayout.visibility = GONE
+                } else {
+                    bottomTooltipArrow.visibility = GONE
+                    textViewForMessage.background = null
+                    textViewForMessage.setPadding(0, 0, 0, 0)
+                    textViewForMessage.elevation = 0.0f
+                }
+            })
+        }
+    }
+
+    private fun showEditStreakStatsViewTooltip() {
+        tooltipLayout.visibility = VISIBLE
+        val param = topTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        param.gravity = Gravity.END
+        topTooltipArrow.layoutParams = param
+        executeAfterTimer(true)
+    }
+
+    private fun showPageViewStatsViewTooltip() {
+        bottomTooltipArrow.visibility = VISIBLE
+        val param = bottomTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        param.gravity = Gravity.START
+        bottomTooltipArrow.layoutParams = param
+        textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
+        textViewForMessage.elevation = PADDING_4
+        textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
+        executeAfterTimer(false)
+    }
+
+    private fun showEditQualityStatsViewTooltip() {
+        bottomTooltipArrow.visibility = VISIBLE
+        val param = bottomTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        param.gravity = Gravity.END
+        bottomTooltipArrow.layoutParams = param
+        textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
+        textViewForMessage.elevation = PADDING_4
+        textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
+        executeAfterTimer(false)
     }
 
     override fun onResume() {

@@ -9,7 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp">
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp">
 
         <org.wikipedia.views.ImageTitleDescriptionView
             android:id="@+id/contributionsStatsView"
@@ -28,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <org.wikipedia.views.ImageTitleDescriptionView
-            android:id="@+id/PageViewStatsView"
+            android:id="@+id/pageViewStatsView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -42,22 +43,61 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editStreakStatsView" />
+
+        <LinearLayout
+            android:id="@+id/tooltipLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contributionsStatsView">
+
+            <View
+                android:id="@+id/topTooltipArrow"
+                android:layout_width="30dp"
+                android:layout_height="15dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/arrow"
+                android:elevation="4dp" />
+
+            <TextView
+                android:id="@+id/tooltipTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/paper_color"
+                android:elevation="4dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/suggested_edits_encouragement_message"
+                android:textSize="14sp" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <View
+        android:id="@+id/bottomTooltipArrow"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:layout_gravity="end"
+        android:elevation="4dp"
+        android:visibility="gone"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/arrow" />
 
-        <TextView
-            android:id="@+id/encouragementMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:lineSpacingExtra="6sp"
-            android:padding="16dp"
-            android:text="@string/suggested_edits_encouragement_message"
-            android:textSize="14sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textViewForMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/suggested_edits_encouragement_message"
+        android:textSize="14sp" />
 
     <View
         android:layout_width="30dp"
