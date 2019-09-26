@@ -38,6 +38,7 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -105,6 +106,11 @@ public class DescriptionEditFragment extends Fragment {
                 // disabled polling of notifications, which is were the passive polling takes place.
                 NotificationPollBroadcastReceiver.pollEditorTaskCounts(WikipediaApp.getInstance());
             }
+
+            if (isSuggestedEdits()) {
+                SuggestedEditsSurvey.onEditSuccess();
+            }
+
             Prefs.setLastDescriptionEditTime(new Date().getTime());
             SuggestedEditsFunnel.get().success(invokeSource);
 
@@ -124,6 +130,12 @@ public class DescriptionEditFragment extends Fragment {
             }
         }
     };
+
+    private boolean isSuggestedEdits() {
+        return invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || invokeSource == SUGGESTED_EDITS_ADD_DESC || invokeSource == SUGGESTED_EDITS_ADD_CAPTION
+                || invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION;
+    }
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title,

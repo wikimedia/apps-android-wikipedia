@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 50292
+        versionCode 50296
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -133,6 +133,12 @@ android {
         unitTests {
             includeAndroidResources = true
             returnDefaultValues = true
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit false
         }
     }
 }

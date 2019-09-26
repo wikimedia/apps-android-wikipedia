@@ -721,6 +721,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Afegeix una descripció a l\'article</string>
+  <string name="suggested_edits_snackbar_survey_text">Com ha estat la vostra experiència editant-hi? Dediqueu un moment a omplir l\'enquesta d\'edició amb l\'aplicació.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Inicia l\'enquesta</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>

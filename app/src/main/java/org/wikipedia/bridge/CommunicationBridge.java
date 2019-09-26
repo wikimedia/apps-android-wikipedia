@@ -1,6 +1,7 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -51,7 +52,7 @@ public class CommunicationBridge {
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
-    public CommunicationBridge(final WebView webView) {
+    public CommunicationBridge(final WebView webView, Context activityContext) {
         this.webView = webView;
         this.marshaller = new BridgeMarshaller();
 
@@ -68,7 +69,7 @@ public class CommunicationBridge {
             }
         });
 
-        resetHtml("index.html", Service.WIKIPEDIA_URL, getThemedColor(webView.getContext(), R.attr.paper_color));
+        resetHtml("index.html", Service.WIKIPEDIA_URL, getThemedColor(activityContext, R.attr.paper_color));
     }
 
     public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl, @ColorInt int backgroundColor) {
