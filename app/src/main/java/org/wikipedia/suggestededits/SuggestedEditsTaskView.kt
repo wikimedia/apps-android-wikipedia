@@ -18,7 +18,7 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        taskImageDetailView.setImageParams(DimenUtil.roundedDpToPx(24.0f), DimenUtil.roundedDpToPx(24.0f))
+        taskImageDetailView.setImageParams(DimenUtil.roundedDpToPx(20.0f), DimenUtil.roundedDpToPx(20.0f))
         taskImageDetailView.setImageBackgroundParams(DimenUtil.roundedDpToPx(48.0f), DimenUtil.roundedDpToPx(48.0f))
     }
 

@@ -164,7 +164,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
         textViewForMessage.elevation = PADDING_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
-        textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip)
+        textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
         executeAfterTimer(false)
     }
 
@@ -248,7 +248,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_line_weight_black_24dp)
+        addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_article_description)
         displayedTasks.add(addDescriptionsTask)
     }
 

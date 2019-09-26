@@ -70,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/paper_color"
                 android:elevation="4dp"
+                android:padding="16dp"
                 android:fontFamily="sans-serif"
                 android:lineSpacingExtra="6sp"
                 android:text="@string/suggested_edits_encouragement_message"

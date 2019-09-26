@@ -754,12 +754,13 @@
     <string name="suggested_edits_task_action_text_add">Add</string>
     <string name="suggested_edits_task_action_text_translate">Translate</string>
     <string name="suggested_edits_image_captions">Image Captions</string>
-    <string name="suggested_edits_image_captions_task_detail">Concisely describe images and help search algorithms to prioritize text for search rankings</string>
-    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions are short phrases designed to disambiguate articles with the same or similar labels.</string>
-    <string name="suggested_edits_contributions_stat_tooltip">Your total amount of contributions with Suggested edits</string>
-    <string name="suggested_edits_edit_streak_stat_tooltip">Record in subsequent days of contributing with Suggested edits.</string>
-    <string name="suggested_edits_page_views_stat_tooltip">Pageviews of items you contributed to in the last 30 days with Suggested edits</string>
-    <string name="suggested_edits_edit_quality_stat_tooltip">Bases on the amount of reverts. Your amount of reverted edits: 1</string>
+    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia</string>
+    <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context</string>
+    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions summarize an article to help readers understand the subject at a glance</string>
+    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits</string>
+    <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed using Suggested edits</string>
+    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits</string>
+    <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted. Your reverted edits: %d</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
@@ -876,5 +877,4 @@
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>
     <string name="custom_date_picker_dialog_cancel_button_text">Cancel</string>
-    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you\'ll find more opportunities to contribute to Wikipedia.</string>
 </resources>
