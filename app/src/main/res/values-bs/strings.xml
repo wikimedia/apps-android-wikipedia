@@ -75,14 +75,19 @@
   <string name="nav_item_login">Prijavi me na Wikipediju</string>
   <string name="login_username_hint">Korisničko ime</string>
   <string name="login_password_hint">Lozinka</string>
+  <string name="account_creation_password_hint">Lozinka</string>
   <string name="login_2fa_hint">Kôd za potvrdu u 2 koraka</string>
   <string name="login_2fa_other_workflow_error_msg">Zahtijeva se potvrda u 2 koraka! Vratite se na glavnu radnju i prijavite se sa žetonom za potvrdu u 2 koraka te pokušajte ponovo.</string>
+  <string name="onboarding_card_login">Prijavi me</string>
+  <string name="reading_lists_sync_login">Prijavi me</string>
   <string name="menu_login">Prijavi me</string>
   <string name="login_activity_title">Prijava na Wikipediju</string>
   <string name="login_in_progress_dialog_message">Prijavljujem Vas...</string>
   <string name="login_success_toast">Uspješno ste prijavljeni!</string>
   <string name="preference_title_logout">Odjavi me</string>
   <string name="toast_logout_complete">Odjavljeni ste</string>
+  <string name="logout_dialog_cancel_button_text">Otkaži</string>
+  <string name="logged_out_in_background_cancel">Otkaži</string>
   <string name="history_empty_title">Nema nedavno posjećenih članaka</string>
   <string name="history_empty_message">Ovdje pratite sve što ste čitali.</string>
   <string name="search_empty_message">Pretražujte i čitajte slobodnu enciklopediju na svom jeziku</string>
@@ -343,6 +348,10 @@
     <item quantity="one">Članak više neće biti dostupan van mreže.</item>
     <item quantity="other">Članci više neće biti dostupni van mreže.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">U redu</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Otkaži</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Otkaži</string>
+  <string name="reading_list_split_dialog_ok_button_text">U redu</string>
   <string name="user_option_sync_label">Postavke</string>
   <string name="notification_reverted_title">Vraćena izmjena</string>
   <string name="notification_channel_description">Napredak preuzimanja</string>
@@ -395,7 +404,10 @@
   <string name="feed_item_type_main_page">Početna stranica Wikipedije s dnevnim istaknutim sadržajem</string>
   <string name="feed_item_type_randomizer">Daje nasumične stranice za čitanje</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">U redu</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Otkaži</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prilagodite stranicu \"Istraži\"&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Možete izabrati šta će se prikazati na stranici i dati prednost Vašim omiljenim vrstama sadržaja.</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Otkaži</string>
   <string name="description_edit_text_hint" fuzzy="true">Napišite opis!</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_add_description" fuzzy="true">Dodaj opis naslova</string>
@@ -418,11 +430,15 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno da bude 1 red, od 2 do 12 riječi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Počni uređivati</string>
   <string name="description_edit_tutorial_promise">Počevši obećavam da neću zloupotrijebiti ovu mogućnost.</string>
+  <string name="suggested_edits_unlock_notification_text">Predložene izmjene</string>
+  <string name="suggested_edits_tasks_activity_title">Predložene izmjene</string>
+  <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
   <string name="description_edit_revert_subtitle">Hvala Vam na uređivanju Wikipedije!</string>
   <string name="description_edit_revert_intro">Znamo da ste dali sve od sebe, ali je jedan od pregledavača procijenio da Vašu izmjenu ne možemo prihvatiti. Evo nekoliko mogućih razloga zašto je Vaša izmjena vraćena:</string>
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Vaš doprinos djelovao je kao eksperiment ili vandalizam.</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Otkaži</string>
   <string name="onboarding_skip">Preskoči</string>
   <string name="onboarding_continue">Nastavi</string>
   <string name="onboarding_get_started">Započnite</string>
@@ -437,6 +453,9 @@
   <string name="onboarding_create_account_contributions">Pratite doprinose</string>
   <string name="onboarding_create_account_preferences">Sačuvajte postavke</string>
   <string name="onboarding_got_it">Razumijem</string>
+  <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće jezike na Vašem uređaju:</string>
+  <string name="onboarding_multilingual_add_language_text">Dodaj ili izmijeni jezike</string>
+  <string name="onboarding_welcome_title_v2">Slobodna enciklopedija\n...na preko 300 jezika</string>
   <string name="app_shortcuts_random">Nasumična</string>
   <string name="app_shortcuts_continue_reading">Nastavite čitati</string>
   <string name="app_shortcuts_search">Pretraži</string>
@@ -458,8 +477,18 @@
   <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
   <string name="wikipedia_languages_remove_text">Ukloni jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ukloni jezik</string>
-  <string name="wikipedia_languages_remove_dialog_title" fuzzy="true">Da uklonim izabrani/-e jezik(e)?</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Da uklonim izabrani jezik?</item>
+    <item quantity="other">Da uklonim izabrane jezike?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Sadržaj na stranici \"Istraži\" i filteri za brzu pretragu bit će prikazani samo na preostalim jezicima Wikipedije.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Ne mogu ukloniti sve jezike</string>
+  <string name="remove_language_dialog_cancel_button_text">Otkaži</string>
   <string name="remove_language_dialog_ok_button_text">U redu</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">U redu</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">U redu</string>
+  <string name="reverted_edit_dialog_ok_button_text">U redu</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Otkaži</string>
+  <string name="custom_date_picker_dialog_ok_button_text">U redu</string>
+  <string name="text_input_dialog_cancel_button_text">Otkaži</string>
 </resources>

@@ -15,6 +15,7 @@
 * Matěj Suchánek
 * Mimichal007
 * Mormegil
+* MrJaroslavik
 * Patriccck
 * Tereza
 * Vojtěch Dostál
@@ -35,7 +36,7 @@
   <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
-  <string name="page_error_retry">Zkusit znovu</string>
+  <string name="page_error_retry">Znovu</string>
   <string name="card_offline_error_retry">Znovu</string>
   <string name="storage_access_error_retry">Znovu</string>
   <string name="article_load_error_retry">Znovu</string>
