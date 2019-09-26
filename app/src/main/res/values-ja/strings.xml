@@ -725,7 +725,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
   <string name="suggested_edits_image_preview_dialog_more_info">詳細情報</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
-  <string name="suggested_edits_article_cta_image_caption">画像キャプションを追加 (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
   <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>
   <string name="suggested_edits_feed_card_translate_image_caption">キャプションを追加 (%s)</string>

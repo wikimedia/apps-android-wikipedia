@@ -719,7 +719,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Ліцензування</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Більше інформації</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Сторінка файлу на Вікісховищі</string>
-  <string name="suggested_edits_article_cta_image_caption">Додати опис зображення (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Додати опис зображення (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додати опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додати опис (%s)</string>

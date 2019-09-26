@@ -697,7 +697,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Permesilo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Pli da Informo</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Paĝo de dosiero ĉe Vikimedia Komunejo</string>
-  <string name="suggested_edits_article_cta_image_caption">Aldoni titolon al bildo (je %s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Aldoni titolon al bildo (je %s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aldoni titolon</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aldoni titolon (je %s)</string>

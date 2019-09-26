@@ -697,7 +697,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencovanie</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Viac informácií</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka súboru na Wikipédia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Pridať titulok obrázku v jazyku %s</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Pridať titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobraziť</string>
   <string name="suggested_edits_feed_card_add_image_caption">Pridať titulok obrázku</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Pridať titulok v jazyku %s</string>

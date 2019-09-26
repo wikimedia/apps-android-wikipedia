@@ -549,7 +549,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj opis slike (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj opis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis (%s)</string>

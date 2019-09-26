@@ -724,7 +724,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">授权协议</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多信息</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在维基共享资源上的文件页面</string>
-  <string name="suggested_edits_article_cta_image_caption">添加图片说明（%s）</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">添加图片说明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">查看</string>
   <string name="suggested_edits_feed_card_add_image_caption">添加说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加说明（%s）</string>

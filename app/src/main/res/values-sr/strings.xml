@@ -692,7 +692,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Више информација</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница слике на Викимедијиној остави</string>
-  <string name="suggested_edits_article_cta_image_caption">Додај натпис слике (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Додај натпис слике (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Прикажи</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додај натпис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај натпис (%s)</string>
