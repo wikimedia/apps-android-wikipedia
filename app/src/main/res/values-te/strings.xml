@@ -159,7 +159,7 @@
   <string name="button_clear_all_recent_searches">ఇటీవలి వెతుకులాటలను తుడిచివేయి</string>
   <string name="clear_recent_searches_confirm">మీ వెతుకులాట చరిత్రను ఖచ్ఛితంగా తుడిచివేయాలనుకుంటున్నారా?</string>
   <string name="clear_recent_searches_confirm_yes">అవును</string>
-  <string name="clear_recent_searches_confirm_no">కాదు</string>
+  <string name="clear_recent_searches_confirm_no">వద్దు</string>
   <string name="error_browser_not_found">జాల పుటను తెరవలేకున్నాము (విహారకం యాప్ కనపడలేదు).</string>
   <string name="table_infobox">త్వరిత వాస్తవాలు</string>
   <string name="table_other">మరింత సమాచారం</string>

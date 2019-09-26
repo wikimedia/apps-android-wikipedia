@@ -294,6 +294,7 @@
   <string name="gallery_fair_use_license">Fair use -lisenssi</string>
   <string name="gallery_uploader_unknown">Tuntematon tallentaja</string>
   <string name="gallery_not_available_offline_snackbar">Gallerianäkymä ei saatavana offline-tilassa.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Piilota</string>
   <string name="menu_new_tab">Uusi välilehti</string>
   <string name="menu_close_all_tabs">Sulje kaikki välilehdet</string>
   <string name="close_all_tabs_confirm">Haluatko varmasti sulkea kaikki välilehdet?</string>
@@ -545,6 +546,7 @@
   <string name="preference_title_notification_revert">Palauttaminen</string>
   <string name="preference_summary_notification_revert">Yksi muokkauksistasi kumottiin</string>
   <string name="preference_title_notification_login_fail">Kirjaudu</string>
+  <string name="preference_title_notification_mention">Maininnat</string>
   <string name="preference_summary_notification_mention">Joku mainitsi sinut sivulla</string>
   <string name="preference_title_notification_user_talk">Keskustelusivu</string>
   <string name="preference_summary_notification_user_talk">Viestit keskustelusivuilta</string>
