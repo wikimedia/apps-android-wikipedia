@@ -117,6 +117,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.START
         topTooltipArrow.layoutParams = param
         executeAfterTimer(true)
+        tooltipTextView.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
     }
 
     private fun executeAfterTimer(isTopTooltip: Boolean) {
@@ -140,6 +141,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.END
         topTooltipArrow.layoutParams = param
         executeAfterTimer(true)
+        tooltipTextView.text = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
     }
 
     private fun showPageViewStatsViewTooltip() {
@@ -150,6 +152,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
         textViewForMessage.elevation = PADDING_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
+        textViewForMessage.text = getString(R.string.suggested_edits_page_views_stat_tooltip)
         executeAfterTimer(false)
     }
 
@@ -161,6 +164,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
         textViewForMessage.elevation = PADDING_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
+        textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip)
         executeAfterTimer(false)
     }
 
@@ -209,6 +213,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    swipeRefreshLayout.isRefreshing = false
+                }
                 .subscribe({ response ->
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     var totalEdits = 0

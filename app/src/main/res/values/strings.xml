@@ -756,6 +756,10 @@
     <string name="suggested_edits_image_captions">Image Captions</string>
     <string name="suggested_edits_image_captions_task_detail">Concisely describe images and help search algorithms to prioritize text for search rankings</string>
     <string name="suggested_edits_add_descriptions_task_detail">Article descriptions are short phrases designed to disambiguate articles with the same or similar labels.</string>
+    <string name="suggested_edits_contributions_stat_tooltip">Your total amount of contributions with Suggested edits</string>
+    <string name="suggested_edits_edit_streak_stat_tooltip">Record in subsequent days of contributing with Suggested edits.</string>
+    <string name="suggested_edits_page_views_stat_tooltip">Pageviews of items you contributed to in the last 30 days with Suggested edits</string>
+    <string name="suggested_edits_edit_quality_stat_tooltip">Bases on the amount of reverts. Your amount of reverted edits: 1</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

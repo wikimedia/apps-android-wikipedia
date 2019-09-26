@@ -826,4 +826,8 @@
   <string name="suggested_edits_image_captions">Suggested Edits image captions task title</string>
   <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Tool tip text explaining the edit quality statistics to the user</string>
 </resources>
