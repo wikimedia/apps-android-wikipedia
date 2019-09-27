@@ -16,23 +16,11 @@
         app:srcCompat="@drawable/ic_suggested_edits_disabled" />
 
     <TextView
-        android:id="@+id/infoTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="8sp"
-        android:text="Suggested edits is paused until October 8, 2019. Sorry Sharvaniharan, some of your recent contributions have been reverted. "
-        android:textColor="#de000000"
-        android:textSize="16sp" />
-
-    <TextView
         android:id="@+id/messageTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
-        android:text="Learn how to improve your edit skills on Wikipedia with the links below. "
         android:textColor="#de000000"
         android:textSize="16sp" />
 
@@ -54,7 +42,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="0sp"
-            android:text="Editing tips and tricks"
+            android:text="@string/suggested_edits_editing_tips_link_text"
             android:textColor="#3366cc"
             android:textSize="14sp"
             android:textStyle="normal" />
@@ -84,7 +72,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="0sp"
-            android:text="Suggested edits help page"
+            android:text="@string/suggested_edits_help_page_link_text"
             android:textColor="?attr/colorAccent"
             android:textSize="14sp"
             android:textStyle="normal" />
@@ -102,5 +90,10 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/chip_background_color"/>
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset" />
 
 </LinearLayout>

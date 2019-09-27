@@ -761,6 +761,11 @@
     <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed using Suggested edits</string>
     <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted. Your reverted edits: %d</string>
+    <string name="suggested_edits_paused_message"><![CDATA[<b>Suggested edits is paused until October 8, 2019.</b> Sorry %s, some of your recent contributions have been reverted.\n\n Learn how to improve your edit skills on Wikipedia with the links below.]]></string>
+    <string name="suggested_edits_disabled_message"><![CDATA[<b>Suggested edits is disabled.</b> Sorry %s, too many of your recent contributions have been reverted.\n\n Learn how to improve your edit skills on Wikipedia with the links below.]]></string>
+    <string name="suggested_edits_ip_blocked_message">The IP you are using is blocked from editing Wikipedia. Learn more about blocks by visiting the link below.</string>
+    <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
+    <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

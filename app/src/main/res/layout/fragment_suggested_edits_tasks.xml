@@ -117,12 +117,40 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tasksRecyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/paper_color" />
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tasksRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/paper_color" />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"> <Button
+                android:id="@+id/paused"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paused" />
+
+            <Button
+                android:id="@+id/disabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disabled" />
+
+            <Button
+                android:id="@+id/ipBlocked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ipBlocked" />
+           </LinearLayout>
+
+        </LinearLayout>
+
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

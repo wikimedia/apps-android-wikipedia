@@ -7,6 +7,8 @@ import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.LinearLayout
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
@@ -57,6 +59,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
+        dummyButtons()
         contributionsStatsView.setDescription("Contributions")
         contributionsStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit_white_24dp)!!)
         contributionsStatsView.setImageBackground(null)
@@ -120,21 +123,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         tooltipTextView.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
     }
 
-    private fun executeAfterTimer(isTopTooltip: Boolean) {
-        Timer("TooltipTimer", false).schedule(5000) {
-            requireActivity().runOnUiThread(java.lang.Runnable {
-                if (isTopTooltip) {
-                    tooltipLayout.visibility = GONE
-                } else {
-                    bottomTooltipArrow.visibility = GONE
-                    textViewForMessage.background = null
-                    textViewForMessage.setPadding(0, 0, 0, 0)
-                    textViewForMessage.elevation = 0.0f
-                }
-            })
-        }
-    }
-
     private fun showEditStreakStatsViewTooltip() {
         tooltipLayout.visibility = VISIBLE
         val param = topTooltipArrow.layoutParams as LinearLayout.LayoutParams
@@ -166,6 +154,21 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
         textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
         executeAfterTimer(false)
+    }
+
+    private fun executeAfterTimer(isTopTooltip: Boolean) {
+        Timer("TooltipTimer", false).schedule(5000) {
+            requireActivity().runOnUiThread(java.lang.Runnable {
+                if (isTopTooltip) {
+                    tooltipLayout.visibility = GONE
+                } else {
+                    bottomTooltipArrow.visibility = GONE
+                    textViewForMessage.background = null
+                    textViewForMessage.setPadding(0, 0, 0, 0)
+                    textViewForMessage.elevation = 0.0f
+                }
+            })
+        }
     }
 
     override fun onResume() {
@@ -215,6 +218,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     swipeRefreshLayout.isRefreshing = false
+                    checkForDisabledStatus(100)
                 }
                 .subscribe({ response ->
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
@@ -235,6 +239,35 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun updateUI() {
         requireActivity().invalidateOptionsMenu()
         fetchUserContributions()
+    }
+
+    private fun checkForDisabledStatus(editQuality: Int) {
+        when (editQuality) {
+            in 0..10 -> showDisabledView(R.drawable.ic_suggested_edits_paused, R.string.suggested_edits_paused_message)
+            in 11..50 -> showDisabledView(R.drawable.ic_suggested_edits_disabled, R.string.suggested_edits_disabled_message)
+            -1 -> showDisabledView(-1, R.string.suggested_edits_paused_message)
+            else -> disabledStatesView.visibility = GONE
+        }
+
+    }
+
+    private fun showDisabledView(@DrawableRes drawableRes: Int, @StringRes stringRes: Int) {
+        if (drawableRes == -1) {
+            disabledStatesView.hideImage()
+            disabledStatesView.hideHelpLink()
+        } else {
+            disabledStatesView.unhideImage()
+            disabledStatesView.unhideHelpLink()
+            disabledStatesView.setImage(drawableRes)
+        }
+        disabledStatesView.visibility = VISIBLE
+        disabledStatesView.setMessageText(stringRes)
+    }
+
+    fun dummyButtons() {
+        paused.setOnClickListener { checkForDisabledStatus(8) }
+        disabled.setOnClickListener { checkForDisabledStatus(45) }
+        ipBlocked.setOnClickListener { checkForDisabledStatus(-1) }
     }
 
     private fun setUpTasks() {
