@@ -175,7 +175,7 @@
   <string name="preference_title_download_reading_list_articles">บันทึกรายการอ่าน</string>
   <string name="preference_summary_sync_reading_lists">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชีของคุณ</string>
   <string name="preference_summary_sync_reading_lists_from_account">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชี \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">ลบการบันทึกจาก\"s\"ได้หรือไม่</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">ลบการดึงข้อมูลรายชื่อบทความจาก"%s"หรือไม่</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
