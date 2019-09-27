@@ -724,6 +724,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
+  <string name="suggested_edits_snackbar_survey_text">Como foi a sua experiência de edição? Dedique um momento a preencher o inquérito sobre edição com a aplicação, por favor.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Participar no inquérito</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
