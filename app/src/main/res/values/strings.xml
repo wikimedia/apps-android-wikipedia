@@ -277,6 +277,7 @@
     <string name="gallery_save_success">File saved successfully.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
+    <string name="gallery_add_image_caption_button">Add image caption</string>
     <string name="gallery_add_image_caption_in_language_button">Add image caption (%s)</string>
     <string name="err_cannot_save_file">Cannot save file</string>
     <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>

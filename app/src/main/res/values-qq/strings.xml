@@ -290,6 +290,7 @@
   <string name="gallery_save_success">Message shown when the current media item is downloaded successfully.</string>
   <string name="gallery_error_video_failed">Error message displayed when a video fails to be played on the device.</string>
   <string name="gallery_save_image_write_permission_rationale">Message shown to explain that an extra write permission is needed to save an image.</string>
+  <string name="gallery_add_image_caption_button">A label text of adding caption to the image.</string>
   <string name="gallery_add_image_caption_in_language_button">A label text of adding caption to the image. The %s is replaced by the language that the caption was used.</string>
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>
   <string name="snippet_share_intro">Intro text included as part of the shared text snippet, aka Tweet-a-fact. Please do not translate the \"@Wikipedia\" in the message and preserve the spaces around it, as it refers specifically to Wikipedia\'s Twitter account. This message has two parameters. Please keep the parameters exactly as in the original English message.\n* %1$s is the title of the page the text snippet is from.\n* %2$s is an HTML link to the page.</string>
