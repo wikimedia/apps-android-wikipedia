@@ -23,6 +23,7 @@
   <string name="page_tabs_back">ยัอนกลับ</string>
   <string name="nav_item_forward">ถัดไป</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
+  <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_history">ค้นหาประวัติ</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="search_hint_search_my_lists_and_articles">ค้นหารายชื่อและบทความที่บันทึกใว้</string>
@@ -168,10 +169,13 @@
   <string name="send_feedback">ส่งคำติชมแอป</string>
   <string name="create_account_account_created_toast">สร้างบัญชีแล้ว!</string>
   <string name="preferences_heading_syncing">กำลังรับข้อมูล</string>
+  <string name="preferences_heading_data_usage">การใช้ข้อมูลมือถือ</string>
   <string name="preferences_heading_experimental">ประสบการณ์</string>
   <string name="preference_title_sync_reading_lists_from_account">กำลังรับรายการอ่านล่าสุด</string>
   <string name="preference_title_download_reading_list_articles">บันทึกรายการอ่าน</string>
   <string name="preference_summary_sync_reading_lists">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชีของคุณ</string>
+  <string name="preference_summary_sync_reading_lists_from_account">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชี \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">ลบการดึงข้อมูลรายชื่อบทความจาก"%s"หรือไม่</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
@@ -187,13 +191,22 @@
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
+  <string name="about_wikipedia_url">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
+  <string name="about_contributors_heading">ผู้ม่ส่วนร่วม</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
   <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
+  <string name="edit_abandon_confirm_yes">ใช่</string>
+  <string name="edit_abandon_confirm_no">ไม่</string>
   <string name="user_blocked_from_editing_title">ถูกบล็อก</string>
+  <string name="user_logged_in_blocked_from_editing">บัญชีของคุณถูกระงับไม่ให้แก้ไขหน้าบนวิกิภาษานี้</string>
+  <string name="user_anon_blocked_from_editing">ไอพี(IP)ของคุณถูกระงับไม่ให้แก้ไขหน้าบนวิกิภาษาน</string>
+  <string name="edit_how_page_improved">คุณปรับปรุงบทความนี้อย่างไร?</string>
   <string name="edit_next">ถัดไป</string>
-  <string name="edit_done" fuzzy="true">บันทึก</string>
+  <string name="edit_done">เผยแพร่</string>
   <string name="edit_preview">แสดงตัวอย่าง</string>
   <string name="edit_undo">เลิกทำ</string>
   <string name="edit_redo">ทำซ้ำ</string>
@@ -203,10 +216,14 @@
   <string name="edit_summary_tag_grammar">แก้ไขไวยากรณ์</string>
   <string name="edit_summary_tag_links">เพิ่มลิงก์</string>
   <string name="edit_summary_tag_other">อื่น ๆ</string>
+  <string name="edit_summary_tag_other_hint">วิธีการอื่นที่คุณปรับปรุงบทความนี้</string>
+  <string name="edit_conflict_title">แก้ไขชนกัน</string>
+  <string name="edit_conflict_message">หน้านี้ได้ถูกแก้ไขโดยผู้ใช้คนอื่นไปแล้ว และเมื่อคุณแก้ไขจึงมีการชนกันเกิดขึ้น คุณสามารถแก้ปัญหาเบื้องต้นโดยการคัดลอกการแก้ไขของคุณ และลองโหลดหน้านี้ใหม่ แล้วแก้ไขอีกครั้ง</string>
   <string name="find_next">ค้นหาถัดไป</string>
   <string name="find_previous">ค้นหาก่อนหน้า</string>
   <string name="text_size_select">ขนาดอักษร</string>
   <string name="page_similar_titles">หน้าที่คล้ายกัน</string>
+  <string name="search_did_you_mean">หรือคุณหมายถึง \"%s\"</string>
   <string name="error_browser_not_found">ไม่สามารถเปิดหน้าเว็บได้ (ไม่พบแอปเบราว์เซอร์)</string>
   <string name="table_close">ปิด</string>
   <string name="dialog_close_description">ปิด</string>
