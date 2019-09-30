@@ -6,9 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -199,19 +197,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             handleIntent(getIntent());
         }
     }
-
-    @Override
-    public void applyOverrideConfiguration(Configuration configuration) {
-        // TODO: remove when this is fixed:
-        // https://issuetracker.google.com/issues/141132133
-        // On Lollipop the current version of AndroidX causes a crash when instantiating a WebView.
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
-                && getResources().getConfiguration().uiMode == WikipediaApp.getInstance().getResources().getConfiguration().uiMode) {
-            return;
-        }
-        super.applyOverrideConfiguration(configuration);
-    }
-
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
