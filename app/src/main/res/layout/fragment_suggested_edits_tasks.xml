@@ -15,7 +15,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp">
 
         <org.wikipedia.views.ImageTitleDescriptionView
@@ -29,6 +28,7 @@
             android:id="@+id/editStreakStatsView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="@+id/editQualityStatsView"
@@ -46,6 +46,7 @@
             android:id="@+id/editQualityStatsView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editStreakStatsView" />
@@ -82,6 +83,15 @@
                 android:text="@string/suggested_edits_encouragement_message"
                 android:textSize="14sp" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/onboardingImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_onboarding" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -117,6 +127,7 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -127,25 +138,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/paper_color" />
+
            <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"> <Button
-                android:id="@+id/paused"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Paused" />
+               android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/disabled"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Disabled" />
+               <Button
+                   android:id="@+id/paused"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Paused" />
 
-            <Button
-                android:id="@+id/ipBlocked"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ipBlocked" />
+               <Button
+                   android:id="@+id/disabled"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Disabled" />
+
+               <Button
+                   android:id="@+id/ipBlocked"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="ipBlocked" />
            </LinearLayout>
 
         </LinearLayout>

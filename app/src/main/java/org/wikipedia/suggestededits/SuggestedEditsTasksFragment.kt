@@ -96,13 +96,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, topDecorationDp))
         setUpTasks()
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
-
-        textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
-
-        //usernameText.text = AccountUtil.getUserName()
-        /* userContributionsButton.setOnClickListener {
-             startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
-         }*/
     }
 
     private fun onUserStatClicked(view: View) {
@@ -229,7 +222,23 @@ class SuggestedEditsTasksFragment : Fragment() {
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
                         totalEdits += count
                     }
-                    contributionsStatsView.setTitle(totalEdits.toString())
+                    if (totalEdits == 1) {
+                        contributionsStatsView.visibility = GONE
+                        editQualityStatsView.visibility = GONE
+                        editStreakStatsView.visibility = GONE
+                        pageViewStatsView.visibility = GONE
+                        onboardingImageView.visibility = VISIBLE
+                        textViewForMessage.text = getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName())
+                    } else {
+                        contributionsStatsView.visibility = VISIBLE
+                        editQualityStatsView.visibility = VISIBLE
+                        editStreakStatsView.visibility = VISIBLE
+                        pageViewStatsView.visibility = VISIBLE
+                        onboardingImageView.visibility = GONE
+                        contributionsStatsView.setTitle(totalEdits.toString())
+                        textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
+                    }
+
                 }, { throwable ->
                     L.e(throwable)
                     FeedbackUtil.showError(requireActivity(), throwable)
