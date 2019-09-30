@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/suggested_edits_stats_bottom_margin">
 
         <org.wikipedia.views.ImageTitleDescriptionView
             android:id="@+id/contributionsStatsView"
@@ -28,7 +28,7 @@
             android:id="@+id/editStreakStatsView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/suggested_edits_image_title_view_end_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="@+id/editQualityStatsView"
@@ -46,7 +46,7 @@
             android:id="@+id/editQualityStatsView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/suggested_edits_image_title_view_end_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editStreakStatsView" />
@@ -107,14 +107,15 @@
 
     <TextView
         android:id="@+id/textViewForMessage"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif"
         android:lineSpacingExtra="6sp"
+        android:textAlignment="center"
         android:text="@string/suggested_edits_encouragement_message"
-        android:textSize="14sp" />
+        android:textSize="@dimen/suggested_edits_message_textview_text_size" />
 
     <View
         android:layout_width="30dp"

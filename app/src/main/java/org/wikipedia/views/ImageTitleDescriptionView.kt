@@ -25,6 +25,10 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
         title.text = titleText
     }
 
+    fun setCaseForTitle(isAllCaps: Boolean) {
+        title.isAllCaps = isAllCaps
+    }
+
     fun setDescription(descriptionText: String) {
         description.text = descriptionText
     }

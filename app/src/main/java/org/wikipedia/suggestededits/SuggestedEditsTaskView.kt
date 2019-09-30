@@ -20,6 +20,7 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         taskImageDetailView.setImageParams(DimenUtil.roundedDpToPx(20.0f), DimenUtil.roundedDpToPx(20.0f))
         taskImageDetailView.setImageBackgroundParams(DimenUtil.roundedDpToPx(48.0f), DimenUtil.roundedDpToPx(48.0f))
+        taskImageDetailView.setCaseForTitle(true)
     }
 
     fun updateTranslateActionUI() {
