@@ -23,6 +23,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -404,7 +405,13 @@ public class EditSectionActivity extends BaseActivity {
             return;
         }
 
-        if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
+        if (StringUtils.defaultString(code).contains("abusefilter")) {
+            abusefilterEditResult = new EditAbuseFilterResult(code, caught.getMessage(), caught.getMessage());
+            handleAbuseFilter();
+            if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
+                editPreviewFragment.hide();
+            }
+        } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
             // If they not anon, this means they were blocked in the interim between opening the edit
