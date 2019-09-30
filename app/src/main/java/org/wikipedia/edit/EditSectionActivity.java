@@ -89,6 +89,7 @@ public class EditSectionActivity extends BaseActivity {
     @BindView(R.id.edit_section_abusefilter_image) ImageView abuseFilterImage;
     @BindView(R.id.edit_section_abusefilter_title) TextView abusefilterTitle;
     @BindView(R.id.edit_section_abusefilter_text) TextView abusefilterText;
+    @BindView(R.id.edit_section_captcha_container) View captchaContainer;
 
     private CsrfTokenClient csrfClient;
 
@@ -278,6 +279,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private void getEditTokenThenSave(boolean forceLogin) {
         cancelCalls();
+        captchaContainer.setVisibility(View.GONE);
         captchaHandler.hideCaptcha();
         editSummaryFragment.saveSummary();
 
@@ -331,11 +333,16 @@ public class EditSectionActivity extends BaseActivity {
                 // revision support for mobile-sections is added to RESTBase
                 // See https://github.com/wikimedia/restbase/pull/729
                 new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(2));
-            } else if (result instanceof CaptchaResult) {
+                return;
+            }
+            showProgressBar(false);
+
+            if (result instanceof CaptchaResult) {
                 if (captchaHandler.isActive()) {
                     // Captcha entry failed!
                     funnel.logCaptchaFailure();
                 }
+                captchaContainer.setVisibility(View.VISIBLE);
                 captchaHandler.handleCaptcha(null, (CaptchaResult) result);
                 funnel.logCaptchaShown();
             } else if (result instanceof EditAbuseFilterResult) {
@@ -347,7 +354,6 @@ public class EditSectionActivity extends BaseActivity {
             } else if (result instanceof EditSpamBlacklistResult) {
                 FeedbackUtil.showMessage(EditSectionActivity.this,
                         R.string.editing_error_spamblacklist);
-                showProgressBar(false);
                 editPreviewFragment.hide();
             } else {
                 funnel.logError(result.getResult());
@@ -362,6 +368,7 @@ public class EditSectionActivity extends BaseActivity {
                 // no longer attached to activity!
                 return;
             }
+            showProgressBar(false);
             if (caught instanceof MwException) {
                 handleEditingException((MwException) caught);
                 L.e(caught);
@@ -384,7 +391,6 @@ public class EditSectionActivity extends BaseActivity {
                     dialog.dismiss();
                 }).create();
         retryDialog.show();
-        showProgressBar(false);
     }
 
     /**
@@ -398,7 +404,6 @@ public class EditSectionActivity extends BaseActivity {
             return;
         }
 
-        showProgressBar(false);
         if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
@@ -450,8 +455,6 @@ public class EditSectionActivity extends BaseActivity {
 
         hideSoftKeyboard(this);
         ViewAnimations.fadeIn(abusefilterContainer, this::supportInvalidateOptionsMenu);
-
-        showProgressBar(false);
     }
 
 
@@ -609,6 +612,7 @@ public class EditSectionActivity extends BaseActivity {
     private void resetToStart() {
         if (captchaHandler.isActive()) {
             captchaHandler.cancelCaptcha();
+            captchaContainer.setVisibility(View.GONE);
         }
         if (editSummaryFragment.isActive()) {
             editSummaryFragment.hide();
@@ -694,6 +698,7 @@ public class EditSectionActivity extends BaseActivity {
         showProgressBar(false);
         if (captchaHandler.isActive()) {
             captchaHandler.cancelCaptcha();
+            captchaContainer.setVisibility(View.GONE);
         }
         if (abusefilterEditResult != null) {
             if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_WARNING) {
@@ -702,14 +707,14 @@ public class EditSectionActivity extends BaseActivity {
             cancelAbuseFilter();
             return;
         }
+        if (errorView.getVisibility() == View.VISIBLE) {
+            errorView.setVisibility(View.GONE);
+        }
         if (editSummaryFragment.handleBackPressed()) {
             return;
         }
         if (editPreviewFragment.handleBackPressed()) {
             return;
-        }
-        if (errorView.getVisibility() == View.VISIBLE) {
-            errorView.setVisibility(View.GONE);
         }
 
         hideSoftKeyboard(this);
