@@ -222,7 +222,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
                         totalEdits += count
                     }
-                    if (totalEdits == 1) {
+                    if (totalEdits == 0) {
                         contributionsStatsView.visibility = GONE
                         editQualityStatsView.visibility = GONE
                         editStreakStatsView.visibility = GONE
