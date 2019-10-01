@@ -243,8 +243,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&list=users&usprop=groups|cancreate")
-    @NonNull Observable<MwQueryResponse> getUserInfo(@Query("ususers") @NonNull String userName);
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo")
+    @NonNull Observable<MwQueryResponse> getUserInfo();
+
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
+    @NonNull Observable<MwQueryResponse> getUserList(@Query("ususers") @NonNull String userNames);
 
 
     // ------- Notifications -------
