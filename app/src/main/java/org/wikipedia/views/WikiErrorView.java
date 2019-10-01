@@ -93,9 +93,9 @@ public class WikiErrorView extends LinearLayout {
     ErrorType getErrorType(@Nullable Throwable caught) {
         if (caught != null && is404(caught)) {
             return ErrorType.PAGE_MISSING;
-        } else if (caught != null && isTimeout(caught)) {
+        } else if (isTimeout(caught)) {
             return ErrorType.TIMEOUT;
-        } else if (caught != null && isOffline(caught)) {
+        } else if (isOffline(caught)) {
             return ErrorType.OFFLINE;
         }
         return ErrorType.GENERIC;
