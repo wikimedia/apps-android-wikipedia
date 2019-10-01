@@ -198,7 +198,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
-
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
         openSearchActivity(TOOLBAR, null);
