@@ -79,8 +79,11 @@ public final class ThrowableUtil {
 
     public static boolean isOffline(@Nullable Throwable caught) {
         return caught instanceof UnknownHostException
-                || caught instanceof SocketException
-                || caught instanceof SocketTimeoutException;
+                || caught instanceof SocketException;
+    }
+
+    public static boolean isTimeout(@Nullable Throwable caught) {
+        return caught instanceof SocketTimeoutException;
     }
 
     @SuppressWarnings("checkstyle:magicnumber") public static boolean is404(@NonNull Throwable caught) {

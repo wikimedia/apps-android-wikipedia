@@ -82,7 +82,7 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
-import org.wikipedia.views.WikiPageErrorView;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.Date;
 import java.util.List;
@@ -150,7 +150,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ObservableWebView webView;
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private WikiPageErrorView errorView;
+    private WikiErrorView errorView;
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
