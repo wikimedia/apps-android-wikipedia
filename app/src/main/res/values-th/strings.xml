@@ -175,16 +175,21 @@
   <string name="preference_title_download_reading_list_articles">บันทึกรายการอ่าน</string>
   <string name="preference_summary_sync_reading_lists">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชีของคุณ</string>
   <string name="preference_summary_sync_reading_lists_from_account">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชี \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">ลบการดึงข้อมูลรายชื่อบทความจาก"%s"หรือไม่</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ลบการดึงข้อมูลรายชื่อบทความจาก\"%s\"หรือไม่</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">การกระทำนี้จะเป็นการลบข้อมูลทั้งหมดที่ดึงมาจากการอ่านครั้งก่อน แน่ใจหรือไม่ว่าคุณต้องการจะลบรสยการเหล่านี้จากบัญชีของคุณ \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานความผิดพลาด</string>
   <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอพลิเคชั่นส่งรายงานความผิดพลาดไปยัง HockeyApp และผู้ให้บริการโดยอัตโนมัติ เพื่อให้เราทราบถึงปัญหาและแก้ไขข้อผิดพลาดได้เร็วขึ้น</string>
+  <string name="editing_error_spamblacklist">คุณได้เพิ่มโดเมนเว็บไซต์ต้องห้ามในรายชื่อต้องห้ามของเรา (%s) กรุณาลบมันและลองอีกครั้ง</string>
   <string name="history_search_list_hint">ประวัติการค้นหา</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
   <string name="page_protected_autoconfirmed">หน้านี้ถูกล็อกแบบกึ่งล็อก</string>
   <string name="page_protected_sysop">หน้านี้ถูกล็อกแบบสมบูรณ์</string>
+  <string name="page_protected_other">หน้านี้ถูกป้องกันในระดับ: %s</string>
+  <string name="page_protected_can_not_edit">ตอนนี้คุณไม่มีสิทธิ์พอที่จะแก้ไขในตอนนี้</string>
+  <string name="page_protected_can_not_edit_anon">ขออภัย หน้านี้จำเป็นต้องเข้าสู่ระบบเพื่อแก้ไขในขณะนี้</string>
   <string name="page_protected_can_not_edit_title">หน้านี้ถูกป้องกัน</string>
   <string name="settings_item_preferences">ตั้งค่า</string>
   <string name="settings_activity_title">ตั้งค่า</string>
@@ -194,6 +199,7 @@
   <string name="about_wikipedia_url">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
+  <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/wiki/Special:UserLogin/signup</string>
   <string name="about_contributors_heading">ผู้ม่ส่วนร่วม</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
