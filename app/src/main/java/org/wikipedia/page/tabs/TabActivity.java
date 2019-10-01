@@ -256,24 +256,16 @@ public class TabActivity extends BaseActivity {
                 openNewTab();
                 return true;
             case R.id.menu_explore:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()));
-                finish();
+                goToMainTab(NavTab.EXPLORE.code());
                 return true;
             case R.id.menu_reading_lists:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code()));
-                finish();
+                goToMainTab(NavTab.READING_LISTS.code());
                 return true;
             case R.id.menu_history:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HISTORY.code()));
-                finish();
+                goToMainTab(NavTab.HISTORY.code());
                 return true;
             case R.id.menu_nearby:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.NEARBY.code()));
-                finish();
+                goToMainTab(NavTab.NEARBY.code());
                 return true;
             default:
                 break;
@@ -380,5 +372,13 @@ public class TabActivity extends BaseActivity {
             showUndoAllSnackbar(tabs, appTabs);
             tabUpdatedTimeMillis = System.currentTimeMillis();
         }
+    }
+
+    private void goToMainTab(int navTabCode) {
+        startActivity(MainActivity.newIntent(this)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode));
+        finish();
     }
 }
