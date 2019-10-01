@@ -53,17 +53,4 @@ public class UserInfo {
         }
         return false;
     }
-
-    @NonNull public Map<String, String> userjsOptions() {
-        Map<String, String> map = new HashMap<>();
-        if (options != null) {
-            for (Map.Entry<String, ?> entry : options.entrySet()) {
-                if (entry.getKey().startsWith("userjs-")) {
-                    // T161866 entry.valueOf() should always return a String but doesn't
-                    map.put(entry.getKey(), entry.getValue() == null ? "" : String.valueOf(entry.getValue()));
-                }
-            }
-        }
-        return map;
-    }
 }
