@@ -384,7 +384,7 @@ public class CreateAccountActivity extends BaseActivity {
         }
 
         public void run() {
-            disposables.add(ServiceFactory.get(wiki).getUserInfo(userName)
+            disposables.add(ServiceFactory.get(wiki).getUserList(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
