@@ -18,6 +18,7 @@ import org.wikipedia.util.UriUtil;
 
 import java.util.Calendar;
 
+import static java.util.Calendar.OCTOBER;
 import static java.util.Calendar.SEPTEMBER;
 import static org.wikipedia.settings.Prefs.setShouldShowSuggestedEditsSurvey;
 
@@ -58,7 +59,7 @@ public final class SuggestedEditsSurvey {
     private static boolean isSurveyLive() {
         return DateUtil.isGivenDateBetweenDates(Calendar.getInstance().getTime(),
                 DateUtil.getDateObjectFor(2019, SEPTEMBER, 19),
-                DateUtil.getDateObjectFor(2019, SEPTEMBER, 30));
+                DateUtil.getDateObjectFor(2019, OCTOBER, 7));
     }
 
     private SuggestedEditsSurvey() { }
