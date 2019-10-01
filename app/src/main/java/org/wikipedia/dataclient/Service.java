@@ -267,24 +267,6 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
     @NonNull Observable<MwQueryResponse> getUnreadNotificationWikis();
 
-
-    // ------- User Options -------
-
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=options")
-    @NonNull Observable<MwQueryResponse> getUserOptions();
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=options")
-    @NonNull Observable<MwPostResponse> postUserOption(@Field("token") @NonNull String token,
-                                                 @Query("optionname") @NonNull String key,
-                                                 @Query("optionvalue") @Nullable String value);
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=options")
-    @NonNull Observable<MwPostResponse> deleteUserOption(@Field("token") @NonNull String token,
-                                                   @Query("change") @NonNull String key);
-
-
     // ------- Editing -------
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp&rvlimit=1&converttitles=")
