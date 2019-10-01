@@ -27,9 +27,6 @@ public class UserInfo {
     @Nullable private String blockedtimestamp;
     @Nullable private String blockexpiry;
 
-    // Object type is any JSON type.
-    @Nullable private Map<String, ?> options;
-
     public int id() {
         return id;
     }
