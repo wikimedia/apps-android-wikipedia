@@ -146,6 +146,13 @@ android {
 apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
 
+// TODO: remove when Fresco updates its bundled version of soloader.
+configurations.all {
+    resolutionStrategy {
+        force "com.facebook.soloader:soloader:0.8.0"
+    }
+}
+
 dependencies {
 
     // To keep the Maven Central dependencies up-to-date
@@ -181,13 +188,6 @@ dependencies {
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"
     implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
-
-    // TODO: remove when Fresco updates its bundled version of soloader.
-    configurations.all {
-        resolutionStrategy {
-            force "com.facebook.soloader:soloader:0.8.0"
-        }
-    }
 
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.romandanylyk:pageindicatorview:1.0.2'
