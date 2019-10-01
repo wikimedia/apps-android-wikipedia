@@ -11,9 +11,7 @@ import org.wikipedia.util.DateUtil;
 import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 @SuppressWarnings("unused")
@@ -26,9 +24,6 @@ public class UserInfo {
     @Nullable private String blockedby;
     @Nullable private String blockedtimestamp;
     @Nullable private String blockexpiry;
-
-    // Object type is any JSON type.
-    @Nullable private Map<String, ?> options;
 
     public int id() {
         return id;
@@ -52,18 +47,5 @@ public class UserInfo {
             // ignore
         }
         return false;
-    }
-
-    @NonNull public Map<String, String> userjsOptions() {
-        Map<String, String> map = new HashMap<>();
-        if (options != null) {
-            for (Map.Entry<String, ?> entry : options.entrySet()) {
-                if (entry.getKey().startsWith("userjs-")) {
-                    // T161866 entry.valueOf() should always return a String but doesn't
-                    map.put(entry.getKey(), entry.getValue() == null ? "" : String.valueOf(entry.getValue()));
-                }
-            }
-        }
-        return map;
     }
 }
