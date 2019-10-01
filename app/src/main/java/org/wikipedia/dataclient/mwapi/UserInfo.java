@@ -11,9 +11,7 @@ import org.wikipedia.util.DateUtil;
 import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 @SuppressWarnings("unused")
