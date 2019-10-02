@@ -33,14 +33,6 @@
     <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
     <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
     <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
-    <string name="preferences_developer_suggested_edits_add_description_dialog">Show add article description dialog</string>
-    <string name="preferences_developer_suggested_edits_add_description_notification">Show add article description notification</string>
-    <string name="preferences_developer_suggested_edits_translate_description_dialog">Show translate article description dialog</string>
-    <string name="preferences_developer_suggested_edits_translate_description_notification">Show translate article description notification</string>
-    <string name="preferences_developer_suggested_edits_add_caption_dialog">Show add image caption dialog</string>
-    <string name="preferences_developer_suggested_edits_add_caption_notification">Show add image caption notification</string>
-    <string name="preferences_developer_suggested_edits_translate_caption_dialog">Show translate image caption dialog</string>
-    <string name="preferences_developer_suggested_edits_translate_caption_notification">Show translate image caption notification</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
 </resources>
