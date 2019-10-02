@@ -129,42 +129,6 @@
             android:text="@string/feed_configure_activity_title" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/main_drawer_app_editing_tasks"
-        style="@style/SideDrawerMenuItem"
-        android:visibility="gone">
-
-        <FrameLayout
-            android:layout_width="24dp"
-            android:layout_height="24dp">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_mode_edit_themed_24dp"
-                app:tint="?attr/material_theme_secondary_color" />
-
-            <ImageView
-                android:id="@+id/edit_icon_dot"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_gravity="end"
-                android:contentDescription="@null"
-                android:tint="?attr/colorAccent"
-                android:visibility="gone"
-                app:srcCompat="@drawable/shape_circle" />
-        </FrameLayout>
-
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/suggested_edits_tasks_activity_title" />
-    </LinearLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
