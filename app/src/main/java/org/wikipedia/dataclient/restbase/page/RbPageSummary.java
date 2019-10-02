@@ -34,6 +34,7 @@ public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @SuppressWarnings("unused") @Nullable private String lang;
     @SuppressWarnings("unused") private int pageid;
+    @SuppressWarnings("unused") @Nullable private String revision;
 
     @Override @NonNull
     public String getTitle() {
@@ -99,8 +100,14 @@ public class RbPageSummary implements PageSummary {
         return pageid;
     }
 
+    @Nullable
     public String getLang() {
         return lang;
+    }
+
+    @Nullable
+    public String getRevision() {
+        return revision;
     }
 
     /**

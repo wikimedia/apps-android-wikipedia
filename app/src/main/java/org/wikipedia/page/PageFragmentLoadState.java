@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
@@ -18,10 +19,12 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
@@ -52,6 +55,7 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Protocol;
 import okhttp3.Request;
+import retrofit2.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
@@ -79,6 +83,7 @@ public class PageFragmentLoadState {
 
     private int sectionTargetFromIntent;
     private String sectionTargetFromTitle;
+    private String revision;
 
     private ErrorCallback networkErrorCallback;
 
@@ -131,6 +136,11 @@ public class PageFragmentLoadState {
 
     public boolean isLoading() {
         return loading;
+    }
+
+    @Nullable
+    public String getRevision() {
+        return revision;
     }
 
     public void loadFromBackStack() {
@@ -308,11 +318,15 @@ public class PageFragmentLoadState {
     private void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        Observable<RbPageSummary> pageSummaryObservable = ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(null, model.getTitle().getConvertedText());
+        Observable<Response<PageLead>> pageLeadObservable = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth());
+
+        disposables.add(Observable
+                .zip(pageSummaryObservable, pageLeadObservable, (summaryRsp, leadRsp) -> {
+                    revision = summaryRsp.getRevision();
+                    return leadRsp;
+                })
                 .subscribe(rsp -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
                     PageLead lead = rsp.body();
