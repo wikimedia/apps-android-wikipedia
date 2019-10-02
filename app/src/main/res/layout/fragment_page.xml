@@ -31,7 +31,7 @@
             android:layout_marginBottom="@dimen/bottom_toolbar_height"
             android:orientation="vertical" />
 
-        <org.wikipedia.views.WikiPageErrorView
+        <org.wikipedia.views.WikiErrorView
             android:id="@+id/page_error"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

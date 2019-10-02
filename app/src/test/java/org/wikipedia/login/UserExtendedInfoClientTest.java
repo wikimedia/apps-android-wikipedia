@@ -39,6 +39,6 @@ public class UserExtendedInfoClientTest extends MockRetrofitTest {
     }
 
     private Observable<MwQueryResponse> getObservable() {
-        return getApiService().getUserInfo("USER");
+        return getApiService().getUserInfo();
     }
 }

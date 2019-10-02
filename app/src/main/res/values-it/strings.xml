@@ -802,7 +802,7 @@
   <string name="wikitext_preview_link">Anteprima collegamento</string>
   <string name="main_drawer_open">Apri</string>
   <string name="main_drawer_close">Chiudi</string>
-  <string name="main_drawer_content_description">Apri il cassetto di navigazione principale</string>
+  <string name="main_drawer_content_description">Apri il menu di navigazione principale</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

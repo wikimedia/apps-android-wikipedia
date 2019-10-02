@@ -81,7 +81,17 @@
             tools:layout="@layout/fragment_preview_summary" />
     </LinearLayout>
 
-    <include layout="@layout/group_captcha" />
+    <ScrollView
+        android:id="@+id/edit_section_captcha_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:windowBackground"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <include layout="@layout/group_captcha" />
+
+    </ScrollView>
 
     <ScrollView
         android:id="@+id/edit_section_abusefilter_container"
@@ -134,6 +144,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:background="?android:windowBackground"
         android:orientation="vertical"
         android:visibility="gone" />
