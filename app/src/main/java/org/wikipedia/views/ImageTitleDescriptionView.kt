@@ -80,6 +80,9 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
     fun setUpViewForTablet() {
         imageTitleDescParentLayout.orientation = VERTICAL
         imageTitleDescParentLayout.gravity = CENTER_HORIZONTAL
+        val params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        params.setMargins(0, 0, 0, 0)
+        imageTitleDescParentLayout.layoutParams = params
         val layoutParams = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 0.0f)
         layoutParams.setMargins(DimenUtil.roundedDpToPx(160.0f), 0, DimenUtil.roundedDpToPx(160.0f), 0)
         titleDescriptionLayout.layoutParams = layoutParams
