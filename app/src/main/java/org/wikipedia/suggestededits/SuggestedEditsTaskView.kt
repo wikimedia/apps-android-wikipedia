@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
+import android.view.Gravity.CENTER
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
@@ -17,10 +19,11 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        taskImageDetailView.setImageParams(DimenUtil.roundedDpToPx(20.0f), DimenUtil.roundedDpToPx(20.0f))
-        taskImageDetailView.setImageBackgroundParams(DimenUtil.roundedDpToPx(48.0f), DimenUtil.roundedDpToPx(48.0f))
+        taskImageDetailView.setImageParams(resources.getDimension(R.dimen.suggested_edits_task_icon_size).toInt(), resources.getDimension(R.dimen.suggested_edits_task_icon_size).toInt())
+        taskImageDetailView.setImageBackgroundParams(resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt(), resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt())
         taskImageDetailView.setCaseForTitle(true)
+        taskImageDetailView.setTitleTextSize(if (DeviceUtil.isDeviceTablet()) 20f else 14f)
+        taskImageDetailView.setDescriptionTextSize(if (DeviceUtil.isDeviceTablet()) 20f else 14f)
     }
 
     fun updateTranslateActionUI() {
@@ -31,6 +34,7 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
+        setResourcesByDeviceSize()
         updateTranslateActionUI()
         taskImageDetailView.setTitle(task.title!!)
         taskImageDetailView.setDescription(task.description!!)
@@ -46,6 +50,20 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
             if (!task.disabled) {
                 callback?.onViewClick(task, true)
             }
+        }
+    }
+
+    private fun setResourcesByDeviceSize() {
+        if (DeviceUtil.isDeviceTablet()) {
+            val params: LayoutParams = taskInfoContainer.layoutParams as LayoutParams
+            params.setMargins(0, DimenUtil.roundedDpToPx(36.0f), 0, DimenUtil.roundedDpToPx(36.0f))
+            taskInfoContainer.layoutParams = params
+            actionLayout.gravity = CENTER
+            val actionLayoutParams = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+            actionLayoutParams.setMargins(0, 0, 0, 0)
+            actionLayout.layoutParams = actionLayoutParams
+            taskImageDetailView.setUpViewForTablet()
+
         }
     }
 

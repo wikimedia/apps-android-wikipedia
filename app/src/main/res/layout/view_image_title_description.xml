@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/imageTitleDescParentLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/suggested_edits_image_title_view_start_margin"
@@ -9,21 +10,23 @@
     android:orientation="horizontal">
 
     <FrameLayout
+        android:id="@+id/imageLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
 
         <org.wikipedia.views.CircularProgressBar
             android:id="@+id/circularProgressBar"
-            android:layout_width="@dimen/suggested_edits_icon_measurement"
-            android:layout_height="@dimen/suggested_edits_icon_measurement"
+            android:layout_width="@dimen/suggested_edits_icon_size"
+            android:layout_height="@dimen/suggested_edits_icon_size"
             android:visibility="gone"
             app:progressBackgroundColor="@color/green90"
             app:progressColor="?attr/action_mode_green_background" />
 
         <LinearLayout
             android:id="@+id/imageBackground"
-            android:layout_width="@dimen/suggested_edits_icon_background_measurement"
-            android:layout_height="@dimen/suggested_edits_icon_background_measurement"
+            android:layout_width="@dimen/suggested_edits_icon_background_size"
+            android:layout_height="@dimen/suggested_edits_icon_background_size"
             android:layout_gravity="center"
             android:background="@drawable/shape_circle"
             android:backgroundTint="?attr/multi_select_background_color"
@@ -31,8 +34,8 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="@dimen/suggested_edits_icon_measurement"
-                android:layout_height="@dimen/suggested_edits_icon_measurement"
+                android:layout_width="@dimen/suggested_edits_icon_size"
+                android:layout_height="@dimen/suggested_edits_icon_size"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_add_gray_white_24dp"
                 android:tint="?attr/colorAccent" />
@@ -40,6 +43,7 @@
     </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/titleDescriptionLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/suggested_edits_title_margin_start"
@@ -48,20 +52,19 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/suggested_edits_task_action_text_translate"
+            android:layout_marginBottom="8dp"
             android:textColor="?attr/material_theme_primary_color"
-            android:textSize="@dimen/suggested_edits_icon_title_text_size"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/suggested_edits_task_action_text_translate"
-            android:textColor="?attr/material_theme_de_emphasised_color"
-            android:textSize="@dimen/suggested_edits_icon_description_text_size" />
+            android:textColor="?attr/material_theme_de_emphasised_color"/>
 
     </LinearLayout>
 </LinearLayout>
