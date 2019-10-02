@@ -64,18 +64,16 @@
 
         <org.wikipedia.views.CircularProgressBar
             android:id="@+id/page_list_item_circular_progress_bar"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:visibility="gone"
             app:progressBackgroundColor="?attr/chart_shade5"
             app:progressColor="?attr/colorAccent" />
 
         <ImageView
             android:id="@+id/page_list_item_action_secondary"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@null"
             android:visibility="gone"
@@ -83,7 +81,6 @@
             tools:visibility="visible" />
 
     </FrameLayout>
-
 
     <FrameLayout
         android:id="@+id/page_list_item_image_container"
