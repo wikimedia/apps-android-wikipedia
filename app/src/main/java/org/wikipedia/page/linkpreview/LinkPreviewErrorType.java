@@ -64,7 +64,7 @@ enum LinkPreviewErrorType {
         if (caught != null && ThrowableUtil.is404(caught)) {
             return LinkPreviewErrorType.PAGE_MISSING;
         }
-        if (caught != null && ThrowableUtil.isOffline(caught)) {
+        if (caught != null && (ThrowableUtil.isOffline(caught) || ThrowableUtil.isTimeout(caught))) {
             return LinkPreviewErrorType.OFFLINE;
         }
         return LinkPreviewErrorType.GENERIC;

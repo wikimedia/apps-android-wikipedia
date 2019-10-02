@@ -789,6 +789,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annuleren</string>
+  <string name="content_description_for_page_indicator">Pagina %1$d van %2$d</string>
   <string name="wikitext_bold">Vet</string>
   <string name="wikitext_italic">Cursief</string>
   <string name="wikitext_link">Koppeling</string>

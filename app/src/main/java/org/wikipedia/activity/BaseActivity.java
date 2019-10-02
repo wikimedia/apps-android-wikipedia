@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ShortcutManager;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
@@ -133,6 +134,19 @@ public abstract class BaseActivity extends AppCompatActivity {
             Prefs.crashedBeforeActivityCreated(false);
         }
     }
+
+    @Override
+    public void applyOverrideConfiguration(Configuration configuration) {
+        // TODO: remove when this is fixed:
+        // https://issuetracker.google.com/issues/141132133
+        // On Lollipop the current version of AndroidX causes a crash when instantiating a WebView.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
+                && getResources().getConfiguration().uiMode == WikipediaApp.getInstance().getResources().getConfiguration().uiMode) {
+            return;
+        }
+        super.applyOverrideConfiguration(configuration);
+    }
+
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
