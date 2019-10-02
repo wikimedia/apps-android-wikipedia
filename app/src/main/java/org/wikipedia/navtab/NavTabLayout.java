@@ -35,5 +35,4 @@ public class NavTabLayout extends BottomNavigationView {
             getMenu().add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon());
         }
     }
-
 }

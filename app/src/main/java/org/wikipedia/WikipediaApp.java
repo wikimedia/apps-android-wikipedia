@@ -377,7 +377,6 @@ public class WikipediaApp extends Application {
     public void logOut() {
         L.d("Logging out");
         AccountUtil.removeAccount();
-
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> ServiceFactory.get(getWikiSite()).postLogout(response.query().csrfToken()).subscribeOn(Schedulers.io()))

@@ -465,5 +465,4 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
-
 }
