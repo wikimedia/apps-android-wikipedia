@@ -429,11 +429,11 @@ public class WikipediaApp extends Application {
             return;
         }
         final WikiSite wikiSite = WikiSite.forLanguageCode(code);
-        ServiceFactory.get(wikiSite).getUserInfo(AccountUtil.getUserName())
+        ServiceFactory.get(wikiSite).getUserInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    if (AccountUtil.isLoggedIn() && response.query().getUserResponse(AccountUtil.getUserName()) != null) {
+                    if (AccountUtil.isLoggedIn() && response.query().userInfo() != null) {
                         // noinspection ConstantConditions
                         int id = response.query().userInfo().id();
                         AccountUtil.putUserIdForLanguage(code, id);
