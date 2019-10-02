@@ -15,6 +15,7 @@
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
     <string name="nav_item_history">History</string>
+    <string name="nav_item_suggested_edits">Suggested Edits</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
     <string name="card_offline_error_retry">Retry</string>
@@ -335,6 +336,7 @@
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
+    <string name="view_wiki_error_message_timeout">Cannot connect to Wikipedia. Check your network connection, or try again later</string>
     <string name="reference_title">Reference %s</string>
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ShortcutManager;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
@@ -30,8 +31,6 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
-import org.wikipedia.events.CaptionEditUnlockEvent;
-import org.wikipedia.events.DescriptionEditUnlockEvent;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
@@ -46,7 +45,6 @@ import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -136,6 +134,19 @@ public abstract class BaseActivity extends AppCompatActivity {
             Prefs.crashedBeforeActivityCreated(false);
         }
     }
+
+    @Override
+    public void applyOverrideConfiguration(Configuration configuration) {
+        // TODO: remove when this is fixed:
+        // https://issuetracker.google.com/issues/141132133
+        // On Lollipop the current version of AndroidX causes a crash when instantiating a WebView.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M
+                && getResources().getConfiguration().uiMode == WikipediaApp.getInstance().getResources().getConfiguration().uiMode) {
+            return;
+        }
+        super.applyOverrideConfiguration(configuration);
+    }
+
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -284,18 +295,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
-            } else if (event instanceof DescriptionEditUnlockEvent) {
-                if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
-                    SuggestedEditsCardsActivity.Companion.showEditDescriptionUnlockDialog(BaseActivity.this);
-                } else if (((DescriptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
-                    SuggestedEditsCardsActivity.Companion.showTranslateDescriptionUnlockDialog(BaseActivity.this);
-                }
-            } else if (event instanceof CaptionEditUnlockEvent) {
-                if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 1) {
-                    SuggestedEditsCardsActivity.Companion.showEditCaptionUnlockDialog(BaseActivity.this);
-                } else if (((CaptionEditUnlockEvent) event).getNumTargetsPassed() == 2) {
-                    SuggestedEditsCardsActivity.Companion.showTranslateCaptionUnlockDialog(BaseActivity.this);
-                }
             } else if (event instanceof LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog();
             }

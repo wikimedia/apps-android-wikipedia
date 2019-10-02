@@ -59,7 +59,6 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
             locallyKnownNotifications = Prefs.getLocallyKnownNotifications();
             pollNotifications(context);
-            pollEditorTaskCounts(context);
         }
     }
 
@@ -117,14 +116,6 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         Completable.fromAction(() -> new CsrfTokenClient(WikipediaApp.getInstance().getWikiSite(), WikipediaApp.getInstance().getWikiSite())
                 .getTokenBlocking()).subscribeOn(Schedulers.io())
                 .subscribe();
-    }
-
-    @SuppressLint("CheckResult")
-    public static void pollEditorTaskCounts(@NonNull final Context context) {
-        ServiceFactory.get(new WikiSite(Service.WIKIDATA_URL)).getEditorTaskCounts()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> NotificationEditorTasksHandler.dispatchEditorTaskResults(context, response.query().editorTaskCounts()), L::e);
     }
 
     @SuppressLint("CheckResult")
