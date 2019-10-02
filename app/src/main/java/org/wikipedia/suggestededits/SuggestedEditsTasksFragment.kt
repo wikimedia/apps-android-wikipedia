@@ -50,6 +50,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private val PADDING_16 = DimenUtil.roundedDpToPx(16.0f)
     private val PADDING_4 = DimenUtil.dpToPx(4.0f)
+    private var totalEdits = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -159,6 +160,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     textViewForMessage.background = null
                     textViewForMessage.setPadding(0, 0, 0, 0)
                     textViewForMessage.elevation = 0.0f
+                    updateUserMessageTextView()
                 }
             })
         }
@@ -215,30 +217,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
                 .subscribe({ response ->
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
-                    var totalEdits = 0
+                    totalEdits = 0
                     for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
                         totalEdits += count
                     }
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
                         totalEdits += count
                     }
-                    if (totalEdits == 0) {
-                        contributionsStatsView.visibility = GONE
-                        editQualityStatsView.visibility = GONE
-                        editStreakStatsView.visibility = GONE
-                        pageViewStatsView.visibility = GONE
-                        onboardingImageView.visibility = VISIBLE
-                        textViewForMessage.text = getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName())
-                    } else {
-                        contributionsStatsView.visibility = VISIBLE
-                        editQualityStatsView.visibility = VISIBLE
-                        editStreakStatsView.visibility = VISIBLE
-                        pageViewStatsView.visibility = VISIBLE
-                        onboardingImageView.visibility = GONE
-                        contributionsStatsView.setTitle(totalEdits.toString())
-                        textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
-                    }
-
+                    updateUserMessageTextView()
                 }, { throwable ->
                     L.e(throwable)
                     FeedbackUtil.showError(requireActivity(), throwable)
@@ -248,6 +234,25 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun updateUI() {
         requireActivity().invalidateOptionsMenu()
         fetchUserContributions()
+    }
+
+    private fun updateUserMessageTextView() {
+        if (totalEdits == 0) {
+            contributionsStatsView.visibility = GONE
+            editQualityStatsView.visibility = GONE
+            editStreakStatsView.visibility = GONE
+            pageViewStatsView.visibility = GONE
+            onboardingImageView.visibility = VISIBLE
+            textViewForMessage.text = getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName())
+        } else {
+            contributionsStatsView.visibility = VISIBLE
+            editQualityStatsView.visibility = VISIBLE
+            editStreakStatsView.visibility = VISIBLE
+            pageViewStatsView.visibility = VISIBLE
+            onboardingImageView.visibility = GONE
+            contributionsStatsView.setTitle(totalEdits.toString())
+            textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
+        }
     }
 
     private fun checkForDisabledStatus(editQuality: Int) {
