@@ -171,7 +171,7 @@
   <string name="edit_summary_tag_links">Gıreyê cıbiyayeyi</string>
   <string name="edit_summary_tag_other">Sewbi</string>
   <string name="find_next">Peyêni bıvin</string>
-  <string name="find_previous">Verêni bıvin</string>
+  <string name="find_previous">Verêni bıvêne</string>
   <string name="text_size_select">çapa fonti</string>
   <string name="page_similar_titles">Zey cı peri</string>
   <string name="search_did_you_mean">To ker kı vacê %s?</string>
@@ -190,6 +190,7 @@
   <string name="alpha_update_notification_text">Qandé ronayışi dest pan</string>
   <string name="dialog_close_description">Kip ke</string>
   <string name="preference_title_show_images">Resıman bımocne</string>
+  <string name="read_more_section">Tayêna bıwane</string>
   <string name="gallery_menu_share">Vıla ke</string>
   <string name="snippet_share_intro">\"%1$s\" dı @Wikipedia: %2$s</string>
   <string name="menu_new_tab">Taba newi</string>

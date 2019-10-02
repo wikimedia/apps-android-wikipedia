@@ -18,6 +18,7 @@
 * Optilete
 * Patio
 * RadioAzureus
+* Robin van der Linde
 * Robin van der Vliet
 * Romaine
 * SPQRobin
@@ -302,6 +303,7 @@
   <string name="captcha_image">Captcha-afbeelding</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader onbekend</string>
+  <string name="gallery_not_available_offline_snackbar">Galerijweergave niet offline beschikbaar.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Sluiten</string>
   <string name="menu_new_tab">Nieuw tabblad</string>
   <string name="menu_close_all_tabs">Alle tabbladen sluiten</string>
@@ -546,12 +548,20 @@
   <string name="preference_title_notification_poll">Ververs meldingen</string>
   <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
   <string name="preference_category_notification_types">Meldingtypes in de app</string>
+  <string name="preference_title_notification_system">Systeem</string>
+  <string name="preference_summary_notification_system">Berichten van systeem</string>
   <string name="preference_title_notification_milestone">Mijlpaal</string>
   <string name="preference_summary_notification_milestone">Bepaalde bewerkingstellingen zijn bereikt</string>
   <string name="preference_title_notification_thanks">Bedankjes</string>
   <string name="preference_summary_notification_thanks">Iemand bedankt u voor een bewerking</string>
   <string name="preference_title_notification_revert">Terugdraaien</string>
   <string name="preference_summary_notification_revert">Een van uw bijdragen is ongedaan gemaakt</string>
+  <string name="preference_title_notification_login_fail">Aanmeldingen</string>
+  <string name="preference_summary_notification_login_fail">Uw aanmeldactiviteiten</string>
+  <string name="preference_title_notification_mention">Vermeldingen</string>
+  <string name="preference_summary_notification_mention">Iemand vermeldt u in een pagina</string>
+  <string name="preference_title_notification_user_talk">Overlegpagina</string>
+  <string name="preference_summary_notification_user_talk">Berichten van overlegpagina\'s</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
   <string name="view_random_card_subtitle">Een willekeurige pagina uit Wikipedia lezen.</string>
@@ -695,6 +705,8 @@
   <string name="suggested_edits_feed_card_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschrijving toevoegen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Afbeeldingsbijschrift (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Afbeeldingsbeschrijving (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiest</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Bron/fotograaf</string>
@@ -705,6 +717,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bijschrift toevoegen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bijschrift toevoegen (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschrijving toevoegen</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Vragenlijst invullen</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -776,6 +789,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annuleren</string>
+  <string name="content_description_for_page_indicator">Pagina %1$d van %2$d</string>
   <string name="wikitext_bold">Vet</string>
   <string name="wikitext_italic">Cursief</string>
   <string name="wikitext_link">Koppeling</string>
