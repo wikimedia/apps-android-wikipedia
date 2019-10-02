@@ -254,16 +254,16 @@ public class TabActivity extends BaseActivity {
                 alert.create().show();
                 return true;
             case R.id.menu_explore:
-                goToMainTab(NavTab.EXPLORE.code());
+                goToMainTab(NavTab.EXPLORE);
                 return true;
             case R.id.menu_reading_lists:
-                goToMainTab(NavTab.READING_LISTS.code());
+                goToMainTab(NavTab.READING_LISTS);
                 return true;
             case R.id.menu_history:
-                goToMainTab(NavTab.HISTORY.code());
+                goToMainTab(NavTab.HISTORY);
                 return true;
             case R.id.menu_nearby:
-                goToMainTab(NavTab.NEARBY.code());
+                goToMainTab(NavTab.NEARBY);
                 return true;
             default:
                 break;
@@ -372,11 +372,11 @@ public class TabActivity extends BaseActivity {
         }
     }
 
-    private void goToMainTab(int navTabCode) {
+    private void goToMainTab(NavTab tab) {
         startActivity(MainActivity.newIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode));
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, tab.code()));
         finish();
     }
 }
