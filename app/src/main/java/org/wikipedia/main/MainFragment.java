@@ -7,22 +7,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
@@ -31,8 +26,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.events.LoggedOutInBackgroundEvent;
-import org.wikipedia.events.LoginLogoutEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -61,11 +54,11 @@ import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
@@ -75,8 +68,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
@@ -93,7 +84,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
-    private CompositeDisposable disposables = new CompositeDisposable();
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -131,7 +121,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
-        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new MainFragment.EventBusConsumer()));
         return view;
     }
 
@@ -149,33 +138,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        maybeRunSurvey();
-    }
-
-    private void maybeRunSurvey() {
-        final float extraLineSpacing = 5.0f;
-        if (Prefs.shouldShowSuggestedEditsSurvey() && WikipediaApp.getInstance().isSurveyLive()) {
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
-            TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
-            textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, extraLineSpacing, getResources().getDisplayMetrics()), 1.0f);
-            TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
-            actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
-            actionView.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(R.dimen.margin));
-            snackbar.setAction(getString(R.string.suggested_edits_snackbar_survey_action_text), (v) -> openSurveyInBrowser());
-            snackbar.show();
-            Prefs.setShouldShowSuggestedEditsSurvey(false);
-        }
-    }
-
-    private void openSurveyInBrowser() {
-        Prefs.setSuggestedEditsSurveyClicked(true);
-        UriUtil.visitInExternalBrowser(getContext(), Uri.parse(getString(R.string.suggested_edits_survey_url)));
+        SuggestedEditsSurvey.maybeRunSurvey(requireActivity());
     }
 
     @Override public void onDestroyView() {
         unbinder.unbind();
         unbinder = null;
-        disposables.clear();
         super.onDestroyView();
     }
 
@@ -194,6 +162,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             refreshExploreFeed();
             ((MainActivity) requireActivity()).setUpHomeMenuIcon();
             FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            tabLayout.setTabViews();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -496,15 +465,5 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
-    }
-
-    private class EventBusConsumer implements Consumer<Object> {
-        @Override
-        public void accept(Object event) {
-            if (event instanceof LoginLogoutEvent || event instanceof LoggedOutInBackgroundEvent) {
-                tabLayout.clear();
-                tabLayout.setTabViews();
-            }
-        }
     }
 }

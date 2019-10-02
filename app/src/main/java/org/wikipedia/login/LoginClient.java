@@ -16,7 +16,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwResponse;
 import org.wikipedia.json.GsonUtil;
@@ -99,10 +98,7 @@ public class LoginClient {
                 LoginResult loginResult = loginResponse.toLoginResult(wiki, password);
                 if (loginResult != null) {
                     if (loginResult.pass() && !TextUtils.isEmpty(loginResult.getUserName())) {
-                        // The server could do some transformations on user names, e.g. on some
-                        // wikis is uppercases the first letter.
-                        String actualUserName = loginResult.getUserName();
-                        getExtendedInfo(wiki, actualUserName, loginResult, cb);
+                        getExtendedInfo(wiki, loginResult, cb);
                     } else if ("UI".equals(loginResult.getStatus())) {
                         if (loginResult instanceof LoginOAuthResult) {
                             cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
@@ -169,16 +165,14 @@ public class LoginClient {
     }
 
     @SuppressLint("CheckResult")
-    private void getExtendedInfo(@NonNull final WikiSite wiki, @NonNull String userName,
-                                 @NonNull final LoginResult loginResult, @NonNull final LoginCallback cb) {
-        ServiceFactory.get(wiki).getUserInfo(userName)
+    private void getExtendedInfo(@NonNull final WikiSite wiki, @NonNull final LoginResult loginResult, @NonNull final LoginCallback cb) {
+        ServiceFactory.get(wiki).getUserInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
-                    ListUserResponse user = response.query().getUserResponse(userName);
                     int id = response.query().userInfo().id();
                     loginResult.setUserId(id);
-                    loginResult.setGroups(user.getGroups());
+                    loginResult.setGroups(response.query().userInfo().getGroups());
                     cb.success(loginResult);
                     L.v("Found user ID " + id + " for " + wiki.subdomain());
                 }, caught -> {

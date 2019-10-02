@@ -239,8 +239,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&list=users&usprop=groups|cancreate")
-    @NonNull Observable<MwQueryResponse> getUserInfo(@Query("ususers") @NonNull String userName);
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo")
+    @NonNull Observable<MwQueryResponse> getUserInfo();
+
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
+    @NonNull Observable<MwQueryResponse> getUserList(@Query("ususers") @NonNull String userNames);
 
 
     // ------- Notifications -------
@@ -263,24 +266,6 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
     @NonNull Observable<MwQueryResponse> getUnreadNotificationWikis();
-
-
-    // ------- User Options -------
-
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=options")
-    @NonNull Observable<MwQueryResponse> getUserOptions();
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=options")
-    @NonNull Observable<MwPostResponse> postUserOption(@Field("token") @NonNull String token,
-                                                 @Query("optionname") @NonNull String key,
-                                                 @Query("optionvalue") @Nullable String value);
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=options")
-    @NonNull Observable<MwPostResponse> deleteUserOption(@Field("token") @NonNull String token,
-                                                   @Query("change") @NonNull String key);
-
 
     // ------- Editing -------
 

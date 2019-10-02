@@ -17,7 +17,7 @@ public class ListUserResponse {
     @SerializedName("name") @Nullable private String name;
     private long userid;
     @Nullable private List<String> groups;
-    @Nullable private String cancreate;
+    private boolean cancreate;
     @Nullable private List<UserResponseCreateError> cancreateerror;
 
     @Nullable public String name() {
@@ -25,7 +25,7 @@ public class ListUserResponse {
     }
 
     public boolean canCreate() {
-        return cancreate != null;
+        return cancreate;
     }
 
     @NonNull public Set<String> getGroups() {

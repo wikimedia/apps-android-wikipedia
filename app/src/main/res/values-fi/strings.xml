@@ -16,6 +16,7 @@
 * Pyscowicz
 * SMAUG
 * ShakePilli
+* Silvonen
 * SuperPete
 * Surjection
 * Tumm1
@@ -283,6 +284,7 @@
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten.</string>
+  <string name="gallery_add_image_caption_in_language_button">Lisää kuvateksti (%s)</string>
   <string name="err_cannot_save_file">Tiedostoa ei voitu tallentaa</string>
   <string name="snippet_share_intro">\"%1$s\" sivustolla @Wikipedia: %2$s</string>
   <string name="expand_refs">Napauta laajentaaksesi</string>
@@ -294,6 +296,7 @@
   <string name="gallery_fair_use_license">Fair use -lisenssi</string>
   <string name="gallery_uploader_unknown">Tuntematon tallentaja</string>
   <string name="gallery_not_available_offline_snackbar">Gallerianäkymä ei saatavana offline-tilassa.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Piilota</string>
   <string name="menu_new_tab">Uusi välilehti</string>
   <string name="menu_close_all_tabs">Sulje kaikki välilehdet</string>
   <string name="close_all_tabs_confirm">Haluatko varmasti sulkea kaikki välilehdet?</string>
@@ -545,6 +548,7 @@
   <string name="preference_title_notification_revert">Palauttaminen</string>
   <string name="preference_summary_notification_revert">Yksi muokkauksistasi kumottiin</string>
   <string name="preference_title_notification_login_fail">Kirjaudu</string>
+  <string name="preference_title_notification_mention">Maininnat</string>
   <string name="preference_summary_notification_mention">Joku mainitsi sinut sivulla</string>
   <string name="preference_title_notification_user_talk">Keskustelusivu</string>
   <string name="preference_summary_notification_user_talk">Viestit keskustelusivuilta</string>
@@ -603,11 +607,16 @@
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
   <string name="description_edit_article_description_label_per_language">Artikkeli (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Artikkelin kuvaus (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Kuvateksti (%s)</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_read">Lue</string>
   <string name="description_edit_add_description">Lisää artikkelin kuvaus</string>
   <string name="description_edit_translate_description">Käännä artikkelin kuvaus</string>
   <string name="description_edit_edit_description">Muokkaa artikkelin kuvausta</string>
+  <string name="description_edit_add_image_caption">Lisää kuvateksti</string>
+  <string name="description_edit_edit_image_caption">Muokkaa kuvatekstiä</string>
+  <string name="description_edit_translate_image_caption">Käännä kuvateksti</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
   <string name="description_edit_help_title">Ohje: Artikkelin kuvaukset</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
@@ -615,6 +624,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi artikkelin kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
   <string name="description_edit_license_notice">Muuttamalla artikkelin kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
+  <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
@@ -665,15 +675,20 @@
     <item quantity="other">%d muokkausta</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Ehdotetut muokkaukset</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Lisää artikkelin kuvaus (%s)</string>
   <string name="suggested_edits_tutorial_message">Tervetuloa pikamuokkauksen uuteen kotiin Wikipedia-sovelluksessa. Muokkauksesi ovat hyvin arvostettuja. Iloista muokkaamista!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kuvateksti (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Taiteilija</string>
   <string name="suggested_edits_image_preview_dialog_date">Päiväys</string>
   <string name="suggested_edits_image_preview_dialog_source">Lähde/Valokuvaaja</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensointi</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Lisätietoja</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Tiedostosivu Wikimedia Commonsissa</string>
+  <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Näytä</string>
+  <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Vastaa kyselyyn</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>

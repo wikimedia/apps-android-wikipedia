@@ -26,6 +26,7 @@
 * Ktranz
 * Luisangelrg
 * Macofe
+* Madamebiblio
 * MarcoAurelio
 * Mouse21
 * Mynor Archila
@@ -725,6 +726,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

@@ -560,7 +560,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             } else {
                 startDescriptionEditScreen();
             }
-
         }
     }
 
