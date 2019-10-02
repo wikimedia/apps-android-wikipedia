@@ -167,7 +167,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
 
-            if (tab.equals(NavTab.NEARBY)) { // TODO: replace with Suggested Edits tab
+            if (tab.equals(NavTab.SUGGESTED_EDITS)) {
                 getFragment().hideNavTabOverlayLayout();
                 Prefs.setShouldShowSuggestedEditsTooltip(false);
             }

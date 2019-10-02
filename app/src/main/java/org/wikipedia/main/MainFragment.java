@@ -19,6 +19,8 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -459,9 +461,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     private void setupPulsingIcon() {
         if (AccountUtil.isLoggedIn() && Prefs.shouldShowSuggestedEditsTooltip()) {
-            tabOverlayLayout.pick(NavTab.NEARBY); // TODO: replace with Suggested Edits tab
+            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
-            snackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.NEARBY)); // TODO: replace with Suggested Edits tab
+            snackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
             snackbar.show();
         }
     }
