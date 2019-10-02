@@ -686,7 +686,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensointi</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Lisätietoja</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Tiedostosivu Wikimedia Commonsissa</string>
-  <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti</string>
   <string name="suggested_edits_article_cta_snackbar_action">Näytä</string>
   <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vastaa kyselyyn</string>
