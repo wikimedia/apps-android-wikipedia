@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.annotations.Required;
@@ -100,9 +102,9 @@ public class RbPageSummary implements PageSummary {
         return pageid;
     }
 
-    @Nullable
+    @NonNull
     public String getLang() {
-        return lang;
+        return StringUtils.defaultString(lang, WikipediaApp.getInstance().language().getAppLanguageCode());
     }
 
     @Nullable
