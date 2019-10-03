@@ -16,14 +16,17 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
 internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
+    private val IMAGE_DETAIL_TEXT_SIZE_PHONE = 14f
+    private val IMAGE_DETAIL_TEXT_SIZE_TABLET = 20f
+    private val TASK_CONTAINER_TABLET_TOP_BOTTOM_MARGIN = 36f
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
         taskImageDetailView.setImageParams(resources.getDimension(R.dimen.suggested_edits_task_icon_size).toInt(), resources.getDimension(R.dimen.suggested_edits_task_icon_size).toInt())
         taskImageDetailView.setImageBackgroundParams(resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt(), resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt())
         taskImageDetailView.setCaseForTitle(true)
-        taskImageDetailView.setTitleTextSize(if (DeviceUtil.isDeviceTablet()) 20f else 14f)
-        taskImageDetailView.setDescriptionTextSize(if (DeviceUtil.isDeviceTablet()) 20f else 14f)
+        taskImageDetailView.setTitleTextSize(if (DeviceUtil.isDeviceTablet()) IMAGE_DETAIL_TEXT_SIZE_TABLET else IMAGE_DETAIL_TEXT_SIZE_PHONE)
+        taskImageDetailView.setDescriptionTextSize(if (DeviceUtil.isDeviceTablet()) IMAGE_DETAIL_TEXT_SIZE_TABLET else IMAGE_DETAIL_TEXT_SIZE_PHONE)
     }
 
     fun updateTranslateActionUI() {
@@ -56,7 +59,7 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
     private fun setResourcesByDeviceSize() {
         if (DeviceUtil.isDeviceTablet()) {
             val params: LayoutParams = taskInfoContainer.layoutParams as LayoutParams
-            params.setMargins(0, DimenUtil.roundedDpToPx(36.0f), 0, DimenUtil.roundedDpToPx(36.0f))
+            params.setMargins(0, DimenUtil.roundedDpToPx(TASK_CONTAINER_TABLET_TOP_BOTTOM_MARGIN), 0, DimenUtil.roundedDpToPx(TASK_CONTAINER_TABLET_TOP_BOTTOM_MARGIN))
             taskInfoContainer.layoutParams = params
             actionLayout.gravity = CENTER
             val actionLayoutParams = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)

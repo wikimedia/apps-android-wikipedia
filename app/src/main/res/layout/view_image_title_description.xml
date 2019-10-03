@@ -4,7 +4,6 @@
     android:id="@+id/imageTitleDescParentLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/suggested_edits_image_title_view_start_margin"
     android:layout_marginTop="@dimen/suggested_edits_image_title_view_top_margin"
     android:baselineAligned="false"
     android:orientation="horizontal">

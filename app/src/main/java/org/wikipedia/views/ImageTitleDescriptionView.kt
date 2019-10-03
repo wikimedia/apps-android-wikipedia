@@ -84,7 +84,7 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
         params.setMargins(0, 0, 0, 0)
         imageTitleDescParentLayout.layoutParams = params
         val layoutParams = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 0.0f)
-        layoutParams.setMargins(DimenUtil.roundedDpToPx(160.0f), 0, DimenUtil.roundedDpToPx(160.0f), 0)
+        layoutParams.setMargins(DimenUtil.roundedDpToPx(80f), 0, DimenUtil.roundedDpToPx(80f), 0)
         titleDescriptionLayout.layoutParams = layoutParams
         titleDescriptionLayout.gravity = CENTER_HORIZONTAL
         description.textAlignment = View.TEXT_ALIGNMENT_CENTER

@@ -10,11 +10,15 @@
         android:id="@+id/disabledStatesView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingStart="@dimen/suggested_edits_screen_margin"
+        android:paddingEnd="@dimen/suggested_edits_screen_margin"
         android:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="@dimen/suggested_edits_screen_margin"
+        android:paddingEnd="@dimen/suggested_edits_screen_margin"
         android:layout_marginBottom="@dimen/suggested_edits_stats_bottom_margin">
 
         <org.wikipedia.views.ImageTitleDescriptionView
@@ -28,7 +32,6 @@
             android:id="@+id/editStreakStatsView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/suggested_edits_image_title_view_end_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="@+id/editQualityStatsView"
@@ -46,7 +49,6 @@
             android:id="@+id/editQualityStatsView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/suggested_edits_image_title_view_end_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editStreakStatsView" />
@@ -109,8 +111,8 @@
         android:id="@+id/textViewForMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:paddingStart="@dimen/suggested_edits_screen_margin"
+        android:paddingEnd="@dimen/suggested_edits_screen_margin"
         android:fontFamily="sans-serif"
         android:lineSpacingExtra="6sp"
         android:textAlignment="center"
@@ -138,9 +140,11 @@
                 android:id="@+id/tasksRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/paper_color" />
+                android:background="?attr/paper_color"
+                android:paddingStart="@dimen/suggested_edits_screen_margin"
+                android:paddingEnd="@dimen/suggested_edits_screen_margin" />
 
-           <LinearLayout
+            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content">
 

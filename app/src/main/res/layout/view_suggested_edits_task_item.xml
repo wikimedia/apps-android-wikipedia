@@ -3,7 +3,6 @@
     android:id="@+id/taskInfoContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
     android:background="?attr/paper_color"
     android:orientation="vertical">
 
@@ -16,7 +15,7 @@
         android:id="@+id/actionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="52dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -43,7 +42,7 @@
                 android:text="@string/suggested_edits_task_action_text_add"
                 android:textAllCaps="true"
                 android:textColor="?attr/colorAccent"
-                android:textSize="14sp" />
+                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -72,7 +71,7 @@
                 android:text="@string/suggested_edits_task_action_text_translate"
                 android:textAllCaps="true"
                 android:textColor="?attr/colorAccent"
-                android:textSize="14sp" />
+                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

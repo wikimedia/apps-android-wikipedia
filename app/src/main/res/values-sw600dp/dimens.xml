@@ -14,8 +14,6 @@
 
 <!-- Suggested Edits -->
     <dimen name="suggested_edits_stats_bottom_margin">28dp</dimen>
-    <dimen name="suggested_edits_image_title_view_start_margin">80dp</dimen>
-    <dimen name="suggested_edits_image_title_view_end_margin">80dp</dimen>
     <dimen name="suggested_edits_image_title_view_top_margin">37dp</dimen>
     <dimen name="suggested_edits_icon_size">48dp</dimen>
     <dimen name="suggested_edits_icon_background_size">40dp</dimen>
@@ -25,6 +23,7 @@
     <dimen name="suggested_edits_message_textview_text_size">20sp</dimen>
     <dimen name="suggested_edits_task_icon_background_size">96dp</dimen>
     <dimen name="suggested_edits_task_icon_size">40dp</dimen>
+    <dimen name="suggested_edits_screen_margin">80dp</dimen>
 
 
 </resources>
