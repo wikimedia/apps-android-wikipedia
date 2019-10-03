@@ -14,6 +14,7 @@
   <string name="page_tabs_back">واپس</string>
   <string name="nav_item_forward">اڳتي</string>
   <string name="search_hint">وڪيپيڊيا ۾ ڳوليو</string>
+  <string name="search_hint_voice_search">زباني ٻڌايل ڳولا</string>
   <string name="search_hint_search_history">سوانح ۾ ڳوليو</string>
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
   <string name="search_hint_search_my_lists_and_articles">منھنجون فھرستون ۽ مضمون ڳوليو</string>
@@ -91,7 +92,7 @@
   <string name="search_reading_list_no_results">\"%s\" ۾ ڪي به نتيجا نه مليا</string>
   <string name="search_reading_lists_no_results">پڙھڻ جي فھرستن ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_history_no_results">سوانح ۾ ڪي بہ نتيجا نہ لڌا</string>
-  <string name="edit_section_captcha_message">آٽوميٽڊ اسپام کان بچڻ ۾ مدد لاءِ، براءِ مھرباني ھيٺ ظاھر ٿيندڙ لفظ داخل ڪريو</string>
+  <string name="edit_section_captcha_message">پاڻمرادو اسپام کان بچڻ ۾ مدد لاءِ، مھرباني ڪري ھيٺ ظاھر ٿيندڙ لفظ داخل ڪريو</string>
   <string name="edit_section_captcha_request_an_account_message">تصوير نظر نہ پئي اچي؟ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;کاتي جي درخواست ڏيو&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">مٿي ڏنل لفظ ورجايو</string>
   <string name="title_captcha">ڪيپچا ڄاڻايو</string>
@@ -158,11 +159,11 @@
   <string name="preferences_heading_data_usage">ڊيٽا کپت</string>
   <string name="preferences_heading_experimental">تجرباتي</string>
   <string name="preference_title_download_reading_list_articles">پڙھڻ جي فھرست جا مضمون لاھيو</string>
-  <string name="preferences_privacy_settings_heading">ّذاتيات</string>
+  <string name="preferences_privacy_settings_heading">ذاتيات</string>
   <string name="preference_title_eventlogging_opt_in">استعمال جون رپورٽون اماڻيو</string>
   <string name="preference_summary_eventlogging_opt_in">وڪيميڊيا ايپ کي اجازت ڏيو ته توهان هن ايپ ڪيئن استعمال ڪريو ٿا جي معلومات جمع ڪري ته جيئن هن ايپ کي وڌيڪ بهتر بڻائي سگھجي</string>
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
-  <string name="editing_error_spamblacklist">بلاڪ ٿيل ڊومينس جا ڳنڍڻا (%s) مليا آھن. براءِ مھرباني انھن کي ھٽايو ۽ ٻيھر ڪوشش ڪريو.</string>
+  <string name="editing_error_spamblacklist">بندشيل ڊومينس جا ڳنڍڻا (%s) مليا آھن. مھرباني ڪري انھن کي ھٽايو ۽ ٻيھر ڪوشش ڪريو.</string>
   <string name="history_search_list_hint">سوانح ۾ ڳوليو</string>
   <string name="error_can_not_process_link">اهو ڳنڍڻو ڏيکاري نہ ٿو سگھجي.</string>
   <string name="page_protected_autoconfirmed">هيءُ صفحو نيم تحفظيل آهي.</string>
@@ -205,8 +206,8 @@
   <string name="edit_redo">وري-ڪريو</string>
   <string name="edit_zoom_in">وڏو ڪريو</string>
   <string name="edit_zoom_out">ننڍو ڪريو</string>
-  <string name="edit_summary_tag_typo">هجي درست ڪئي</string>
-  <string name="edit_summary_tag_grammar">گرامر درست ڪيو</string>
+  <string name="edit_summary_tag_typo">هجي درستگي</string>
+  <string name="edit_summary_tag_grammar">گرامر درستگي</string>
   <string name="edit_summary_tag_links">ڳنڍڻا وڌا</string>
   <string name="edit_summary_tag_other">ٻيو</string>
   <string name="edit_summary_tag_other_hint">هن صفحي کي توهان ٻين ڪهڙن طريقن سان سڌاريو</string>
@@ -216,9 +217,9 @@
   <string name="find_first_occurence">ھي پھرين ظاھريت آھي</string>
   <string name="find_last_occurence">ھي آخري ظاھريت آھي</string>
   <string name="abusefilter_title_warn">هي هڪ غير تخليقي سنوار ٿي سگھي ٿي. ڇا توهان کي پڪ آھي تہ توھان انکي ڇاپڻ چاهيو ٿا؟</string>
-  <string name="abusefilter_title_disallow">توهان هي سنوار ڇاپي نٿا سگھو. مھرباني ڪري واپس وڃو ۽ انکي تبديل ڪريو.</string>
+  <string name="abusefilter_title_disallow">توهان هي سنوار ڇاپي نٿا سگھو. مھرباني ڪري واپس وڃو ۽ انکي بدلايو.</string>
   <string name="abusefilter_text_warn">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگھن ٿا:&lt;br/&gt;&lt;br/&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br/&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br/&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br/&gt;· نشانيون ورجائيندي</string>
-  <string name="abusefilter_text_disallow">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري، يا سڌي تخريبڪاري طور سڃاتو آھي.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ صرف اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
+  <string name="abusefilter_text_disallow">ھڪ خودڪار ڇاڻيءَ ھن سنوار کي ممڪنہ طور تي غيرتعميري، يا سڌي تخريبڪاري طور سڃاتو آھي.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ رڳو اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
   <string name="text_size_select">فونٽ جي ماپ</string>
   <string name="page_similar_titles">ھڪجھڙا صفحا</string>
   <string name="search_did_you_mean">ڇا توهان جي مراد %s ھئي؟</string>
@@ -242,7 +243,7 @@
   <string name="preference_summary_show_images">صفحن ۾ عڪسن جو لوڊ ٿيڻ لائق يا نالائق بڻايو. هن ترتيب تان نشان هٽايو جيڪڏهن توهانجو انٽرنيٽ ڪنيڪشن آهستي آهي، يا توهان جو ڊيٽا منصوبو محدود آهي.</string>
   <string name="preference_title_download_only_over_wifi">رڳو واءِ فاءِ ذريعي ڊائونلوڊ ڪيو</string>
   <string name="dialog_title_download_only_over_wifi">موبائيل ڊيٽا سان ڊائونلوڊ ڪرڻ چاهيو ٿا؟</string>
-  <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحن ۾ ″صرف واءِ-فاءِ تي ڊائونلوڊ ڪيو″ کليل آهي. ڇا اوهان اجازت ڏيندو تہ موبائيل ڊيٽا سان ڊائونلوڊ ڪيون؟</string>
+  <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحن ۾ ″رڳو واءِ-فاءِ تي لاھيو″ کليل آهي. ڇا اوھان رڳو ھي لاھ ڪرڻ لاءِ پنھنجو موبائيل ڊيٽا پلان استعمال ڪرڻ جي اجازت ڏيڻ چاھيو ٿا؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="about_article_section">هن مضمون بابت</string>
@@ -305,7 +306,7 @@
   <string name="enable_location_service">فعاليو</string>
   <string name="location_permissions_enable_prompt">مڪانيت کي قابل بڻايو تہ جيئن توھان جي ويجھو واريون جڳھون ڏسي سگھجن.</string>
   <string name="location_permissions_enable_action">ھلايو</string>
-  <string name="error_webview_updating">دي اينڊروئڊ سسٽم ويبوِيو ۾ جدت آندي پئي وڃي.\nبراءِ مھرباني ڪجھ لمحن ۾ ٻيھر ڪوشش ڪريو.</string>
+  <string name="error_webview_updating">دي اينڊروئڊ سسٽم ويبوِيو ھن وقت جديديو پيو وڃي.\nمھرباني ڪري ھڪ لمحي ۾ ٻيھر ڪوشش ڪريو.</string>
   <string name="multi_select_items_selected">%d چونڊيل</string>
   <string name="error_message_generic">ڪا خرابي پيش آئي</string>
   <string name="view_link_preview_error_button_dismiss">برخاست ڪريو</string>
@@ -344,7 +345,7 @@
   <string name="reading_list_title_exists">پڙھڻ جي فھرست \"%s\" اڳ ئي وجود رکي ٿي.</string>
   <string name="reading_list_added_to_named">%s ۾ شامل ڪئي.</string>
   <string name="reading_list_already_exists">ھي مضمون اڳ ئي ان فھرست ۾ آھي.</string>
-  <string name="reading_list_added_view_button">فهرست ڏسو</string>
+  <string name="reading_list_added_view_button">فھرست ڏسو</string>
   <string name="format_reading_list_statistical_summary_singular">1 مضمون، %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مضمونَ %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d جا 1 مضمونَ آفلائين موجود آھن، %2$.2f MB</string>
@@ -475,14 +476,20 @@
   <string name="notifications_mark_unread">نہ-پڙھيل طور نشان لڳايو</string>
   <string name="preference_summary_notification_poll">پسمنظر ۾ اطلاع چڪاسڻ لاءِ ايپ کي پسمنظر ۾ ڊيٽا ھلائڻ جي اجازت ڏيو.</string>
   <string name="preference_category_notification_types">ايپ-۾ اطلاعن جا قسم</string>
-  <string name="preference_title_notification_welcome">ڀليڪار</string>
-  <string name="preference_summary_notification_welcome">ھڪ کاتو کوليو ويو آھي</string>
-  <string name="preference_title_notification_milestone">سنگ ميل</string>
+  <string name="preference_title_notification_system">سرشتو</string>
+  <string name="preference_summary_notification_system">سرشتي کان پيغام</string>
+  <string name="preference_title_notification_milestone">سنگ-ميل</string>
   <string name="preference_summary_notification_milestone">ڪي سنوار انگ پڄي چڪا آھن</string>
   <string name="preference_title_notification_thanks">مھرباني</string>
   <string name="preference_summary_notification_thanks">ڪوئي توھان جي ڪنھن سنوار لاءِ مھرباني چئي ٿو</string>
   <string name="preference_title_notification_revert">ورايو</string>
   <string name="preference_summary_notification_revert">توھان جي ڀاڱيدارين مان ھڪ ورائي وئي</string>
+  <string name="preference_title_notification_login_fail">داخل-ٿيو</string>
+  <string name="preference_summary_notification_login_fail">توھان جي داخل ٿيڻ جون سرگرميون</string>
+  <string name="preference_title_notification_mention">ذڪر ڪريو</string>
+  <string name="preference_summary_notification_mention">ڪو توھان جو ڪنھن صفحي تي ذڪر ڪري ٿو</string>
+  <string name="preference_title_notification_user_talk">بحث صفحو</string>
+  <string name="preference_summary_notification_user_talk">بحث صفحن کان پيغام</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
   <string name="view_random_card_subtitle">وڪيپيڊيا مان پڙھڻ لاءِ ڪو بلاترتيب مضمونن مان گھمو</string>
@@ -536,6 +543,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;پنھنجي کوجنا پھچ کي پنھنجايو&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;توھان ھاڻي اھو چونڊي سگھو ٿا تہ توھان جي پھچ تي ڇا ڏيکاريو وڃي، ۽ پنھنجي مواد جي پسنديده قسمن کي ترجيح پڻ ڏئي سگھو ٿا.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ٺيڪ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">رد</string>
+  <string name="feed_accessibility_card_text">توھان رسد جي تري تائين پھچي چڪا آھيو.</string>
+  <string name="feed_accessibility_card_load_more_button">وڌيڪ لاھيو</string>
   <string name="description_edit_text_hint">مضمون جي تشريح</string>
   <string name="description_edit_article_description_label_per_language">مضمون (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">مضمون جي تشريح (%s)</string>
@@ -555,7 +564,7 @@
   <string name="description_edit_help_wikidata_guide">تشريحون لکڻ لاءِ وڪيڊيٽا رھنما (گائيڊ)</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">مضمونن جي تشريحن کي سنوارڻ واري توھان جي لاڳيتي دلچسپيءَ لاءِ مھرباني! وڌيڪ سنوارون ڪرڻ لاءِ، پنھنجي وڪيپيڊيا کاتي ۾ داخل ٿيو.</string>
-  <string name="description_edit_license_notice">مضمون جي تشريح تبديل ڪرڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون بغير رد ڪئي &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
+  <string name="description_edit_license_notice">مضمون جي تشريح بدلائڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان راضي آھيان ۽ پنھنجون ڀاڱيداريون بغير رد ڪئي &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="description_edit_helper_text_lowercase_warning">عام طور تي ننڍن اکرن کان شروع ڪريو</string>
   <string name="description_edit_success_saved">مضمون جي تشريح ڇپجي وئي!</string>
   <string name="description_edit_success_saved_snackbar">مضمون جي تشريح ڇپجي وئي!</string>
@@ -699,7 +708,7 @@
     <item quantity="one">چونڊيل ٻولي هٽايون؟</item>
     <item quantity="other">چونڊيل ٻوليون هٽايون؟</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">توھان صرف رھيل وڪيپيڊيا ٻولين لاءِ کوجنا رسد تي مواد ۽ ترت ڳولا ڇاڻيون ڏسندا.</string>
+  <string name="wikipedia_languages_remove_dialog_content">توھان رڳو رھيل وڪيپيڊيا ٻولين لاءِ کوجنا رسد تي مواد ۽ ترت ڳولا ڇاڻيون ڏسندا.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
   <string name="more_language_options">وڌيڪ</string>
@@ -715,6 +724,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ٺيڪ</string>
   <string name="reverted_edit_dialog_ok_button_text">ٺيڪ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">رد</string>
+  <string name="content_description_for_page_indicator">%2$d مان %1$d صفحو</string>
   <string name="wikitext_bold">گھري</string>
   <string name="wikitext_italic">ٽيڏي</string>
   <string name="wikitext_link">ڳنڍڻو</string>
@@ -725,6 +735,7 @@
   <string name="wikitext_preview_link">پيش-نگاھ ڳنڍڻو</string>
   <string name="main_drawer_open">کوليو</string>
   <string name="main_drawer_close">بند ڪريو</string>
+  <string name="main_drawer_content_description">مک نيويگيشن دراز کوليو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="main_drawer_login">وڪيپيڊيا ۾ داخل ٿيو/ شامل ٿيو</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٺيڪ</string>

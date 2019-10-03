@@ -17,6 +17,7 @@
 * Matik7
 * Matma Rex
 * Py64
+* Rail
 * Railfail536
 * Rzuwig
 * Stojex
@@ -39,6 +40,7 @@
   <string name="page_tabs_back">Wstecz</string>
   <string name="nav_item_forward">Dalej</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
+  <string name="search_hint_voice_search">Wyszukiwanie za pomocą głosu</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
@@ -546,15 +548,23 @@
   <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
+  <string name="preference_title_notification_poll">Poll notifications</string>
   <string name="preference_summary_notification_poll">Pozwól aplikacji używać danych do sprawdzania nowych powiadomień w tle.</string>
   <string name="preference_category_notification_types">Typy powiadomień w aplikacji</string>
-  <string name="preference_title_notification_welcome">Powitanie</string>
-  <string name="preference_summary_notification_welcome">Konto jest tworzone</string>
+  <string name="preference_title_notification_system">System</string>
+  <string name="preference_summary_notification_system">Komunikaty systemowe</string>
   <string name="preference_title_notification_milestone">Kamień milowy</string>
   <string name="preference_summary_notification_milestone">Określone liczby zmian zostały osiągnięte</string>
   <string name="preference_title_notification_thanks">Podziękowania</string>
   <string name="preference_summary_notification_thanks">Ktoś dziękuje Ci za edycję</string>
   <string name="preference_title_notification_revert">Cofnij</string>
+  <string name="preference_summary_notification_revert">Jeden z Twoich wkładów został cofnięty</string>
+  <string name="preference_title_notification_login_fail">Logowanie</string>
+  <string name="preference_summary_notification_login_fail">Twoje logowania</string>
+  <string name="preference_title_notification_mention">Wzmianki</string>
+  <string name="preference_summary_notification_mention">Ktoś wspomniał o Tobie na stronie</string>
+  <string name="preference_title_notification_user_talk">Strona dyskusji</string>
+  <string name="preference_summary_notification_user_talk">Wiadomości ze stron dyskusji</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_card_subtitle">Przeglądaj losowe artykuły na Wikipedii</string>
@@ -591,18 +601,25 @@
   <string name="feed_configure_menu_reset">Przywróć domyślny widok</string>
   <string name="feed_configure_menu_select_all">Pokaż wszystko</string>
   <string name="feed_configure_menu_deselect_all">Ukryj wszystko</string>
+  <string name="feed_configure_language_warning">Pamiętaj, że nie wszystkie typy kart są dostępne we wszystkich językach Wikipedii. Edytuj wybrane języki w Ustawieniach.</string>
   <string name="feed_item_type_news">Artykuły o bieżących wydarzeniach</string>
   <string name="feed_item_type_on_this_day">Wydarzenia w historii w tym dniu</string>
+  <string name="feed_item_type_because_you_read">Sugestie oparte na niedawno przeczytanym artykule z Twojej historii</string>
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
   <string name="feed_item_type_trending">Najczęściej dzisiaj odwiedzane artykuły</string>
   <string name="feed_item_type_featured_image">Wyróżniony dzisiaj obraz z Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
+  <string name="feed_item_type_suggested_edits">Sugestie dotyczące dodania treści do Wikipedii</string>
+  <string name="feed_empty_message">W Twoim kanale Eksploruj nie ma nic</string>
   <string name="feed_configure_onboarding_action">Dostosuj</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anuluj</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt; Dostosuj swój kanał Eksploruj &lt;/strong&gt; &lt;br/&gt; &lt;br/&gt; Możesz teraz wybrać, co ma być wyświetlane w kanale, a także ustalić priorytet ulubionych rodzajów treści.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anuluj</string>
+  <string name="feed_accessibility_card_text">Dotarłeś do dolnej części kanału.</string>
+  <string name="feed_accessibility_card_load_more_button">Załaduj więcej</string>
   <string name="description_edit_text_hint">Opis artykułu</string>
   <string name="description_edit_article_description_label_per_language">Artykuł (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis artykułu (%s)</string>
@@ -622,20 +639,27 @@
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Dziękujemy za Twoje zainteresowanie edytowaniem opisów artykułów! Aby wprowadzić dodatkowe zmiany, zaloguj się na swoje konto w Wikipedii.</string>
+  <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_success_saved">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Podpis pod zdjęciem opublikowany!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Podpis pod zdjęciem opublikowany! (%s)</string>
+  <string name="description_edit_success_encouragement">Właśnie sprawiłeś, że Wikipedia jest lepsza dla wszystkich</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
+  <string name="description_edit_success_article_edit_hint">Możesz także edytować artykuły w tej aplikacji. Spróbuj poprawić literówki i małe zdania, następnym razem klikając ikonę ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Opis artykułu</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Podsumowuje artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka</string>
+  <string name="description_edit_tutorial_keep_it_short">Mów krótko</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
   <string name="suggested_edits_add_descriptions">Dodaj opisy artykułów</string>
   <string name="suggested_edits_translate_descriptions">Przetłumacz opisy artykułów</string>
   <string name="suggested_edits_add_image_captions">Dodaj podpisy obrazu</string>
+  <string name="suggested_edits_translate_image_captions">Przetłumacz podpisy do obrazu</string>
   <string name="suggested_edits_review_description">Sprawdź opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Edytuj opis</string>
@@ -645,21 +669,57 @@
   <string name="suggested_edits_edit_caption_button">Edytuj podpis</string>
   <string name="suggested_edits_review_image_caption">Sprawdź podpis obrazu</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
+  <string name="suggested_edits_no_description">Ten plik nie ma opisu</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odblokowałeś zadanie „Dodaj opisy”</string>
+  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Dziękujemy za cały Twój wkład! Ponieważ jesteś bardzo dobry w edytowaniu, przygotowaliśmy listę artykułów, w których brakuje opisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
   <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odblokowałeś zadanie „Przetłumacz opisy artykułów”</string>
+  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Gratulujemy wielkiego wkładu, jesteśmy pod wrażeniem! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę artykułów wymagających tłumaczenia opisów. Czy możesz nadal pomagać nam w ulepszaniu Wikipedii?</string>
   <string name="suggested_edits_unlock_dialog_no">Może później</string>
+  <string name="suggested_edits_unlock_dialog_yes">Tak, zaczynajmy</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_title">Odblokowałeś „Dodaj opisy artykułu”</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Odblokowałeś „Tłumacz opisy artykułu”</string>
+  <string name="suggested_edits_unlock_notification_text">Sugerowane edycje</string>
+  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Sugerowane edycje\n\nDziękujemy za cały Twój wkład! Ponieważ jesteś bardzo dobry w edytowaniu, przygotowaliśmy listę artykułów, w których brakuje opisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
+  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Sugerowane edycje\n\nGratulujemy wielkiego wkładu, jesteśmy pod wrażeniem! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę artykułów wymagających tłumaczenia opisów. Czy możesz nadal pomagać nam w ulepszaniu Wikipedii?</string>
+  <string name="suggested_edits_unlock_notification_button">Tak, zaczynajmy</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_title">Odblokowano zadanie „Dodaj podpisy do obrazu”</string>
+  <string name="suggested_edits_unlock_add_captions_notification_title">Odblokowałeś „Dodaj podpisy do obrazu”</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Dziękujemy za wszystkie edycje podpisów grafik! Ponieważ widzimy, że lubisz dodawać podpisy do grafik, przygotowaliśmy listę obrazów, w których brakuje podpisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Sugerowane edycje\n\nDziękujemy za wszystkie edycje podpisów grafik! Ponieważ widzimy, że lubisz dodawać podpisy do grafik, przygotowaliśmy listę obrazów, w których brakuje podpisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_title">Odblokowano zadanie „Przetłumacz podpisy obrazów”</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_title">Odblokowałeś „Przetłumacz podpisy do obrazów”</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">Gratulujemy wielu edycji opisów grafik - jesteśmy zdumieni! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę grafik wymagających tłumaczenia podpisów. Czy możesz nadal pomagać nam ulepszać Wikipedię?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Sugerowane edycje\n\nGratulujemy wielu edycji opisów do grafik - jesteśmy zdumieni! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę grafik wymagających tłumaczenia podpisów. Czy możesz nadal pomagać nam ulepszać Wikipedię?</string>
+  <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacje</string>
+  <string name="suggested_edits_tasks_activity_title">Sugerowane edycje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
+  <string name="suggested_edits_task_add_description_description">Wkład w artykuły bez opisów</string>
   <string name="suggested_edits_task_translation_title">Przetłumacz opisy artykułów</string>
+  <string name="suggested_edits_task_translation_description">Przetłumacz opisy na języki artykułów.</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj podpisy obrazu</string>
+  <string name="suggested_edits_task_image_caption_description">Dodaj brakujące krótkie podpisy do grafik</string>
+  <string name="suggested_edits_task_translate_caption_title">Przetłumacz podpisy do obrazu</string>
+  <string name="suggested_edits_task_translate_caption_description">Przetłumacz podpisy na inne języki</string>
+  <string name="suggested_edits_task_multilingual_title">Więcej zadań dla wielojęzycznych redaktorów</string>
+  <string name="suggested_edits_task_multilingual_description">90/5000\nZadania tłumaczeniowe są dostępne, jeśli czytasz i piszesz w więcej niż jednym języku na Wikipedii.</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Zablokowane, dopóki nie edytujesz %d podpisów obrazów</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Zablokowane, dopóki nie edytujesz %d opisów artykułów (zweryfikowane)</string>
   <string name="suggested_edits_task_multilingual_negative">Nie dla mnie</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artysta</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
   <string name="suggested_edits_image_caption_summary_title_date">Data</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 wkład</item>
+    <item quantity="other">%d wkładów</item>
+  </plurals>
   <string name="suggested_edits_feed_card_title">Sugerowane edycje</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
+  <string name="suggested_edits_tutorial_message">Witamy w nowym domu do szybkiej edycji w aplikacji Wikipedia. Twój wkład jest bardzo mile widziany. Miłej edycji!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Podpis obrazka (%s)</string>
@@ -673,8 +733,12 @@
   <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis (%s)</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
+  <string name="suggested_edits_snackbar_survey_text">Jak oceniasz swoje doświadczenie związane z edytowaniem? Poświęć chwilę aby wypełnić tę ankietę na temat edytowania w aplikacji.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Wypełnij ankietę</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
+  <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history">Jeśli Cię to interesuje, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Anuluj</string>
@@ -689,7 +753,9 @@
   <string name="onboarding_explore_title">Nowe metody eksploracji</string>
   <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowanym kanałem Eksploruj.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Synchronizacja list do przeczytania</string>
+  <string name="onboarding_reading_list_sync_text_v2">Możesz tworzyć listy do czytania z artykułów, które chcesz przeczytać później, nawet gdy jesteś offline. &lt;br/&gt; Zaloguj się do swojego konta w Wikipedii, aby zsynchronizować listy czytelnicze. &lt;a href=\"#login\"&gt; Dołącz do Wikipedii &lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Wyślij anonimowo dane</string>
+  <string name="onboarding_analytics_offline_text">Pomóż ulepszyć aplikację, informując nas, jak z niej korzystasz. Zebrane dane są anonimowe. &lt;a href=\"#privacy\"&gt; Dowiedz się więcej &lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Wyślij używane dane</string>
   <string name="onboarding_create_account_sync">Zsynchronizuj swoje listy czytania</string>
   <string name="onboarding_create_account_contributions">Śledź swój wkład</string>
@@ -705,8 +771,13 @@
   <string name="top_on_this_day">Popularne w dniu %1$s</string>
   <string name="on_this_day_card_title">Dzisiejszego dnia</string>
   <string name="more_events_text">Więcej dzisiejszego dnia</string>
+  <string name="events_count_text">%1$s zdarzeń z %2$s–%3$d</string>
   <string name="this_year">W tym roku</string>
   <string name="back_to_top">Powrót do góry</string>
+  <plurals name="diff_years">
+    <item quantity="one">w zeszłym roku</item>
+    <item quantity="other">%d lat temu</item>
+  </plurals>
   <string name="languages_list_activity_title">Dodaj język</string>
   <string name="languages_list_suggested_text">Sugerowany</string>
   <string name="languages_list_all_text">Wszystkie języki</string>
@@ -719,9 +790,13 @@
     <item quantity="one">Usunąć wybrany język?</item>
     <item quantity="other">Usunąć wybrane języki?</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Zobaczysz tylko zawartość w kanale Eksploruj i filtry szybkiego wyszukiwania dla pozostałych języków Wikipedii.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nie można usunąć wszystkich języków</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Zachowaj przynajmniej jeden język Wikipedii, z którego można wyszukiwać i czytać treści.</string>
   <string name="more_language_options">więcej</string>
   <string name="add_wikipedia_languages_text">Dodaj języki Wikipedii</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Usunąć wariant chiński z języków aplikacji?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Obecnie w językach aplikacji masz ustawione zarówno tradycyjne, jak i uproszczone chińskie warianty. Zaktualizować ustawienia języków aplikacji?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Edytuj języki</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nie, dziękuję</string>
   <string name="remove_language_dialog_cancel_button_text">Anuluj</string>
@@ -732,6 +807,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Anuluj</string>
+  <string name="content_description_for_page_indicator">Strona %1$d z %2$d</string>
   <string name="wikitext_bold">Pogrubienie</string>
   <string name="wikitext_italic">Kursywa</string>
   <string name="wikitext_link">Link</string>
@@ -742,6 +818,7 @@
   <string name="wikitext_preview_link">Zobacz link</string>
   <string name="main_drawer_open">Otwórz</string>
   <string name="main_drawer_close">Zamknij</string>
+  <string name="main_drawer_content_description">Otwórz główną szufladę nawigacji</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

@@ -15,6 +15,7 @@
 * Matěj Suchánek
 * Mimichal007
 * Mormegil
+* MrJaroslavik
 * Patriccck
 * Tereza
 * Vojtěch Dostál
@@ -29,12 +30,13 @@
   <string name="page_tabs_back">Zpět</string>
   <string name="nav_item_forward">Dále</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
+  <string name="search_hint_voice_search">Hlasové vyhledávání</string>
   <string name="search_hint_search_history">Hledat v historii</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
-  <string name="page_error_retry">Zkusit znovu</string>
+  <string name="page_error_retry">Znovu</string>
   <string name="card_offline_error_retry">Znovu</string>
   <string name="storage_access_error_retry">Znovu</string>
   <string name="article_load_error_retry">Znovu</string>
@@ -542,14 +544,20 @@
   <string name="preference_title_notification_poll">Kontrola nových upozornění</string>
   <string name="preference_summary_notification_poll">Povolit aplikaci používaní dat ke kontrole nových upozornění na pozadí.</string>
   <string name="preference_category_notification_types">Typy upozornění v aplikaci</string>
-  <string name="preference_title_notification_welcome">Vítejte</string>
-  <string name="preference_summary_notification_welcome">Účet je vytvořen</string>
+  <string name="preference_title_notification_system">Systém</string>
+  <string name="preference_summary_notification_system">Zprávy ze systému</string>
   <string name="preference_title_notification_milestone">Milník</string>
   <string name="preference_summary_notification_milestone">Dosáhli jste určitého počtu editací</string>
   <string name="preference_title_notification_thanks">Poděkování</string>
   <string name="preference_summary_notification_thanks">Někdo Vám poděkoval za Vaši editaci</string>
   <string name="preference_title_notification_revert">Vrácení zpět</string>
   <string name="preference_summary_notification_revert">Jeden z vašich příspěvků byl vrácen zpět</string>
+  <string name="preference_title_notification_login_fail">Přihlášení</string>
+  <string name="preference_summary_notification_login_fail">Vaše přihlašovací aktivita</string>
+  <string name="preference_title_notification_mention">Zmínka</string>
+  <string name="preference_summary_notification_mention">Někdo vás zmínil v diskusi</string>
+  <string name="preference_title_notification_user_talk">Diskusní stránka</string>
+  <string name="preference_summary_notification_user_talk">Zprávy na vaší diskusi</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
   <string name="view_random_card_subtitle">Procházet náhodné články na Wikipedii ke čtení</string>
@@ -603,6 +611,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Přizpůsobte si svůj kanál Objevit&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nyní si můžete vybrat, co se má zobrazovat na vaší stránce, a také upřednostňovat své oblíbené typy obsahu.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
+  <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
+  <string name="feed_accessibility_card_load_more_button">Načíst další</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_article_description_label_per_language">Článek (v jazyce %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Popis článku (v jazyce %s)</string>
@@ -718,6 +728,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
+  <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -789,6 +801,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušit</string>
+  <string name="content_description_for_page_indicator">Článek %1$d z %2$d</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>
@@ -799,6 +812,7 @@
   <string name="wikitext_preview_link">Náhled odkazu</string>
   <string name="main_drawer_open">Otevřít</string>
   <string name="main_drawer_close">Zavřít</string>
+  <string name="main_drawer_content_description">Otevřete hlavní nabídku</string>
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit/zaregistrovat se do Wikipedie</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

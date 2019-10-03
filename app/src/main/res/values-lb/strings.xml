@@ -447,12 +447,17 @@
   <string name="notifications_empty_message">Dir hutt keng nei Notifikatioune méi!</string>
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
-  <string name="preference_title_notification_welcome">Wëllkomm</string>
-  <string name="preference_summary_notification_welcome">E Benotzerkont gouf ugeluecht</string>
+  <string name="preference_title_notification_system">System</string>
+  <string name="preference_summary_notification_system">Message vum System</string>
   <string name="preference_title_notification_milestone">Meilesteen</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
   <string name="preference_title_notification_revert">Zrécksetzen</string>
+  <string name="preference_title_notification_login_fail">Aloggen</string>
+  <string name="preference_title_notification_mention">Ernimmen</string>
+  <string name="preference_summary_notification_mention">Et huet een Iech op enger Säit ernimmt</string>
+  <string name="preference_title_notification_user_talk">Diskussiounssäit</string>
+  <string name="preference_summary_notification_user_talk">Message vun Diskussiounssäiten</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
@@ -492,6 +497,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="feed_accessibility_card_load_more_button">Méi lueden</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreiwung</string>
   <string name="description_edit_translate_article_description_hint_per_language">Beschreiwung vum Artikel (%s)</string>
   <string name="description_edit_add_caption_label_per_language">Beschreiwung vum Bild (%s)</string>
@@ -542,6 +548,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Méi Informatiounen</string>
   <string name="suggested_edits_article_cta_snackbar_action">Weisen</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Bei der Ëmfro matmaachen</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -600,6 +607,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="content_description_for_page_indicator">Säit %1$d vu(n) %2$d</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

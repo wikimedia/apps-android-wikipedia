@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.EditorTaskCounts
-import org.wikipedia.notifications.NotificationEditorTasksHandler
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER
 import org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER
 import org.wikipedia.util.FeedbackUtil
@@ -58,12 +57,12 @@ class SuggestedEditsContributionsFragment : Fragment() {
         disposables.clear()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater!!.inflate(R.menu.menu_suggested_edits_tasks, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when (item!!.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
             R.id.menu_help -> {
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 true
@@ -91,7 +90,6 @@ class SuggestedEditsContributionsFragment : Fragment() {
                 }
                 .subscribe({ response ->
                     editorTaskCounts = response.query()!!.editorTaskCounts()!!
-                    NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts)
                     val totalEdits = editorTaskCounts.descriptionEditsPerLanguage.values.sum() + editorTaskCounts.captionEditsPerLanguage.values.sum()
                     languageList.clear()
                     languageList.addAll(editorTaskCounts.descriptionEditsPerLanguage.keys)

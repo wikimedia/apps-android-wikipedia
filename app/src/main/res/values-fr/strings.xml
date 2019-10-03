@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Bbernrd
 * Blurby
 * C13m3n7
 * Crochet.david
@@ -23,6 +24,7 @@
 * Macofe
 * NemesisIII
 * Niridya
+* Noé
 * Oupsa
 * Seb35
 * The RedBurn
@@ -43,6 +45,7 @@
   <string name="page_tabs_back">Retour</string>
   <string name="nav_item_forward">Suivant</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
+  <string name="search_hint_voice_search">Recherche d’entrée vocale</string>
   <string name="search_hint_search_history">Rechercher dans l’historique</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="search_hint_search_my_lists_and_articles">Rechercher dans mes listes et articles</string>
@@ -282,7 +285,7 @@
   <string name="dialog_close_description">Fermer</string>
   <string name="preference_title_show_images">Voir les images</string>
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à Internet est lente, ou si votre volume de données est limité.</string>
-  <string name="preference_title_download_only_over_wifi">Télécharger seulement par le Wi-Fi</string>
+  <string name="preference_title_download_only_over_wifi">Télécharger seulement par Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirmer le téléchargement en utilisant les données mobiles ?</string>
   <string name="dialog_text_download_only_over_wifi">Vous avez activé «  Télécharger seulement par Wi-Fi  » dans les paramètres. Voulez-vous autoriser l’utilisation de votre plan de données mobiles pour ce téléchargement uniquement ?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
@@ -319,13 +322,13 @@
   <string name="tab_item_closed">%s fermé.</string>
   <string name="all_tab_items_closed">Tous les onglets sont fermés.</string>
   <string name="tool_tip_bookmark_icon_title">Ajouter à la liste de lecture</string>
-  <string name="tool_tip_bookmark_icon_text">Cliquez sur l\'icône du signet pour enregistrer l\'article dans une liste de lecture.</string>
-  <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris !</string>
+  <string name="tool_tip_bookmark_icon_text">Cliquez sur l’icône du signet pour enregistrer l’article dans une liste de lecture.</string>
+  <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris  !</string>
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_title">Tableau d’accès rapide aux contenus</string>
   <string name="tool_tip_toc_text">Vous pouvez maintenant faire glisser sur la gauche pour ouvrir le tableau des contenus, et aussi cliquer et tirer ce bouton de défilement pour sauter rapidement aux différentes sections d’un article.</string>
-  <string name="tool_tip_lang_button">Vous pouvez maintenant chercher et lire Wikipédia dans différentes langues dans l\'application.\n\n\nCliquez sur l\'icône pour ajouter plus de langues.</string>
-  <string name="error_response_malformed">La réponse du serveur n\'a pas été formatée correctement.</string>
+  <string name="tool_tip_lang_button">Vous pouvez maintenant chercher et lire Wikipédia dans différentes langues dans l’application.\n\n\nCliquez sur l’icône pour ajouter plus de langues.</string>
+  <string name="error_response_malformed">La réponse du serveur n’a pas été mise en forme correctement.</string>
   <string name="error_unknown">Une erreur inconnue s’est produite.</string>
   <string name="format_error_server_message">Message : \"%s\"</string>
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
@@ -379,8 +382,8 @@
   <string name="color_theme_black">Noir</string>
   <string name="color_theme_sepia">Sépia</string>
   <string name="color_theme_test_title">Texte d\'exemple</string>
-  <string name="color_theme_test_text">Charger le diaporeme pour faire changer le volume du texte qui est utilise pour lire des articles. Afin de determiner le volume du texte, a l\'aide du reste d\'application, changer le volume du texte dans le systeme.</string>
-  <string name="preference_title_app_theme">Thème de l\'application</string>
+  <string name="color_theme_test_text">Charger le diaporama pour faire changer le volume du texte qui est utilisé pour lire des articles. Afin de déterminer le volume du texte, à l’aide du reste d’application, changer le volume du texte dans le système.</string>
+  <string name="preference_title_app_theme">Thème de l’application</string>
   <string name="preference_summary_color_theme">Basculer pour utiliser le thème couleur sombre de l’application</string>
   <string name="text_size_increase">Agrandir le texte</string>
   <string name="text_size_decrease">Réduire la taille du texte</string>
@@ -552,14 +555,20 @@
   <string name="preference_title_notification_poll">Activer les notifications</string>
   <string name="preference_summary_notification_poll">Permettre à l’application d’utiliser les données pour vérifier s’il y a de nouvelles notifications en tâche de fond.</string>
   <string name="preference_category_notification_types">Types de notification dans l’application</string>
-  <string name="preference_title_notification_welcome">Bienvenue</string>
-  <string name="preference_summary_notification_welcome">Un compte est créé</string>
+  <string name="preference_title_notification_system">Système</string>
+  <string name="preference_summary_notification_system">Messages du système</string>
   <string name="preference_title_notification_milestone">Jalon</string>
   <string name="preference_summary_notification_milestone">Un certain nombre de modifications a été atteint</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Quelqu’un vous a remercié pour une modification</string>
   <string name="preference_title_notification_revert">Révoquer</string>
   <string name="preference_summary_notification_revert">Une de vos contributions a été révoquée</string>
+  <string name="preference_title_notification_login_fail">Connexion</string>
+  <string name="preference_summary_notification_login_fail">Votre journal dans les activités</string>
+  <string name="preference_title_notification_mention">Mention</string>
+  <string name="preference_summary_notification_mention">Quelqu’un mentionne votre nom sur une page</string>
+  <string name="preference_title_notification_user_talk">Page de discussion</string>
+  <string name="preference_summary_notification_user_talk">Messages des pages de discussion</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
   <string name="view_random_card_subtitle">Voltiger à travers des articles aléatoires à lire depuis Wikipédia.</string>
@@ -613,6 +622,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d’exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil, et aussi prioriser vos types de contenu favoris.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
+  <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
+  <string name="feed_accessibility_card_load_more_button">Charger davantage</string>
   <string name="description_edit_text_hint">Description de l\'article</string>
   <string name="description_edit_article_description_label_per_language">Article (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Description de l’article (%s)</string>
@@ -727,6 +738,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Ajouter une légende</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ajouter une légende (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Ajouter une description d’article</string>
+  <string name="suggested_edits_snackbar_survey_text">Comment s’est déroulée votre expérience de création ou de modification ? Merci de prendre un moment pour répondre à l’enquête concernant les modifications avec l’application.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Participer au sondage</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
@@ -798,6 +811,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annuler</string>
+  <string name="content_description_for_page_indicator">Page %1$d sur %2$d</string>
   <string name="wikitext_bold">Gras</string>
   <string name="wikitext_italic">Italique</string>
   <string name="wikitext_link">Lien</string>
@@ -808,6 +822,7 @@
   <string name="wikitext_preview_link">Lien vers l\'aperçu</string>
   <string name="main_drawer_open">Ouvrir</string>
   <string name="main_drawer_close">Fermer</string>
+  <string name="main_drawer_content_description">Ouvrir le tiroir principal de navigation</string>
   <string name="main_drawer_help">Aide</string>
   <string name="main_drawer_login">Connexion / rejoindre Wikipedia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

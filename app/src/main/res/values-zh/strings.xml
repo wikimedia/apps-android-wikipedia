@@ -26,6 +26,7 @@
 * Xxoopiggy
 * Yfdyh000
 * Zjzengdongyang
+* 予弦
 * 佛壁灯
 * 水獭很懒
 * 神樂坂秀吉
@@ -550,14 +551,17 @@
   <string name="preference_title_notification_poll">投票通知</string>
   <string name="preference_summary_notification_poll">允许应用使用数据在后台检查新通知。</string>
   <string name="preference_category_notification_types">应用内通知类型</string>
-  <string name="preference_title_notification_welcome">欢迎</string>
-  <string name="preference_summary_notification_welcome">已创建一个账户</string>
+  <string name="preference_title_notification_system">系统</string>
+  <string name="preference_summary_notification_system">来自系统的消息</string>
   <string name="preference_title_notification_milestone">里程碑</string>
   <string name="preference_summary_notification_milestone">已达成某个编辑数</string>
   <string name="preference_title_notification_thanks">感谢</string>
   <string name="preference_summary_notification_thanks">有人感谢了您的一次编辑</string>
   <string name="preference_title_notification_revert">回退</string>
   <string name="preference_summary_notification_revert">你其中一条贡献被撤销</string>
+  <string name="preference_title_notification_login_fail">登入</string>
+  <string name="preference_title_notification_mention">提及</string>
+  <string name="preference_title_notification_user_talk">讨论页</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
   <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
@@ -725,6 +729,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">添加说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加说明（%s）</string>
   <string name="suggested_edits_feed_card_add_description_button">添加条目描述</string>
+  <string name="suggested_edits_snackbar_survey_text">你的编辑经验如何？请花点时间填写有关应用内编辑的调查。</string>
+  <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

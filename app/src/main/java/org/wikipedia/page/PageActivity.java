@@ -90,7 +90,6 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
         LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
         WiktionaryDialog.Callback {
-
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
@@ -199,7 +198,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
-
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
         openSearchActivity(TOOLBAR, null);
@@ -249,7 +247,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (app.haveMainActivity()) {
                     onBackPressed();
                 } else {
-                    goToMainTab(NavTab.EXPLORE.code());
+                    goToMainTab(NavTab.EXPLORE);
                 }
                 return true;
             default:
@@ -263,11 +261,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return true;
     }
 
-    private void goToMainTab(int navTabCode) {
+    private void goToMainTab(@NonNull NavTab tab) {
         startActivity(MainActivity.newIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode));
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, tab.code()));
         finish();
     }
 
@@ -637,7 +635,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         @Override
         public void feedClick() {
-            goToMainTab(NavTab.EXPLORE.code());
+            goToMainTab(NavTab.EXPLORE);
         }
 
         @Override
@@ -645,17 +643,17 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
                 Prefs.setOverflowReadingListsOptionClickCount(Prefs.getOverflowReadingListsOptionClickCount() + 1);
             }
-            goToMainTab(NavTab.READING_LISTS.code());
+            goToMainTab(NavTab.READING_LISTS);
         }
 
         @Override
         public void historyClick() {
-            goToMainTab(NavTab.HISTORY.code());
+            goToMainTab(NavTab.HISTORY);
         }
 
         @Override
         public void nearbyClick() {
-            goToMainTab(NavTab.NEARBY.code());
+            goToMainTab(NavTab.NEARBY);
         }
     }
 

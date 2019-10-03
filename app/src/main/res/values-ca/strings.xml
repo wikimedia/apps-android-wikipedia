@@ -28,6 +28,7 @@
   <string name="page_tabs_back">Enrere</string>
   <string name="nav_item_forward">Endavant</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
+  <string name="search_hint_voice_search">Cerca d\'entrada de veu</string>
   <string name="search_hint_search_history">Historial de cerca</string>
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
@@ -537,14 +538,20 @@
   <string name="preference_title_notification_poll">Activa les notificacions</string>
   <string name="preference_summary_notification_poll">Permet a l\'aplicació utilitzar dades per comprovar si hi ha noves notificacions en segon pla.</string>
   <string name="preference_category_notification_types">Tipus de notificació a l\'aplicació</string>
-  <string name="preference_title_notification_welcome">Benvinguda</string>
-  <string name="preference_summary_notification_welcome">S\'ha creat un compte</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Missatges del sistema</string>
   <string name="preference_title_notification_milestone">Fita</string>
   <string name="preference_summary_notification_milestone">S\'ha arribat a un cert nombre de modificacions</string>
   <string name="preference_title_notification_thanks">Gràcies</string>
   <string name="preference_summary_notification_thanks">Algú us ha agraït una modificació</string>
   <string name="preference_title_notification_revert">Reverteix</string>
   <string name="preference_summary_notification_revert">S\'ha revertit una de les vostres contribucions</string>
+  <string name="preference_title_notification_login_fail">Inici de sessió</string>
+  <string name="preference_summary_notification_login_fail">Les vostres activitats d\'inici de sessió</string>
+  <string name="preference_title_notification_mention">Menció</string>
+  <string name="preference_summary_notification_mention">Algú us menciona en una pàgina</string>
+  <string name="preference_title_notification_user_talk">Pàgina de discussió</string>
+  <string name="preference_summary_notification_user_talk">Missatges de pàgines de discussió</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_card_subtitle">Volteu per articles a l\'atzar per llegir de la Viquipèdia</string>
@@ -598,6 +605,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalitza el teu canal Explora&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ara pots escollir quin contingut veus al teu canal i configurar-lo al teu gust.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">D’acord</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
+  <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
+  <string name="feed_accessibility_card_load_more_button">Carrega’n més</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
   <string name="description_edit_article_description_label_per_language">Article (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripció de l\'article (%s)</string>
@@ -712,6 +721,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Afegeix una descripció a l\'article</string>
+  <string name="suggested_edits_snackbar_survey_text">Com ha estat la vostra experiència editant-hi? Dediqueu un moment a omplir l\'enquesta d\'edició amb l\'aplicació.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Inicia l\'enquesta</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
@@ -783,6 +794,7 @@
   <string name="edit_conflict_dialog_ok_button_text">D’acord</string>
   <string name="reverted_edit_dialog_ok_button_text">D’acord</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancel·la</string>
+  <string name="content_description_for_page_indicator">Pàgina %1$d de %2$d</string>
   <string name="wikitext_bold">Negreta</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enllaç</string>
@@ -793,6 +805,7 @@
   <string name="wikitext_preview_link">Previsualitza l’enllaç</string>
   <string name="main_drawer_open">Obre</string>
   <string name="main_drawer_close">Tanca</string>
+  <string name="main_drawer_content_description">Obre el calaix principal de navegació</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="custom_date_picker_dialog_ok_button_text">D’acord</string>

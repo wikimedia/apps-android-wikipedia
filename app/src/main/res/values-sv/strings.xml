@@ -25,6 +25,7 @@
   <string name="page_tabs_back">Tillbaka</string>
   <string name="nav_item_forward">Framåt</string>
   <string name="search_hint">Sök på Wikipedia</string>
+  <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="search_hint_search_my_lists_and_articles">Sök i mina listor och artiklar</string>
@@ -535,14 +536,20 @@
   <string name="preference_title_notification_poll">Aktivera aviseringar</string>
   <string name="preference_summary_notification_poll">Tillåt appen att använda data för att leta efter nya aviseringar i bakgrunden.</string>
   <string name="preference_category_notification_types">Aviseringstyper i appen</string>
-  <string name="preference_title_notification_welcome">Välkommen</string>
-  <string name="preference_summary_notification_welcome">Ett konto skapas</string>
+  <string name="preference_title_notification_system">System</string>
+  <string name="preference_summary_notification_system">Systemmeddelanden</string>
   <string name="preference_title_notification_milestone">Milstolpe</string>
   <string name="preference_summary_notification_milestone">Vissa antal redigeringar uppnås</string>
   <string name="preference_title_notification_thanks">Tack</string>
   <string name="preference_summary_notification_thanks">Någon tackar dig för en redigering</string>
   <string name="preference_title_notification_revert">Återställ</string>
   <string name="preference_summary_notification_revert">Ett av dina bidrag återställdes</string>
+  <string name="preference_title_notification_login_fail">Inloggning</string>
+  <string name="preference_summary_notification_login_fail">Dina inloggningsaktiviteter</string>
+  <string name="preference_title_notification_mention">Omnämnande</string>
+  <string name="preference_summary_notification_mention">Någon nämner dig på en sida</string>
+  <string name="preference_title_notification_user_talk">Diskussionssida</string>
+  <string name="preference_summary_notification_user_talk">Meddelanden från diskussionssidor</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Slumpartikel</string>
   <string name="view_random_card_subtitle">Bläddra bland slumpartiklar att läsa från Wikipedia</string>
@@ -596,6 +603,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
+  <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
+  <string name="feed_accessibility_card_load_more_button">Läs in fler</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivning (%s)</string>
@@ -710,6 +719,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
+  <string name="suggested_edits_snackbar_survey_text">Hur har din redigeringsupplevelse varit? Ta en stund att delta i en undersökning om att redigera i appen.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Delta i undersökning</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
@@ -781,6 +792,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Avbryt</string>
+  <string name="content_description_for_page_indicator">Sida %1$d av %2$d</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Länk</string>
@@ -791,6 +803,7 @@
   <string name="wikitext_preview_link">Förhandsvisa länk</string>
   <string name="main_drawer_open">Öppna</string>
   <string name="main_drawer_close">Stäng</string>
+  <string name="main_drawer_content_description">Öppna huvudnavigeringsmenyn</string>
   <string name="main_drawer_help">Hjälp</string>
   <string name="main_drawer_login">Logga in / skapa konto på Wikipedia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
