@@ -96,6 +96,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_FILENAME = "filename";
     public static final String EXTRA_WIKI = "wiki";
     public static final String EXTRA_SOURCE = "source";
+    public static final String EXTRA_REVISION = "revision";
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
@@ -124,6 +125,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private CompositeDisposable disposables = new CompositeDisposable();
     private Disposable imageCaptionDisposable;
     private WikiSite sourceWiki;
+    private String revision;
 
     private boolean controlsShowing = true;
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
@@ -149,18 +151,19 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
                                    @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, null, filename, wiki, source)
+        return newIntent(context, null, filename, wiki, "", source)
                 .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
                 .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
     }
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
-                                   @NonNull String filename, @NonNull WikiSite wiki, int source) {
+                                   @NonNull String filename, @NonNull WikiSite wiki, @NonNull String revision, int source) {
         Intent intent = new Intent()
                 .setClass(context, GalleryActivity.class)
                 .putExtra(EXTRA_FILENAME, filename)
                 .putExtra(EXTRA_WIKI, wiki)
+                .putExtra(EXTRA_REVISION, revision)
                 .putExtra(EXTRA_SOURCE, source);
         if (pageTitle != null) {
             intent.putExtra(EXTRA_PAGETITLE, pageTitle);
@@ -200,6 +203,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
         sourceWiki = getIntent().getParcelableExtra(EXTRA_WIKI);
+        revision = getIntent().getStringExtra(EXTRA_REVISION);
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);
         galleryPager.setAdapter(galleryAdapter);
@@ -507,7 +511,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         updateProgressBar(true);
 
-        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText())
+        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText(), revision)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mediaList -> {

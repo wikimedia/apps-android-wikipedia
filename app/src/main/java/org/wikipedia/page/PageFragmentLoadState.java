@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
@@ -137,7 +136,7 @@ public class PageFragmentLoadState {
         return loading;
     }
 
-    @Nullable
+    @NonNull
     public String getRevision() {
         return revision;
     }
