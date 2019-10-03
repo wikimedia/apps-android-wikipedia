@@ -361,6 +361,7 @@
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta página no existe</string>
   <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
+  <string name="view_wiki_error_message_timeout">No se puede conectar con Wikipedia. Comprueba la conexión de red o inténtalo de nuevo más tarde</string>
   <string name="reference_title">Referencia %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imágenes (en el tema oscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contenido sin conexión</string>

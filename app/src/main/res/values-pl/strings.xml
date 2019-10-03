@@ -45,6 +45,7 @@
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
   <string name="nav_item_history">Historia</string>
+  <string name="nav_item_suggested_edits">Sugerowane edycje</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="card_offline_error_retry">Ponów próbę</string>
@@ -353,6 +354,7 @@
   <string name="view_link_preview_error_button_dismiss">Odrzuć</string>
   <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
   <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
+  <string name="view_wiki_error_message_timeout">Nie można połączyć się z Wikipedią. Sprawdź swoje połączenie lub spróbuj ponownie później</string>
   <string name="reference_title">Przypis %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>

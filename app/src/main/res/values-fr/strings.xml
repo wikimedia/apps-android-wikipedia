@@ -50,6 +50,7 @@
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="search_hint_search_my_lists_and_articles">Rechercher dans mes listes et articles</string>
   <string name="nav_item_history">Historique</string>
+  <string name="nav_item_suggested_edits">Modifications suggérées</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="card_offline_error_retry">Réessayer</string>
@@ -358,6 +359,7 @@
   <string name="view_link_preview_error_button_dismiss">Rejeter</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
+  <string name="view_wiki_error_message_timeout">Impossible de se connecter à Wikipédia. Vérifiez votre connexion réseau, ou réessayez ultérieurement</string>
   <string name="reference_title">Référence %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
