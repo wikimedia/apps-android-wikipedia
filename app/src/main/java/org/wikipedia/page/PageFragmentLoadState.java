@@ -317,6 +317,7 @@ public class PageFragmentLoadState {
     private void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
+        // TODO: this may conflict with https://github.com/wikimedia/apps-android-wikipedia/pull/623
         Observable<PageSummary> pageSummaryObservable = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace()).summary(model.getTitle().getWikiSite(), model.getTitle().getConvertedText(), null);
         Observable<Response<PageLead>> pageLeadObservable = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth());
