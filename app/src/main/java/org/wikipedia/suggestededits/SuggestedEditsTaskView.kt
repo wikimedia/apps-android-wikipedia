@@ -26,7 +26,6 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
         taskImageDetailView.setImageBackgroundParams(resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt(), resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt())
         taskImageDetailView.setCaseForTitle(true)
         taskImageDetailView.setTitleTextSize(if (DeviceUtil.isDeviceTablet()) IMAGE_DETAIL_TEXT_SIZE_TABLET else IMAGE_DETAIL_TEXT_SIZE_PHONE)
-        taskImageDetailView.setDescriptionTextSize(if (DeviceUtil.isDeviceTablet()) IMAGE_DETAIL_TEXT_SIZE_TABLET else IMAGE_DETAIL_TEXT_SIZE_PHONE)
     }
 
     fun updateTranslateActionUI() {

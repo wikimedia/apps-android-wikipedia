@@ -40,10 +40,6 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
         description.text = descriptionText
     }
 
-    fun setDescriptionTextSize(textSize: Float) {
-        description.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-    }
-
     fun setImageDrawable(imageDrawable: Drawable) {
         image.setImageDrawable(imageDrawable)
     }
