@@ -15,6 +15,7 @@
 * Matěj Suchánek
 * Mimichal007
 * Mormegil
+* MrJaroslavik
 * Patriccck
 * Tereza
 * Vojtěch Dostál
@@ -35,7 +36,7 @@
   <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
-  <string name="page_error_retry">Zkusit znovu</string>
+  <string name="page_error_retry">Znovu</string>
   <string name="card_offline_error_retry">Znovu</string>
   <string name="storage_access_error_retry">Znovu</string>
   <string name="article_load_error_retry">Znovu</string>
@@ -724,6 +725,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
+  <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>

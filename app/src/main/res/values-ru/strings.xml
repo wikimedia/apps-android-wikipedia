@@ -701,7 +701,7 @@
   <string name="suggested_edits_unlock_notification_button">Поехали</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже что вам нравится добавлять описания изображений. А мы, вот, и списочек таких изображений приготовили! Ну что, подсобите с описаниями?</string>
   <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
@@ -715,14 +715,14 @@
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
   <string name="suggested_edits_task_translation_title">Перевод описаний статей</string>
   <string name="suggested_edits_task_translation_description">Перевод кратких описаний на другие языки.</string>
-  <string name="suggested_edits_task_image_caption_title">Добавить описание изображений</string>
-  <string name="suggested_edits_task_image_caption_description">Добавление короткие описания изображениям</string>
+  <string name="suggested_edits_task_image_caption_title">Добавление описания изображений</string>
+  <string name="suggested_edits_task_image_caption_description">Добавление кратких описаний изображениям</string>
   <string name="suggested_edits_task_translate_caption_title">Перевод описаний изображений</string>
   <string name="suggested_edits_task_translate_caption_description">Перевод подписей для изображений на другие языки</string>
   <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d описаний статей и они не будут проверены</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Этот функционал будет открыт тогда, когда вы отредактируете %d описаний статей и они будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
@@ -732,7 +732,9 @@
   <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">одна правка</item>
-    <item quantity="other">%d правки</item>
+    <item quantity="few">%d правки</item>
+    <item quantity="many">%d правок</item>
+    <item quantity="other">%d правок</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Предложения отредактировать</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
@@ -751,6 +753,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить описание (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
+  <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>

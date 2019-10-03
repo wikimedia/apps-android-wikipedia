@@ -669,8 +669,8 @@
   <string name="suggested_edits_unlock_add_captions_notification_big_text">편집 제안\n\n이미지 캡션 편집에 감사드립니다! 이미지에 설명을 추가하고 계신 것을 확인하여 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">\"이미지 설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">\"이미지 설명 번역하기\"의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">모든 기여에 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">편집 제한\n\n모든 기여에 감사드립니다. 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_translate_captions_dialog_message">수많은 이미지 캡션 편집에 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">편집 제안\n\n수많은 이미지 캡션을 편집해 주셔서 감사합니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
   <string name="suggested_edits_license_notice">설명을 추가함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="suggested_edits_image_caption_license_notice">이미지 캡션을 추가함으로써, 나는 &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고, 나의 기여를 비가역적으로 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스에 따라 배포하는 데 동의합니다.</string>
   <string name="suggested_edits_menu_info">정보</string>
@@ -715,6 +715,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
   <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
+  <string name="suggested_edits_snackbar_survey_text">편집 경험은 어떠셨나요? 시간을 내어 인앱 편집에 관한 설문조사를 작성해 주십시오.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">설문 조사 참가</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>

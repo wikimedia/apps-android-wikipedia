@@ -17,6 +17,7 @@
 * Wehwei
 * Willy1018
 * Wwycheuk
+* Xiplus
 * 漢黑玉
 * 烈羽
 -->
@@ -349,7 +350,7 @@
   <string name="crash_report_dialog_always_send_button">總是傳送</string>
   <string name="crash_report_dialog_send_button">傳送</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
-  <string name="crash_report_relaunch_or_quit">我們感到很抱歉，維基百科手機應用程式發生錯誤，並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
+  <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
   <string name="crash_report_quit">結束</string>
   <string name="article_menu_bar_bookmark">新增此條目至閱讀清單</string>
@@ -720,6 +721,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增說明（%s）</string>
   <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>
+  <string name="suggested_edits_snackbar_survey_text">您的編輯體驗如何？請花些許時間來填寫有關應用程式內編輯的調查。</string>
+  <string name="suggested_edits_snackbar_survey_action_text">參加調查</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

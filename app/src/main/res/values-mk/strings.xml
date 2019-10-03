@@ -706,6 +706,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>
+  <string name="suggested_edits_snackbar_survey_text">Какво е вашето уредувачко доживување? Би ценеле ако ја пополните анкетата за уредување од прилог.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Пополнете ја анкетата</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 50292
+        versionCode 50298
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -135,10 +135,23 @@ android {
             returnDefaultValues = true
         }
     }
+
+    bundle {
+        language {
+            enableSplit false
+        }
+    }
 }
 
 apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
+
+// TODO: remove when Fresco updates its bundled version of soloader.
+configurations.all {
+    resolutionStrategy {
+        force "com.facebook.soloader:soloader:0.8.0"
+    }
+}
 
 dependencies {
 
@@ -175,6 +188,7 @@ dependencies {
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"
     implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
+
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.romandanylyk:pageindicatorview:1.0.2'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"

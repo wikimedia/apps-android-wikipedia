@@ -7,21 +7,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
@@ -56,11 +52,11 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
@@ -140,24 +136,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        maybeRunSurvey();
-    }
-
-    private void maybeRunSurvey() {
-        if (Prefs.shouldShowSuggestedEditsSurvey() && WikipediaApp.getInstance().isSurveyLive()) {
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
-            TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
-            actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
-            actionView.setCompoundDrawablePadding(getResources().getDimensionPixelOffset(R.dimen.margin));
-            snackbar.setAction(getString(R.string.suggested_edits_snackbar_survey_action_text), (v) -> openSurveyInBrowser());
-            snackbar.show();
-            Prefs.setShouldShowSuggestedEditsSurvey(false);
-        }
-    }
-
-    private void openSurveyInBrowser() {
-        Prefs.setSuggestedEditsSurveyClicked(true);
-        UriUtil.visitInExternalBrowser(getContext(), Uri.parse(getString(R.string.suggested_edits_survey_url)));
+        SuggestedEditsSurvey.maybeRunSurvey(requireActivity());
     }
 
     @Override public void onDestroyView() {
@@ -181,6 +160,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             refreshExploreFeed();
             ((MainActivity) requireActivity()).setUpHomeMenuIcon();
             FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            tabLayout.setTabViews();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.

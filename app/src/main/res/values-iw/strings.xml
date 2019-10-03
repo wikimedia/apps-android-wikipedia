@@ -717,6 +717,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב</string>
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">הוספת תיאור ערך</string>
+  <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>

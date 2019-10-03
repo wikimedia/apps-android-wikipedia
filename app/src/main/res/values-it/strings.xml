@@ -46,6 +46,7 @@
   <string name="page_tabs_back">Indietro</string>
   <string name="nav_item_forward">Avanti</string>
   <string name="search_hint">Cerca su Wikipedia</string>
+  <string name="search_hint_voice_search">Ricerca input vocale</string>
   <string name="search_hint_search_history">Cerca nella cronologia</string>
   <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
@@ -308,6 +309,8 @@
   <string name="captcha_image">Immagine captcha</string>
   <string name="gallery_fair_use_license">Utilizzo onesto</string>
   <string name="gallery_uploader_unknown">Uploader sconosciuto</string>
+  <string name="gallery_not_available_offline_snackbar">Visualizzazione galleria non disponibile offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Nascondi</string>
   <string name="menu_new_tab">Nuova scheda</string>
   <string name="menu_close_all_tabs">Chiudi tutte le schede</string>
   <string name="close_all_tabs_confirm">Sicuro di voler chiudere tutte le schede?</string>
@@ -531,13 +534,23 @@
   <string name="notifications_view_archived_button_text">Vedi notifiche archiviate</string>
   <string name="notification_preferences_title">Preferenze sulle notifiche</string>
   <string name="notifications_mark_unread">Segna come non letto</string>
+  <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_summary_notification_poll">Consenti all\'applicazione di utilizzare i dati per verificare nuove notifiche in background.</string>
   <string name="preference_category_notification_types">Tipi di notifiche in-app</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Messaggi del sistema</string>
   <string name="preference_title_notification_milestone">Pietra miliare</string>
+  <string name="preference_summary_notification_milestone">Alcuni conteggi di modifica sono stati raggiunti</string>
   <string name="preference_title_notification_thanks">Ringraziamenti</string>
   <string name="preference_summary_notification_thanks">Qualcuno ti ha ringraziato per una modifica</string>
   <string name="preference_title_notification_revert">Ripristina</string>
   <string name="preference_summary_notification_revert">Uno dei tuoi contributi è stato annullato</string>
+  <string name="preference_title_notification_login_fail">Accedi</string>
+  <string name="preference_summary_notification_login_fail">Il registro delle tue attività</string>
+  <string name="preference_title_notification_mention">Menziona</string>
+  <string name="preference_summary_notification_mention">Qualcuno ti menziona in una pagina</string>
+  <string name="preference_title_notification_user_talk">Pagina di discussione</string>
+  <string name="preference_summary_notification_user_talk">Messaggi dalle pagine di discussione</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_card_subtitle">Sfoglia voci casuali da leggere da Wikipedia.</string>
@@ -584,11 +597,14 @@
   <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
   <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
+  <string name="feed_empty_message">Non c\'è nulla nel tuo feed Esplora</string>
   <string name="feed_configure_onboarding_action">Personalizza</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
+  <string name="feed_accessibility_card_text">Hai raggiunto la fine del feed.</string>
+  <string name="feed_accessibility_card_load_more_button">Carica di più</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
   <string name="description_edit_article_description_label_per_language">Voce (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrizione voce (%s)</string>
@@ -623,6 +639,7 @@
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
+  <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
   <string name="suggested_edits_add_descriptions">Aggiungi descrizioni della voce</string>
   <string name="suggested_edits_translate_descriptions">Traduci descrizioni della voce</string>
   <string name="suggested_edits_add_image_captions">Aggiungi didascalie immagini</string>
@@ -651,9 +668,12 @@
   <string name="suggested_edits_unlock_notification_button">Si, partiamo</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Hai sbloccato l\'attività \"Aggiungi didascalie immagini\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Hai sbloccato \"Aggiungi didascalie immagini\"</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Grazie per tutte le modifiche alle didascalie delle immagini! Dato che ti piace aggiungere didascalie alle immagini, abbiamo compilato un elenco di immagini a cui manca la didascalia. Potresti aiutarci a migliorare Wikipedia?</string>
+  <string name="suggested_edits_unlock_add_captions_notification_big_text">Modifiche suggerite\n\nGrazie per tutte le modifiche alle didascalie delle immagini! Dato che ti piace aggiungere didascalie alle immagini, abbiamo compilato un elenco di immagini a cui manca la didascalia. Potresti aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Hai sbloccato l\'attività \"Traduci didascalie immagini\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Hai sbloccato \"Traduci didascalie immagini\"</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_message">Congratulazioni per le tue numerose modifiche alle didascalie delle immagini, siamo impressionati! Stai utilizzando l\'applicazione in più lingue, quindi abbiamo compilato un elenco di immagini che richiedono traduzioni delle didascalie. Vuoi continuare ad aiutarci migliorando Wikipedia?</string>
+  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Modifiche suggerite\n\nCongratulazioni per le numerose modifiche apportate alle didascalie delle immagini: siamo stupiti! Stai utilizzando l\'app in più lingue, quindi abbiamo compilato un elenco di immagini che richiedono traduzioni di didascalie. Potresti continuare ad aiutarci a migliorare Wikipedia?</string>
   <string name="suggested_edits_license_notice">Aggiungendo la descrizione, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Aggiungendo la didascalia all\'immagine, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informazioni</string>
@@ -698,8 +718,11 @@
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>
+  <string name="suggested_edits_snackbar_survey_text">Come è stata la tua esperienza di modifica? Ti preghiamo di dedicare un momento per compilare il sondaggio sulla modifica in-app.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Rispondi sondaggio</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
+  <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Annulla</string>
@@ -712,6 +735,7 @@
   <string name="onboarding_get_started">Inizia</string>
   <string name="onboarding_maybe_later">Forse più tardi</string>
   <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
+  <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
   <string name="onboarding_analytics_title">Invia dati anonimi</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
   <string name="onboarding_create_account_sync">Sincronizza i tuoi elenchi di lettura</string>
@@ -775,6 +799,7 @@
   <string name="wikitext_preview_link">Anteprima collegamento</string>
   <string name="main_drawer_open">Apri</string>
   <string name="main_drawer_close">Chiudi</string>
+  <string name="main_drawer_content_description">Apri il menu di navigazione principale</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

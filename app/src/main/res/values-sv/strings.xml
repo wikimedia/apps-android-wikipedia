@@ -716,6 +716,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
+  <string name="suggested_edits_snackbar_survey_text">Hur har din redigeringsupplevelse varit? Ta en stund att delta i en undersökning om att redigera i appen.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Delta i undersökning</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>

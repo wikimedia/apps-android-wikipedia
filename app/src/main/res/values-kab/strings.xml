@@ -123,6 +123,7 @@
   <string name="history_empty_title">Ula d yiwen n umagrad ur twalan ussan-a ineggura</string>
   <string name="history_empty_message">Ḍfeṛ ayen tɣareḍ dagi.</string>
   <string name="search_empty_message">Nadi sakin ɣeṛ tasanayt tilellit s tutlayt-ik</string>
+  <string name="search_empty_message_multilingual_upgrade">Nadi Wikipedia deg wugar n tutlayin.</string>
   <string name="delete_selected_items">Kkes iferdisen yettwafernen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Isem n useqdac</string>
@@ -144,6 +145,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Kemmel war imayl</string>
   <string name="email_recommendation_dialog_create_with_email_action">Rnu tansa imayl</string>
   <string name="create_account_button">Rnu amiḍan</string>
+  <string name="create_account_name_unavailable">Isem n useqdac \"%s\" ur yelli ara. Ttxil fren wayeḍ.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ttfaṣil</string>
   <string name="preferences_general_heading">Amatu</string>
@@ -153,6 +155,7 @@
   <string name="preferences_heading_syncing">Amtawi</string>
   <string name="preferences_heading_data_usage">Aseqdec n isefka</string>
   <string name="preferences_heading_experimental">Anermay</string>
+  <string name="preference_title_download_reading_list_articles">Ssader-d umuɣ n yimagraden n tɣuri.</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Eǧǧ Wikimedia ad imtawi tibdarin-ik n tɣuri ticki teqqneḍ</string>
   <string name="preferences_privacy_settings_heading">Tabaḍnit</string>
   <string name="preference_title_eventlogging_opt_in">Azen ineqqisen n useqdec</string>
@@ -238,6 +241,7 @@
   <string name="preference_title_show_images">Sken tugniwin</string>
   <string name="preference_summary_show_images">Rmed neɣ sens asnifel n tugniwin deg isebtar. Kkes acraḍ n uɣewwaṛ-agi ma yella tuqqna-ik ar Internet ẓẓayet, neɣ ma ɣur-k talast n isefka.</string>
   <string name="preference_title_download_only_over_wifi">Ssader-d s Wi-Fi kan</string>
+  <string name="dialog_title_download_only_over_wifi">Ad twekkdeḍ asider s usexdem n yisefka n uziraz?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Sireg</string>
   <string name="read_more_section">Ɣeṛ ugar</string>
   <string name="about_article_section">Ɣef umagrad-agi</string>
@@ -250,6 +254,7 @@
   <string name="gallery_save_success">Afaylu yettwasekles akken iwata.</string>
   <string name="gallery_error_video_failed">Ur izmir ara ad yurar tavidyut-agi.</string>
   <string name="gallery_save_image_write_permission_rationale">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin.</string>
+  <string name="gallery_add_image_caption_in_language_button">Rnu taneffust n tugna (%s)</string>
   <string name="err_cannot_save_file">Ur izmir ara ad isekles afaylu</string>
   <string name="snippet_share_intro">\"%1$s\" ɣef @Wikipedia: %2$s</string>
   <string name="expand_refs">Aru akken ad tesnefliḍ</string>
@@ -287,6 +292,7 @@
   <string name="error_no_maps_app">Ur izmir ara ad d-yaf asnas yettmuddun iwellihen.</string>
   <string name="preference_title_show_link_previews">Wali tiskanin n useɣwen</string>
   <string name="preference_summary_show_link_previews">Wali taskant taruraḍt n imagraden s unali n iseɣwan.</string>
+  <string name="preference_title_collapse_tables">Fneẓ tifelwiyin.</string>
   <string name="nav_item_donate">Mudd afus i Wikipedia</string>
   <string name="error_voice_search_not_available">Suref-aɣ, aɛqal aɣectan ulac-it.</string>
   <string name="location_service_disabled">Imezla n usideg nsan.</string>
@@ -384,6 +390,7 @@
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
   <string name="reading_list_already_contains_selection">Tabdart yettwafernen tegber yakan akk isebtar yettwafernen.</string>
   <string name="reading_list_added_articles_list_titled">%1$d n imagraden ttwarnan ar %2$s</string>
+  <string name="reading_list_delete_confirm">Tettḥeqqeḍ tebɣiḍ ad tekkseḍ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kcem iwakken ad tsirgeḍ umuɣen-ik n tɣuri iwakken ad ttwaskelsen deg umiḍan-ik.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Sefsex</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kcem</string>
@@ -393,6 +400,11 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Rmed amtawi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ala, tanemmirt</string>
   <string name="reading_list_login_option_reminder_dialog_title">Umuɣen n tɣuri n yimagraden ttwafen-d</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">Ih, rnu-ten ɣer wumuɣen-iw n tɣuri.</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Uhu, kkes imagraden.</string>
+  <string name="reading_list_logout_option_reminder_dialog_title">Imagraden ad qqimen ttwaskelsen deg usnas?</string>
+  <string name="reading_list_logout_option_reminder_dialog_yes">Ih, eǧǧ imagraden deg wumuɣen.</string>
+  <string name="reading_list_logout_option_reminder_dialog_no">Uhu, kkes imagraden seg wumuɣen</string>
   <string name="default_reading_list_name">Yettwasekles</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
