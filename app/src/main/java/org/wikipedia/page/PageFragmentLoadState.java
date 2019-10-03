@@ -19,12 +19,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
@@ -318,7 +317,7 @@ public class PageFragmentLoadState {
     private void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
-        Observable<RbPageSummary> pageSummaryObservable = ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(null, model.getTitle().getConvertedText());
+        Observable<PageSummary> pageSummaryObservable = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace()).summary(model.getTitle().getWikiSite(), model.getTitle().getConvertedText(), null);
         Observable<Response<PageLead>> pageLeadObservable = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth());
 
@@ -327,6 +326,8 @@ public class PageFragmentLoadState {
                     revision = summaryRsp.getRevision();
                     return leadRsp;
                 })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(rsp -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
                     PageLead lead = rsp.body();

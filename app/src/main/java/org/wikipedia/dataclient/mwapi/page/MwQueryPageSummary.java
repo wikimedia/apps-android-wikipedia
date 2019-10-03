@@ -80,4 +80,14 @@ public class MwQueryPageSummary extends MwQueryResponse implements PageSummary {
         }
         return query().firstPage().pageId();
     }
+
+    @Override @Nullable
+    public String getRevision() {
+        if (query() == null || query().firstPage() == null
+                || query().firstPage().revisions() == null
+                || query().firstPage().revisions().get(0) == null) {
+            return null;
+        }
+        return query().firstPage().revisions().get(0).revid();
+    }
 }

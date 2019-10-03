@@ -21,6 +21,7 @@ public interface PageSummary {
     @Nullable String getExtract();
     @Nullable String getExtractHtml();
     @Nullable String getThumbnailUrl();
+    @Nullable String getRevision();
     @NonNull Namespace getNamespace();
     int getPageId();
 }

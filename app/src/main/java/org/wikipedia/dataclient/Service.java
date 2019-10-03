@@ -71,7 +71,7 @@ public interface Service {
     */
     @Headers("x-analytics: preview=1")
     @GET(MW_API_PREFIX + "action=query&redirects=&converttitles="
-            + "&prop=extracts|pageimages|pageprops&exsentences=5&piprop=thumbnail|name"
+            + "&prop=extracts|pageimages|pageprops|revisions&exsentences=5&piprop=thumbnail|name"
             + "&pilicense=any&explaintext=&pithumbsize=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
                                                  @NonNull @Query("titles") String title,

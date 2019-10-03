@@ -139,10 +139,15 @@ public class MwQueryPage extends BaseModel {
     }
 
     public static class Revision {
+        private int revid;
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
         @SerializedName("timestamp") @Nullable private String timeStamp;
         @Nullable private String content;
+
+        @NonNull public String revid() {
+            return Integer.toString(revid);
+        }
 
         @NonNull public String content() {
             return StringUtils.defaultString(content);
