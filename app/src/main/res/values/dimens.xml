@@ -124,5 +124,7 @@
     <dimen name="suggested_edits_task_icon_background_size">48dp</dimen>
     <dimen name="suggested_edits_task_icon_size">20dp</dimen>
     <dimen name="suggested_edits_screen_margin">16dp</dimen>
+    <dimen name="suggested_edits_bottom_tooltip_margin">48dp</dimen>
+    <dimen name="suggested_edits_top_tooltip_margin">32dp</dimen>
 
 </resources>

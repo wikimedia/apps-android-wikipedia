@@ -57,7 +57,6 @@
             android:id="@+id/tooltipLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:orientation="vertical"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -68,8 +67,8 @@
                 android:layout_width="30dp"
                 android:layout_height="15dp"
                 android:layout_gravity="end"
-                android:layout_marginStart="48dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginStart="@dimen/suggested_edits_top_tooltip_margin"
+                android:layout_marginEnd="@dimen/suggested_edits_top_tooltip_margin"
                 android:background="@drawable/arrow"
                 android:elevation="4dp" />
 
@@ -83,7 +82,8 @@
                 android:lineSpacingExtra="6sp"
                 android:padding="16dp"
                 android:text="@string/suggested_edits_encouragement_message"
-                android:textSize="14sp" />
+                android:textAlignment="center"
+                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
         </LinearLayout>
 
         <ImageView
@@ -101,8 +101,8 @@
         android:layout_width="30dp"
         android:layout_height="15dp"
         android:layout_gravity="end"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginStart="@dimen/suggested_edits_bottom_tooltip_margin"
+        android:layout_marginEnd="@dimen/suggested_edits_bottom_tooltip_margin"
         android:background="@drawable/arrow"
         android:elevation="4dp"
         android:visibility="gone" />
@@ -111,8 +111,8 @@
         android:id="@+id/textViewForMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/suggested_edits_screen_margin"
-        android:paddingEnd="@dimen/suggested_edits_screen_margin"
+        android:layout_marginStart="@dimen/suggested_edits_screen_margin"
+        android:layout_marginEnd="@dimen/suggested_edits_screen_margin"
         android:fontFamily="sans-serif"
         android:lineSpacingExtra="6sp"
         android:textAlignment="center"
