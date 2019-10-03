@@ -104,6 +104,7 @@ public class SessionFunnel extends Funnel {
                 "fromExternal", sessionData.getPagesFromExternal(),
                 "fromHistory", sessionData.getPagesFromHistory(),
                 "fromReadingList", sessionData.getPagesFromReadingList(),
+                "fromNearby", 0,
                 "fromDisambig", sessionData.getPagesFromDisambig(),
                 "fromBack", sessionData.getPagesFromBack(),
                 "noDescription", sessionData.getPagesWithNoDescription(),
