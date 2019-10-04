@@ -34,7 +34,6 @@ import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
@@ -101,10 +100,6 @@ public class DescriptionEditFragment extends Fragment {
         @Override public void run() {
             if (!AccountUtil.isLoggedIn()) {
                 Prefs.incrementTotalAnonDescriptionsEdited();
-            } else {
-                // For good measure, poll the editor tasks API explicitly, since the user might have
-                // disabled polling of notifications, which is were the passive polling takes place.
-                NotificationPollBroadcastReceiver.pollEditorTaskCounts(WikipediaApp.getInstance());
             }
 
             if (isSuggestedEdits()) {

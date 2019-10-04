@@ -68,9 +68,6 @@
   <string name="on_this_day_page_share">Κοινοποίηση</string>
   <string name="reading_list_page_share">Αποστολή</string>
   <string name="menu_text_select_edit_here">Επεξεργασία εδώ</string>
-  <string name="nav_item_nearby">Κοντινά</string>
-  <string name="nearby_zoom_to_location">Ζουμ σε μια θέση στο χάρτη</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;συνεισφέροντες του OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
   <string name="talk_page_link_text">Προβολή σελίδας συζήτησης</string>
   <string name="edit_history_link_text">Προβολή ιστορικού επεξεργασίας</string>

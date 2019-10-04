@@ -28,7 +28,6 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
-import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
@@ -36,7 +35,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -272,14 +270,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                         .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
+                            getFragment().tabLayout.setTabViews();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
                             if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
                                 ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
-                            Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
-                            Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
                         }).show();
             } else {
                 getFragment().onLoginRequested();
@@ -303,17 +300,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (getFragment().getCurrentFragment() instanceof FeedFragment) {
                 ((FeedFragment) getFragment().getCurrentFragment()).showConfigureActivity(-1);
             }
-            closeMainDrawer();
-        }
-
-        @Override
-        public void editingTasksClick() {
-            Prefs.setShowEditMenuOptionIndicator(false);
-            drawerView.maybeShowIndicatorDots();
-
-            startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
-                    : SuggestedEditsTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY));
-
             closeMainDrawer();
         }
 
