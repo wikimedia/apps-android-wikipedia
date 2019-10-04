@@ -650,11 +650,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         public void historyClick() {
             goToMainTab(NavTab.HISTORY);
         }
-
-        @Override
-        public void nearbyClick() {
-            goToMainTab(NavTab.NEARBY);
-        }
     }
 
     @Override
