@@ -638,11 +638,6 @@
   <string name="suggested_edits_review_image_caption">Pregledaj natpis slike</string>
   <string name="suggested_edits_my_contributions">Moji doprinosi</string>
   <string name="suggested_edits_no_description">Ova slika nema opis</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Otključali ste zadatak \"Dodavanje opisa članaka\"</string>
-  <string name="suggested_edits_unlock_dialog_no">Možda kasnije</string>
-  <string name="suggested_edits_unlock_dialog_yes">Da, idemo</string>
-  <string name="suggested_edits_unlock_notification_text">Predložene izmene</string>
-  <string name="suggested_edits_unlock_notification_button">Da, idemo</string>
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_tasks_activity_title">Predložene izmene</string>
   <string name="suggested_edits_task_add_description_title">Dodavanje opisa članaka</string>
