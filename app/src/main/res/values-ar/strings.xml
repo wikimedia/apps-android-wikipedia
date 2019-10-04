@@ -43,6 +43,7 @@
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
+  <string name="nav_item_suggested_edits">التعديلات المقترحة</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
@@ -85,9 +86,6 @@
   <string name="on_this_day_page_share">مشاركة</string>
   <string name="reading_list_page_share">مشاركة</string>
   <string name="menu_text_select_edit_here">عدل هنا</string>
-  <string name="nav_item_nearby">بالقرب من هنا</string>
-  <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
-  <string name="nearby_osm_license">مساهمين &amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;أوبن ستريت ماب&lt;/a&gt;</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="talk_page_link_text">عرض صفحة النقاش</string>
   <string name="edit_history_link_text">عرض تاريخ التعديلات</string>
@@ -351,6 +349,7 @@
   <string name="view_link_preview_error_button_dismiss">أغلق</string>
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
+  <string name="view_wiki_error_message_timeout">لا يمكن الاتصال بويكيبيديا؛ تحقق من اتصال الشبكة، أو أعد المحاولة لاحقا</string>
   <string name="reference_title">مراجع %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
