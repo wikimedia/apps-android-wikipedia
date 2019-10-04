@@ -53,6 +53,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -136,6 +137,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        SuggestedEditsSurvey.maybeRunSurvey(requireActivity());
     }
 
     @Override public void onDestroyView() {
@@ -159,6 +161,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             refreshExploreFeed();
             ((MainActivity) requireActivity()).setUpHomeMenuIcon();
             FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            tabLayout.setTabViews();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -263,7 +266,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), options.toBundle());
+        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), card.image() != null ? options.toBundle() : null);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {

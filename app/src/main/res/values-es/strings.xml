@@ -26,6 +26,7 @@
 * Ktranz
 * Luisangelrg
 * Macofe
+* Madamebiblio
 * MarcoAurelio
 * Mouse21
 * Mynor Archila
@@ -558,14 +559,18 @@
   <string name="preference_title_notification_poll">Verificar notificaciones</string>
   <string name="preference_summary_notification_poll">Habilitar a la aplicación para usar datos para las nuevas notificaciones en segundo plano</string>
   <string name="preference_category_notification_types">Tipos de notificaciones en aplicación</string>
-  <string name="preference_title_notification_welcome">Bienvenido</string>
-  <string name="preference_summary_notification_welcome">Una cuenta es creada</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Mensajes del sistema</string>
   <string name="preference_title_notification_milestone">Hito</string>
   <string name="preference_summary_notification_milestone">Has alcanzado el máximo de ediciones</string>
   <string name="preference_title_notification_thanks">Gracias</string>
   <string name="preference_summary_notification_thanks">Alguien agradeció tu edición</string>
   <string name="preference_title_notification_revert">Revertir</string>
   <string name="preference_summary_notification_revert">Una de tus contribuciones fue revertida</string>
+  <string name="preference_title_notification_login_fail">Acceso a la cuenta</string>
+  <string name="preference_title_notification_mention">Mención</string>
+  <string name="preference_title_notification_user_talk">Página de discusión</string>
+  <string name="preference_summary_notification_user_talk">Mensajes en páginas de discusión</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia.</string>
@@ -619,6 +624,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
+  <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
+  <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
   <string name="description_edit_article_description_label_per_language">Artículo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripción de artículo (%s)</string>
@@ -720,6 +727,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

@@ -28,6 +28,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
@@ -40,6 +41,7 @@ import org.wikipedia.feed.mostread.MostReadArticlesActivity;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.random.RandomCardView;
+import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
@@ -234,15 +236,19 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
                 || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             refresh();
-        } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            boolean isTranslation;
-            if (suggestedEditsCardView != null) {
-                suggestedEditsCardView.refreshCardContent();
-                isTranslation = suggestedEditsCardView.isTranslation();
-                if (suggestedEditsCardView.getCard() != null) {
-                    FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
-                            ? getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                            : getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_ADD_DESC ? R.string.description_edit_success_saved_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
+        } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
+            SuggestedEditsFunnel.get().log();
+            SuggestedEditsFunnel.reset();
+            if (resultCode == RESULT_OK) {
+                boolean isTranslation;
+                if (suggestedEditsCardView != null) {
+                    suggestedEditsCardView.refreshCardContent();
+                    isTranslation = suggestedEditsCardView.isTranslation();
+                    if (suggestedEditsCardView.getCard() != null && !Prefs.shouldShowSuggestedEditsSurvey()) {
+                        FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
+                                ? getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                                : getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_ADD_DESC ? R.string.description_edit_success_saved_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
+                    }
                 }
             }
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
@@ -362,6 +368,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onShowCard(@Nullable Card card) {
             if (card != null) {
                 funnel.cardShown(card.type(), getCardLanguageCode(card));
+
+                if (card instanceof SuggestedEditsCard) {
+                    ((SuggestedEditsCard) card).logImpression();
+                }
             }
         }
 
@@ -550,7 +560,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             } else {
                 startDescriptionEditScreen();
             }
-
         }
     }
 

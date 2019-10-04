@@ -82,8 +82,8 @@ public class GalleryItemFragment extends Fragment {
     @Nullable private PageTitle pageTitle;
     @Nullable private MediaListItem mediaListItem;
 
-    private PageTitle imageTitle;
-    public PageTitle getImageTitle() {
+    @Nullable private PageTitle imageTitle;
+    @Nullable public PageTitle getImageTitle() {
         return imageTitle;
     }
 
@@ -209,6 +209,9 @@ public class GalleryItemFragment extends Fragment {
      * @param pagerPosition    The pager's current position that is displayed to the user.
      */
     public void onUpdatePosition(int fragmentPosition, int pagerPosition) {
+        if (!isAdded()) {
+            return;
+        }
         if (fragmentPosition != pagerPosition) {
             // update stuff if our position is not "current" within the ViewPager...
             if (mediaController != null) {
@@ -248,7 +251,7 @@ public class GalleryItemFragment extends Fragment {
         disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMediaInfo(mediaListItem.getTitle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     updateProgressBar(false);
                     parentActivity.supportInvalidateOptionsMenu();
                     parentActivity.layOutGalleryDescription();

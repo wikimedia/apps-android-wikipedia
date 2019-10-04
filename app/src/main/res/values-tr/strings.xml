@@ -3,6 +3,7 @@
 * 1917 Ekim Devrimi
 * Abijeet Patro
 * Alidemirtas
+* BaRaN6161 TURK
 * Bulgu
 * Dbrant
 * Envlh
@@ -306,6 +307,8 @@
   <string name="captcha_image">Captcha resmi</string>
   <string name="gallery_fair_use_license">Adil kullanım</string>
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
+  <string name="gallery_not_available_offline_snackbar">Galeri görünümü çevrimdışı kullanılamaz.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Reddet</string>
   <string name="menu_new_tab">Yeni sekme</string>
   <string name="menu_close_all_tabs">Sekmeleri kapat</string>
   <string name="close_all_tabs_confirm">Tüm sekmeleri kapatmak istediğinizden emin misiniz?</string>
@@ -549,8 +552,6 @@
   <string name="preference_title_notification_poll">Anket tercihleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
   <string name="preference_category_notification_types">Uygulama içi bildirim türleri</string>
-  <string name="preference_title_notification_welcome">Hoş geldiniz</string>
-  <string name="preference_summary_notification_welcome">Bir hesap oluşturuldu</string>
   <string name="preference_title_notification_milestone">Kilometre taşı</string>
   <string name="preference_summary_notification_milestone">Belirli düzenleme sayılarına ulaşıldı</string>
   <string name="preference_title_notification_thanks">Teşekkürler</string>
@@ -630,6 +631,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Madde tanımlarını düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
   <string name="description_edit_license_notice">Madde tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
+  <string name="description_edit_helper_text_lowercase_warning">genellikle küçük harfle başlar</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>

@@ -530,8 +530,6 @@
   <string name="preference_title_notification_poll">Aktivigi la sciigojn</string>
   <string name="preference_summary_notification_poll">Permesi la aplikaĵon uzi datenon por fone kontroli novajn sciigojn</string>
   <string name="preference_category_notification_types">Specoj de enaplikaĵaoj sciigoj</string>
-  <string name="preference_title_notification_welcome">Bonvenon</string>
-  <string name="preference_summary_notification_welcome">Konto estas kreita</string>
   <string name="preference_title_notification_milestone">Mejloŝtono</string>
   <string name="preference_summary_notification_milestone">Iuj nombroj de redaktoj atingiĝas</string>
   <string name="preference_title_notification_thanks">Dankon</string>

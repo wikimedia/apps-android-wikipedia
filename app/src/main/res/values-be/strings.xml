@@ -216,6 +216,7 @@
   <string name="address_copied">Адрас скапіяваны ў буфер абмену.</string>
   <string name="text_copied">Тэкст скапіяваны ў буфер абмену.</string>
   <string name="button_continue_to_article">Чытаць артыкул</string>
+  <string name="button_continue_to_disambiguation">Паглядзець падобныя старонкі</string>
   <string name="button_add_to_reading_list">Дадаць у спіс для чытання</string>
   <string name="page_offline_notice_cannot_load_while_offline">Артыкул не можа быць спампованы без падлучэння да Інтэрнэту.</string>
   <string name="page_offline_notice_add_to_reading_list">Падказка: Дадайце гэты артыкул у спіс да прачытання, і ён запампуецца, як толькі з\'явіцца падключэнне да сеткі.</string>

@@ -47,6 +47,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 public class EditPreviewFragment extends Fragment {
@@ -73,7 +74,7 @@ public class EditPreviewFragment extends Fragment {
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
-        bridge = new CommunicationBridge(webview);
+        bridge = new CommunicationBridge(webview, requireActivity());
         webview.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
@@ -92,7 +93,7 @@ public class EditPreviewFragment extends Fragment {
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url());
+        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url(), getThemedColor(requireActivity(), R.attr.paper_color));
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
@@ -268,9 +269,7 @@ public class EditPreviewFragment extends Fragment {
         disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
-                    parentActivity.showProgressBar(false);
-                })
+                .doAfterTerminate(() -> parentActivity.showProgressBar(false))
                 .subscribe(response -> {
                     displayPreview(response.result());
                     previewHTML = response.result();

@@ -1,5 +1,6 @@
 package org.wikipedia.util;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -60,12 +61,16 @@ public final class UriUtil {
      * @param uri URI to open in an external browser
      */
     public static void visitInExternalBrowser(final Context context, Uri uri) {
-        Intent chooserIntent = ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, uri),
-                null, context);
+        Intent targetIntent = new Intent(Intent.ACTION_VIEW, uri);
+        Intent chooserIntent = ShareUtil.createChooserIntent(targetIntent, null, context);
         if (chooserIntent == null) {
-            // This means that there was no way to handle this link.
-            // We will just show a toast now. FIXME: Make this more visible?
-            ShareUtil.showUnresolvableIntentMessage(context);
+            try {
+                context.startActivity(targetIntent);
+            } catch (ActivityNotFoundException e) {
+                // This means that there was no way to handle this link.
+                // We will just show a toast now. FIXME: Make this more visible?
+                ShareUtil.showUnresolvableIntentMessage(context);
+            }
         } else {
             chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(chooserIntent);

@@ -17,7 +17,7 @@ public class SearchResult extends BaseModel implements Parcelable {
     private final String redirectFrom;
 
     public SearchResult(@NonNull MwQueryPage page, @NonNull WikiSite wiki) {
-        this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description()), page.redirectFrom());
+        this(new PageTitle(page.displayTitle(wiki.languageCode()), wiki, page.thumbUrl(), page.description(), page.title()), page.redirectFrom());
     }
 
     public SearchResult(@NonNull PageTitle pageTitle) {
@@ -41,7 +41,7 @@ public class SearchResult extends BaseModel implements Parcelable {
 
     @Override
     public String toString() {
-        return pageTitle.getPrefixedText();
+        return pageTitle.getConvertedText();
     }
 
     @Override

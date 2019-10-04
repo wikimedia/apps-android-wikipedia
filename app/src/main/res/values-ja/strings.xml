@@ -37,6 +37,7 @@
   <string name="page_tabs_back">戻る</string>
   <string name="nav_item_forward">進む</string>
   <string name="search_hint">ウィキペディアを検索</string>
+  <string name="search_hint_voice_search">音声入力で検索</string>
   <string name="search_hint_search_history">検索履歴</string>
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
@@ -302,6 +303,8 @@
   <string name="captcha_image">CAPTCHA 画像</string>
   <string name="gallery_fair_use_license">フェアユース</string>
   <string name="gallery_uploader_unknown">アップロード者不明</string>
+  <string name="gallery_not_available_offline_snackbar">ギャラリービューはオフラインでは利用できません</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">閉じる</string>
   <string name="menu_new_tab">新規タブ</string>
   <string name="menu_close_all_tabs">全てのタブを閉じる</string>
   <string name="close_all_tabs_confirm">本当に全てのタブを閉じてよろしいですか？</string>
@@ -545,14 +548,20 @@
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
   <string name="preference_category_notification_types">アプリ内通知の種類</string>
-  <string name="preference_title_notification_welcome">ようこそ</string>
-  <string name="preference_summary_notification_welcome">アカウントが作成されました</string>
+  <string name="preference_title_notification_system">システム</string>
+  <string name="preference_summary_notification_system">システムのメッセージ</string>
   <string name="preference_title_notification_milestone">マイルストーン</string>
   <string name="preference_summary_notification_milestone">編集回数が特定の回数に達したとき</string>
   <string name="preference_title_notification_thanks">感謝</string>
   <string name="preference_summary_notification_thanks">誰かがあなたの編集に謝意を示しました</string>
   <string name="preference_title_notification_revert">差し戻し</string>
   <string name="preference_summary_notification_revert">あなたの編集の一つが差し戻されました。</string>
+  <string name="preference_title_notification_login_fail">ログイン</string>
+  <string name="preference_summary_notification_login_fail">ログインの記録</string>
+  <string name="preference_title_notification_mention">言及</string>
+  <string name="preference_summary_notification_mention">誰かが特定のページであなたに言及しました</string>
+  <string name="preference_title_notification_user_talk">トークページ</string>
+  <string name="preference_summary_notification_user_talk">トークページのメッセージ</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_card_subtitle">ウィキペディアから記事をランダムに表示して閲覧</string>
@@ -606,6 +615,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Exploreフィードをカスタマイズする&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;フィードに表示するコンテンツを選択して、お気に入りのタイプのコンテンツに優先順位を付けることができるようになりました。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">キャンセル</string>
+  <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
+  <string name="feed_accessibility_card_load_more_button">さらに読む</string>
   <string name="description_edit_text_hint">記事の説明</string>
   <string name="description_edit_article_description_label_per_language">記事 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">記事の説明 (%s)</string>
@@ -625,6 +636,7 @@
   <string name="description_edit_help_wikidata_guide">記述を書くためのWikidataガイド</string>
   <string name="description_edit_anon_limit">記事の説明を編集していただきありがとうございます。追加で編集を行うには、ウィキペディアアカウントにログインしてください。</string>
   <string name="description_edit_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
+  <string name="description_edit_helper_text_lowercase_warning">通常は小文字で書き始めます</string>
   <string name="description_edit_success_saved">記事の説明が公開されました！</string>
   <string name="description_edit_success_saved_snackbar">記事の説明が公開されました！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">記事の説明が公開されました！ (%s)</string>
@@ -718,6 +730,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>
   <string name="suggested_edits_feed_card_translate_image_caption">キャプションを追加 (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
+  <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか？ アプリを使った編集について、アンケートに回答をお願いします。</string>
+  <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
@@ -789,6 +803,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">キャンセル</string>
+  <string name="content_description_for_page_indicator">全%2$dページの%1$dページ目</string>
   <string name="wikitext_bold">太字</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">リンク</string>

@@ -156,8 +156,8 @@ public class TabActivity extends BaseActivity {
             @Override
             public void onShowTab(@NonNull Context context, @NonNull TabSwitcher tabSwitcher, @NonNull View view,
                                   @NonNull Tab tab, int index, int viewType, @Nullable Bundle savedInstanceState) {
-                int tabIndex = app.getTabList().size() - index - 1;
-                if (viewType == 1) {
+                int tabIndex = app.getTabCount() - index - 1;
+                if (viewType == 1 || tabIndex < 0 || app.getTabList().get(tabIndex) == null) {
                     return;
                 }
                 TextView titleText = view.findViewById(R.id.tab_article_title);
@@ -240,6 +240,7 @@ public class TabActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+            case R.id.menu_open_a_new_tab:
                 openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
@@ -252,28 +253,17 @@ public class TabActivity extends BaseActivity {
                 alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                 alert.create().show();
                 return true;
-            case R.id.menu_open_a_new_tab:
-                openNewTab();
-                return true;
             case R.id.menu_explore:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()));
-                finish();
+                goToMainTab(NavTab.EXPLORE);
                 return true;
             case R.id.menu_reading_lists:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code()));
-                finish();
+                goToMainTab(NavTab.READING_LISTS);
                 return true;
             case R.id.menu_history:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HISTORY.code()));
-                finish();
+                goToMainTab(NavTab.HISTORY);
                 return true;
             case R.id.menu_nearby:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.NEARBY.code()));
-                finish();
+                goToMainTab(NavTab.NEARBY);
                 return true;
             default:
                 break;
@@ -301,6 +291,9 @@ public class TabActivity extends BaseActivity {
     }
 
     private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
+        if (appTab.getBackStackPositionTitle() == null) {
+            return;
+        }
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
             app.getTabList().add(appTabIndex, appTab);
@@ -377,5 +370,13 @@ public class TabActivity extends BaseActivity {
             showUndoAllSnackbar(tabs, appTabs);
             tabUpdatedTimeMillis = System.currentTimeMillis();
         }
+    }
+
+    private void goToMainTab(NavTab tab) {
+        startActivity(MainActivity.newIntent(this)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, tab.code()));
+        finish();
     }
 }

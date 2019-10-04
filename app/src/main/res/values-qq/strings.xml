@@ -24,6 +24,7 @@
 * Tacsipacsi
 * Trizek (WMF)
 * Wladek92
+* Zoranzoki21
 -->
 <resources>
   <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
@@ -34,6 +35,7 @@
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
+  <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
@@ -214,7 +216,7 @@
   <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
-  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.\n\n{{optional}}</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.\n{{Identical|Translator}}</string>
@@ -346,6 +348,7 @@
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
+  <string name="view_wiki_error_message_timeout">Error message shown when a network operation takes too long and times out.</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
@@ -544,14 +547,20 @@
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
   <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>
-  <string name="preference_title_notification_welcome">Label for settings switch that enables or disables Welcome notifications.\n{{Identical|Welcome}}</string>
-  <string name="preference_summary_notification_welcome">Short summary explaining what Welcome notifications are.</string>
+  <string name="preference_title_notification_system">Label for settings switch that enables or disables System notifications.</string>
+  <string name="preference_summary_notification_system">Short summary explaining what System notifications are.</string>
   <string name="preference_title_notification_milestone">Label for settings switch that enables or disables Milestone notifications.</string>
   <string name="preference_summary_notification_milestone">Short summary explaining what Milestone notifications are.</string>
   <string name="preference_title_notification_thanks">Label for settings switch that enables or disables Thanks notifications.</string>
   <string name="preference_summary_notification_thanks">Short summary explaining what Thanks notifications are.</string>
   <string name="preference_title_notification_revert">Label for settings switch that enables or disables Revert notifications.</string>
   <string name="preference_summary_notification_revert">Short summary explaining what Revert notifications are.</string>
+  <string name="preference_title_notification_login_fail">Label for settings switch that enables or disables Login notifications.</string>
+  <string name="preference_summary_notification_login_fail">Short summary explaining what Login notifications are.</string>
+  <string name="preference_title_notification_mention">Label for settings switch that enables or disables Mention notifications.</string>
+  <string name="preference_summary_notification_mention">Short summary explaining what Mention notifications are.</string>
+  <string name="preference_title_notification_user_talk">Label for settings switch that enables or disables User talk notifications.</string>
+  <string name="preference_summary_notification_user_talk">Short summary explaining what User talk notifications are.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
@@ -605,6 +614,8 @@
   <string name="feed_configure_onboarding_text">Onboarding text that describes the new functionality of customizing the Explore feed.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Positive action button text in pop-up dialog for feed card language selection.\n{{Identical|OK}}</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
+  <string name="feed_accessibility_card_text">Short description for the accessibility card that tells user it is the bottom of the explore feed.</string>
+  <string name="feed_accessibility_card_load_more_button">Button lable for manually loading more cards to the explore feed.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
   <string name="description_edit_article_description_label_per_language">Label that prompts the user that the summary of the article shows under the label. %s represents the language of the description.</string>
   <string name="description_edit_translate_article_description_hint_per_language">Hint text that is shown when the description field is empty. %s represents the language of the description.</string>
@@ -719,6 +730,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
+  <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>
@@ -790,6 +803,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for editing conflict.\n{{Identical|OK}}</string>
   <string name="reverted_edit_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for reverted edit.\n{{Identical|OK}}</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Negative action button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|Cancel}}</string>
+  <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
@@ -800,10 +814,12 @@
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
   <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
   <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
+  <string name="main_drawer_content_description">Label of content description for the button of opening the main navigation drawer</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.</string>
 </resources>
