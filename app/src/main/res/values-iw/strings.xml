@@ -73,9 +73,6 @@
   <string name="on_this_day_page_share">שיתוף</string>
   <string name="reading_list_page_share">שיתוף</string>
   <string name="menu_text_select_edit_here">לערוך כאן</string>
-  <string name="nav_item_nearby">בסביבה</string>
-  <string name="nearby_zoom_to_location">להתקרב למקום במפה</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;תורמי &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
   <string name="talk_page_link_text">הצגת דף השיחה</string>
   <string name="edit_history_link_text">הצגת היסטוריית עריכות</string>
@@ -656,26 +653,6 @@
   <string name="suggested_edits_review_image_caption">סקירת כיתוב תמונה</string>
   <string name="suggested_edits_my_contributions">התרומות שלי</string>
   <string name="suggested_edits_no_description">לקובץ הזה אין תיאור</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">פתחת לשימוש את המשימה \"הוספת תיאורי ערכים\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">תודה על כל התרומות שלך! מכיוון שהצטיינת בעריכה, בנינו בשבילך רשימת ערכים שחסרים להם תיאורים. אפשר לבקש ממך לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">פתחת את המשימה \"תרגום תיאורי ערכים\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">ברכות על התרומות הרבות שלך, התרשמנו! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של ערכים שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_dialog_no">אולי מאוחר יותר</string>
-  <string name="suggested_edits_unlock_dialog_yes">כן, נעשה את זה</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">פתחת את \"הוספת תיאורי ערכים\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">פתחת את \"תרגום תיאורי ערכים\"</string>
-  <string name="suggested_edits_unlock_notification_text">עריכות מוצעות</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">עריכות מוצעות\n\nתודה על כל התרומות שלך. מכיוון שהצטיינת בעריכה, בנינו בשבילך רשימת ערכים שחסרים להם תיאורים. אפשר לבקש ממך לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">עריכות מוצעות\n\nברכות על התרומות הרבות שלך, התרשמנו! השתמשת ביישום במספר שפות, אז בנינו בשבילך רשימה של ערכים שצריך לתרגם את התיאורים שלהם. אפשר לבקש ממך להמשיך לעזור לנו לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_notification_button">כן, נעשה את זה</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">פתחת את המשימה \"הוספת כיתובי תמונות\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">פתחת את \"הוספת כיתובי תמונות\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">תודה על כל עריכות כיתובי התמונות! כיוון שהסקנו שהוספת תיאורים לתמונות זה הקטע שלך, בנינו בשבילך רשימה שלך תמונות שחסר להן תיאור. אפשר להזמין אותך לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">עריכות מוצעות\n\nתודה על כל עריכות כיתובי התמונות! כיוון שהסקנו שהוספת תיאורים לתמונות זה הקטע שלך, בנינו בשבילך רשימה שלך תמונות שחסר להן תיאור. אפשר להזמין אותך לשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">פתחת את המשימה \"תרגום כיתובי תמונות\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">פתחת את \"תרגום כיתובי תמונות\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">ברכותינו על עריכות כיתובי התמונות הרבות - באמת הרשמת אותנו! כיוון שהסקנו שהוספת תיאורים לתמונות זה הקטע שלך, בנינו בשבילך רשימה שלך תמונות שחסר להן תיאור. אפשר להזמין אותך להמשיך ולשפר את ויקיפדיה?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">עריכות מוצעות\n\nברכותינו על עריכות כיתובי התמונות הרבות - באמת הרשמת אותנו! כיוון שהסקנו שהוספת תיאורים לתמונות זה הקטע שלך, בנינו בשבילך רשימה שלך תמונות שחסר להן תיאור. אפשר להזמין אותך להמשיך ולשפר את ויקיפדיה?</string>
   <string name="suggested_edits_license_notice">הוספת התיאור מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">הוספת תיאור התמונה מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטיב קומונז CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">מידע</string>

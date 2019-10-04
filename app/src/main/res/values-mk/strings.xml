@@ -20,6 +20,7 @@
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
   <string name="nav_item_history">Историја</string>
+  <string name="nav_item_suggested_edits">Предложени уредувања</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -62,9 +63,6 @@
   <string name="on_this_day_page_share">Сподели</string>
   <string name="reading_list_page_share">Сподели</string>
   <string name="menu_text_select_edit_here">Уреди тука</string>
-  <string name="nav_item_nearby">Во близина</string>
-  <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
-  <string name="nearby_osm_license">&amp;copy; учесници на&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последна измена: %s</string>
   <string name="talk_page_link_text">Разговорна страница</string>
   <string name="edit_history_link_text">Историја на уредувања</string>
@@ -328,6 +326,7 @@
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
+  <string name="view_wiki_error_message_timeout">Не можам да се поврзам со Википедија. Проверете си ја мрежната врска или обидете се подоцна</string>
   <string name="reference_title">Навод %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
@@ -645,26 +644,6 @@
   <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
   <string name="suggested_edits_my_contributions">Мои придонеси</string>
   <string name="suggested_edits_no_description">Податотекава нема опис</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи на статии“</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Ви благодариме на придонесите! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи на статии“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Ви благодариме за бројните придонеси! Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_unlock_dialog_no">Можеби подоцна</string>
-  <string name="suggested_edits_unlock_dialog_yes">Да, ајде</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Го отклучивте „Додај описи на статиите“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Го отклучивте „Преведи описи“</string>
-  <string name="suggested_edits_unlock_notification_text">Предложени уредувања</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложени уредувања\n\nБлагодариме за сите ваши придонеси. Бидејќи сте така одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложени уредувања\n\nВи благодариме за вашите многубројни придонеси. Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_unlock_notification_button">Да, ајде</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Ја отклучивте задачата „Додај описи на сликите“</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Го отклучивте „Додај описи на сликите“</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Ви благодариме на сите уредувања описи на сликите! Гледаме дека сакате да додавате описи на слики. Затоа, составивме список од слики на кои треба да им се дадат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложени уредувања\n\nВи благодариме на сите уредувања на описите на сликите! Гледаме дека сакате да додавате описи на слики. Затоа, составивме список од слики на кои треба да им се дадат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Ја отклучивте задачата „Преведи описи на слики“</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Го отклучивте „Преведи описи на слики“</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Честитки за многуте уредувања во описите на сликите! Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на слики чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложени уредувања\n\nЧеститки за многуте уредувања во описите на сликите! Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на слики чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
   <string name="suggested_edits_license_notice">Додавајќи го описот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_image_caption_license_notice">Додавајќи го описот на сликата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">Инфо</string>

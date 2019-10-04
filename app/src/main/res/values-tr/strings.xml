@@ -42,10 +42,12 @@
   <string name="page_tabs_back">Geri</string>
   <string name="nav_item_forward">İleri</string>
   <string name="search_hint">Vikipedi\'de ara</string>
+  <string name="search_hint_voice_search">Ses girişi arama</string>
   <string name="search_hint_search_history">Arama geçmişi</string>
   <string name="search_hint_search_languages">Bir dilde ara</string>
   <string name="search_hint_search_my_lists_and_articles">Listelerimde ve makalelerimde ara</string>
   <string name="nav_item_history">Geçmiş</string>
+  <string name="nav_item_suggested_edits">Önerilen Düzenlemeler</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="card_offline_error_retry">Tekrar dene</string>
@@ -88,9 +90,6 @@
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burayı düzenle</string>
-  <string name="nav_item_nearby">Yakınındakiler</string>
-  <string name="nearby_zoom_to_location">Harita üzerindeki bir konumu yakınlaştır</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; katılımcıları</string>
   <string name="last_updated_text">Son güncelleme: %s</string>
   <string name="talk_page_link_text">Tartışma sayfasını görüntüle</string>
   <string name="edit_history_link_text">Düzenleme geçmişini görüntüle</string>
@@ -354,6 +353,7 @@
   <string name="view_link_preview_error_button_dismiss">Kapat</string>
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
+  <string name="view_wiki_error_message_timeout">Vikipedi\'ye bağlanılamıyor. Ağ bağlantınızı kontrol edin veya daha sonra tekrar deneyin</string>
   <string name="reference_title">Kaynak %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Görüntü karartma (Koyu tema için)</string>
   <string name="preference_title_prefer_offline_content">Çevrimdışı içeriği tercih et</string>
@@ -552,12 +552,20 @@
   <string name="preference_title_notification_poll">Anket tercihleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
   <string name="preference_category_notification_types">Uygulama içi bildirim türleri</string>
+  <string name="preference_title_notification_system">Sistem</string>
+  <string name="preference_summary_notification_system">Sistemden gelen mesajlar</string>
   <string name="preference_title_notification_milestone">Kilometre taşı</string>
   <string name="preference_summary_notification_milestone">Belirli düzenleme sayılarına ulaşıldı</string>
   <string name="preference_title_notification_thanks">Teşekkürler</string>
   <string name="preference_summary_notification_thanks">Birisi sizin bir düzenlemeniz için teşekkür etti</string>
   <string name="preference_title_notification_revert">Eski haline döndür</string>
   <string name="preference_summary_notification_revert">Katkılarınızdan biri geri alındı</string>
+  <string name="preference_title_notification_login_fail">Giriş</string>
+  <string name="preference_summary_notification_login_fail">Giriş aktiviteleriniz</string>
+  <string name="preference_title_notification_mention">Bahsetme</string>
+  <string name="preference_summary_notification_mention">Bir sayfada sizden bahseden biri var</string>
+  <string name="preference_title_notification_user_talk">Tartışma sayfası</string>
+  <string name="preference_summary_notification_user_talk">Tartışma sayfalarından gelen mesajlar</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>
   <string name="view_random_card_subtitle">Wikipedia\'dan okumak için rasgele madde çevirin.</string>
@@ -611,6 +619,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Tamam</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">İptal</string>
+  <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
+  <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
   <string name="description_edit_article_description_label_per_language">Madde (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Madde açıklaması (%s)</string>
@@ -661,26 +671,6 @@
   <string name="suggested_edits_review_image_caption">Resim altyazısını incele</string>
   <string name="suggested_edits_my_contributions">Katkılarım</string>
   <string name="suggested_edits_no_description">Bu dosyanın bir açıklaması yok</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Madde açıklamaları ekle\" görevinin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tüm katkılarınız için teşekkürler! Düzenleme konusunda çok iyi olduğunuzdan açıklamaların eksik olduğu bir madde listesi hazırladık. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"Madde açıklamalarını çevir\" görevinin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Katkılarınızdan dolayı tebrikler, çok etkilendik! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle açıklama çevirileri gerektiren maddelerden oluşan bir liste hazırladık. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
-  <string name="suggested_edits_unlock_dialog_no">Belki daha sonra</string>
-  <string name="suggested_edits_unlock_dialog_yes">Evet, hadi yapalım</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">\"Madde açıklamaları ekle\" görevinin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">\"Madde açıklamalarını çevir\" kilidini açtınız</string>
-  <string name="suggested_edits_unlock_notification_text">Önerilen düzenlemeler</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Önerilen düzenlemeler\n\nTüm katkılarınız için teşekkürler. Düzenleme konusunda çok iyi olduğunuzdan, açıklamaların eksik olduğu bir madde listesi hazırladık. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Önerilen düzenlemeler\n\nKatkılarınızdan dolayı tebrikler, çok etkilendik! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle açıklama çevirileri gerektiren maddelerden oluşan bir liste hazırladık. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
-  <string name="suggested_edits_unlock_notification_button">Evet, hadi yapalım</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">\"Resim yazısı ekle\" görevini açtınız</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">\"Resim yazıları ekle\"nin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Tüm resim yazısı düzenlemeleriniz için teşekkür ederiz! Görüntülere altyazı eklemek istediğinizi gördüğümüz için altyazı eksik görüntülerin bir listesini derledik. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Önerilen düzenlemeler\n\nTüm resim yazısı düzenlemeleriniz için teşekkür ederiz! Görüntülere altyazı eklemek istediğinizi gördüğümüz için altyazı eksik görüntülerin bir listesini derledik. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">\"Resim yazılarını tercüme et\" görevini açtınız</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">\"Resim yazılarını çevir\" kilidini açtınız</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Resim yazısı düzenlemeleriniz için tebrikler - hayretler içinde kaldık! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle başlık çevirileri gerektiren bir resim listesi derledik. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Önerilen düzenlemeler\n\nResim yazısı düzenlemeleriniz için tebrikler - hayretler içinde kaldık! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle başlık çevirileri gerektiren bir resim listesi derledik. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
   <string name="suggested_edits_license_notice">Tanımı değiştirerek \"&lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\"nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="suggested_edits_image_caption_license_notice">Resim altyazısını değiştirerek \"&lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\"nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="suggested_edits_menu_info">Bilgi</string>
@@ -725,6 +715,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Altyazı ekle</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Altyazı ekle (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Madde açıklaması ekle</string>
+  <string name="suggested_edits_snackbar_survey_text">Düzenleme deneyiminiz nasıldı? Lütfen uygulama içi düzenleme ile ilgili anketi doldurmak için bir dakikanızı ayırın.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Anketi Doldur</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama incleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -796,6 +788,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Tamam</string>
   <string name="reverted_edit_dialog_ok_button_text">Tamam</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">İptal</string>
+  <string name="content_description_for_page_indicator">Sayfa %1$d %2$d</string>
   <string name="wikitext_bold">Kalın</string>
   <string name="wikitext_italic">Eğik</string>
   <string name="wikitext_link">Bağlantı</string>
@@ -806,6 +799,7 @@
   <string name="wikitext_preview_link">Önizleme bağlantısı</string>
   <string name="main_drawer_open">Aç</string>
   <string name="main_drawer_close">Kapat</string>
+  <string name="main_drawer_content_description">Ana gezinme çekmecesini aç</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
   <string name="custom_date_picker_dialog_ok_button_text">Tamam</string>
