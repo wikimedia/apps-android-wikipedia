@@ -318,7 +318,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         when (editQuality) {
             in 0..10 -> showDisabledView(R.drawable.ic_suggested_edits_paused, R.string.suggested_edits_paused_message)
             in 11..50 -> showDisabledView(R.drawable.ic_suggested_edits_disabled, R.string.suggested_edits_disabled_message)
-            -1 -> showDisabledView(-1, R.string.suggested_edits_paused_message)
+            -1 -> showDisabledView(-1, R.string.suggested_edits_ip_blocked_message)
             else -> disabledStatesView.visibility = GONE
         }
 
