@@ -10,8 +10,7 @@
         android:src="@drawable/shape_circle"
         android:tint="?attr/multi_select_background_color"
         android:contentDescription="@null"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
     <ImageView
         android:id="@+id/pulsingCircleInner"
         android:layout_width="36dp"
@@ -20,13 +19,12 @@
         android:tint="?attr/color_group_52"
         android:alpha="0.5"
         android:contentDescription="@null"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
     <ImageView
         android:id="@+id/pulsingBaseIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:tint="?attr/material_theme_primary_color"
         android:contentDescription="@null"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 </FrameLayout>
