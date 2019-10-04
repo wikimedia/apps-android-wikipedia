@@ -136,8 +136,9 @@ public interface RestService {
     @GET("feed/availability")
     @NonNull Observable<FeedAvailability> getFeedAvailability();
 
-    @GET("page/references/{title}")
-    @NonNull Observable<References> getReferences(@Path("title") String title);
+    @GET("page/references/{title}/{revision}")
+    @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
+                                                  @NonNull @Path("revision") String revision);
 
     // ------- Reading lists -------
 
