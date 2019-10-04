@@ -50,7 +50,6 @@
     <string name="preference_key_total_anon_descriptions_edited">totalAnonDescriptionsEdited</string>
     <string name="preference_key_missing_description_test">findArticleWithMissingDescription</string>
     <string name="preference_key_missing_description_test2">findArticleWithMissingSecondLangDescription</string>
-    <string name="preference_key_dialog_with_image_test">showDialogWithTitleAndImage</string>
     <string name="preference_category_sync">syncSettings</string>
     <string name="preference_category_experimental">experimentalSettings</string>
     <string name="preference_key_sync_reading_lists">syncReadingLists</string>
