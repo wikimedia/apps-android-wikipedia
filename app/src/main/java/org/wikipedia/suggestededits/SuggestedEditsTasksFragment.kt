@@ -19,6 +19,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
+import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
 import org.wikipedia.Constants.InvokeSource.*
@@ -28,6 +29,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.DimenUtil
@@ -38,6 +40,7 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.FooterMarginItemDecoration
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.schedule
 
 class SuggestedEditsTasksFragment : Fragment() {
@@ -49,7 +52,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private val disposables = CompositeDisposable()
     private val PADDING_16 = DimenUtil.roundedDpToPx(16.0f)
-    private val PADDING_4 = DimenUtil.dpToPx(4.0f)
+    private val ELEVATION_4 = DimenUtil.dpToPx(4.0f)
     private var totalEdits = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -73,7 +76,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
 
 
-        pageViewStatsView.setTitle("2984")
         pageViewStatsView.setDescription("Pageviews")
         pageViewStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_trending_up_black_24dp)!!)
         pageViewStatsView.setImageBackground(null)
@@ -132,7 +134,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.START
         bottomTooltipArrow.layoutParams = param
         textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
-        textViewForMessage.elevation = PADDING_4
+        textViewForMessage.elevation = ELEVATION_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
         textViewForMessage.text = getString(R.string.suggested_edits_page_views_stat_tooltip)
         executeAfterTimer(false)
@@ -144,7 +146,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.END
         bottomTooltipArrow.layoutParams = param
         textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
-        textViewForMessage.elevation = PADDING_4
+        textViewForMessage.elevation = ELEVATION_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
         textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
         executeAfterTimer(false)
@@ -208,15 +210,24 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun fetchUserContributions() {
+        val listofRequiredWikiSites = ArrayList<WikiSite>()
+
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     swipeRefreshLayout.isRefreshing = false
                     checkForDisabledStatus(100)
+                    getPageViews(listofRequiredWikiSites)
                 }
                 .subscribe({ response ->
+                    if (response.query()!!.userInfo()!!.isBlocked) showDisabledView(-1, R.string.suggested_edits_paused_message)
+
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
+
+                    //Adding all the languages that the user has contributed to, to help us calculate pageviews of all pages that the user has contributed to in all the wikis
+                    response.query()!!.editorTaskCounts()!!.captionEditsPerLanguage.forEach { (key, _) -> listofRequiredWikiSites.add(WikiSite.forLanguageCode(key)) }
+
                     totalEdits = 0
                     for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
                         totalEdits += count
@@ -229,6 +240,54 @@ class SuggestedEditsTasksFragment : Fragment() {
                     L.e(throwable)
                     FeedbackUtil.showError(requireActivity(), throwable)
                 }))
+
+    }
+
+    private fun getPageViews(listofSites: ArrayList<WikiSite>) {
+        listofSites.add(WikiSite(Service.COMMONS_URL))
+        listofSites.add(WikiSite(Service.WIKIDATA_URL))
+        val observableList = ArrayList<io.reactivex.Observable<MwQueryResponse>>()
+        for (wikiSite in listofSites) {
+            observableList.add(getPageViewsPerWiki(wikiSite))
+        }
+        disposables.add(io.reactivex.Observable.zip(observableList) { args -> createResult(args) }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ pageViewsCount ->
+                    pageViewStatsView.setTitle(pageViewsCount.toString())
+                }, L::e))
+    }
+
+    private fun createResult(pageViewsResultsList: Array<Any>): Int {
+        var totalPageViews = 0
+
+        for (result in pageViewsResultsList) {
+            if (result is MwQueryResponse && result.query() != null) {
+                if (result.query()!!.pages() != null) {
+                    for (page in result.query()!!.pages()!!) {
+                        if (page.pageViewsMap != null) {
+                            page.pageViewsMap!!.forEach { (_, value) -> if (value != null) totalPageViews = totalPageViews + value.toInt() }
+                        }
+                    }
+                }
+            }
+        }
+        return totalPageViews
+    }
+
+    fun getPageViewsPerWiki(wikiSite: WikiSite): io.reactivex.Observable<MwQueryResponse> {
+        return ServiceFactory.get(wikiSite).getUserContributedPages(AccountUtil.getUserName()!!)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap { response ->
+                    val titles = ArrayList<String>()
+                    for (usercont in response.query()!!.userContribs()!!) {
+                        titles.add(usercont.title!!)
+                    }
+                    ServiceFactory.get(wikiSite).getPageViewsForTitles(StringUtils.join(titles, "|"))
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                }
     }
 
     private fun updateUI() {

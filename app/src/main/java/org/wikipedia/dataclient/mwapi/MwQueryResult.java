@@ -14,6 +14,7 @@ import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
+import org.wikipedia.suggestededits.UserContributions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,6 +36,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
+    @SerializedName("usercontribs") @Nullable private List<UserContributions> userContributions;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -155,6 +157,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @Nullable public EditorTaskCounts editorTaskCounts() {
         return editorTaskCounts;
+    }
+
+    @Nullable public List<UserContributions> userContribs() {
+        return userContributions;
     }
 
     @Override
