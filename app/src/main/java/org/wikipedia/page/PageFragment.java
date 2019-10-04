@@ -248,6 +248,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return model.getTitleOriginal();
     }
 
+    @NonNull public String getRevision() {
+        return pageFragmentLoadState.getRevision();
+    }
+
     @NonNull public ShareHandler getShareHandler() {
         return shareHandler;
     }
@@ -957,7 +961,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         String filename = UriUtil.removeInternalLinkPrefix(href);
                         WikiSite wiki = model.getTitle().getWikiSite();
                         requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                                model.getTitleOriginal(), filename, wiki, GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                                model.getTitleOriginal(), filename, wiki, getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                                 ACTIVITY_REQUEST_GALLERY);
                     } else {
                         Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
@@ -977,7 +981,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
                 WikiSite wiki = model.getTitle().getWikiSite();
                 requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                        model.getTitleOriginal(), filename, wiki,
+                        model.getTitleOriginal(), filename, wiki, getRevision(),
                         GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                         ACTIVITY_REQUEST_GALLERY);
             } catch (JSONException e) {

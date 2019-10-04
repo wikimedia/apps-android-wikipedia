@@ -83,6 +83,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private HistoryEntry historyEntry;
     private PageTitle pageTitle;
+    private String revision;
     @Nullable private Location location;
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -226,7 +227,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     } else {
                         titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
                     }
-
+                    revision = summary.getRevision();
                     // TODO: remove after the restbase endpoint supports ZH variants
                     pageTitle.setConvertedText(summary.getConvertedTitle());
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
@@ -239,7 +240,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText(), revision)
                     .flatMap((Function<MediaList, ObservableSource<MwQueryResponse>>) mediaList -> {
                         final int maxImages = 10;
                         List<MediaListItem> items = mediaList.getItems("image", "video");
@@ -342,7 +343,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         @Override
         public void onGalleryItemClicked(String imageName) {
             startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
-                    pageTitle.getWikiSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
+                    pageTitle.getWikiSite(), revision, GalleryFunnel.SOURCE_LINK_PREVIEW),
                     Constants.ACTIVITY_REQUEST_GALLERY);
         }
     };

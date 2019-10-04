@@ -10,9 +10,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -31,6 +33,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
@@ -57,6 +60,7 @@ public class PageFragmentLoadState {
 
     private int sectionTargetFromIntent;
     private String sectionTargetFromTitle;
+    private String revision;
 
     private ErrorCallback networkErrorCallback;
 
@@ -109,6 +113,11 @@ public class PageFragmentLoadState {
     public void onPageFinished() {
         bridge.onPageFinished();
         loading = false;
+    }
+
+    @NonNull
+    public String getRevision() {
+        return revision;
     }
 
     public void loadFromBackStack() {
@@ -228,9 +237,15 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient()
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
+        Observable<PageSummary> pageSummaryObservable = ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(model.getCurEntry().getReferrer(), model.getTitle().getConvertedText());
+        Observable<Response<PageLead>> pageLeadObservable = new PageClient().lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth());
+
+        disposables.add(Observable
+                .zip(pageSummaryObservable, pageLeadObservable, (summaryRsp, leadRsp) -> {
+                    revision = summaryRsp.getRevision();
+                    return leadRsp;
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(rsp -> {
                     app.getSessionFunnel().leadSectionFetchEnd();

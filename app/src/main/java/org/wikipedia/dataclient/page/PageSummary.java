@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
@@ -34,6 +36,7 @@ public class PageSummary {
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @SuppressWarnings("unused") @Nullable private String lang;
     @SuppressWarnings("unused") private int pageid;
+    @SuppressWarnings("unused") @Nullable private String revision;
 
     @NonNull
     public String getTitle() {
@@ -99,8 +102,14 @@ public class PageSummary {
         return pageid;
     }
 
+    @NonNull
     public String getLang() {
-        return lang;
+        return StringUtils.defaultString(lang, WikipediaApp.getInstance().language().getAppLanguageCode());
+    }
+
+    @Nullable
+    public String getRevision() {
+        return revision;
     }
 
     /**
