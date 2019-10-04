@@ -25,10 +25,12 @@
   <string name="page_tabs_back">Tillbaka</string>
   <string name="nav_item_forward">Framåt</string>
   <string name="search_hint">Sök på Wikipedia</string>
+  <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="search_hint_search_my_lists_and_articles">Sök i mina listor och artiklar</string>
   <string name="nav_item_history">Historik</string>
+  <string name="nav_item_suggested_edits">Förslag på redigeringar</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="card_offline_error_retry">Försök igen</string>
@@ -71,9 +73,6 @@
   <string name="on_this_day_page_share">Dela</string>
   <string name="reading_list_page_share">Dela</string>
   <string name="menu_text_select_edit_here">Redigera här</string>
-  <string name="nav_item_nearby">I närheten</string>
-  <string name="nearby_zoom_to_location">Zooma till en plats på kartan</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;-bidragsgivare</string>
   <string name="last_updated_text">Senast uppdaterad %s</string>
   <string name="talk_page_link_text">Visa diskussionssida</string>
   <string name="edit_history_link_text">Visa redigeringshistorik</string>
@@ -337,6 +336,7 @@
   <string name="view_link_preview_error_button_dismiss">Stäng</string>
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
+  <string name="view_wiki_error_message_timeout">Kan inte ansluta till Wikipedia. Kontrollera din nätverksanslutning eller försök igen senare.</string>
   <string name="reference_title">Referens %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
   <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
@@ -535,14 +535,20 @@
   <string name="preference_title_notification_poll">Aktivera aviseringar</string>
   <string name="preference_summary_notification_poll">Tillåt appen att använda data för att leta efter nya aviseringar i bakgrunden.</string>
   <string name="preference_category_notification_types">Aviseringstyper i appen</string>
-  <string name="preference_title_notification_welcome">Välkommen</string>
-  <string name="preference_summary_notification_welcome">Ett konto skapas</string>
+  <string name="preference_title_notification_system">System</string>
+  <string name="preference_summary_notification_system">Systemmeddelanden</string>
   <string name="preference_title_notification_milestone">Milstolpe</string>
   <string name="preference_summary_notification_milestone">Vissa antal redigeringar uppnås</string>
   <string name="preference_title_notification_thanks">Tack</string>
   <string name="preference_summary_notification_thanks">Någon tackar dig för en redigering</string>
   <string name="preference_title_notification_revert">Återställ</string>
   <string name="preference_summary_notification_revert">Ett av dina bidrag återställdes</string>
+  <string name="preference_title_notification_login_fail">Inloggning</string>
+  <string name="preference_summary_notification_login_fail">Dina inloggningsaktiviteter</string>
+  <string name="preference_title_notification_mention">Omnämnande</string>
+  <string name="preference_summary_notification_mention">Någon nämner dig på en sida</string>
+  <string name="preference_title_notification_user_talk">Diskussionssida</string>
+  <string name="preference_summary_notification_user_talk">Meddelanden från diskussionssidor</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Slumpartikel</string>
   <string name="view_random_card_subtitle">Bläddra bland slumpartiklar att läsa från Wikipedia</string>
@@ -596,6 +602,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskarflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
+  <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
+  <string name="feed_accessibility_card_load_more_button">Läs in fler</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivning (%s)</string>
@@ -710,6 +718,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
+  <string name="suggested_edits_snackbar_survey_text">Hur har din redigeringsupplevelse varit? Ta en stund att delta i en undersökning om att redigera i appen.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Delta i undersökning</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
@@ -781,6 +791,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Avbryt</string>
+  <string name="content_description_for_page_indicator">Sida %1$d av %2$d</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Länk</string>
@@ -791,6 +802,7 @@
   <string name="wikitext_preview_link">Förhandsvisa länk</string>
   <string name="main_drawer_open">Öppna</string>
   <string name="main_drawer_close">Stäng</string>
+  <string name="main_drawer_content_description">Öppna huvudnavigeringsmenyn</string>
   <string name="main_drawer_help">Hjälp</string>
   <string name="main_drawer_login">Logga in / skapa konto på Wikipedia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

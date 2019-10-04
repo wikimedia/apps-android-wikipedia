@@ -15,10 +15,12 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Пребарај ја Википедија</string>
+  <string name="search_hint_voice_search">Гласовно пребарување</string>
   <string name="search_hint_search_history">Историја на пребарување</string>
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
   <string name="nav_item_history">Историја</string>
+  <string name="nav_item_suggested_edits">Предложени уредувања</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -61,9 +63,6 @@
   <string name="on_this_day_page_share">Сподели</string>
   <string name="reading_list_page_share">Сподели</string>
   <string name="menu_text_select_edit_here">Уреди тука</string>
-  <string name="nav_item_nearby">Во близина</string>
-  <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
-  <string name="nearby_osm_license">&amp;copy; учесници на&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последна измена: %s</string>
   <string name="talk_page_link_text">Разговорна страница</string>
   <string name="edit_history_link_text">Историја на уредувања</string>
@@ -327,6 +326,7 @@
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
+  <string name="view_wiki_error_message_timeout">Не можам да се поврзам со Википедија. Проверете си ја мрежната врска или обидете се подоцна</string>
   <string name="reference_title">Навод %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
@@ -525,14 +525,20 @@
   <string name="preference_title_notification_poll">Известувања за анкети</string>
   <string name="preference_summary_notification_poll">Дозволи му на прилогот да користи податоци за да проверува нови известувања во позадина.</string>
   <string name="preference_category_notification_types">Видови известувања во прилог</string>
-  <string name="preference_title_notification_welcome">Добредојде</string>
-  <string name="preference_summary_notification_welcome">Создадена е сметка</string>
+  <string name="preference_title_notification_system">Систем</string>
+  <string name="preference_summary_notification_system">Пораки за системот</string>
   <string name="preference_title_notification_milestone">Достигнувања</string>
   <string name="preference_summary_notification_milestone">Достигнати се извесни броеви на уредувања</string>
   <string name="preference_title_notification_thanks">Благодарности</string>
   <string name="preference_summary_notification_thanks">Некој ви благодари за уредување</string>
   <string name="preference_title_notification_revert">Отповикај</string>
   <string name="preference_summary_notification_revert">Еден од вашите придонеси е отповикан</string>
+  <string name="preference_title_notification_login_fail">Најава</string>
+  <string name="preference_summary_notification_login_fail">Ваши најави</string>
+  <string name="preference_title_notification_mention">Спомнување</string>
+  <string name="preference_summary_notification_mention">Некој ве спомнува на страница</string>
+  <string name="preference_title_notification_user_talk">Разговорна страница</string>
+  <string name="preference_summary_notification_user_talk">Пораки од разговорни страници</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_card_subtitle">Прелистајте случајни статии од Википедија</string>
@@ -586,6 +592,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Откажи</string>
+  <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
+  <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
   <string name="description_edit_article_description_label_per_language">Статија (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис на статијата (%s)</string>
@@ -700,6 +708,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>
+  <string name="suggested_edits_snackbar_survey_text">Какво е вашето уредувачко доживување? Би ценеле ако ја пополните анкетата за уредување од прилог.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Пополнете ја анкетата</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
@@ -771,6 +781,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ОК</string>
   <string name="reverted_edit_dialog_ok_button_text">ОК</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Откажи</string>
+  <string name="content_description_for_page_indicator">Страница %1$d од %2$d</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
   <string name="wikitext_link">Врска</string>
@@ -781,6 +792,7 @@
   <string name="wikitext_preview_link">Преглед на врската</string>
   <string name="main_drawer_open">Отвори</string>
   <string name="main_drawer_close">Затвори</string>
+  <string name="main_drawer_content_description">Отвори прегледник</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>

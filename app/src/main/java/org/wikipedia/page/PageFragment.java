@@ -89,7 +89,7 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
-import org.wikipedia.views.WikiPageErrorView;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -156,7 +156,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ObservableWebView webView;
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private WikiPageErrorView errorView;
+    private WikiErrorView errorView;
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
@@ -343,7 +343,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
         webView.setBackgroundColor(getThemedColor(requireActivity(), R.attr.paper_color));
 
-        bridge = new CommunicationBridge(webView);
+        bridge = new CommunicationBridge(webView, requireActivity());
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
@@ -563,6 +563,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             requireActivity().invalidateOptionsMenu();
         } else {
+            pageFragmentLoadState.setTab(getCurrentTab());
             getCurrentTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
     }

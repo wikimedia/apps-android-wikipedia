@@ -23,6 +23,7 @@
   <string name="page_tabs_back">ยัอนกลับ</string>
   <string name="nav_item_forward">ถัดไป</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
+  <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_history">ค้นหาประวัติ</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="search_hint_search_my_lists_and_articles">ค้นหารายชื่อและบทความที่บันทึกใว้</string>
@@ -69,9 +70,6 @@
   <string name="on_this_day_page_share">แบ่งปัน</string>
   <string name="reading_list_page_share">แบ่งปัน</string>
   <string name="menu_text_select_edit_here">แก้ไขตรงนี้</string>
-  <string name="nav_item_nearby">ใกล้เคียง</string>
-  <string name="nearby_zoom_to_location">ขยายไปยังตำแหน่งในแผนที่</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;การมีส่วนร่วมใน&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;แผนที่ 360°&lt;/a&gt;</string>
   <string name="last_updated_text">ปรับปรุงครั้งล่าสุดเมื่อ %s</string>
   <string name="talk_page_link_text">ดูหน้าคุย</string>
   <string name="edit_history_link_text">ดูประวัติการแก้ไข</string>
@@ -168,32 +166,50 @@
   <string name="send_feedback">ส่งคำติชมแอป</string>
   <string name="create_account_account_created_toast">สร้างบัญชีแล้ว!</string>
   <string name="preferences_heading_syncing">กำลังรับข้อมูล</string>
+  <string name="preferences_heading_data_usage">การใช้ข้อมูลมือถือ</string>
   <string name="preferences_heading_experimental">ประสบการณ์</string>
   <string name="preference_title_sync_reading_lists_from_account">กำลังรับรายการอ่านล่าสุด</string>
   <string name="preference_title_download_reading_list_articles">บันทึกรายการอ่าน</string>
   <string name="preference_summary_sync_reading_lists">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชีของคุณ</string>
+  <string name="preference_summary_sync_reading_lists_from_account">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชี \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ลบการดึงข้อมูลรายชื่อบทความจาก\"%s\"หรือไม่</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">การกระทำนี้จะเป็นการลบข้อมูลทั้งหมดที่ดึงมาจากการอ่านครั้งก่อน แน่ใจหรือไม่ว่าคุณต้องการจะลบรสยการเหล่านี้จากบัญชีของคุณ \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานความผิดพลาด</string>
   <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอพลิเคชั่นส่งรายงานความผิดพลาดไปยัง HockeyApp และผู้ให้บริการโดยอัตโนมัติ เพื่อให้เราทราบถึงปัญหาและแก้ไขข้อผิดพลาดได้เร็วขึ้น</string>
+  <string name="editing_error_spamblacklist">คุณได้เพิ่มโดเมนเว็บไซต์ต้องห้ามในรายชื่อต้องห้ามของเรา (%s) กรุณาลบมันและลองอีกครั้ง</string>
   <string name="history_search_list_hint">ประวัติการค้นหา</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
   <string name="page_protected_autoconfirmed">หน้านี้ถูกล็อกแบบกึ่งล็อก</string>
   <string name="page_protected_sysop">หน้านี้ถูกล็อกแบบสมบูรณ์</string>
+  <string name="page_protected_other">หน้านี้ถูกป้องกันในระดับ: %s</string>
+  <string name="page_protected_can_not_edit">ตอนนี้คุณไม่มีสิทธิ์พอที่จะแก้ไขในตอนนี้</string>
+  <string name="page_protected_can_not_edit_anon">ขออภัย หน้านี้จำเป็นต้องเข้าสู่ระบบเพื่อแก้ไขในขณะนี้</string>
   <string name="page_protected_can_not_edit_title">หน้านี้ถูกป้องกัน</string>
   <string name="settings_item_preferences">ตั้งค่า</string>
   <string name="settings_activity_title">ตั้งค่า</string>
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
+  <string name="about_wikipedia_url">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
+  <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/wiki/Special:UserLogin/signup</string>
+  <string name="about_contributors_heading">ผู้ม่ส่วนร่วม</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
   <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
+  <string name="edit_abandon_confirm_yes">ใช่</string>
+  <string name="edit_abandon_confirm_no">ไม่</string>
   <string name="user_blocked_from_editing_title">ถูกบล็อก</string>
+  <string name="user_logged_in_blocked_from_editing">บัญชีของคุณถูกระงับไม่ให้แก้ไขหน้าบนวิกิภาษานี้</string>
+  <string name="user_anon_blocked_from_editing">ไอพี(IP)ของคุณถูกระงับไม่ให้แก้ไขหน้าบนวิกิภาษาน</string>
+  <string name="edit_how_page_improved">คุณปรับปรุงบทความนี้อย่างไร?</string>
   <string name="edit_next">ถัดไป</string>
-  <string name="edit_done" fuzzy="true">บันทึก</string>
+  <string name="edit_done">เผยแพร่</string>
   <string name="edit_preview">แสดงตัวอย่าง</string>
   <string name="edit_undo">เลิกทำ</string>
   <string name="edit_redo">ทำซ้ำ</string>
@@ -203,10 +219,14 @@
   <string name="edit_summary_tag_grammar">แก้ไขไวยากรณ์</string>
   <string name="edit_summary_tag_links">เพิ่มลิงก์</string>
   <string name="edit_summary_tag_other">อื่น ๆ</string>
+  <string name="edit_summary_tag_other_hint">วิธีการอื่นที่คุณปรับปรุงบทความนี้</string>
+  <string name="edit_conflict_title">แก้ไขชนกัน</string>
+  <string name="edit_conflict_message">หน้านี้ได้ถูกแก้ไขโดยผู้ใช้คนอื่นไปแล้ว และเมื่อคุณแก้ไขจึงมีการชนกันเกิดขึ้น คุณสามารถแก้ปัญหาเบื้องต้นโดยการคัดลอกการแก้ไขของคุณ และลองโหลดหน้านี้ใหม่ แล้วแก้ไขอีกครั้ง</string>
   <string name="find_next">ค้นหาถัดไป</string>
   <string name="find_previous">ค้นหาก่อนหน้า</string>
   <string name="text_size_select">ขนาดอักษร</string>
   <string name="page_similar_titles">หน้าที่คล้ายกัน</string>
+  <string name="search_did_you_mean">หรือคุณหมายถึง \"%s\"</string>
   <string name="error_browser_not_found">ไม่สามารถเปิดหน้าเว็บได้ (ไม่พบแอปเบราว์เซอร์)</string>
   <string name="table_close">ปิด</string>
   <string name="dialog_close_description">ปิด</string>
@@ -280,8 +300,6 @@
   <string name="reading_list_delete_confirm">คุณแน่ใจว่าต้องการลบ %s หรือไม่</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ลงชื่อเข้า</string>
   <string name="user_option_sync_label">การตั้งค่า</string>
-  <string name="preference_title_notification_welcome">ยินดีต้อนรับ</string>
-  <string name="preference_summary_notification_welcome">สร้างบัญชีผู้ใช้แล้ว</string>
   <string name="preference_title_notification_thanks">ขอบคุณ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>

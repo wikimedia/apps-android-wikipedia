@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 50290
+        versionCode 50298
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -135,10 +135,23 @@ android {
             returnDefaultValues = true
         }
     }
+
+    bundle {
+        language {
+            enableSplit false
+        }
+    }
 }
 
 apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
+
+// TODO: remove when Fresco updates its bundled version of soloader.
+configurations.all {
+    resolutionStrategy {
+        force "com.facebook.soloader:soloader:0.8.0"
+    }
+}
 
 dependencies {
 
@@ -159,12 +172,12 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 
     implementation "com.google.android.material:material:1.0.0"
-    implementation "androidx.core:core:1.0.2"
+    implementation "androidx.core:core:1.1.0"
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation "androidx.fragment:fragment:1.0.0"
+    implementation "androidx.fragment:fragment:1.1.0"
     implementation "androidx.palette:palette:1.0.0"
-    implementation "androidx.preference:preference:1.0.0"
+    implementation "androidx.preference:preference:1.1.0"
     implementation "androidx.recyclerview:recyclerview:1.0.0"
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.4') {
@@ -175,6 +188,7 @@ dependencies {
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"
     implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
+
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.romandanylyk:pageindicatorview:1.0.2'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
@@ -185,8 +199,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.12.0'
     implementation "com.jakewharton:butterknife:10.1.0"
-    implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:7.0.1"
-    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v7:0.4.0'
     implementation 'net.hockeyapp.android:HockeySDK:5.2.0'
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
