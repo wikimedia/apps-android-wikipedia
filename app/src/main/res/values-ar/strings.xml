@@ -667,26 +667,6 @@
   <string name="suggested_edits_review_image_caption">مراجعة تعليقات الصور</string>
   <string name="suggested_edits_my_contributions">مساهماتي</string>
   <string name="suggested_edits_no_description">هذا الملف لا يحتوي على وصف</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"إضافة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">شكرا على جميع مساهماتك! لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"ترجمة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">مبروك على مساهماتك الكثيرة، نحن معجبون! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالمقالات التي تحتاج إلى ترجمة وصف، هل يمكنك الاستمرار في مساعدتنا على تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_dialog_no">ربما لاحقا</string>
-  <string name="suggested_edits_unlock_dialog_yes">نعم، هيا بنا</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">لقد قمت بإلغاء حماية \"إضافة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">لقد قمت بإلغاء حماية \"ترجمة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_notification_text">التعديلات المقترحة</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">التعديلات المقترحة\n\nشكرا على جميع مساهماتك، نظرا لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">التعديلات المقترحة\nمبروك على مساهماتك الكثيرة، لقد أعجبنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا جمعنا قائمة بالمقالات التي تفتقر إلى ترجمة الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_notification_button">نعم، هيا بنا</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">لقد قمت بإلغاء حماية مهمة \"أضف أوصاف للصورة\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">لقد قمت بإلغاء حماية ميزة \"أضف أوصاف للصورة\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">شكرا على كل تعديلاتك للصور! نظرا لأننا نرغب في إضافة تسميات توضيحية إلى الصور؛ قمنا بتجميع قائمة بالصور التي تفتقد للتعليقات التوضيحية. هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">التعديلات المقترحة \n\nشكرا على كل تعديلاتك للصور! نظرًا لأننا نرغب في إضافة تسميات توضيحية إلى الصور؛ قررنا أن نجمع قائمة بالصور التي ينقصها وصف. هل بإمكانك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">لقد قمت بإلغاء حماية مهمة \"ترجم أوصاف الصورة\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">لقد قمت بإلغاء حماية  ميزة \"ترجم أوصاف الصورة\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">تهانينا على تعديلاتك الكثيرة للتسميات التوضيحية للصور - لقد أُذهِلنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالصور التي تحتاج إلى ترجمات توضيحية، هل يمكنك الاستمرار في مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">التعديلات المقترحة\n\n\nتهانينا على تعديلاتك الكثيرة للتسميات التوضيحية للصور - لقد أُذهِلنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالصور التي تحتاج إلى ترجمات توضيحية، هل يمكنك الاستمرار في مساعدتنا في تحسين ويكيبيديا؟</string>
   <string name="suggested_edits_license_notice">بإضافة الوصف، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">بإضافة تعليق الصورة، أوافق على &lt;a href=\"%1$s\"&gt;Tشروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">معلومات</string>

@@ -669,26 +669,6 @@
   <string name="suggested_edits_review_image_caption">Sprawdź podpis obrazu</string>
   <string name="suggested_edits_my_contributions">Mój wkład</string>
   <string name="suggested_edits_no_description">Ten plik nie ma opisu</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odblokowałeś zadanie „Dodaj opisy”</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Dziękujemy za cały Twój wkład! Ponieważ jesteś bardzo dobry w edytowaniu, przygotowaliśmy listę artykułów, w których brakuje opisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odblokowałeś zadanie „Przetłumacz opisy artykułów”</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Gratulujemy wielkiego wkładu, jesteśmy pod wrażeniem! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę artykułów wymagających tłumaczenia opisów. Czy możesz nadal pomagać nam w ulepszaniu Wikipedii?</string>
-  <string name="suggested_edits_unlock_dialog_no">Może później</string>
-  <string name="suggested_edits_unlock_dialog_yes">Tak, zaczynajmy</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Odblokowałeś „Dodaj opisy artykułu”</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Odblokowałeś „Tłumacz opisy artykułu”</string>
-  <string name="suggested_edits_unlock_notification_text">Sugerowane edycje</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Sugerowane edycje\n\nDziękujemy za cały Twój wkład! Ponieważ jesteś bardzo dobry w edytowaniu, przygotowaliśmy listę artykułów, w których brakuje opisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Sugerowane edycje\n\nGratulujemy wielkiego wkładu, jesteśmy pod wrażeniem! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę artykułów wymagających tłumaczenia opisów. Czy możesz nadal pomagać nam w ulepszaniu Wikipedii?</string>
-  <string name="suggested_edits_unlock_notification_button">Tak, zaczynajmy</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Odblokowano zadanie „Dodaj podpisy do obrazu”</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Odblokowałeś „Dodaj podpisy do obrazu”</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Dziękujemy za wszystkie edycje podpisów grafik! Ponieważ widzimy, że lubisz dodawać podpisy do grafik, przygotowaliśmy listę obrazów, w których brakuje podpisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Sugerowane edycje\n\nDziękujemy za wszystkie edycje podpisów grafik! Ponieważ widzimy, że lubisz dodawać podpisy do grafik, przygotowaliśmy listę obrazów, w których brakuje podpisów. Czy możesz nam pomóc ulepszyć Wikipedię?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Odblokowano zadanie „Przetłumacz podpisy obrazów”</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Odblokowałeś „Przetłumacz podpisy do obrazów”</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Gratulujemy wielu edycji opisów grafik - jesteśmy zdumieni! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę grafik wymagających tłumaczenia podpisów. Czy możesz nadal pomagać nam ulepszać Wikipedię?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Sugerowane edycje\n\nGratulujemy wielu edycji opisów do grafik - jesteśmy zdumieni! Korzystasz z aplikacji w wielu językach, dlatego opracowaliśmy listę grafik wymagających tłumaczenia podpisów. Czy możesz nadal pomagać nam ulepszać Wikipedię?</string>
   <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacje</string>

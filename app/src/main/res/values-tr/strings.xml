@@ -671,26 +671,6 @@
   <string name="suggested_edits_review_image_caption">Resim altyazısını incele</string>
   <string name="suggested_edits_my_contributions">Katkılarım</string>
   <string name="suggested_edits_no_description">Bu dosyanın bir açıklaması yok</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Madde açıklamaları ekle\" görevinin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tüm katkılarınız için teşekkürler! Düzenleme konusunda çok iyi olduğunuzdan açıklamaların eksik olduğu bir madde listesi hazırladık. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"Madde açıklamalarını çevir\" görevinin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Katkılarınızdan dolayı tebrikler, çok etkilendik! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle açıklama çevirileri gerektiren maddelerden oluşan bir liste hazırladık. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
-  <string name="suggested_edits_unlock_dialog_no">Belki daha sonra</string>
-  <string name="suggested_edits_unlock_dialog_yes">Evet, hadi yapalım</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">\"Madde açıklamaları ekle\" görevinin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">\"Madde açıklamalarını çevir\" kilidini açtınız</string>
-  <string name="suggested_edits_unlock_notification_text">Önerilen düzenlemeler</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Önerilen düzenlemeler\n\nTüm katkılarınız için teşekkürler. Düzenleme konusunda çok iyi olduğunuzdan, açıklamaların eksik olduğu bir madde listesi hazırladık. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Önerilen düzenlemeler\n\nKatkılarınızdan dolayı tebrikler, çok etkilendik! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle açıklama çevirileri gerektiren maddelerden oluşan bir liste hazırladık. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
-  <string name="suggested_edits_unlock_notification_button">Evet, hadi yapalım</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">\"Resim yazısı ekle\" görevini açtınız</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">\"Resim yazıları ekle\"nin kilidini açtınız</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Tüm resim yazısı düzenlemeleriniz için teşekkür ederiz! Görüntülere altyazı eklemek istediğinizi gördüğümüz için altyazı eksik görüntülerin bir listesini derledik. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Önerilen düzenlemeler\n\nTüm resim yazısı düzenlemeleriniz için teşekkür ederiz! Görüntülere altyazı eklemek istediğinizi gördüğümüz için altyazı eksik görüntülerin bir listesini derledik. Vikipedi\'yi geliştirmemize yardımcı olabilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">\"Resim yazılarını tercüme et\" görevini açtınız</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">\"Resim yazılarını çevir\" kilidini açtınız</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Resim yazısı düzenlemeleriniz için tebrikler - hayretler içinde kaldık! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle başlık çevirileri gerektiren bir resim listesi derledik. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Önerilen düzenlemeler\n\nResim yazısı düzenlemeleriniz için tebrikler - hayretler içinde kaldık! Uygulamayı birden çok dilde kullanıyorsunuz, bu nedenle başlık çevirileri gerektiren bir resim listesi derledik. Vikipedi\'yi geliştirmemize yardımcı olmaya devam edebilir misiniz?</string>
   <string name="suggested_edits_license_notice">Tanımı değiştirerek \"&lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\"nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="suggested_edits_image_caption_license_notice">Resim altyazısını değiştirerek \"&lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\"nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="suggested_edits_menu_info">Bilgi</string>

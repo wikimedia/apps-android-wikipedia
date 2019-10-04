@@ -613,18 +613,6 @@
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturles tittelbeskrivelser</string>
   <string name="suggested_edits_add_description_button">Legg til beskrivelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Du låste opp oppgaven «Legg til beskrivelser»</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Takk for alle bidragene dine så langt! Siden du er så aktiv, har vi laget en liste med artikler som mangler beskrivelser. Er det noe du kunne tenke deg å se på?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Du har låst opp oppgaven «Oversett beskrivelser»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Gratulerer med alle bidragene dine, imponerende! Siden du bruker appen med flere språk, har vi laget en liste med artikkelbeskrivelser som trenger oversettelse. Er det noe du kunne tenke deg å se på?</string>
-  <string name="suggested_edits_unlock_dialog_no">Kanskje senere</string>
-  <string name="suggested_edits_unlock_dialog_yes">Ja, la meg se på den</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Du har låst opp «Legg til beskrivelser»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du har låst opp «Oversett beskrivelser»</string>
-  <string name="suggested_edits_unlock_notification_text">Foreslåtte redigeringer</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Foreslåtte redigeringer\n\nTakk for alle bidragene dine. Siden du er så aktiv, har vi laget en liste med artikler som mangler beskrivelser. Er det noe du kunne tenke deg å se på?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Foreslåtte redigeringer\n\nGratulerer med alle bidragene dine, imponerende! Siden du bruker appen med flere språk, har vi laget en liste med artikkelbeskrivelser som trenger oversettelse. Er det noe du kunne tenke deg å se på?</string>
-  <string name="suggested_edits_unlock_notification_button">Ja, la meg se på den</string>
   <string name="suggested_edits_license_notice" fuzzy="true">Ved å legge til en beskrivelse, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
