@@ -64,11 +64,6 @@
                 style="@style/OverflowMenuItem"
                 android:text="@string/nav_item_history" />
 
-            <TextView
-                android:id="@+id/page_action_overflow_nearby"
-                style="@style/OverflowMenuItem"
-                android:text="@string/nav_item_nearby" />
-
         </LinearLayout>
 
     </LinearLayout>
