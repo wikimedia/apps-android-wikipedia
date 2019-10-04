@@ -63,6 +63,7 @@
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
+  <string name="nav_item_suggested_edits">Предложение отредактировать</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="card_offline_error_retry">Повторить</string>
@@ -368,6 +369,7 @@
   <string name="view_link_preview_error_button_dismiss">Закрыть</string>
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к интернету</string>
+  <string name="view_wiki_error_message_timeout">Не удается подключиться к Википедии. Проверьте подключение к сети или повторите попытку позже</string>
   <string name="reference_title">Примечание %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>

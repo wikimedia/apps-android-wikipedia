@@ -40,6 +40,7 @@
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
+  <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -818,5 +819,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.</string>
 </resources>
