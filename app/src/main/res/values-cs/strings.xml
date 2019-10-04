@@ -662,26 +662,6 @@
   <string name="suggested_edits_review_image_caption">Náhled titulku obrázku</string>
   <string name="suggested_edits_my_contributions">Moje příspěvky</string>
   <string name="suggested_edits_no_description">Tento soubor zatím nemá popis</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Odemkli jste přidávání popisů článků!</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Děkujeme za všechny vaše příspěvky! Vzhledem k tomu, že jste v editaci dobří, nabízíme vám seznam článků, kterým chybí popisy. Pomůžete nám prosím vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Odemkli jste překládání popisů článků!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Gratulujeme vám k velkému množství příspěvků, jsme ohromeni! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady popisů. Mohli byste nám i nadále pomáhat vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_dialog_no">Možná později</string>
-  <string name="suggested_edits_unlock_dialog_yes">Ano, chci</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Odemkli jste přidávání popisů článků!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Odemkli jste překládání popisů článků!</string>
-  <string name="suggested_edits_unlock_notification_text">Navrhování editací</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Navrhování editací\n\nDěkujeme za všechny vaše příspěvky! Vzhledem k tomu, že jste v editaci dobří, nabízíme vám seznam článků, kterým chybí popisy. Pomůžete nám vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Navrhování editací\n\nDěkujeme za vaše velké množství příspěvků, jsme ohromeni! Vzhledem k tomu, že jste v editaci velmi dobří, nabízíme vám seznam článků, kterým chybí překlad popisu z jiného jazyka. Pomůžete nám i nadále vylepšovat Wikipedii?</string>
-  <string name="suggested_edits_unlock_notification_button">Ano, chci</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Odemkli jste přidávání titulků obrázků!</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Odemkli jste přidávání popisů obrázků!</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Děkujeme za všechny vaše editace titulků obrázků! Vidíme, že vás přidávání titulků k obrázkům baví, a proto vám nabízíme seznam obrázků, kterým chybí titulky. Pomůžete nám vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Navrhování editací\n\nDěkujeme za všechny vaše editace titulků obrázků! Vidíme, že vás přidávání titulků k obrázkům baví, a proto vám nabízíme seznam obrázků, kterým chybí titulky. Pomůžete nám vylepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Odemkli jste překládání popisů obrázků!</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Odemkli jste překládání titulků obrázků!</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Blahopřejeme vám k mnoha editacím titulků obrázků – jsme ohromeni! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady titulků obrázků. Budete i nadále pomáhat zlepšit Wikipedii?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Navrhování editací\n\nBlahopřejeme vám k mnoha editacím titulků obrázků – jsme ohromeni! Používáte aplikaci ve více jazycích, takže jsme sestavili seznam článků, které potřebují překlady titulků obrázků. Budete i nadále pomáhat zlepšit Wikipedii?</string>
   <string name="suggested_edits_license_notice">Přidáním popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Přidáním titulku obrázku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informace</string>

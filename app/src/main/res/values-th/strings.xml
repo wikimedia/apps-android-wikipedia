@@ -314,7 +314,6 @@
   <string name="description_edit_add_image_caption">เติมคำบรรยายภาพ</string>
   <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
   <string name="suggested_edits_translate_image_captions">แปลคำบรรยายภาพ</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">การแปลคำอธิบายหัวข้อได้รับการปลดล็อกแล้ว !</string>
   <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>

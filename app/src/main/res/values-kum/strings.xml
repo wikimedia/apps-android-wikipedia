@@ -215,9 +215,6 @@
   <string name="description_edit_success_done">Гьазир</string>
   <string name="description_edit_success_did_you_know">Билемисен?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Тюзлеп башламакъ</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Балики сонгра</string>
-  <string name="suggested_edits_unlock_dialog_yes">Гетдик</string>
-  <string name="suggested_edits_unlock_notification_button">Гетдик</string>
   <string name="suggested_edits_menu_info">Маълумат</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Тасвир къошмакъ</string>
   <string name="suggested_edits_task_multilingual_negative">Магъа тюгюл</string>

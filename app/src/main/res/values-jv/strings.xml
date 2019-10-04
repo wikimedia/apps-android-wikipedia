@@ -609,9 +609,6 @@
   <string name="suggested_edits_review_image_caption">Priksa kateranganing gambar</string>
   <string name="suggested_edits_my_contributions">Pasumbangku</string>
   <string name="suggested_edits_no_description">Barkas iki ora duwé wedharan</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Kowé mbukak ayahan \"Wuwuh wedharan\"</string>
-  <string name="suggested_edits_unlock_dialog_no">Mengko baé</string>
-  <string name="suggested_edits_unlock_dialog_yes">Iya, saiki</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_task_translate_caption_title">Pertal katerangan gambar</string>
   <string name="suggested_edits_task_translate_caption_description">Pertal katerangan menyang basa liya</string>

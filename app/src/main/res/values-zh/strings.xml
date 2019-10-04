@@ -662,26 +662,6 @@
   <string name="suggested_edits_review_image_caption">检查图片说明</string>
   <string name="suggested_edits_my_contributions">我的贡献</string>
   <string name="suggested_edits_no_description">这个文件没有描述</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">你已经解锁“词条描述”编辑任务</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">感谢您的所有贡献！由于您十分善于编辑，我们为此整理出了一份缺少描述的条目清单。 您能帮我们改进维基百科吗？</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">您已解锁“翻译条目描述”任务</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">十分感谢您的许多贡献，让我们印象深刻！您目前正以多语言使用此应用，因此我们整理出一份需要翻译描述的条目清单。 您能否继续帮我们改善维基百科吗？</string>
-  <string name="suggested_edits_unlock_dialog_no">以后再说</string>
-  <string name="suggested_edits_unlock_dialog_yes">好，我们开始吧</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">您已解锁“新增条目描述”</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">您已解锁“翻译条目描述”</string>
-  <string name="suggested_edits_unlock_notification_text">编辑提议</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">编辑提议\n\n感谢您的所有贡献！由于您十分善于编辑，我们为此整理出了一份缺少描述的条目清单。 您能帮我们改进维基百科吗？</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">编辑提议\n\n十分感谢您的许多贡献，让我们印象深刻！您目前正以多语言使用此应用，因此我们整理出一份需要翻译描述的条目清单。 您能否继续帮我们改善维基百科吗？</string>
-  <string name="suggested_edits_unlock_notification_button">好，我们开始吧</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">您解锁了“添加图片描述”任务</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">您已解锁了“添加图片说明”</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">感谢您所有的图片说明编辑！看样子您喜欢为图片添加说明，我们为此整理了一份缺少说明的图片清单。您能帮我们改进维基百科吗？</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">编辑提议\n\n感谢您所有的图片说明编辑！看样子您喜欢为图片添加说明，我们为此整理了一份缺少说明的图片清单。您能帮我们改进维基百科吗？</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">您已解锁“翻译图片说明”任务</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">您已解锁“翻译图片描述”</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">十分感谢您多次编辑图片说明，让我们印象深刻！您目前正以多语言使用此应用，因此我们整理出一份需要翻译描述的图片清单。 您能否继续帮我们改善维基百科吗？</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">编辑提议\n\n十分感谢您多次编辑图片说明，让我们印象深刻！您目前正以多语言使用此应用，因此我们整理出一份需要翻译描述的图片清单。 您能否继续帮我们改善维基百科吗？</string>
   <string name="suggested_edits_license_notice">一旦添加描述，即表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议发表我的贡献。此操作不可撤销。</string>
   <string name="suggested_edits_image_caption_license_notice">一旦添加图片说明，即表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议发表我的贡献。此操作不可撤销。</string>
   <string name="suggested_edits_menu_info">信息</string>

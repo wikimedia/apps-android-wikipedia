@@ -673,26 +673,6 @@
   <string name="suggested_edits_review_image_caption">Relire la légende de l’image</string>
   <string name="suggested_edits_my_contributions">Mes contributions</string>
   <string name="suggested_edits_no_description">Ce fichier n’a pas de description</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vous avez déverrouillé la tâche « Ajouter les descriptions d\'articles »</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Merci pour toutes vos contributions ! Comme vous êtes super bon en édition, nous avons compilé une liste d’articles pour lesquels il manque les descriptions. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vous avez déverrouillé la tâche « Traduire les descriptions d’article »</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Félicitations pour vos nombreuses contributions, cela nous impressionne ! Vous utilisez l’application dans diverses langues, aussi avons-nous compilé une liste d’articles pour lesquels il manque la traduction des descriptions. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_dialog_no">Peut-être plus tard</string>
-  <string name="suggested_edits_unlock_dialog_yes">Oui, allons-y</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Vous avez débloqué « Ajouter des descriptions d\'article »</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Vous avez débloqué « Traduire les descriptions d’article »</string>
-  <string name="suggested_edits_unlock_notification_text">Modifications suggérées</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos contributions !. Comme vous êtes très bon en édition, nous avons compilé une liste d’articles sans description. Pouvez-vous nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Modifications suggérées\n\nFélicitations pour vos nombreuses contribution, nous sommes impressionnés ! Vous utilisez l’application dans plusieurs langues ; nous avons donc compilé une liste d’articles qui ont besoin de traduction de description. Pouvez-vous continuer à nous aider à améliorer Wikipédia ?</string>
-  <string name="suggested_edits_unlock_notification_button">Oui, allons-y</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Vous avez débloqué la tâche « Ajouter des légendes d’image »</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Vous avez débloqué « Ajouter les légendes aux images »</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Merci pour toutes vos mises-à-jour des légendes d\'images&amp;nbsp;! Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légendes. Pourriez-vous nous aider à améliorer Wikipédia&amp;nbsp;?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Modifications suggérées\n\nMerci pour toutes vos mises-à-jour des légendes&amp;nbsp;! Comme nous pensons que vous aimez ajouter des légendes aux images, nous avons compilé une liste d’images qui n’ont pas de légende. Pourriez-vous nous aider à améliorer Wikipédia&amp;nbsp;?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Vous avez débloqué la tâche « Traduire les légendes d’image »</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Vous avez débloqué « Traduire les légendes d’image »</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Bravo pour vos nombreuses mises-à-jour des légendes d’images - nous en sommes ravis&amp;nbsp;! Vous avez utilisé l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin d’une traduction de leur légendes. Pourriez-vous continuer à nous aider à améliorer Wikipédia&amp;nbsp;?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Modifications suggérées\n\nFélicitations pour toutes vos modifications de légendes d’images, nous en sommes étonnés&amp;nbsp;! Vous utilisez l’application dans plusieurs langues, nous avons donc compilé une liste d’images qui ont besoin de traduction de légendes. Pourriez-vous continuer à nous aider à améliorer Wikipédia&amp;nbsp;?</string>
   <string name="suggested_edits_license_notice">En ajoutant la description, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et met de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">En ajoutant la légende de l’image, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de mettre irrévocablement mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>

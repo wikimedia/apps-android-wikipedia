@@ -616,16 +616,6 @@
   <string name="suggested_edits_review_image_caption">Ойуу туһунан суругу тургутарга</string>
   <string name="suggested_edits_my_contributions">Бэйэм суруйуум</string>
   <string name="suggested_edits_no_description">Бу билэ туһунан суруллубатах</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Ыстатыйаҕа быһаарыыны эбии\" диэни холбоотуҥ</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Кыттарыҥ иһин махтанабыт! Уларытары хайыы-үйэ сатыыгын, онон ойуулааһына суох ыстатыйалар испииһэктэрин көр. Бикипиэдьийэни тупсарарга көмөлөс дуу!</string>
-  <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
-  <string name="suggested_edits_unlock_dialog_yes">Чэ, бардыбыт!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">\"Быһаарыыны эбии\" диэнтэн хааччаҕын уһуллуҥ</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">\"Быһаарыыны тылбаастааһын\" диэнтэн хааччаҕын уһуллуҥ</string>
-  <string name="suggested_edits_unlock_notification_text">Этиини уларытыы</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Этиини уларытыы\n\nКыттарыҥ иһин махтанабыт! Хайыы-үйэ уларытары сатыыгын, онон кылгас ойуулааһына суох ыстатыйалар испииһэктэрин көр. Бикипиэдьийэни тупсарарга көмөлөс дуу!</string>
-  <string name="suggested_edits_unlock_notification_button">Чэ, бардыбыт!</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">\"Ойууларга быһаарыыны эбии\" диэнтэн хааччаҕын уһуллуҥ</string>
   <string name="suggested_edits_license_notice" fuzzy="true">Кылгас ойуулааһыны эптэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
   <string name="suggested_edits_menu_info">Эбии</string>
   <string name="suggested_edits_tasks_activity_title">Этиини уларытыы</string>

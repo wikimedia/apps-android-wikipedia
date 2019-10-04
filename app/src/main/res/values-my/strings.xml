@@ -637,11 +637,6 @@
   <string name="suggested_edits_review_image_caption">ရုပ်ပုံ ပုံစာ ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_my_contributions">ပံ့ပိုးထားမှုများ</string>
   <string name="suggested_edits_no_description">ဤဖိုင်တွင် ဖော်ပြချက် မရှိပါ</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">သင်၏ပံ့ပိုးမှုများအားလုံးအတွက် ကျေးဇူးတင်ပါသည်။ သင်သည် တည်းဖြတ်ရာတွင် အရမ်းကောင်းမွန်သည့်အတွက် ဆောင်းပါးဖော်ပြချက်ပျောက်နေသောစာရင်းကို ပြုစုထားပေးပါသည်။ ဝီကီပီးဒီးယား တိုးတက်ရေးအတွက် ကူညီပေးမည်လော။</string>
-  <string name="suggested_edits_unlock_dialog_no">နောက်ကြုံမှ</string>
-  <string name="suggested_edits_unlock_dialog_yes">ဟုတ်ကဲ့၊ သွားရအောင်</string>
-  <string name="suggested_edits_unlock_notification_text">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
-  <string name="suggested_edits_unlock_notification_button">ဟုတ်ကဲ့၊ သွားရအောင်</string>
   <string name="suggested_edits_menu_info">အချက်အလက်</string>
   <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
