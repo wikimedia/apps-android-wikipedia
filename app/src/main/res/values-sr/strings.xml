@@ -651,11 +651,6 @@
   <string name="suggested_edits_review_image_caption">Прегледај натпис слике</string>
   <string name="suggested_edits_my_contributions">Моји доприноси</string>
   <string name="suggested_edits_no_description">Ова датотека нема опис</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Откључали сте задатак „Додавање описа чланака”</string>
-  <string name="suggested_edits_unlock_dialog_no">Можда касније</string>
-  <string name="suggested_edits_unlock_dialog_yes">Да, идемо</string>
-  <string name="suggested_edits_unlock_notification_text">Предложене измене</string>
-  <string name="suggested_edits_unlock_notification_button">Да, идемо</string>
   <string name="suggested_edits_menu_info">Информације</string>
   <string name="suggested_edits_tasks_activity_title">Предложене измене</string>
   <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
