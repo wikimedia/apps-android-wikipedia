@@ -142,8 +142,7 @@
         <activity
             android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits"
-            android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>
+            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
