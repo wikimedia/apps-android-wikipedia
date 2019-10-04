@@ -46,7 +46,6 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.navtab.NavTabOverlayLayout;
-import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -80,7 +79,7 @@ import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
+        HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
@@ -334,18 +333,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void requestUpdateToolbarElevation() {
         Fragment fragment = getCurrentFragment();
         updateToolbarElevation(!(fragment instanceof FeedFragment) || ((FeedFragment) fragment).shouldElevateToolbar());
-    }
-
-    @Override public void onLoading() {
-        // todo: [overhaul] update loading indicator.
-    }
-
-    @Override public void onLoaded() {
-        // todo: [overhaul] update loading indicator.
-    }
-
-    @Override public void onLoadPage(@NonNull HistoryEntry entry, @Nullable Location location) {
-        showLinkPreview(entry, location);
     }
 
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {
