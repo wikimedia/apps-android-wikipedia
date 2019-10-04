@@ -26,7 +26,6 @@
         android:id="@+id/pulsingBaseIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/ic_explore_black_24dp"
         android:tint="?attr/material_theme_primary_color"
         android:contentDescription="@null"
         android:layout_gravity="center"/>
