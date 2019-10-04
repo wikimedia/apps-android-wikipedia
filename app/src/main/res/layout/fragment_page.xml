@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
-        <org.wikipedia.views.WikiPageErrorView
+        <org.wikipedia.views.WikiErrorView
             android:id="@+id/page_error"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

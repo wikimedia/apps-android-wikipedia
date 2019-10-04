@@ -46,28 +46,24 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getPageImages(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=query&redirects="
-            + "&converttitles=&prop=description|pageimages&piprop=thumbnail"
+            + "&converttitles=&prop=description|pageimages|info&piprop=thumbnail"
             + "&pilicense=any&generator=prefixsearch&gpsnamespace=0&list=search&srnamespace=0"
+            + "&inprop=varianttitles"
             + "&srwhat=text&srinfo=suggestion&srprop=&sroffset=0&srlimit=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<PrefixSearchResponse> prefixSearch(@Query("gpssearch") String title,
                                                      @Query("gpslimit") int maxResults,
                                                      @Query("srsearch") String repeat);
 
     @GET(MW_API_PREFIX + "action=query&converttitles="
-            + "&prop=description|pageimages|pageprops&ppprop=mainpage|disambiguation"
+            + "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation"
             + "&generator=search&gsrnamespace=0&gsrwhat=text"
+            + "&inprop=varianttitles"
             + "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize="
             + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> fullTextSearch(@Query("gsrsearch") String searchTerm,
                                                   @Query("gsrlimit") int gsrLimit,
                                                   @Query("continue") String cont,
                                                   @Query("gsroffset") String gsrOffset);
-
-    @GET(MW_API_PREFIX + "action=query&prop=coordinates|description|pageimages"
-            + "&colimit=50&piprop=thumbnail&pilicense=any"
-            + "&generator=geosearch&ggslimit=50&pithumbsize=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> nearbySearch(@NonNull @Query("ggscoord") String coord,
-                                                @Query("ggsradius") double radius);
 
 
     // ------- Miscellaneous -------
@@ -158,8 +154,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&list=users&usprop=groups|cancreate")
-    @NonNull Observable<MwQueryResponse> getUserInfo(@Query("ususers") @NonNull String userName);
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo")
+    @NonNull Observable<MwQueryResponse> getUserInfo();
+
+    @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
+    @NonNull Observable<MwQueryResponse> getUserList(@Query("ususers") @NonNull String userNames);
 
 
     // ------- Notifications -------
@@ -182,24 +181,6 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
     @NonNull Observable<MwQueryResponse> getUnreadNotificationWikis();
-
-
-    // ------- User Options -------
-
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=options")
-    @NonNull Observable<MwQueryResponse> getUserOptions();
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=options")
-    @NonNull Observable<MwPostResponse> postUserOption(@Field("token") @NonNull String token,
-                                                 @Query("optionname") @NonNull String key,
-                                                 @Query("optionvalue") @Nullable String value);
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=options")
-    @NonNull Observable<MwPostResponse> deleteUserOption(@Field("token") @NonNull String token,
-                                                   @Query("change") @NonNull String key);
-
 
     // ------- Editing -------
 

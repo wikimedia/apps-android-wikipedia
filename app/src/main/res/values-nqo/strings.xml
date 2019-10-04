@@ -60,9 +60,6 @@
   <string name="on_this_day_page_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="reading_list_page_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_text_select_edit_here">ߦߊ߲߬ ߡߊߦߟߍ߬ߡߊ߲߫</string>
-  <string name="nav_item_nearby">ߡߊߛߎߘߎ߲ߧߊ</string>
-  <string name="nearby_zoom_to_location">ߔߊ߬ߔߘߊ ߘߌ߲߬ߞߌߙߊ ߘߏ߫ ߟߊߞߎ߲߬ߓߊ߬ߦߊ߫</string>
-  <string name="nearby_osm_license">&amp; ߓߊߓߌߟߊߟߌ; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ߠߊ</string>
   <string name="last_updated_text">ߟߏ߲ߘߐߦߊߟߌ ߟߊߓߊ߲ %s</string>
   <string name="talk_page_link_text">ߘߊߘߐߖߊߥߏ ߞߐߜߍ ߟߎ߬ ߦߋ߫</string>
   <string name="edit_history_link_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߝߐ ߦߋ߫</string>
@@ -467,8 +464,6 @@
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
-  <string name="preference_title_notification_welcome">ߌ ߣߌ߫ ߛߣߍ߫</string>
-  <string name="preference_summary_notification_welcome">ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߛߌ߲ߘߌ߫</string>
   <string name="preference_title_notification_milestone">ߛߊ߯ߘߊ߫ ߣߝߊ߬ߡߊ</string>
   <string name="preference_summary_notification_milestone">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߏ߫ ߟߎ߫ ߦߙߌߞߊ ߓߘߊ߫ ߛߋ߫</string>
   <string name="preference_title_notification_thanks">ߌ ߞߎߟߎ߲ߖߋ߫</string>
@@ -600,6 +595,10 @@
   <string name="suggested_edits_image_caption_summary_title_source">ߛߎ߲</string>
   <string name="suggested_edits_image_caption_summary_title_license">ߕߌ߰ߦߊ</string>
   <string name="suggested_edits_image_caption_summary_title_date">ߕߎ߬ߡߊ߬ߘߊ</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 contribution</item>
+    <item quantity="other">%d contributions</item>
+  </plurals>
   <string name="suggested_edits_feed_card_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ (%s) ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>

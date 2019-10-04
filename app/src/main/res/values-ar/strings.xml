@@ -11,6 +11,7 @@
 * Haytham morsy
 * Helmoony
 * Hhaboh162002
+* HitomiAkane
 * Hocinend1
 * Kassem789
 * Kassem7899
@@ -37,10 +38,12 @@
   <string name="page_tabs_back">رجوع</string>
   <string name="nav_item_forward">إلى الأمام</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
+  <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
   <string name="search_hint_search_history">البحث في التاريخ</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
+  <string name="nav_item_suggested_edits">التعديلات المقترحة</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
@@ -83,9 +86,6 @@
   <string name="on_this_day_page_share">مشاركة</string>
   <string name="reading_list_page_share">مشاركة</string>
   <string name="menu_text_select_edit_here">عدل هنا</string>
-  <string name="nav_item_nearby">بالقرب من هنا</string>
-  <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
-  <string name="nearby_osm_license">مساهمين &amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;أوبن ستريت ماب&lt;/a&gt;</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="talk_page_link_text">عرض صفحة النقاش</string>
   <string name="edit_history_link_text">عرض تاريخ التعديلات</string>
@@ -349,6 +349,7 @@
   <string name="view_link_preview_error_button_dismiss">أغلق</string>
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
+  <string name="view_wiki_error_message_timeout">لا يمكن الاتصال بويكيبيديا؛ تحقق من اتصال الشبكة، أو أعد المحاولة لاحقا</string>
   <string name="reference_title">مراجع %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
@@ -547,14 +548,20 @@
   <string name="preference_title_notification_poll">إشعارات الاستقصاء</string>
   <string name="preference_summary_notification_poll">السماح للتطبيق باستخدام البيانات للتحقق من الإشعارات الجديدة في الخلفية.</string>
   <string name="preference_category_notification_types">أنواع الإشعارات في التطبيق</string>
-  <string name="preference_title_notification_welcome">مرحبا</string>
-  <string name="preference_summary_notification_welcome">تم إنشاء حساب</string>
+  <string name="preference_title_notification_system">النظام</string>
+  <string name="preference_summary_notification_system">رسائل من النظام</string>
   <string name="preference_title_notification_milestone">معلم</string>
   <string name="preference_summary_notification_milestone">عند الوصول لعدد معين من التعديلات</string>
   <string name="preference_title_notification_thanks">شكرا</string>
   <string name="preference_summary_notification_thanks">شخص ما يشكرك على تعديل ما</string>
   <string name="preference_title_notification_revert">تراجع</string>
   <string name="preference_summary_notification_revert">تم إرجاع إحدى مساهماتك</string>
+  <string name="preference_title_notification_login_fail">تسجيل الدخول</string>
+  <string name="preference_summary_notification_login_fail">سجل دخولك في الأنشطة</string>
+  <string name="preference_title_notification_mention">إشارة</string>
+  <string name="preference_summary_notification_mention">شخص ما يذكرك في صفحة</string>
+  <string name="preference_title_notification_user_talk">صفحة النقاش</string>
+  <string name="preference_summary_notification_user_talk">رسائل من صفحات النقاش</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
   <string name="view_random_card_subtitle">النقر من خلال مقالات عشوائية للقراءة من ويكيبيديا.</string>
@@ -608,6 +615,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;تخصيص خلاصة استكشافك&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;يمكنك الآن اختيار ما تريد عرضه على خلاصتك، وكذلك تحديد أولويات أنواع المحتوى المفضلة لديك.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">حسنا</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">إلغاء</string>
+  <string name="feed_accessibility_card_text">وصلت إلى نهاية التغذية.</string>
+  <string name="feed_accessibility_card_load_more_button">تحميل المزيد</string>
   <string name="description_edit_text_hint">وصف المقالة</string>
   <string name="description_edit_article_description_label_per_language">مقالة (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">وصف المقالة (%s)</string>
@@ -722,6 +731,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح</string>
   <string name="suggested_edits_feed_card_translate_image_caption">إضافة شرح (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
+  <string name="suggested_edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">المشاركة في استبيان</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
@@ -793,6 +804,7 @@
   <string name="edit_conflict_dialog_ok_button_text">حسنا</string>
   <string name="reverted_edit_dialog_ok_button_text">حسنا</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">إلغاء</string>
+  <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
   <string name="wikitext_link">وصلة</string>
@@ -803,6 +815,7 @@
   <string name="wikitext_preview_link">معاينة الرابط</string>
   <string name="main_drawer_open">مفتوح</string>
   <string name="main_drawer_close">إغلاق</string>
+  <string name="main_drawer_content_description">افتح درج التصفح الرئيسي</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
   <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>

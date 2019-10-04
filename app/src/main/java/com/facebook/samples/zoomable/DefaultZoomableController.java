@@ -69,7 +69,7 @@ public class DefaultZoomableController
   private boolean mIsGestureZoomEnabled = true;
 
   private float mMinScaleFactor = 1.0f;
-  private float mMaxScaleFactor = 2.0f;
+  private float mMaxScaleFactor = 4.0f;
 
   // View bounds, in view-absolute coordinates
   private final RectF mViewBounds = new RectF();

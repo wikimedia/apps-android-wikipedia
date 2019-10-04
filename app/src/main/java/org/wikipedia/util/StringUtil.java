@@ -19,7 +19,7 @@ import com.google.gson.Gson;
 
 import org.json.JSONArray;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
@@ -59,14 +59,14 @@ public final class StringUtil {
         try {
             // Create MD5 Hash
             MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes("utf-8"));
+            digest.update(s.getBytes(StandardCharsets.UTF_8));
             byte[] messageDigest = digest.digest();
 
             final int maxByteVal = 0xFF;
             for (byte b : messageDigest) {
                 hexStr.append(Integer.toHexString(maxByteVal & b));
             }
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+        } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
         return hexStr.toString();
@@ -120,7 +120,7 @@ public final class StringUtil {
 
     public static String removeNamespace(@NonNull String text) {
         if (text.length() > text.indexOf(":")) {
-            return text.substring(text.indexOf(":") + 1, text.length());
+            return text.substring(text.indexOf(":") + 1);
         } else {
             return text;
         }
@@ -178,9 +178,10 @@ public final class StringUtil {
     @NonNull
     public static SpannableStringBuilder boldenSubstrings(@NonNull String text, @NonNull List<String> subStrings) {
         SpannableStringBuilder sb = new SpannableStringBuilder(text);
+        String textLowerCase = text.toLowerCase();
         for (String subString : subStrings) {
-            int index = text.toLowerCase().indexOf(subString.toLowerCase());
-            if (index != -1) {
+            int index = textLowerCase.indexOf(subString.toLowerCase());
+            if (index != -1 && index + subString.length() < sb.length()) {
                 sb.setSpan(new TypefaceSpan("sans-serif-medium"),
                         index, index + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
             }

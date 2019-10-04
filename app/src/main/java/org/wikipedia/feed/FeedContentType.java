@@ -8,6 +8,7 @@ import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.feed.accessibility.AccessibilityCardClient;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
@@ -17,6 +18,7 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DeviceUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -97,22 +99,21 @@ public enum FeedContentType implements EnumCode {
             }
             return null;
         }
+    },
+    ACCESSIBILITY(10, 0, 0, false, false) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
+            return DeviceUtil.isAccessibilityEnabled() ? new AccessibilityCardClient() : null;
+        }
     };
 
     List<InvokeSource> getUnlockedEditingPrivileges() {
         List<InvokeSource> unlockedTypes = new ArrayList<>();
-        if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_ADD_DESC);
-        }
-        if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
-        }
-        if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
-        }
-        if (Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
-        }
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_ADD_DESC);
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
+        unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
         return unlockedTypes;
     }
 

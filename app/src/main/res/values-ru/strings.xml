@@ -58,10 +58,12 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Вперёд</string>
   <string name="search_hint">Поиск по Википедии</string>
+  <string name="search_hint_voice_search">Голосовой поиск</string>
   <string name="search_hint_search_history">История поиска</string>
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
+  <string name="nav_item_suggested_edits">Предложение отредактировать</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="card_offline_error_retry">Повторить</string>
@@ -104,9 +106,6 @@
   <string name="on_this_day_page_share">Поделиться</string>
   <string name="reading_list_page_share">Поделиться</string>
   <string name="menu_text_select_edit_here">Править здесь</string>
-  <string name="nav_item_nearby">Поблизости</string>
-  <string name="nearby_zoom_to_location">Приблизить к месту на карте</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Участники &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последнее обновление: %s</string>
   <string name="talk_page_link_text">Смотреть страницу обсуждения</string>
   <string name="edit_history_link_text">Посмотреть историю изменений</string>
@@ -370,6 +369,7 @@
   <string name="view_link_preview_error_button_dismiss">Закрыть</string>
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к интернету</string>
+  <string name="view_wiki_error_message_timeout">Не удается подключиться к Википедии. Проверьте подключение к сети или повторите попытку позже</string>
   <string name="reference_title">Примечание %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
@@ -570,14 +570,20 @@
   <string name="preference_title_notification_poll">Извещения об опросах</string>
   <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
   <string name="preference_category_notification_types">Виды уведомлений в приложении</string>
-  <string name="preference_title_notification_welcome">Добро пожаловать</string>
-  <string name="preference_summary_notification_welcome">Учётная запись создана</string>
+  <string name="preference_title_notification_system">Системные</string>
+  <string name="preference_summary_notification_system">Системные сообщения</string>
   <string name="preference_title_notification_milestone">Этап</string>
   <string name="preference_summary_notification_milestone">Достигнуто определённое число правок</string>
   <string name="preference_title_notification_thanks">Благодарности</string>
   <string name="preference_summary_notification_thanks">Кто-то поблагодарил вас за правку</string>
   <string name="preference_title_notification_revert">Откаты правок</string>
   <string name="preference_summary_notification_revert">Одна из ваших правок была откачена</string>
+  <string name="preference_title_notification_login_fail">Вход в систему</string>
+  <string name="preference_summary_notification_login_fail">Ваша активность входов в систему</string>
+  <string name="preference_title_notification_mention">Упоминания вас</string>
+  <string name="preference_summary_notification_mention">Кто-то упомянул вас на странице</string>
+  <string name="preference_title_notification_user_talk">На страницах обсуждений</string>
+  <string name="preference_summary_notification_user_talk">Сообщения со страниц обсуждения</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_card_subtitle">Полистайте подборку случайных статей Википедии.</string>
@@ -631,6 +637,8 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Настройте свою ленту&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Теперь вы можете выбрать, что будет отображаться в ленте, а также определить приоритеты для выбранных типов содержимого.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ОК</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отмена</string>
+  <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
+  <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="description_edit_text_hint">Описание статьи</string>
   <string name="description_edit_article_description_label_per_language">Статья %s</string>
   <string name="description_edit_translate_article_description_hint_per_language">Описаниe статей (%s)</string>
@@ -678,7 +686,7 @@
   <string name="suggested_edits_edit_translation_button">Редактировать перевод</string>
   <string name="suggested_edits_add_caption_button">Добавить описание</string>
   <string name="suggested_edits_edit_caption_button">Редактировать описание</string>
-  <string name="suggested_edits_review_image_caption">Проверить описание изображения</string>
+  <string name="suggested_edits_review_image_caption">Проверьте описание</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_no_description">У этого файла отсутствует описание</string>
   <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
@@ -695,7 +703,7 @@
   <string name="suggested_edits_unlock_notification_button">Поехали</string>
   <string name="suggested_edits_unlock_add_captions_dialog_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
   <string name="suggested_edits_unlock_add_captions_notification_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
+  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже что вам нравится добавлять описания изображений. А мы, вот, и списочек таких изображений приготовили! Ну что, подсобите с описаниями?</string>
   <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_unlock_translate_captions_dialog_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
   <string name="suggested_edits_unlock_translate_captions_notification_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
@@ -709,14 +717,14 @@
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
   <string name="suggested_edits_task_translation_title">Перевод описаний статей</string>
   <string name="suggested_edits_task_translation_description">Перевод кратких описаний на другие языки.</string>
-  <string name="suggested_edits_task_image_caption_title">Добавить описание изображений</string>
-  <string name="suggested_edits_task_image_caption_description">Добавление короткие описания изображениям</string>
+  <string name="suggested_edits_task_image_caption_title">Добавление описания изображений</string>
+  <string name="suggested_edits_task_image_caption_description">Добавление кратких описаний изображениям</string>
   <string name="suggested_edits_task_translate_caption_title">Перевод описаний изображений</string>
   <string name="suggested_edits_task_translate_caption_description">Перевод подписей для изображений на другие языки</string>
   <string name="suggested_edits_task_multilingual_title">Больше задач для редакторов, знающих несколько языков</string>
   <string name="suggested_edits_task_multilingual_description">Задания для перевода доступны, если Вы читаете и пишете на более чем одном языке Википедии</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Этот функционал будет открыт тогда, когда вы сделаете %d верифицированных правок в приложении</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Заблокировано, пока вы не отредактируете %d описаний статей и они не будут проверены</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Этот функционал будет открыт тогда, когда вы отредактируете %d описаний статей и они будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
@@ -726,7 +734,9 @@
   <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">одна правка</item>
-    <item quantity="other">%d правки</item>
+    <item quantity="few">%d правки</item>
+    <item quantity="many">%d правок</item>
+    <item quantity="other">%d правок</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Предложения отредактировать</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
@@ -745,6 +755,8 @@
   <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить описание (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
+  <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
@@ -816,6 +828,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ОК</string>
   <string name="reverted_edit_dialog_ok_button_text">ОК</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Отмена</string>
+  <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Ссылка</string>
@@ -826,6 +839,7 @@
   <string name="wikitext_preview_link">Предпросмотр ссылки</string>
   <string name="main_drawer_open">Открыть</string>
   <string name="main_drawer_close">Закрыть</string>
+  <string name="main_drawer_content_description">Открыть основное меню</string>
   <string name="main_drawer_help">Справка</string>
   <string name="main_drawer_login">Войти в Википедию</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
