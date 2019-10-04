@@ -70,9 +70,6 @@
   <string name="on_this_day_page_share">แบ่งปัน</string>
   <string name="reading_list_page_share">แบ่งปัน</string>
   <string name="menu_text_select_edit_here">แก้ไขตรงนี้</string>
-  <string name="nav_item_nearby">ใกล้เคียง</string>
-  <string name="nearby_zoom_to_location">ขยายไปยังตำแหน่งในแผนที่</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;การมีส่วนร่วมใน&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;แผนที่ 360°&lt;/a&gt;</string>
   <string name="last_updated_text">ปรับปรุงครั้งล่าสุดเมื่อ %s</string>
   <string name="talk_page_link_text">ดูหน้าคุย</string>
   <string name="edit_history_link_text">ดูประวัติการแก้ไข</string>
