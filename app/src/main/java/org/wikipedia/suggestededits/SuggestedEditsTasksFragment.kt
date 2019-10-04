@@ -100,6 +100,10 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun fetchUserContributions() {
+        if (!AccountUtil.isLoggedIn()) {
+            return
+        }
+
         updateDisplayedTasks(null)
         contributionsText.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
