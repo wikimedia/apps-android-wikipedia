@@ -524,10 +524,6 @@
   <string name="suggested_edits_review_image_caption">Pregledaj opis slike</string>
   <string name="suggested_edits_my_contributions">Moji doprinosi</string>
   <string name="suggested_edits_no_description">Ova datoteka nema opis</string>
-  <string name="suggested_edits_unlock_dialog_no">Možda kasnije</string>
-  <string name="suggested_edits_unlock_dialog_yes">Da, idemo</string>
-  <string name="suggested_edits_unlock_notification_text">Predložena uređivanja</string>
-  <string name="suggested_edits_unlock_notification_button">Da, krenimo</string>
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_tasks_activity_title">Predložena uređivanja</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opise članka</string>

@@ -663,26 +663,6 @@
   <string name="suggested_edits_review_image_caption">画像キャプションを確認</string>
   <string name="suggested_edits_my_contributions">自分の投稿記録</string>
   <string name="suggested_edits_no_description">このファイルには説明がありません</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">「記事の説明を追加」タスクを実績解除しました！</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">これまでのすべてのご寄稿に感謝します！　あなたは編集がお得意ですので、説明が欠けている記事のリストをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">「記事の説明を翻訳」タスクを実績解除しました</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">たくさんの編集おめでとうございます、感激しました！　アプリで複数の言語をお使いですので、記事の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_unlock_dialog_no">あとで検討するかもしれません</string>
-  <string name="suggested_edits_unlock_dialog_yes">ぜひやってみます</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">「記事の説明を追加」を実績解除しました</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">「記事の説明を翻訳」を実績解除しました！</string>
-  <string name="suggested_edits_unlock_notification_text">編集提案</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">編集の提案\n\nこれまでのすべてのご寄稿に感謝します！　あなたは編集がお得意ですので、説明が欠けている記事のリストをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">編集提案\n\nたくさんの編集おめでとうございます、感激しました！　アプリで複数の言語をお使いですので、記事の説明で翻訳が必要なものをまとめました。ウィキペディアの改善をお手伝いいただけませんか？</string>
-  <string name="suggested_edits_unlock_notification_button">ぜひやってみます</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">「画像の説明を追加」タスクを実績解除しました！</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">「画像の説明を追加」を実績解除しました</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">画像キャプションを編集していただき、ありがとうございます！画像に説明を追加するのがお好きなようですので、現在説明が入っていない画像をリストにまとめてみました。ウィキペディアの改善を手伝っていただけますか？</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">編集提案\n\n画像キャプションを編集していただき、ありがとうございます！画像に説明を追加するのがお好きなようですので、現在説明が入っていない画像をリストにまとめてみました。ウィキペディアの改善を手伝っていただけますか？</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">「画像の説明を翻訳」タスクを実績解除しました</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">「画像の説明を翻訳」を実績解除しました</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">多くの画像キャプションの編集の完了、おめでとうございます！ アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善を手伝っていただけますか？</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">編集提案\n\n多くの画像キャプションの編集の完了、おめでとうございます！ アプリで複数の言語をお使いのようですので、画像の説明で翻訳が必要なものをまとめました。ウィキペディアの改善を手伝っていただけますか？</string>
   <string name="suggested_edits_license_notice">この記事の説明を追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_image_caption_license_notice">この画像キャプションを追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_menu_info">情報</string>

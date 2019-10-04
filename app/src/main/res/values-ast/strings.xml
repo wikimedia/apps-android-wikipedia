@@ -610,15 +610,6 @@
   <string name="suggested_edits_add_translation_button" fuzzy="true">Amestar traducción</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Editar traducción</string>
   <string name="suggested_edits_my_contributions">Les mios contribuciones</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Desbloquiasti la xera «Amestar descripciones»</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracies por toles contribuciones! Yá que yes un editor perbonu, tenemos compilada una llista d\'artículos a los que-yos falten descripciones. ¿Ayudaríesnos a ameyorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Desbloquiasti la xera «Traducir descripciones»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">¡Norabona poles munches contribuciones, tamos impresionaos!  Tas utilizando l\'aplicación en múltiples idiomes,  asina que compilamos una llista de los artículos que precisen traducciones de la descripción. ¿Podríes  siguir ayudándonos a ameyorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no">Quiciabes más tarde</string>
-  <string name="suggested_edits_unlock_dialog_yes">Sí, vamos</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Desbloquiasti «Amestar descripciones»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Desbloquiasti «Traducir descripciones»</string>
-  <string name="suggested_edits_unlock_notification_text">Ediciones suxeríes</string>
   <string name="suggested_edits_menu_info">Información</string>
   <string name="suggested_edits_tasks_activity_title">Ediciones suxeríes</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Amestar descripciones</string>
