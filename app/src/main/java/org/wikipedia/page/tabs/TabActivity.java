@@ -262,9 +262,6 @@ public class TabActivity extends BaseActivity {
             case R.id.menu_history:
                 goToMainTab(NavTab.HISTORY);
                 return true;
-            case R.id.menu_nearby:
-                goToMainTab(NavTab.NEARBY);
-                return true;
             default:
                 break;
         }
