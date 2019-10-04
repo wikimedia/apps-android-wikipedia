@@ -633,7 +633,6 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Legg til tittelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
-  <string name="suggested_edits_task_translation_description">Oversett beskrivelser mellom artikkelspråk</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Bildetekster</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Legg til bildetekster til bilder</string>
   <string name="suggested_edits_task_translate_caption_title">Oversett bildebeskrivelser</string>

@@ -646,7 +646,6 @@
   <string name="suggested_edits_tasks_activity_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Beschreibungen hinzufügen</string>
   <string name="suggested_edits_task_add_description_description">Zu Artikeln ohne Beschreibungen beitragen</string>
-  <string name="suggested_edits_task_translation_description">Beschreibungen in andere Artikelsprachen übersetzen.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Beschreibungsbilder</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Den Bildern Beschreibungen hinzufügen</string>
   <string name="suggested_edits_task_translate_caption_title">Bildbeschreibungen übersetzen</string>

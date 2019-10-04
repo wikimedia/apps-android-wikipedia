@@ -686,7 +686,6 @@
   <string name="suggested_edits_tasks_activity_title">Пропоновані редагування</string>
   <string name="suggested_edits_task_add_description_title">Додавання описів статей</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
-  <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами, якими є стаття.</string>
   <string name="suggested_edits_task_image_caption_title">Додавання описів зображень</string>
   <string name="suggested_edits_task_image_caption_description">Додати короткі підписи до зображень</string>
   <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>

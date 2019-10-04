@@ -632,7 +632,6 @@
   <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
-  <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
   <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
   <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>

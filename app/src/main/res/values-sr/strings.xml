@@ -663,7 +663,6 @@
   <string name="suggested_edits_tasks_activity_title">Предложене измене</string>
   <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
   <string name="suggested_edits_task_add_description_description">Доприноси чланцима без описа</string>
-  <string name="suggested_edits_task_translation_description">Преведите описе по језицима чланака.</string>
   <string name="suggested_edits_task_image_caption_title">Додај натписе слика</string>
   <string name="suggested_edits_task_translate_caption_title">Превођење натписа слика</string>
   <string name="suggested_edits_task_translate_caption_description">Преведите натписе на друге језике</string>

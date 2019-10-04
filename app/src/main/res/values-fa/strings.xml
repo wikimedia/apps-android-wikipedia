@@ -680,7 +680,6 @@
   <string name="suggested_edits_tasks_activity_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات مقاله</string>
   <string name="suggested_edits_task_add_description_description">مشارکت در مقالات بدون توضیحات</string>
-  <string name="suggested_edits_task_translation_description">ترجمه توضیحات بین زبان‌های مقاله</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">زیر نویس تصویر</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">افزودن توضیح به تصویر</string>
   <string name="suggested_edits_task_translate_caption_title">ترجمه توضیحات تصویر</string>

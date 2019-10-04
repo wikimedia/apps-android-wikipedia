@@ -696,7 +696,6 @@
   <string name="suggested_edits_tasks_activity_title">Sugerowane edycje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
   <string name="suggested_edits_task_add_description_description">Wkład w artykuły bez opisów</string>
-  <string name="suggested_edits_task_translation_description">Przetłumacz opisy na języki artykułów.</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj podpisy obrazu</string>
   <string name="suggested_edits_task_image_caption_description">Dodaj brakujące krótkie podpisy do grafik</string>
   <string name="suggested_edits_task_translate_caption_title">Przetłumacz podpisy do obrazu</string>
