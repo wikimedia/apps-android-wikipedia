@@ -379,7 +379,6 @@
     <item quantity="other">acum %d zile</item>
   </plurals>
   <string name="view_offline_card_text">Conținutul nu poate fi incărcat in modul offline.</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Traducerea editării descrierilor titlurilor a fost deblocată!</string>
   <string name="suggested_edits_task_translate_caption_description">Traduceți subtitrările în alte limbi</string>
   <string name="more_language_options">mai mult</string>
 </resources>

@@ -231,13 +231,6 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyan zêde bikin\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Tu vekirî ye \"kelepên wêneyan zêde bike\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyên bişkojk\" vekirî ne</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Spas, ji bo hemû beşdariyên te! Tu sepanê di gelek zimanan de bi kar tînî, lewma em lîsteyeke wêneyên ku wergerandina sernavan ji bo wan pêwîst e berhev kirin. Gelo tu yê berdewam bî alîkirkina me, da ku em Wîkîpediyayê çêtir bikin?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Ji bo hemû beşdariya spas! Hûn di gelek zimanan de bi kar tîne ziman, da ku em hewceyek lîsteyek pêdivî ye ku hewceyê wergeran çêbikin. Ma hûn berdewam bikin ku alîkariya me bi Wîkîpediyayê çêtir bikin?</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>

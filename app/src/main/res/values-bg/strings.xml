@@ -608,11 +608,6 @@
   <string name="suggested_edits_add_translation_button">Добавяне на превод</string>
   <string name="suggested_edits_edit_translation_button">Редактиране на превод</string>
   <string name="suggested_edits_my_contributions">Моите приноси</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Добавяне на описания“</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Поздравления за Вашия трети принос! Понеже Вие сте изключително добър в редактирането, ние съставихме списък на статиите с липсващи описания. Бихте ли ни помогнали да подобрим Уикипедия?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Превод на описания“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Поздравления за Вашите 50 приноса, впечатлени сме! Ползвате приложението в повече езици, затова съставихме списък от статии, които се нуждаят от превод на описанията. Бихте ли продължили да ни помагате, подобрявайки Уикипедия?</string>
-  <string name="suggested_edits_unlock_dialog_no">Може би после</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задачи за приложния редактор</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Добавяне на описания</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>

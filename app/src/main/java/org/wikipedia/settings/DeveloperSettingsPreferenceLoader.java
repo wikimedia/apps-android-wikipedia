@@ -22,7 +22,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.DialogTitleWithImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -190,17 +189,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setMessage(throwable.getMessage())
                                             .setPositiveButton(R.string.ok, null)
                                             .show());
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preference_key_dialog_with_image_test))
-                .setOnPreferenceClickListener(preference -> {
-                    new AlertDialog.Builder(getActivity())
-                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, true))
-                            .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
-                            .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes, null)
-                            .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                            .show();
                     return true;
                 });
     }

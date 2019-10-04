@@ -689,26 +689,6 @@
   <string name="suggested_edits_review_image_caption">Проверьте описание</string>
   <string name="suggested_edits_my_contributions">Мой вклад</string>
   <string name="suggested_edits_no_description">У этого файла отсутствует описание</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Спасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Вы разблокировали модуль \"Перевод описаний статей\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Вы сделали уже довольного много правок. Поздравляем! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
-  <string name="suggested_edits_unlock_dialog_no">Может позже</string>
-  <string name="suggested_edits_unlock_dialog_yes">Поехали!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Вы разблокировали модуль \"Добавление описаний статей\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Вы разблокировали модуль \"Перевод описаний статей\"</string>
-  <string name="suggested_edits_unlock_notification_text">Предложение отредактировать</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Поскольку вы уже разбираетесь в редактировании, возможно вам будет интересен список статей, нуждающихся в кратких описаниях. Поможете улучшить Википедию?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложение отредактировать\n\nВы сделали уже довольного много правок. Поздравляем!  Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
-  <string name="suggested_edits_unlock_notification_button">Поехали</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Вы разблокировали модуль \"Добавление описаний изображениям\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Спасибо за ваш вклад! Похоже что вам нравится добавлять описания изображений. А мы, вот, и списочек таких изображений приготовили! Ну что, подсобите с описаниями?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложение отредактировать\n\nСпасибо за ваш вклад! Похоже, что вам нравится добавлять описания изображений. Возможно вам заинтересует список изображений, нуждающихся в описаниях. Поможете улучшить Википедию таким образом?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Вы разблокировали модуль \"Перевод описаний изображений\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Вы сделали уже довольного много правок. Поздравляем! Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложение отредактировать\n\nВы сделали уже довольного много правок. Поздравляем!  Поскольку вы используете это приложение с разными языками, возможно вам будет интересен список статей, нуждающихся в переводе кратких описаний. Поможете улучшить Википедию таким образом?</string>
   <string name="suggested_edits_license_notice">Добавляя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Добавляя описание изображения, я соглашаюсь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаюсь на безотзывную публикацию моего вклада по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информация</string>

@@ -131,11 +131,6 @@
             android:title="@string/preference_key_missing_description_test2"
             android:summary="Fetch a random article that has a description in the current app language, but does *not* have a description in the *second* app language." />
 
-        <Preference
-            android:key="@string/preference_key_dialog_with_image_test"
-            android:title="@string/preference_key_dialog_with_image_test"
-            android:summary="Show our customized dialog with an image above the title." />
-
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_locally_known_notifications"
