@@ -210,7 +210,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun fetchUserContributions() {
-        val listofRequiredWikiSites = ArrayList<WikiSite>()
+        if (!AccountUtil.isLoggedIn()) {
+            return
+        }
 
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
