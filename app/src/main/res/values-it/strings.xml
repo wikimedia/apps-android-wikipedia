@@ -694,7 +694,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Ulteriori informazioni</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagina del file su Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Aggiungi didascalia (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visualizza</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia (%s)</string>

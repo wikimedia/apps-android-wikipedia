@@ -58,7 +58,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         super.onViewCreated(view, savedInstanceState)
         progressBar!!.visibility = VISIBLE
         toolbarView.setOnClickListener { dismiss() }
-        titleText!!.text = StringUtil.removeHTMLTags(suggestedEditsSummary.displayTitle!!)
+        titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(suggestedEditsSummary.displayTitle!!))
         loadImage(suggestedEditsSummary.getPreferredSizeThumbnailUrl())
         loadImageInfoIfNeeded()
     }

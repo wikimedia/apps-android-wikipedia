@@ -121,7 +121,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     @SuppressLint("CheckResult")
     private void retrieveNotifications(@NonNull final Context context) {
         dbNameWikiSiteMap.clear();
-        dbNameWikiSiteMap.clear();
+        dbNameWikiNameMap.clear();
         ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getUnreadNotificationWikis()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
