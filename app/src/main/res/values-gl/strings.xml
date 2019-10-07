@@ -690,7 +690,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Máis información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Páxina do ficheiro en Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Engadir lenda de imaxe (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Engadir lenda (%s)</string>

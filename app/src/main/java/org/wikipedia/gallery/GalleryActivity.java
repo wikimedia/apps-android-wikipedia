@@ -617,6 +617,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         captionEditButton.setVisibility(captionEditable ? View.VISIBLE : View.GONE);
 
         boolean allowTranslate = false;
+        boolean showTextWithTargetLang = false;
         // and if we have another language in which the caption doesn't exist, then offer
         // it to be translatable.
         if (app.language().getAppLanguageCodes().size() > 1 && captionEditable) {
@@ -627,6 +628,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 for (String lang : app.language().getAppLanguageCodes()) {
                     if (!item.getMediaInfo().getCaptions().containsKey(lang)) {
                         allowTranslate = true;
+                        showTextWithTargetLang = true;
                         targetLanguageCode = lang;
                         break;
                     }
@@ -649,8 +651,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             galleryDescriptionContainer.setVisibility(View.GONE);
         }
         captionTranslateContainer.setVisibility(allowTranslate && AccountUtil.isLoggedIn() ? View.VISIBLE : View.GONE);
-        captionTranslateButtonText.setText(getString(R.string.gallery_add_image_caption_in_language_button,
-                app.language().getAppLanguageLocalizedName(targetLanguageCode)));
+        captionTranslateButtonText.setText(showTextWithTargetLang
+                ? getString(R.string.gallery_add_image_caption_in_language_button, app.language().getAppLanguageLocalizedName(targetLanguageCode))
+                : getString(R.string.gallery_add_image_caption_button));
 
         ImageLicense license = new ImageLicense(item.getMediaInfo().getMetadata().license(), item.getMediaInfo().getMetadata().licenseShortName(), item.getMediaInfo().getMetadata().licenseUrl());
 
