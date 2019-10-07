@@ -116,8 +116,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         val param = topTooltipArrow.layoutParams as LinearLayout.LayoutParams
         param.gravity = Gravity.START
         topTooltipArrow.layoutParams = param
-        executeAfterTimer(true)
         tooltipTextView.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
+        executeAfterTimer(true)
     }
 
     private fun showEditStreakStatsViewTooltip() {
@@ -125,8 +125,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         val param = topTooltipArrow.layoutParams as LinearLayout.LayoutParams
         param.gravity = Gravity.END
         topTooltipArrow.layoutParams = param
-        executeAfterTimer(true)
         tooltipTextView.text = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
+        executeAfterTimer(true)
     }
 
     private fun showPageViewStatsViewTooltip() {
