@@ -691,7 +691,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Llicència</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Més informació</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pàgina del fitxer a Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Afegeix una llegenda d\'imatge (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Afegeix una llegenda d\'imatge (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Mostra</string>
   <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda (%s)</string>

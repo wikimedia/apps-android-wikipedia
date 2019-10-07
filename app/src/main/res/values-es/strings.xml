@@ -706,7 +706,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Fuente/fotógrafo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Más información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página del archivo en Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Añadir leyenda de imagen (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda (%s)</string>
