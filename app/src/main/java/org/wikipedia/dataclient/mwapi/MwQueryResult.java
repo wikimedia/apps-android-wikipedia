@@ -14,7 +14,6 @@ import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
-import org.wikipedia.suggestededits.UserContributions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -146,7 +145,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return editorTaskCounts;
     }
 
-    @Nullable public List<UserContributions> userContribs() {
+    @Nullable public List<UserContributions> userContributions() {
         return userContributions;
     }
 

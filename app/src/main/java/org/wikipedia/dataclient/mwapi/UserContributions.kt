@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.dataclient.mwapi
 
 import com.google.gson.annotations.SerializedName
 

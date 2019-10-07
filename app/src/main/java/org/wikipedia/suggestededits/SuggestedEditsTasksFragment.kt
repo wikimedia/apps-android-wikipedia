@@ -285,7 +285,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
                     val titles = ArrayList<String>()
-                    for (usercont in response.query()!!.userContribs()!!) {
+                    for (usercont in response.query()!!.userContributions()!!) {
                         titles.add(usercont.title!!)
                     }
                     ServiceFactory.get(wikiSite).getPageViewsForTitles(StringUtils.join(titles, "|"))
@@ -334,8 +334,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             disabledStatesView.hideImage()
             disabledStatesView.hideHelpLink()
         } else {
-            disabledStatesView.unhideImage()
-            disabledStatesView.unhideHelpLink()
+            disabledStatesView.showImage()
+            disabledStatesView.showHelpLink()
             disabledStatesView.setImage(drawableRes)
         }
         disabledStatesView.visibility = VISIBLE

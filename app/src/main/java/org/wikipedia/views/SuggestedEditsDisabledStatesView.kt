@@ -43,11 +43,11 @@ internal class SuggestedEditsDisabledStatesView @JvmOverloads constructor(contex
         image.setImageResource(drawableRes)
     }
 
-    fun unhideImage() {
+    fun showImage() {
         image.visibility = VISIBLE
     }
 
-    fun unhideHelpLink() {
+    fun showHelpLink() {
         suggestedEditsHelpLayout.visibility = VISIBLE
         helpLayoutBorder.visibility = VISIBLE
     }

@@ -16,9 +16,6 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
 internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
-    private val IMAGE_DETAIL_TEXT_SIZE_PHONE = 14f
-    private val IMAGE_DETAIL_TEXT_SIZE_TABLET = 20f
-    private val TASK_CONTAINER_TABLET_TOP_BOTTOM_MARGIN = 36f
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
@@ -28,7 +25,7 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
         taskImageDetailView.setTitleTextSize(if (DeviceUtil.isDeviceTablet()) IMAGE_DETAIL_TEXT_SIZE_TABLET else IMAGE_DETAIL_TEXT_SIZE_PHONE)
     }
 
-    fun updateTranslateActionUI() {
+    private fun updateTranslateActionUI() {
         suggetedEditsTranslateImage.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
             R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
         suggetedEditsTranslateActionText.setTextColor(ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
@@ -71,5 +68,11 @@ internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context
 
     interface Callback {
         fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean)
+    }
+
+    companion object {
+        val IMAGE_DETAIL_TEXT_SIZE_PHONE = 14f
+        val IMAGE_DETAIL_TEXT_SIZE_TABLET = 20f
+        val TASK_CONTAINER_TABLET_TOP_BOTTOM_MARGIN = 36f
     }
 }
