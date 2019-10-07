@@ -209,25 +209,21 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @NonNull Observable<JsonElement> getLoginToken();
+    @NonNull Call<JsonElement> getLoginToken();
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    @NonNull Observable<LoginClient.LoginResponse> postLogIn(@Field("username") String user,
-                                                             @Field("password") String pass,
-                                                             @Field("logintoken") String token,
-                                                             @Field("loginreturnurl") String url);
+    @NonNull Call<LoginClient.LoginResponse> postLogIn(@Field("username") String user, @Field("password") String pass,
+                                                       @Field("logintoken") String token, @Field("loginreturnurl") String url);
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    @NonNull Observable<LoginClient.LoginResponse> postLogIn(@Field("username") String user,
-                                                             @Field("password") String pass,
-                                                             @Field("retype") String retypedPass,
-                                                             @Field("OATHToken") String twoFactorCode,
-                                                             @Field("logintoken") String token,
-                                                             @Field("logincontinue") boolean loginContinue);
+    @NonNull Call<LoginClient.LoginResponse> postLogIn(@Field("username") String user, @Field("password") String pass,
+                                                       @Field("retype") String retypedPass, @Field("OATHToken") String twoFactorCode,
+                                                       @Field("logintoken") String token,
+                                                       @Field("logincontinue") boolean loginContinue);
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
