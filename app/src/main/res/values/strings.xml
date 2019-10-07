@@ -748,6 +748,24 @@
     <string name="suggested_edits_ip_blocked_message">The IP you are using is blocked from editing Wikipedia. Learn more about blocks by visiting the link below.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
+    <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
+    <string name="suggested_edits_pageviews_label_text">Pageviews</string>
+    <string name="suggested_edits_quality_label_text">Edit quality</string>
+    <string name="suggested_edits_quality_excellent_text">Excellent</string>
+    <string name="suggested_edits_quality_very_good_text">Very good</string>
+    <string name="suggested_edits_quality_good_text">Good</string>
+    <string name="suggested_edits_quality_okey_text">Okay</string>
+    <string name="suggested_edits_quality_sufficient_text">Sufficient</string>
+    <string name="suggested_edits_quality_poor_text">Poor</string>
+    <string name="suggested_edits_quality_bad_text">Bad</string>
+    <plurals name="suggested_edits_contribution">
+        <item quantity="one">contribution</item>
+        <item quantity="other">contributions</item>
+    </plurals>
+    <plurals name="suggested_edits_edit_streak_detail_text">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

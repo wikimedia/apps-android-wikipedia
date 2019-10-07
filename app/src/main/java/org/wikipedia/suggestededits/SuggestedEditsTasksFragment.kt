@@ -63,31 +63,32 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
+        //Todo: remove after review
         dummyButtons()
-        contributionsStatsView.setDescription("Contributions")
+
         contributionsStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit_white_24dp)!!)
         contributionsStatsView.setImageBackground(null)
         contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
-        editStreakStatsView.setTitle("99")
-        editStreakStatsView.setDescription("Edit streak")
+        editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text, 4, 4))
+        editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_timer_black_24dp)!!)
         editStreakStatsView.setImageBackground(null)
         editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
 
 
-        pageViewStatsView.setDescription("Pageviews")
+        pageViewStatsView.setDescription(getString(R.string.suggested_edits_pageviews_label_text))
         pageViewStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_trending_up_black_24dp)!!)
         pageViewStatsView.setImageBackground(null)
         pageViewStatsView.setOnClickListener { onUserStatClicked(pageViewStatsView) }
 
 
-        editQualityStatsView.setTitle("Excellent")
-        editQualityStatsView.setDescription("Edit quality")
+        editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_excellent_text))
+        editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
         editQualityStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_check_black_24dp)!!)
         editQualityStatsView.showCircularProgressBar(true)
-        editQualityStatsView.setImageBackgroundTint(R.color.green90)
-        editQualityStatsView.setImageParams(DimenUtil.roundedDpToPx(16.0f), DimenUtil.roundedDpToPx(16.0f))
+        editQualityStatsView.setImageBackgroundTint(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.lighter_green_background))
+        editQualityStatsView.setImageParams(PADDING_16, PADDING_16)
         editQualityStatsView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.action_mode_green_background))
         editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
@@ -95,7 +96,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
 
         tasksRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        val topDecorationDp = 16
+        val topDecorationDp = PADDING_16
         tasksRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, topDecorationDp))
         setUpTasks()
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
@@ -220,7 +221,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     swipeRefreshLayout.isRefreshing = false
-                    checkForDisabledStatus(100)
+                    checkForDisabledStatus(80)
                     getPageViews(listofRequiredWikiSites)
                 }
                 .subscribe({ response ->
@@ -313,6 +314,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             pageViewStatsView.visibility = VISIBLE
             onboardingImageView.visibility = GONE
             contributionsStatsView.setTitle(totalEdits.toString())
+            contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalEdits))
             textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
         }
     }

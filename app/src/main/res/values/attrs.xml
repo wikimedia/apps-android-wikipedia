@@ -47,6 +47,7 @@
     <attr name="suggestions_background_color" format="color"/>
     <attr name="color_group_52" format="color"/>
     <attr name="action_mode_green_background" format="color"/>
+    <attr name="lighter_green_background" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />

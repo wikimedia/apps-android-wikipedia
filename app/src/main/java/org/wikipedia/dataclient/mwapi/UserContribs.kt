@@ -2,7 +2,7 @@ package org.wikipedia.suggestededits
 
 import com.google.gson.annotations.SerializedName
 
-internal class UserContributions {
+class UserContributions {
     @SerializedName("user")
     var user: String? = null
 

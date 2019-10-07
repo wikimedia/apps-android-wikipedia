@@ -19,7 +19,7 @@
             android:layout_width="@dimen/suggested_edits_icon_size"
             android:layout_height="@dimen/suggested_edits_icon_size"
             android:visibility="gone"
-            app:progressBackgroundColor="@color/green90"
+            app:progressBackgroundColor="?attr/lighter_green_background"
             app:progressColor="?attr/action_mode_green_background" />
 
         <LinearLayout
