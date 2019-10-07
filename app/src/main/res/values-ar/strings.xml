@@ -43,6 +43,7 @@
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
+  <string name="nav_item_suggested_edits">التعديلات المقترحة</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
@@ -85,9 +86,6 @@
   <string name="on_this_day_page_share">مشاركة</string>
   <string name="reading_list_page_share">مشاركة</string>
   <string name="menu_text_select_edit_here">عدل هنا</string>
-  <string name="nav_item_nearby">بالقرب من هنا</string>
-  <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
-  <string name="nearby_osm_license">مساهمين &amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;أوبن ستريت ماب&lt;/a&gt;</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="talk_page_link_text">عرض صفحة النقاش</string>
   <string name="edit_history_link_text">عرض تاريخ التعديلات</string>
@@ -351,6 +349,7 @@
   <string name="view_link_preview_error_button_dismiss">أغلق</string>
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
+  <string name="view_wiki_error_message_timeout">لا يمكن الاتصال بويكيبيديا؛ تحقق من اتصال الشبكة، أو أعد المحاولة لاحقا</string>
   <string name="reference_title">مراجع %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
@@ -668,26 +667,6 @@
   <string name="suggested_edits_review_image_caption">مراجعة تعليقات الصور</string>
   <string name="suggested_edits_my_contributions">مساهماتي</string>
   <string name="suggested_edits_no_description">هذا الملف لا يحتوي على وصف</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"إضافة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">شكرا على جميع مساهماتك! لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">لقد قمت بإلغاء حماية مهمة \"ترجمة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">مبروك على مساهماتك الكثيرة، نحن معجبون! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالمقالات التي تحتاج إلى ترجمة وصف، هل يمكنك الاستمرار في مساعدتنا على تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_dialog_no">ربما لاحقا</string>
-  <string name="suggested_edits_unlock_dialog_yes">نعم، هيا بنا</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">لقد قمت بإلغاء حماية \"إضافة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">لقد قمت بإلغاء حماية \"ترجمة أوصاف المقالات\"</string>
-  <string name="suggested_edits_unlock_notification_text">التعديلات المقترحة</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">التعديلات المقترحة\n\nشكرا على جميع مساهماتك، نظرا لأنك رائع في التحرير؛ فقد جمعنا قائمة بالمقالات التي تفتقر إلى الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">التعديلات المقترحة\nمبروك على مساهماتك الكثيرة، لقد أعجبنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا جمعنا قائمة بالمقالات التي تفتقر إلى ترجمة الوصف، هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_notification_button">نعم، هيا بنا</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">لقد قمت بإلغاء حماية مهمة \"أضف أوصاف للصورة\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">لقد قمت بإلغاء حماية ميزة \"أضف أوصاف للصورة\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">شكرا على كل تعديلاتك للصور! نظرا لأننا نرغب في إضافة تسميات توضيحية إلى الصور؛ قمنا بتجميع قائمة بالصور التي تفتقد للتعليقات التوضيحية. هل يمكنك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">التعديلات المقترحة \n\nشكرا على كل تعديلاتك للصور! نظرًا لأننا نرغب في إضافة تسميات توضيحية إلى الصور؛ قررنا أن نجمع قائمة بالصور التي ينقصها وصف. هل بإمكانك مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">لقد قمت بإلغاء حماية مهمة \"ترجم أوصاف الصورة\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">لقد قمت بإلغاء حماية  ميزة \"ترجم أوصاف الصورة\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">تهانينا على تعديلاتك الكثيرة للتسميات التوضيحية للصور - لقد أُذهِلنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالصور التي تحتاج إلى ترجمات توضيحية، هل يمكنك الاستمرار في مساعدتنا في تحسين ويكيبيديا؟</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">التعديلات المقترحة\n\n\nتهانينا على تعديلاتك الكثيرة للتسميات التوضيحية للصور - لقد أُذهِلنا! أنت تستخدم التطبيق بلغات متعددة؛ لذا قمنا بتجميع قائمة بالصور التي تحتاج إلى ترجمات توضيحية، هل يمكنك الاستمرار في مساعدتنا في تحسين ويكيبيديا؟</string>
   <string name="suggested_edits_license_notice">بإضافة الوصف، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">بإضافة تعليق الصورة، أوافق على &lt;a href=\"%1$s\"&gt;Tشروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">معلومات</string>
@@ -727,7 +706,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
   <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
-  <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح</string>
   <string name="suggested_edits_feed_card_translate_image_caption">إضافة شرح (%s)</string>

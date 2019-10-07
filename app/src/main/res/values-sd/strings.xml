@@ -61,10 +61,7 @@
   <string name="on_this_day_page_share">ونڊيو</string>
   <string name="reading_list_page_share">ونڊيو</string>
   <string name="menu_text_select_edit_here">ھتي سنواريو</string>
-  <string name="nav_item_nearby">ويجھا</string>
-  <string name="nearby_zoom_to_location">نقشي تي ڪو مقام وڏو ڪري ڏسو</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;رستي وارو نقشو ڏسو&lt;/a&gt; ڀاڱيدار</string>
-  <string name="last_updated_text">آخري تجديد %s</string>
+  <string name="last_updated_text">آخري ترميم %s</string>
   <string name="talk_page_link_text">بحث صفحو ڏسو</string>
   <string name="edit_history_link_text">سنوار جي سوانح ڏسو</string>
   <string name="map_view_link_text">نقشي تي ڏسو</string>
@@ -595,26 +592,6 @@
   <string name="suggested_edits_review_image_caption">عڪس جي عنوان جو جائزو وٺو</string>
   <string name="suggested_edits_my_contributions">منھنجون ڀاڱيداريون</string>
   <string name="suggested_edits_no_description">ھن فائيل کي تشريح ڪونھي</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">توھان \"مضمونن جون تشريحون وجھو\" ڪم کولي ورتو</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">توھان جي ڀاڱيدارين لاءِ مھرباني! جيتوڻيڪ توھان سنوارڻ ۾ ڏاڍا ڀلا آھيو، اسان تشريح کان سواءِ مضمون جي فھرست جوڙي آھي. ڇا توھان اسان کي وڪيپيڊيا بھتر بڻائڻ ۾ اسان جي مدد ڪري سگھو ٿا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">توھان \"مضمونن جون تشريح تشريحون ترجمايو\" ڪم کولي ورتو</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">توھان جي گھڻين ڀاڱيدارين تي مبارڪون، اسان متاثر آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
-  <string name="suggested_edits_unlock_dialog_no">بعد ۾ شايد</string>
-  <string name="suggested_edits_unlock_dialog_yes">ھا، ھلو تہ ھلون</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">توھان \"مضمونن جون تشريحون وجھو\" کولي ورتو</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">توھان \"مضمون جون تشريحون ترجمايو\" کولو ورتو</string>
-  <string name="suggested_edits_unlock_notification_text">صلاح-ڏنل سنوارون</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">صلاح-ڏنل سنوارون\n\nتوھان جي سڀني ڀاڱيدارين مھرباني. جيتوڻيڪ توھان سنوارڻ ۾ ڏاڍا ڀلا آھيو، اسان تشريح گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد ڪري سگھو ٿا؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">صلاح-ڏنل سنورون\n\nتوھان جي گھڻين ڀاڱيدارين تي مبارڪون، اسان متاثر آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
-  <string name="suggested_edits_unlock_notification_button">ھا، ھلو تہ ھلون</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">توھن \"عڪسن جا عنوان وجھو\" ڪم کولي ورتو</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">توھان \"عڪسن جا عنوان وجھو\" کولي ورتو</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">عڪسن جي عنوانن جي سڀ سنوارن لاءِ توھان جي مھرباني! جيتوڻيڪ توھان کي عڪسن ۾ عنوان وجھڻ پسند آھي، اسان عنوان گھرندڙ عڪسن جي فھرست جوڙي آھي. ڇا توھان اسان جي وڪيپيڊيا کي سنوارڻ ۾ مدد ڪري سگھو ٿا؟</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">صلاح-ڏنل سنوارون\n\nعڪسن جي عنوانن جي سڀ سنوارن لاءِ توھان جي مھرباني! جيتوڻيڪ توھان کي عڪسن ۾ عنوان وجھڻ پسند آھي، اسان عنوان گھرندڙ عڪسن جي فھرست جوڙي آھي. ڇا توھان اسان جي وڪيپيڊيا کي سنوارڻ ۾ مدد ڪري سگھو ٿا؟</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">توھان \"عڪسن جا عنوان ترجمايو\" ڪم کولو ورتو</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">توھان \"عڪسن جا عنوان ترجمايو\" کولو ورتو</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">توھان جي گھڻين ڀاڱيدارين تي مبارڪون - اسان عجب ۾ آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">صلاح-ڏنل سنوارون\n\nتوھان جي گھڻين ڀاڱيدارين تي مبارڪون - اسان عجب ۾ آھيون؟ توھان ايپ کي گھڻين ٻولين ۾ استعمال ڪري رھيا آھيو، تنھنڪري اسان تشريحن جو ترجمو گھرندڙ مضمونن جي فھرست جوڙي آھي. ڇا توھان وڪيپيڊيا کي بھتر بڻائڻ ۾ اسان جي مدد جاري رکي سگھو ٿا؟</string>
   <string name="suggested_edits_license_notice">تشريح وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ ڏيڻ لاءِ راضي آھيان.</string>
   <string name="suggested_edits_image_caption_license_notice">عڪسن جا عنوان وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪندي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="suggested_edits_menu_info">ڄاڻ</string>
@@ -654,7 +631,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">لائسنسڪاري</string>
   <string name="suggested_edits_image_preview_dialog_more_info">وڌيڪ ڄاڻ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">وڪيميڊيا العام تي فائيل صفحو</string>
-  <string name="suggested_edits_article_cta_image_caption">عڪس جو عنوان وجھو (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">عڪس جو عنوان وجھو (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">ڏسو</string>
   <string name="suggested_edits_feed_card_add_image_caption">عنوان وجھو</string>
   <string name="suggested_edits_feed_card_translate_image_caption">عنوان وجھو (%s)</string>

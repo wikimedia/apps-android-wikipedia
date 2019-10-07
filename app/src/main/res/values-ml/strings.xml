@@ -62,9 +62,6 @@
   <string name="on_this_day_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="reading_list_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
-  <string name="nav_item_nearby">സമീപസ്ഥം</string>
-  <string name="nearby_zoom_to_location">ഭൂപടത്തിൽ കാണുന്ന സ്ഥലത്തേക്ക് വലുതാക്കുക.</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;ഓപ്പൺസ്ട്രീറ്റ്‌മാപ്പ്&lt;/a&gt; സംഭാവകർ</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %s</string>
   <string name="talk_page_link_text">സംവാദത്താൾ കാണുക</string>
   <string name="edit_history_link_text">നാൾവഴി കാണുക</string>
@@ -451,9 +448,6 @@
   <string name="suggested_edits_review_image_caption">തലവാചകം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_my_contributions">എന്റെ സംഭാവനകൾ</string>
   <string name="suggested_edits_no_description">ഈ പ്രമാണത്തിന് വിവരണമില്ല</string>
-  <string name="suggested_edits_unlock_dialog_no">പിന്നീട് ആലോചിക്കാം</string>
-  <string name="suggested_edits_unlock_notification_text">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">നിർദ്ദേശിച്ച തിരുത്തലുകൾ\n\nതാങ്കളുടെ എല്ലാ സംഭാവനകൾക്കും നന്ദി. താങ്കൾ തിരുത്തലിൽ വളരെ നല്ല ആളായതിനാൽ ഞങ്ങൾ വിവരണങ്ങൾ ചേർത്തിട്ടില്ലാത്ത ലേഖനങ്ങളുടെ പട്ടിക സൃഷ്ടിച്ചിട്ടുണ്ട്. താങ്കൾക്ക് വിക്കിപീഡിയ മെച്ചപ്പെടുത്താൻ ഞങ്ങളെ സഹായിക്കാമോ?</string>
   <string name="suggested_edits_menu_info">വിവരം</string>
   <string name="suggested_edits_tasks_activity_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
   <string name="suggested_edits_task_add_description_title">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
@@ -478,7 +472,7 @@
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>
-  <string name="suggested_edits_article_cta_image_caption">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">കാണുക</string>
   <string name="suggested_edits_feed_card_add_image_caption">തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_feed_card_translate_image_caption">തലവാചകം ചേർക്കുക (%s)</string>

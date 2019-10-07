@@ -23,7 +23,7 @@
   <string name="offline_load_error_retry">Кабатлау</string>
   <string name="page_error_back_to_main">Кире</string>
   <string name="error_back">Кире кайту</string>
-  <string name="menu_clear_all_history">Тарихны чистарту</string>
+  <string name="menu_clear_all_history">Тарихны бушату</string>
   <string name="history_item_deleted">«%s» мәкаләсе карау тарихыннан бетерелгән</string>
   <string name="history_items_deleted">%d мәкалә карау тарихыннан бетерелгән</string>
   <string name="history_item_delete_undo">Кире кайтару</string>
@@ -107,6 +107,9 @@
   <string name="create_account_username_hint">Кулланучы исеме</string>
   <string name="login_join_wikipedia">Википедиягә кушылу</string>
   <string name="login_forgot_password">Серсүзегезне оныттыгызмы?</string>
+  <string name="create_account_activity_title">Хисап язмасын төзү</string>
+  <string name="dialog_create_account_checking_progress">Тикшерү бара</string>
+  <string name="create_account_email_hint">Электрон почта (мәҗбүр түгел)</string>
   <string name="create_account_password_repeat_hint">Серсүзне кабатлагыз</string>
   <string name="create_account_passwords_mismatch_error">Серсүзләр туры килмиләр</string>
   <string name="create_account_email_error">Яраксыз электрон почта адресы</string>
@@ -118,6 +121,7 @@
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
+  <string name="about_activity_title">Кушымта турында</string>
   <string name="edit_abandon_confirm_yes">Әйе</string>
   <string name="edit_abandon_confirm_no">Юк</string>
   <string name="user_blocked_from_editing_title">Тыелган</string>
@@ -138,6 +142,7 @@
   <string name="widget_name_search">Википедиядә эзләү</string>
   <string name="dialog_close_description">Ябу</string>
   <string name="preference_title_show_images">Сурәтләрне күрсәтү</string>
+  <string name="preference_title_download_only_over_wifi">Wi-Fi аша гына күчереп алырга</string>
   <string name="dialog_title_download_only_over_wifi_allow">Рөхсәт итү</string>
   <string name="gallery_menu_share">Уртаклашу</string>
   <string name="gallery_save_progress">Файлны күчереп алу бара…</string>
