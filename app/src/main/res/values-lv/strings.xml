@@ -294,7 +294,6 @@
   <string name="suggested_edits_add_translation_button" fuzzy="true">Pievienot tulkojumu</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Labot tulkojumu</string>
   <string name="suggested_edits_my_contributions">Mans devums</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Varbūt vēlāk</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Pievienot aprakstus</string>
   <string name="suggested_edits_task_multilingual_positive">Pievienot valodas</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autors</string>

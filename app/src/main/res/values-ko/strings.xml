@@ -602,9 +602,8 @@
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="description_edit_text_hint">문서 설명</string>
-  <string name="description_edit_article_description_label_per_language">문서 (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">문서 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">문서 설명 (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">이미지 설명 (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">이미지 설명 (%s)</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_read">읽기</string>
@@ -651,26 +650,6 @@
   <string name="suggested_edits_review_image_caption">이미지 설명 검토</string>
   <string name="suggested_edits_my_contributions">내 기여</string>
   <string name="suggested_edits_no_description">파일에 설명이 없습니다</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"문서 설명 추가\" 작업의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">지금까지의 모든 기여에 감사드립니다! 편집이 대단히 능숙하시므로 저희는 설명이 존재하지 않는 문서 목록을 정리했습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">\"문서 설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">당신의 많은 기여를 축하합니다. 감사합니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 문서 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_dialog_no">나중에</string>
-  <string name="suggested_edits_unlock_dialog_yes">예, 시작합니다</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">\"문서 번역 추가\"의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">\"문서 설명 번역하기\"의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_notification_text">편집 제안</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">편집 제안\n\n지금까지의 모든 기여에 감사드립니다. 편집이 대단히 능숙하시므로 저희는 설명이 존재하지 않는 문서 목록을 정리했습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">편집 제안\n\n당신의 많은 기여를 축하합니다. 감사합니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 문서 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_notification_button">예, 시작합니다</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">\"이미지 설명 추가\" 작업의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">\"이미지 설명 추가\"의 잠금을 해제하였습니다.</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">이미지 캡션 편집에 감사드립니다! 이미지에 설명을 추가하고 계신 것을 확인하여 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">편집 제안\n\n이미지 캡션 편집에 감사드립니다! 이미지에 설명을 추가하고 계신 것을 확인하여 설명이 없는 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">\"이미지 설명 번역하기\" 작업의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">\"이미지 설명 번역하기\"의 잠금을 해제하였습니다</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">수많은 이미지 캡션 편집에 감사드립니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">편집 제안\n\n수많은 이미지 캡션을 편집해 주셔서 감사합니다! 여러 언어로 이 앱을 사용하고 계시므로 설명 번역이 필요한 이미지 목록을 만들었습니다. 저희가 위키백과를 개선하는 일을 계속 지원해 주시겠습니까?</string>
   <string name="suggested_edits_license_notice">설명을 추가함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="suggested_edits_image_caption_license_notice">이미지 캡션을 추가함으로써, 나는 &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고, 나의 기여를 비가역적으로 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스에 따라 배포하는 데 동의합니다.</string>
   <string name="suggested_edits_menu_info">정보</string>
@@ -710,7 +689,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
-  <string name="suggested_edits_article_cta_image_caption">이미지 캡션 추가 (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">이미지 캡션 추가 (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
   <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
   <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>

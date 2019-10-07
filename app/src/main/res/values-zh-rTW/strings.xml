@@ -610,9 +610,8 @@
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
   <string name="description_edit_text_hint">條目描述</string>
-  <string name="description_edit_article_description_label_per_language">條目（%s）</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">條目（%s）</string>
   <string name="description_edit_translate_article_description_hint_per_language">條目描述（%s）</string>
-  <string name="description_edit_add_caption_label_per_language">圖片描述（%s）</string>
   <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_read">閱讀</string>
@@ -659,26 +658,6 @@
   <string name="suggested_edits_review_image_caption">檢視語言說明</string>
   <string name="suggested_edits_my_contributions">我的貢獻</string>
   <string name="suggested_edits_no_description">此檔案沒有描述</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">您解開了「新增條目描述」任務</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">感謝您做出的所有貢獻！因為您善於編輯的緣故，我們彙整出條目缺少描述的清單，您是否能協助我們來改善維基百科呢？</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">您解開了「翻譯條目描述」任務</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">恭喜您做出的許多貢獻，讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出條目需要描述翻譯的清單，您是否能繼續協助我們來改善維基百科嗎？</string>
-  <string name="suggested_edits_unlock_dialog_no">稍後再說</string>
-  <string name="suggested_edits_unlock_dialog_yes">好，讓我們開始吧</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">您解開了「新增條目描述」</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">您解開了「翻譯條目描述」</string>
-  <string name="suggested_edits_unlock_notification_text">建議編輯</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">建議編輯\n\n感謝您做出的所有貢獻！因為您善於編輯的緣故，我們彙整出條目缺少描述的清單，您是否能協助我們來改善維基百科呢？</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">建議編輯\n\n恭喜您做出的許多貢獻，讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出條目需要描述翻譯的清單，您是否能繼續協助我們來改善維基百科嗎？</string>
-  <string name="suggested_edits_unlock_notification_button">好，讓我們開始吧</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">您解開了「添加圖片說明」任務</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">您解開了「添加圖片說明」</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">感謝您做出的所有圖片說明編輯！因我們發現到您喜愛替圖片添加說明，所以我們彙整出缺少說明的圖片清單，您是否能繼續協助我們來改善維基百科呢？</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">建議編輯\n\n感謝您做出的所有圖片說明編輯！因我們發現到您喜愛替圖片添加說明，所以我們彙整出缺少說明的圖片清單，您是否能繼續協助我們來改善維基百科呢？</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">您解開了「翻譯圖片說明」任務</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">您解開了「翻譯圖片說明」</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">恭喜您做出的許多圖片說明編輯 - 讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出圖片需要添加描述的清單，您是否能繼續協助我們來改善維基百科呢？</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">建議編輯\n\n恭喜您做出的許多圖片說明編輯 - 讓我們印象深刻！您目前以多語言使用此應用程式，因此我們彙整出圖片需要添加描述的清單，您是否能繼續協助我們來改善維基百科呢？</string>
   <string name="suggested_edits_license_notice">透過添加描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="suggested_edits_image_caption_license_notice">透過添加圖片說明，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="suggested_edits_menu_info">資訊</string>
@@ -718,7 +697,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
-  <string name="suggested_edits_article_cta_image_caption">新增圖片說明（%s）</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">新增圖片說明（%s）</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增說明（%s）</string>

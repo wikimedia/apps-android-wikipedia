@@ -457,7 +457,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">অনুজ্ঞাপত্ৰ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">অধিক তথ্য</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ৱিকিমিডিয়া কমন্সৰ নথি পৃষ্ঠা</string>
-  <string name="suggested_edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">চাওক</string>
   <string name="suggested_edits_feed_card_add_image_caption">শিৰোনাম যোগ কৰক</string>
   <string name="suggested_edits_feed_card_translate_image_caption">শিৰোনাম যোগ কৰক (%s)</string>

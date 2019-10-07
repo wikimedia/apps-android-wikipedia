@@ -409,9 +409,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="feed_accessibility_card_load_more_button">കൂടുതൽ എടുക്കുക</string>
   <string name="description_edit_text_hint">ലേഖനനത്തിന്റെ വിവരണം</string>
-  <string name="description_edit_article_description_label_per_language">ലേഖനം (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ലേഖനം (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ലേഖനത്തിന്റെ വിവരണം (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ചിത്രത്തിന്റെ വിവരണം (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>
   <string name="description_edit_read">വായിക്കുക</string>
@@ -448,9 +447,6 @@
   <string name="suggested_edits_review_image_caption">തലവാചകം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_my_contributions">എന്റെ സംഭാവനകൾ</string>
   <string name="suggested_edits_no_description">ഈ പ്രമാണത്തിന് വിവരണമില്ല</string>
-  <string name="suggested_edits_unlock_dialog_no">പിന്നീട് ആലോചിക്കാം</string>
-  <string name="suggested_edits_unlock_notification_text">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">നിർദ്ദേശിച്ച തിരുത്തലുകൾ\n\nതാങ്കളുടെ എല്ലാ സംഭാവനകൾക്കും നന്ദി. താങ്കൾ തിരുത്തലിൽ വളരെ നല്ല ആളായതിനാൽ ഞങ്ങൾ വിവരണങ്ങൾ ചേർത്തിട്ടില്ലാത്ത ലേഖനങ്ങളുടെ പട്ടിക സൃഷ്ടിച്ചിട്ടുണ്ട്. താങ്കൾക്ക് വിക്കിപീഡിയ മെച്ചപ്പെടുത്താൻ ഞങ്ങളെ സഹായിക്കാമോ?</string>
   <string name="suggested_edits_menu_info">വിവരം</string>
   <string name="suggested_edits_tasks_activity_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
   <string name="suggested_edits_task_add_description_title">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
@@ -475,7 +471,8 @@
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>
-  <string name="suggested_edits_article_cta_image_caption">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">കാണുക</string>
   <string name="suggested_edits_feed_card_add_image_caption">തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_feed_card_translate_image_caption">തലവാചകം ചേർക്കുക (%s)</string>

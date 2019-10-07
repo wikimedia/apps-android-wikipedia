@@ -586,7 +586,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreibung</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
   <string name="description_edit_save">Veröffentlichen</string>
   <string name="description_edit_read">Lesen</string>
   <string name="description_edit_add_description" fuzzy="true">Titelbeschreibung hinzufügen</string>
@@ -618,26 +618,6 @@
   <string name="suggested_edits_add_translation_button" fuzzy="true">Übersetzung hinzufügen</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Übersetzung bearbeiten</string>
   <string name="suggested_edits_my_contributions">Meine Beiträge</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Du hast die Aufgabe „Beschreibungen hinzufügen“ freigegeben</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Vielen Dank für all deine Beiträge! Da du im Bearbeiten supergut bist, haben wir eine Liste der Artikel zusammengestellt, denen Beschreibungen fehlen. Kannst du uns bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Du hast die Aufgabe „Beschreibungen übersetzen“ freigegeben</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Herzlichen Glückwunsch für deine vielen Beiträge. Wir sind beeindruckt! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_unlock_dialog_no">Vielleicht später</string>
-  <string name="suggested_edits_unlock_dialog_yes">Ja, auf geht’s!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Du hast „Beschreibungen hinzufügen“ freigegeben</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du hast „Beschreibungen übersetzen“ freigegeben</string>
-  <string name="suggested_edits_unlock_notification_text">Vorgeschlagene Bearbeitungen</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Vorgeschlagene Bearbeitungen\n\nVielen Dank für all deine Beiträge. Da du supergut im Bearbeiten bist, haben wir eine Liste der Artikel zusammengestellt, denen Beschreibungen fehlen. Könntest du uns bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Vorgeschlagene Bearbeitungen\n\nHerzlichen Glückwunsch für deine vielen Beiträge. Wir sind beeindruckt! Du benutzt die App in mehreren Sprachen, deshalb haben wir eine Liste der Artikel zusammengestellt, die Übersetzungen der Beschreibung benötigen. Könntest du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_unlock_notification_button">Ja, auf geht’s!</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Du hast die Aufgabe \"Bildunterschriften hinzufügen\" freigeschaltet</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Du hast \"Bildunterschriften hinzufügen\" freigeschaltet</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Vielen Dank für alle deine Beiträge! Da wir glauben, dass du Bildunterschriften hinzufügen möchtest, haben wir eine Liste der Bilder zusammengestellt, in denen Bildunterschriften fehlen. Könntest du uns helfen, Wikipedia zu verbessern?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Vielen Dank für alle deine Beiträge. Da wir glauben, dass du Bildunterschriften hinzufügen möchtest, haben wir eine Liste der Bilder zusammengestellt, in denen Bildunterschriften fehlen. Könntest du uns helfen, Wikipedia zu verbessern?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Du hast die Aufgabe \"Bildunterschriften übersetzen\" freigeschaltet</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Du hast \"Bildunterschriften übersetzen\" freigeschaltet</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Vielen Dank für deine kontinuierlichen Beiträge! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Vielen Dank für deine kontinuierlichen Beiträge! Du benutzt die App in mehreren Sprachen. Deshalb haben wir eine Liste der Artikel zusammengestellt, die eine Übersetzung der Beschreibung benötigen. Kannst du uns weiterhin bei der Verbesserung von Wikipedia helfen?</string>
   <string name="suggested_edits_license_notice" fuzzy="true">Durch das Hinzufügen der Titelbeschreibung stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der Lizenz &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; zu.</string>
   <string name="suggested_edits_menu_info">Information</string>
   <string name="suggested_edits_tasks_activity_title">Vorgeschlagene Bearbeitungen</string>

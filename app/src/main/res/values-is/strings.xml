@@ -623,18 +623,6 @@
   <string name="suggested_edits_review_image_caption">Yfirfara myndatexta</string>
   <string name="suggested_edits_my_contributions">Framlögin mín</string>
   <string name="suggested_edits_no_description" fuzzy="true">Engin lýsing</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"Bæta við lýsingum\" hefur verið aflæst</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Við höfum tekið eftir að þú ert oft að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Þú aflæstir \"Þýða lýsingar\" verkinu</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Til hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_dialog_no">Kannski síðar</string>
-  <string name="suggested_edits_unlock_dialog_yes">Já, í gang með þetta</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Þú aflæstir \"Bæta við lýsingum\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Þú aflæstir \"Þýða lýsingar\"</string>
-  <string name="suggested_edits_unlock_notification_text">Tillögur að breytingum</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Tillögur að breytingum\n\nTil hamingju með þriðja framlagið þitt. Við höfum tekið eftir að þú ert fær í að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Tillögur að breytingum\n\nTil hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_notification_button">Já, í gang með þetta</string>
   <string name="suggested_edits_license_notice" fuzzy="true">Með því að breyta lýsingu á þessum titli, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_menu_info">Upplýsingar</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Verkefni fyrir ritstýringu</string>

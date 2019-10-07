@@ -19,7 +19,7 @@
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_alpha">Wikipedia-alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Tillbaka</string>
   <string name="page_tabs_back">Tillbaka</string>
@@ -45,7 +45,7 @@
   <string name="history_item_delete_undo">Ångra</string>
   <string name="notification_archive_undo">Ångra</string>
   <string name="app_settings">Appinställningar</string>
-  <string name="dialog_title_clear_history">Rensa webbhistoriken</string>
+  <string name="dialog_title_clear_history">Rensa läsarhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nej</string>
@@ -54,11 +54,11 @@
   <string name="search_redirect_from">Omdirigerad från %s</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
-  <string name="menu_page_find_in_page">Hitta på sidan</string>
+  <string name="menu_page_find_in_page">\nHitta på sidan</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
-  <string name="feed_card_add_to_list">Lägg till i läslista</string>
+  <string name="feed_card_add_to_list">\nLägg till i läslista</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
   <string name="menu_page_reading_lists">Läslistor</string>
@@ -66,16 +66,16 @@
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
-  <string name="menu_text_select_copy">Kopiera</string>
-  <string name="menu_text_select_define">Definera</string>
-  <string name="menu_text_select_share">Dela</string>
-  <string name="share">Dela</string>
+  <string name="menu_text_select_copy">\nKopiera</string>
+  <string name="menu_text_select_define">\nDefinera</string>
+  <string name="menu_text_select_share">\nDela</string>
+  <string name="share">\nDela</string>
   <string name="on_this_day_page_share">Dela</string>
   <string name="reading_list_page_share">Dela</string>
   <string name="menu_text_select_edit_here">Redigera här</string>
-  <string name="last_updated_text">Senast uppdaterad %s</string>
-  <string name="talk_page_link_text">Visa diskussionssida</string>
-  <string name="edit_history_link_text">Visa redigeringshistorik</string>
+  <string name="last_updated_text">\nSenast uppdaterad %s</string>
+  <string name="talk_page_link_text">\nVisa diskussionssida</string>
+  <string name="edit_history_link_text">\nVisa redigeringshistorik</string>
   <string name="map_view_link_text">Visa på en karta</string>
   <string name="other_languages_indication_text">Läs på ett annat språk</string>
   <string name="language_count_link_text">Tillgänglig på %d andra språk</string>
@@ -101,7 +101,7 @@
   <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
   <string name="search_reading_lists_no_results">Inga resultat hittades i läslistor</string>
   <string name="search_history_no_results">Inga resultat hittades i historik</string>
-  <string name="edit_section_captcha_message">För att skydda mot automatiserad spam, var god skriv in orden som visas nedan</string>
+  <string name="edit_section_captcha_message">För att skydda mot automatiserad reklambrev, var god skriv in orden som visas nedan</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du inte se bilden? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Begär ett konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Upprepa orden ovan</string>
   <string name="title_captcha">Ange captcha</string>
@@ -170,7 +170,7 @@
   <string name="create_account_account_created_toast">Konto har skapats!</string>
   <string name="preferences_heading_syncing">Synkroniserar</string>
   <string name="preferences_heading_data_usage">Dataanvändning</string>
-  <string name="preferences_heading_experimental">Experimentell</string>
+  <string name="preferences_heading_experimental">\nExperimentell</string>
   <string name="preference_title_sync_reading_lists_from_account">Synkronisering av läslistor</string>
   <string name="preference_title_download_reading_list_articles">Ladda ned artiklar från läslistor</string>
   <string name="preference_summary_sync_reading_lists">Synkronisera läslistor över olika enheter genom att spara dem till ditt Wikipedia-konto</string>
@@ -178,7 +178,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ta bort synkroniserade läslistor från \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Integritet</string>
-  <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
+  <string name="preference_title_eventlogging_opt_in">\nSkicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till tredjepartstjänsten HockeyApp så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
@@ -605,9 +605,8 @@
   <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
   <string name="feed_accessibility_card_load_more_button">Läs in fler</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivning (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Bildbeskrivning (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Bildtexter (%s)</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_read">Läs</string>
@@ -654,26 +653,6 @@
   <string name="suggested_edits_review_image_caption">Granska bildtext</string>
   <string name="suggested_edits_my_contributions">Mina bidrag</string>
   <string name="suggested_edits_no_description">Denna fil har ingen beskrivning</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Du låste upp uppgiften \"Lägg till beskrivningar\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Tack för alla dina bidrag! Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Du låste upp uppgiften \"Översätt beskrivningar\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Grattis till dina åtskilliga bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no">Kanske senare</string>
-  <string name="suggested_edits_unlock_dialog_yes">Ja, nu kör vi</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Du låste upp \"Lägg till beskrivningar\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Du låste upp \"Översätt beskrivningar\"</string>
-  <string name="suggested_edits_unlock_notification_text">Förslag på redigeringar</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Förslag på redigeringar\n\nTack för alla dina bidrag. Eftersom du är superbra på att redigera, har vi tagit fram en lista över artiklar som saknar beskrivningar. Kan du hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Förslag på redigeringar\n\nGrattis till dina åtskilliga bidrag, vi är imponerade! Du använder appen på flera språk, så vi har tagit fram en lista över artiklar som behöver få översatta beskrivningar. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_notification_button">Ja, nu kör vi</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Du låste upp uppgiften \"Lägg till bildtexter\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Du låste upp \"Lägg till bildtexter\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Tack för alla dina bildtextredigeringar! Eftersom vi ser att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Förslag på redigeringar\n\nTack för alla dina bildtextredigeringar! Eftersom vi ser att du gillar att lägga till bildtexter har vi tagit fram en lista över bilder som saknar bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Du låste upp uppgiften \"Översätt bildtexter\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Du låste upp \"Översätt bildtexter\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Gratulerar till alla bildtextredigeringar - vi är mållösa! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Förslag på redigeringar\n\nGratulerar till alla bildtextredigeringar - vi är mållösa! Du använder appen på flera språk, så vi har tagit fram en lista över bilder som behöver få översatta bildtexter. Kan du fortsätta hjälpa oss att förbättra Wikipedia?</string>
   <string name="suggested_edits_license_notice">Genom att lägga till beskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Genom att lägga till bildtexten samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
@@ -713,7 +692,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Lägg till bildtext (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>

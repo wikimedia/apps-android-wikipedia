@@ -583,11 +583,6 @@
   <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Senarai tugasan penyuntingan tajuk telah dibuka kunci!</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Kami telah melihat anda menyusun penerangan tajuk, jadi kami telah menyusun senarai \"Tugas editor aplikasi\" dengan lebih banyak rencana yang hilang penerangan tajuk untuk membantu anda terus menyumbang!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Lain kalilah</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>

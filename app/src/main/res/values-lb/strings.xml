@@ -498,7 +498,6 @@
   <string name="feed_accessibility_card_load_more_button">Méi lueden</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreiwung</string>
   <string name="description_edit_translate_article_description_hint_per_language">Beschreiwung vum Artikel (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Beschreiwung vum Bild (%s)</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description" fuzzy="true">Beschreiwung vum Titel derbäisetzen</string>
@@ -529,8 +528,6 @@
   <string name="suggested_edits_add_translation_button">Iwwersetzung derbäisetzen</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Iwwersetzung änneren</string>
   <string name="suggested_edits_no_description">Dëse Fichier huet keng Beschreiwung</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
-  <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
   <string name="suggested_edits_tasks_activity_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_task_add_description_title">Artikel-Beschreiwungen derbäisetzen</string>

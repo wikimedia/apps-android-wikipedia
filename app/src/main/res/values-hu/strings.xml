@@ -605,9 +605,8 @@
   <string name="feed_accessibility_card_text">Elérted a hírfolyamod alját.</string>
   <string name="feed_accessibility_card_load_more_button">Továbbiak betöltése</string>
   <string name="description_edit_text_hint">Szócikk leírása</string>
-  <string name="description_edit_article_description_label_per_language">Szócikk (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Szócikk (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Szócikkleírás (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Képleírás (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Képaláírás (%s)</string>
   <string name="description_edit_save">Közzététel</string>
   <string name="description_edit_read">Olvasás</string>
@@ -654,26 +653,6 @@
   <string name="suggested_edits_review_image_caption">Képaláírások ellenőrzése</string>
   <string name="suggested_edits_my_contributions">Közreműködéseim</string>
   <string name="suggested_edits_no_description">Ennek a fájlnak nincs leírása</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Feloldottad a „Szócikkleírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Köszönjük a közreműködéseidet! Mivel szeretsz címleírásokat szerkeszteni, összeállítottunk számodra egy „Szerkesztői feladatok” listáját olyan cikkekkel, melyeknél hiányzik a címleírás. Tudsz ezekben segíteni?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Feloldottad a „Szócikkleírások fordítása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Köszönjük az eddigi szerkesztéseidet! Mivel az alkalmazást több nyelven is olvasod, ezért összeállítottunk egy listát, ahol a leírásoknál hiányzik a magyar fordítás. Volna kedved ebben besegíteni?</string>
-  <string name="suggested_edits_unlock_dialog_no">Talán később</string>
-  <string name="suggested_edits_unlock_dialog_yes">Igen, kezdjük</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Feloldottad a „Szócikkleírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Feloldottad a „Szócikkleírások fordítása” feladatot</string>
-  <string name="suggested_edits_unlock_notification_text">Ajánlott szerkesztések</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Javasolt szerkesztés\n\nKöszönjük a közreműködéseidet! Mivel jó vagy a szerkesztésben, összeállítottunk számodra egy listát olyan cikkekkel, melyeknél hiányzik a címleírás. Tudsz ezekben segíteni?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Javasolt szerkesztés\n\nKöszönjük az eddigi szerkesztéseidet! Az alkalmazást több nyelven is használod, ezért összeállítottunk egy listát, ahol a leírásoknál hiányzik a magyar fordítás. Volna kedved ebben segíteni?</string>
-  <string name="suggested_edits_unlock_notification_button">Igen, kezdjük</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Feloldottad a „Képaláírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Feloldottad a „Képaláírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Köszönjük a képaláírás-szerkesztéseidet! Mivel úgy látjuk, hogy szeretsz aláírásokat hozzáadni a képekhez, ezért összeállítottunk egy listát az aláírások nélküli képekből. Segítenél még jobbá tenni a Wikipédiát?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Köszönjük a képaláírás-szerkesztéseidet! Mivel úgy látjuk, hogy szeretsz aláírásokat hozzáadni a képekhez, ezért összeállítottunk egy listát az aláírások nélküli képekből. Segítenél még jobbá tenni a Wikipédiát?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Feloldottad a „Képaláírások fordítása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Feloldottad a „Képaláírások fordítása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Gratulálunk a számos képaláírás-szerkesztésedhez – le vagyunk nyűgözve! Mivel az alkalmazást több nyelven is olvasod, ezért összeállítottunk egy listát, ahol a képeknél hiányzik az aláírások fordítása. Volna kedved ebben besegíteni?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Gratulálunk a számos képaláírás-szerkesztésedhez – le vagyunk nyűgözve! Mivel az alkalmazást több nyelven is olvasod, ezért összeállítottunk egy listát, ahol a képeknél hiányzik az aláírások fordítása. Volna kedved ebben besegíteni?</string>
   <string name="suggested_edits_license_notice">A leírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="suggested_edits_image_caption_license_notice">A képaláírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="suggested_edits_menu_info">Információ</string>
@@ -713,7 +692,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
   <string name="suggested_edits_image_preview_dialog_more_info">További információ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
-  <string name="suggested_edits_article_cta_image_caption">Képaláírás hozzáadása (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Képaláírás hozzáadása (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Képaláírás hozzáadása (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>

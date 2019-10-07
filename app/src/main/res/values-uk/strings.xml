@@ -31,7 +31,7 @@
   <string name="search_hint_voice_search">Голосовий пошук</string>
   <string name="search_hint_search_history">Історія пошуку</string>
   <string name="search_hint_search_languages">Пошук мови</string>
-  <string name="search_hint_search_my_lists_and_articles">Пошук у списках для читання</string>
+  <string name="search_hint_search_my_lists_and_articles">Пошук у читальних списках</string>
   <string name="nav_item_history">Історія</string>
   <string name="nav_item_suggested_edits">Пропоновані редагування</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
@@ -60,11 +60,11 @@
   <string name="menu_page_find_in_page">Знайти на сторінці</string>
   <string name="edit_section_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
-  <string name="menu_page_add_to_list">Додати до списку для читання</string>
-  <string name="feed_card_add_to_list">Додати до списку для читання</string>
+  <string name="menu_page_add_to_list">Додати до читального списку</string>
+  <string name="feed_card_add_to_list">Додати до читального списку</string>
   <string name="menu_page_share">Поділитися посиланням</string>
   <string name="menu_page_open_a_new_tab">Відкрити нову вкладку</string>
-  <string name="menu_page_reading_lists">Списки для читання</string>
+  <string name="menu_page_reading_lists">Читальні списки</string>
   <string name="menu_page_recently_viewed">Нещодавно відвідані</string>
   <string name="menu_long_press_open_page">Відкрити</string>
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
@@ -102,7 +102,7 @@
   <string name="menu_show_toc">Зміст</string>
   <string name="search_no_results_found">Нічого не знайдено</string>
   <string name="search_reading_list_no_results">Не знайдено результатів у «%s»</string>
-  <string name="search_reading_lists_no_results">Не знайдено результатів у списках для читання</string>
+  <string name="search_reading_lists_no_results">Не знайдено результатів у читальних списках</string>
   <string name="search_history_no_results">Не знайдено результатів в історії</string>
   <string name="edit_section_captcha_message">Щоб найкраще захиститися від спаму, будь ласка, введіть слова, які вказано нижче</string>
   <string name="edit_section_captcha_request_an_account_message">Не бачите зображення? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Зробіть запит на створення облікового запису&lt;/a&gt;</string>
@@ -175,10 +175,10 @@
   <string name="preferences_heading_data_usage">Використання даних</string>
   <string name="preferences_heading_experimental">Експериментальні</string>
   <string name="preference_title_sync_reading_lists_from_account">Синхронізація списків читання</string>
-  <string name="preference_title_download_reading_list_articles">Завантажити статті зі списку для читання</string>
+  <string name="preference_title_download_reading_list_articles">Завантажити статті з читального списку</string>
   <string name="preference_summary_sync_reading_lists">Синхронізує списки для читання на різних пристроях зберігаючи у вашому обліковому запису Вікіпедії</string>
   <string name="preference_summary_sync_reading_lists_from_account">Дозволити Вікімедіа синхронізовувати списки для читання з обліковим записом Вікіпедії «%s»</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Видалити синхронізовані списки для читання з «%s»?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Видалити синхронізовані читальні списки з «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Це повністю видалить всі раніше синхронізовані списки збережені віддалено. Видалити всі списки з «%s»?</string>
   <string name="preferences_privacy_settings_heading">Конфіденційність</string>
   <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
@@ -302,8 +302,8 @@
   <string name="button_close_tab">Закрити вкладку</string>
   <string name="tab_item_closed">%s закрито.</string>
   <string name="all_tab_items_closed">Усі вкладки закрито.</string>
-  <string name="tool_tip_bookmark_icon_title">Додати до списку для читання</string>
-  <string name="tool_tip_bookmark_icon_text">Торкніться іконки для закладок, щоб зберегти статтю у списку для читання.</string>
+  <string name="tool_tip_bookmark_icon_title">Додати до читального списку</string>
+  <string name="tool_tip_bookmark_icon_text">Торкніться іконки для закладок, щоб зберегти статтю до читального списку.</string>
   <string name="tool_tip_share">Після виділення цікавого факту, спробуйте поділитися ним у Ваших улюблених мережах!</string>
   <string name="page_view_in_browser">Переглянути сторінку в браузері</string>
   <string name="tool_tip_toc_title">Швидкий доступ до змісту</string>
@@ -317,7 +317,7 @@
   <string name="button_continue_to_article">Читати статтю</string>
   <string name="button_continue_to_disambiguation">Переглянути подібні сторінки</string>
   <string name="link_preview_disambiguation_description">Ця назва стосується більше ніж однієї сторінки</string>
-  <string name="button_add_to_reading_list">Додати до списку для читання</string>
+  <string name="button_add_to_reading_list">Додати до читального списку</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статтю неможливо завантажити, перебуваючи поза мережею.</string>
   <string name="page_offline_notice_add_to_reading_list">Підказка: Додайте статтю до списку для читання, та її буде завантажено, щойно Ви отримаєте доступ до мережі.</string>
   <string name="page_offline_notice_last_date">Ви читаєте автономну версію цієї статті, збережену %s.</string>
@@ -353,7 +353,7 @@
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
-  <string name="article_menu_bar_bookmark">Додати цю статтю до списку для читання</string>
+  <string name="article_menu_bar_bookmark">Додати цю статтю до читального списку</string>
   <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_header_edit_hint">Редагувати...</string>
   <string name="article_header_edit_description">Редагувати опис статті</string>
@@ -373,7 +373,7 @@
   <string name="nav_item_reading_lists">Мої списки</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_create_new">Створити новий</string>
-  <string name="reading_list_title_exists">Список для читання «%s» вже існує.</string>
+  <string name="reading_list_title_exists">Читальний список «%s» вже існує.</string>
   <string name="reading_list_added_to_named">Додано до %s.</string>
   <string name="reading_list_already_exists">Ця стаття вже є в цьому списку.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
@@ -396,7 +396,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Вилучити всі з офлайн-режиму</string>
   <string name="reading_list_action_menu_save_all_for_offline">Зберегти всі для офлайн-режиму</string>
   <string name="reading_list_action_menu_add_to_another_list">Додати до іншого списку</string>
-  <string name="reading_list_name_sample">Мій список для читання</string>
+  <string name="reading_list_name_sample">Мій читальний список</string>
   <string name="reading_list_name_hint">Назва цього списку</string>
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
   <string name="reading_list_item_deleted">%s вилучено зі списку</string>
@@ -415,19 +415,19 @@
   <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>
   <string name="reading_list_article_offline">Доступна автономно</string>
   <string name="reading_list_article_make_offline">Зробити цю статтю доступною офлайн</string>
-  <string name="reading_list_add_to_other_list">Додати до іншого списку для читання</string>
+  <string name="reading_list_add_to_other_list">Додати до іншого читального списку</string>
   <string name="reading_list_remove_from_list">Вилучити з %s</string>
-  <string name="reading_list_remove_from_lists">Вилучити зі списків для читання</string>
+  <string name="reading_list_remove_from_lists">Вилучити із читальних списків</string>
   <string name="reading_list_select_item">Обрати</string>
   <string name="reading_list_confirm_remove_article_from_offline">Вилучити з автономного списку</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Стаття входить до декількох списків</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s тепер не буде доступна автономно для всіх списків:</string>
-  <string name="reading_lists_sync_reminder_title">Увімкнути синхронізацію списків для читання?</string>
-  <string name="reading_lists_sync_reminder_text">Статті, збережені у списках для читання тепер можна синхронізувати з Вашим обліковим записом у Вікіпедії. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнайтесь більше&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Списки для читання тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігання таких списків. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатись більше&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_title">Увімкнути синхронізацію читальних списків?</string>
+  <string name="reading_lists_sync_reminder_text">Статті, збережені у читальних списках тепер можна синхронізувати із Вашим обліковим записом у Вікіпедії. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнайтесь більше&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігання таких списків. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Увімкнути синхронізацію</string>
-  <string name="reading_list_login_reminder_title">Синхронізувати списки для читання</string>
-  <string name="reading_lists_login_reminder_text">Списки для читання тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігати такі списки.</string>
+  <string name="reading_list_login_reminder_title">Синхронізувати читальні списки</string>
+  <string name="reading_lists_login_reminder_text">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігати такі списки.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Так</string>
   <string name="reading_lists_confirm_remote_delete_no">Ні</string>
   <string name="reading_list_article_save_in_progress">Стаття завантажується, вона буде доступна в автономному режимі по завершенню.</string>
@@ -438,11 +438,11 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Увійдіть, щоб дозволити зберігати Ваші списки для читання у Вашому обліковому записі.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Скасувати</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Увійти</string>
-  <string name="reading_list_turned_sync_off_dialog_title">Синхронізацію списків для читання вимкнено</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Синхронізацію списків для читання вимкнено для Вашого облікового запису, тож списки статей на пристроях, з яких Ви входите в систему, більше не оновлюватимуться. Увімкніть синхронізацію списків для читання в налаштуваннях.</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Синхронізацію читальних списків вимкнено</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Синхронізацію читальних списків вимкнено для Вашого облікового запису, тож списки статей на пристроях, з яких Ви входите в систему, більше не оновлюватимуться. Увімкніть синхронізацію читальних списків у налаштуваннях.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Готово</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Налаштування</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Увімкнути синхронізацію списків для читання?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Увімкнути синхронізацію читальних списків?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Статті, збережені у списки читання, тепер можна синхронізувати зі своїм обліковим записом у Вікіпедії. &lt;a href=\"#faq\"&gt;Дізнатися більше&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показувати цього знову</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Увімкнути синхронізацію</string>
@@ -610,9 +610,8 @@
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
   <string name="feed_accessibility_card_load_more_button">Завантажити ще</string>
   <string name="description_edit_text_hint">Опис статті</string>
-  <string name="description_edit_article_description_label_per_language">Стаття (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Стаття (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис статті (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Опис зображення (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Опис зображення (%s)</string>
   <string name="description_edit_save">Опублікувати</string>
   <string name="description_edit_read">Читати</string>
@@ -659,26 +658,6 @@
   <string name="suggested_edits_review_image_caption">Перевірити опис зображення</string>
   <string name="suggested_edits_my_contributions">Мій внесок</string>
   <string name="suggested_edits_no_description">Цей файл не має опису</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ви розблокували завдання «Додавання описів статей»</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Дякуємо за ваш внесок! Оскільки ви чудово редагуєте, ми підготували для вас список статей, яким бракує описів. Допоможете нам покращити Вікіпедію?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ви розблокували завдання «Перекласти описи статей»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Вітаємо вас зі значним внеском, ми вражені! Ви використовуєте додаток багатьма мовами, тож ми склали список статей, що потребують перекладу описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
-  <string name="suggested_edits_unlock_dialog_no">Можливо, пізніше</string>
-  <string name="suggested_edits_unlock_dialog_yes">Гаразд, почнімо</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Ви розблокувати «Додавання описів статей»</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Ви розблокували «Перекласти описи статей»</string>
-  <string name="suggested_edits_unlock_notification_text">Пропоновані редагування</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Пропоновані редагування\n\nДякуємо за ваш внесок! Оскільки ви чудово редагуєте, ми підготували для вас список статей, яким бракує описів. Допоможете нам покращити Вікіпедію?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Пропоновані редагування\n\nВітаємо вас зі значним внеском, ми вражені! Ви використовуєте додаток багатьма мовами, тож ми склали список статей, що потребують перекладу описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
-  <string name="suggested_edits_unlock_notification_button">Гаразд, почнімо</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Ви розблокували завдання «Додавання описів зображень»</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Ви розблокували «Додавання описів зображень»</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Дякуємо за ваш внесок! Схоже, що вам подобається додавати описи зображень. Можливо, вас зацікавить список зображень, які потребують описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Пропоновані редагування\n\nДякуємо за ваш внесок! Схоже що вам подобається додавати описи зображень. Можливо вас зацікавить список зображень, які потребують описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Ви розблокували завдання «Переклад описів зображень»</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Ви розблокували «Переклад описів зображень»</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Вітаємо вас зі значним внеском, ми вражені! Ви використовуєте додаток багатьма мовами, тож ми склали список зображень, які потребують перекладу описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Пропоновані редагування\n\nВітаємо вас зі значним внеском, ми вражені! Ви використовуєте додаток багатьма мовами, тож ми склали список зображень, що потребують перекладу описів. Хочете продовжити допомагати нам покращувати Вікіпедію?</string>
   <string name="suggested_edits_license_notice">Додаючи описи, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Додаючи описи зображень, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Інфо</string>
@@ -718,7 +697,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Ліцензування</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Більше інформації</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Сторінка файлу на Вікісховищі</string>
-  <string name="suggested_edits_article_cta_image_caption">Додати опис зображення (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Додати опис зображення (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Додати опис зображення (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додати опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додати опис (%s)</string>
@@ -741,18 +721,18 @@
   <string name="onboarding_maybe_later">Можливо, пізніше</string>
   <string name="onboarding_explore_title">Пізнаємо по-новому</string>
   <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
-  <string name="onboarding_reading_list_sync_title">Синхронізовані списки для читання</string>
+  <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Надіслати анонімні дані</string>
   <string name="onboarding_analytics_offline_text">Допоможіть нам покращити додаток, повідомляючи, як ви його використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
-  <string name="onboarding_create_account_sync">Синхронізувати свої списки для читання</string>
+  <string name="onboarding_create_account_sync">Синхронізувати свої читальні списки</string>
   <string name="onboarding_create_account_contributions">Слідкувати за своїм внеском</string>
   <string name="onboarding_create_account_preferences">Зберігати налаштування</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
   <string name="onboarding_multilingual_add_language_text">Додати або редагувати мови</string>
-  <string name="onboarding_welcome_title_v2">Вільна енциклопедія\n…понад 300 мовних версій</string>
+  <string name="onboarding_welcome_title_v2">Вільна енциклопедія\n…понад 300 мовами</string>
   <string name="app_shortcuts_random">Випадкова</string>
   <string name="app_shortcuts_continue_reading">Продовжити читання</string>
   <string name="app_shortcuts_search">Пошук</string>
@@ -779,7 +759,7 @@
     <item quantity="one">Вилучити обрану мову?</item>
     <item quantity="other">Вилучити обрані мови?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">Ви бачитимете вміст у стрічці та фільтрах швидкого пошуку тими мовами Вікіпедії, що залишилися.</string>
+  <string name="wikipedia_languages_remove_dialog_content">Ви будете бачити вміст у стрічці та фільтрах швидкого пошуку тими мовами Вікіпедії, що залишилися.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Неможливо вилучити усі мови</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Залиште хоча б одну мову Вікіпедії, якою шукатимете й читатимете матеріали.</string>
   <string name="more_language_options">більше</string>

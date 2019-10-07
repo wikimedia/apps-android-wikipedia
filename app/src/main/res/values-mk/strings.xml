@@ -595,9 +595,8 @@
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
   <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
-  <string name="description_edit_article_description_label_per_language">Статија (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Статија (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис на статијата (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Опис на сликата (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Опис на сликата (%s)</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_read">Прочитај</string>
@@ -644,26 +643,6 @@
   <string name="suggested_edits_review_image_caption">Прегледај описи на слики</string>
   <string name="suggested_edits_my_contributions">Мои придонеси</string>
   <string name="suggested_edits_no_description">Податотекава нема опис</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Ја отклучивте задачата „Додај описи на статии“</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Ви благодариме на придонесите! Бидејќи сте одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Ја отклучивте задачата „Преведи описи на статии“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Ви благодариме за бројните придонеси! Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_unlock_dialog_no">Можеби подоцна</string>
-  <string name="suggested_edits_unlock_dialog_yes">Да, ајде</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Го отклучивте „Додај описи на статиите“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Го отклучивте „Преведи описи“</string>
-  <string name="suggested_edits_unlock_notification_text">Предложени уредувања</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Предложени уредувања\n\nБлагодариме за сите ваши придонеси. Бидејќи сте така одлични уредници, составивме список на статии кои немаат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Предложени уредувања\n\nВи благодариме за вашите многубројни придонеси. Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на статии чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_unlock_notification_button">Да, ајде</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Ја отклучивте задачата „Додај описи на сликите“</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Го отклучивте „Додај описи на сликите“</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Ви благодариме на сите уредувања описи на сликите! Гледаме дека сакате да додавате описи на слики. Затоа, составивме список од слики на кои треба да им се дадат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Предложени уредувања\n\nВи благодариме на сите уредувања на описите на сликите! Гледаме дека сакате да додавате описи на слики. Затоа, составивме список од слики на кои треба да им се дадат описи. Дали би ни помогнале да ја подобриме Википедија?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Ја отклучивте задачата „Преведи описи на слики“</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Го отклучивте „Преведи описи на слики“</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Честитки за многуте уредувања во описите на сликите! Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на слики чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Предложени уредувања\n\nЧеститки за многуте уредувања во описите на сликите! Восхитени сме! Го користите прилогот на повеќе јазици, па затоа составивме список на слики чии описи треба да се преведат. Дали би продолжиле да ни помагате во подобрувањето на Википедија?</string>
   <string name="suggested_edits_license_notice">Додавајќи го описот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_image_caption_license_notice">Додавајќи го описот на сликата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">Инфо</string>
@@ -703,7 +682,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
-  <string name="suggested_edits_article_cta_image_caption">Додај опис на сликата (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Додај опис на сликата (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Додај опис на сликата (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
