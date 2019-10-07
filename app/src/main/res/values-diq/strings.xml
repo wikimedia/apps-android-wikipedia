@@ -64,9 +64,6 @@
   <string name="on_this_day_page_share">Vıla ke</string>
   <string name="reading_list_page_share">Vıla ke</string>
   <string name="menu_text_select_edit_here">Tiyay bıvurnê</string>
-  <string name="nav_item_nearby">Nezdıra</string>
-  <string name="nearby_zoom_to_location">Xeritay sero yu cay zoom ke</string>
-  <string name="nearby_osm_license">İştirakwanê  &amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMapi&lt;/a&gt;</string>
   <string name="last_updated_text">Peyên rocaniye %s</string>
   <string name="talk_page_link_text">Pela werênayışi bıvênên</string>
   <string name="edit_history_link_text">Tarixê vurnayışi bıvênên</string>
@@ -171,7 +168,7 @@
   <string name="edit_summary_tag_links">Gıreyê cıbiyayeyi</string>
   <string name="edit_summary_tag_other">Sewbi</string>
   <string name="find_next">Peyêni bıvin</string>
-  <string name="find_previous">Verêni bıvin</string>
+  <string name="find_previous">Verêni bıvêne</string>
   <string name="text_size_select">çapa fonti</string>
   <string name="page_similar_titles">Zey cı peri</string>
   <string name="search_did_you_mean">To ker kı vacê %s?</string>
@@ -190,6 +187,7 @@
   <string name="alpha_update_notification_text">Qandé ronayışi dest pan</string>
   <string name="dialog_close_description">Kip ke</string>
   <string name="preference_title_show_images">Resıman bımocne</string>
+  <string name="read_more_section">Tayêna bıwane</string>
   <string name="gallery_menu_share">Vıla ke</string>
   <string name="snippet_share_intro">\"%1$s\" dı @Wikipedia: %2$s</string>
   <string name="menu_new_tab">Taba newi</string>
@@ -277,16 +275,11 @@
   <string name="suggested_edits_add_translation_button" fuzzy="true">Açarnayış cı ke</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Çarnayışi bıvurne</string>
   <string name="suggested_edits_my_contributions">İştirakê mı</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Belkiya badêna</string>
-  <string name="suggested_edits_unlock_dialog_yes">Eya, hadê şime</string>
-  <string name="suggested_edits_unlock_notification_button">Eya, hadê şime</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true"/>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Seba iştiakanê şıma rê teşekur kem. A fıkıtyayım ke şıma qayılê resiman rê nuştey resimi cı kerê, ma lista resimanê ke nuştey resimi çıniyo ma ê arêday pêser. Şıma şenê marê seba Wikipedia ravêr berdışi rê peşti bıdê</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true"/>
   <string name="suggested_edits_menu_info">Melumat</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>

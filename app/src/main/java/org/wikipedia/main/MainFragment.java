@@ -42,7 +42,6 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
-import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -53,6 +52,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -75,7 +75,7 @@ import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
+        HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     private Unbinder unbinder;
@@ -136,6 +136,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        SuggestedEditsSurvey.maybeRunSurvey(requireActivity());
     }
 
     @Override public void onDestroyView() {
@@ -159,6 +160,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             refreshExploreFeed();
             ((MainActivity) requireActivity()).setUpHomeMenuIcon();
             FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            tabLayout.setTabViews();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -263,7 +265,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), options.toBundle());
+        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), card.image() != null ? options.toBundle() : null);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
@@ -322,18 +324,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void requestUpdateToolbarElevation() {
         Fragment fragment = getCurrentFragment();
         updateToolbarElevation(!(fragment instanceof FeedFragment) || ((FeedFragment) fragment).shouldElevateToolbar());
-    }
-
-    @Override public void onLoading() {
-        // todo: [overhaul] update loading indicator.
-    }
-
-    @Override public void onLoaded() {
-        // todo: [overhaul] update loading indicator.
-    }
-
-    @Override public void onLoadPage(@NonNull HistoryEntry entry, @Nullable Location location) {
-        showLinkPreview(entry, location);
     }
 
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {

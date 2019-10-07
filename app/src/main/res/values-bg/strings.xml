@@ -65,9 +65,6 @@
   <string name="on_this_day_page_share">Споделяне</string>
   <string name="reading_list_page_share">Споделяне</string>
   <string name="menu_text_select_edit_here">Редактиране тук</string>
-  <string name="nav_item_nearby">Наблизо</string>
-  <string name="nearby_zoom_to_location">Приближаване към място на картата</string>
-  <string name="nearby_osm_license">сътрудници на &amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последна промяна: %s</string>
   <string name="talk_page_link_text">Преглед на беседата</string>
   <string name="edit_history_link_text">Преглед на историята на редакциите</string>
@@ -122,6 +119,8 @@
   <string name="preference_title_logout">Излизане</string>
   <string name="toast_logout_complete">Излезли сте от системата</string>
   <string name="logout_dialog_cancel_button_text">Отказ</string>
+  <string name="logged_out_in_background_title">Излезли сте от системата</string>
+  <string name="logged_out_in_background_login">Влизане</string>
   <string name="logged_out_in_background_cancel">Отказ</string>
   <string name="history_empty_title">Няма скорошно преглеждани статии</string>
   <string name="history_empty_message">Следете какво сте чели тук.</string>
@@ -277,6 +276,7 @@
   <string name="captcha_image">Изображение за проверка</string>
   <string name="gallery_fair_use_license">Честна употреба</string>
   <string name="gallery_uploader_unknown">Неизвестен потребител</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Затваряне</string>
   <string name="menu_new_tab">Нов раздел</string>
   <string name="menu_close_all_tabs">Затваряне на всички раздели</string>
   <string name="close_all_tabs_confirm">Сигурни ли сте, че искате да затворите всички раздели?</string>
@@ -336,7 +336,7 @@
   <string name="article_menu_bar_bookmark">Добавяне на статията в списъка за четене</string>
   <string name="article_menu_bar_share">Споделяне на връзка към статията</string>
   <string name="article_header_edit_hint">Редактиране...</string>
-  <string name="article_header_edit_description" fuzzy="true">Редактиране на описанието на заглавието</string>
+  <string name="article_header_edit_description">Редактиране на описанието на статията</string>
   <string name="article_header_edit_lead_section">Редактиране на увода</string>
   <string name="color_theme_select">Облик</string>
   <string name="color_theme_light">Светъл</string>
@@ -398,6 +398,7 @@
   <string name="reading_list_add_to_other_list">Добавяне в друг списък за четене</string>
   <string name="reading_list_remove_from_list">Премахване от %s</string>
   <string name="reading_list_remove_from_lists">Премахване от списъците за четене</string>
+  <string name="reading_list_select_item">Избиране</string>
   <string name="reading_list_confirm_remove_article_from_offline">Премахване от офлайн достъп</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Статията се намира в няколко списъка</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повече няма да е налична офлайн за всички списъци за четене:</string>
@@ -517,8 +518,7 @@
   <string name="preference_title_notification_poll">Известия за анкети</string>
   <string name="preference_summary_notification_poll">Позволяване на приложението да използва данни за проверка на нови известия в заден план.</string>
   <string name="preference_category_notification_types">Видове известия в приложението</string>
-  <string name="preference_title_notification_welcome">Добре дошли</string>
-  <string name="preference_summary_notification_welcome">Създадена е сметка</string>
+  <string name="preference_title_notification_system">Система</string>
   <string name="preference_title_notification_milestone">Достижение</string>
   <string name="preference_summary_notification_milestone">Достигнат е определен брой редакции</string>
   <string name="preference_title_notification_thanks">Благодарност</string>
@@ -575,11 +575,14 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
-  <string name="description_edit_text_hint" fuzzy="true">Описание на заглавието</string>
+  <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
+  <string name="description_edit_text_hint">Описание на статията</string>
+  <string name="description_edit_article_description_label_per_language">Статия (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Описание на статията (%s)</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_read">Прочитане</string>
-  <string name="description_edit_add_description" fuzzy="true">Добавяне на описание на заглавието</string>
-  <string name="description_edit_edit_description" fuzzy="true">Редактиране на описанието</string>
+  <string name="description_edit_add_description">Добавяне на описание на статията</string>
+  <string name="description_edit_edit_description">Редактиране на описанието на статията</string>
   <string name="description_edit_cancel_hint">Отказ</string>
   <string name="description_edit_help_title" fuzzy="true">Помощ: описания на заглавието</string>
   <string name="description_edit_help_about_wikidata">Относно Уикиданни</string>
@@ -605,11 +608,6 @@
   <string name="suggested_edits_add_translation_button">Добавяне на превод</string>
   <string name="suggested_edits_edit_translation_button">Редактиране на превод</string>
   <string name="suggested_edits_my_contributions">Моите приноси</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Добавяне на описания“</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Поздравления за Вашия трети принос! Понеже Вие сте изключително добър в редактирането, ние съставихме списък на статиите с липсващи описания. Бихте ли ни помогнали да подобрим Уикипедия?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Превод на описания“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Поздравления за Вашите 50 приноса, впечатлени сме! Ползвате приложението в повече езици, затова съставихме списък от статии, които се нуждаят от превод на описанията. Бихте ли продължили да ни помагате, подобрявайки Уикипедия?</string>
-  <string name="suggested_edits_unlock_dialog_no">Може би после</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задачи за приложния редактор</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Добавяне на описания</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
@@ -629,8 +627,10 @@
     <item quantity="one">1 принос</item>
     <item quantity="other">%d приноса</item>
   </plurals>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавяне на описание на статията (%s)</string>
   <string name="suggested_edits_tutorial_message">Добре дошли в новия дом за редактиране от приложение на Уикипедия. Тук ще ви предложим възможности за добавяне на съдържание, което може да ви заинтересува. Вашите приноси са високо ценени. Успех!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започване</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание на изображението (%s)</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
@@ -699,6 +699,11 @@
   <string name="protected_page_warning_dialog_ok_button_text">Добре</string>
   <string name="edit_conflict_dialog_ok_button_text">Добре</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Отказ</string>
+  <string name="wikitext_bulleted_list">Точкуван списък</string>
+  <string name="wikitext_numbered_list">Номериран списък</string>
+  <string name="wikitext_template">Шаблон</string>
+  <string name="wikitext_reference">Източник</string>
+  <string name="wikitext_preview_link">Преглед на връзката</string>
   <string name="main_drawer_open">Отваряне</string>
   <string name="main_drawer_close">Затваряне</string>
   <string name="main_drawer_help">Помощ</string>

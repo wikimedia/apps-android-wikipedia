@@ -95,6 +95,7 @@ public class LangLinksActivity extends BaseActivity {
 
         fetchLangLinks();
 
+        langLinksError.setBackClickListener((v) -> onBackPressed());
         langLinksError.setRetryClickListener((v) -> {
             ViewAnimations.crossFade(langLinksError, langLinksProgress);
             fetchLangLinks();
@@ -212,7 +213,7 @@ public class LangLinksActivity extends BaseActivity {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .map(SiteMatrix::getSites)
-                    .doFinally(() -> {
+                    .doAfterTerminate(() -> {
                         langLinksProgress.setVisibility(View.INVISIBLE);
                         adapter.notifyDataSetChanged();
                     })
@@ -226,7 +227,7 @@ public class LangLinksActivity extends BaseActivity {
 
     private void fetchLangLinks() {
         if (languageEntries == null) {
-            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getPrefixedText())
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getConvertedText())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
@@ -265,7 +266,7 @@ public class LangLinksActivity extends BaseActivity {
                 for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                         AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
 
-                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
+                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getConvertedText(),
                             WikiSite.forLanguageCode(dialect)));
                 }
             }
@@ -299,8 +300,9 @@ public class LangLinksActivity extends BaseActivity {
 
             for (String languageCode : chineseLanguageCodes) {
                 if (!title.getWikiSite().languageCode().contains(languageCode)) {
-                    languageEntries.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getPrefixedText(),
-                            WikiSite.forLanguageCode(languageCode)));
+                    PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
+                    pageTitle.setConvertedText(title.getConvertedText());
+                    languageEntries.add(pageTitle);
                 }
             }
         }

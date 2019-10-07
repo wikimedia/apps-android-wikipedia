@@ -20,6 +20,7 @@
   <string name="page_tabs_back">Natrag</string>
   <string name="nav_item_forward">Naprijed</string>
   <string name="search_hint">Pretraži Wikipediju</string>
+  <string name="search_hint_voice_search">Pretraživanje glasom</string>
   <string name="search_hint_search_history">Pretraživanje povijesti</string>
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
@@ -65,8 +66,6 @@
   <string name="on_this_day_page_share">Podijeli</string>
   <string name="reading_list_page_share">Podijeli</string>
   <string name="menu_text_select_edit_here">Uredi ovdje</string>
-  <string name="nav_item_nearby">U blizini</string>
-  <string name="nearby_zoom_to_location">Približi lokaciju na zemljovidu</string>
   <string name="last_updated_text">Zadnji put ažurirano %s</string>
   <string name="talk_page_link_text">Pogledaj stranicu za razgovor</string>
   <string name="edit_history_link_text">Pogledaj povijest izmjena</string>
@@ -157,6 +156,7 @@
   <string name="preferences_heading_data_usage">Korištenje podataka</string>
   <string name="preferences_heading_experimental">Eksperimentalno</string>
   <string name="preference_title_sync_reading_lists_from_account">Sinkronizacija popisa za čitanje</string>
+  <string name="preference_title_download_reading_list_articles">Preuzmi članke s popisa za čitanje</string>
   <string name="preferences_privacy_settings_heading">Privatnost</string>
   <string name="preference_title_eventlogging_opt_in">Slanje izvješća o korištenju</string>
   <string name="preference_summary_eventlogging_opt_in">Dopusti Wikimediji da sakuplja anonimne informacije o vašoj aktivnosti kako bi poboljšala aplikaciju</string>
@@ -212,6 +212,8 @@
   <string name="edit_conflict_title">Sukob uređivanja</string>
   <string name="find_next">Traži sljedeće</string>
   <string name="find_previous">Traži prethodno</string>
+  <string name="find_first_occurence">Ovo je prvo pojavljivanje</string>
+  <string name="find_last_occurence">Ovo je posljednje pojavljivanje</string>
   <string name="abusefilter_title_warn">Ovo uređivanje možda je nekonstruktivno. Želite li ga objaviti?</string>
   <string name="abusefilter_title_disallow">Ne možete objaviti ovo uređivanje. Vratite se natrag i promijenite ga.</string>
   <string name="abusefilter_text_warn">Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno. Moguće je da sadrži nešto od sljedećeg:&lt;br /&gt;&lt;br /&gt;· pisanje tiskanim slovima&lt;br /&gt;· brisanje članaka ili spamiranje&lt;br /&gt;· nevažne vanjske poveznice ili slike&lt;br /&gt;· ponavljanje znakova</string>
@@ -238,6 +240,7 @@
   <string name="preference_title_show_images">Prikaži slike</string>
   <string name="preference_summary_show_images">Omogući ili onemogući učitavanje slika na stranicama. Poništite ovu postavku ako je brzina interneta mala ili ako imate ograničen promet podataka.</string>
   <string name="preference_title_download_only_over_wifi">Preuzimaj samo preko Wi-Fi veze</string>
+  <string name="dialog_title_download_only_over_wifi">Potvrđivanje preuzimanja koristeći mobilne podatke?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Dopusti</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
@@ -261,6 +264,7 @@
   <string name="captcha_image">Captcha slika</string>
   <string name="gallery_fair_use_license">Poštena upotreba</string>
   <string name="gallery_uploader_unknown">Postavljač nepoznat</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Odbaci</string>
   <string name="menu_new_tab">Nova kartica</string>
   <string name="menu_close_all_tabs">Zatvori sve kartice</string>
   <string name="close_all_tabs_confirm">Želite li zaista zatvoriti sve kartice?</string>
@@ -294,6 +298,8 @@
   <string name="view_link_preview_error_button_dismiss">Odbaci</string>
   <string name="error_page_does_not_exist">Ova stranica ne postoji</string>
   <string name="view_wiki_error_message_offline">Nije moguće spojiti se s Internetom</string>
+  <string name="reference_title">Izvor %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjivanje slika (u tamnoj temi)</string>
   <string name="preference_title_prefer_offline_content">Preferiraj izvanmrežni sadržaj</string>
   <string name="preference_summary_prefer_offline_content">Uštedite mobilne podatke tako da se učitava dostupan izvanmrežni sadržaj umjesto učitavanja najnovije inačice članka</string>
   <string name="crash_report_dialog_title">Žao nam je, aplikacija se zadnji put srušila</string>
@@ -361,6 +367,7 @@
   <string name="reading_list_remove_from_list">Ukloni s popisa %s</string>
   <string name="reading_list_remove_from_lists">Ukloni s popisa za čitanje</string>
   <string name="reading_list_select_item">Odaberi</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Ukloni iz izvanmrežne pohrane</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Članak se pojavljuje na više popisa</string>
   <string name="reading_lists_sync_reminder_title">Uključiti sinkronizaciju popisa za čitanje?</string>
   <string name="reading_lists_sync_reminder_action">Omogući sinkronizaciju</string>
@@ -374,11 +381,14 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Prijavite se za omogućavanje sinkronizacije</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Odustani</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Prijava</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Sinkronizacija popisa za čitanje isključena</string>
   <string name="reading_list_turned_sync_off_dialog_ok">U redu</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Postavke</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Uključiti sinkronizaciju popisa za čitanje?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne prikazuj ovo ponovno</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Omogući sinkronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
+  <string name="reading_list_login_option_reminder_dialog_title">Pronađeni članci na popisima za čitanje</string>
   <string name="reading_list_login_option_reminder_dialog_no">Ne, izbriši članke</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">Da, zadrži članke na popisima</string>
   <string name="reading_list_logout_option_reminder_dialog_no">Ne, izbriši članke s popisa</string>
@@ -422,10 +432,20 @@
   <string name="notification_preferences_title">Postavke obavijesti</string>
   <string name="notifications_mark_unread">Označi kao nepročitano</string>
   <string name="preference_category_notification_types">Vrste obavijesti unutar aplikacije</string>
-  <string name="preference_title_notification_welcome">Dobro došli</string>
-  <string name="preference_summary_notification_welcome">Račun je stvoren</string>
+  <string name="preference_title_notification_system">Sustav</string>
+  <string name="preference_summary_notification_system">Poruke sustava</string>
+  <string name="preference_title_notification_milestone">Postignuće</string>
+  <string name="preference_summary_notification_milestone">Dostizanje određenog broja uređivanja</string>
   <string name="preference_title_notification_thanks">Zahvala</string>
+  <string name="preference_summary_notification_thanks">Netko Vam zahvaljuje na uređivanju</string>
   <string name="preference_title_notification_revert">Vraćanje</string>
+  <string name="preference_summary_notification_revert">Vaše uređivanje je uklonjeno</string>
+  <string name="preference_title_notification_login_fail">Prijava</string>
+  <string name="preference_summary_notification_login_fail">Vaše aktivnosti prijave</string>
+  <string name="preference_title_notification_mention">Spominjanje</string>
+  <string name="preference_summary_notification_mention">Netko Vas spominje na stranici</string>
+  <string name="preference_title_notification_user_talk">Stranica za razgovor</string>
+  <string name="preference_summary_notification_user_talk">Poruke sa stranica za razgovor</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>
   <string name="view_random_card_subtitle">Pregledavajte nasumične članke za čitanje s Wikipedije.</string>
@@ -463,6 +483,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Odustani</string>
   <string name="feed_lang_selection_dialog_ok_button_text">U redu</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Odustani</string>
+  <string name="feed_accessibility_card_load_more_button">Učitaj više</string>
   <string name="description_edit_text_hint">Opis članka</string>
   <string name="description_edit_article_description_label_per_language">Članak (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
@@ -503,9 +524,6 @@
   <string name="suggested_edits_review_image_caption">Pregledaj opis slike</string>
   <string name="suggested_edits_my_contributions">Moji doprinosi</string>
   <string name="suggested_edits_no_description">Ova datoteka nema opis</string>
-  <string name="suggested_edits_unlock_dialog_no">Možda kasnije</string>
-  <string name="suggested_edits_unlock_dialog_yes">Da, idemo</string>
-  <string name="suggested_edits_unlock_notification_text">Predložena uređivanja</string>
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_tasks_activity_title">Predložena uređivanja</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opise članka</string>
@@ -519,11 +537,14 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Umjetnik</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
+  <string name="suggested_edits_image_preview_dialog_source">Izvor/fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj opis (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj opis slike (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>

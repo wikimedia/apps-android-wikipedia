@@ -10,4 +10,6 @@
 
     <dimen name="textSize">16sp</dimen>
 
+    <dimen name="snackbar_action_inline_max_dimen">0dp</dimen>
+
 </resources>

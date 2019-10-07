@@ -32,7 +32,7 @@
             android:layout_height="128dp"
             android:layout_gravity="center"
             android:contentDescription="@null"
-            android:src="@drawable/ic_play_circle" />
+            app:srcCompat="@drawable/ic_play_circle" />
     </FrameLayout>
 
     <org.wikipedia.views.ZoomableDraweeViewWithBackground

@@ -10,10 +10,12 @@
     <string name="page_tabs_back">Back</string>
     <string name="nav_item_forward">Forward</string>
     <string name="search_hint">Search Wikipedia</string>
+    <string name="search_hint_voice_search">Voice input search</string>
     <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
     <string name="nav_item_history">History</string>
+    <string name="nav_item_suggested_edits">Suggested Edits</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
     <string name="card_offline_error_retry">Retry</string>
@@ -64,11 +66,6 @@
     <string name="on_this_day_page_share">Share</string>
     <string name="reading_list_page_share">Share</string>
     <string name="menu_text_select_edit_here">Edit here</string>
-
-    <!-- Nearby -->
-    <string name="nav_item_nearby">Nearby</string>
-    <string name="nearby_zoom_to_location">Zoom to a location on the map</string>
-    <string name="nearby_osm_license"><![CDATA[&copy; &nbsp;<a href=\"https://www.openstreetmap.org/copyright/\">OpenStreetMap</a> contributors]]></string>
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="talk_page_link_text">View talk page</string>
@@ -276,6 +273,7 @@
     <string name="gallery_save_success">File saved successfully.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
+    <string name="gallery_add_image_caption_button">Add image caption</string>
     <string name="gallery_add_image_caption_in_language_button">Add image caption (%s)</string>
     <string name="err_cannot_save_file">Cannot save file</string>
     <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
@@ -334,6 +332,7 @@
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
+    <string name="view_wiki_error_message_timeout">Cannot connect to Wikipedia. Check your network connection, or try again later</string>
     <string name="reference_title">Reference %s</string>
     <string name="reference_list_title">References</string>
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
@@ -550,14 +549,20 @@
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
     <string name="preference_category_notification_types">In-app notification types</string>
-    <string name="preference_title_notification_welcome">Welcome</string>
-    <string name="preference_summary_notification_welcome">An account is created</string>
+    <string name="preference_title_notification_system">System</string>
+    <string name="preference_summary_notification_system">Messages from system</string>
     <string name="preference_title_notification_milestone">Milestone</string>
     <string name="preference_summary_notification_milestone">Certain edit counts are reached</string>
     <string name="preference_title_notification_thanks">Thanks</string>
     <string name="preference_summary_notification_thanks">Someone thanks you for an edit</string>
     <string name="preference_title_notification_revert">Revert</string>
     <string name="preference_summary_notification_revert">One of your contributions was reverted</string>
+    <string name="preference_title_notification_login_fail">Login</string>
+    <string name="preference_summary_notification_login_fail">Your log in activities</string>
+    <string name="preference_title_notification_mention">Mention</string>
+    <string name="preference_summary_notification_mention">Someone mentions you in a page</string>
+    <string name="preference_title_notification_user_talk">Talk page</string>
+    <string name="preference_summary_notification_user_talk">Messages from talk pages</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -615,13 +620,18 @@
     <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Explore feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
     <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
     <string name="feed_lang_selection_dialog_cancel_button_text">Cancel</string>
+    <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
+    <string name="feed_accessibility_card_load_more_button">Load more</string>
     <!-- /The Feed -->
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
-    <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+    <string name="description_edit_article_description_label">Article</string>
+    <string name="description_edit_translate_article_description_label_per_language">Article description (%s)</string>
     <string name="description_edit_translate_article_description_hint_per_language">Article description (%s)</string>
-    <string name="description_edit_add_caption_label_per_language">Image description (%s)</string>
+    <string name="description_edit_add_caption_label">Image description</string>
+    <string name="description_edit_add_caption_hint">Image caption</string>
+    <string name="description_edit_translate_caption_label_per_language">Image caption (%s)</string>
     <string name="description_edit_translate_caption_hint_per_language">Image caption (%s)</string>
     <string name="description_edit_save">Publish</string>
     <string name="description_edit_read">Read</string>
@@ -678,26 +688,6 @@
     <string name="suggested_edits_review_image_caption">Review image caption</string>
     <string name="suggested_edits_my_contributions">My contributions</string>
     <string name="suggested_edits_no_description">This file does not have a description</string>
-    <string name="suggested_edits_unlock_add_descriptions_dialog_title">You unlocked the "Add article descriptions" task</string>
-    <string name="suggested_edits_unlock_add_descriptions_dialog_message">Thanks for all your contributions! Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_translate_descriptions_dialog_title">You unlocked the "Translate article descriptions" task</string>
-    <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Congratulations on your many contributions, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
-    <string name="suggested_edits_unlock_dialog_no">Maybe later</string>
-    <string name="suggested_edits_unlock_dialog_yes">Yes, let’s go</string>
-    <string name="suggested_edits_unlock_add_descriptions_notification_title">You unlocked "Add article descriptions"</string>
-    <string name="suggested_edits_unlock_translate_descriptions_notification_title">You unlocked "Translate article descriptions"</string>
-    <string name="suggested_edits_unlock_notification_text">Suggested edits</string>
-    <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Suggested edits\n\nThanks for all your contributions. Since you’re super good at editing, we’ve compiled a list of articles missing descriptions. Could you help us to improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Suggested edits\n\nCongratulations on your many contributions, we’re impressed! You’re using the app in multiple languages, so we’ve compiled a list of articles needing description translations. Could you continue to help us improving Wikipedia?</string>
-    <string name="suggested_edits_unlock_notification_button">Yes, let’s go</string>
-    <string name="suggested_edits_unlock_add_captions_dialog_title">You unlocked the "Add image captions" task</string>
-    <string name="suggested_edits_unlock_add_captions_notification_title">You unlocked "Add image captions"</string>
-    <string name="suggested_edits_unlock_add_captions_dialog_message">Thanks for all your image caption edits! Since we see you like adding captions to images, we’ve compiled a list of images missing captions. Could you help us improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_add_captions_notification_big_text">Suggested edits\n\nThanks for all your image caption edits! Since we see you like adding captions to images, we’ve compiled a list of images missing captions. Could you help us improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_translate_captions_dialog_title">You unlocked the "Translate image captions" task</string>
-    <string name="suggested_edits_unlock_translate_captions_notification_title">You unlocked "Translate image captions"</string>
-    <string name="suggested_edits_unlock_translate_captions_dialog_message">Congratulations on your many image caption edits - we’re amazed! You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Could you continue to help us improve Wikipedia?</string>
-    <string name="suggested_edits_unlock_translate_captions_notification_big_text">Suggested edits\n\nCongratulations on your many image caption edits - we’re amazed! You’re using the app in multiple languages, so we’ve compiled a list of images needing caption translations. Could you continue to help us improve Wikipedia?</string>
     <string name="suggested_edits_license_notice"><![CDATA[By adding the description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_image_caption_license_notice"><![CDATA[By adding the image caption, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
@@ -737,11 +727,14 @@
     <string name="suggested_edits_image_preview_dialog_licensing">Licensing</string>
     <string name="suggested_edits_image_preview_dialog_more_info">More Info</string>
     <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
-    <string name="suggested_edits_article_cta_image_caption">Add image caption (%s)</string>
+    <string name="suggested_edits_article_cta_image_caption">Add image caption</string>
+    <string name="suggested_edits_article_cta_image_caption_in_language">Add image caption (%s)</string>
     <string name="suggested_edits_article_cta_snackbar_action">View</string>
     <string name="suggested_edits_feed_card_add_image_caption">Add caption</string>
     <string name="suggested_edits_feed_card_translate_image_caption">Add caption (%s)</string>
     <string name="suggested_edits_feed_card_add_description_button">Add article description</string>
+    <string name="suggested_edits_snackbar_survey_text">How was your editing experience? Please take a moment to fill out the survey about in-app editing.</string>
+    <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
@@ -836,6 +829,10 @@
     <string name="account_editing_blocked_dialog_cancel_button_text">Cancel</string>
     <!-- /Editing -->
 
+    <!-- Content description -->
+    <string name="content_description_for_page_indicator">Page %1$d of %2$d</string>
+    <!-- /Content description -->
+
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
     <string name="wikitext_link">Link</string>
@@ -847,6 +844,7 @@
 
     <string name="main_drawer_open">Open</string>
     <string name="main_drawer_close">Close</string>
+    <string name="main_drawer_content_description">Open main navigation drawer</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>

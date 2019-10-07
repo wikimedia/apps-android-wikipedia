@@ -1,6 +1,7 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.dataclient.RestService;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ public class CommunicationBridge {
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
-    public CommunicationBridge(final WebView webView) {
+    public CommunicationBridge(final WebView webView, Context activityContext) {
         this.webView = webView;
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
@@ -62,7 +64,7 @@ public class CommunicationBridge {
     public void resetHtml(@NonNull String wikiUrl, String title) {
         isDOMReady = false;
         pendingJSMessages.clear();
-        webView.loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + title);
+        webView.loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
         execute(JavaScriptActionHandler.setHandler());
     }
 

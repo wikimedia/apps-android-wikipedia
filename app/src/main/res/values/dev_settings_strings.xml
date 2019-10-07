@@ -25,9 +25,6 @@
     <string name="preferences_developer_session_timeout_title">Session timeout (minutes)</string>
     <string name="preferences_developer_remote_log_title">Remote logging</string>
     <string name="preferences_developer_remote_log_summary">Type a message to send.</string>
-    <string name="preferences_developer_user_option_key">userOption</string>
-    <string name="preferences_developer_user_option_title">User options</string>
-    <string name="preferences_developer_user_option_summary">Tap here to show user options</string>
     <string name="preferences_developer_reading_list_category">Reading Lists</string>
     <string name="preferences_developer_add_articles">Add articles</string>
     <string name="preferences_developer_add_lists">Add reading lists</string>
@@ -36,14 +33,6 @@
     <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
     <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
     <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
-    <string name="preferences_developer_suggested_edits_add_description_dialog">Show add article description dialog</string>
-    <string name="preferences_developer_suggested_edits_add_description_notification">Show add article description notification</string>
-    <string name="preferences_developer_suggested_edits_translate_description_dialog">Show translate article description dialog</string>
-    <string name="preferences_developer_suggested_edits_translate_description_notification">Show translate article description notification</string>
-    <string name="preferences_developer_suggested_edits_add_caption_dialog">Show add image caption dialog</string>
-    <string name="preferences_developer_suggested_edits_add_caption_notification">Show add image caption notification</string>
-    <string name="preferences_developer_suggested_edits_translate_caption_dialog">Show translate image caption dialog</string>
-    <string name="preferences_developer_suggested_edits_translate_caption_notification">Show translate image caption notification</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
 </resources>

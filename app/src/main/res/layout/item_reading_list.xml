@@ -99,9 +99,9 @@
 
     <ImageView
         android:id="@+id/item_overflow_menu"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="40dp"
+        android:layout_height="48dp"
+        android:padding="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:tint="?attr/secondary_text_color"

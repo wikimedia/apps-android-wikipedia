@@ -158,6 +158,20 @@ public final class DateUtil {
         }
     }
 
+    public static Date getDateObjectFor(int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+
+        return calendar.getTime();
+    }
+
+    public static boolean isGivenDateBetweenDates(Date givenDate, Date startDate, Date endDate) {
+        return givenDate.after(startDate) && givenDate.before(endDate);
+    }
+
     private DateUtil() {
     }
 }

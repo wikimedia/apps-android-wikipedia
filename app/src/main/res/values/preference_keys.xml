@@ -23,8 +23,6 @@
     <string name="preference_key_mediawiki_base_uri_supports_lang_code">mediaWikiBaseUriSupportsLangCode</string>
     <string name="preference_key_retrofit_log_level">retrofitLog</string>
     <string name="preference_key_daily_event_time_task_name">dailyEventTask</string>
-    <string name="preference_key_login_username">username</string>
-    <string name="preference_key_login_password">password</string>
     <string name="preference_key_login_user_id_map">userIDMap</string>
     <string name="preference_key_login_groups">groups</string>
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
@@ -40,7 +38,6 @@
     <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
     <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
     <string name="preference_key_reading_list_page_sort_mode">readingListPageSortMode</string>
-    <string name="preference_key_reading_list_sync_rev">readingListSyncRev</string>
     <string name="preference_key_page_last_shown">pageLastShown</string>
     <string name="preference_key_feed_hidden_cards">feedHiddenCards</string>
     <string name="preference_key_memory_leak_test">memoryLeakTest</string>
@@ -49,7 +46,6 @@
     <string name="preference_key_total_anon_descriptions_edited">totalAnonDescriptionsEdited</string>
     <string name="preference_key_missing_description_test">findArticleWithMissingDescription</string>
     <string name="preference_key_missing_description_test2">findArticleWithMissingSecondLangDescription</string>
-    <string name="preference_key_dialog_with_image_test">showDialogWithTitleAndImage</string>
     <string name="preference_category_sync">syncSettings</string>
     <string name="preference_category_experimental">experimentalSettings</string>
     <string name="preference_key_sync_reading_lists">syncReadingLists</string>
@@ -58,15 +54,17 @@
     <string name="preference_key_reading_lists_remote_setup_pending">readingListsRemoteSetupPending</string>
     <string name="preference_key_reading_lists_remote_delete_pending">readingListsRemoteDeletePending</string>
     <string name="preference_key_initial_onboarding_enabled">initialOnboardingEnabled</string>
-    <string name="preference_key_reading_lists_current_user_hash">readingListsCurrentUserHash</string>
     <string name="preference_key_permission_asked">permissionAsked</string>
     <string name="preference_key_dim_dark_mode_images">dimDarkModeImages</string>
     <string name="preference_key_notification_poll_reminder">enableNotificationPollingReminder</string>
     <string name="preference_key_notification_poll_enable">enableNotificationPolling</string>
-    <string name="preference_key_notification_welcome_enable">enableWelcomeNotification</string>
+    <string name="preference_key_notification_system_enable">enableSystemNotification</string>
     <string name="preference_key_notification_milestone_enable">enableMilestoneNotification</string>
     <string name="preference_key_notification_thanks_enable">enableThanksNotification</string>
     <string name="preference_key_notification_revert_enable">enableRevertNotification</string>
+    <string name="preference_key_notification_user_talk_enable">enableUserTalkNotification</string>
+    <string name="preference_key_notification_login_fail_enable">enableLoginFailNotification</string>
+    <string name="preference_key_notification_mention_enable">enableMentionNotification</string>
     <string name="preference_key_notification_show_all">showAllNotifications</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
     <string name="preference_key_editing_text_size_extra">editingTextSizeExtra</string>
@@ -97,15 +95,13 @@
     <string name="preference_key_show_bookmark_tooltip">showBookmarkTooltip</string>
     <string name="preference_key_overflow_reading_lists_option_click_count">overflowReadingListsClickCount</string>
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
-    <string name="preference_key_suggested_edits_unlock_override">suggestedEditsUnlockOverride</string>
-    <string name="preference_key_suggested_edits_add_descriptions_unlocked">suggestedEditsAddDescriptionsUnlocked</string>
-    <string name="preference_key_suggested_edits_translate_descriptions_unlocked">suggestedEditsTranslateDescriptionsUnlocked</string>
-    <string name="preference_key_suggested_edits_add_captions_unlocked">suggestedEditsAddCaptionsUnlocked</string>
-    <string name="preference_key_suggested_edits_translate_captions_unlocked">suggestedEditsTranslateCaptionsUnlocked</string>
     <string name="preference_key_show_edit_menu_option_indicator">showEditMenuOptionIndicator</string>
     <string name="preference_key_show_action_feed_indicator">showActionFeedIndicator</string>
     <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
     <string name="preference_key_show_suggested_edits_multilingual_teaser_task">showSuggestedEditsMultilingualTeaserTask</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
     <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
+    <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>
+    <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
+    <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
 </resources>

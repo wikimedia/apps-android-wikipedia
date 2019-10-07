@@ -18,6 +18,7 @@
   <string name="page_tabs_back">Төнүн</string>
   <string name="nav_item_forward">Инники</string>
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
+  <string name="search_hint_voice_search">Саҥа көмөтүнэн көрдөөһүн</string>
   <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
   <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
   <string name="search_hint_search_my_lists_and_articles">Ааҕыы испииһэгэр көрдөөһүн</string>
@@ -64,9 +65,6 @@
   <string name="on_this_day_page_share">Тарҕат</string>
   <string name="reading_list_page_share">Тарҕатыы</string>
   <string name="menu_text_select_edit_here">Маны көннөр</string>
-  <string name="nav_item_nearby">Чугастааҕы</string>
-  <string name="nearby_zoom_to_location">Каартаҕа көрдөр</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributors</string>
   <string name="last_updated_text">Тиһэх саҥардыы: %s</string>
   <string name="talk_page_link_text">Кэпсэтэр сири көрүү</string>
   <string name="edit_history_link_text">Уларытыы сурунаала</string>
@@ -281,6 +279,8 @@
   <string name="captcha_image">Капча-ойуу</string>
   <string name="gallery_fair_use_license">Сиэрдээх туһаныы</string>
   <string name="gallery_uploader_unknown">Киллэрбит киһи биллибэт</string>
+  <string name="gallery_not_available_offline_snackbar">Интэриниэтэ суох бу эрэсиим үлэлээбэт.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Сап</string>
   <string name="menu_new_tab">Саҥа кыбытык</string>
   <string name="menu_close_all_tabs">Кыбытыктары барытын сап</string>
   <string name="close_all_tabs_confirm">Барытын сабаҕын дуо?</string>
@@ -511,8 +511,6 @@
   <string name="notifications_mark_unread">Ааҕыллыбатах курдук бэлиэтээ</string>
   <string name="preference_title_notification_poll">Ыйытыктар биллэриилэрэ</string>
   <string name="preference_category_notification_types">Биллэриилэр көрүҥнэрэ</string>
-  <string name="preference_title_notification_welcome">Киирбиккинэн</string>
-  <string name="preference_summary_notification_welcome">Бэлиэ-аат оҥоһулунна</string>
   <string name="preference_title_notification_milestone">Хардыы</string>
   <string name="preference_summary_notification_milestone">Төһө эрэ көннөрүү оҥоһуллубут</string>
   <string name="preference_title_notification_thanks">Махтал</string>
@@ -618,16 +616,6 @@
   <string name="suggested_edits_review_image_caption">Ойуу туһунан суругу тургутарга</string>
   <string name="suggested_edits_my_contributions">Бэйэм суруйуум</string>
   <string name="suggested_edits_no_description">Бу билэ туһунан суруллубатах</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">\"Ыстатыйаҕа быһаарыыны эбии\" диэни холбоотуҥ</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Кыттарыҥ иһин махтанабыт! Уларытары хайыы-үйэ сатыыгын, онон ойуулааһына суох ыстатыйалар испииһэктэрин көр. Бикипиэдьийэни тупсарарга көмөлөс дуу!</string>
-  <string name="suggested_edits_unlock_dialog_no">Баҕар кэлин</string>
-  <string name="suggested_edits_unlock_dialog_yes">Чэ, бардыбыт!</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">\"Быһаарыыны эбии\" диэнтэн хааччаҕын уһуллуҥ</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">\"Быһаарыыны тылбаастааһын\" диэнтэн хааччаҕын уһуллуҥ</string>
-  <string name="suggested_edits_unlock_notification_text">Этиини уларытыы</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Этиини уларытыы\n\nКыттарыҥ иһин махтанабыт! Хайыы-үйэ уларытары сатыыгын, онон кылгас ойуулааһына суох ыстатыйалар испииһэктэрин көр. Бикипиэдьийэни тупсарарга көмөлөс дуу!</string>
-  <string name="suggested_edits_unlock_notification_button">Чэ, бардыбыт!</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">\"Ойууларга быһаарыыны эбии\" диэнтэн хааччаҕын уһуллуҥ</string>
   <string name="suggested_edits_license_notice" fuzzy="true">Кылгас ойуулааһыны эптэххинэ &lt;a href=\"%1$s\"&gt;Туһаныы сиэрин&lt;/a&gt; уонна төннөрүллүбэт &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лиссиэнсийэннэн бэчээттиири кытта сөбүлэһэргин биллэрэҕин.</string>
   <string name="suggested_edits_menu_info">Эбии</string>
   <string name="suggested_edits_tasks_activity_title">Этиини уларытыы</string>
@@ -666,7 +654,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиссиэнсийэлээһин</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Сиһилии</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Билэ сирэйэ Биики Хааһахха</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Ойуулааһыны эбии (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language" fuzzy="true">Ойуулааһыны эбии (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Ойуулааһыны эбии</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ойуулааһыны эбии (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>

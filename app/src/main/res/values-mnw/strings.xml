@@ -46,9 +46,6 @@
   <string name="menu_text_select_define">ပသောင်အဓိပ္ပါယ်</string>
   <string name="menu_text_select_share">ပါ်ပရအ်</string>
   <string name="menu_text_select_edit_here">ပလေဝ် ဒၞာဲဏအ်</string>
-  <string name="nav_item_nearby">ဗဒဲါဒၞာဲဏအ်</string>
-  <string name="nearby_zoom_to_location">ဇြောမ်ပစုက် သွက်ဂွံ ဗၟံက်ထ္ၜးဒၞာဲ ပ္ဍဲ ဗီုတိ</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributors</string>
   <string name="last_updated_text">ကလေင်ပလေဝ်လဝ်တၟိ လက္ကရဴအိုတ် ပ္ဍဲ %s</string>
   <string name="talk_page_link_text">ဗဵု မုက်လိက် ဓရီုကျာ</string>
   <string name="edit_history_link_text">ဗဵု လၟေင် မပလေဝ်ကၠုင်လဝ်</string>
@@ -476,8 +473,6 @@
   <string name="preference_title_notification_poll">စုတ်မာဲ တင်မကဵုသမ္တီဂမၠိုင်</string>
   <string name="preference_summary_notification_poll">ကဵုအခေါင် အာပ် သွက်ဂွံ စကာ ဒါတာ သွက်ဂွံစဳစောတ် တင်မကဵုသမ္တီတၟိဂမၠိုင် ပ္ဍဲလက္ကရဴ၊၊</string>
   <string name="preference_category_notification_types">ဂကူ တင်မကဵုသမ္တီ အေန်-အာပ်</string>
-  <string name="preference_title_notification_welcome">ဒုင်တၠုင်ရအဴ</string>
-  <string name="preference_summary_notification_welcome">အကံက်မွဲဂှ် ခၞံဗဒှ်လဝ်တုဲ</string>
   <string name="preference_title_notification_milestone">တၟအ်တိုင်စၟတ်သမ္တီ</string>
   <string name="preference_summary_notification_milestone">အပံင်လၟိဟ် မပလေဝ်ဒါန် ဗွဲမချိုတ်ပၠိုတ်ဂှ် စိုပ်အာတရဴရ၊၊</string>
   <string name="preference_title_notification_thanks">တင်ဂုန်ရ</string>
