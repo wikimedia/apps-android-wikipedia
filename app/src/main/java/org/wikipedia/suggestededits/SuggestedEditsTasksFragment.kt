@@ -67,6 +67,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         userContributionsButton.setOnClickListener {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
         }
+
+        errorView.setRetryClickListener { updateUI() }
+
         setUpTasks()
     }
 
@@ -106,6 +109,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         updateDisplayedTasks(null)
         contributionsText.visibility = View.GONE
+        errorView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
 
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
@@ -129,7 +133,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                     updateDisplayedTasks(editorTaskCounts)
                 }, { throwable ->
                     L.e(throwable)
-                    FeedbackUtil.showError(requireActivity(), throwable)
+                    errorView.visibility = View.VISIBLE
+                    errorView.setError(throwable)
                 }))
     }
 
