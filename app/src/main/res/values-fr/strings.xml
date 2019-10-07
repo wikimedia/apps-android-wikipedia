@@ -712,7 +712,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licence</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Plus d’informations</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Page du fichier sur Wikimédia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Ajouter une légende d’image (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Ajouter une légende d’image (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Afficher</string>
   <string name="suggested_edits_feed_card_add_image_caption">Ajouter une légende</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ajouter une légende (%s)</string>

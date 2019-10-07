@@ -160,27 +160,29 @@ public class DescriptionEditView extends LinearLayout {
 
     private CharSequence getLabelText(@NonNull String lang) {
         if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+            return getContext().getString(R.string.description_edit_translate_article_description_label_per_language,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
+        } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+            return getContext().getString(R.string.description_edit_translate_caption_label_per_language,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
+        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+            return getContext().getString(R.string.description_edit_add_caption_label);
+        } else {
+            return getContext().getString(R.string.description_edit_article_description_label);
+        }
+    }
+
+    private CharSequence getHintText(@NonNull String lang) {
+        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
             return getContext().getString(R.string.description_edit_translate_article_description_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
         } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
             return getContext().getString(R.string.description_edit_translate_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
         } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
-            return getContext().getString(R.string.description_edit_add_caption_label_per_language, WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
+            return getContext().getString(R.string.description_edit_add_caption_hint);
         } else {
-            return getContext().getString(R.string.description_edit_article_description_label_per_language, WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        }
-    }
-
-    private CharSequence getHintText(@NonNull String lang) {
-        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
-            return getContext().getString(R.string.description_edit_translate_caption_hint_per_language,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
-            return getContext().getString(R.string.description_edit_translate_caption_hint_per_language, WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else {
-            return getContext().getString(R.string.description_edit_translate_article_description_hint_per_language,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
+            return getContext().getString(R.string.description_edit_text_hint);
         }
     }
 
