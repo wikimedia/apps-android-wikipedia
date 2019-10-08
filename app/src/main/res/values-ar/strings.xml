@@ -618,9 +618,8 @@
   <string name="feed_accessibility_card_text">وصلت إلى نهاية التغذية.</string>
   <string name="feed_accessibility_card_load_more_button">تحميل المزيد</string>
   <string name="description_edit_text_hint">وصف المقالة</string>
-  <string name="description_edit_article_description_label_per_language">مقالة (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">مقالة (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">وصف المقالة (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">وصف الصورة (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">تعليقات الصور (%s)</string>
   <string name="description_edit_save">انشر</string>
   <string name="description_edit_read">قراءة</string>
@@ -706,6 +705,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
   <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">إضافة شرح الصورة</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح</string>

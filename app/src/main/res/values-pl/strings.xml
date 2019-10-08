@@ -620,9 +620,8 @@
   <string name="feed_accessibility_card_text">Dotarłeś do dolnej części kanału.</string>
   <string name="feed_accessibility_card_load_more_button">Załaduj więcej</string>
   <string name="description_edit_text_hint">Opis artykułu</string>
-  <string name="description_edit_article_description_label_per_language">Artykuł (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artykuł (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis artykułu (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Opis obrazu (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Podpisy obrazka (%s)</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_read">Czytaj</string>
@@ -708,6 +707,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Więcej informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj podpis obrazu</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj podpis obrazu (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis</string>

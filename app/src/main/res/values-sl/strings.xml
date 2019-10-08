@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Eleassar
 * Franga2000
 * HairyFotr
@@ -284,7 +285,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Prekliči</string>
   <string name="feed_accessibility_card_load_more_button">Naloži več</string>
   <string name="description_edit_text_hint">Opis članka</string>
-  <string name="description_edit_article_description_label_per_language">Članek (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Članek (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Preberi</string>
