@@ -615,9 +615,8 @@
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
   <string name="feed_accessibility_card_load_more_button">さらに読む</string>
   <string name="description_edit_text_hint">記事の説明</string>
-  <string name="description_edit_article_description_label_per_language">記事 (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">記事 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">記事の説明 (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">画像の説明 (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">画像の説明 (%s)</string>
   <string name="description_edit_save">公開</string>
   <string name="description_edit_read">閲覧</string>
@@ -702,6 +701,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
   <string name="suggested_edits_image_preview_dialog_more_info">詳細情報</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">画像キャプションを追加</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
   <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>

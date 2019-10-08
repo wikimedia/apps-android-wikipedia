@@ -610,9 +610,8 @@
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
   <string name="description_edit_text_hint">條目描述</string>
-  <string name="description_edit_article_description_label_per_language">條目（%s）</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">條目（%s）</string>
   <string name="description_edit_translate_article_description_hint_per_language">條目描述（%s）</string>
-  <string name="description_edit_add_caption_label_per_language">圖片描述（%s）</string>
   <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_read">閱讀</string>
@@ -698,6 +697,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">新增圖片說明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>

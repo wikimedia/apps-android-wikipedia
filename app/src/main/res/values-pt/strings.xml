@@ -608,9 +608,8 @@
   <string name="feed_accessibility_card_text">Atingiu o fim do \"feed\".</string>
   <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
-  <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrição do artigo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descrição da imagem (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Legendas da imagem (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
@@ -696,6 +695,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciamento</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mais informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página do ficheiro na wiki Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Adicionar legenda à imagem</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Adicionar legenda à imagem (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>

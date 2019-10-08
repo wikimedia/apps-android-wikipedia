@@ -640,9 +640,8 @@
   <string name="feed_accessibility_card_text">Вы достигли конца ленты.</string>
   <string name="feed_accessibility_card_load_more_button">Загрузить ещё</string>
   <string name="description_edit_text_hint">Описание статьи</string>
-  <string name="description_edit_article_description_label_per_language">Статья %s</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Статья %s</string>
   <string name="description_edit_translate_article_description_hint_per_language">Описаниe статей (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Описание изображения (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Описания изображений (%s)</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_read">Читать</string>
@@ -730,6 +729,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лицензирование</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Подробнее</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница файла на Викискладе</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Добавить описание изображения</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Добавить описание изображения (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Просмотр</string>
   <string name="suggested_edits_feed_card_add_image_caption">Добавить описание</string>

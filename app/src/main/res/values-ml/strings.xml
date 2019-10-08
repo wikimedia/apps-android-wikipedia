@@ -409,9 +409,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="feed_accessibility_card_load_more_button">കൂടുതൽ എടുക്കുക</string>
   <string name="description_edit_text_hint">ലേഖനനത്തിന്റെ വിവരണം</string>
-  <string name="description_edit_article_description_label_per_language">ലേഖനം (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ലേഖനം (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ലേഖനത്തിന്റെ വിവരണം (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ചിത്രത്തിന്റെ വിവരണം (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>
   <string name="description_edit_read">വായിക്കുക</string>
@@ -472,6 +471,7 @@
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">കാണുക</string>
   <string name="suggested_edits_feed_card_add_image_caption">തലവാചകം ചേർക്കുക</string>

@@ -613,9 +613,8 @@
   <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
   <string name="feed_accessibility_card_load_more_button">Načíst další</string>
   <string name="description_edit_text_hint">Popis článku</string>
-  <string name="description_edit_article_description_label_per_language">Článek (v jazyce %s)</string>
+  <string name="description_edit_translate_article_description_label_per_language">Popis článku (v jazyce %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Popis článku (v jazyce %s)</string>
-  <string name="description_edit_add_caption_label_per_language">Popis obrázku (v jazyce %s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Titulek obrázku (v jazyce %s)</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_read">Číst</string>
@@ -702,6 +701,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencování</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Přidat titulek obrázku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobrazit</string>
   <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek</string>

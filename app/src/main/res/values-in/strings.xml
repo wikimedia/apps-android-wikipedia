@@ -593,8 +593,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Oke</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="description_edit_text_hint">Deskripsi judul</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Deskripsi gambar (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Takarir gambar (%s)</string>
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_read">Baca</string>

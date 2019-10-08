@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Patriccck
 -->
 <resources>
@@ -589,9 +590,8 @@
   <string name="feed_accessibility_card_text">Došli ste do kraja zida.</string>
   <string name="feed_accessibility_card_load_more_button">Učitaj još</string>
   <string name="description_edit_text_hint">Opis članka</string>
-  <string name="description_edit_article_description_label_per_language">Članak (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Članak (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Opis slike (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Opis slike (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Čitaj</string>
@@ -671,6 +671,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica slike na Vikimedijinoj ostavi</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj natpis slike</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj natpis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj natpis</string>

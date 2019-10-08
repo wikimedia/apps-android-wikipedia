@@ -587,9 +587,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Bone</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Nuligi</string>
   <string name="description_edit_text_hint">Priskribo de artikolo</string>
-  <string name="description_edit_article_description_label_per_language">Artikolo (je %s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikolo (je %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Priskribo de artikolo (je %s)</string>
-  <string name="description_edit_add_caption_label_per_language">Priskribo de bildo (je %s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Titoloj de bildo (je %s)</string>
   <string name="description_edit_save">Publikigi</string>
   <string name="description_edit_read">Legi</string>
@@ -674,6 +673,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Permesilo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Pli da Informo</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Paĝo de dosiero ĉe Vikimedia Komunejo</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Aldoni titolon al bildo</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Aldoni titolon al bildo (je %s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aldoni titolon</string>

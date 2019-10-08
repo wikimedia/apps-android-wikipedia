@@ -54,6 +54,7 @@
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Ediciones sugeridas</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -625,9 +626,8 @@
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
-  <string name="description_edit_article_description_label_per_language">Artículo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artículo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripción de artículo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descripción de imagen (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Leyenda de imagen (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Leer</string>
@@ -708,6 +708,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Fuente/fotógrafo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Más información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página del archivo en Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Añadir leyenda de imagen</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
