@@ -697,7 +697,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">新增圖片說明（%s）</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">新增圖片說明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>

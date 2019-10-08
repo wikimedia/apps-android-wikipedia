@@ -671,7 +671,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica slike na Vikimedijinoj ostavi</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj natpis slike (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj natpis slike</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj natpis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj natpis</string>

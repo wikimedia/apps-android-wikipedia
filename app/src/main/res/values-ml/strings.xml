@@ -471,7 +471,7 @@
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">കാണുക</string>
   <string name="suggested_edits_feed_card_add_image_caption">തലവാചകം ചേർക്കുക</string>

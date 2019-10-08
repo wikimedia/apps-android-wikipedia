@@ -692,7 +692,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Lägg till bildtext (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
