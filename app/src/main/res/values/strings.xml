@@ -846,6 +846,8 @@
     <string name="main_drawer_content_description">Open main navigation drawer</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
+    <string name="main_tooltip_text">%s, did you know that everyone can edit Wikipedia?</string>
+    <string name="main_tooltip_action_button">Get started</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>
