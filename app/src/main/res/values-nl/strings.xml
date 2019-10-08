@@ -614,9 +614,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="feed_accessibility_card_load_more_button">Meer laden</string>
   <string name="description_edit_text_hint">Artikelbeschrijving</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeschrijving (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Afbeeldingsbijschrift (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Afbeeldingsbijschriften (%s)</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_read">Lezen</string>

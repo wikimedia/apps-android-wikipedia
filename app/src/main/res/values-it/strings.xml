@@ -607,9 +607,8 @@
   <string name="feed_accessibility_card_text">Hai raggiunto la fine del feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carica di più</string>
   <string name="description_edit_text_hint">Descrizione della voce</string>
-  <string name="description_edit_article_description_label_per_language">Voce (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Voce (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrizione voce (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descrizione immagine (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Didascalia immagine (%s)</string>
   <string name="description_edit_save">Pubblica</string>
   <string name="description_edit_read">Leggi</string>
@@ -692,6 +691,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Ulteriori informazioni</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagina del file su Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Aggiungi didascalia</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Aggiungi didascalia (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visualizza</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia</string>

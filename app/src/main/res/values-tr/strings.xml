@@ -622,9 +622,8 @@
   <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
   <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
-  <string name="description_edit_article_description_label_per_language">Madde (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Madde (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Madde açıklaması (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Resim açıklaması (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Resim altyazısı (%s)</string>
   <string name="description_edit_save">Yayımla</string>
   <string name="description_edit_read">Oku</string>
@@ -708,6 +707,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Lisanslama</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Daha Fazla Bilgi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons\'taki dosya sayfası</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Resim yazısı ekle</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Görüntüle</string>
   <string name="suggested_edits_feed_card_add_image_caption">Altyazı ekle</string>

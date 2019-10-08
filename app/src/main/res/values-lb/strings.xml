@@ -498,7 +498,6 @@
   <string name="feed_accessibility_card_load_more_button">Méi lueden</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreiwung</string>
   <string name="description_edit_translate_article_description_hint_per_language">Beschreiwung vum Artikel (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Beschreiwung vum Bild (%s)</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description" fuzzy="true">Beschreiwung vum Titel derbäisetzen</string>

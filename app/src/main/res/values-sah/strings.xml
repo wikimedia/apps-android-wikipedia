@@ -568,9 +568,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Сөп</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Салҕаама</string>
   <string name="description_edit_text_hint">Ыстатыйа туһунан</string>
-  <string name="description_edit_article_description_label_per_language">Ыстатыйа (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Ыстатыйа (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Ыстатыйа туһунан (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Ойуу туһунан (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Ойуу туһунан (%s)</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_read">Ааҕыы</string>
@@ -652,7 +651,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиссиэнсийэлээһин</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Сиһилии</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Билэ сирэйэ Биики Хааһахха</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language" fuzzy="true">Ойуулааһыны эбии (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Ойуулааһыны эбии</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Ойуулааһыны эбии (%s)</string>
   <string name="suggested_edits_feed_card_add_image_caption">Ойуулааһыны эбии</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ойуулааһыны эбии (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>

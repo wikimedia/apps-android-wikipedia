@@ -602,9 +602,8 @@
   <string name="feed_accessibility_card_text">Chegou ó final da canle.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar máis</string>
   <string name="description_edit_text_hint">Descrición do artigo</string>
-  <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrición do artigo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descrición da imaxe (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Lenda de imaxe (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
@@ -688,6 +687,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Máis información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Páxina do ficheiro en Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Engadir lenda de imaxe</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda</string>

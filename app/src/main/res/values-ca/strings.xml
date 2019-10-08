@@ -33,6 +33,7 @@
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Edicions suggerides</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
   <string name="card_offline_error_retry">Reintenta</string>
@@ -337,6 +338,7 @@
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
   <string name="error_page_does_not_exist">La pàgina no existeix</string>
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
+  <string name="view_wiki_error_message_timeout">No es pot connectar a la Viquipèdia. Comproveu la connexió a la xarxa o torneu-ho a provar més endavant</string>
   <string name="reference_title">Referència %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuació d\'imatges (en el tema fosc)</string>
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
@@ -605,9 +607,8 @@
   <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Carrega’n més</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
-  <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Article (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripció de l\'article (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descripció de la imatge (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Llegendes de la imatge (%s)</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_read">Llegeix</string>
@@ -691,6 +692,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Llicència</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Més informació</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pàgina del fitxer a Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Afegeix una llegenda d\'imatge</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Afegeix una llegenda d\'imatge (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Mostra</string>
   <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda</string>

@@ -602,9 +602,8 @@
   <string name="feed_accessibility_card_text">Дошли сте до краја фида.</string>
   <string name="feed_accessibility_card_load_more_button">Учитај још</string>
   <string name="description_edit_text_hint">Опис чланка</string>
-  <string name="description_edit_article_description_label_per_language">Чланак (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Чланак (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис чланка (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Опис слике (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Опис слике (%s)</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_read">Читај</string>
@@ -682,6 +681,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Више информација</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница слике на Викимедијиној остави</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Додај натпис слике</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додај натпис слике (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Прикажи</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додај натпис</string>

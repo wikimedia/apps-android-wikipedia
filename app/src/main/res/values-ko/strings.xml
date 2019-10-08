@@ -602,9 +602,8 @@
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="description_edit_text_hint">문서 설명</string>
-  <string name="description_edit_article_description_label_per_language">문서 (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">문서 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">문서 설명 (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">이미지 설명 (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">이미지 설명 (%s)</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_read">읽기</string>
@@ -688,6 +687,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">이미지 캡션 추가</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
   <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>

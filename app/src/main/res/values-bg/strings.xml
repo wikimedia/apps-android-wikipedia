@@ -577,7 +577,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
   <string name="description_edit_text_hint">Описание на статията</string>
-  <string name="description_edit_article_description_label_per_language">Статия (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Статия (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Описание на статията (%s)</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_read">Прочитане</string>

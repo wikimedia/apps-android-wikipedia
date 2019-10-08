@@ -46,6 +46,7 @@
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
+  <string name="nav_item_suggested_edits">Edições sugeridas</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -620,9 +621,8 @@
   <string name="feed_accessibility_card_text">Você atingiu a parte inferior do feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
-  <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrição do artigo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descrição da imagem (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Legendas das imagens (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
@@ -706,6 +706,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciando</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Maiores informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página de arquivo no Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Adicionar legenda da imagem</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Adicionar legenda da imagem (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>

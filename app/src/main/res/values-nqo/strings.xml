@@ -516,9 +516,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="description_edit_text_hint">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ</string>
-  <string name="description_edit_article_description_label_per_language">ߦߌߟߡߊ (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ߦߌߟߡߊ (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
   <string name="description_edit_save">ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ</string>
   <string name="description_edit_read">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲</string>
@@ -594,6 +593,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="suggested_edits_image_preview_dialog_more_info">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߬ ߜߘߍ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ߞߐߕߐ߮ ߞߐߜߍ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="suggested_edits_feed_card_add_image_caption">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>

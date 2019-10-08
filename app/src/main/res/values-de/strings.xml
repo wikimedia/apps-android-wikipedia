@@ -586,7 +586,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Okay</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreibung</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
   <string name="description_edit_save">Veröffentlichen</string>
   <string name="description_edit_read">Lesen</string>
   <string name="description_edit_add_description" fuzzy="true">Titelbeschreibung hinzufügen</string>

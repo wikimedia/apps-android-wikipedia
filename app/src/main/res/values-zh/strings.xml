@@ -9,6 +9,7 @@
 * GoForceX
 * Hudafu
 * Hydra
+* Josephine W.
 * LNDDYL
 * Liuxinyu970226
 * Looong
@@ -45,6 +46,7 @@
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
   <string name="nav_item_history">历史记录</string>
+  <string name="nav_item_suggested_edits">建议的编辑</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -613,9 +615,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">确认</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="description_edit_text_hint">条目描述</string>
-  <string name="description_edit_article_description_label_per_language">条目（%s）</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">条目（%s）</string>
   <string name="description_edit_translate_article_description_hint_per_language">条目描述（%s）</string>
-  <string name="description_edit_add_caption_label_per_language">图片描述（%s）</string>
   <string name="description_edit_translate_caption_hint_per_language">图片说明（%s）</string>
   <string name="description_edit_save">发布</string>
   <string name="description_edit_read">阅读</string>
@@ -699,6 +700,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">授权协议</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多信息</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在维基共享资源上的文件页面</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">添加图片说明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">添加图片说明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">查看</string>
   <string name="suggested_edits_feed_card_add_image_caption">添加说明</string>
