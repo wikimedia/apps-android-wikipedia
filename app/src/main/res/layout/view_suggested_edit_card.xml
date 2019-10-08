@@ -70,27 +70,26 @@
                 android:id="@+id/viewAddDescriptionButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp">
+                android:layout_marginTop="9dp"
+                android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="@dimen/app_shortcut_icon_size"
+                    android:layout_height="@dimen/app_shortcut_icon_size"
                     android:contentDescription="@null"
-                    android:tint="?attr/colorAccent"
-                    app:srcCompat="@drawable/ic_add_circle_black_24dp" />
+                    app:srcCompat="@drawable/ic_add_gray_white_24dp"
+                    android:tint="?attr/colorAccent" />
 
                 <TextView
                     android:id="@+id/callToActionText"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="sans-serif-medium"
-                    android:letterSpacing="0.01"
-                    android:lineSpacingExtra="6sp"
-                    android:text="@string/suggested_edits_add_description_button"
+                    android:textAllCaps="true"
                     android:textColor="?attr/colorAccent"
-                    android:textSize="14sp"
-                    tools:text="Add description" />
+                    android:letterSpacing="0.04" />
+
             </LinearLayout>
 
             <View
