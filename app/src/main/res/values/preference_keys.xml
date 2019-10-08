@@ -108,4 +108,5 @@
     <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>
     <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
+    <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
 </resources>

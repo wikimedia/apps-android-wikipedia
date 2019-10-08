@@ -168,6 +168,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
+
+            if (tab.equals(NavTab.SUGGESTED_EDITS)) {
+                getFragment().hideNavTabOverlayLayout();
+                Prefs.setShouldShowSuggestedEditsTooltip(false);
+            }
+
             hamburgerAndWordmarkLayout.setVisibility(GONE);
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
@@ -279,6 +285,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            getFragment().hideNavTabOverlayLayout();
                         }).show();
             } else {
                 getFragment().onLoginRequested();
