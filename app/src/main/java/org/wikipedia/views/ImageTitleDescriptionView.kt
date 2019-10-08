@@ -85,8 +85,4 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
         titleDescriptionLayout.gravity = CENTER_HORIZONTAL
         description.textAlignment = View.TEXT_ALIGNMENT_CENTER
     }
-
-    interface Callback {
-        fun onViewClick(task: ImageTitleDescriptionView, isTranslate: Boolean)
-    }
 }
