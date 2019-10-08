@@ -138,6 +138,7 @@
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium"
                         android:textAllCaps="true"
+                        android:letterSpacing="0.04"
                         android:textColor="@color/base100"/>
                 </LinearLayout>
             </FrameLayout>
