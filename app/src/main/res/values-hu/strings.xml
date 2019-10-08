@@ -605,9 +605,8 @@
   <string name="feed_accessibility_card_text">Elérted a hírfolyamod alját.</string>
   <string name="feed_accessibility_card_load_more_button">Továbbiak betöltése</string>
   <string name="description_edit_text_hint">Szócikk leírása</string>
-  <string name="description_edit_article_description_label_per_language">Szócikk (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Szócikk (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Szócikkleírás (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Képleírás (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Képaláírás (%s)</string>
   <string name="description_edit_save">Közzététel</string>
   <string name="description_edit_read">Olvasás</string>
@@ -693,6 +692,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
   <string name="suggested_edits_image_preview_dialog_more_info">További információ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Képaláírás hozzáadása</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Képaláírás hozzáadása (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
