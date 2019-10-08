@@ -12,14 +12,9 @@ import com.google.android.material.snackbar.Snackbar;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.UriUtil;
 
-import java.util.Calendar;
-
-import static java.util.Calendar.OCTOBER;
-import static java.util.Calendar.SEPTEMBER;
 import static org.wikipedia.settings.Prefs.setShouldShowSuggestedEditsSurvey;
 
 public final class SuggestedEditsSurvey {
@@ -27,7 +22,7 @@ public final class SuggestedEditsSurvey {
 
     public static void maybeRunSurvey(@NonNull Activity activity) {
         final float extraLineSpacing = 5.0f;
-        if (Prefs.shouldShowSuggestedEditsSurvey() && isSurveyLive()) {
+        if (Prefs.shouldShowSuggestedEditsSurvey()) {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
             TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
             textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, extraLineSpacing, activity.getResources().getDisplayMetrics()), 1.0f);
@@ -41,11 +36,9 @@ public final class SuggestedEditsSurvey {
     }
 
     public static void onEditSuccess() {
-        if (SuggestedEditsSurvey.isSurveyLive()) {
-            Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1);
-            if (Prefs.getSuggestedEditsCountForSurvey() == 1 || (Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY && !Prefs.wasSuggestedEditsSurveyClicked())) {
-                setShouldShowSuggestedEditsSurvey(true);
-            }
+        Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1);
+        if (Prefs.getSuggestedEditsCountForSurvey() == 1 || (Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY && !Prefs.wasSuggestedEditsSurveyClicked())) {
+            setShouldShowSuggestedEditsSurvey(true);
         }
     }
 
@@ -55,12 +48,6 @@ public final class SuggestedEditsSurvey {
                 Uri.parse(WikipediaApp.getInstance().getString(R.string.suggested_edits_survey_url)));
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
-    private static boolean isSurveyLive() {
-        return DateUtil.isGivenDateBetweenDates(Calendar.getInstance().getTime(),
-                DateUtil.getDateObjectFor(2019, SEPTEMBER, 19),
-                DateUtil.getDateObjectFor(2019, OCTOBER, 7));
+    private SuggestedEditsSurvey() {
     }
-
-    private SuggestedEditsSurvey() { }
 }
