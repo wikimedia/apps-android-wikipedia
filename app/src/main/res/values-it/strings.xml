@@ -660,8 +660,6 @@
   <string name="suggested_edits_tasks_activity_title">Modifiche suggerite</string>
   <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni della voce</string>
   <string name="suggested_edits_task_add_description_description">Contribuire alle voci senza descrizioni</string>
-  <string name="suggested_edits_task_translation_title">Traduci descrizioni della voce</string>
-  <string name="suggested_edits_task_translation_description">Traduci le descrizioni attraverso le lingue della voce.</string>
   <string name="suggested_edits_task_image_caption_title">Aggiungi didascalie immagini</string>
   <string name="suggested_edits_task_image_caption_description">Aggiungi brevi didascalie mancanti alle immagini</string>
   <string name="suggested_edits_task_translate_caption_title">Traduci didascalie immagini</string>

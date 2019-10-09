@@ -666,7 +666,6 @@
   <string name="suggested_edits_tasks_activity_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
-  <string name="suggested_edits_task_translation_title">Artikelbeschrijvingen vertalen</string>
   <string name="suggested_edits_task_image_caption_title">Afbeeldingsbijschriften toevoegen</string>
   <string name="suggested_edits_task_image_caption_description">Ontbrekende korte afbeeldingsbijschriften toevoegen</string>
   <string name="suggested_edits_task_translate_caption_title">Afbeeldingsbijschriften vertalen</string>

@@ -649,8 +649,6 @@
   <string name="suggested_edits_tasks_activity_title">Предложени уредувања</string>
   <string name="suggested_edits_task_add_description_title">Додај описи на статии</string>
   <string name="suggested_edits_task_add_description_description">Придонесувајте со статии без описи</string>
-  <string name="suggested_edits_task_translation_title">Превод на описи на статии</string>
-  <string name="suggested_edits_task_translation_description">Превод на описи на други јазици</string>
   <string name="suggested_edits_task_image_caption_title">Додај описи на слики</string>
   <string name="suggested_edits_task_image_caption_description">Додај отсутни кратки описи на слики</string>
   <string name="suggested_edits_task_translate_caption_title">Превод на описи на слики</string>

@@ -620,8 +620,6 @@
   <string name="suggested_edits_tasks_activity_title">Этиини уларытыы</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Кылгас быһаарыы эбии</string>
   <string name="suggested_edits_task_add_description_description">Кылгас быһаарыылары суруйууга кыттарга</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Кылгас быһаарыы тылбааһа</string>
-  <string name="suggested_edits_task_translation_description">Быһаарыы суругун атын тылларга тылбааһа.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Ойуу суруга</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Ойууга сурук эбии</string>
   <string name="suggested_edits_task_translate_caption_title">Ойуу суругун тылбааһа</string>
