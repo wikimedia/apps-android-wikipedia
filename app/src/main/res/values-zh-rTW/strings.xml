@@ -664,8 +664,6 @@
   <string name="suggested_edits_tasks_activity_title">建議編輯</string>
   <string name="suggested_edits_task_add_description_title">新增條目描述</string>
   <string name="suggested_edits_task_add_description_description">不帶描述來貢獻條目</string>
-  <string name="suggested_edits_task_translation_title">翻譯條目描述</string>
-  <string name="suggested_edits_task_translation_description">跨條目語言翻譯描述。</string>
   <string name="suggested_edits_task_image_caption_title">新增語言說明</string>
   <string name="suggested_edits_task_image_caption_description">為圖片新增缺少的簡短說明</string>
   <string name="suggested_edits_task_translate_caption_title">翻譯圖片說明</string>

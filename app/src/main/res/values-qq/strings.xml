@@ -674,8 +674,6 @@
   <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
   <string name="suggested_edits_task_add_description_title">Article description task heading.</string>
   <string name="suggested_edits_task_add_description_description">Article description task explanation given to user.</string>
-  <string name="suggested_edits_task_translation_title">Title text of article description translation task.</string>
-  <string name="suggested_edits_task_translation_description">Message text of article description translation task.</string>
   <string name="suggested_edits_task_image_caption_title">Image caption tasks heading.</string>
   <string name="suggested_edits_task_image_caption_description">Image caption tasks explanation given to user.</string>
   <string name="suggested_edits_task_translate_caption_title">Image caption translation tasks heading.</string>
@@ -806,4 +804,38 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
+  <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
+  <string name="suggested_edits_encouragement_message">Message text shown to users to encourage them to continue and increase editing.%s represents the user\'s name.</string>
+  <string name="suggested_edits_image_captions">Suggested Edits image captions task title</string>
+  <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Tool tip text explaining the edit quality statistics to the user. %d represents the number of reverts.</string>
+  <string name="suggested_edits_paused_message">Text explaining the reason for a short term disabling of editing previleges to the user.%s represents the user\'s name.</string>
+  <string name="suggested_edits_disabled_message">Text explaining the reason for disabling of editing previleges to the user.%s represents the user\'s name.</string>
+  <string name="suggested_edits_ip_blocked_message">Text explaining ip blocking to the user.</string>
+  <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
+  <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
+  <string name="suggested_edits_onboarding_message">Message text shown to users who havent yet used the suggested edits features, to encourage them to start editing.%s represents the user\'s name</string>
+  <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak</string>
+  <string name="suggested_edits_pageviews_label_text">Suggested edits label text for pageviews</string>
+  <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
+  <string name="suggested_edits_quality_excellent_text">Suggested edits label text indicating that the edit quality of the user is excellent</string>
+  <string name="suggested_edits_quality_very_good_text">Suggested edits label text indicating that the edit quality of the user is very good</string>
+  <string name="suggested_edits_quality_good_text">Suggested edits label text indicating that the edit quality of the user is good</string>
+  <string name="suggested_edits_quality_okey_text">Suggested edits label text indicating that the edit quality of the user is okay</string>
+  <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
+  <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor</string>
+  <string name="suggested_edits_quality_bad_text">Suggested edits label text indicating that the edit quality of the user is bad</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Label text for indicating how many contributions a user has made. For One contribution.</item>
+    <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one dat.</item>
+    <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days</item>
+  </plurals>
 </resources>

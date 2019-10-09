@@ -672,8 +672,6 @@
   <string name="suggested_edits_tasks_activity_title">التعديلات المقترحة</string>
   <string name="suggested_edits_task_add_description_title">إضافة أوصاف المقالات</string>
   <string name="suggested_edits_task_add_description_description">ساهم في المقالات التي تفتقد للوصوف</string>
-  <string name="suggested_edits_task_translation_title">ترجمة أوصاف المقالات</string>
-  <string name="suggested_edits_task_translation_description">ترجمة الأوصاف عبر لغات المقالة.</string>
   <string name="suggested_edits_task_image_caption_title">إضافة تعليقات الصور</string>
   <string name="suggested_edits_task_image_caption_description">أضف تعليقا قصيرا مفقودا للصور</string>
   <string name="suggested_edits_task_translate_caption_title">ترجمة تعليقات الصور</string>

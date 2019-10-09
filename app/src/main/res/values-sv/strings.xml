@@ -659,8 +659,6 @@
   <string name="suggested_edits_tasks_activity_title">Förslag på redigeringar</string>
   <string name="suggested_edits_task_add_description_title">Lägg till beskrivningar</string>
   <string name="suggested_edits_task_add_description_description">Bidra på artiklar utan beskrivningar</string>
-  <string name="suggested_edits_task_translation_title">Översätt beskrivningar</string>
-  <string name="suggested_edits_task_translation_description">Översätt beskrivningar över artikelspråk.</string>
   <string name="suggested_edits_task_image_caption_title">Lägg till bildtexter</string>
   <string name="suggested_edits_task_image_caption_description">Lägg till korta bildtexter för textlösa bilder</string>
   <string name="suggested_edits_task_translate_caption_title">Översätt bildtexter</string>

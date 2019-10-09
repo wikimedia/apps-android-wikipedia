@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/imageTitleDescParentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/suggested_edits_image_title_view_top_margin"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/imageLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <org.wikipedia.views.CircularProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="@dimen/suggested_edits_icon_size"
+            android:layout_height="@dimen/suggested_edits_icon_size"
+            android:visibility="gone"
+            app:progressBackgroundColor="?attr/lighter_green_background"
+            app:progressColor="?attr/action_mode_green_background" />
+
+        <LinearLayout
+            android:id="@+id/imageBackground"
+            android:layout_width="@dimen/suggested_edits_icon_background_size"
+            android:layout_height="@dimen/suggested_edits_icon_background_size"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/multi_select_background_color"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/suggested_edits_icon_size"
+                android:layout_height="@dimen/suggested_edits_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_add_gray_white_24dp"
+                android:tint="?attr/colorAccent" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/titleDescriptionLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/suggested_edits_title_margin_start"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="@dimen/suggested_edits_icon_title_text_size"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/suggested_edits_message_textview_text_size"
+            android:textColor="?attr/material_theme_de_emphasised_color"/>
+
+    </LinearLayout>
+</LinearLayout>

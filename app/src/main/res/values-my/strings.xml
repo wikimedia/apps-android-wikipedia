@@ -640,8 +640,6 @@
   <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_task_add_description_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
-  <string name="suggested_edits_task_translation_title">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
-  <string name="suggested_edits_task_translation_description">ဆောင်းပါးဘာသာစကားများအနှံ့ ဖော်ပြချက်များကို ဘာသာပြန်ဆိုပါ</string>
   <string name="suggested_edits_task_image_caption_title">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_image_caption_description">ရုပ်ပုံများသို့ လိုအပ်နေသောပုံစာများ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_translate_caption_title">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
