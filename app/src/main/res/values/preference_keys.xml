@@ -50,7 +50,6 @@
     <string name="preference_key_total_anon_descriptions_edited">totalAnonDescriptionsEdited</string>
     <string name="preference_key_missing_description_test">findArticleWithMissingDescription</string>
     <string name="preference_key_missing_description_test2">findArticleWithMissingSecondLangDescription</string>
-    <string name="preference_key_dialog_with_image_test">showDialogWithTitleAndImage</string>
     <string name="preference_category_sync">syncSettings</string>
     <string name="preference_category_experimental">experimentalSettings</string>
     <string name="preference_key_sync_reading_lists">syncReadingLists</string>
@@ -100,11 +99,6 @@
     <string name="preference_key_show_bookmark_tooltip">showBookmarkTooltip</string>
     <string name="preference_key_overflow_reading_lists_option_click_count">overflowReadingListsClickCount</string>
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
-    <string name="preference_key_suggested_edits_unlock_override">suggestedEditsUnlockOverride</string>
-    <string name="preference_key_suggested_edits_add_descriptions_unlocked">suggestedEditsAddDescriptionsUnlocked</string>
-    <string name="preference_key_suggested_edits_translate_descriptions_unlocked">suggestedEditsTranslateDescriptionsUnlocked</string>
-    <string name="preference_key_suggested_edits_add_captions_unlocked">suggestedEditsAddCaptionsUnlocked</string>
-    <string name="preference_key_suggested_edits_translate_captions_unlocked">suggestedEditsTranslateCaptionsUnlocked</string>
     <string name="preference_key_show_edit_menu_option_indicator">showEditMenuOptionIndicator</string>
     <string name="preference_key_show_action_feed_indicator">showActionFeedIndicator</string>
     <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
@@ -114,4 +108,5 @@
     <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>
     <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
+    <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
 </resources>

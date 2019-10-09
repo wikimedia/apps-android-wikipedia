@@ -13,7 +13,6 @@
   <string name="menu_page_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
   <string name="menu_page_other_languages" fuzzy="true">ಭಾಷೆ ಬದಲಿಸಿ</string>
   <string name="menu_page_share" fuzzy="true">ಹಂಚು</string>
-  <string name="nav_item_nearby">ಹತ್ತಿರದ</string>
   <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %s</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
     <string name="langlinks_filter_hint">ಹುಡುಕು</string>
