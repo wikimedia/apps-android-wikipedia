@@ -55,8 +55,8 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
     }
 
     fun setImageBackgroundParams(width: Int, height: Int) {
-        val parms = FrameLayout.LayoutParams(width, height)
-        imageBackground.setLayoutParams(parms)
+        val params = FrameLayout.LayoutParams(width, height)
+        imageBackground.layoutParams = params
         imageBackground.requestLayout()
     }
 
