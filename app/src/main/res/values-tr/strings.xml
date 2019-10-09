@@ -676,6 +676,8 @@
   <string name="suggested_edits_tasks_activity_title">Önerilen düzenlemeler</string>
   <string name="suggested_edits_task_add_description_title">Madde açıklaması ekle</string>
   <string name="suggested_edits_task_add_description_description">Tanımı olmayan sayfalara katkı yap</string>
+  <string name="suggested_edits_task_translation_title">Madde açıklamasını çevir</string>
+  <string name="suggested_edits_task_translation_description">Madde dillerinde açıklamaları çevirin.</string>
   <string name="suggested_edits_task_image_caption_title">Resim yazısı ekle</string>
   <string name="suggested_edits_task_image_caption_description">Resimlere eksik kısa resim yazıları ekleyin</string>
   <string name="suggested_edits_task_translate_caption_title">Resim başlıklarını çevir</string>

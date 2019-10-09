@@ -6,8 +6,7 @@ public enum LanguageSettingsInvokeSource {
     SETTINGS("settings"),
     ONBOARDING("onboarding"),
     CHINESE_VARIANT_REMOVAL("chinese_variant_removal"),
-    ANNOUNCEMENT("announcement"),
-    SUGGESTED_EDITS("suggested_edits");
+    ANNOUNCEMENT("announcement");
 
     private final String text;
 
