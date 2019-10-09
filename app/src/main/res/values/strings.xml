@@ -759,8 +759,8 @@
     <string name="suggested_edits_quality_poor_text">Poor</string>
     <string name="suggested_edits_quality_bad_text">Bad</string>
     <plurals name="suggested_edits_contribution">
-        <item quantity="one">contribution</item>
-        <item quantity="other">contributions</item>
+        <item quantity="one">Contribution</item>
+        <item quantity="other">Contributions</item>
     </plurals>
     <plurals name="suggested_edits_edit_streak_detail_text">
         <item quantity="one">%d day</item>
