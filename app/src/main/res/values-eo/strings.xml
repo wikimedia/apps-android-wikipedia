@@ -640,6 +640,8 @@
   <string name="suggested_edits_tasks_activity_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_task_add_description_title">Aldoni priskribojn al artikoloj</string>
   <string name="suggested_edits_task_add_description_description">Kontribui al artikloj sen priskriboj</string>
+  <string name="suggested_edits_task_translation_title">Traduki priskribojn de artikoloj</string>
+  <string name="suggested_edits_task_translation_description">Traduki priskribojn tra artikolaj lingvoj.</string>
   <string name="suggested_edits_task_image_caption_title">Titoli bildojn</string>
   <string name="suggested_edits_task_image_caption_description">Aldoni mankantajn mallongajn titolojn al bildoj</string>
   <string name="suggested_edits_task_translate_caption_title">Traduki titolon de bildo</string>

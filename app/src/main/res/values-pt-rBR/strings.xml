@@ -675,6 +675,8 @@
   <string name="suggested_edits_tasks_activity_title">Edições sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Adicionar descrições de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuir para artigos sem descrições</string>
+  <string name="suggested_edits_task_translation_title">Traduzir descrições de artigos</string>
+  <string name="suggested_edits_task_translation_description">Traduzir descrições em idiomas do artigo.</string>
   <string name="suggested_edits_task_image_caption_title">Adicionar legendas a imagens</string>
   <string name="suggested_edits_task_image_caption_description">Adicionar legendas curtas a imagens em falta</string>
   <string name="suggested_edits_task_translate_caption_title">Traduzir legendas de imagem</string>

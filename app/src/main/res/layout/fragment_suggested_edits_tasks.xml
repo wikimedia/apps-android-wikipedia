@@ -1,173 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/main_toolbar_color"
+    android:background="?android:attr/windowBackground"
     android:orientation="vertical">
 
-    <org.wikipedia.views.SuggestedEditsDisabledStatesView
-        android:id="@+id/disabledStatesView"
+    <FrameLayout
+        android:id="@+id/userContributionsButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="@dimen/suggested_edits_screen_margin"
-        android:paddingEnd="@dimen/suggested_edits_screen_margin"
-        android:visibility="gone" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/suggested_edits_screen_margin"
-        android:paddingEnd="@dimen/suggested_edits_screen_margin"
-        android:layout_marginBottom="@dimen/suggested_edits_stats_bottom_margin">
-
-        <org.wikipedia.views.ImageTitleDescriptionView
-            android:id="@+id/contributionsStatsView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <org.wikipedia.views.ImageTitleDescriptionView
-            android:id="@+id/editStreakStatsView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@+id/editQualityStatsView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <org.wikipedia.views.ImageTitleDescriptionView
-            android:id="@+id/pageViewStatsView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contributionsStatsView" />
-
-        <org.wikipedia.views.ImageTitleDescriptionView
-            android:id="@+id/editQualityStatsView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editStreakStatsView" />
+        android:layout_height="72dp"
+        android:background="?attr/main_toolbar_color"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <LinearLayout
-            android:id="@+id/tooltipLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contributionsStatsView">
-
-            <View
-                android:id="@+id/topTooltipArrow"
-                android:layout_width="30dp"
-                android:layout_height="15dp"
-                android:layout_gravity="end"
-                android:layout_marginStart="@dimen/suggested_edits_top_tooltip_margin"
-                android:layout_marginEnd="@dimen/suggested_edits_top_tooltip_margin"
-                android:background="@drawable/arrow"
-                android:elevation="4dp" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="56dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tooltipTextView"
-                android:layout_width="match_parent"
+                android:id="@+id/usernameText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/paper_color"
-                android:elevation="4dp"
-                android:fontFamily="sans-serif"
-                android:lineSpacingExtra="6sp"
-                android:padding="16dp"
-                android:textAlignment="center"
-                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="?attr/material_theme_primary_color"
+                android:textSize="16sp"
+                tools:text="Androidloggedinusername" />
+
+            <TextView
+                android:id="@+id/contributionsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="?attr/colorAccent"
+                android:textSize="16sp"
+                tools:text="100 in-app contributions" />
+
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/onboardingImageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
             android:contentDescription="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_suggested_edits_onboarding" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_chevron_forward_gray"
+            app:tint="?attr/colorAccent" />
 
-    <View
-        android:id="@+id/bottomTooltipArrow"
-        android:layout_width="30dp"
-        android:layout_height="15dp"
-        android:layout_gravity="end"
-        android:layout_marginStart="@dimen/suggested_edits_bottom_tooltip_margin"
-        android:layout_marginEnd="@dimen/suggested_edits_bottom_tooltip_margin"
-        android:background="@drawable/arrow"
-        android:elevation="4dp"
-        android:visibility="gone" />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="-4dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorAccent"
+            android:progressBackgroundTint="@color/accent30"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/textViewForMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/suggested_edits_screen_margin"
-        android:layout_marginEnd="@dimen/suggested_edits_screen_margin"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="6sp"
-        android:textAlignment="center"
-        android:textSize="@dimen/suggested_edits_message_textview_text_size" />
-
-    <View
-        android:layout_width="30dp"
-        android:layout_height="15dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/arrow" />
+    </FrameLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasksRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tasksRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/paper_color"
-                android:paddingStart="@dimen/suggested_edits_screen_margin"
-                android:paddingEnd="@dimen/suggested_edits_screen_margin" />
-
-            <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-
-               <Button
-                   android:id="@+id/paused"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Paused" />
-
-               <Button
-                   android:id="@+id/disabled"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Disabled" />
-
-               <Button
-                   android:id="@+id/ipBlocked"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="ipBlocked" />
-           </LinearLayout>
-
-        </LinearLayout>
+            android:layout_height="match_parent" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 </LinearLayout>

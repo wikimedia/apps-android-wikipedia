@@ -142,10 +142,6 @@ public final class DeviceUtil {
         return am != null && am.isEnabled() && am.isTouchExplorationEnabled();
     }
 
-    public static boolean isDeviceTablet() {
-        return WikipediaApp.getInstance().getResources().getBoolean(R.bool.isTablet);
-    }
-
     private DeviceUtil() {
     }
 }

@@ -640,6 +640,8 @@
   <string name="suggested_edits_tasks_activity_title">Navrhované úpravy</string>
   <string name="suggested_edits_task_add_description_title">Pridať popis článku</string>
   <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
+  <string name="suggested_edits_task_translation_title">Preložiť popis článku</string>
+  <string name="suggested_edits_task_translation_description">Preložiť popisy článkov naprieč jazykmi.</string>
   <string name="suggested_edits_task_image_caption_title">Pridať titulky obrázkov</string>
   <string name="suggested_edits_task_image_caption_description">Pridať chýbajúce stručné titulky k obrázkom</string>
   <string name="suggested_edits_task_translate_caption_title">Preložiť titulky obrázkov</string>

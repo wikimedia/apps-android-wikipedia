@@ -35,7 +35,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
-    @SerializedName("usercontribs") @Nullable private List<UserContributions> userContributions;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -143,10 +142,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @Nullable public EditorTaskCounts editorTaskCounts() {
         return editorTaskCounts;
-    }
-
-    @Nullable public List<UserContributions> userContributions() {
-        return userContributions;
     }
 
     @Override

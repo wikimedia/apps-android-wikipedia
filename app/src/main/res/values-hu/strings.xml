@@ -659,6 +659,8 @@
   <string name="suggested_edits_tasks_activity_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_task_add_description_title">Szócikkleírások hozzáadása</string>
   <string name="suggested_edits_task_add_description_description">Működj közre a címleírások nélküli cikkeknél</string>
+  <string name="suggested_edits_task_translation_title">Szócikkleírások fordítása</string>
+  <string name="suggested_edits_task_translation_description">Leírások lefordítása több nyelvre.</string>
   <string name="suggested_edits_task_image_caption_title">Képaláírások hozzáadása</string>
   <string name="suggested_edits_task_image_caption_description">Adj hiányzó rövid képaláírásokat a képekhez</string>
   <string name="suggested_edits_task_translate_caption_title">Képaláírások fordítása</string>

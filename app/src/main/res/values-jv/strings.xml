@@ -610,6 +610,8 @@
   <string name="suggested_edits_my_contributions">Pasumbangku</string>
   <string name="suggested_edits_no_description">Barkas iki ora duwé wedharan</string>
   <string name="suggested_edits_menu_info">Info</string>
+  <string name="suggested_edits_task_translation_title" fuzzy="true">Pertal wedharan</string>
+  <string name="suggested_edits_task_translation_description">Pertal wedharan ing akèh basa.</string>
   <string name="suggested_edits_task_translate_caption_title">Pertal katerangan gambar</string>
   <string name="suggested_edits_task_translate_caption_description">Pertal katerangan menyang basa liya</string>
   <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>

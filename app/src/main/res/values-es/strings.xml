@@ -676,6 +676,8 @@
   <string name="suggested_edits_tasks_activity_title">Ediciones sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Añade descripciones de artículos</string>
   <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
+  <string name="suggested_edits_task_translation_title">Traducir descripciones de artículos</string>
+  <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
   <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>
   <string name="suggested_edits_task_image_caption_description">Añadir títulos faltados a imágenes</string>
   <string name="suggested_edits_task_translate_caption_title">Traduce la leyenda de la imagen</string>
