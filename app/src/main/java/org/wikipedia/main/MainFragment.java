@@ -6,7 +6,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -401,10 +400,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             NavTab tab = NavTab.of(position);
             callback.onTabChanged(tab);
         }
-    }
-
-    private void showLinkPreview(@NonNull HistoryEntry entry, @Nullable Location location) {
-        bottomSheetPresenter.show(getChildFragmentManager(), LinkPreviewDialog.newInstance(entry, location));
     }
 
     private void copyLink(@NonNull String url) {
