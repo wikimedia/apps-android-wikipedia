@@ -120,7 +120,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             values.put(MediaStore.Audio.Media.DATA, path);
             values.put(MediaStore.Audio.Media.MIME_TYPE, mimeType);
             contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        } else if (!TextUtils.isEmpty(path)){
+        } else if (!TextUtils.isEmpty(path)) {
             values.put(MediaStore.Images.Media.DATA, path);
             values.put(MediaStore.Images.Media.MIME_TYPE, mimeType);
             contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
