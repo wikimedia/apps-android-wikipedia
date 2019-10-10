@@ -140,6 +140,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                 }
             });
             tabCountsView.updateTabCount();
+            tabCountsView.setContentDescription(getString(R.string.menu_page_show_tabs));
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
             FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
