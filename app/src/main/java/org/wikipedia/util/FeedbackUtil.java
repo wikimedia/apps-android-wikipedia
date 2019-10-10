@@ -121,10 +121,11 @@ public final class FeedbackUtil {
     }
 
     public static Snackbar makeSnackbar(Activity activity, CharSequence text, int duration) {
+        final float snackbarLineSpacing = 5.0f;
         View view = findBestView(activity);
         Snackbar snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration);
         TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
-        textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5.0f, activity.getResources().getDisplayMetrics()), 1.0f);
+        textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, snackbarLineSpacing, activity.getResources().getDisplayMetrics()), 1.0f);
         textView.setMaxLines(SNACKBAR_MAX_LINES);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
