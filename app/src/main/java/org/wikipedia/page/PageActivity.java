@@ -82,7 +82,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -247,7 +249,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (app.haveMainActivity()) {
                     onBackPressed();
                 } else {
-                    goToMainTab(NavTab.EXPLORE.code());
+                    goToMainTab(NavTab.EXPLORE);
                 }
                 return true;
             default:
@@ -261,11 +263,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return true;
     }
 
-    private void goToMainTab(int navTabCode) {
+    private void goToMainTab(@NonNull NavTab tab) {
         startActivity(MainActivity.newIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode));
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, tab.code()));
         finish();
     }
 
@@ -635,7 +637,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         @Override
         public void feedClick() {
-            goToMainTab(NavTab.EXPLORE.code());
+            goToMainTab(NavTab.EXPLORE);
         }
 
         @Override
@@ -643,17 +645,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
                 Prefs.setOverflowReadingListsOptionClickCount(Prefs.getOverflowReadingListsOptionClickCount() + 1);
             }
-            goToMainTab(NavTab.READING_LISTS.code());
+            goToMainTab(NavTab.READING_LISTS);
         }
 
         @Override
         public void historyClick() {
-            goToMainTab(NavTab.HISTORY.code());
-        }
-
-        @Override
-        public void nearbyClick() {
-            goToMainTab(NavTab.NEARBY.code());
+            goToMainTab(NavTab.HISTORY);
         }
     }
 
@@ -702,7 +699,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
-            FeedbackUtil.makeSnackbar(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+            FeedbackUtil.makeSnackbar(this, data.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) == SUGGESTED_EDITS_ADD_CAPTION
+                    ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
         } else {

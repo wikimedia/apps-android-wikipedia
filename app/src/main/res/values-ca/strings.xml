@@ -33,6 +33,7 @@
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Edicions suggerides</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
   <string name="card_offline_error_retry">Reintenta</string>
@@ -75,9 +76,6 @@
   <string name="on_this_day_page_share">Comparteix</string>
   <string name="reading_list_page_share">Comparteix</string>
   <string name="menu_text_select_edit_here">Editeu aquí</string>
-  <string name="nav_item_nearby">A prop</string>
-  <string name="nearby_zoom_to_location">Zoom a una ubicació del mapa</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Col·laborades de l\'&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última actualització %s</string>
   <string name="talk_page_link_text">Mostra la pàgina de discussió</string>
   <string name="edit_history_link_text">Mostra l\'historial de modificacions</string>
@@ -340,6 +338,7 @@
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
   <string name="error_page_does_not_exist">La pàgina no existeix</string>
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
+  <string name="view_wiki_error_message_timeout">No es pot connectar a la Viquipèdia. Comproveu la connexió a la xarxa o torneu-ho a provar més endavant</string>
   <string name="reference_title">Referència %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuació d\'imatges (en el tema fosc)</string>
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
@@ -608,9 +607,8 @@
   <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Carrega’n més</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
-  <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Article (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripció de l\'article (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descripció de la imatge (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Llegendes de la imatge (%s)</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_read">Llegeix</string>
@@ -657,26 +655,6 @@
   <string name="suggested_edits_review_image_caption">Revisa la llegenda de la imatge</string>
   <string name="suggested_edits_my_contributions">Les meves contribucions</string>
   <string name="suggested_edits_no_description">El fitxer no té descripció</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">S\'ha desbloquejat la tasca d\'addició de descripcions d\'article</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Gràcies per les vostres contribucions! Atès que ho feu molt bé editant, hem compilat una llista d\'articles que no tenen descripcions. Ens ajudeu a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">S\'ha desbloquejat la tasca de traducció de descripcions d\'article</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Enhorabona per totes les contribucions que heu fet. Estem impressionats! Atès que feu servir l\'aplicació en més d\'una llengua, hem compilat una llista d\'articles que necessiten una traducció de les descripcions. Ens podeu continuar ajudant a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_dialog_no">Potser més tard</string>
-  <string name="suggested_edits_unlock_dialog_yes">Sí, som-hi</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Heu desbloquejat l\'addició de descripcions d\'article</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Heu desbloquejat la traducció de descripcions d\'article</string>
-  <string name="suggested_edits_unlock_notification_text">Edicions suggerides</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edicions suggerides\n\nGràcies per les vostres contribucions. Atès que ho feu molt bé editant, hem compilat una llista d\'articles que no tenen descripcions. Ens ajudeu a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edicions suggerides\n\nEnhorabona per totes les contribucions que heu fet. Estem impressionats! Atès que feu servir l\'aplicació en més d\'una llengua, hem compilat una llista d\'articles que necessiten una traducció de les descripcions. Ens podeu continuar ajudant a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_notification_button">Sí, som-hi</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Heu desbloquejat la tasca «Afegeix llegendes a les imatges»</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Heu desbloquejat «Afegeix descripcions d\'imatges»</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Gràcies per les vostres edicions de llegendes d\'imatges! Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat un llistat d\'imatges que no en tenen. Ens ajudeu a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Edicions suggerides\n\nGràcies per les vostres edicions de llegendes d\'imatges. Atès que ens sembla que us agrada afegir llegendes a les imatges, hem compilat una llista d\'imatges que no en tenen. Ens ajudeu a millor la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Heu desbloquejat la tasca «Tradueix llegendes de les imatges»</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Heu desbloquejat «Tradueix les llegendes de les imatges»</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Enhorabona per les vostres edicions de llegendes d\'imatges - estem impressionats! Esteu fent servir l\'aplicació en diferents llengües, per tant hem compilat una llista d\'imatges que necessiten traducció de les seves llegendes. Continuareu ajudant-nos a millorar la Viquipèdia?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Edicions suggerides\n\nEnhorabona per les vostres edicions de llegendes d\'imatges - estem impressionats! Esteu fent servir l\'aplicació en diferents llengües, per tant hem compilat una llista d\'imatges que necessiten traducció de les seves llegendes. Continuareu ajudant-nos a millorar la Viquipèdia?</string>
   <string name="suggested_edits_license_notice">En afegir la descripció, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">En afegir la llegenda de la imatge, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i alliberar irrevocablement les contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
@@ -716,7 +694,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Llicència</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Més informació</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pàgina del fitxer a Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Afegeix una llegenda d\'imatge (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Afegeix una llegenda d\'imatge</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Afegeix una llegenda d\'imatge (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Mostra</string>
   <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda (%s)</string>

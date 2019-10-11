@@ -65,9 +65,6 @@
   <string name="on_this_day_page_share">Споделяне</string>
   <string name="reading_list_page_share">Споделяне</string>
   <string name="menu_text_select_edit_here">Редактиране тук</string>
-  <string name="nav_item_nearby">Наблизо</string>
-  <string name="nearby_zoom_to_location">Приближаване към място на картата</string>
-  <string name="nearby_osm_license">сътрудници на &amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последна промяна: %s</string>
   <string name="talk_page_link_text">Преглед на беседата</string>
   <string name="edit_history_link_text">Преглед на историята на редакциите</string>
@@ -580,7 +577,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
   <string name="description_edit_text_hint">Описание на статията</string>
-  <string name="description_edit_article_description_label_per_language">Статия (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Статия (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Описание на статията (%s)</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_read">Прочитане</string>
@@ -611,11 +608,6 @@
   <string name="suggested_edits_add_translation_button">Добавяне на превод</string>
   <string name="suggested_edits_edit_translation_button">Редактиране на превод</string>
   <string name="suggested_edits_my_contributions">Моите приноси</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Добавяне на описания“</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Поздравления за Вашия трети принос! Понеже Вие сте изключително добър в редактирането, ние съставихме списък на статиите с липсващи описания. Бихте ли ни помогнали да подобрим Уикипедия?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Отключихте задачата „Превод на описания“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Поздравления за Вашите 50 приноса, впечатлени сме! Ползвате приложението в повече езици, затова съставихме списък от статии, които се нуждаят от превод на описанията. Бихте ли продължили да ни помагате, подобрявайки Уикипедия?</string>
-  <string name="suggested_edits_unlock_dialog_no">Може би после</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Задачи за приложния редактор</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Добавяне на описания</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>

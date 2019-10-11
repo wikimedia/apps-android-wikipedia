@@ -60,9 +60,6 @@
   <string name="on_this_day_page_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="reading_list_page_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_text_select_edit_here">ߦߊ߲߬ ߡߊߦߟߍ߬ߡߊ߲߫</string>
-  <string name="nav_item_nearby">ߡߊߛߎߘߎ߲ߧߊ</string>
-  <string name="nearby_zoom_to_location">ߔߊ߬ߔߘߊ ߘߌ߲߬ߞߌߙߊ ߘߏ߫ ߟߊߞߎ߲߬ߓߊ߬ߦߊ߫</string>
-  <string name="nearby_osm_license">&amp; ߓߊߓߌߟߊߟߌ; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ߠߊ</string>
   <string name="last_updated_text">ߟߏ߲ߘߐߦߊߟߌ ߟߊߓߊ߲ %s</string>
   <string name="talk_page_link_text">ߘߊߘߐߖߊߥߏ ߞߐߜߍ ߟߎ߬ ߦߋ߫</string>
   <string name="edit_history_link_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߝߐ ߦߋ߫</string>
@@ -519,9 +516,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="description_edit_text_hint">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ</string>
-  <string name="description_edit_article_description_label_per_language">ߦߌߟߡߊ (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ߦߌߟߡߊ (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
   <string name="description_edit_save">ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ</string>
   <string name="description_edit_read">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲</string>
@@ -562,20 +558,6 @@
   <string name="suggested_edits_review_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߦߋ߫ ߕߎ߲߯</string>
   <string name="suggested_edits_my_contributions">ߒ ߠߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="suggested_edits_no_description">ߞߊ߲߬ߛߓߍ߬ߟߌ߬ ߕߍ߫ ߞߐߕߐ߮ ߣߌ߲߬ ߠߊ߫</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">ߌ ߓߘߊ߫ \"ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬\" ߘߊߞߎ߲ ߘߊߟߊߞߊ߬</string>
-  <string name="suggested_edits_unlock_dialog_no">ߕߎ߬ߡߊ߬ߘߐ߫ ߞߐߝߍ߬</string>
-  <string name="suggested_edits_unlock_dialog_yes">ߐ߲߬ߐ߲߬ߐ߲߫߸ ߊ߲ ߕߊ߯</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ\n\nߌ ߞߎߟߎ߲ߖߋ߫ ߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߓߍ߯ ߟߊ߫.ߌ ߓߘߊ߫ ߞߍ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߊ߬ ߢߣߊ ߘߌ߫߸ ߞߏ߬ߣߌ߲߬ ߦߌߟߡߊ ߘߏ߫ ߟߎ߫ ߞߊ߲߬ߛߓߍߟߌ ߓߘߊ߫ ߘߛߍ߫ ߒ߬ ߘߐ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߬ ߠߊ߫ ߞߊ߬ ߥߞߌߔߋߘߌߦߊ ߡߊߛߐ߫ ߓߊ߬؟</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ\n\nߌ ߞߎߟߎ߲ߖߋ߫ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲߫ ߛߌߦߊߡߊ߲ ߠߊ߫߸ ߊ߲ ߓߘߴߊ߬ ߟߊߞߙߐ߬ߛߌ߫ ߌ ߦߋ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊߓߊ߯ߙߊ߫ ߟߊ߫ ߞߊ߲߫ ߛߌߦߊߡߊ߲߫ ߘߐ߫߸ ߊ߲ ߓߘߊ߫ ߦߌߟߡߊ ߘߏ߫ ߟߎ߫ ߛߙߍߘߍ ߡߍ߲ ߠߎ߬ ߡߊ߬ߞߏ ߦߋ߫ ߘߟߊߡߌߘߊߟߌ ߞߊ߲߬ߛߓߍߟߌ ߟߊ߫.ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߬ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߡߊߛߐߟߌ ߟߊ߫ ߓߊ߬؟</string>
-  <string name="suggested_edits_unlock_notification_button">ߐ߲߬ߐ߲߬ߐ߲߫߸ ߊ߲ ߕߊ߯</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">ߌ ߓߘߊ߫ \"ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬\" ߘߊߞߎ߲ ߘߊߟߊߞߊ߬</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">ߌ ߓߘߊ߫ \"ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߭\" ߘߊߦߟߍ߬</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">ߌ ߣߌ߫ ߗߋ߫ ߌ ߟߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲ ߠߊ߫߹ ߞߊ߬ߦߌ߯ ߊ߲ ߞߵߌ ߟߊߞߙߐ߬ߛߌ߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲ ߘߌߡߊ߲߫ ߌ ߢߍ߫߸ ߊ߲ ߓߘߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߘߏ߫ ߟߎ߫ ߛߙߍߘߍߦߊ߫ ߡߍ߲ ߠߎ߬ ߝߐߣߍ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߬ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߡߊߛߐߟߌ ߟߊ߫ ߓߊ߬؟</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ\n\nߌ ߣߌ߫ ߗߋ߫ ߌ ߟߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍ߬ߟߌ߬ ߡߊߦߟߍߡߊ߲ ߓߍ߯ ߟߊ߫߹ ߞߊ߬ߦߌ߯ ߊ߲ ߞߵߌ ߟߊߞߙߐ߬ߛߌ߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍ߬ߟߌ߬ ߡߊߦߟߍߡߊ߲ ߘߌߡߊ߲߫ ߌ ߢߍ߫߸ ߊ߲ ߓߘߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߘߏ߫ ߟߎ߫ ߛߙߍߘߍߦߊ߫ ߡߍ߲ ߠߎ߬ ߝߐߣߍ߲߫ ߦߋ߫ ߝߍ߬ߛߓߍߟߌ ߟߊ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߡߊߘߍ߬ߡߍ߲߬ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߡߊߛߐߟߌ ߟߊ߫ ߓߊ߬؟</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">ߌ ߓߘߊ߫ \"ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌߘߊߟߌ\" ߘߊߞߎ߲ ߘߊߟߊߞߊ߬</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">ߌ ߓߘߊ߫ \"ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌߘߊߟߌ\" ߘߊߦߟߍ߬</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">ߌ ߞߎߟߎ߲ߖߋ߫ ߘߏ߲߯ ߌ ߟߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍ߬ߟߌ߬ ߛߌߦߊߡߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲ ߠߊ߫ - ߊ߲ ߠߎ߬ ߓߘߊ߫ ߞߓߊߞߏߦߊ߫߹ ߌ ߦߋ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊߓߊ߯ߙߊ߫ ߟߊ߫ ߞߊ߲߫ ߛߌߦߊߡߊ߲߫ ߘߐ߫߸ ߏ߬ ߘߐ߫ ߊ߲ ߓߘߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߘߏ߫ ߟߎ߫ ߘߟߊߘߍ߬ ߡߍ߲ ߠߎ߬ ߡߊ߬ߞߏ ߦߋ߫ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌߘߊߟߌ ߟߊ߫.\nߌ ߘߌ߫ ߛߴߊ߲ ߘߍ߬ߡߍ߲߬ߠߌ߲ ߘߊߓߊ߲߫ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߡߊߛߐߟߌ ߟߊ߫ ߓߊ߬؟</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ \n\nߌ ߞߎߟߎ߲ߖߋ߫ ߘߏ߲߯ ߌ ߟߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍ߬ߟߌ߬ ߡߊߦߟߍߡߊ߲߫ ߛߌߦߊߡߊ߲ ߠߊ߫ - ߊ߲ ߠߎ߬ ߓߘߊ߫ ߞߓߊߞߏߦߊ߫߹ ߌ ߦߋ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊߓߊ߯ߙߊ߫ ߟߊ߫ ߞߊ߲߫ ߛߌߦߊߡߊ߲߫ ߘߐ߫߸ ߏ߬ ߘߐ߫ ߊ߲ ߓߘߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߘߏ߫ ߟߎ߫ ߛߙߍߘߍ ߘߟߊߘߍ߬ ߡߍ߲ ߠߎ߬ ߡߊ߬ߞߏ ߦߋ߫ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌߘߊߟߌ ߟߊ߫. ߌ ߘߌ߫ ߛߴߊ߲ ߘߍ߬ߡߍ߲ ߘߊߓߊ߲߫ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߡߊߛߐߟߌ ߟߊ߫ ߓߊ߬؟</string>
   <string name="suggested_edits_license_notice">ߣߌ߫ ߒ ߘߌ߫ ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬߸ ߒ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; and to irrevocably release my contributions under the &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; license.</string>
   <string name="suggested_edits_image_caption_license_notice">ߣߌ߫ ߒ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬߸ ߒ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; ߊ߬ ߣߌ߫ ߒ ߓߘߊ߫ ߒ ߓߊ߯ߙߊߣߐ ߟߊߓߌ߬ߟߊ߬ ߣߡߌߛߊߓߊߟߌߦߊ߫ ߓߟߏߡߊ߬ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ߟߊ߫ ߕߌ߰ߦߊ ߘߊߞߘߐ߫.</string>
   <string name="suggested_edits_menu_info">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ</string>
@@ -613,7 +595,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="suggested_edits_image_preview_dialog_more_info">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߬ ߜߘߍ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ߞߐߕߐ߮ ߞߐߜߍ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
-  <string name="suggested_edits_article_cta_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="suggested_edits_feed_card_add_image_caption">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>

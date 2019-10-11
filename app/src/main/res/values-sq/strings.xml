@@ -26,8 +26,6 @@
   <string name="menu_text_select_define">Përcaktoje</string>
   <string name="menu_text_select_share">Shpërndaje</string>
   <string name="menu_text_select_edit_here">Redakto këtu</string>
-  <string name="nav_item_nearby">Pranë</string>
-  <string name="nearby_zoom_to_location">Afro te një vendndodhje në hartë</string>
   <string name="last_updated_text">Përditësim i fundit %s</string>
   <string name="content_license_html">Përmbajtja është nën disponim, &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; përveç rasteve kur tregohet ndryshe</string>
   <string name="edit_save_action_license_logged_in">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

@@ -22,7 +22,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.EditorTaskCounts
 import org.wikipedia.language.LanguageSettingsInvokeSource
-import org.wikipedia.notifications.NotificationEditorTasksHandler
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
@@ -54,7 +53,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener{ this.updateUI() }
@@ -69,6 +67,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         userContributionsButton.setOnClickListener {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireContext()))
         }
+
+        errorView.setRetryClickListener { updateUI() }
+
         setUpTasks()
     }
 
@@ -102,8 +103,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun fetchUserContributions() {
+        if (!AccountUtil.isLoggedIn()) {
+            return
+        }
+
         updateDisplayedTasks(null)
         contributionsText.visibility = View.GONE
+        errorView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
 
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
@@ -115,8 +121,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     swipeRefreshLayout.isRefreshing = false
                 }
                 .subscribe({ response ->
-                    val editorTaskCounts = response.query()!!.editorTaskCounts()
-                    NotificationEditorTasksHandler.dispatchEditorTaskResults(requireContext(), editorTaskCounts!!)
+                    val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     var totalEdits = 0
                     for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
                         totalEdits += count
@@ -128,7 +133,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                     updateDisplayedTasks(editorTaskCounts)
                 }, { throwable ->
                     L.e(throwable)
-                    FeedbackUtil.showError(requireActivity(), throwable)
+                    errorView.visibility = View.VISIBLE
+                    errorView.setError(throwable)
                 }))
     }
 
@@ -152,7 +158,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageCaptionsTask.title = getString(R.string.suggested_edits_task_image_caption_title)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_task_image_caption_description)
         addImageCaptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_images)
-        addImageCaptionsTask.disabled = true
 
         translateImageCaptionsTask = SuggestedEditsTask()
         translateImageCaptionsTask.title = getString(R.string.suggested_edits_task_translate_caption_title)
@@ -164,7 +169,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         multilingualTeaserTask.description = getString(R.string.suggested_edits_task_multilingual_description)
         multilingualTeaserTask.showImagePlaceholder = false
         multilingualTeaserTask.showActionLayout = true
-        multilingualTeaserTask.disabled = !Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
         multilingualTeaserTask.unlockActionPositiveButtonString = getString(R.string.suggested_edits_task_multilingual_positive)
         multilingualTeaserTask.unlockActionNegativeButtonString = getString(R.string.suggested_edits_task_multilingual_negative)
     }
@@ -181,35 +185,25 @@ class SuggestedEditsTasksFragment : Fragment() {
 
             displayedTasks.add(addDescriptionsTask)
             addDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForAddDescriptions)
-            addDescriptionsTask.showActionLayout = !Prefs.isSuggestedEditsAddDescriptionsUnlocked()
-            addDescriptionsTask.disabled = !Prefs.isSuggestedEditsAddDescriptionsUnlocked()
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 displayedTasks.add(translateDescriptionsTask)
                 translateDescriptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_translate_description_edit_disable_text), targetForTranslateDescriptions)
-                translateDescriptionsTask.showActionLayout = !Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
-                translateDescriptionsTask.disabled = !Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
             }
 
             val targetForAddCaptions = editorTaskCounts.captionEditTargets[0]
             val targetForTranslateCaptions = editorTaskCounts.captionEditTargets[1]
 
             displayedTasks.add(addImageCaptionsTask)
-            addImageCaptionsTask.disabled = !Prefs.isSuggestedEditsAddCaptionsUnlocked()
-            addImageCaptionsTask.showActionLayout = !Prefs.isSuggestedEditsAddCaptionsUnlocked()
             addImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForAddCaptions)
 
-            if (Prefs.isSuggestedEditsAddCaptionsUnlocked() && WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                 displayedTasks.add(translateImageCaptionsTask)
                 translateImageCaptionsTask.unlockMessageText = String.format(getString(R.string.suggested_edits_task_image_caption_edit_disable_text), targetForTranslateCaptions)
-                translateImageCaptionsTask.showActionLayout = !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()
-                translateImageCaptionsTask.disabled = !Prefs.isSuggestedEditsTranslateCaptionsUnlocked()
             }
 
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && Prefs.showSuggestedEditsMultilingualTeaserTask()) {
                 displayedTasks.add(multilingualTeaserTask)
-                multilingualTeaserTask.showActionLayout = Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
-                multilingualTeaserTask.disabled = !Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()
             }
 
         } catch (e: Exception) {
