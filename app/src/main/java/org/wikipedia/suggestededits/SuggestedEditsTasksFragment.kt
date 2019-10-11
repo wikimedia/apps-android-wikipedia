@@ -98,6 +98,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         val topDecorationDp = PADDING_16
         tasksRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, topDecorationDp))
+        errorView.setRetryClickListener { updateUI() }
         setUpTasks()
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
     }
@@ -250,7 +251,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                     updateUserMessageTextView()
                 }, { throwable ->
                     L.e(throwable)
-                    FeedbackUtil.showError(requireActivity(), throwable)
+                    errorView.visibility = View.VISIBLE
+                    errorView.setError(throwable)
                 }))
 
     }

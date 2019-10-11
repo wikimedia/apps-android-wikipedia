@@ -6,7 +6,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -404,10 +403,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    private void showLinkPreview(@NonNull HistoryEntry entry, @Nullable Location location) {
-        bottomSheetPresenter.show(getChildFragmentManager(), LinkPreviewDialog.newInstance(entry, location));
-    }
-
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(requireContext(), null, url);
         FeedbackUtil.showMessage(this, R.string.address_copied);
@@ -451,7 +446,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void setupPulsingIcon() {
         if (AccountUtil.isLoggedIn() && Prefs.shouldShowSuggestedEditsTooltip()) {
             tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
             snackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
             snackbar.show();
         }

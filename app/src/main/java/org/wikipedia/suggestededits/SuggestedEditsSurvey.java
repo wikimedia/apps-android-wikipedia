@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits;
 
 import android.app.Activity;
 import android.net.Uri;
-import android.util.TypedValue;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,11 +20,8 @@ public final class SuggestedEditsSurvey {
     private static final int VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY = 3;
 
     public static void maybeRunSurvey(@NonNull Activity activity) {
-        final float extraLineSpacing = 5.0f;
         if (Prefs.shouldShowSuggestedEditsSurvey()) {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
-            TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
-            textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, extraLineSpacing, activity.getResources().getDisplayMetrics()), 1.0f);
             TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
             actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
             actionView.setCompoundDrawablePadding(activity.getResources().getDimensionPixelOffset(R.dimen.margin));
