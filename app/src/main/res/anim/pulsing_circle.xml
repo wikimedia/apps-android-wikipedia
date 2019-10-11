@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true">
+    <scale
+        android:duration="500"
+        android:fromXScale="0.7"
+        android:fromYScale="0.7"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:toXScale="1"
+        android:toYScale="1"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatMode="reverse"
+        android:fillAfter="true"
+        android:repeatCount="infinite"/>
+    <alpha
+        android:duration="500"
+        android:fromAlpha="0.3"
+        android:toAlpha="1.0"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"/>
+</set>

@@ -139,6 +139,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                 }
             });
             tabCountsView.updateTabCount();
+            tabCountsView.setContentDescription(getString(R.string.menu_page_show_tabs));
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
             FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
@@ -166,6 +167,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
+
+            if (tab.equals(NavTab.SUGGESTED_EDITS)) {
+                getFragment().hideNavTabOverlayLayout();
+                Prefs.setShouldShowSuggestedEditsTooltip(false);
+            }
+
             hamburgerAndWordmarkLayout.setVisibility(GONE);
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
@@ -270,12 +277,14 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                         .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
+                            getFragment().tabLayout.setTabViews();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
                             if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
                                 ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            getFragment().hideNavTabOverlayLayout();
                         }).show();
             } else {
                 getFragment().onLoginRequested();

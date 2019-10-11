@@ -31,10 +31,12 @@
   <string name="page_tabs_back">Takaisin</string>
   <string name="nav_item_forward">Eteenpäin</string>
   <string name="search_hint">Hae Wikipediasta</string>
+  <string name="search_hint_voice_search">Hae äänitulon perusteella</string>
   <string name="search_hint_search_history">Hae historiasta</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
+  <string name="nav_item_suggested_edits">Ehdotetut muokkaukset</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="card_offline_error_retry">Yritä uudelleen</string>
@@ -77,9 +79,6 @@
   <string name="on_this_day_page_share">Jaa</string>
   <string name="reading_list_page_share">Jaa</string>
   <string name="menu_text_select_edit_here">Muokkaa tästä</string>
-  <string name="nav_item_nearby">Lähistöllä</string>
-  <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; muokkaajat</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
   <string name="talk_page_link_text">Tarkastele keskustelusivua</string>
   <string name="edit_history_link_text">Näytä muokkaushistoria</string>
@@ -606,7 +605,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
-  <string name="description_edit_article_description_label_per_language">Artikkeli (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikkeli (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikkelin kuvaus (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Kuvateksti (%s)</string>
   <string name="description_edit_save">Julkaise</string>
@@ -627,6 +626,7 @@
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Kuvateksti julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
@@ -639,18 +639,18 @@
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="suggested_edits_add_descriptions">Lisää artikkelin kuvaukset</string>
   <string name="suggested_edits_translate_descriptions">Käännä artikkelin kuvaukset</string>
+  <string name="suggested_edits_add_image_captions">Lisää kuvatekstit</string>
+  <string name="suggested_edits_translate_image_captions">Käännä kuvatekstit</string>
   <string name="suggested_edits_review_description">Esikatsele artikkelin kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
   <string name="suggested_edits_edit_description_button">Muokkaa kuvausta</string>
   <string name="suggested_edits_add_translation_button">Lisää käännös</string>
   <string name="suggested_edits_edit_translation_button">Muokkaa käännöstä</string>
+  <string name="suggested_edits_add_caption_button">Lisää kuvateksti</string>
+  <string name="suggested_edits_edit_caption_button">Muokkaa kuvatekstejä</string>
+  <string name="suggested_edits_review_image_caption">Esikatsele kuvatekstiä</string>
   <string name="suggested_edits_my_contributions">Omat muokkaukset</string>
   <string name="suggested_edits_no_description">Tällä tiedostolla ei ole kuvausta</string>
-  <string name="suggested_edits_unlock_dialog_no">Ehkä myöhemmin</string>
-  <string name="suggested_edits_unlock_dialog_yes">Kyllä, mennään</string>
-  <string name="suggested_edits_unlock_notification_text">Ehdotetut muokkaukset</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Ehdotetut muokkaukset\n\nKiitos kaikista muokkauksistasi. Koska olet superhyvä muokkaamisessa, olemme koonneet luettelon artikkeleista, joista puuttuu kuvaukset. Voitko auttaa meitä parantamaan Wikipediaa?</string>
-  <string name="suggested_edits_unlock_notification_button">Kyllä, mennään</string>
   <string name="suggested_edits_license_notice">Lisäämällä kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_menu_info">Tiedot</string>
   <string name="suggested_edits_tasks_activity_title">Ehdotetut muokkaukset</string>
@@ -658,11 +658,11 @@
   <string name="suggested_edits_task_translation_title">Käännä artikkelin kuvaukset</string>
   <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
   <string name="suggested_edits_task_image_caption_title">Lisää kuvatekstit</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Lisää kuvatekstejä</string>
+  <string name="suggested_edits_task_image_caption_description">Lisää puuttuvia lyhyitä kuvatekstejä kuviin</string>
   <string name="suggested_edits_task_translate_caption_title">Käännä kuvatekstit</string>
   <string name="suggested_edits_task_translate_caption_description">Käännä kuvatekstit muille kielille</string>
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Lukittu, kunnes olet muokannut %d kuvatekstiä</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua artikkelikuvausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>
@@ -686,8 +686,10 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensointi</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Lisätietoja</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Tiedostosivu Wikimedia Commonsissa</string>
-  <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti</string>
   <string name="suggested_edits_article_cta_snackbar_action">Näytä</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Lisää kuvateksti</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vastaa kyselyyn</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
@@ -761,6 +763,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Peruuta</string>
+  <string name="content_description_for_page_indicator">Sivu %1$d/%2$d</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>

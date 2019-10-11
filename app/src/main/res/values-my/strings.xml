@@ -69,9 +69,6 @@
   <string name="on_this_day_page_share">မျှဝေ</string>
   <string name="reading_list_page_share">မျှဝေ</string>
   <string name="menu_text_select_edit_here">ဤနေရာတွင် တည်းဖြတ်ရန်</string>
-  <string name="nav_item_nearby">အနီးအနား</string>
-  <string name="nearby_zoom_to_location">မြေပုံပေါ်တွင် တည်နေရာကို ဆွဲယူကြည့်ရန်</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ပံ့ပိုးသူများ</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="talk_page_link_text">ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်</string>
   <string name="edit_history_link_text">တည်းဖြတ်မှု ရာဇဝင် ကြည့်ရန်</string>
@@ -592,9 +589,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="feed_accessibility_card_load_more_button">ပိုမိုခေါ်ယူရန်</string>
   <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
-  <string name="description_edit_article_description_label_per_language">ဆောင်းပါး (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ဆောင်းပါး (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ဆောင်းပါး ဖော်ပြချက် (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ရုပ်ပုံ ဖော်ပြချက် (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ရုပ်ပုံ ပုံစာများ (%s)</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
   <string name="description_edit_read">ဖတ်ရန်</string>
@@ -640,11 +636,6 @@
   <string name="suggested_edits_review_image_caption">ရုပ်ပုံ ပုံစာ ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_my_contributions">ပံ့ပိုးထားမှုများ</string>
   <string name="suggested_edits_no_description">ဤဖိုင်တွင် ဖော်ပြချက် မရှိပါ</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">သင်၏ပံ့ပိုးမှုများအားလုံးအတွက် ကျေးဇူးတင်ပါသည်။ သင်သည် တည်းဖြတ်ရာတွင် အရမ်းကောင်းမွန်သည့်အတွက် ဆောင်းပါးဖော်ပြချက်ပျောက်နေသောစာရင်းကို ပြုစုထားပေးပါသည်။ ဝီကီပီးဒီးယား တိုးတက်ရေးအတွက် ကူညီပေးမည်လော။</string>
-  <string name="suggested_edits_unlock_dialog_no">နောက်ကြုံမှ</string>
-  <string name="suggested_edits_unlock_dialog_yes">ဟုတ်ကဲ့၊ သွားရအောင်</string>
-  <string name="suggested_edits_unlock_notification_text">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
-  <string name="suggested_edits_unlock_notification_button">ဟုတ်ကဲ့၊ သွားရအောင်</string>
   <string name="suggested_edits_menu_info">အချက်အလက်</string>
   <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>

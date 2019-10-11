@@ -27,6 +27,7 @@
   <string name="search_hint_search_languages">Procurar unha lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Procurar as miñas listas e artigos</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Edicións suxeridas</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -69,9 +70,6 @@
   <string name="on_this_day_page_share">Compartir</string>
   <string name="reading_list_page_share">Compartir</string>
   <string name="menu_text_select_edit_here">Editar aquí</string>
-  <string name="nav_item_nearby">Preto</string>
-  <string name="nearby_zoom_to_location">Zoom a unha localización do mapa</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Colaboradores de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última actualización o %s</string>
   <string name="talk_page_link_text">Ver a páxina de conversa</string>
   <string name="edit_history_link_text">Ver o historial de edicións</string>
@@ -335,6 +333,7 @@
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta páxina non existe</string>
   <string name="view_wiki_error_message_offline">Non se puido conectar a Internet</string>
+  <string name="view_wiki_error_message_timeout">Non se pode conectar con Wikipedia. Comprobe a súa conexión de rede ou ténteo de novo máis tarde</string>
   <string name="reference_title">Referencia %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imaxe (no tema obscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contido sen conexión</string>
@@ -603,9 +602,8 @@
   <string name="feed_accessibility_card_text">Chegou ó final da canle.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar máis</string>
   <string name="description_edit_text_hint">Descrición do artigo</string>
-  <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrición do artigo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descrición da imaxe (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Lenda de imaxe (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
@@ -652,26 +650,6 @@
   <string name="suggested_edits_review_image_caption">Revisar lenda de imaxe</string>
   <string name="suggested_edits_my_contributions">As miñas contribucións</string>
   <string name="suggested_edits_no_description">Este ficheiro non ten unha descrición</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Desbloqueou a tarefa \"Engadir descricións de artigos\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grazas por tódalas súas achegasǃ Porque é moi bo editando, compilamos unha lista de artigos nos que falta a descrición de título. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloqueou a tarefa \"Traducir descricións de artigos\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Felicidades polas moitas contribucións que fixo, estamos impresionadosǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no">Quizais máis tarde</string>
-  <string name="suggested_edits_unlock_dialog_yes">Si, continuar</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Desbloqueou \"Engadir descricións de artigos\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Desbloqueou \"Traducir descricións de artigos\"</string>
-  <string name="suggested_edits_unlock_notification_text">Edicións suxeridas</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edicións suxeridas\n\nGrazas por tódalas súas contribucións. Como é un editor fantástico, compilamos unha lista de artigos ós que lles falta a descrición. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edicións suxeridas\n\nFelicidades polas moitas contribucións que fixo, estamos impresionadosǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_notification_button">Si, continuar</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Desbloqueou a tarefa \"Engadir pés de imaxes\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Desbloqueou \"Engadir pés de imaxes\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Grazas por tódalas súas edicións de lendas de imaxesǃ Como vemos que lle gusta engadir lendas ás imaxes, compilamos unha lista de imaxes ás que lles falta a lenda. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Edicións suxeridas\n\nGrazas por tódalas súas edicións de lendas de imaxes. Como vemos que lle gusta engadir lendas ás imaxes, compilamos unha lista de imaxes que non teñen a lenda. Quere axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Desbloqueou a tarefa \"Traducir pés de imaxe\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Desbloqueou \"Traducir pés de imaxe\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Parabéns polas moitas edicións de lendas de imaxes que fixo — quedamos impresionados! Está a usar a aplicación en varias linguas, por iso compilamos unha lista de imaxes ás que falta a tradución da lenda. Pode continuar a axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Edicións suxeridas \n\nParabéns polas moitas edicións de lendas de imaxes que fixo — quedamos impresionados! Está a usar a aplicación en varias linguas, por iso compilamos unha lista de imaxes as que lle falta a tradución da lenda. Pode continuar a axudarnos a mellorar a Wikipedia?</string>
   <string name="suggested_edits_license_notice">Ó cambiar a descrición, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Ó engadir a lenda da imaxe, concordo cos &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
@@ -711,7 +689,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Máis información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Páxina do ficheiro en Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Engadir lenda de imaxe (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Engadir lenda de imaxe</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Engadir lenda (%s)</string>

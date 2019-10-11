@@ -66,8 +66,6 @@
   <string name="on_this_day_page_share">Podijeli</string>
   <string name="reading_list_page_share">Podijeli</string>
   <string name="menu_text_select_edit_here">Uredi ovdje</string>
-  <string name="nav_item_nearby">U blizini</string>
-  <string name="nearby_zoom_to_location">Približi lokaciju na zemljovidu</string>
   <string name="last_updated_text">Zadnji put ažurirano %s</string>
   <string name="talk_page_link_text">Pogledaj stranicu za razgovor</string>
   <string name="edit_history_link_text">Pogledaj povijest izmjena</string>
@@ -487,9 +485,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Odustani</string>
   <string name="feed_accessibility_card_load_more_button">Učitaj više</string>
   <string name="description_edit_text_hint">Opis članka</string>
-  <string name="description_edit_article_description_label_per_language">Članak (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Članak (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Opis slike (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Natpis slike (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Čitaj</string>
@@ -526,10 +523,6 @@
   <string name="suggested_edits_review_image_caption">Pregledaj opis slike</string>
   <string name="suggested_edits_my_contributions">Moji doprinosi</string>
   <string name="suggested_edits_no_description">Ova datoteka nema opis</string>
-  <string name="suggested_edits_unlock_dialog_no">Možda kasnije</string>
-  <string name="suggested_edits_unlock_dialog_yes">Da, idemo</string>
-  <string name="suggested_edits_unlock_notification_text">Predložena uređivanja</string>
-  <string name="suggested_edits_unlock_notification_button">Da, krenimo</string>
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_tasks_activity_title">Predložena uređivanja</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opise članka</string>
@@ -549,7 +542,8 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj opis slike (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj opis slike</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj opis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis (%s)</string>

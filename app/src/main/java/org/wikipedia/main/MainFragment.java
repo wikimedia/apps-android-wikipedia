@@ -6,7 +6,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -19,6 +18,8 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -26,6 +27,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -42,7 +44,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
-import org.wikipedia.nearby.NearbyFragment;
+import org.wikipedia.navtab.NavTabOverlayLayout;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -76,9 +78,10 @@ import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback {
+        HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
+    @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
@@ -160,7 +163,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             refreshExploreFeed();
             ((MainActivity) requireActivity()).setUpHomeMenuIcon();
-            FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            if (!Prefs.shouldShowSuggestedEditsTooltip()) {
+                FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            }
+            tabLayout.setTabViews();
+            setupPulsingIcon();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -184,6 +191,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+        setupPulsingIcon();
     }
 
     @Override
@@ -326,18 +334,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         updateToolbarElevation(!(fragment instanceof FeedFragment) || ((FeedFragment) fragment).shouldElevateToolbar());
     }
 
-    @Override public void onLoading() {
-        // todo: [overhaul] update loading indicator.
-    }
-
-    @Override public void onLoaded() {
-        // todo: [overhaul] update loading indicator.
-    }
-
-    @Override public void onLoadPage(@NonNull HistoryEntry entry, @Nullable Location location) {
-        showLinkPreview(entry, location);
-    }
-
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {
         startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
@@ -406,10 +402,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    private void showLinkPreview(@NonNull HistoryEntry entry, @Nullable Location location) {
-        bottomSheetPresenter.show(getChildFragmentManager(), LinkPreviewDialog.newInstance(entry, location));
-    }
-
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(requireContext(), null, url);
         FeedbackUtil.showMessage(this, R.string.address_copied);
@@ -448,6 +440,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).refresh();
         }
+    }
+
+    private void setupPulsingIcon() {
+        if (AccountUtil.isLoggedIn() && Prefs.shouldShowSuggestedEditsTooltip()) {
+            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            snackbar.show();
+        }
+    }
+
+    void hideNavTabOverlayLayout() {
+        tabOverlayLayout.hide();
     }
 
     public Fragment getCurrentFragment() {
