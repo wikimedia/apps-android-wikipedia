@@ -14,12 +14,21 @@
         android:paddingEnd="@dimen/suggested_edits_screen_margin"
         android:visibility="gone" />
 
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/errorView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="?android:windowBackground"
+        android:gravity="center"
+        android:visibility="gone" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/suggested_edits_stats_bottom_margin"
         android:paddingStart="@dimen/suggested_edits_screen_margin"
-        android:paddingEnd="@dimen/suggested_edits_screen_margin"
-        android:layout_marginBottom="@dimen/suggested_edits_stats_bottom_margin">
+        android:paddingEnd="@dimen/suggested_edits_screen_margin">
 
         <org.wikipedia.views.ImageTitleDescriptionView
             android:id="@+id/contributionsStatsView"
@@ -90,6 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@null"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_suggested_edits_onboarding" />
@@ -168,15 +178,4 @@
         </LinearLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/errorView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="?android:windowBackground"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone" />
-
 </LinearLayout>
