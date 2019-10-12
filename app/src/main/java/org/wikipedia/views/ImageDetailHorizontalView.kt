@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
 import org.wikipedia.R
 import org.wikipedia.util.StringUtil
 
-class ImageDetailHorizontalView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
+class ImageDetailHorizontalView constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int) : LinearLayout(context, attrs, defStyle) {
     init {
         View.inflate(context, R.layout.view_image_detail_horizontal, this)
         if (attrs != null) {
