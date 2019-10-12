@@ -8,7 +8,7 @@ import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_nav_tab_overlay_fill.view.*
 import org.wikipedia.R
 
-class NavTabOverlayLayout constructor(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
+class NavTabOverlayLayout constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     init {
         View.inflate(context, R.layout.view_nav_tab_overlay, null)
     }
