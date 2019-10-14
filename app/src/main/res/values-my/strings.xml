@@ -660,6 +660,7 @@
     <item quantity="other">%d ပံ့ပိုးမှုများ</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ရုပ်ပုံဖော်ပြချက် (%s)</string>
@@ -670,8 +671,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">အချက်အလက် ပို၍</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ဝီကီပီးဒီးယား ကွန်မွန်းစ်ရှိ ဖိုင်စာမျက်နှာ</string>
   <string name="suggested_edits_article_cta_snackbar_action">ကြည့်ရန်</string>
-  <string name="suggested_edits_feed_card_add_image_caption">ပုံစာ ပေါင်းထည့်ရန်</string>
-  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_snackbar_survey_action_text">စစ်တမ်း လုပ်ရန်</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>

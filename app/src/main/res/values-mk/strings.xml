@@ -268,6 +268,7 @@
   <string name="gallery_save_success">Податотеката е успешно зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
   <string name="gallery_save_image_write_permission_rationale">Се бара дозвола за зачувување слики на вашиот уред.</string>
+  <string name="gallery_add_image_caption_button">Додај опис на сликата</string>
   <string name="gallery_add_image_caption_in_language_button">Додај описи на сликата (%s)</string>
   <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
   <string name="snippet_share_intro">„%1$s“ на @Wikipedia: %2$s</string>
@@ -595,8 +596,12 @@
   <string name="feed_accessibility_card_text">Дојдовте до дното на доводот.</string>
   <string name="feed_accessibility_card_load_more_button">Вчитај уште</string>
   <string name="description_edit_text_hint">Опис на статијата</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Статија (%s)</string>
+  <string name="description_edit_article_description_label">Статија</string>
+  <string name="description_edit_translate_article_description_label_per_language">Опис на статијата (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис на статијата (%s)</string>
+  <string name="description_edit_add_caption_label">Опис на сликата</string>
+  <string name="description_edit_add_caption_hint">Опис на сликата</string>
+  <string name="description_edit_translate_caption_label_per_language">Опис на сликата (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Опис на сликата (%s)</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_read">Прочитај</string>
@@ -671,6 +676,7 @@
     <item quantity="other">%d придонеси</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Предложени уредувања</string>
+  <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис на статијата (%s)</string>
   <string name="suggested_edits_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
@@ -682,12 +688,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Додај опис на сликата</string>
+  <string name="suggested_edits_article_cta_image_caption">Додај опис на сликата</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додај опис на сликата (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Додај опис</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Додај опис (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Додај опис</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Додај опис (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Какво е вашето уредувачко доживување? Би ценеле ако ја пополните анкетата за уредување од прилог.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Пополнете ја анкетата</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
@@ -775,6 +780,8 @@
   <string name="main_drawer_content_description">Отвори прегледник</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
+  <string name="main_tooltip_text">%s, дали знаевте дека Википедија може да ја уредува секој?</string>
+  <string name="main_tooltip_action_button">Започнете</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Откажи</string>

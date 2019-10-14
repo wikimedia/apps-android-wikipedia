@@ -626,6 +626,7 @@
     <item quantity="other">%d pasumbang</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Besutan kang kaprayogakaké</string>
+  <string name="suggested_edits_feed_card_add_description_button">Wuwuh wedharaning artikel</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Wuwuh wedharaning artikel (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Miwiti</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kateranganing gambar (%s)</string>
@@ -636,12 +637,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Lisènsi</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Info Candhaké</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kaca barkas ing Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Wuwuh kateranganing gambar</string>
+  <string name="suggested_edits_article_cta_image_caption">Wuwuh kateranganing gambar</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Wuwuh kateranganing gambar (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Deleng</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Wuwuh katerangan</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Wuwuh katerangan (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Wuwuh wedharaning artikel</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Wuwuh katerangan</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Wuwuh katerangan (%s)</string>
   <string name="description_edit_revert_subtitle">Matur nuwun wis mbesut Wikipédia!</string>
   <string name="description_edit_revert_intro">Awak dhéwé sumurup panjenengan wis njajal sakatogé, nanging salah siji pamriksa sedhih. Alesané bokmanawa besutané panjenengan dibalèkaké ya iku:</string>
   <string name="description_edit_revert_reason1">pasumbangmu ora minangkani salah siji &lt;a href=\"%1$s\"&gt;panuntun iki&lt;/a&gt;.</string>

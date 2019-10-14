@@ -691,6 +691,7 @@
     <item quantity="other">%d 次贡献</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">建议编辑</string>
+  <string name="suggested_edits_feed_card_add_description_button">添加条目描述</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">添加条目描述（%s）</string>
   <string name="suggested_edits_tutorial_message">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
@@ -702,12 +703,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">授权协议</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多信息</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在维基共享资源上的文件页面</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">添加图片说明</string>
+  <string name="suggested_edits_article_cta_image_caption">添加图片说明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">添加图片说明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">查看</string>
-  <string name="suggested_edits_feed_card_add_image_caption">添加说明</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">添加说明（%s）</string>
-  <string name="suggested_edits_feed_card_add_description_button">添加条目描述</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">添加说明</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">添加说明（%s）</string>
   <string name="suggested_edits_snackbar_survey_text">你的编辑经验如何？请花点时间填写有关应用内编辑的调查。</string>
   <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
