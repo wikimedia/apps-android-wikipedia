@@ -63,7 +63,7 @@
   <string name="menu_page_add_to_list">Додати до читального списку</string>
   <string name="feed_card_add_to_list">Додати до читального списку</string>
   <string name="menu_page_share">Поділитися посиланням</string>
-  <string name="menu_page_open_a_new_tab">Відкрити нову вкладку</string>
+  <string name="menu_page_open_a_new_tab">Відкрити нову вкладинку</string>
   <string name="menu_page_reading_lists">Читальні списки</string>
   <string name="menu_page_recently_viewed">Нещодавно відвідані</string>
   <string name="menu_long_press_open_page">Відкрити</string>
@@ -281,7 +281,8 @@
   <string name="gallery_save_success">Файл успішно збережено!</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою.</string>
-  <string name="gallery_add_image_caption_in_language_button">Додати опис зображення (%s)</string>
+  <string name="gallery_add_image_caption_button">Додати підпис зображення</string>
+  <string name="gallery_add_image_caption_in_language_button">Додати підпис зображення (%s)</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>
   <string name="snippet_share_intro">\"%1$s\" на сайті @Wikipedia: %2$s</string>
   <string name="expand_refs">Торкніться, щоб розкрити</string>
@@ -535,7 +536,7 @@
   <string name="notifications_view_archived_button_text">Перегляд архівованих сповіщень</string>
   <string name="notification_preferences_title">Налаштування сповіщень</string>
   <string name="notifications_mark_unread">Позначити як непрочитане</string>
-  <string name="preference_title_notification_poll">Опитування сповіщень</string>
+  <string name="preference_title_notification_poll">Сповіщення про опитування</string>
   <string name="preference_summary_notification_poll">Дозволити додатку використовувати дані, щоб фоновим процесом перевіряти, чи є нові сповіщення.</string>
   <string name="preference_category_notification_types">Типи сповіщень у додатку</string>
   <string name="preference_title_notification_system">Системні</string>
@@ -610,17 +611,21 @@
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
   <string name="feed_accessibility_card_load_more_button">Завантажити ще</string>
   <string name="description_edit_text_hint">Опис статті</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Стаття (%s)</string>
+  <string name="description_edit_article_description_label">Стаття</string>
+  <string name="description_edit_translate_article_description_label_per_language">Опис статті (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис статті (%s)</string>
-  <string name="description_edit_translate_caption_hint_per_language">Опис зображення (%s)</string>
+  <string name="description_edit_add_caption_label">Опис зображення</string>
+  <string name="description_edit_add_caption_hint">Підпис зображення</string>
+  <string name="description_edit_translate_caption_label_per_language">Підпис зображення (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Підпис зображення (%s)</string>
   <string name="description_edit_save">Опублікувати</string>
   <string name="description_edit_read">Читати</string>
   <string name="description_edit_add_description">Додати опис статті</string>
   <string name="description_edit_translate_description">Перекласти опис статті</string>
   <string name="description_edit_edit_description">Редагувати опис статті</string>
-  <string name="description_edit_add_image_caption">Додати опис зображення</string>
-  <string name="description_edit_edit_image_caption">Редагувати опис зображення</string>
-  <string name="description_edit_translate_image_caption">Перекласти опис зображення</string>
+  <string name="description_edit_add_image_caption">Додати підпис зображення</string>
+  <string name="description_edit_edit_image_caption">Редагувати підпис зображення</string>
+  <string name="description_edit_translate_image_caption">Перекласти підпис зображення</string>
   <string name="description_edit_cancel_hint">Скасувати</string>
   <string name="description_edit_help_title">Інфо: описи статей</string>
   <string name="description_edit_help_about_wikidata">Про Вікідані</string>
@@ -632,8 +637,8 @@
   <string name="description_edit_success_saved">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_snackbar">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">Опис зображення збережено!</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Опис зображення збережено! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Підпис зображення збережено!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Підпис зображення збережено! (%s)</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>
@@ -646,31 +651,33 @@
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
   <string name="suggested_edits_add_descriptions">Додавання описів статей</string>
   <string name="suggested_edits_translate_descriptions">Перекласти описи статей</string>
-  <string name="suggested_edits_add_image_captions">Додати описи зображень</string>
-  <string name="suggested_edits_translate_image_captions">Перекласти описи зображень</string>
+  <string name="suggested_edits_add_image_captions">Додати підписи зображень</string>
+  <string name="suggested_edits_translate_image_captions">Перекласти підписи зображень</string>
   <string name="suggested_edits_review_description">Перевірити опис статті</string>
   <string name="suggested_edits_add_description_button">Додати опис</string>
   <string name="suggested_edits_edit_description_button">Редагувати опис</string>
   <string name="suggested_edits_add_translation_button">Додати переклад</string>
   <string name="suggested_edits_edit_translation_button">Редагувати переклад</string>
-  <string name="suggested_edits_add_caption_button">Додати опис</string>
-  <string name="suggested_edits_edit_caption_button">Редагувати опис</string>
-  <string name="suggested_edits_review_image_caption">Перевірити опис зображення</string>
+  <string name="suggested_edits_add_caption_button">Додати підпис</string>
+  <string name="suggested_edits_edit_caption_button">Редагувати підпис</string>
+  <string name="suggested_edits_review_image_caption">Перевірити підпис зображення</string>
   <string name="suggested_edits_my_contributions">Мій внесок</string>
   <string name="suggested_edits_no_description">Цей файл не має опису</string>
   <string name="suggested_edits_license_notice">Додаючи описи, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Додаючи описи зображень, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Додаючи підписи зображень, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Інфо</string>
   <string name="suggested_edits_tasks_activity_title">Пропоновані редагування</string>
   <string name="suggested_edits_task_add_description_title">Додавання описів статей</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
-  <string name="suggested_edits_task_image_caption_title">Додавання описів зображень</string>
+  <string name="suggested_edits_task_translation_title">Перекласти описи статей</string>
+  <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами.</string>
+  <string name="suggested_edits_task_image_caption_title">Додавання підписів зображень</string>
   <string name="suggested_edits_task_image_caption_description">Додати короткі підписи до зображень</string>
   <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>
   <string name="suggested_edits_task_translate_caption_description">Перекласти підписи іншими мовами</string>
   <string name="suggested_edits_task_multilingual_title">Більше завдань для багатомовних редакторів</string>
   <string name="suggested_edits_task_multilingual_description">Завдання перекладу доступні, якщо ви читаєте і пишете більше, ніж однією мовою, якою існує Вікіпедія.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Заблоковано, поки ви не зробите %d редагувань описів зображень</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Заблоковано, поки ви не зробите %d редагувань підписів зображень</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заблоковано, поки ви не зробите %d перевірених описів статей</string>
   <string name="suggested_edits_task_multilingual_negative">Не для мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додати мови</string>
@@ -684,10 +691,11 @@
     <item quantity="other">%d редагування</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Пропоновані редагування</string>
+  <string name="suggested_edits_feed_card_add_description_button">Додати опис статті</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додати опис статті (%s)</string>
   <string name="suggested_edits_tutorial_message">Ласкаво просимо до нової домівки швидкого редагування у додатку Вікіпедії. Ваш внесок дуже цінний. Приємного редагування!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Розпочати</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис зображення (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Підпис зображення (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис зображення (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
@@ -695,12 +703,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Ліцензування</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Більше інформації</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Сторінка файлу на Вікісховищі</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Додати опис зображення</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Додати опис зображення (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Додати підпис зображення</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Додати опис</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Додати опис (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Додати опис статті</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Додати підпис</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Додати підпис (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Яким був ваш досвід використання? Якщо маєте хвилинку, заповніть будь ласка опитування щодо редагування у додатку.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Взяти участь в опитуванні</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
@@ -788,6 +795,8 @@
   <string name="main_drawer_content_description">Відкрити основное меню</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
+  <string name="main_tooltip_text">%s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
+  <string name="main_tooltip_action_button">Розпочати</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_cancel_button_text">Скасувати</string>

@@ -279,6 +279,7 @@
   <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
+  <string name="gallery_add_image_caption_button">הוספת כיתוב לתמונה</string>
   <string name="gallery_add_image_caption_in_language_button">הוספת כיתוב תמונה (%s)</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
   <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
@@ -606,8 +607,12 @@
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
   <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ערך (%s)</string>
+  <string name="description_edit_article_description_label">ערך</string>
+  <string name="description_edit_translate_article_description_label_per_language">תיאור הערך (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">תיאור ערך (%s)</string>
+  <string name="description_edit_add_caption_label">תיאור התמונה</string>
+  <string name="description_edit_add_caption_hint">כיתוב התמונה</string>
+  <string name="description_edit_translate_caption_label_per_language">כיתוב התמונה (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">כיתובי תמונות (%s)</string>
   <string name="description_edit_save">פרסום</string>
   <string name="description_edit_read">לקרוא</string>
@@ -680,6 +685,7 @@
     <item quantity="other">%d תרומות</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
+  <string name="suggested_edits_feed_card_add_description_button">הוספת תיאור ערך</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">הוספת תיאור ערך (%s)</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
@@ -691,12 +697,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
   <string name="suggested_edits_image_preview_dialog_more_info">מידע נוסף</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">דף הקובץ בוויקישיתוף</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">הוספת כיתוב לתמונה</string>
+  <string name="suggested_edits_article_cta_image_caption">הוספת כיתוב לתמונה</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">הוספת כיתוב לתמונה (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
-  <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">הוספת תיאור ערך</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">הוספת כיתוב</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">הוספת כיתוב (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
@@ -784,6 +789,8 @@
   <string name="main_drawer_content_description">פתיחת מגירת הניווט הראשית</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
+  <string name="main_tooltip_text">%s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
+  <string name="main_tooltip_action_button">להתחיל</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_cancel_button_text">ביטול</string>

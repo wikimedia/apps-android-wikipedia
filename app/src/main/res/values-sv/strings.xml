@@ -11,6 +11,7 @@
 * Josve05a
 * Lokal Profil
 * Mjälten
+* Pyscowicz
 * Skalman
 * Sturban
 * Vesihiisi
@@ -54,7 +55,7 @@
   <string name="search_redirect_from">Omdirigerad från %s</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
-  <string name="menu_page_find_in_page">\nHitta på sidan</string>
+  <string name="menu_page_find_in_page">Hitta på sidan</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
@@ -278,6 +279,7 @@
   <string name="gallery_save_success">Filen har sparats.</string>
   <string name="gallery_error_video_failed">Kan inte spela upp video.</string>
   <string name="gallery_save_image_write_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att spara bilder.</string>
+  <string name="gallery_add_image_caption_button">Lägg till bildtext</string>
   <string name="gallery_add_image_caption_in_language_button">Lägg till bildtexter %s</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
   <string name="snippet_share_intro">\"%1$s\" på @Wikipedia: %2$s</string>
@@ -605,8 +607,12 @@
   <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
   <string name="feed_accessibility_card_load_more_button">Läs in fler</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
+  <string name="description_edit_article_description_label">Artikel</string>
+  <string name="description_edit_translate_article_description_label_per_language">Artikelbeskrivning (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivning (%s)</string>
+  <string name="description_edit_add_caption_label">Bildbeskrivning</string>
+  <string name="description_edit_add_caption_hint">Bildtext</string>
+  <string name="description_edit_translate_caption_label_per_language">Bildtext (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Bildtexter (%s)</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_read">Läs</string>
@@ -679,6 +685,7 @@
     <item quantity="other">%d bidrag</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Förslag på redigeringar</string>
+  <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lägg till beskrivningar %s</string>
   <string name="suggested_edits_tutorial_message">Välkommen till den nya startsidan för att snabbredigera i Wikipedia-appen. Dina bidrag uppskattas. Ha det så roligt!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
@@ -690,12 +697,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Lägg till bildtext</string>
+  <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
   <string name="suggested_edits_snackbar_survey_text">Hur har din redigeringsupplevelse varit? Ta en stund att delta i en undersökning om att redigera i appen.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Delta i undersökning</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
@@ -783,6 +789,8 @@
   <string name="main_drawer_content_description">Öppna huvudnavigeringsmenyn</string>
   <string name="main_drawer_help">Hjälp</string>
   <string name="main_drawer_login">Logga in / skapa konto på Wikipedia</string>
+  <string name="main_tooltip_text">%s, visste du att alla kan redigera Wikipedia?</string>
+  <string name="main_tooltip_action_button">Kom igång</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Avbryt</string>

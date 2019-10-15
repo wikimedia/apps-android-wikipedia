@@ -660,6 +660,7 @@
     <item quantity="other">%d príspevky v aplikácii</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Navrhované úpravy</string>
+  <string name="suggested_edits_feed_card_add_description_button">Pridať popis článku</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Pridať popis článku v jazyku %s</string>
   <string name="suggested_edits_tutorial_message">Vitajte v novom domove pre rýchle upravovanie v aplikácii Wikipédia. Vaše príspevky sú veľmi oceňované. Veľa šťastia pri úpravách!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
@@ -671,12 +672,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencovanie</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Viac informácií</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka súboru na Wikipédia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Pridať titulok obrázku v jazyku</string>
+  <string name="suggested_edits_article_cta_image_caption">Pridať titulok obrázku v jazyku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Pridať titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobraziť</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Pridať titulok obrázku</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Pridať titulok v jazyku %s</string>
-  <string name="suggested_edits_feed_card_add_description_button">Pridať popis článku</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Pridať titulok obrázku</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Pridať titulok v jazyku %s</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>

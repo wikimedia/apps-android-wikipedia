@@ -283,6 +283,7 @@
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten.</string>
+  <string name="gallery_add_image_caption_button">Lisää kuvateksti</string>
   <string name="gallery_add_image_caption_in_language_button">Lisää kuvateksti (%s)</string>
   <string name="err_cannot_save_file">Tiedostoa ei voitu tallentaa</string>
   <string name="snippet_share_intro">\"%1$s\" sivustolla @Wikipedia: %2$s</string>
@@ -605,8 +606,11 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikkeli (%s)</string>
+  <string name="description_edit_article_description_label">Artikkeli</string>
+  <string name="description_edit_translate_article_description_label_per_language">Artikkelin kuvaus (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikkelin kuvaus (%s)</string>
+  <string name="description_edit_add_caption_hint">Kuvateksti</string>
+  <string name="description_edit_translate_caption_label_per_language">Kuvateksti (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Kuvateksti (%s)</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_read">Lue</string>
@@ -626,7 +630,9 @@
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kuvateksti julkaistu!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Kuvateksti julkaistu! (%s)</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
@@ -674,6 +680,7 @@
     <item quantity="other">%d muokkausta</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Ehdotetut muokkaukset</string>
+  <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lisää artikkelin kuvaus (%s)</string>
   <string name="suggested_edits_tutorial_message">Tervetuloa pikamuokkauksen uuteen kotiin Wikipedia-sovelluksessa. Muokkauksesi ovat hyvin arvostettuja. Iloista muokkaamista!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
@@ -685,10 +692,10 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Lisätietoja</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Tiedostosivu Wikimedia Commonsissa</string>
   <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Näytä</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Lisää kuvateksti</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Lisää kuvateksti (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Lisää kuvateksti</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vastaa kyselyyn</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>

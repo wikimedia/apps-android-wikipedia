@@ -671,6 +671,7 @@
     <item quantity="other">%d доприноса</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Предложене измене</string>
+  <string name="suggested_edits_feed_card_add_description_button">Додај опис чланка</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис чланка (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
@@ -681,12 +682,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Више информација</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница слике на Викимедијиној остави</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Додај натпис слике</string>
+  <string name="suggested_edits_article_cta_image_caption">Додај натпис слике</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додај натпис слике (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Прикажи</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Додај натпис</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Додај натпис (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Додај опис чланка</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Додај натпис</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Додај натпис (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Какво је ваше искуство у уређивању? Издвојите тренутак да бисте попуните анкету о уређивању путем апликације.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Попуни анкету</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>

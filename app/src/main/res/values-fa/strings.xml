@@ -303,6 +303,7 @@
   <string name="captcha_image">تصویر کپچا</string>
   <string name="gallery_fair_use_license">استفادهٔ منصفانه</string>
   <string name="gallery_uploader_unknown">بارگذار ناشناس</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">نپذیرفتن</string>
   <string name="menu_new_tab">برگهٔ جدید</string>
   <string name="menu_close_all_tabs">بستن همهٔ زبانه‌ها</string>
   <string name="close_all_tabs_confirm">آیا مطمئنید می‌خواهید همهٔ زبانه‌ها را ببندید؟</string>
@@ -546,12 +547,15 @@
   <string name="preference_title_notification_poll">آگاه‌سازی نظرخواهی‌ها</string>
   <string name="preference_summary_notification_poll">به اپلیکشن اجازه دهید به صورت ناپیدا از داده‌های شما برای بررسی پیغام‌های جدید استفاده کند.</string>
   <string name="preference_category_notification_types">انواع اعلانات درون برنامه ای</string>
+  <string name="preference_title_notification_system">سامانه</string>
   <string name="preference_title_notification_milestone">نقطهٔ عطف</string>
   <string name="preference_summary_notification_milestone">ویرایش‌های شما به تعداد مورد نظر رسیده است</string>
   <string name="preference_title_notification_thanks">سپاس</string>
   <string name="preference_summary_notification_thanks">شخصی برای ویرایش از شما تشکر می‌کند.</string>
   <string name="preference_title_notification_revert">واگردانی</string>
   <string name="preference_summary_notification_revert">یکی از مشارکت‌های شما برگردانده شده است</string>
+  <string name="preference_title_notification_login_fail">ورود</string>
+  <string name="preference_title_notification_user_talk">صفحهٔ بحث</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_card_subtitle">زدن بر روی مقالات تصادفی برای خواندن ویکی‌پدیا.</string>
@@ -605,7 +609,9 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;شخصی‌سازی فید جستجویتان&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; الان امکان انتخاب مواردی که در فیدتان نشان‌داده شود را دارید و همچنین اولویت‌بندی کردن نوع محتوی را می‌توانید انجام دهید.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">تأیید</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">لغو</string>
+  <string name="feed_accessibility_card_load_more_button">بارگیری بیشتر</string>
   <string name="description_edit_text_hint">توضیحات مقاله</string>
+  <string name="description_edit_article_description_label">مقاله</string>
   <string name="description_edit_translate_caption_hint_per_language">توضیح تصویر (%s)</string>
   <string name="description_edit_save">منتشر</string>
   <string name="description_edit_read">خواندن</string>
@@ -677,6 +683,7 @@
     <item quantity="other">%d مشارکت</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">ویرایش‌های پیشنهادی</string>
+  <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
   <string name="suggested_edits_tutorial_message">خوش آمدید به بخش جدیدی که برای ویرایش سریع در اپلیکیشن ویکی‌پدیا ایجاد کرده‌ایم. قدر مشارکت شما را می‌دانیم. ویرایشتان مبارک!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع شد</string>
@@ -686,9 +693,9 @@
   <string name="suggested_edits_image_preview_dialog_licensing">اجازه‌نامه</string>
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">اطلاعات بیشتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحهٔ این پرونده در ویکی‌انبار</string>
-  <string name="suggested_edits_feed_card_add_image_caption">افزودن توضیح</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">افزودن توضیح (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
+  <string name="suggested_edits_article_cta_snackbar_action">نمایش</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">افزودن توضیح</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">افزودن توضیح (%s)</string>
   <string name="description_edit_revert_subtitle">از بابت ویرایش در ویکی‌پدیا ممنونیم!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>

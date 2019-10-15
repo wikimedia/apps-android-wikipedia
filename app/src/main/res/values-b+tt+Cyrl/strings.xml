@@ -145,6 +145,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Рөхсәт итү</string>
   <string name="gallery_menu_share">Уртаклашу</string>
   <string name="gallery_save_progress">Файлны күчереп алу бара…</string>
+  <string name="gallery_add_image_caption_button">Сурәт тасвирын өстәү</string>
   <string name="share_snippet_button">Сурәт белән уртаклашу</string>
   <string name="share_normal_button">Текст белән уртаклашу</string>
   <string name="snippet_share_preview_image_desc">Сурәтне алдан карау</string>
@@ -203,7 +204,11 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Кире алу</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Ярар</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Кире алу</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Мәкалә (%s)</string>
+  <string name="description_edit_article_description_label">Мәкалә</string>
+  <string name="description_edit_translate_article_description_label_per_language">Мәкалә тасвирламасы (%s)</string>
+  <string name="description_edit_add_caption_label">Сурәт тасвирламасы</string>
+  <string name="description_edit_add_caption_hint">Сурәт тасвиры</string>
+  <string name="description_edit_translate_caption_label_per_language">Сурәт тасвиры (%s)</string>
   <string name="description_edit_save">Саклау</string>
   <string name="description_edit_read">Уку</string>
   <string name="description_edit_cancel_hint">Кире алырга</string>
@@ -214,6 +219,8 @@
     <item quantity="one">бер генә төзәтмә</item>
     <item quantity="other">%d төзәтмә</item>
   </plurals>
+  <string name="suggested_edits_article_cta_image_caption">Сурәт тасвирын өстәү</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Сурәт тасвирын өстәү (%s)</string>
   <string name="app_shortcuts_search">Эзләү</string>
   <string name="wikipedia_languages_your_languages_text">Телләрегез</string>
   <string name="wikipedia_languages_add_language_text">Тел өстәү</string>

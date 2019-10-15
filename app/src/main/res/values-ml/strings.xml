@@ -463,6 +463,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">സ്രോതസ്സ്</string>
   <string name="suggested_edits_image_caption_summary_title_date">തീയതി</string>
   <string name="suggested_edits_feed_card_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
+  <string name="suggested_edits_feed_card_add_description_button">ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ലേഖനത്തിന് വിവരണം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">തുടക്കം കുറിക്കുക</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
@@ -470,12 +471,11 @@
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
+  <string name="suggested_edits_article_cta_image_caption">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">കാണുക</string>
-  <string name="suggested_edits_feed_card_add_image_caption">തലവാചകം ചേർക്കുക</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">തലവാചകം ചേർക്കുക (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">തലവാചകം ചേർക്കുക</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">തലവാചകം ചേർക്കുക (%s)</string>
   <string name="description_edit_revert_subtitle">വിക്കിപീഡിയ തിരുത്തുന്നതിന് നന്ദി!</string>
   <string name="description_edit_login_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="onboarding_skip">മറികടക്കുക</string>

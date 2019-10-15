@@ -302,7 +302,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         }
 
         @Override public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
+            getFragment().startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
             closeMainDrawer();
         }
 

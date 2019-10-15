@@ -19,10 +19,12 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Търсене в Уикипедия</string>
+  <string name="search_hint_voice_search">Гласово търсене</string>
   <string name="search_hint_search_history">История на търсенето</string>
   <string name="search_hint_search_languages">Търсене на език</string>
   <string name="search_hint_search_my_lists_and_articles">Търсене в моите списъци и статии</string>
   <string name="nav_item_history">История</string>
+  <string name="nav_item_suggested_edits">Предложени редакции</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
   <string name="card_offline_error_retry">Повторен опит</string>
@@ -519,6 +521,7 @@
   <string name="preference_summary_notification_poll">Позволяване на приложението да използва данни за проверка на нови известия в заден план.</string>
   <string name="preference_category_notification_types">Видове известия в приложението</string>
   <string name="preference_title_notification_system">Система</string>
+  <string name="preference_summary_notification_system">Съобщения от системата</string>
   <string name="preference_title_notification_milestone">Достижение</string>
   <string name="preference_summary_notification_milestone">Достигнат е определен брой редакции</string>
   <string name="preference_title_notification_thanks">Благодарност</string>
@@ -577,7 +580,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
   <string name="description_edit_text_hint">Описание на статията</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Статия (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language">Описание на статията (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Описание на статията (%s)</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_read">Прочитане</string>
@@ -589,6 +592,7 @@
   <string name="description_edit_help_wikidata_guide">Наръчник на Уикиданни за писане на описания</string>
   <string name="description_edit_anon_limit" fuzzy="true">Благодарим ви за постоянния интерес за редактиране на описанията! За да редактирате още, моля, влезте във вашата сметка в Уикипедия.</string>
   <string name="description_edit_license_notice" fuzzy="true">Променяйки описанието на заглавието, аз се съгласявам с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувам приносите си под лиценза &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">обикновено започва с малка буква</string>
   <string name="description_edit_success_saved" fuzzy="true">Описанието е публикувано!</string>
   <string name="description_edit_success_saved_snackbar" fuzzy="true">Описанието е публикувано!</string>
   <string name="description_edit_success_encouragement">Току-що направихте Уикипедия по-добра за всички</string>
