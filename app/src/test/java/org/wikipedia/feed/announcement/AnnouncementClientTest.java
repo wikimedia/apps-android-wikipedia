@@ -1,32 +1,25 @@
 package org.wikipedia.feed.announcement;
 
-import androidx.annotation.NonNull;
+import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.wikipedia.dataclient.RestService;
-import org.wikipedia.feed.dataclient.FeedClient.Callback;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.test.MockWebServerTest;
+import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import retrofit2.Call;
+import io.reactivex.Observable;
+import io.reactivex.observers.TestObserver;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyListOf;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
 
-public class AnnouncementClientTest extends MockWebServerTest {
+public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_IOS = 0;
     private static final int ANNOUNCEMENT_SURVEY_ANDROID = 1;
     private static final int ANNOUNCEMENT_FUNDRAISING_ANDROID = 2;
@@ -35,7 +28,6 @@ public class AnnouncementClientTest extends MockWebServerTest {
     private static final int ANNOUNCEMENT_NO_COUNTRIES = 5;
     private static final int ANNOUNCEMENT_BETA_WITH_VERSION = 6;
     private static final int ANNOUNCEMENT_FOR_OLD_VERSION = 7;
-    @NonNull private AnnouncementClient client = new AnnouncementClient();
     private AnnouncementList announcementList;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
 
@@ -49,30 +41,26 @@ public class AnnouncementClientTest extends MockWebServerTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("announce_2016_11_21.json");
-        Callback cb = mock(Callback.class);
-        request(cb);
-        server().takeRequest();
-        verify(cb).success(anyListOf(Card.class));
-        //noinspection unchecked
-        verify(cb, never()).error(any(Throwable.class));
+
+        TestObserver<AnnouncementList> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
+
+        observer.assertComplete().assertNoErrors()
+                .assertValue(list -> list.items().size() == 8);
     }
 
-    @Test public void testRequestMalformed() throws Throwable {
-        server().enqueue("Jimmy crack corn, and I don't care.");
-        Callback cb = mock(Callback.class);
-        request(cb);
-        server().takeRequest();
-        verify(cb, never()).success(anyListOf(Card.class));
-        verify(cb).error(any(Throwable.class));
+    @Test public void testRequestMalformed() {
+        enqueueMalformed();
+        TestObserver<AnnouncementList> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
+        observer.assertError(MalformedJsonException.class);
     }
 
-    @Test public void testRequestNotFound() throws Throwable {
+    @Test public void testRequestNotFound() {
         enqueue404();
-        Callback cb = mock(Callback.class);
-        request(cb);
-        server().takeRequest();
-        verify(cb, never()).success(anyListOf(Card.class));
-        verify(cb).error(any(Throwable.class));
+        TestObserver<AnnouncementList> observer = new TestObserver<>();
+        getObservable().subscribe(observer);
+        observer.assertError(Exception.class);
     }
 
     @Test public void testFundraisingParams() {
@@ -129,8 +117,7 @@ public class AnnouncementClientTest extends MockWebServerTest {
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
     }
 
-    private void request(@NonNull Callback cb) {
-        Call<AnnouncementList> call = client.request(service(RestService.class));
-        call.enqueue(new AnnouncementClient.CallbackAdapter(cb, false));
+    private Observable<AnnouncementList> getObservable() {
+        return getRestService().getAnnouncements();
     }
 }
