@@ -51,7 +51,6 @@
     <string name="preference_key_missing_description_test">findArticleWithMissingDescription</string>
     <string name="preference_key_missing_description_test2">findArticleWithMissingSecondLangDescription</string>
     <string name="preference_category_sync">syncSettings</string>
-    <string name="preference_category_experimental">experimentalSettings</string>
     <string name="preference_key_sync_reading_lists">syncReadingLists</string>
     <string name="preference_key_reading_list_sync_reminder_enabled">readingListSyncReminder</string>
     <string name="preference_key_reading_list_login_reminder_enabled">readingListLoginReminder</string>
@@ -108,4 +107,5 @@
     <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>
     <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
+    <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
 </resources>

@@ -76,6 +76,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
@@ -295,8 +296,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar,
-                    app.language().getAppLanguageLocalizedName(StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCode()))));
+            FeedbackUtil.showMessage(this, data.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) == SUGGESTED_EDITS_ADD_CAPTION
+                    ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)));
             layOutGalleryDescription();
             setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
         }
