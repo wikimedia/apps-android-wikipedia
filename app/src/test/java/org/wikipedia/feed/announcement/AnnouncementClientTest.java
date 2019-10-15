@@ -41,7 +41,9 @@ public class AnnouncementClientTest extends MockRetrofitTest {
         announcementList = GsonUnmarshaller.unmarshal(AnnouncementList.class, json);
     }
 
-    @Test public void testRequestSuccess() throws Throwable {
+    @Test
+    @SuppressWarnings("checkstyle:magicnumber")
+    public void testRequestSuccess() throws Throwable {
         enqueueFromFile(ANNOUNCEMENT_JSON_FILE);
 
         TestObserver<AnnouncementList> observer = new TestObserver<>();
