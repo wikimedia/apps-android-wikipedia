@@ -31,16 +31,18 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     private AnnouncementList announcementList;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
 
+    private static final String ANNOUNCEMENT_JSON_FILE = "announce_2016_11_21.json";
+
     @Before
     @Override
     public void setUp() throws Throwable {
         super.setUp();
-        String json = TestFileUtil.readRawFile("announce_2016_11_21.json");
+        String json = TestFileUtil.readRawFile(ANNOUNCEMENT_JSON_FILE);
         announcementList = GsonUnmarshaller.unmarshal(AnnouncementList.class, json);
     }
 
     @Test public void testRequestSuccess() throws Throwable {
-        enqueueFromFile("announce_2016_11_21.json");
+        enqueueFromFile(ANNOUNCEMENT_JSON_FILE);
 
         TestObserver<AnnouncementList> observer = new TestObserver<>();
         getObservable().subscribe(observer);
