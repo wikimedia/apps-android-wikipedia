@@ -293,6 +293,7 @@
   <string name="gallery_save_success">Plik pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
+  <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
@@ -620,8 +621,12 @@
   <string name="feed_accessibility_card_text">Dotarłeś do dolnej części kanału.</string>
   <string name="feed_accessibility_card_load_more_button">Załaduj więcej</string>
   <string name="description_edit_text_hint">Opis artykułu</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artykuł (%s)</string>
+  <string name="description_edit_article_description_label">Artykuł</string>
+  <string name="description_edit_translate_article_description_label_per_language">Opis artykułu (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis artykułu (%s)</string>
+  <string name="description_edit_add_caption_label">Opis obrazu</string>
+  <string name="description_edit_add_caption_hint">Podpis obrazu</string>
+  <string name="description_edit_translate_caption_label_per_language">Podpisy obrazka (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Podpisy obrazka (%s)</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_read">Czytaj</string>
@@ -696,6 +701,7 @@
     <item quantity="other">%d wkładów</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Sugerowane edycje</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
   <string name="suggested_edits_tutorial_message">Witamy w nowym domu do szybkiej edycji w aplikacji Wikipedia. Twój wkład jest bardzo mile widziany. Miłej edycji!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
@@ -707,12 +713,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Więcej informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj podpis obrazu</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodaj podpis obrazu</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj podpis obrazu (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis obrazu</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis obrazu (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Jak oceniasz swoje doświadczenie związane z edytowaniem? Poświęć chwilę aby wypełnić tę ankietę na temat edytowania w aplikacji.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Wypełnij ankietę</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
@@ -800,6 +805,7 @@
   <string name="main_drawer_content_description">Otwórz główną szufladę nawigacji</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
+  <string name="main_tooltip_action_button">Rozpocznij</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anuluj</string>

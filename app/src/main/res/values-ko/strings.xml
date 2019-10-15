@@ -282,6 +282,7 @@
   <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다.</string>
+  <string name="gallery_add_image_caption_button">이미지 캡션 추가</string>
   <string name="gallery_add_image_caption_in_language_button">이미지 설명 추가 (%s)</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
   <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
@@ -602,8 +603,12 @@
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="description_edit_text_hint">문서 설명</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">문서 (%s)</string>
+  <string name="description_edit_article_description_label">문서</string>
+  <string name="description_edit_translate_article_description_label_per_language">문서 설명 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">문서 설명 (%s)</string>
+  <string name="description_edit_add_caption_label">이미지 설명</string>
+  <string name="description_edit_add_caption_hint">이미지 캡션</string>
+  <string name="description_edit_translate_caption_label_per_language">이미지 캡션 (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">이미지 설명 (%s)</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_read">읽기</string>
@@ -678,6 +683,7 @@
     <item quantity="other">%d개 기여</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">편집 제안</string>
+  <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
   <string name="suggested_edits_tutorial_message">위키백과 앱의 빠른 편집의 새 터전에 오신 것을 환영합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
@@ -689,12 +695,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">이미지 캡션 추가</string>
+  <string name="suggested_edits_article_cta_image_caption">이미지 캡션 추가</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
-  <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">설명 추가</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">설명 추가 (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">편집 경험은 어떠셨나요? 시간을 내어 인앱 편집에 관한 설문조사를 작성해 주십시오.</string>
   <string name="suggested_edits_snackbar_survey_action_text">설문 조사 참가</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
