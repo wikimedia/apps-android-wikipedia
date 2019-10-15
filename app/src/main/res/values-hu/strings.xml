@@ -681,6 +681,7 @@
     <item quantity="other">%d közreműködés</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Javasolt szerkesztések</string>
+  <string name="suggested_edits_feed_card_add_description_button">Szócikkleírások hozzáadása</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Szócikkleírások hozzáadása (%s)</string>
   <string name="suggested_edits_tutorial_message">Légy üdvözölve a Wikipédia app gyors szerkesztőjében. Hozzájárulásodat nagyon köszönjük. Kellemes szerkesztést!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kezdés</string>
@@ -692,12 +693,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
   <string name="suggested_edits_image_preview_dialog_more_info">További információ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Képaláírás hozzáadása</string>
+  <string name="suggested_edits_article_cta_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Képaláírás hozzáadása (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Szócikkleírások hozzáadása</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Képaláírás hozzáadása</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Képaláírás hozzáadása (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Milyen tapasztalataid voltak a szerkesztés során? Kérlek töltsd ki ezt a kérdőívet az alkalmazáson belüli szerkesztésről.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Kérdőív kitöltése</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>

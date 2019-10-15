@@ -690,6 +690,7 @@
     <item quantity="other">%d 件の貢献</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">編集提案</string>
+  <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
   <string name="suggested_edits_tutorial_message">ようこそ、ここはウィキペディアアプリ内で、編集を手早く実行するための新しいホーム画面です。皆さんの編集は大歓迎です。ではお楽しみください！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
@@ -701,12 +702,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
   <string name="suggested_edits_image_preview_dialog_more_info">詳細情報</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">画像キャプションを追加</string>
+  <string name="suggested_edits_article_cta_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
-  <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">キャプションを追加 (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">キャプションを追加</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">キャプションを追加 (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか？ アプリを使った編集について、アンケートに回答をお願いします。</string>
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>

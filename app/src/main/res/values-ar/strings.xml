@@ -291,6 +291,7 @@
   <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">صلاحية الكتابة في ذاكرة التخزين على جهازك مطلوبة لحفظ الصور.</string>
+  <string name="gallery_add_image_caption_button">إضافة شرح الصورة</string>
   <string name="gallery_add_image_caption_in_language_button">إضافة تسمية توضيحية للصورة (%s)</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
   <string name="snippet_share_intro">\"%1$s\" في @Wikipedia: %2$s</string>
@@ -618,8 +619,12 @@
   <string name="feed_accessibility_card_text">وصلت إلى نهاية التغذية.</string>
   <string name="feed_accessibility_card_load_more_button">تحميل المزيد</string>
   <string name="description_edit_text_hint">وصف المقالة</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">مقالة (%s)</string>
+  <string name="description_edit_article_description_label">مقالة</string>
+  <string name="description_edit_translate_article_description_label_per_language">وصف المقالة (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">وصف المقالة (%s)</string>
+  <string name="description_edit_add_caption_label">وصف الصورة</string>
+  <string name="description_edit_add_caption_hint">تعليق الصورة</string>
+  <string name="description_edit_translate_caption_label_per_language">تعليق الصورة (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">تعليقات الصور (%s)</string>
   <string name="description_edit_save">انشر</string>
   <string name="description_edit_read">قراءة</string>
@@ -694,6 +699,7 @@
     <item quantity="other">%d مساهمات</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">التعديلات المقترحة</string>
+  <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">إضافة وصف المقالة (%s)</string>
   <string name="suggested_edits_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
@@ -705,12 +711,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
   <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">إضافة شرح الصورة</string>
+  <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
-  <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">إضافة شرح (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">إضافة شرح</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">إضافة شرح (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
   <string name="suggested_edits_snackbar_survey_action_text">المشاركة في استبيان</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
@@ -798,6 +803,8 @@
   <string name="main_drawer_content_description">افتح درج التصفح الرئيسي</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
+  <string name="main_tooltip_text">%s، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟</string>
+  <string name="main_tooltip_action_button">ابدأ</string>
   <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_cancel_button_text">إلغاء</string>

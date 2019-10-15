@@ -642,6 +642,7 @@
     <item quantity="other">%d уларытыылар</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Уларытар туһунан этиилэр</string>
+  <string name="suggested_edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Кылгас быһаарыыны эбии (%s)</string>
   <string name="suggested_edits_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Саҕалыырга</string>
@@ -653,11 +654,10 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиссиэнсийэлээһин</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Сиһилии</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Билэ сирэйэ Биики Хааһахха</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Ойуулааһыны эбии</string>
+  <string name="suggested_edits_article_cta_image_caption">Ойуулааһыны эбии</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Ойуулааһыны эбии (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Ойуулааһыны эбии</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Ойуулааһыны эбии (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Ойуулааһыны эбии</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Ойуулааһыны эбии (%s)</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>
