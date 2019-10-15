@@ -283,6 +283,7 @@
   <string name="gallery_save_success">Soubor úspěšně uložen.</string>
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Pro ukládání obrázků je nutné oprávnění zapisovat na úložiště vašeho zařízení.</string>
+  <string name="gallery_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Přidat titulek obrázku (%s)</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
   <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
@@ -613,8 +614,12 @@
   <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
   <string name="feed_accessibility_card_load_more_button">Načíst další</string>
   <string name="description_edit_text_hint">Popis článku</string>
+  <string name="description_edit_article_description_label">Článek</string>
   <string name="description_edit_translate_article_description_label_per_language">Popis článku (v jazyce %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Popis článku (v jazyce %s)</string>
+  <string name="description_edit_add_caption_label">Popis obrázku</string>
+  <string name="description_edit_add_caption_hint">Titulek obrázku</string>
+  <string name="description_edit_translate_caption_label_per_language">Titulek obrázku (v jazyce %s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Titulek obrázku (v jazyce %s)</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_read">Číst</string>
@@ -690,6 +695,7 @@
     <item quantity="other">%d příspěvků</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Navrhování editací</string>
+  <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Přidat popis článku (v jazyce %s)</string>
   <string name="suggested_edits_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
@@ -704,9 +710,8 @@
   <string name="suggested_edits_article_cta_image_caption">Přidat titulek obrázku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobrazit</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Přidat titulek</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Přidat titulek (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
@@ -794,6 +799,8 @@
   <string name="main_drawer_content_description">Otevřete hlavní nabídku</string>
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit/zaregistrovat se do Wikipedie</string>
+  <string name="main_tooltip_text">Pro uživatele %s: Věděli jste, že každý může editovat Wikipedii?</string>
+  <string name="main_tooltip_action_button">Začít</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Zrušit</string>

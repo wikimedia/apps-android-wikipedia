@@ -264,6 +264,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="description_edit_text_hint" fuzzy="true">Şınasnayış sernamey</string>
+  <string name="description_edit_article_description_label">Meqale</string>
   <string name="description_edit_save">Bıweşane</string>
   <string name="description_edit_read">Bıwane</string>
   <string name="description_edit_add_description" fuzzy="true">Şınasnayışê sernamey cı kerê</string>

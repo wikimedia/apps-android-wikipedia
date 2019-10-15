@@ -584,7 +584,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="description_edit_text_hint">Artikelbeskrivelse</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
+  <string name="description_edit_article_description_label">Artikel</string>
+  <string name="description_edit_translate_article_description_label_per_language">Artikelbeskrivelse (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivelse (%s)</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_read">Læs</string>
@@ -714,6 +715,7 @@
   <string name="main_drawer_close">Luk</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
+  <string name="main_tooltip_action_button">Kom i gang</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annullér</string>
