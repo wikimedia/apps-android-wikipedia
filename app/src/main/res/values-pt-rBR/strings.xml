@@ -294,6 +294,7 @@
   <string name="gallery_save_success">Arquivo salvo com sucesso.</string>
   <string name="gallery_error_video_failed">Não foi possível reproduzir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">A permissão para gravar no armazenamento no seu dispositivo é necessária para salvar imagens.</string>
+  <string name="gallery_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="gallery_add_image_caption_in_language_button">Adicionar legenda da imagem (%s)</string>
   <string name="err_cannot_save_file">Não foi possível salvar o arquivo</string>
   <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
@@ -621,8 +622,12 @@
   <string name="feed_accessibility_card_text">Você atingiu a parte inferior do feed.</string>
   <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artigo (%s)</string>
+  <string name="description_edit_article_description_label">Artigo</string>
+  <string name="description_edit_translate_article_description_label_per_language">Descrição do artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrição do artigo (%s)</string>
+  <string name="description_edit_add_caption_label">Descrição da imagem</string>
+  <string name="description_edit_add_caption_hint">Legenda da imagem</string>
+  <string name="description_edit_translate_caption_label_per_language">Legenda da imagem (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Legendas das imagens (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
@@ -697,6 +702,7 @@
     <item quantity="other">%d contribuições no aplicativo</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Edições sugeridas</string>
+  <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
   <string name="suggested_edits_tutorial_message">Bem-vindo ao novo lar para edição rápida no aplicativo da Wikipédia. Suas contribuições são muito apreciadas. Edição feliz!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
@@ -708,12 +714,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciando</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Maiores informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página de arquivo no Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Adicionar legenda da imagem</string>
+  <string name="suggested_edits_article_cta_image_caption">Adicionar legenda à imagem</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Adicionar legenda da imagem (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Adicionar legenda</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Adicionar legenda (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Como foi sua experiência de edição? Reserve um momento para preencher a pesquisa sobre edição no aplicativo.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Responder a pesquisa</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
@@ -801,6 +806,8 @@
   <string name="main_drawer_content_description">Abrir a gaveta de navegação principal</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / Juntar na Wikipédia</string>
+  <string name="main_tooltip_text">%s, Você sabia que todos podem editar a Wikipédia?</string>
+  <string name="main_tooltip_action_button">Começar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>
