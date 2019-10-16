@@ -38,6 +38,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
     public View onCreateActionView() {
         View view = super.onCreateActionView();
         setSearchViewQuery((String) textView.getTag());
+        enableMenuLongPress(false);
         return view;
     }
 
@@ -63,7 +64,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
 
     @Override
     public void onFindNextLongClicked() {
-        // TODO: implement this, the current applyFindTextSyntax will cause a crash.
+        // ignore
     }
 
     @Override
@@ -73,7 +74,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
 
     @Override
     public void onFindPrevLongClicked() {
-        // TODO: implement this, the current applyFindTextSyntax will cause a crash.
+        // ignore
     }
 
     @Override

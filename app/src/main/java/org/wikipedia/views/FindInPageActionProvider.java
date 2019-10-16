@@ -41,6 +41,7 @@ public class FindInPageActionProvider extends ActionProvider {
     private boolean lastOccurrenceSearchFlag;
     private boolean isFirstOccurrence;
     private boolean isLastOccurrence;
+    private boolean enableMenuLongPress = true;
 
     public FindInPageActionProvider(@NonNull Context context) {
         super(context);
@@ -114,14 +115,16 @@ public class FindInPageActionProvider extends ActionProvider {
 
     @OnLongClick(R.id.find_in_page_next)
     boolean onFindInPageNextLongClicked(View v) {
-        if (isLastOccurrence) {
-            Toast.makeText(context, context.getString(R.string.find_last_occurence), Toast.LENGTH_SHORT).show();
-        } else {
-            DeviceUtil.hideSoftKeyboard(v);
-            listener.onFindNextLongClicked();
-            lastOccurrenceSearchFlag = true;
+        if (enableMenuLongPress) {
+            if (isLastOccurrence) {
+                Toast.makeText(context, context.getString(R.string.find_last_occurence), Toast.LENGTH_SHORT).show();
+            } else {
+                DeviceUtil.hideSoftKeyboard(v);
+                listener.onFindNextLongClicked();
+                lastOccurrenceSearchFlag = true;
+            }
         }
-        return true;
+        return enableMenuLongPress;
     }
 
     @OnClick(R.id.find_in_page_prev)
@@ -132,13 +135,15 @@ public class FindInPageActionProvider extends ActionProvider {
 
     @OnLongClick(R.id.find_in_page_prev)
     boolean onFindInPagePrevLongClicked(View v) {
-        if (isFirstOccurrence) {
-            Toast.makeText(context, context.getString(R.string.find_first_occurence), Toast.LENGTH_SHORT).show();
-        } else {
-            DeviceUtil.hideSoftKeyboard(v);
-            listener.onFindPrevLongClicked();
+        if (enableMenuLongPress) {
+            if (isFirstOccurrence) {
+                Toast.makeText(context, context.getString(R.string.find_first_occurence), Toast.LENGTH_SHORT).show();
+            } else {
+                DeviceUtil.hideSoftKeyboard(v);
+                listener.onFindPrevLongClicked();
+            }
         }
-        return true;
+        return enableMenuLongPress;
     }
 
     @OnClick(R.id.close_button)
@@ -169,5 +174,9 @@ public class FindInPageActionProvider extends ActionProvider {
         findInPagePrev.setEnabled(enabled);
         findInPageNext.setAlpha(enabled ? 1.0f : 0.5f);
         findInPagePrev.setAlpha(enabled ? 1.0f : 0.5f);
+    }
+
+    public void enableMenuLongPress(boolean enabled) {
+        enableMenuLongPress = enabled;
     }
 }
