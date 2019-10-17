@@ -7,6 +7,7 @@
 * KuboF
 * Kusavica
 * Lexected
+* Luky001
 * Patriccck
 * Pmikolas44
 * Rudko
@@ -25,10 +26,12 @@
   <string name="page_tabs_back">Späť</string>
   <string name="nav_item_forward">Dopredu</string>
   <string name="search_hint">Hľadať</string>
+  <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_history">Hľadať</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhľadávať v mojich zoznamoch a článkoch</string>
   <string name="nav_item_history">História</string>
+  <string name="nav_item_suggested_edits">Navrhované úpravy</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
@@ -276,6 +279,7 @@
   <string name="gallery_save_success">Súbor bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="gallery_save_image_write_permission_rationale">Na uloženie obrázkov je nutné povolenie na zápis údajov do zariadenia.</string>
+  <string name="gallery_add_image_caption_button">Pridať titulok obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Pridať popis obrázka (%s)</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
@@ -324,7 +328,7 @@
   <string name="error_voice_search_not_available">Ospravedlňujeme sa, rozpoznávanie hlasu nie je k dispozícii.</string>
   <string name="location_service_disabled">Služby určovania polohy sú zakázané.</string>
   <string name="enable_location_service">Povoliť</string>
-  <string name="location_permissions_enable_prompt">Ak chcete vidieť miesta vo vašom okolí, povoľte prístup k polohe.</string>
+  <string name="location_permissions_enable_prompt">Ak chcete vidieť miesta vo vašej blízkosti, povoľte prístup k polohe.</string>
   <string name="location_permissions_enable_action">Zapnúť</string>
   <string name="error_webview_updating">Android System WebView sa práve aktualizuje. Skúste to, prosím, neskôr.</string>
   <string name="multi_select_items_selected">Vybraných: %d</string>
@@ -528,12 +532,18 @@
   <string name="preference_title_notification_poll">Kontrola nových notifikácií</string>
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
   <string name="preference_category_notification_types">Typy notifikácií v aplikácii</string>
+  <string name="preference_title_notification_system">Systém</string>
   <string name="preference_title_notification_milestone">Míľnik</string>
   <string name="preference_summary_notification_milestone">Dosiahli ste určitého počtu úprav</string>
   <string name="preference_title_notification_thanks">Ďakujeme</string>
   <string name="preference_summary_notification_thanks">Niekto vám poďakoval za úpravu</string>
   <string name="preference_title_notification_revert">Vrátiť späť</string>
   <string name="preference_summary_notification_revert">Jeden z Vašich príspevkov bol vrátený späť</string>
+  <string name="preference_title_notification_login_fail">Prihlásenie</string>
+  <string name="preference_title_notification_mention">Zmienky</string>
+  <string name="preference_summary_notification_mention">Niekto vás spomenul v diskusii</string>
+  <string name="preference_title_notification_user_talk">Diskusná stránka</string>
+  <string name="preference_summary_notification_user_talk">Správy na vašej diskusnej stránke</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Randomizér</string>
   <string name="view_random_card_subtitle">Prečítajte si náhodný článok z Wikipédie.</string>
@@ -587,9 +597,13 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prispôsobte si svoj kanál Objaviť&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Teraz si môžete vybrať, čo sa má zobrazovať na vašej stránke, a tiež uprednostňovať svoje obľúbené typy obsahu.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušiť</string>
+  <string name="feed_accessibility_card_load_more_button">Načítať ďalšie</string>
   <string name="description_edit_text_hint">Popis článku</string>
+  <string name="description_edit_article_description_label">Článok</string>
   <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Článok %s</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis článku (%s)</string>
+  <string name="description_edit_add_caption_label">Popis obrázku</string>
+  <string name="description_edit_add_caption_hint">Titulok obrázku</string>
   <string name="description_edit_translate_caption_hint_per_language">Titulok obrázku v jazyku %s</string>
   <string name="description_edit_save">Uverejniť</string>
   <string name="description_edit_read">Prečítať si</string>
@@ -677,6 +691,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Zobraziť</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Pridať titulok obrázku</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Pridať titulok v jazyku %s</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Vyplniť anketu</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>
@@ -760,6 +775,7 @@
   <string name="main_drawer_close">Zavrieť</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
+  <string name="main_tooltip_action_button">Začíname</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Zrušiť</string>
