@@ -712,8 +712,8 @@
   <string name="suggested_edits_article_cta_image_caption">Añadir leyenda de imagen</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Añadir leyenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Añadir leyenda (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda de imagen</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
