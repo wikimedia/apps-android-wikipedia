@@ -717,8 +717,8 @@
   <string name="suggested_edits_article_cta_image_caption">Adicionar legenda à imagem</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Adicionar legenda da imagem (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Adicionar legenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Adicionar legenda (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda da imagem (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Como foi sua experiência de edição? Reserve um momento para preencher a pesquisa sobre edição no aplicativo.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Responder a pesquisa</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
