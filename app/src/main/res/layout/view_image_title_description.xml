@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/imageTitleDescParentLayout"
+    android:id="@+id/imageTitleDescriptionContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/suggested_edits_image_title_view_top_margin"
@@ -9,7 +9,6 @@
     android:orientation="horizontal">
 
     <FrameLayout
-        android:id="@+id/imageLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp">
@@ -24,10 +23,10 @@
 
         <LinearLayout
             android:id="@+id/imageBackground"
-            android:layout_width="@dimen/suggested_edits_icon_background_size"
-            android:layout_height="@dimen/suggested_edits_icon_background_size"
+            android:layout_width="@dimen/suggested_edits_icon_size"
+            android:layout_height="@dimen/suggested_edits_icon_size"
             android:layout_gravity="center"
-            android:background="@drawable/shape_circle"
+            android:background="@null"
             android:backgroundTint="?attr/multi_select_background_color"
             android:gravity="center">
 

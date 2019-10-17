@@ -34,6 +34,7 @@
         android:id="@+id/editingTipsLayout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical">
 
         <TextView
@@ -64,6 +65,7 @@
         android:id="@+id/suggestedEditsHelpLayout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical">
 
         <TextView

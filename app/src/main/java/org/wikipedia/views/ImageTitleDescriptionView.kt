@@ -6,6 +6,7 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.Gravity.CENTER
 import android.view.Gravity.CENTER_HORIZONTAL
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 
-internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
+internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_image_title_description, this)
@@ -56,6 +57,7 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
 
     fun setImageBackgroundParams(width: Int, height: Int) {
         val params = FrameLayout.LayoutParams(width, height)
+        params.gravity = CENTER
         imageBackground.layoutParams = params
         imageBackground.requestLayout()
     }
@@ -66,7 +68,6 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
 
     fun setImageBackground(drawable: Drawable?) {
         imageBackground.background = drawable
-
     }
 
     fun showCircularProgressBar(show: Boolean) {
@@ -74,11 +75,11 @@ internal class ImageTitleDescriptionView @JvmOverloads constructor(context: Cont
     }
 
     fun setUpViewForTablet() {
-        imageTitleDescParentLayout.orientation = VERTICAL
-        imageTitleDescParentLayout.gravity = CENTER_HORIZONTAL
+        imageTitleDescriptionContainer.orientation = VERTICAL
+        imageTitleDescriptionContainer.gravity = CENTER_HORIZONTAL
         val params = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         params.setMargins(0, 0, 0, 0)
-        imageTitleDescParentLayout.layoutParams = params
+        imageTitleDescriptionContainer.layoutParams = params
         val layoutParams = LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 0.0f)
         layoutParams.setMargins(DimenUtil.roundedDpToPx(80f), 0, DimenUtil.roundedDpToPx(80f), 0)
         titleDescriptionLayout.layoutParams = layoutParams

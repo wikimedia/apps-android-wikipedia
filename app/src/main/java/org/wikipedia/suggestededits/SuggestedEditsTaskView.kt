@@ -71,8 +71,8 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     }
 
     companion object {
-        val IMAGE_DETAIL_TEXT_SIZE_PHONE = 14f
-        val IMAGE_DETAIL_TEXT_SIZE_TABLET = 20f
-        val TASK_CONTAINER_TABLET_TOP_BOTTOM_MARGIN = 36f
+        const val IMAGE_DETAIL_TEXT_SIZE_PHONE = 14f
+        const val IMAGE_DETAIL_TEXT_SIZE_TABLET = 20f
+        const val TASK_CONTAINER_TABLET_TOP_BOTTOM_MARGIN = 36f
     }
 }

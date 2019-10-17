@@ -26,8 +26,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/yellow50">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -148,8 +147,7 @@
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/swipeRefreshLayout"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@color/green90">
+                android:layout_height="400dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
