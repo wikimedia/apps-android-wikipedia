@@ -55,6 +55,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -86,6 +87,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
+    private Snackbar suggestedEditsNavTabSnackbar;
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -179,8 +181,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
             }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY
-                && resultCode == SearchFragment.RESULT_LANG_CHANGED) {
+        } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
+                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
             refreshExploreFeed();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -445,14 +447,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void setupPulsingIcon() {
         if (AccountUtil.isLoggedIn() && Prefs.shouldShowSuggestedEditsTooltip()) {
             tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
-            snackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-            snackbar.show();
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
+            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            suggestedEditsNavTabSnackbar.show();
         }
     }
 
     void hideNavTabOverlayLayout() {
         tabOverlayLayout.hide();
+        if (suggestedEditsNavTabSnackbar != null) {
+            suggestedEditsNavTabSnackbar.dismiss();
+        }
     }
 
     public Fragment getCurrentFragment() {

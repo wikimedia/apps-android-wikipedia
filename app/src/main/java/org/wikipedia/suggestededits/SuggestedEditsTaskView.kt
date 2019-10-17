@@ -8,7 +8,7 @@ import android.widget.FrameLayout
 import kotlinx.android.synthetic.main.view_suggested_edits_task.view.*
 import org.wikipedia.R
 
-internal class SuggestedEditsTaskView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : FrameLayout(context, attrs, defStyle) {
+internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task, this)
