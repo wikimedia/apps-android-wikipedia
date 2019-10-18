@@ -63,7 +63,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
 
     @Override
     public void onFindNextLongClicked() {
-        // ignore
+        // TODO: implement this.
     }
 
     @Override
@@ -73,7 +73,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
 
     @Override
     public void onFindPrevLongClicked() {
-        // ignore
+        // TODO: implement this.
     }
 
     @Override
