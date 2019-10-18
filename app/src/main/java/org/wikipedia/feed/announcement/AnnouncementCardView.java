@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
@@ -85,6 +86,11 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         } else {
             footerTextView.setVisibility(GONE);
             footerBorderView.setVisibility(GONE);
+        }
+
+        if (card.type().equals(CardType.FUNDRAISING)) {
+            setStrokeColor(getResources().getColor(R.color.red50));
+            setStrokeWidth(10);
         }
     }
 
