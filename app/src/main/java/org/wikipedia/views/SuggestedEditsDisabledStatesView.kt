@@ -13,7 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
-internal class SuggestedEditsDisabledStatesView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
+internal class SuggestedEditsDisabledStatesView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
