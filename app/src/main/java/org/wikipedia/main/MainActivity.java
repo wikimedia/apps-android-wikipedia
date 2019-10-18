@@ -131,7 +131,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             tabsItem.setVisible(false);
         } else {
             tabsItem.setVisible(true);
-            TabCountsView tabCountsView = new TabCountsView(this);
+            TabCountsView tabCountsView = new TabCountsView(this, null);
             tabCountsView.setOnClickListener(v -> {
                 if (WikipediaApp.getInstance().getTabCount() == 1) {
                     startActivity(PageActivity.newIntent(MainActivity.this));
