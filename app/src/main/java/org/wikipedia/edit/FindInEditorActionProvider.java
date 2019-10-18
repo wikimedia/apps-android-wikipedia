@@ -38,7 +38,6 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
     public View onCreateActionView() {
         View view = super.onCreateActionView();
         setSearchViewQuery((String) textView.getTag());
-        enableMenuLongPress(false);
         return view;
     }
 
