@@ -39,13 +39,7 @@ public class AnnouncementClient implements FeedClient {
         disposables.add(ServiceFactory.getRest(wiki).getAnnouncements()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(list -> {
-                    List<Card> cards = new ArrayList<>();
-                    if (list != null) {
-                        cards.addAll(buildCards(list.items()));
-                    }
-                    FeedCoordinator.postCardsToCallback(cb, cards);
-                }, throwable -> {
+                .subscribe(list -> FeedCoordinator.postCardsToCallback(cb, new ArrayList<>(buildCards(list.items()))), throwable -> {
                     L.v(throwable);
                     cb.error(throwable);
                 }));
