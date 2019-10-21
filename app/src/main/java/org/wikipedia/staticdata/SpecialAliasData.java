@@ -21,7 +21,7 @@ public final class SpecialAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 296;
+        final int size = 298;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Цастәи");
         map.put("ace", "Kusuih");
@@ -43,6 +43,7 @@ public final class SpecialAliasData {
         map.put("az", "Xüsusi");
         map.put("azb", "اؤزل");
         map.put("ba", "Махсус");
+        map.put("ban", "Kusus");
         map.put("bar", "Spezial");
         map.put("bat-smg", "Specēlos");
         map.put("bcl", "Espesyal");
@@ -208,6 +209,7 @@ public final class SpecialAliasData {
         map.put("nn", "Spesial");
         map.put("nb", "Spesial");
         map.put("nov", "Special");
+        map.put("nqo", "ߞߙߍߞߙߍߣߍ߲");
         map.put("nrm", "Spécial");
         map.put("nso", "Special");
         map.put("nv", "Special");
