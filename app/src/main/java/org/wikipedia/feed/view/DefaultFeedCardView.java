@@ -5,7 +5,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+
+import com.google.android.material.card.MaterialCardView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
@@ -14,7 +15,7 @@ import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.util.L10nUtil.isLangRTL;
 
-public abstract class DefaultFeedCardView<T extends Card> extends CardView implements FeedCardView<T> {
+public abstract class DefaultFeedCardView<T extends Card> extends MaterialCardView implements FeedCardView<T> {
     @Nullable private T card;
     @Nullable private FeedAdapter.Callback callback;
 

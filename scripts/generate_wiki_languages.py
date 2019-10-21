@@ -39,10 +39,6 @@ for key, value in data[u"sitematrix"].items():
     if type(value) is not dict:
         continue
     language_code = value[u"code"]
-    if language_code == 'got':
-        # 'got' is Gothic Runes, which lie outside the Basic Multilingual Plane
-        # Android segfaults on these. So let's ignore those.
-        continue
     site_list = value[u"site"]
     if type(site_list) is not list:
         continue
@@ -79,7 +75,6 @@ for key, value in data[u"sitematrix"].items():
 
 
 add_lang(key='test', local_name='Test', eng_name='Test', rank=0)
-add_lang(key='en-x-piglatin', local_name='Igpay Atinlay', eng_name='Pig Latin', rank=0)
 
 # Generate the XML, for Android
 NAMESPACE = 'http://schemas.android.com/tools'
