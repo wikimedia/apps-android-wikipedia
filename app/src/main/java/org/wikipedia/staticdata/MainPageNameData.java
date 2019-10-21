@@ -21,7 +21,7 @@ public final class MainPageNameData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 298;
+        final int size = 299;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Ихадоу адаҟьа");
         map.put("ace", "Ôn Keue");
@@ -115,6 +115,7 @@ public final class MainPageNameData {
         map.put("gn", "Ape");
         map.put("gom", "मुखेल पान");
         map.put("gor", "Halaman Bungaliyo");
+        map.put("got", "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐌹𐌻𐌰𐌿𐍆𐍃");
         map.put("gu", "મુખપૃષ્ઠ");
         map.put("gv", "Ard-ghuillag");
         map.put("ha", "Babban shafi");

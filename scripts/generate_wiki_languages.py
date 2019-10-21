@@ -39,10 +39,6 @@ for key, value in data[u"sitematrix"].items():
     if type(value) is not dict:
         continue
     language_code = value[u"code"]
-    if language_code == 'got':
-        # 'got' is Gothic Runes, which lie outside the Basic Multilingual Plane
-        # Android segfaults on these. So let's ignore those.
-        continue
     site_list = value[u"site"]
     if type(site_list) is not list:
         continue
