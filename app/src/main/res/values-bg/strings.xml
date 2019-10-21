@@ -530,10 +530,12 @@
   <string name="preference_title_notification_thanks">Благодарност</string>
   <string name="preference_summary_notification_thanks">Някой Ви благодари за редакция</string>
   <string name="preference_title_notification_revert">Връщане</string>
+  <string name="preference_summary_notification_revert">Един от вашите приноси беше върнат</string>
   <string name="preference_title_notification_login_fail">Влизане</string>
   <string name="preference_title_notification_mention">Споменаване</string>
+  <string name="preference_summary_notification_mention">Някой Ви споменава на страница</string>
   <string name="preference_title_notification_user_talk">Беседа</string>
-  <string name="preference_summary_notification_user_talk">Съобщения от беседи на статии</string>
+  <string name="preference_summary_notification_user_talk">Съобщения от беседи на страници</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
   <string name="view_random_card_subtitle">Прелиствайте случайни статии от Уикипедия</string>
@@ -599,16 +601,18 @@
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_read">Прочитане</string>
   <string name="description_edit_add_description">Добавяне на описание на статията</string>
+  <string name="description_edit_translate_description">Превод на описание на статия</string>
   <string name="description_edit_edit_description">Редактиране на описанието на статията</string>
   <string name="description_edit_cancel_hint">Отказ</string>
   <string name="description_edit_help_title">Информация: Описания на статии</string>
   <string name="description_edit_help_about_wikidata">Относно Уикиданни</string>
   <string name="description_edit_help_wikidata_guide">Наръчник на Уикиданни за писане на описания</string>
-  <string name="description_edit_anon_limit">Благодарим ви за постоянния интерес за редактиране на описанията на статии! За да редактирате още, моля, влезте във вашата сметка в Уикипедия.</string>
+  <string name="description_edit_anon_limit">Благодарим Ви за постоянния интерес за редактиране на описанията на статии! За да редактирате още, моля, влезте във Вашата сметка в Уикипедия.</string>
   <string name="description_edit_license_notice">Променяйки описанието на статия, аз се съгласявам с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувам приносите си под лиценза &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обикновено започва с малка буква</string>
   <string name="description_edit_success_saved">Описанието на статията е публикувано!</string>
   <string name="description_edit_success_saved_snackbar">Описанието на статията е публикувано!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Описанието на статията е публикувано! (%s)</string>
   <string name="description_edit_success_encouragement">Току-що направихте Уикипедия по-добра за всички</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли, че?</string>
@@ -627,6 +631,7 @@
   <string name="suggested_edits_add_translation_button">Добавяне на превод</string>
   <string name="suggested_edits_edit_translation_button">Редактиране на превод</string>
   <string name="suggested_edits_my_contributions">Моите приноси</string>
+  <string name="suggested_edits_no_description">Този файл няма описание</string>
   <string name="suggested_edits_menu_info">Информация</string>
   <string name="suggested_edits_tasks_activity_title">Предложение за редактиране</string>
   <string name="suggested_edits_task_add_description_title">Добавяне описания на статии</string>
@@ -643,6 +648,8 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заключено, докато не редактирате %d описания на статии (проверени)</string>
   <string name="suggested_edits_task_multilingual_negative">Не за мен</string>
   <string name="suggested_edits_task_multilingual_positive">Добавяне на езици</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Източник</string>
   <string name="suggested_edits_image_caption_summary_title_license">Лиценз</string>
   <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
   <plurals name="suggested_edits_contribution_count">
@@ -660,6 +667,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Повече информация</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница на файла в Общомедия</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
@@ -732,6 +740,8 @@
   <string name="reverted_edit_dialog_ok_button_text">Добре</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Отказ</string>
   <string name="content_description_for_page_indicator">Страница %1$d от %2$d</string>
+  <string name="wikitext_bold">Получер</string>
+  <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_bulleted_list">Точкуван списък</string>
   <string name="wikitext_numbered_list">Номериран списък</string>
   <string name="wikitext_template">Шаблон</string>
@@ -741,7 +751,10 @@
   <string name="main_drawer_close">Затваряне</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
+  <string name="main_tooltip_text">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
+  <string name="main_tooltip_action_button">Започване</string>
   <string name="custom_date_picker_dialog_ok_button_text">Добре</string>
+  <string name="text_input_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_cancel_button_text">Отказ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отказ</string>
 </resources>
