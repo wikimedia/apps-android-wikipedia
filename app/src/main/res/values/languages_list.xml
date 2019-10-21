@@ -297,7 +297,6 @@
     <item>ban</item>
     <item>nqo</item>
     <item>test</item>
-    <item>en-x-piglatin</item>
     <item>ab</item>
   </string-array>
   <string-array name="preference_language_local_names">
@@ -597,7 +596,6 @@
     <item>Bali</item>
     <item>ߒߞߏ</item>
     <item>Test</item>
-    <item>Igpay Atinlay</item>
     <item>Аҧсшәа</item>
   </string-array>
   <string-array name="preference_language_canonical_names">
@@ -897,7 +895,6 @@
     <item>Balinese</item>
     <item>N’Ko</item>
     <item>Test</item>
-    <item>Pig Latin</item>
     <item>Abkhazian</item>
   </string-array>
 </resources>
