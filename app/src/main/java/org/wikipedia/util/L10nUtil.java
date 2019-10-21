@@ -45,8 +45,8 @@ public final class L10nUtil {
      * Ensure that this is always sorted alphabetically.
      */
     private static final String[] RTL_LANGS = {
-            "ar", "arc", "arz", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
-            "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
+            "ar", "arc", "arz", "azb", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
+            "khw", "ks", "lrc", "mzn", "nqo", "pnb", "ps", "sd", "ug", "ur", "yi"
     };
 
     /**
