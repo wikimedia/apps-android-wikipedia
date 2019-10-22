@@ -90,7 +90,7 @@
   <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kielet</string>
   <string name="langlinks_filter_hint">Haku</string>
-  <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
+  <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä.</string>
   <string name="langlinks_no_match">Kieliä ei löytynyt</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="langlinks_your_wikipedia_languages">Omat Wikipedia-kielet</string>
@@ -469,7 +469,7 @@
   <string name="reading_lists_menu_create_list">Luo uusi lista</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
   <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään /rekisteröidy</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään / rekisteröidy</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
@@ -781,6 +781,8 @@
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
+  <string name="main_tooltip_text">%s, tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Peruuta</string>

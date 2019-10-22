@@ -42,6 +42,7 @@
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
   <string name="nav_item_history">履歴</string>
+  <string name="nav_item_suggested_edits">提案された編集</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
   <string name="card_offline_error_retry">再試行</string>
@@ -289,6 +290,7 @@
   <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込む許可は画像の保存に必要になります。</string>
+  <string name="gallery_add_image_caption_button">画像キャプションを追加</string>
   <string name="gallery_add_image_caption_in_language_button">画像キャプションを追加 (%s)</string>
   <string name="err_cannot_save_file">ファイルを保存できません</string>
   <string name="snippet_share_intro">「%1$s」の記事を @Wikipedia で読む: %2$s</string>
@@ -615,8 +617,12 @@
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
   <string name="feed_accessibility_card_load_more_button">さらに読む</string>
   <string name="description_edit_text_hint">記事の説明</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">記事 (%s)</string>
+  <string name="description_edit_article_description_label">記事</string>
+  <string name="description_edit_translate_article_description_label_per_language">記事の説明 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">記事の説明 (%s)</string>
+  <string name="description_edit_add_caption_label">画像の説明</string>
+  <string name="description_edit_add_caption_hint">画像キャプション</string>
+  <string name="description_edit_translate_caption_label_per_language">画像キャプション (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">画像の説明 (%s)</string>
   <string name="description_edit_save">公開</string>
   <string name="description_edit_read">閲覧</string>
@@ -703,8 +709,8 @@
   <string name="suggested_edits_article_cta_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">キャプションを追加</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">キャプションを追加 (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">画像キャプションを追加</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか？ アプリを使った編集について、アンケートに回答をお願いします。</string>
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
@@ -791,6 +797,7 @@
   <string name="main_drawer_close">閉じる</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
+  <string name="main_tooltip_action_button">始める</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">キャンセル</string>
