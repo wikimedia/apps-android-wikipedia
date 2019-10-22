@@ -60,6 +60,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
 
     private boolean controlNavTabInFragment;
+    private NavTab currentTab;
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);
@@ -126,7 +127,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
-        if (WikipediaApp.getInstance().getTabCount() < 1) {
+        if (WikipediaApp.getInstance().getTabCount() < 1 || (currentTab != null && currentTab.equals(NavTab.SUGGESTED_EDITS))) {
             tabsItem.setVisible(false);
         } else {
             tabsItem.setVisible(true);
@@ -159,6 +160,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onTabChanged(@NonNull NavTab tab) {
+        currentTab = tab;
         if (tab.equals(NavTab.EXPLORE)) {
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
             toolbar.setTitle("");

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/taskInfoContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color"
+    android:orientation="vertical">
+
+    <org.wikipedia.views.ImageTitleDescriptionView
+        android:id="@+id/taskImageDetailView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/actionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/addContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/add_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@null"
+                android:padding="12dp"
+                android:src="@drawable/ic_add_gray_white_24dp"
+                android:tint="?attr/colorAccent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/suggested_edits_task_action_text_add"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorAccent"
+                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/translateContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/suggetedEditsTranslateImage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@null"
+                android:padding="12dp"
+                android:src="@drawable/ic_translate_white_24dp"
+                android:tint="?attr/colorAccent" />
+
+            <TextView
+                android:id="@+id/suggetedEditsTranslateActionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.04"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/suggested_edits_task_action_text_translate"
+                android:textAllCaps="true"
+                android:textColor="?attr/colorAccent"
+                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

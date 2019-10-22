@@ -665,8 +665,6 @@
   <string name="suggested_edits_tasks_activity_title">עריכות מוצעות</string>
   <string name="suggested_edits_task_add_description_title">הוספת תיאורי ערכים</string>
   <string name="suggested_edits_task_add_description_description">תרומה לערכים חסרי תיאורים</string>
-  <string name="suggested_edits_task_translation_title">תרגום תיאורי ערכים</string>
-  <string name="suggested_edits_task_translation_description">תרגום תיאורים לשפות אחרות.</string>
   <string name="suggested_edits_task_image_caption_title">הוספת כיתובים לתמונות</string>
   <string name="suggested_edits_task_image_caption_description">הוספת תיאורים קצרים שחסרים לתמונות</string>
   <string name="suggested_edits_task_translate_caption_title">תרגום כיתובי תמונה</string>

@@ -674,8 +674,6 @@
   <string name="suggested_edits_tasks_activity_title">編集提案</string>
   <string name="suggested_edits_task_add_description_title">記事の説明を追加</string>
   <string name="suggested_edits_task_add_description_description">説明が未記入の記事に着手する</string>
-  <string name="suggested_edits_task_translation_title">記事の説明を翻訳</string>
-  <string name="suggested_edits_task_translation_description">説明文を他の言語に翻訳する。</string>
   <string name="suggested_edits_task_image_caption_title">画像キャプションを追加</string>
   <string name="suggested_edits_task_image_caption_description">画像にキャプションを追加する</string>
   <string name="suggested_edits_task_translate_caption_title">画像キャプションの編集</string>

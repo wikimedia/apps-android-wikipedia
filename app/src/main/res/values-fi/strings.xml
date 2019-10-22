@@ -661,8 +661,6 @@
   <string name="suggested_edits_menu_info">Tiedot</string>
   <string name="suggested_edits_tasks_activity_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_task_add_description_title">Lisää artikkelin kuvaukset</string>
-  <string name="suggested_edits_task_translation_title">Käännä artikkelin kuvaukset</string>
-  <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
   <string name="suggested_edits_task_image_caption_title">Lisää kuvatekstit</string>
   <string name="suggested_edits_task_image_caption_description">Lisää puuttuvia lyhyitä kuvatekstejä kuviin</string>
   <string name="suggested_edits_task_translate_caption_title">Käännä kuvatekstit</string>
