@@ -289,6 +289,7 @@
   <string name="gallery_save_success">Het bestand is opgeslagen.</string>
   <string name="gallery_error_video_failed">De video kan niet afgespeeld worden.</string>
   <string name="gallery_save_image_write_permission_rationale">Er is toestemming vereist om naar de opslagmedia op uw apparaat te mogen schrijven.</string>
+  <string name="gallery_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="gallery_add_image_caption_in_language_button">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
@@ -614,8 +615,11 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="feed_accessibility_card_load_more_button">Meer laden</string>
   <string name="description_edit_text_hint">Artikelbeschrijving</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
+  <string name="description_edit_article_description_label">Artikel</string>
+  <string name="description_edit_translate_article_description_label_per_language">Artikelbeschrijving (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeschrijving (%s)</string>
+  <string name="description_edit_add_caption_hint">Afbeeldingsbijschrift</string>
+  <string name="description_edit_translate_caption_label_per_language">Afbeeldingsbijschrift (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Afbeeldingsbijschriften (%s)</string>
   <string name="description_edit_save">Publiceren</string>
   <string name="description_edit_read">Lezen</string>
@@ -666,7 +670,6 @@
   <string name="suggested_edits_tasks_activity_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
-  <string name="suggested_edits_task_translation_title">Artikelbeschrijvingen vertalen</string>
   <string name="suggested_edits_task_image_caption_title">Afbeeldingsbijschriften toevoegen</string>
   <string name="suggested_edits_task_image_caption_description">Ontbrekende korte afbeeldingsbijschriften toevoegen</string>
   <string name="suggested_edits_task_translate_caption_title">Afbeeldingsbijschriften vertalen</string>
@@ -698,9 +701,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licentie</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Meer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Afbeeldingsbijschrift toevoegen</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Weergeven</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Bijschrift toevoegen</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Bijschrift toevoegen (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Afbeeldingsbijschrift toevoegen</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vragenlijst invullen</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>

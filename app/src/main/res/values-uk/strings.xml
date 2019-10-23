@@ -706,8 +706,8 @@
   <string name="suggested_edits_article_cta_image_caption">Додати підпис зображення</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Додати підпис</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Додати підпис (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Додати підпис зображення</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Яким був ваш досвід використання? Якщо маєте хвилинку, заповніть будь ласка опитування щодо редагування у додатку.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Взяти участь в опитуванні</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>

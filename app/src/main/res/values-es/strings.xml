@@ -676,8 +676,6 @@
   <string name="suggested_edits_tasks_activity_title">Ediciones sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Añade descripciones de artículos</string>
   <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
-  <string name="suggested_edits_task_translation_title">Traducir descripciones de artículos</string>
-  <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
   <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>
   <string name="suggested_edits_task_image_caption_description">Añadir títulos faltados a imágenes</string>
   <string name="suggested_edits_task_translate_caption_title">Traduce la leyenda de la imagen</string>
@@ -712,8 +710,8 @@
   <string name="suggested_edits_article_cta_image_caption">Añadir leyenda de imagen</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Añadir leyenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Añadir leyenda (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda de imagen</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>

@@ -108,4 +108,19 @@
     <!-- Snackbar -->
     <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
 
+    <!-- Suggested Edits -->
+    <dimen name="suggested_edits_stats_bottom_margin">16dp</dimen>
+    <dimen name="suggested_edits_image_title_view_top_margin">16dp</dimen>
+    <dimen name="suggested_edits_icon_size">32dp</dimen>
+    <dimen name="suggested_edits_icon_background_size">26dp</dimen>
+    <dimen name="suggested_edits_icon_title_text_size">18sp</dimen>
+    <dimen name="suggested_edits_icon_description_text_size">14sp</dimen>
+    <dimen name="suggested_edits_title_margin_start">14dp</dimen>
+    <dimen name="suggested_edits_message_textview_text_size">14sp</dimen>
+    <dimen name="suggested_edits_task_icon_background_size">48dp</dimen>
+    <dimen name="suggested_edits_task_icon_size">20dp</dimen>
+    <dimen name="suggested_edits_screen_margin">16dp</dimen>
+    <dimen name="suggested_edits_bottom_tooltip_margin">48dp</dimen>
+    <dimen name="suggested_edits_top_tooltip_margin">32dp</dimen>
+
 </resources>

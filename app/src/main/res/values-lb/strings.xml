@@ -533,7 +533,6 @@
   <string name="suggested_edits_menu_info">Informatioun</string>
   <string name="suggested_edits_tasks_activity_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_task_add_description_title">Artikel-Beschreiwungen derbäisetzen</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Beschreiwungen iwwersetzen</string>
   <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
   <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Kënschtler</string>

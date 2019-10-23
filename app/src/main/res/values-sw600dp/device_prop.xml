@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="device_type">Tablet</string>
+    <bool name="isTablet">true</bool>
 </resources>

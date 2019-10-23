@@ -598,8 +598,6 @@
   <string name="suggested_edits_tasks_activity_title">صلاح-ڏنل سنوارون</string>
   <string name="suggested_edits_task_add_description_title">مضمون جو تشريحون وجھو</string>
   <string name="suggested_edits_task_add_description_description">مضمونن ۾ بغير تشريحن جي ڀاڱيداري ڪريو</string>
-  <string name="suggested_edits_task_translation_title">مضمون جون تشريحون ترجمايو</string>
-  <string name="suggested_edits_task_translation_description">تشريحن کي ٻولين وچ ۾ ترجمايو.</string>
   <string name="suggested_edits_task_image_caption_title">عڪس جا عنوان وجھو</string>
   <string name="suggested_edits_task_image_caption_description">عڪسن ۾ رھيل مختصر عنوان وجھو</string>
   <string name="suggested_edits_task_translate_caption_title">عڪس جا عنوان ترجمايو</string>

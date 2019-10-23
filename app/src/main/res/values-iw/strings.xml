@@ -665,8 +665,6 @@
   <string name="suggested_edits_tasks_activity_title">עריכות מוצעות</string>
   <string name="suggested_edits_task_add_description_title">הוספת תיאורי ערכים</string>
   <string name="suggested_edits_task_add_description_description">תרומה לערכים חסרי תיאורים</string>
-  <string name="suggested_edits_task_translation_title">תרגום תיאורי ערכים</string>
-  <string name="suggested_edits_task_translation_description">תרגום תיאורים לשפות אחרות.</string>
   <string name="suggested_edits_task_image_caption_title">הוספת כיתובים לתמונות</string>
   <string name="suggested_edits_task_image_caption_description">הוספת תיאורים קצרים שחסרים לתמונות</string>
   <string name="suggested_edits_task_translate_caption_title">תרגום כיתובי תמונה</string>
@@ -702,8 +700,8 @@
   <string name="suggested_edits_article_cta_image_caption">הוספת כיתוב לתמונה</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">הוספת כיתוב לתמונה (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">הוספת כיתוב</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">הוספת כיתוב (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
