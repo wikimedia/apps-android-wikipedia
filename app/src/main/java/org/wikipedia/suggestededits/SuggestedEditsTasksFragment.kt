@@ -15,11 +15,11 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
 import org.wikipedia.Constants.InvokeSource.*
@@ -40,9 +40,10 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.FooterMarginItemDecoration
-import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
-import kotlin.concurrent.schedule
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
@@ -52,8 +53,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
+    private val toolTipDisposable = CompositeDisposable()
     private var totalEdits = 0
-    private var timer: Timer? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -66,23 +67,23 @@ class SuggestedEditsTasksFragment : Fragment() {
         //Todo: remove after review
         dummyButtons()
 
-        contributionsStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit_white_24dp)!!)
+        contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
         contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
         editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text, 4, 4))
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        editStreakStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_timer_black_24dp)!!)
+        editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
         editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
 
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_pageviews_label_text))
-        pageViewStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_trending_up_black_24dp)!!)
+        pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
         pageViewStatsView.setOnClickListener { onUserStatClicked(pageViewStatsView) }
 
 
         editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_excellent_text))
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-        editQualityStatsView.setImageDrawable(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_check_black_24dp)!!)
+        editQualityStatsView.setImageDrawable(R.drawable.ic_check_black_24dp)
         editQualityStatsView.showCircularProgressBar(true)
         editQualityStatsView.setImageBackground(AppCompatResources.getDrawable(requireContext(), R.drawable.shape_circle)!!)
         editQualityStatsView.setImageBackgroundTint(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.lighter_green_background))
@@ -119,7 +120,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.START
         topTooltipArrow.layoutParams = param
         tooltipTextView.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
-        executeAfterTimer(true)
+        executeAfterTimer()
     }
 
     private fun showEditStreakStatsViewTooltip() {
@@ -128,7 +129,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.END
         topTooltipArrow.layoutParams = param
         tooltipTextView.text = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
-        executeAfterTimer(true)
+        executeAfterTimer()
     }
 
     private fun showPageViewStatsViewTooltip() {
@@ -140,7 +141,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.elevation = ELEVATION_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
         textViewForMessage.text = getString(R.string.suggested_edits_page_views_stat_tooltip)
-        executeAfterTimer(false)
+        executeAfterTimer()
     }
 
     private fun showEditQualityStatsViewTooltip() {
@@ -152,20 +153,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.elevation = ELEVATION_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
         textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
-        executeAfterTimer(false)
+        executeAfterTimer()
     }
 
-    private fun executeAfterTimer(isTopTooltip: Boolean) {
-        if (timer != null) {
-            timer!!.cancel()
-            timer!!.purge()
-        }
-        timer = Timer()
-        timer!!.schedule(5000) {
-            requireActivity().runOnUiThread(java.lang.Runnable {
-                hideTooltipLayouts()
-            })
-        }
+    private fun executeAfterTimer() {
+        toolTipDisposable.clear()
+        toolTipDisposable.add(Observable.timer(5000, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { hideTooltipLayouts() })
     }
 
     private fun hideTooltipLayouts() {
@@ -216,13 +211,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
+        toolTipDisposable.clear()
     }
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
             return
         }
-        val requiredWikiSitesList = ArrayList<WikiSite>()
 
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
@@ -230,15 +225,10 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .doAfterTerminate {
                     swipeRefreshLayout.isRefreshing = false
                     checkForDisabledStatus(80)
-                    getPageViews(requiredWikiSitesList)
                 }
                 .subscribe({ response ->
                     if (response.query()!!.userInfo()!!.isBlocked) showDisabledView(-1, R.string.suggested_edits_paused_message)
-
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
-
-                    //Adding all the languages that the user has contributed to, to help us calculate pageviews of all pages that the user has contributed to in all the wikis
-                    response.query()!!.editorTaskCounts()!!.captionEditsPerLanguage.forEach { (key, _) -> requiredWikiSitesList.add(WikiSite.forLanguageCode(key)) }
 
                     totalEdits = 0
                     for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
@@ -248,59 +238,93 @@ class SuggestedEditsTasksFragment : Fragment() {
                         totalEdits += count
                     }
                     updateUserMessageTextView()
+                    getPageViews()
                 }, { throwable ->
                     L.e(throwable)
-                    errorView.visibility = View.VISIBLE
+                    errorView.visibility = VISIBLE
                     errorView.setError(throwable)
                 }))
 
     }
 
-    private fun getPageViews(wikiSiteList: ArrayList<WikiSite>) {
-        wikiSiteList.add(WikiSite(Service.COMMONS_URL))
-        wikiSiteList.add(WikiSite(Service.WIKIDATA_URL))
-        val observableList = ArrayList<io.reactivex.Observable<MwQueryResponse>>()
-        for (wikiSite in wikiSiteList) {
-            observableList.add(getPageViewsPerWiki(wikiSite))
-        }
-        disposables.add(io.reactivex.Observable.zip(observableList) { args -> createResult(args) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pageViewsCount ->
-                    pageViewStatsView.setTitle(pageViewsCount.toString())
-                }, L::e))
-    }
+    private fun getPageViews() {
+        val qLangMap = HashMap<String, HashSet<String>>()
 
-    private fun createResult(pageViewsResultsList: Array<Any>): Int {
-        var totalPageViews = 0
-
-        for (result in pageViewsResultsList) {
-            if (result is MwQueryResponse && result.query() != null) {
-                if (result.query()!!.pages() != null) {
-                    for (page in result.query()!!.pages()!!) {
-                        if (page.pageViewsMap != null) {
-                            page.pageViewsMap!!.forEach { (_, value) -> if (value != null) totalPageViews += value.toInt() }
-                        }
-                    }
-                }
-            }
-        }
-        return totalPageViews
-    }
-
-    private fun getPageViewsPerWiki(wikiSite: WikiSite): io.reactivex.Observable<MwQueryResponse> {
-        return ServiceFactory.get(wikiSite).getUserContributedPages(AccountUtil.getUserName()!!)
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
-                    val titles = ArrayList<String>()
-                    for (userContribution in response.query()!!.userContributions()!!) {
-                        titles.add(userContribution.title!!)
+                    for (userContribution in response.query()!!.userContributions()) {
+                        var descLang = ""
+                        val strArr = userContribution.comment.split(" ")
+                        for (str in strArr) {
+                            if (str.contains("wbsetdescription")) {
+                                val descArr = str.split("|")
+                                if (descArr.size > 1) {
+                                    descLang = descArr[1]
+                                    break
+                                }
+                            }
+                        }
+                        if (descLang.isEmpty()) {
+                            continue
+                        }
+
+                        if (!qLangMap.containsKey(userContribution.title)) {
+                            qLangMap[userContribution.title] = HashSet()
+                        }
+                        qLangMap[userContribution.title]!!.add(descLang)
                     }
-                    ServiceFactory.get(wikiSite).getPageViewsForTitles(StringUtils.join(titles, "|"))
+                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
+                .flatMap { entities ->
+                    val langArticleMap = HashMap<String, ArrayList<String>>()
+                    for (entityKey in entities.entities()!!.keys) {
+                        val entity = entities.entities()!![entityKey]!!
+                        for (qKey in qLangMap.keys) {
+                            if (qKey == entityKey) {
+                                for (lang in qLangMap[qKey]!!) {
+                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
+                                    if (entity.sitelinks().containsKey(dbName)) {
+                                        if (!langArticleMap.containsKey(lang)) {
+                                            langArticleMap[lang] = ArrayList()
+                                        }
+                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+
+                    val observableList = ArrayList<Observable<MwQueryResponse>>()
+
+                    for (lang in langArticleMap.keys) {
+                        val site = WikiSite.forLanguageCode(lang)
+                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread()))
+                    }
+
+                    Observable.zip(observableList) { resultList ->
+                        var totalPageViews = 0
+                        for (result in resultList) {
+                            if (result is MwQueryResponse && result.query() != null) {
+                                for (page in result.query()!!.pages()!!) {
+                                    for (day in page.pageViewsMap.values) {
+                                        totalPageViews += day ?: 0
+                                    }
+                                }
+                            }
+                        }
+                        totalPageViews
+                    }
+                }
+                .subscribe({ pageViewsCount ->
+                    pageViewStatsView.setTitle(pageViewsCount.toString())
+                }, L::e))
     }
 
     private fun updateUI() {
@@ -362,13 +386,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
-        addImageCaptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_icon_caption_images)
+        addImageCaptionsTask.imageDrawable = R.drawable.ic_icon_caption_images
         displayedTasks.add(addImageCaptionsTask)
 
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.imageDrawable = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_article_description)
+        addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
         displayedTasks.add(addDescriptionsTask)
     }
 

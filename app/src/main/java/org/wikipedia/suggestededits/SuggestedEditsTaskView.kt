@@ -21,7 +21,6 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
         taskImageDetailView.setImageParams(resources.getDimension(R.dimen.suggested_edits_task_icon_size).toInt(), resources.getDimension(R.dimen.suggested_edits_task_icon_size).toInt())
         taskImageDetailView.setImageBackgroundParams(resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt(), resources.getDimension(R.dimen.suggested_edits_task_icon_background_size).toInt())
-        taskImageDetailView.setCaseForTitle(true)
         taskImageDetailView.setTitleTextSize(if (DeviceUtil.isDeviceTablet()) IMAGE_DETAIL_TEXT_SIZE_TABLET else IMAGE_DETAIL_TEXT_SIZE_PHONE)
     }
 
@@ -37,7 +36,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         updateTranslateActionUI()
         taskImageDetailView.setTitle(task.title!!)
         taskImageDetailView.setDescription(task.description!!)
-        taskImageDetailView.setImageDrawable(task.imageDrawable!!)
+        taskImageDetailView.setImageDrawable(task.imageDrawable)
         taskImageDetailView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.themed_icon_color))
 
         addContainer.setOnClickListener {

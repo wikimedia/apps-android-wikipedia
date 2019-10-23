@@ -1,11 +1,12 @@
 package org.wikipedia.dataclient.mwapi
 
-import com.google.gson.annotations.SerializedName
-
 class UserContributions {
-    @SerializedName("user")
-    var user: String? = null
-
-    @SerializedName("title")
-    var title: String? = null
+    val user: String = ""
+        get() { return field.orEmpty() }
+    val title: String = ""
+        get() { return field.orEmpty() }
+    val timestamp: String = ""
+        get() { return field.orEmpty() }
+    val comment: String = ""
+        get() { return field.orEmpty() }
 }

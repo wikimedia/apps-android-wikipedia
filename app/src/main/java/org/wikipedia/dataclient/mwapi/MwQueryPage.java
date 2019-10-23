@@ -39,7 +39,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
     @Nullable private Map<String, String> varianttitles;
-    @SerializedName("pageviews") @Nullable private Map<String, String> pageViewsMap;
+    @SerializedName("pageviews") @Nullable private Map<String, Integer> pageViewsMap;
 
     @NonNull public String title() {
         return StringUtils.defaultString(title);
@@ -139,8 +139,8 @@ public class MwQueryPage extends BaseModel {
         return varianttitles != null ? StringUtils.defaultIfEmpty(varianttitles.get(langCode), title()) : title();
     }
 
-    @Nullable public Map<String, String> getPageViewsMap() {
-        return pageViewsMap;
+    @NonNull public Map<String, Integer> getPageViewsMap() {
+        return pageViewsMap != null ? pageViewsMap : Collections.emptyMap();
     }
 
     public static class Revision {

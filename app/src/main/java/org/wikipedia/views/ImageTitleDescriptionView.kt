@@ -1,6 +1,5 @@
 package org.wikipedia.views
 
-
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
@@ -12,6 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
@@ -33,16 +35,12 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         title.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
     }
 
-    fun setCaseForTitle(isAllCaps: Boolean) {
-        title.isAllCaps = isAllCaps
-    }
-
     fun setDescription(descriptionText: String) {
         description.text = descriptionText
     }
 
-    fun setImageDrawable(imageDrawable: Drawable) {
-        image.setImageDrawable(imageDrawable)
+    fun setImageDrawable(@DrawableRes imageDrawable: Int) {
+        image.setImageDrawable(AppCompatResources.getDrawable(context, imageDrawable))
     }
 
     fun setImageTint(color: Int) {
