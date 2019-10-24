@@ -12,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.wikipedia.R
 
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.util.DimenUtil
 
 class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNavigationView(context, attrs) {
     init {
