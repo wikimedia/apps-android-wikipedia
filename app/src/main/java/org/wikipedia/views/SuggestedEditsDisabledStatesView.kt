@@ -32,9 +32,9 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         image.visibility = GONE
     }
 
-    fun hideHelpLink() {
-        suggestedEditsHelpLayout.visibility = GONE
-        helpLayoutBorder.visibility = GONE
+    fun hideTipsLink() {
+        editingTipsLayout.visibility = GONE
+        linksDivider.visibility = GONE
     }
 
     fun setImage(@DrawableRes drawableRes: Int) {
@@ -45,8 +45,8 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         image.visibility = VISIBLE
     }
 
-    fun showHelpLink() {
-        suggestedEditsHelpLayout.visibility = VISIBLE
-        helpLayoutBorder.visibility = VISIBLE
+    fun showTipsLink() {
+        editingTipsLayout.visibility = VISIBLE
+        linksDivider.visibility = VISIBLE
     }
 }

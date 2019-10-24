@@ -52,6 +52,7 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/linksDivider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/chip_background_color" />
@@ -80,7 +81,6 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/helpLayoutBorder"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/chip_background_color"/>

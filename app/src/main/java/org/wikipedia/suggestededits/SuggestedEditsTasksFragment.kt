@@ -363,10 +363,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
         if (drawableRes == -1) {
             disabledStatesView.hideImage()
-            disabledStatesView.hideHelpLink()
+            disabledStatesView.hideTipsLink()
         } else {
             disabledStatesView.showImage()
-            disabledStatesView.showHelpLink()
+            disabledStatesView.showTipsLink()
             disabledStatesView.setImage(drawableRes)
         }
         disabledStatesView.visibility = VISIBLE
