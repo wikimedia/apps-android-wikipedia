@@ -24,8 +24,8 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         suggestedEditsHelpLayout.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.about_wikipedia_url))) }
     }
 
-    fun setMessageText(@StringRes messageRes: Int) {
-        messageTextView.text = StringUtil.fromHtml(context.getString(messageRes))
+    fun setMessageText(text: String) {
+        messageTextView.text = StringUtil.fromHtml(text)
     }
 
     fun hideImage() {

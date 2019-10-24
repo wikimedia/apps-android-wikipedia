@@ -193,43 +193,43 @@
                     android:paddingEnd="16dp"
                     android:background="?attr/paper_color" />
 
-            </LinearLayout>
-
-            <!-- TODO: remove. -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom">
-
-                <TextView
-                    android:id="@+id/paused"
-                    android:layout_width="wrap_content"
+                <!-- TODO: remove. -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textAllCaps="true"
-                    android:textColor="?attr/colorAccent"
-                    android:textSize="10sp"
-                    android:text="Paused" />
+                    android:padding="8dp">
 
-                <TextView
-                    android:id="@+id/disabled"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textAllCaps="true"
-                    android:textColor="?attr/colorAccent"
-                    android:textSize="10sp"
-                    android:text="Disabled" />
+                    <TextView
+                        android:id="@+id/paused"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="10sp"
+                        android:text="Paused" />
 
-                <TextView
-                    android:id="@+id/ipBlocked"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textAllCaps="true"
-                    android:textColor="?attr/colorAccent"
-                    android:textSize="10sp"
-                    android:text="ipBlocked" />
+                    <TextView
+                        android:id="@+id/disabled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="10sp"
+                        android:text="Disabled" />
+
+                    <TextView
+                        android:id="@+id/ipBlocked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="10sp"
+                        android:text="ipBlocked" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </FrameLayout>

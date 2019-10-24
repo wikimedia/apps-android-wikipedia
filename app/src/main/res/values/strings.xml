@@ -751,10 +751,11 @@
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
     <string name="suggested_edits_pageviews_label_text">Pageviews</string>
     <string name="suggested_edits_quality_label_text">Edit quality</string>
+    <string name="suggested_edits_quality_perfect_text">Perfect</string>
     <string name="suggested_edits_quality_excellent_text">Excellent</string>
     <string name="suggested_edits_quality_very_good_text">Very good</string>
     <string name="suggested_edits_quality_good_text">Good</string>
-    <string name="suggested_edits_quality_okey_text">Okay</string>
+    <string name="suggested_edits_quality_okay_text">Okay</string>
     <string name="suggested_edits_quality_sufficient_text">Sufficient</string>
     <string name="suggested_edits_quality_poor_text">Poor</string>
     <string name="suggested_edits_quality_bad_text">Bad</string>

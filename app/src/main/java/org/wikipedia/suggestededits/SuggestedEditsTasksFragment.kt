@@ -8,7 +8,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -76,7 +75,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
         pageViewStatsView.setOnClickListener { onUserStatClicked(pageViewStatsView) }
 
-        editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_excellent_text))
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
         editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
@@ -203,7 +201,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    if (response.query()!!.userInfo()!!.isBlocked) showDisabledView(-1, R.string.suggested_edits_paused_message)
+                    if (response.query()!!.userInfo()!!.isBlocked) showDisabledView(-1, getString(R.string.suggested_edits_ip_blocked_message))
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
 
                     totalEdits = 0
@@ -354,14 +352,14 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun checkForDisabledStatus(editQuality: Int) {
         when (editQuality) {
-            in 0..10 -> showDisabledView(R.drawable.ic_suggested_edits_paused, R.string.suggested_edits_paused_message)
-            in 11..50 -> showDisabledView(R.drawable.ic_suggested_edits_disabled, R.string.suggested_edits_disabled_message)
-            -1 -> showDisabledView(-1, R.string.suggested_edits_ip_blocked_message)
+            in 0..10 -> showDisabledView(R.drawable.ic_suggested_edits_paused, getString(R.string.suggested_edits_paused_message, AccountUtil.getUserName()))
+            in 11..50 -> showDisabledView(R.drawable.ic_suggested_edits_disabled, getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
+            -1 -> showDisabledView(-1, getString(R.string.suggested_edits_ip_blocked_message))
             else -> disabledStatesView.visibility = GONE
         }
     }
 
-    private fun showDisabledView(@DrawableRes drawableRes: Int, @StringRes stringRes: Int) {
+    private fun showDisabledView(@DrawableRes drawableRes: Int, text: String) {
         clearContents()
         if (drawableRes == -1) {
             disabledStatesView.hideImage()
@@ -372,7 +370,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             disabledStatesView.setImage(drawableRes)
         }
         disabledStatesView.visibility = VISIBLE
-        disabledStatesView.setMessageText(stringRes)
+        disabledStatesView.setMessageText(text)
     }
 
     private fun setupTestingButtons() {
