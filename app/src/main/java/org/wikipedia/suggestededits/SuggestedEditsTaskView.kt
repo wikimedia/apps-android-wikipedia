@@ -4,17 +4,18 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
-import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.ResourceUtil
 
-internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
+        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color))
     }
 
     private fun updateTranslateActionUI() {
