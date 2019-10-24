@@ -3,9 +3,10 @@ package org.wikipedia.navtab
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Menu
-
+import android.view.ViewGroup
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
+import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 
 class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNavigationView(context, attrs) {
@@ -22,5 +23,21 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
             }
             menu.add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon())
         }
+        updateMenuText()
     }
+
+    fun updateMenuText() {
+        // Todo: update later https://github.com/material-components/material-components-android/issues/139
+        val menuView = getChildAt(0)
+        if ((menuView as ViewGroup).childCount > 0) {
+            for (i in 0 until menuView.childCount) {
+                val menuChildView = menuView.getChildAt(i)
+                if (menuChildView != null) {
+                    val labelView = menuChildView.findViewById<TextView>(R.id.largeLabel)
+                    labelView.setSingleLine(false)
+                }
+            }
+        }
+    }
+
 }
