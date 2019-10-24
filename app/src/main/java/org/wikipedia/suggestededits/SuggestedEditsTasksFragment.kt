@@ -169,7 +169,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.background = null
         textViewForMessage.setPadding(0, 0, 0, 0)
         textViewForMessage.elevation = 0.0f
-        updateUserMessageTextView()
+        updateZeroEditsState()
     }
 
     override fun onResume() {
@@ -233,7 +233,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     for (count in editorTaskCounts.captionEditsPerLanguage.values) {
                         totalEdits += count
                     }
-                    updateUserMessageTextView()
+                    updateZeroEditsState()
                     checkForDisabledStatus(80)
                     getPageViews()
                 }, { t ->
@@ -349,7 +349,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         errorView.visibility = VISIBLE
     }
 
-    private fun updateUserMessageTextView() {
+    private fun updateZeroEditsState() {
         if (totalEdits == 0) {
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
