@@ -126,6 +126,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        getFragment().requestUpdateToolbarElevation();
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
         if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
             tabsItem.setVisible(false);

@@ -9,7 +9,6 @@ import android.view.View.VISIBLE
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
@@ -31,7 +30,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.util.DimenUtil.dpToPx
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -39,7 +37,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.FooterMarginItemDecoration
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -63,7 +60,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
         //Todo: remove after review
         setupTestingButtons()
 
@@ -86,7 +82,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setImageBackground(AppCompatResources.getDrawable(requireContext(), R.drawable.shape_circle)!!)
         editQualityStatsView.setImageBackgroundTint(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.lighter_green_background))
         editQualityStatsView.setImageBackgroundParams(resources.getDimension(R.dimen.suggested_edits_icon_background_size).toInt(), resources.getDimension(R.dimen.suggested_edits_icon_background_size).toInt())
-        editQualityStatsView.setImageParams(PADDING_16, PADDING_16)
+        editQualityStatsView.setImageParams(roundedDpToPx(16.0f), roundedDpToPx(16.0f))
         editQualityStatsView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.action_mode_green_background))
         editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
@@ -104,8 +100,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun onUserStatClicked(view: View) {
-        hideTooltipLayouts()
-
+        dismissTooltips()
         when (view) {
             contributionsStatsView -> showContributionsStatsViewTooltip()
             editStreakStatsView -> showEditStreakStatsViewTooltip()
@@ -115,61 +110,51 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showContributionsStatsViewTooltip() {
-        tooltipLayout.visibility = VISIBLE
-        val param = topTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        val param = toolTipArrowFirstRow.layoutParams as LinearLayout.LayoutParams
         param.gravity = Gravity.START
-        topTooltipArrow.layoutParams = param
-        tooltipTextView.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
-        dismissTooltipAfterTimeout()
+        toolTipArrowFirstRow.layoutParams = param
+        toolTipTextFirstRow.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
+        toolTipFirstRow.visibility = VISIBLE
+        dismissTooltipsAfterTimeout()
     }
 
     private fun showEditStreakStatsViewTooltip() {
-        tooltipLayout.visibility = VISIBLE
-        val param = topTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        val param = toolTipArrowFirstRow.layoutParams as LinearLayout.LayoutParams
         param.gravity = Gravity.END
-        topTooltipArrow.layoutParams = param
-        tooltipTextView.text = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
-        dismissTooltipAfterTimeout()
+        toolTipArrowFirstRow.layoutParams = param
+        toolTipTextFirstRow.text = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
+        toolTipFirstRow.visibility = VISIBLE
+        dismissTooltipsAfterTimeout()
     }
 
     private fun showPageViewStatsViewTooltip() {
-        bottomTooltipArrow.visibility = VISIBLE
-        val param = bottomTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        val param = toolTipArrowSecondRow.layoutParams as LinearLayout.LayoutParams
         param.gravity = Gravity.START
-        bottomTooltipArrow.layoutParams = param
-        textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
-        textViewForMessage.elevation = ELEVATION_4
-        textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
-        textViewForMessage.text = getString(R.string.suggested_edits_page_views_stat_tooltip)
-        dismissTooltipAfterTimeout()
+        toolTipArrowSecondRow.layoutParams = param
+        toolTipTextSecondRow.text = getString(R.string.suggested_edits_page_views_stat_tooltip)
+        toolTipSecondRow.visibility = VISIBLE
+        dismissTooltipsAfterTimeout()
     }
 
     private fun showEditQualityStatsViewTooltip() {
-        bottomTooltipArrow.visibility = VISIBLE
-        val param = bottomTooltipArrow.layoutParams as LinearLayout.LayoutParams
+        val param = toolTipArrowSecondRow.layoutParams as LinearLayout.LayoutParams
         param.gravity = Gravity.END
-        bottomTooltipArrow.layoutParams = param
-        textViewForMessage.setBackgroundColor(ResourceUtil.getThemedColor(context!!, R.attr.paper_color))
-        textViewForMessage.elevation = ELEVATION_4
-        textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
-        textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
-        dismissTooltipAfterTimeout()
+        toolTipArrowSecondRow.layoutParams = param
+        toolTipTextSecondRow.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
+        toolTipSecondRow.visibility = VISIBLE
+        dismissTooltipsAfterTimeout()
     }
 
-    private fun dismissTooltipAfterTimeout() {
+    private fun dismissTooltipsAfterTimeout() {
         toolTipDisposable.clear()
         toolTipDisposable.add(Observable.timer(5000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { hideTooltipLayouts() })
+                .subscribe { dismissTooltips() })
     }
 
-    private fun hideTooltipLayouts() {
-        tooltipLayout.visibility = GONE
-        bottomTooltipArrow.visibility = GONE
-        textViewForMessage.background = null
-        textViewForMessage.setPadding(0, 0, 0, 0)
-        textViewForMessage.elevation = 0.0f
-        updateZeroEditsState()
+    private fun dismissTooltips() {
+        toolTipFirstRow.visibility = GONE
+        toolTipSecondRow.visibility = GONE
     }
 
     override fun onResume() {
@@ -219,6 +204,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
+        progressBar.visibility = VISIBLE
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -337,6 +323,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun clearContents() {
         swipeRefreshLayout.isRefreshing = false
+        progressBar.visibility = GONE
         tasksContainer.visibility = GONE
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
@@ -444,8 +431,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
-        private val PADDING_16 = roundedDpToPx(16.0f)
-        private val ELEVATION_4 = dpToPx(4.0f)
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
         }

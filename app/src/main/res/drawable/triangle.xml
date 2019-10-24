@@ -4,11 +4,7 @@
     android:width="100dp"
     android:viewportHeight="100"
     android:viewportWidth="100" >
-    <group
-        android:name="triableGroup">
-        <path
-            android:name="triangle"
-            android:fillColor="?attr/paper_color"
-            android:pathData="m 50,0 l 50,100 -100,0 z" />
-    </group>
+    <path
+        android:fillColor="?attr/paper_color"
+        android:pathData="m 50,0 l 50,100 -100,0 z" />
 </vector>
