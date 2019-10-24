@@ -10,7 +10,6 @@
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="92dp"
-        android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:contentDescription="@null"
         app:srcCompat="@drawable/ic_suggested_edits_disabled" />
@@ -19,7 +18,6 @@
         android:id="@+id/messageTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
         android:textColor="#de000000"
         android:textSize="16sp" />
@@ -42,11 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
-            android:lineSpacingExtra="0sp"
             android:text="@string/suggested_edits_editing_tips_link_text"
-            android:textColor="#3366cc"
-            android:textSize="14sp"
-            android:textStyle="normal" />
+            android:textColor="#3366cc"/>
 
         <ImageView
             android:layout_width="16dp"
@@ -73,11 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
-            android:lineSpacingExtra="0sp"
             android:text="@string/suggested_edits_help_page_link_text"
-            android:textColor="?attr/colorAccent"
-            android:textSize="14sp"
-            android:textStyle="normal" />
+            android:textColor="?attr/colorAccent"/>
 
         <ImageView
             android:layout_width="16dp"
@@ -92,10 +84,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/chip_background_color"/>
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset" />
 
 </LinearLayout>

@@ -30,10 +30,12 @@
                 android:id="@+id/errorView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_gravity="center"
                 android:visibility="gone" />
 
             <LinearLayout
+                android:id="@+id/tasksContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -157,29 +159,43 @@
                     android:paddingEnd="16dp"
                     android:background="?attr/paper_color" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            </LinearLayout>
 
-                    <Button
-                        android:id="@+id/paused"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Paused" />
+            <!-- TODO: remove. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
 
-                    <Button
-                        android:id="@+id/disabled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Disabled" />
+                <TextView
+                    android:id="@+id/paused"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAllCaps="true"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="10sp"
+                    android:text="Paused" />
 
-                    <Button
-                        android:id="@+id/ipBlocked"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ipBlocked" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/disabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAllCaps="true"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="10sp"
+                    android:text="Disabled" />
 
+                <TextView
+                    android:id="@+id/ipBlocked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAllCaps="true"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="10sp"
+                    android:text="ipBlocked" />
             </LinearLayout>
 
         </FrameLayout>

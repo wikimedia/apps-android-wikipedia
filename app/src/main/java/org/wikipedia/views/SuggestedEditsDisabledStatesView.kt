@@ -1,6 +1,5 @@
 package org.wikipedia.views
 
-
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
@@ -18,7 +17,6 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
     init {
         View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
         setUpExternalLinks()
-        reset.setOnClickListener { visibility = GONE }
     }
 
     private fun setUpExternalLinks() {

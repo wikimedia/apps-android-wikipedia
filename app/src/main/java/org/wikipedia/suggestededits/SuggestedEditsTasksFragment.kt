@@ -65,7 +65,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.elevation = 0f
         //Todo: remove after review
-        dummyButtons()
+        setupTestingButtons()
 
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
         contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
@@ -91,16 +91,16 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
+        swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
 
-        errorView.setRetryClickListener { updateUI() }
+        errorView.setRetryClickListener { refreshContents() }
 
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
-        val topDecorationDp = PADDING_16
-        tasksRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, topDecorationDp))
         tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, false))
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
+
+        clearContents()
     }
 
     private fun onUserStatClicked(view: View) {
@@ -120,7 +120,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.START
         topTooltipArrow.layoutParams = param
         tooltipTextView.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
-        executeAfterTimer()
+        dismissTooltipAfterTimeout()
     }
 
     private fun showEditStreakStatsViewTooltip() {
@@ -129,7 +129,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         param.gravity = Gravity.END
         topTooltipArrow.layoutParams = param
         tooltipTextView.text = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
-        executeAfterTimer()
+        dismissTooltipAfterTimeout()
     }
 
     private fun showPageViewStatsViewTooltip() {
@@ -141,7 +141,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.elevation = ELEVATION_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
         textViewForMessage.text = getString(R.string.suggested_edits_page_views_stat_tooltip)
-        executeAfterTimer()
+        dismissTooltipAfterTimeout()
     }
 
     private fun showEditQualityStatsViewTooltip() {
@@ -153,10 +153,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         textViewForMessage.elevation = ELEVATION_4
         textViewForMessage.setPadding(PADDING_16, PADDING_16, PADDING_16, PADDING_16)
         textViewForMessage.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
-        executeAfterTimer()
+        dismissTooltipAfterTimeout()
     }
 
-    private fun executeAfterTimer() {
+    private fun dismissTooltipAfterTimeout() {
         toolTipDisposable.clear()
         toolTipDisposable.add(Observable.timer(5000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -174,7 +174,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        updateUI()
+        refreshContents()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -222,10 +222,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    swipeRefreshLayout.isRefreshing = false
-                    checkForDisabledStatus(80)
-                }
                 .subscribe({ response ->
                     if (response.query()!!.userInfo()!!.isBlocked) showDisabledView(-1, R.string.suggested_edits_paused_message)
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
@@ -238,11 +234,11 @@ class SuggestedEditsTasksFragment : Fragment() {
                         totalEdits += count
                     }
                     updateUserMessageTextView()
+                    checkForDisabledStatus(80)
                     getPageViews()
-                }, { throwable ->
-                    L.e(throwable)
-                    errorView.visibility = VISIBLE
-                    errorView.setError(throwable)
+                }, { t ->
+                    L.e(t)
+                    showError(t)
                 }))
 
     }
@@ -324,12 +320,33 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
                 .subscribe({ pageViewsCount ->
                     pageViewStatsView.setTitle(pageViewsCount.toString())
-                }, L::e))
+
+                    clearContents()
+                    tasksContainer.visibility = VISIBLE
+
+                }, { t ->
+                    L.e(t)
+                    showError(t)
+                }))
     }
 
-    private fun updateUI() {
+    private fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
         fetchUserContributions()
+    }
+
+    private fun clearContents() {
+        swipeRefreshLayout.isRefreshing = false
+        tasksContainer.visibility = GONE
+        errorView.visibility = GONE
+        disabledStatesView.visibility = GONE
+        suggestedEditsScrollView.scrollTo(0, 0)
+    }
+
+    private fun showError(t: Throwable) {
+        clearContents()
+        errorView.setError(t)
+        errorView.visibility = VISIBLE
     }
 
     private fun updateUserMessageTextView() {
@@ -359,10 +376,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             -1 -> showDisabledView(-1, R.string.suggested_edits_ip_blocked_message)
             else -> disabledStatesView.visibility = GONE
         }
-
     }
 
     private fun showDisabledView(@DrawableRes drawableRes: Int, @StringRes stringRes: Int) {
+        clearContents()
         if (drawableRes == -1) {
             disabledStatesView.hideImage()
             disabledStatesView.hideHelpLink()
@@ -375,7 +392,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         disabledStatesView.setMessageText(stringRes)
     }
 
-    fun dummyButtons() {
+    private fun setupTestingButtons() {
         paused.setOnClickListener { checkForDisabledStatus(8) }
         disabled.setOnClickListener { checkForDisabledStatus(45) }
         ipBlocked.setOnClickListener { checkForDisabledStatus(-1) }
