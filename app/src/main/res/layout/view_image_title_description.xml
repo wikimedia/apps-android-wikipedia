@@ -8,35 +8,35 @@
     tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/suggested_edits_icon_size"
+        android:layout_height="@dimen/suggested_edits_icon_size"
         android:layout_gravity="center_vertical">
 
         <org.wikipedia.views.CircularProgressBar
             android:id="@+id/circularProgressBar"
-            android:layout_width="@dimen/suggested_edits_icon_size"
-            android:layout_height="@dimen/suggested_edits_icon_size"
-            android:visibility="gone"
-            app:progressBackgroundColor="?attr/lighter_green_background"
-            app:progressColor="?attr/action_mode_green_background" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
-        <LinearLayout
-            android:id="@+id/imageBackground"
-            android:layout_width="@dimen/suggested_edits_icon_size"
-            android:layout_height="@dimen/suggested_edits_icon_size"
+        <ImageView
+            android:id="@+id/circularProgressBarOverlay"
+            android:layout_width="@dimen/suggested_edits_icon_background_size"
+            android:layout_height="@dimen/suggested_edits_icon_background_size"
             android:layout_gravity="center"
-            android:background="@null"
-            android:backgroundTint="?attr/multi_select_background_color"
-            android:gravity="center">
+            android:paddingStart="0.05dp"
+            android:paddingTop="0.05dp"
+            android:contentDescription="@null"
+            android:src="@drawable/shape_circle"
+            android:visibility="gone"/>
 
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="@dimen/suggested_edits_icon_size"
-                android:layout_height="@dimen/suggested_edits_icon_size"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_add_gray_white_24dp"
-                android:tint="?attr/colorAccent" />
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_add_gray_white_24dp"
+            android:tint="?attr/colorAccent" />
 
     </FrameLayout>
 

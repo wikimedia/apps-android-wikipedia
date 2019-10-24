@@ -2,12 +2,9 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.view.Gravity.CENTER
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
@@ -35,32 +32,32 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         image.setImageDrawable(AppCompatResources.getDrawable(context, imageDrawable))
     }
 
-    fun setImageTint(color: Int) {
-        image.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, color))
-    }
+    fun setGoodnessState(severity: Int) {
+        val icon: Int
+        val iconTint: Int
+        val backgroundTint: Int
+        val circleProgress: Double
 
-    fun setImageParams(width: Int, height: Int) {
-        val params = LayoutParams(width, height)
-        image.layoutParams = params
-        image.requestLayout()
-    }
+        when(severity) {
+            0 -> { icon = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; circleProgress = 100.0 }
+            1 -> { icon = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; circleProgress = 85.0 }
+            2 -> { icon = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; circleProgress = 75.0 }
+            3 -> { icon = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; circleProgress = 55.0 }
+            4 -> { icon = R.drawable.ic_check_black_24dp; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; circleProgress = 40.0 }
+            5 -> { icon = R.drawable.ic_check_black_24dp; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; circleProgress = 30.0 }
+            else -> { icon = R.drawable.ic_info_outline_black_24dp; iconTint = R.color.red50; backgroundTint = R.color.red90; circleProgress = 20.0 }
+        }
 
-    fun setImageBackgroundParams(width: Int, height: Int) {
-        val params = FrameLayout.LayoutParams(width, height)
-        params.gravity = CENTER
-        imageBackground.layoutParams = params
-        imageBackground.requestLayout()
-    }
+        circularProgressBar.setCurrentProgress(circleProgress)
+        circularProgressBar.progressBackgroundColor = ContextCompat.getColor(context, backgroundTint)
+        circularProgressBar.progressColor = ContextCompat.getColor(context, iconTint)
+        circularProgressBar.visibility = View.VISIBLE
 
-    fun setImageBackgroundTint(color: Int) {
-        imageBackground.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, color))
-    }
+        circularProgressBarOverlay.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, backgroundTint))
+        circularProgressBarOverlay.visibility = View.VISIBLE
 
-    fun setImageBackground(drawable: Drawable?) {
-        imageBackground.background = drawable
-    }
-
-    fun showCircularProgressBar(show: Boolean) {
-        circularProgressBar.visibility = if (show) View.VISIBLE else View.GONE
+        image.setImageDrawable(AppCompatResources.getDrawable(context, icon))
+        image.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, iconTint))
+        image.setPadding(10, 10, 10, 10)
     }
 }

@@ -9,7 +9,6 @@ import android.view.View.VISIBLE
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,7 +29,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -52,6 +50,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private val toolTipDisposable = CompositeDisposable()
     private var totalEdits = 0
+
+    // TODO: remove when ready
+    private var editQualityState = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -77,13 +78,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_excellent_text))
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-        editQualityStatsView.setImageDrawable(R.drawable.ic_check_black_24dp)
-        editQualityStatsView.showCircularProgressBar(true)
-        editQualityStatsView.setImageBackground(AppCompatResources.getDrawable(requireContext(), R.drawable.shape_circle)!!)
-        editQualityStatsView.setImageBackgroundTint(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.lighter_green_background))
-        editQualityStatsView.setImageBackgroundParams(resources.getDimension(R.dimen.suggested_edits_icon_background_size).toInt(), resources.getDimension(R.dimen.suggested_edits_icon_background_size).toInt())
-        editQualityStatsView.setImageParams(roundedDpToPx(16.0f), roundedDpToPx(16.0f))
-        editQualityStatsView.setImageTint(ResourceUtil.getThemedAttributeId(context!!, R.attr.action_mode_green_background))
         editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
@@ -305,7 +299,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                     }
                 }
                 .subscribe({ pageViewsCount ->
+
                     pageViewStatsView.setTitle(pageViewsCount.toString())
+                    editQualityStatsView.setGoodnessState((editQualityState++) % 7)
 
                     clearContents()
                     tasksContainer.visibility = VISIBLE
