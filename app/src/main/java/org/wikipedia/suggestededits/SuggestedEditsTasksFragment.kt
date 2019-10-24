@@ -28,12 +28,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
+import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -352,7 +354,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun checkForDisabledStatus(editQuality: Int) {
         when (editQuality) {
-            in 0..10 -> showDisabledView(R.drawable.ic_suggested_edits_paused, getString(R.string.suggested_edits_paused_message, AccountUtil.getUserName()))
+            // TODO: correctly populate the date in the Paused message.
+            in 0..10 -> showDisabledView(R.drawable.ic_suggested_edits_paused, getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(Date()), AccountUtil.getUserName()))
             in 11..50 -> showDisabledView(R.drawable.ic_suggested_edits_disabled, getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
             -1 -> showDisabledView(-1, getString(R.string.suggested_edits_ip_blocked_message))
             else -> disabledStatesView.visibility = GONE

@@ -815,8 +815,8 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user</string>
   <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Tool tip text explaining the edit quality statistics to the user. %d represents the number of reverts.</string>
-  <string name="suggested_edits_paused_message">Text explaining the reason for a short term disabling of editing previleges to the user.%s represents the user\'s name.</string>
-  <string name="suggested_edits_disabled_message">Text explaining the reason for disabling of editing previleges to the user.%s represents the user\'s name.</string>
+  <string name="suggested_edits_paused_message">Text explaining the reason for a short term disabling of editing previleges to the user. The %1$s symbol will be replaced by the date when editing will be unlocked again, and the %2$s symbol represents the user\'s name.</string>
+  <string name="suggested_edits_disabled_message">Text explaining the reason for disabling of editing previleges to the user. %s represents the user\'s name.</string>
   <string name="suggested_edits_ip_blocked_message">Text explaining ip blocking to the user.</string>
   <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
