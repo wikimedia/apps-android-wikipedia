@@ -11,6 +11,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
+import org.wikipedia.util.DimenUtil
 
 internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -58,6 +59,11 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
 
         image.setImageDrawable(AppCompatResources.getDrawable(context, icon))
         image.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, iconTint))
-        image.setPadding(10, 10, 10, 10)
+
+        val params = image.layoutParams
+        params.width = DimenUtil.roundedDpToPx(16f)
+        params.height = DimenUtil.roundedDpToPx(16f)
+        image.layoutParams = params
+        image.requestLayout()
     }
 }
