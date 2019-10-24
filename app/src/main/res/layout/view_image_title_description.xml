@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/imageTitleDescriptionContainer"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/suggested_edits_image_title_view_top_margin"
     android:baselineAligned="false"
-    android:orientation="horizontal">
+    tools:parentTag="android.widget.LinearLayout">
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_gravity="center_vertical">
 
         <org.wikipedia.views.CircularProgressBar
             android:id="@+id/circularProgressBar"
@@ -38,6 +37,7 @@
                 android:src="@drawable/ic_add_gray_white_24dp"
                 android:tint="?attr/colorAccent" />
         </LinearLayout>
+
     </FrameLayout>
 
     <LinearLayout
@@ -50,19 +50,20 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="2dp"
             android:textSize="@dimen/suggested_edits_icon_title_text_size"
             android:textColor="?attr/material_theme_primary_color"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
             android:textColor="?attr/material_theme_de_emphasised_color"/>
 
     </LinearLayout>
-</LinearLayout>
+
+</merge>

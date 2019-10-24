@@ -15,7 +15,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
-        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color))
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
     }
 
     private fun updateTranslateActionUI() {

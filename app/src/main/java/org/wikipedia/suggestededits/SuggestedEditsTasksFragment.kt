@@ -14,7 +14,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -39,6 +38,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
@@ -75,11 +75,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
         editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
 
-
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_pageviews_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
         pageViewStatsView.setOnClickListener { onUserStatClicked(pageViewStatsView) }
-
 
         editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_excellent_text))
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
@@ -95,11 +93,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.updateUI() }
 
-        tasksRecyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        errorView.setRetryClickListener { updateUI() }
+
+        setUpTasks()
+        tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         val topDecorationDp = PADDING_16
         tasksRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, topDecorationDp))
-        errorView.setRetryClickListener { updateUI() }
-        setUpTasks()
+        tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, false))
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
     }
 
