@@ -3,6 +3,7 @@ package org.wikipedia.navtab
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Menu
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -34,6 +35,7 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
                 val menuChildView = menuView.getChildAt(i)
                 if (menuChildView != null) {
                     val labelView = menuChildView.findViewById<TextView>(R.id.largeLabel)
+                    labelView.textAlignment = View.TEXT_ALIGNMENT_CENTER
                     labelView.setSingleLine(false)
                 }
             }
