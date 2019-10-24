@@ -102,15 +102,16 @@
                         android:paddingBottom="8dp"
                         app:layout_constraintTop_toBottomOf="@id/contributionsStatsView">
 
-                        <View
+                        <ImageView
                             android:id="@+id/toolTipArrowFirstRow"
                             android:layout_width="30dp"
                             android:layout_height="15dp"
                             android:layout_gravity="end"
                             android:layout_marginStart="@dimen/suggested_edits_top_tooltip_margin"
                             android:layout_marginEnd="@dimen/suggested_edits_top_tooltip_margin"
-                            android:background="@drawable/triangle"
-                            android:elevation="4dp" />
+                            android:src="@drawable/top_notch"
+                            android:elevation="5dp"
+                            android:contentDescription="@null" />
 
                         <TextView
                             android:id="@+id/toolTipTextFirstRow"
@@ -134,15 +135,16 @@
                         android:paddingBottom="8dp"
                         app:layout_constraintTop_toBottomOf="@id/pageViewStatsView">
 
-                        <View
+                        <ImageView
                             android:id="@+id/toolTipArrowSecondRow"
                             android:layout_width="30dp"
                             android:layout_height="15dp"
                             android:layout_gravity="end"
                             android:layout_marginStart="@dimen/suggested_edits_top_tooltip_margin"
                             android:layout_marginEnd="@dimen/suggested_edits_top_tooltip_margin"
-                            android:background="@drawable/triangle"
-                            android:elevation="4dp" />
+                            android:src="@drawable/top_notch"
+                            android:elevation="5dp"
+                            android:contentDescription="@null" />
 
                         <TextView
                             android:id="@+id/toolTipTextSecondRow"
