@@ -94,7 +94,7 @@ public class CustomDatePicker extends DialogFragment {
     }
 
     public class CustomCalendarAdapter extends RecyclerView.Adapter<CustomCalendarAdapter.ViewHolder> {
-        @NotNull
+        @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
             return new ViewHolder(LayoutInflater.from(requireContext()).inflate(R.layout.view_custom_calendar_day, parent, false));
