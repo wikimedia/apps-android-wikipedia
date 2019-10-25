@@ -55,9 +55,9 @@
                     android:layout_height="wrap_content"
                     android:clipChildren="false"
                     android:clipToPadding="false"
-                    android:layout_marginBottom="@dimen/suggested_edits_stats_bottom_margin"
-                    android:paddingStart="@dimen/suggested_edits_screen_margin"
-                    android:paddingEnd="@dimen/suggested_edits_screen_margin">
+                    android:layout_marginBottom="16dp"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin">
 
                     <org.wikipedia.views.ImageTitleDescriptionView
                         android:id="@+id/contributionsStatsView"
@@ -110,7 +110,8 @@
                             android:layout_marginStart="@dimen/suggested_edits_top_tooltip_margin"
                             android:layout_marginEnd="@dimen/suggested_edits_top_tooltip_margin"
                             android:src="@drawable/top_notch"
-                            android:elevation="5dp"
+                            android:background="@drawable/triangle"
+                            android:elevation="4dp"
                             android:contentDescription="@null" />
 
                         <TextView
@@ -143,7 +144,8 @@
                             android:layout_marginStart="@dimen/suggested_edits_top_tooltip_margin"
                             android:layout_marginEnd="@dimen/suggested_edits_top_tooltip_margin"
                             android:src="@drawable/top_notch"
-                            android:elevation="5dp"
+                            android:background="@drawable/triangle"
+                            android:elevation="4dp"
                             android:contentDescription="@null" />
 
                         <TextView
@@ -173,8 +175,8 @@
                     android:id="@+id/textViewForMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/suggested_edits_screen_margin"
-                    android:layout_marginEnd="@dimen/suggested_edits_screen_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:fontFamily="sans-serif"
                     android:lineSpacingExtra="6sp"
                     android:textAlignment="center"
@@ -191,8 +193,8 @@
                     android:id="@+id/tasksRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
                     android:background="?attr/paper_color" />
 
                 <!-- TODO: remove. -->

@@ -19,14 +19,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="8sp"
-        android:textColor="#de000000"
+        android:textColor="?attr/material_theme_primary_color"
         android:textSize="16sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:background="?attr/chip_background_color" />
+        android:background="?attr/list_separator_drawable" />
 
     <LinearLayout
         android:id="@+id/editingTipsLayout"
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:text="@string/suggested_edits_editing_tips_link_text"
-            android:textColor="#3366cc"/>
+            android:textColor="?attr/colorAccent"/>
 
         <ImageView
             android:layout_width="16dp"
@@ -55,7 +55,7 @@
         android:id="@+id/linksDivider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/chip_background_color" />
+        android:background="?attr/list_separator_drawable" />
 
     <LinearLayout
         android:id="@+id/suggestedEditsHelpLayout"
@@ -83,6 +83,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/chip_background_color"/>
+        android:background="?attr/list_separator_drawable"/>
 
 </LinearLayout>

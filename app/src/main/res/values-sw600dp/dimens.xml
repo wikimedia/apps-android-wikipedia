@@ -13,7 +13,6 @@
     <dimen name="snackbar_action_inline_max_dimen">0dp</dimen>
 
 <!-- Suggested Edits -->
-    <dimen name="suggested_edits_stats_bottom_margin">28dp</dimen>
     <dimen name="suggested_edits_image_title_view_top_margin">37dp</dimen>
     <dimen name="suggested_edits_icon_size">48dp</dimen>
     <dimen name="suggested_edits_icon_background_size">40dp</dimen>
