@@ -752,6 +752,9 @@
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
+  <string name="on_this_day_dialog_next_month">Image content description that shows it will trigger the calendar to the next month.</string>
+  <string name="on_this_day_dialog_previous_month">Image content description that shows it will trigger the calendar to the previous month.</string>
+  <string name="on_this_day_open_date_picker">View content description that shows it will trigger to open the date picker dialog.</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occurred one year ago.</item>
     <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
