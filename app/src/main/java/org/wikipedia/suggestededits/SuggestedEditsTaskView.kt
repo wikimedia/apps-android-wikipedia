@@ -28,8 +28,8 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
         updateTranslateActionUI()
-        taskTitle.text = task.title!!
-        taskDescription.text = task.description!!
+        taskTitle.text = task.title
+        taskDescription.text = task.description
         taskIcon.setImageResource(task.imageDrawable)
 
         addContainer.setOnClickListener {
