@@ -13,18 +13,12 @@
     <dimen name="snackbar_action_inline_max_dimen">0dp</dimen>
 
 <!-- Suggested Edits -->
-    <dimen name="suggested_edits_stats_bottom_margin">28dp</dimen>
-    <dimen name="suggested_edits_image_title_view_top_margin">37dp</dimen>
     <dimen name="suggested_edits_icon_size">48dp</dimen>
     <dimen name="suggested_edits_icon_background_size">40dp</dimen>
     <dimen name="suggested_edits_icon_title_text_size">24sp</dimen>
     <dimen name="suggested_edits_icon_description_text_size">20sp</dimen>
     <dimen name="suggested_edits_title_margin_start">24dp</dimen>
     <dimen name="suggested_edits_message_textview_text_size">20sp</dimen>
-    <dimen name="suggested_edits_task_icon_background_size">96dp</dimen>
-    <dimen name="suggested_edits_task_icon_size">40dp</dimen>
-    <dimen name="suggested_edits_screen_margin">80dp</dimen>
-    <dimen name="suggested_edits_bottom_tooltip_margin">160dp</dimen>
     <dimen name="suggested_edits_top_tooltip_margin">80dp</dimen>
 
 

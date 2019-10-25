@@ -16,6 +16,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -145,8 +146,8 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return editorTaskCounts;
     }
 
-    @Nullable public List<UserContributions> userContributions() {
-        return userContributions;
+    @NonNull public List<UserContributions> userContributions() {
+        return userContributions != null ? userContributions : Collections.emptyList();
     }
 
     @Override

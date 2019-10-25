@@ -243,11 +243,6 @@
 
         <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
 
-        <activity
-            android:name=".suggestededits.SuggestedEditsContributionsActivity"
-            android:label="@string/suggested_edits_my_contributions"
-            android:theme="@style/AppTheme.ActionBar" />
-
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

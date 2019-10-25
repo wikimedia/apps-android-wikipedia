@@ -155,7 +155,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, true, false));
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
