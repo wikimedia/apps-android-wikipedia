@@ -7,7 +7,6 @@ import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.LinearLayout
-import androidx.annotation.DrawableRes
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
@@ -210,19 +209,26 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    if (response.query()!!.userInfo()!!.isBlocked) showDisabledView(-1, getString(R.string.suggested_edits_ip_blocked_message))
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
+                    if (response.query()!!.userInfo()!!.isBlocked) {
 
-                    totalEdits = 0
-                    for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
-                        totalEdits += count
+                        setIPBlockedStatus()
+
+                    } else if (!maybeSetDisabledStatus(80)) { // TODO: use edit quality metric from API response
+
+                        editQualityStatsView.setGoodnessState((editQualityState++) % 7) // TODO: use edit quality metric from API response
+                        // TODO: apply edit streak from API response
+
+                        totalEdits = 0
+                        for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
+                            totalEdits += count
+                        }
+                        for (count in editorTaskCounts.captionEditsPerLanguage.values) {
+                            totalEdits += count
+                        }
+                        getPageViews()
+
                     }
-                    for (count in editorTaskCounts.captionEditsPerLanguage.values) {
-                        totalEdits += count
-                    }
-                    updateZeroEditsState()
-                    checkForDisabledStatus(80)
-                    getPageViews()
                 }, { t ->
                     L.e(t)
                     showError(t)
@@ -292,7 +298,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     }
 
                     Observable.zip(observableList) { resultList ->
-                        var totalPageViews = 0
+                        var totalPageViews = 0L
                         for (result in resultList) {
                             if (result is MwQueryResponse && result.query() != null) {
                                 for (page in result.query()!!.pages()!!) {
@@ -308,10 +314,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .subscribe({ pageViewsCount ->
 
                     pageViewStatsView.setTitle(pageViewsCount.toString())
-                    editQualityStatsView.setGoodnessState((editQualityState++) % 7)
-
-                    clearContents()
-                    tasksContainer.visibility = VISIBLE
+                    setFinalUIState()
 
                 }, { t ->
                     L.e(t)
@@ -339,7 +342,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         errorView.visibility = VISIBLE
     }
 
-    private fun updateZeroEditsState() {
+    private fun setFinalUIState() {
+        clearContents()
+
         if (totalEdits == 0) {
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
@@ -357,37 +362,42 @@ class SuggestedEditsTasksFragment : Fragment() {
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalEdits))
             textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
         }
+
+        tasksContainer.visibility = VISIBLE
     }
 
-    private fun checkForDisabledStatus(editQuality: Int) {
-        when (editQuality) {
-            // TODO: correctly populate the date in the Paused message.
-            in 0..10 -> showDisabledView(R.drawable.ic_suggested_edits_paused, getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(Date()), AccountUtil.getUserName()))
-            in 11..50 -> showDisabledView(R.drawable.ic_suggested_edits_disabled, getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
-            -1 -> showDisabledView(-1, getString(R.string.suggested_edits_ip_blocked_message))
-            else -> disabledStatesView.visibility = GONE
-        }
-    }
-
-    private fun showDisabledView(@DrawableRes drawableRes: Int, text: String) {
+    private fun setIPBlockedStatus() {
         clearContents()
-        if (drawableRes == -1) {
-            disabledStatesView.hideImage()
-            disabledStatesView.hideTipsLink()
-        } else {
-            disabledStatesView.showImage()
-            disabledStatesView.showTipsLink()
-            disabledStatesView.setImage(drawableRes)
-        }
+        disabledStatesView.setIPBlocked()
         disabledStatesView.visibility = VISIBLE
-        disabledStatesView.setMessageText(text)
+    }
+
+    private fun maybeSetDisabledStatus(editQuality: Int): Boolean {
+        when (editQuality) {
+            // TODO: use correct quality ranges:
+            in 0..10 -> {
+                clearContents()
+                disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
+                disabledStatesView.visibility = VISIBLE
+                return true
+            }
+            in 11..50 -> {
+                clearContents()
+                // TODO: correctly populate the date here:
+                disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(Date()), AccountUtil.getUserName()))
+                disabledStatesView.visibility = VISIBLE
+                return true
+            }
+        }
+        disabledStatesView.visibility = GONE
+        return false
     }
 
     private fun setupTestingButtons() {
-        paused.setOnClickListener { checkForDisabledStatus(8) }
-        disabled.setOnClickListener { checkForDisabledStatus(45) }
-        ipBlocked.setOnClickListener { checkForDisabledStatus(-1) }
-        onboarding1.setOnClickListener { totalEdits = 0; updateZeroEditsState() }
+        paused.setOnClickListener { maybeSetDisabledStatus(25) }
+        disabled.setOnClickListener { maybeSetDisabledStatus(5) }
+        ipBlocked.setOnClickListener { setIPBlockedStatus() }
+        onboarding1.setOnClickListener { totalEdits = 0; setFinalUIState() }
     }
 
     private fun setUpTasks() {

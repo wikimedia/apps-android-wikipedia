@@ -29,13 +29,14 @@
         android:background="?attr/list_separator_drawable" />
 
     <LinearLayout
-        android:id="@+id/editingTipsLayout"
+        android:id="@+id/linkContainer1"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical">
 
         <TextView
+            android:id="@+id/linkText1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,13 +59,14 @@
         android:background="?attr/list_separator_drawable" />
 
     <LinearLayout
-        android:id="@+id/suggestedEditsHelpLayout"
+        android:id="@+id/linkContainer2"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical">
 
         <TextView
+            android:id="@+id/linkText2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

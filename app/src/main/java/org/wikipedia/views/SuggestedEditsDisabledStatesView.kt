@@ -5,8 +5,6 @@ import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import kotlinx.android.synthetic.main.view_suggested_edits_disabled_states.view.*
 import org.wikipedia.R
 import org.wikipedia.util.StringUtil
@@ -16,37 +14,40 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
-        setUpExternalLinks()
+        linkContainer1.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(linkContainer1.tag as Int))) }
+        linkContainer2.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(linkContainer2.tag as Int))) }
     }
 
-    private fun setUpExternalLinks() {
-        editingTipsLayout.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.about_wikipedia_url))) }
-        suggestedEditsHelpLayout.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.about_wikipedia_url))) }
+    fun setPaused(message: String) {
+        setDefaultState()
+        messageTextView.text = StringUtil.fromHtml(message)
+        image.setImageResource(R.drawable.ic_suggested_edits_paused)
     }
 
-    fun setMessageText(text: String) {
-        messageTextView.text = StringUtil.fromHtml(text)
+    fun setDisabled(message: String) {
+        setDefaultState()
+        messageTextView.text = StringUtil.fromHtml(message)
+        image.setImageResource(R.drawable.ic_suggested_edits_disabled)
     }
 
-    fun hideImage() {
+    fun setIPBlocked() {
         image.visibility = GONE
-    }
-
-    fun hideTipsLink() {
-        editingTipsLayout.visibility = GONE
+        linkContainer2.visibility = GONE
         linksDivider.visibility = GONE
+        messageTextView.text = StringUtil.fromHtml(context.getString(R.string.suggested_edits_ip_blocked_message))
+
+        linkText1.text = context.getString(R.string.suggested_edits_help_page_link_text)
+        linkContainer1.tag = R.string.create_account_ip_block_help_url
     }
 
-    fun setImage(@DrawableRes drawableRes: Int) {
-        image.setImageResource(drawableRes)
-    }
-
-    fun showImage() {
-        image.visibility = VISIBLE
-    }
-
-    fun showTipsLink() {
-        editingTipsLayout.visibility = VISIBLE
+    private fun setDefaultState() {
+        image.visibility = View.VISIBLE
+        linkContainer2.visibility = VISIBLE
         linksDivider.visibility = VISIBLE
+
+        linkText1.text = context.getString(R.string.suggested_edits_editing_tips_link_text)
+        linkContainer1.tag = R.string.android_app_edit_help_url
+        linkText2.text = context.getString(R.string.suggested_edits_help_page_link_text)
+        linkContainer2.tag = R.string.android_app_edit_help_url
     }
 }
