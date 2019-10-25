@@ -81,7 +81,7 @@ public class CustomDatePicker extends DialogFragment {
     }
 
     private void setUpMonthGrid() {
-        monthGrid.setLayoutManager(new GridLayoutManager(getContext(), MAX_COLUMN_SPAN));
+        monthGrid.setLayoutManager(new GridLayoutManager(requireContext(), MAX_COLUMN_SPAN));
         monthGrid.setAdapter(new CustomCalendarAdapter());
     }
 
