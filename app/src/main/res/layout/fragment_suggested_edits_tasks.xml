@@ -55,7 +55,6 @@
                     android:layout_height="wrap_content"
                     android:clipChildren="false"
                     android:clipToPadding="false"
-                    android:layout_marginBottom="16dp"
                     android:paddingStart="@dimen/activity_horizontal_margin"
                     android:paddingEnd="@dimen/activity_horizontal_margin">
 
@@ -90,6 +89,28 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/pageViewStatsView" />
+
+                    <ImageView
+                        android:id="@+id/onboardingImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:visibility="gone"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/editQualityStatsView"
+                        app:srcCompat="@drawable/ic_suggested_edits_onboarding" />
+
+                    <TextView
+                        android:id="@+id/textViewForMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/onboardingImageView"
+                        android:lineSpacingExtra="6sp"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/suggested_edits_message_textview_text_size" />
 
                     <LinearLayout
                         android:id="@+id/toolTipFirstRow"
@@ -159,34 +180,13 @@
                             android:textSize="@dimen/suggested_edits_message_textview_text_size" />
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/onboardingImageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        android:visibility="gone"
-                        android:layout_marginTop="16dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_suggested_edits_onboarding" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/textViewForMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
-                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:fontFamily="sans-serif"
-                    android:lineSpacingExtra="6sp"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/suggested_edits_message_textview_text_size" />
 
                 <View
                     android:layout_width="30dp"
                     android:layout_height="15dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/triangle" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -232,6 +232,16 @@
                         android:textColor="?attr/colorAccent"
                         android:textSize="10sp"
                         android:text="ipBlocked" />
+
+                    <TextView
+                        android:id="@+id/onboarding1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="10sp"
+                        android:text="onboarding" />
                 </LinearLayout>
 
             </LinearLayout>

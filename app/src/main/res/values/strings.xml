@@ -736,7 +736,7 @@
     <string name="suggested_edits_task_action_text_translate">Translate</string>
     <string name="suggested_edits_image_captions">Image Captions</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia</string>
-    <string name="suggested_edits_onboarding_message">Hi %s\, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!</string>
+    <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
     <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context</string>
     <string name="suggested_edits_add_descriptions_task_detail">Article descriptions summarize an article to help readers understand the subject at a glance</string>
     <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits</string>

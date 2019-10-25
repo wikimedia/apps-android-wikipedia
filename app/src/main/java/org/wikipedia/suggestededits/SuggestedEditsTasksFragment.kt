@@ -33,6 +33,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
@@ -345,7 +346,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             editStreakStatsView.visibility = GONE
             pageViewStatsView.visibility = GONE
             onboardingImageView.visibility = VISIBLE
-            textViewForMessage.text = getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName())
+            textViewForMessage.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
         } else {
             contributionsStatsView.visibility = VISIBLE
             editQualityStatsView.visibility = VISIBLE
@@ -386,6 +387,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         paused.setOnClickListener { checkForDisabledStatus(8) }
         disabled.setOnClickListener { checkForDisabledStatus(45) }
         ipBlocked.setOnClickListener { checkForDisabledStatus(-1) }
+        onboarding1.setOnClickListener { totalEdits = 0; updateZeroEditsState() }
     }
 
     private fun setUpTasks() {
