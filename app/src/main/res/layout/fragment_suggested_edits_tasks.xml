@@ -32,8 +32,8 @@
                 android:id="@+id/disabledStatesView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/suggested_edits_screen_margin"
-                android:paddingEnd="@dimen/suggested_edits_screen_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
                 android:visibility="gone" />
 
             <org.wikipedia.views.WikiErrorView
