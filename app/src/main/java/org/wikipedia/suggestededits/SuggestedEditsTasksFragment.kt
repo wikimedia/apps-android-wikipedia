@@ -9,6 +9,7 @@ import android.view.View.VISIBLE
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.Observable
@@ -27,6 +28,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.language.LanguageSettingsInvokeSource
+import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -84,6 +86,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
 
         errorView.setRetryClickListener { refreshContents() }
+
+        suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+            (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
+        })
 
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
