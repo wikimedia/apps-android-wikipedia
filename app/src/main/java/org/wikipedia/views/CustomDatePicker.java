@@ -15,7 +15,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.R;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -96,7 +95,7 @@ public class CustomDatePicker extends DialogFragment {
     public class CustomCalendarAdapter extends RecyclerView.Adapter<CustomCalendarAdapter.ViewHolder> {
         @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new ViewHolder(LayoutInflater.from(requireContext()).inflate(R.layout.view_custom_calendar_day, parent, false));
         }
 
