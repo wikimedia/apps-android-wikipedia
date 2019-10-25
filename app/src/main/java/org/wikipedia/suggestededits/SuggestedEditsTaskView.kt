@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
@@ -19,10 +20,10 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     }
 
     private fun updateTranslateActionUI() {
-        suggetedEditsTranslateImage.imageTintList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
-            R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
-        suggetedEditsTranslateActionText.setTextColor(ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
-            R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+        val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
+            R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
+        ImageViewCompat.setImageTintList(suggestedEditsTranslateImage, ColorStateList.valueOf(color))
+        suggestedEditsTranslateActionText.setTextColor(color)
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {

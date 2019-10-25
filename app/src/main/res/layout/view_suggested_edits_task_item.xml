@@ -5,15 +5,16 @@
     tools:layout_height="wrap_content"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <View
+    <ImageView
         android:id="@+id/taskIconCircle"
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
-        android:background="@drawable/shape_circle"
-        android:backgroundTint="?attr/multi_select_background_color"/>
+        android:src="@drawable/shape_circle"
+        android:tint="?attr/multi_select_background_color"
+        android:contentDescription="@null"/>
 
     <ImageView
         android:id="@+id/taskIcon"
@@ -101,7 +102,7 @@
         android:background="?attr/selectableItemBackground">
 
         <ImageView
-            android:id="@+id/suggetedEditsTranslateImage"
+            android:id="@+id/suggestedEditsTranslateImage"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
@@ -109,7 +110,7 @@
             android:tint="?attr/colorAccent" />
 
         <TextView
-            android:id="@+id/suggetedEditsTranslateActionText"
+            android:id="@+id/suggestedEditsTranslateActionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

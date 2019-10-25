@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
@@ -55,12 +56,13 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         circularProgressBar.progressColor = ContextCompat.getColor(context, iconTint)
         circularProgressBar.visibility = View.VISIBLE
 
-        circularProgressBarOverlay.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, backgroundTint))
+        ImageViewCompat.setImageTintList(circularProgressBarOverlay, ColorStateList.valueOf(ContextCompat.getColor(context, backgroundTint)))
         circularProgressBarOverlay.visibility = View.VISIBLE
 
         title.text = context.getString(textRes)
-        image.setImageDrawable(AppCompatResources.getDrawable(context, iconRes))
-        image.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(context, iconTint))
+
+        image.setImageResource(iconRes)
+        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, iconTint)))
 
         val params = image.layoutParams
         params.width = DimenUtil.roundedDpToPx(16f)
