@@ -11,6 +11,7 @@
   <string name="app_name_alpha">ဝဳကဳပဳဒဳယာ အလဖ</string>
   <string name="wikimedia">ဝဳကဳမဳဒဳယာ</string>
   <string name="nav_item_back">ကလေင်</string>
+  <string name="page_tabs_back">ကလေင်</string>
   <string name="nav_item_forward">ဂတ</string>
   <string name="search_hint">ဂၠာဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="search_hint_search_history">ဂၠာဲ ပ္ဍဲ ဒၞာဲမဗှ်လဝ်တုဲ</string>
@@ -554,6 +555,7 @@
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">စုတ် ပရူပရာ ပ္ဍဲ ဗီုရုပ်</string>
   <string name="suggested_edits_task_multilingual_title">ထပ်စုတ် မဒါန်ပလေဝ် ဘာသာနာနာ</string>
   <string name="suggested_edits_task_multilingual_description">အရာမကၠာဲစၠောအ်ဘာသာဂှ် သၟဟ်အစောံ ယဝ်ရ မၞိဟ်ဗှ် ကေုာံ ချူပ္ဍဲဘာသာဝဳကဳ ဂၠိုင်နူမွဲဘာသာမ္ဂး၊၊</string>
+  <string name="suggested_edits_quality_perfect_text">ခိုဟ်</string>
   <string name="description_edit_revert_subtitle">တင်ဂုန်ရ ဟိုတ် မပလေဝ်ဒါန်လဝ် ဝဳကဳပဳဒဳယာ!</string>
   <string name="description_edit_revert_intro">ပိုဲတီ ၜိုတ်ခိုဟ်မာန်ဂှ် မၞးဂစာန်တုဲ ကၠောန်လဝ်၊ ဆဂး မၞိဟ်မဗဵုမွဲဂှ် ဆေင်စပ်ဒၟံင် ကုလိက်ဂှ်တုဲ အရာမၞး မပလေဝ်ဒါန်လဝ်ဂှ် ကလေင်ပလေဝ်ပၠန် ဒှ်မာန်ရ၊၊</string>
   <string name="description_edit_revert_reason1">တရးပတိတ် မၞးဂှ် ဟွံဗက်အာ ပ္ဍဲအရာဏအ် &lt;a href=\"%1$s\"&gt;စၞောန်ဂၠံင်&lt;/a&gt;.</string>

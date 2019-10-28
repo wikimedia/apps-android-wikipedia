@@ -712,10 +712,45 @@
   <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">إضافة شرح</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">إضافة شرح (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح الصورة</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">إضافة تعليق الصورة (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
   <string name="suggested_edits_snackbar_survey_action_text">المشاركة في استبيان</string>
+  <string name="suggested_edits_task_action_text_add">إضافة</string>
+  <string name="suggested_edits_task_action_text_translate">ترجمة</string>
+  <string name="suggested_edits_image_captions">تعليقات الصور</string>
+  <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
+  <string name="suggested_edits_image_captions_task_detail">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها</string>
+  <string name="suggested_edits_add_descriptions_task_detail">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة</string>
+  <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت باستخدام التعديلات المقترحة</string>
+  <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك، التعديلات التي تم إرجاعها:%d</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\n  تعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الروابط أدناه.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\n  تعرف على ما يعنيه هذا من خلال الروابط أدناه.</string>
+  <string name="suggested_edits_ip_blocked_message">تم منع عنوان الآيبي الذي تستخدمه من تحرير ويكيبيديا، تعرف على المزيد حول عمليات المنع عن طريق زيارة الرابط أدناه.\nيبدو أن عنوان الآيبي الخاص بك (أو نطاق عناوين الآيبي) ممنوع حالا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
+  <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
+  <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
+  <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
+  <string name="suggested_edits_pageviews_label_text">مشاهدات الصفحة</string>
+  <string name="suggested_edits_quality_label_text">جودة التحرير</string>
+  <string name="suggested_edits_quality_perfect_text">مثالي</string>
+  <string name="suggested_edits_quality_excellent_text">ممتاز</string>
+  <string name="suggested_edits_quality_very_good_text">جيد جدا</string>
+  <string name="suggested_edits_quality_good_text">جيد</string>
+  <string name="suggested_edits_quality_okay_text">حسنا</string>
+  <string name="suggested_edits_quality_sufficient_text">كافٍ</string>
+  <string name="suggested_edits_quality_poor_text">فقير</string>
+  <string name="suggested_edits_quality_bad_text">سيء</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">مساهمة</item>
+    <item quantity="other">مساهمات</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d يوم</item>
+    <item quantity="other">%d أيام</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
@@ -754,6 +789,9 @@
   <string name="events_count_text">%1$s أحداث من %2$s–%3$d</string>
   <string name="this_year">هذا العام</string>
   <string name="back_to_top">العودة إلى أعلى</string>
+  <string name="on_this_day_dialog_next_month">الشهر التالي</string>
+  <string name="on_this_day_dialog_previous_month">الشهر السابق</string>
+  <string name="on_this_day_open_date_picker">فتح منتقي التاريخ</string>
   <plurals name="diff_years">
     <item quantity="one">السنة الماضية</item>
     <item quantity="other">قبل %d سنة</item>
