@@ -4,6 +4,7 @@
 * Abijeet Patro
 * Alluk.
 * BriskyBlizzard
+* Cxz
 * ElmA
 * Envlh
 * Jack Phoenix
@@ -342,6 +343,7 @@
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
+  <string name="view_wiki_error_message_timeout">Wikipediaan ei saada yhteyttä. Tarkista verkkoyhteytesi tai yritä myöhemmin uudelleen.</string>
   <string name="reference_title">Viite %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
   <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
@@ -694,9 +696,21 @@
   <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Näytä</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Lisää kuvateksti</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Lisää kuvateksti (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Lisää kuvateksti</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vastaa kyselyyn</string>
+  <string name="suggested_edits_task_action_text_add">Lisää</string>
+  <string name="suggested_edits_task_action_text_translate">Käännä</string>
+  <string name="suggested_edits_image_captions">Kuvatekstit</string>
+  <string name="suggested_edits_quality_very_good_text">Oikein hyvä</string>
+  <string name="suggested_edits_quality_good_text">Hyvä</string>
+  <string name="suggested_edits_quality_okay_text">Ok</string>
+  <string name="suggested_edits_quality_poor_text">Heikko</string>
+  <string name="suggested_edits_quality_bad_text">Huono</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d päivä</item>
+    <item quantity="other">%d päivää</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -735,6 +749,8 @@
   <string name="events_count_text">%1$s tapahtumat %2$s–%3$d</string>
   <string name="this_year">Tänä vuonna</string>
   <string name="back_to_top">Takaisin alkuun</string>
+  <string name="on_this_day_dialog_next_month">Seuraava kuukausi</string>
+  <string name="on_this_day_dialog_previous_month">Edellinen kuukausi</string>
   <plurals name="diff_years">
     <item quantity="one">Viime vuonna</item>
     <item quantity="other">%d vuotta sitten</item>
