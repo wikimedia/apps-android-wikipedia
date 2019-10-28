@@ -715,7 +715,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Hur många dagar i sträck du har bidragit med förslag på redigeringar</string>
   <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt du har bidragit till de senaste 30 dagarna med förslag på redigeringar</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baserat på hur många gånger ett av dina bidrag har återställts. Återställa redigeringar: %d</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Förslag på redigeringar pausas t.o.m. 8 oktober 2019.&lt;/b&gt; Förlåt, %s. Några av dina senaste bidrag har återställts.\n\n Läs om hur du kan förbättra dina redigeringskunskaper på Wikipedia med länkarna nedan.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Förslag på redigeringar pausas t.o.m. %1$s.&lt;/b&gt; Förlåt, %2$s. Några av dina senaste bidrag har återställts.\n\n Läs om hur du kan förbättra dina redigeringskunskaper på Wikipedia med länkarna nedan.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Förslag på redigeringar har inaktiverats.&lt;/b&gt; Förlåt, %s. Alltför många av dina senaste bidrag har återställts.\n\n Läs om vad detta innebär med länkarna nedan.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">IP-adressen du använder är blockerad från att redigera på Wikipedia. Läs mer om blockeringar via länken nedan.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips och tricks för att redigera</string>
