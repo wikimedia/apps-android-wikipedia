@@ -115,6 +115,8 @@
   <string name="toast_logout_complete">Logáilte amach</string>
   <string name="logout_prompt" fuzzy="true">An bhfuil tú cinnte gur mhaith leat logáil amach?</string>
   <string name="logout_dialog_cancel_button_text">Cealaigh</string>
+  <string name="logged_out_in_background_login">Logáil isteach</string>
+  <string name="logged_out_in_background_cancel">Cealaigh</string>
   <string name="history_empty_title">Níor féachadh ar aon alt le déanaí</string>
   <string name="history_empty_message">Coinnigh súil anseo ar na hailt atá léite agat.</string>
   <string name="history_offline_articles_toast">Is féidir nach mbeidh tú in ann amharc ar roinnt alt sa stair le linn duit a bheith as líne.</string>
@@ -201,6 +203,7 @@
   <string name="edit_next">Ar aghaidh</string>
   <string name="edit_done">Foilsigh</string>
   <string name="edit_preview">Réamhamharc</string>
+  <string name="edit_zoom_in">Zúmáil isteach</string>
   <string name="edit_summary_tag_typo">Réitíodh botún cló</string>
   <string name="edit_summary_tag_grammar">Réitíodh gramadach</string>
   <string name="edit_summary_tag_links">Cuireadh naisc leis</string>
@@ -260,6 +263,7 @@
   <string name="captcha_image">Íomhá captcha</string>
   <string name="gallery_fair_use_license">Úsáid chóir</string>
   <string name="gallery_uploader_unknown">Ní fios cé a uaslódáil é</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Ruaig</string>
   <string name="menu_new_tab">Táb nua</string>
   <string name="menu_close_all_tabs">Dún na táib uile</string>
   <string name="close_all_tabs_confirm">An bhfuil tú cinnte gur mhaith leat na táib uile a dhúnadh?</string>
@@ -381,6 +385,7 @@
   <string name="reading_list_add_to_other_list">Cuir ar liosta léitheoireachta eile</string>
   <string name="reading_list_remove_from_list">Bain ó %s</string>
   <string name="reading_list_remove_from_lists">Bain ó liostaí léitheoireachta</string>
+  <string name="reading_list_select_item">Roghnaigh</string>
   <string name="reading_list_confirm_remove_article_from_offline">Bain ón ábhar as líne</string>
   <string name="reading_lists_sync_reminder_title">Cas air sioncronú liostaí léitheoireachta?</string>
   <string name="reading_lists_sync_reminder_text">Anois is féidir ailt atá sábháilte ar liostaí léitheoireaechta a sioncronú chuig do chuntas Vicipéide. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
@@ -493,10 +498,12 @@
   <string name="notifications_mark_unread">Marcáil neamhléite</string>
   <string name="preference_title_notification_poll">Déan faireachán ar fógraí</string>
   <string name="preference_summary_notification_poll">Ceadaigh don aip sonraí a úsáid le seiceáil sa chúlra an bhfuil fógraí nua ann.</string>
+  <string name="preference_title_notification_system">Córas</string>
   <string name="preference_title_notification_milestone">Clocha Míle</string>
   <string name="preference_summary_notification_milestone">Sroichtear líonta athruithe áirithe</string>
   <string name="preference_title_notification_thanks">Buíochas</string>
   <string name="preference_summary_notification_thanks">Gabhálann duine éigin buíochas leat as athrú a chur in eagar</string>
+  <string name="preference_title_notification_user_talk">Leathanach plé</string>
   <string name="view_because_you_read_card_title">De bharr gur léigh tú</string>
   <string name="view_random_card_title">Randamóir</string>
   <string name="view_random_card_subtitle">Méaraigh trí ailt randamacha atá le léamh ar Vicipéid.</string>
@@ -526,6 +533,7 @@
   <string name="view_offline_card_text">Ní féidir inneachar a lódáil agus a bheith as líne.</string>
   <string name="view_featured_article_card_title">Alt roghnaithe</string>
   <string name="view_featured_article_footer_save_button_label">Sábháil</string>
+  <string name="view_static_card_save_button_label">Sábháil</string>
   <string name="view_featured_article_footer_saved_button_label">Sábháilte</string>
   <string name="feed_configure_activity_title">Cuir an fotha in oiriúint</string>
   <string name="feed_configure_menu_reset">Cuir amharc réamhshocraithe ar ais</string>
@@ -546,7 +554,9 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Cuir d\'fhotha Taiscéal in oiriúint&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir roghnú cad a thaispeántar ar d\'fhotha, agus is féidir tús áite a thabhairt don cineál ábhair is fearr leat, leis.</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cealaigh</string>
   <string name="description_edit_text_hint" fuzzy="true">Sainchuntas teidil</string>
+  <string name="description_edit_article_description_label">Alt</string>
   <string name="description_edit_save">Foilsigh</string>
+  <string name="description_edit_read">Léigh</string>
   <string name="description_edit_add_description" fuzzy="true">Cuir sainchuntas teidil leis</string>
   <string name="description_edit_edit_description" fuzzy="true">Cuir sainchuntas in eagar</string>
   <string name="description_edit_cancel_hint">Cealaigh</string>
@@ -582,7 +592,9 @@
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
+  <string name="suggested_edits_image_preview_dialog_source">Foinse/Grianghrafadóir</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Ceadúnú</string>
+  <string name="suggested_edits_task_action_text_translate">Aistrigh</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>

@@ -671,8 +671,6 @@
   <string name="suggested_edits_tasks_activity_title">Modifiche suggerite</string>
   <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni della voce</string>
   <string name="suggested_edits_task_add_description_description">Contribuire alle voci senza descrizioni</string>
-  <string name="suggested_edits_task_translation_title">Traduci descrizioni della voce</string>
-  <string name="suggested_edits_task_translation_description">Traduci le descrizioni attraverso le lingue della voce.</string>
   <string name="suggested_edits_task_image_caption_title">Aggiungi didascalie immagini</string>
   <string name="suggested_edits_task_image_caption_description">Aggiungi brevi didascalie mancanti alle immagini</string>
   <string name="suggested_edits_task_translate_caption_title">Traduci didascalie immagini</string>
@@ -712,6 +710,10 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia immagine (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Come è stata la tua esperienza di modifica? Ti preghiamo di dedicare un momento per compilare il sondaggio sulla modifica in-app.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Rispondi sondaggio</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Contributo</item>
+    <item quantity="other">Contributi</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>

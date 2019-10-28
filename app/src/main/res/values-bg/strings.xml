@@ -120,6 +120,7 @@
   <string name="reset_password_button">Запазване и влизане</string>
   <string name="preference_title_logout">Излизане</string>
   <string name="toast_logout_complete">Излезли сте от системата</string>
+  <string name="logout_prompt">Ще излезете за всички устройства, на които сте влезли. Искате ли да продължите?</string>
   <string name="logout_dialog_cancel_button_text">Отказ</string>
   <string name="logged_out_in_background_title">Излезли сте от системата</string>
   <string name="logged_out_in_background_dialog">Излезли сте от Уикипедия. Желаете ли да влезете пак?</string>
@@ -281,6 +282,7 @@
   <string name="captcha_image">Изображение за проверка</string>
   <string name="gallery_fair_use_license">Честна употреба</string>
   <string name="gallery_uploader_unknown">Неизвестен потребител</string>
+  <string name="gallery_not_available_offline_snackbar">Преглед на галерията не е достъпен за офлайн режим.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Затваряне</string>
   <string name="menu_new_tab">Нов раздел</string>
   <string name="menu_close_all_tabs">Затваряне на всички раздели</string>
@@ -325,6 +327,7 @@
   <string name="view_link_preview_error_button_dismiss">Затваряне</string>
   <string name="error_page_does_not_exist">Тази страница не съществува</string>
   <string name="view_wiki_error_message_offline">Няма връзка с интернет</string>
+  <string name="view_wiki_error_message_timeout">Не е възможно свързването с Уикипедия. Проверете Вашата мрежова връзка или опитайте по-късно</string>
   <string name="reference_title">Източник %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
@@ -532,6 +535,7 @@
   <string name="preference_title_notification_revert">Връщане</string>
   <string name="preference_summary_notification_revert">Един от вашите приноси беше върнат</string>
   <string name="preference_title_notification_login_fail">Влизане</string>
+  <string name="preference_summary_notification_login_fail">Вашият дневник на действия</string>
   <string name="preference_title_notification_mention">Споменаване</string>
   <string name="preference_summary_notification_mention">Някой Ви споменава на страница</string>
   <string name="preference_title_notification_user_talk">Беседа</string>
@@ -603,6 +607,9 @@
   <string name="description_edit_add_description">Добавяне на описание на статията</string>
   <string name="description_edit_translate_description">Превод на описание на статия</string>
   <string name="description_edit_edit_description">Редактиране на описанието на статията</string>
+  <string name="description_edit_add_image_caption">Добавяне описание на изображение</string>
+  <string name="description_edit_edit_image_caption">Редактиране описание на изображение</string>
+  <string name="description_edit_translate_image_caption">Превод описание на изображение</string>
   <string name="description_edit_cancel_hint">Отказ</string>
   <string name="description_edit_help_title">Информация: Описания на статии</string>
   <string name="description_edit_help_about_wikidata">Относно Уикиданни</string>
@@ -613,6 +620,8 @@
   <string name="description_edit_success_saved">Описанието на статията е публикувано!</string>
   <string name="description_edit_success_saved_snackbar">Описанието на статията е публикувано!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описанието на статията е публикувано! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Описанието на изображението е публикувано!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Описанието на изображението е публикувано! (%s)</string>
   <string name="description_edit_success_encouragement">Току-що направихте Уикипедия по-добра за всички</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли, че?</string>
@@ -625,21 +634,24 @@
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
   <string name="suggested_edits_add_descriptions">Добавяне описания на статии</string>
   <string name="suggested_edits_translate_descriptions">Превод на описания на статии</string>
+  <string name="suggested_edits_add_image_captions">Добавяне описания на изображения</string>
+  <string name="suggested_edits_translate_image_captions">Превод описания на изображения</string>
   <string name="suggested_edits_review_description">Преглед на описание на статия</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
   <string name="suggested_edits_edit_description_button">Редактиране на описанието</string>
   <string name="suggested_edits_add_translation_button">Добавяне на превод</string>
   <string name="suggested_edits_edit_translation_button">Редактиране на превод</string>
+  <string name="suggested_edits_add_caption_button">Добавяне на описание</string>
+  <string name="suggested_edits_edit_caption_button">Редактиране на описание</string>
+  <string name="suggested_edits_review_image_caption">Преглед описание на изображение</string>
   <string name="suggested_edits_my_contributions">Моите приноси</string>
   <string name="suggested_edits_no_description">Този файл няма описание</string>
   <string name="suggested_edits_menu_info">Информация</string>
   <string name="suggested_edits_tasks_activity_title">Предложение за редактиране</string>
   <string name="suggested_edits_task_add_description_title">Добавяне описания на статии</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
-  <string name="suggested_edits_task_translation_title">Превод на описания на статии</string>
-  <string name="suggested_edits_task_translation_description">Превод на описания на други езици.</string>
   <string name="suggested_edits_task_image_caption_title">Добавяне описания на изображения</string>
-  <string name="suggested_edits_task_image_caption_description">Добавяне липсващи кратки описания на изображения</string>
+  <string name="suggested_edits_task_image_caption_description">Добавяне на липсващи кратки описания на изображения</string>
   <string name="suggested_edits_task_translate_caption_title">Превод на описания на картини</string>
   <string name="suggested_edits_task_translate_caption_description">Превод на описания на други езици</string>
   <string name="suggested_edits_task_multilingual_title">Повече задачи за многоезични редактори</string>
@@ -668,6 +680,13 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница на файла в Общомедия</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
   <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
+  <string name="suggested_edits_task_action_text_add">Добавяне</string>
+  <string name="suggested_edits_task_action_text_translate">Превод</string>
+  <string name="suggested_edits_image_captions">Описания на изображения</string>
+  <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">Здравейте, %s, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
+  <string name="suggested_edits_image_captions_task_detail">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението</string>
+  <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>

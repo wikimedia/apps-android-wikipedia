@@ -699,8 +699,6 @@
   <string name="suggested_edits_tasks_activity_title">Предложение отредактировать</string>
   <string name="suggested_edits_task_add_description_title">Добавление описания статей</string>
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
-  <string name="suggested_edits_task_translation_title">Перевод описаний статей</string>
-  <string name="suggested_edits_task_translation_description">Перевод кратких описаний на другие языки.</string>
   <string name="suggested_edits_task_image_caption_title">Добавление описания изображений</string>
   <string name="suggested_edits_task_image_caption_description">Добавление кратких описаний изображениям</string>
   <string name="suggested_edits_task_translate_caption_title">Перевод описаний изображений</string>
@@ -742,6 +740,9 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить заголовок изображения (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
+  <string name="suggested_edits_task_action_text_add">Добавить</string>
+  <string name="suggested_edits_task_action_text_translate">Перевести</string>
+  <string name="suggested_edits_image_captions">Описания изображений</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>

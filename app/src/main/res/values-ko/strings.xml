@@ -661,8 +661,6 @@
   <string name="suggested_edits_tasks_activity_title">편집 제안</string>
   <string name="suggested_edits_task_add_description_title">문서 설명 추가</string>
   <string name="suggested_edits_task_add_description_description">설명 없이 문서에 기여</string>
-  <string name="suggested_edits_task_translation_title">문서 설명 번역하기</string>
-  <string name="suggested_edits_task_translation_description">문서 언어별로 설명을 번역합니다.</string>
   <string name="suggested_edits_task_image_caption_title">이미지 설명 추가</string>
   <string name="suggested_edits_task_image_caption_description">이미지에 존재하지 않는 짧은 캡션 추가</string>
   <string name="suggested_edits_task_translate_caption_title">이미지 설명 번역하기</string>
@@ -702,6 +700,26 @@
   <string name="suggested_edits_feed_card_translate_image_caption">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">편집 경험은 어떠셨나요? 시간을 내어 인앱 편집에 관한 설문조사를 작성해 주십시오.</string>
   <string name="suggested_edits_snackbar_survey_action_text">설문 조사 참가</string>
+  <string name="suggested_edits_task_action_text_add">추가</string>
+  <string name="suggested_edits_task_action_text_translate">번역</string>
+  <string name="suggested_edits_image_captions">이미지 캡션</string>
+  <string name="suggested_edits_ip_blocked_message">IP 주소(또는 IP 주소 대역)가 현재 위키백과 편집으로부터 차단된 것으로 보입니다. 아래의 링크를 방문하여 이것이 무엇을 의미하는지 더 알아보십시오.</string>
+  <string name="suggested_edits_quality_label_text">편집 품질</string>
+  <string name="suggested_edits_quality_perfect_text">완벽함</string>
+  <string name="suggested_edits_quality_excellent_text">우수함</string>
+  <string name="suggested_edits_quality_very_good_text">매우 좋음</string>
+  <string name="suggested_edits_quality_good_text">좋음</string>
+  <string name="suggested_edits_quality_sufficient_text">충분함</string>
+  <string name="suggested_edits_quality_poor_text">낮음</string>
+  <string name="suggested_edits_quality_bad_text">나쁨</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">기여</item>
+    <item quantity="other">기여</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d일</item>
+    <item quantity="other">%d일</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
@@ -740,6 +758,9 @@
   <string name="events_count_text">%2$s~%3$d년 사이의 이벤트 %1$s개</string>
   <string name="this_year">올해</string>
   <string name="back_to_top">맨 위로 돌아가기</string>
+  <string name="on_this_day_dialog_next_month">다음 달</string>
+  <string name="on_this_day_dialog_previous_month">이전 달</string>
+  <string name="on_this_day_open_date_picker">날짜 선택기 열기</string>
   <plurals name="diff_years">
     <item quantity="one">지난해</item>
     <item quantity="other">%d년 전</item>

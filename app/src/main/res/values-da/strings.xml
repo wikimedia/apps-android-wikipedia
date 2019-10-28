@@ -622,8 +622,6 @@
   <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Oversæt beskrivelser</string>
-  <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
   <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
   <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
@@ -673,6 +671,8 @@
   <string name="events_count_text">%1$s hændelser fra %2$s – %3$d</string>
   <string name="this_year">Dette år</string>
   <string name="back_to_top">Tilbage til toppen</string>
+  <string name="on_this_day_dialog_next_month">Næste måned</string>
+  <string name="on_this_day_dialog_previous_month">Forrige måned</string>
   <plurals name="diff_years">
     <item quantity="one">Sidste år</item>
     <item quantity="other">%d år siden</item>

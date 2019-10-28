@@ -684,8 +684,6 @@
   <string name="suggested_edits_tasks_activity_title">Modifications suggérées</string>
   <string name="suggested_edits_task_add_description_title">Ajouter des descriptions d\'article</string>
   <string name="suggested_edits_task_add_description_description">Contribuer aux articles sans description</string>
-  <string name="suggested_edits_task_translation_title">Traduire les descriptions d\'articles</string>
-  <string name="suggested_edits_task_translation_description">Traduire les descriptions d\'après la langue des articles.</string>
   <string name="suggested_edits_task_image_caption_title">Ajouter des légendes aux images</string>
   <string name="suggested_edits_task_image_caption_description">Ajouter de courtes légendes aux images qui n’en n’ont pas</string>
   <string name="suggested_edits_task_translate_caption_title">Traduire les légendes des images</string>
@@ -725,6 +723,41 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Ajouter une légende (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Comment s’est déroulée votre expérience de création ou de modification ? Merci de prendre un moment pour répondre à l’enquête concernant les modifications avec l’application.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Participer au sondage</string>
+  <string name="suggested_edits_task_action_text_add">Ajouter</string>
+  <string name="suggested_edits_task_action_text_translate">Traduire</string>
+  <string name="suggested_edits_image_captions">Légende des images</string>
+  <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, saviez-vous que tout le monde peut modifier Wikipédia ? Ci-dessous, vous trouverez des manières amusantes pour aider à améliorer Wikipédia. Bonne modification !</string>
+  <string name="suggested_edits_image_captions_task_detail">Les légendes d’image décrivent une image pour aider les lecteurs à comprendre leur signification et leur contexte</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Les descriptions d’article résument un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions avec Modifications suggérées</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Pendant combien de jours sans arrêt vous avez contribué à utiliser Modifications suggérées</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours avec Modifications suggérées</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basé sur combien de fois une de vos contributions a été annulée. Modifications annulées : %d</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Modifications suggérées est en pause jusqu’au %1$s.&lt;/b&gt; Désolé %2$s, certaines de vos contributions récentes ont été annulées.\n\n En savoir plus pour améliorer vos talents d’éditeur sur Wikipédia avec le lien ci-dessous.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Les modifications suggérées sont désactivées.&lt;/b&gt; Désolé %s, vous avez trop de contributions récentes annulées.\n\n Explications en suivant le lien ci-dessous.</string>
+  <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia. En savoir plus sur ce que cela signifie en allant sur le lien ci-dessous.</string>
+  <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
+  <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>
+  <string name="suggested_edits_edit_streak_label_text">Modifier la trace</string>
+  <string name="suggested_edits_pageviews_label_text">Pages vues</string>
+  <string name="suggested_edits_quality_label_text">Qualité d\'édition</string>
+  <string name="suggested_edits_quality_perfect_text">Parfait</string>
+  <string name="suggested_edits_quality_excellent_text">Excellent</string>
+  <string name="suggested_edits_quality_very_good_text">Très bon</string>
+  <string name="suggested_edits_quality_good_text">Bon</string>
+  <string name="suggested_edits_quality_okay_text">D’accord</string>
+  <string name="suggested_edits_quality_sufficient_text">Suffisant</string>
+  <string name="suggested_edits_quality_poor_text">Faible</string>
+  <string name="suggested_edits_quality_bad_text">Mauvais</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">contribution</item>
+    <item quantity="other">contributions</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d jour</item>
+    <item quantity="other">%d jours</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
@@ -763,6 +796,9 @@
   <string name="events_count_text">%1$s événements pour %2$s-%3$d</string>
   <string name="this_year">Cette année</string>
   <string name="back_to_top">Retour au début</string>
+  <string name="on_this_day_dialog_next_month">Mois suivant</string>
+  <string name="on_this_day_dialog_previous_month">Mois précédent</string>
+  <string name="on_this_day_open_date_picker">Ouvrir le sélecteur de dates</string>
   <plurals name="diff_years">
     <item quantity="one">Année dernière</item>
     <item quantity="other">Il y a %d ans</item>

@@ -291,6 +291,8 @@
   <string name="captcha_image">Captcha obrázok</string>
   <string name="gallery_fair_use_license">Férové použitie</string>
   <string name="gallery_uploader_unknown">Uploader neznámy</string>
+  <string name="gallery_not_available_offline_snackbar">Zobrazenie galérie nie je dostupné offline.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Zavrieť</string>
   <string name="menu_new_tab">Nová karta</string>
   <string name="menu_close_all_tabs">Zavrie všetky karty</string>
   <string name="close_all_tabs_confirm">Ste si istí, že chcete zavrieť všetky karty?</string>
@@ -336,6 +338,7 @@
   <string name="view_link_preview_error_button_dismiss">Zrušiť</string>
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
+  <string name="view_wiki_error_message_timeout">Nedá sa pripojiť k Wikipédii. Skontrolujte svoje sieťové pripojenie alebo to skúste neskôr</string>
   <string name="reference_title">Referencia %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Stmavenie obrázkov (v tmavej téme)</string>
   <string name="preference_title_prefer_offline_content">Preferovať offline obsah</string>
@@ -533,6 +536,7 @@
   <string name="preference_summary_notification_poll">Povoliť aplikácii používanie dát ku kontrole nových notifikácií na pozadí.</string>
   <string name="preference_category_notification_types">Typy notifikácií v aplikácii</string>
   <string name="preference_title_notification_system">Systém</string>
+  <string name="preference_summary_notification_system">Správy zo systému</string>
   <string name="preference_title_notification_milestone">Míľnik</string>
   <string name="preference_summary_notification_milestone">Dosiahli ste určitého počtu úprav</string>
   <string name="preference_title_notification_thanks">Ďakujeme</string>
@@ -540,6 +544,7 @@
   <string name="preference_title_notification_revert">Vrátiť späť</string>
   <string name="preference_summary_notification_revert">Jeden z Vašich príspevkov bol vrátený späť</string>
   <string name="preference_title_notification_login_fail">Prihlásenie</string>
+  <string name="preference_summary_notification_login_fail">Vaša prihlasovacia aktivita</string>
   <string name="preference_title_notification_mention">Zmienky</string>
   <string name="preference_summary_notification_mention">Niekto vás spomenul v diskusii</string>
   <string name="preference_title_notification_user_talk">Diskusná stránka</string>
@@ -597,13 +602,15 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Prispôsobte si svoj kanál Objaviť&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Teraz si môžete vybrať, čo sa má zobrazovať na vašej stránke, a tiež uprednostňovať svoje obľúbené typy obsahu.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušiť</string>
+  <string name="feed_accessibility_card_text">Dostali ste sa na koniec kanálu Objaviť.</string>
   <string name="feed_accessibility_card_load_more_button">Načítať ďalšie</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_article_description_label">Článok</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Článok %s</string>
+  <string name="description_edit_translate_article_description_label_per_language">Popis článku (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis článku (%s)</string>
   <string name="description_edit_add_caption_label">Popis obrázku</string>
   <string name="description_edit_add_caption_hint">Titulok obrázku</string>
+  <string name="description_edit_translate_caption_label_per_language">Titulok obrázku (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Titulok obrázku v jazyku %s</string>
   <string name="description_edit_save">Uverejniť</string>
   <string name="description_edit_read">Prečítať si</string>
@@ -619,7 +626,7 @@
   <string name="description_edit_help_wikidata_guide">Návod na písanie popisov na Wikiúdajoch</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Ďakujeme za Váš neustály záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Zmenou popisu článku súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zvyčajne začína malým písmenom</string>
   <string name="description_edit_success_saved">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku bol uverejnený!</string>
@@ -650,12 +657,12 @@
   <string name="suggested_edits_review_image_caption">Náhľad titulku obrázku</string>
   <string name="suggested_edits_my_contributions">Moje príspevky</string>
   <string name="suggested_edits_no_description">Tento súbor je bez popisu</string>
+  <string name="suggested_edits_license_notice">Pridaním popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Pridaním titulku obrázku súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informácie</string>
   <string name="suggested_edits_tasks_activity_title">Navrhované úpravy</string>
   <string name="suggested_edits_task_add_description_title">Pridať popis článku</string>
   <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
-  <string name="suggested_edits_task_translation_title">Preložiť popis článku</string>
-  <string name="suggested_edits_task_translation_description">Preložiť popisy článkov naprieč jazykmi.</string>
   <string name="suggested_edits_task_image_caption_title">Pridať titulky obrázkov</string>
   <string name="suggested_edits_task_image_caption_description">Pridať chýbajúce stručné titulky k obrázkom</string>
   <string name="suggested_edits_task_translate_caption_title">Preložiť titulky obrázkov</string>
@@ -691,8 +698,9 @@
   <string name="suggested_edits_article_cta_image_caption">Pridať titulok obrázku v jazyku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Pridať titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobraziť</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Pridať titulok obrázku</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Pridať titulok v jazyku %s</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Pridať titulok obrázku</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Pridať titulok obrázku %s</string>
+  <string name="suggested_edits_snackbar_survey_text">Ako sa vám upravovalo? Venujte, prosím, chvíľku vyplneniu dotazníka o editovaní v aplikácii.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vyplniť anketu</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
@@ -765,6 +773,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušiť</string>
+  <string name="content_description_for_page_indicator">Článok %1$d z %2$d</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>
@@ -775,8 +784,10 @@
   <string name="wikitext_preview_link">Náhľad odkazu</string>
   <string name="main_drawer_open">Otvoriť</string>
   <string name="main_drawer_close">Zavrieť</string>
+  <string name="main_drawer_content_description">Otvoriť hlavnú ponuku</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
+  <string name="main_tooltip_text">%s, vedeli ste, že Wikipédiu môže upravovať každý?</string>
   <string name="main_tooltip_action_button">Začíname</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
