@@ -148,8 +148,9 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
             if (isAttachedToWindow() && faceLocation != null) {
                 image.post(() -> {
                     if (isAttachedToWindow()) {
-                        image.getHierarchy().setActualImageFocusPoint(faceLocation);
-                        updateScroll();
+                        // TODO
+                        //image.getHierarchy().setActualImageFocusPoint(faceLocation);
+                        //updateScroll();
                     }
                 });
             }

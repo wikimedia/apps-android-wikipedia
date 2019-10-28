@@ -46,6 +46,6 @@
             style="@style/SimpleDraweeViewPlaceholder"
             android:layout_width="72dp"
             android:layout_height="match_parent"
-            app:actualImageScaleType="centerCrop" />
+            android:scaleType="centerCrop" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

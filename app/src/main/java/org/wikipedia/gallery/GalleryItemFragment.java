@@ -1,16 +1,15 @@
 package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.VideoView;
@@ -18,14 +17,6 @@ import android.widget.VideoView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.samples.zoomable.DoubleTapGestureListener;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -44,7 +35,7 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ZoomableDraweeViewWithBackground;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,9 +60,9 @@ public class GalleryItemFragment extends Fragment {
     @BindView(R.id.gallery_item_progress_bar) ProgressBar progressBar;
     @BindView(R.id.gallery_video_container) View videoContainer;
     @BindView(R.id.gallery_video) VideoView videoView;
-    @BindView(R.id.gallery_video_thumbnail) SimpleDraweeView videoThumbnail;
+    @BindView(R.id.gallery_video_thumbnail) ImageView videoThumbnail;
     @BindView(R.id.gallery_video_play_button) View videoPlayButton;
-    @BindView(R.id.gallery_image) ZoomableDraweeViewWithBackground imageView;
+    @BindView(R.id.gallery_image) ImageView imageView;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -119,20 +110,12 @@ public class GalleryItemFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
         unbinder = ButterKnife.bind(this, rootView);
 
-        imageView.setTapListener(new DoubleTapGestureListener(imageView) {
-            @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (isAdded()) {
-                    parentActivity.toggleControls();
-                }
-                return true;
+        imageView.setOnClickListener(v -> {
+            if (isAdded()) {
+                parentActivity.toggleControls();
             }
         });
 
-        GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
-                .setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER)
-                .build();
-        imageView.setHierarchy(hierarchy);
         return rootView;
     }
 
@@ -148,9 +131,7 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public void onDestroyView() {
         disposables.clear();
-        imageView.setController(null);
         imageView.setOnClickListener(null);
-        videoThumbnail.setController(null);
         videoThumbnail.setOnClickListener(null);
         if (unbinder != null) {
             unbinder.unbind();
@@ -320,6 +301,10 @@ public class GalleryItemFragment extends Fragment {
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
+
+            ViewUtil.loadImageUrlInto(videoThumbnail, mediaInfo.getThumbUrl());
+            // TODO
+            /*
             videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
                     .setUri(mediaInfo.getThumbUrl())
                     .setAutoPlayAnimations(true)
@@ -335,6 +320,8 @@ public class GalleryItemFragment extends Fragment {
                         }
                     })
                     .build());
+
+            */
         }
         videoThumbnail.setOnClickListener(videoThumbnailClickListener);
     }
@@ -344,7 +331,10 @@ public class GalleryItemFragment extends Fragment {
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-        imageView.setDrawBackground(false);
+
+        ViewUtil.loadImageUrlInto(imageView, url);
+        // TODO
+        /*
         imageView.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(url)
                 .setAutoPlayAnimations(true)
@@ -364,6 +354,7 @@ public class GalleryItemFragment extends Fragment {
                     }
                 })
                 .build());
+        */
     }
 
     private void shareImage() {

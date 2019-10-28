@@ -87,7 +87,8 @@ public class CardLargeHeaderView extends ConstraintLayout {
                 if (faceLocation != null) {
                     post(() -> {
                         if (isAttachedToWindow()) {
-                            imageView.getHierarchy().setActualImageFocusPoint(faceLocation);
+                            // TODO
+                            //imageView.getHierarchy().setActualImageFocusPoint(faceLocation);
                         }
                     });
                 }

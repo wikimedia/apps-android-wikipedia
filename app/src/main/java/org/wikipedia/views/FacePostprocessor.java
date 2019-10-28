@@ -14,8 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.palette.graphics.Palette;
 
-import com.facebook.imagepipeline.request.BasePostprocessor;
-
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
@@ -24,7 +22,7 @@ import org.wikipedia.util.log.L;
 
 import java.lang.ref.WeakReference;
 
-public class FacePostprocessor extends BasePostprocessor {
+public class FacePostprocessor {
     private static final int BITMAP_COPY_WIDTH = 200;
 
     @NonNull
@@ -34,11 +32,11 @@ public class FacePostprocessor extends BasePostprocessor {
         this.listener = new WeakReference<>(listener);
     }
 
-    @Override public String getName() {
+    public String getName() {
         return "FacePostprocessor";
     }
 
-    @Override public void process(Bitmap destBitmap, Bitmap sourceBitmap) {
+    public void process(Bitmap destBitmap, Bitmap sourceBitmap) {
         if (listener.get() == null) {
             return;
         }

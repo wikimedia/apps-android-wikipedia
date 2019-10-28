@@ -1,6 +1,5 @@
 package org.wikipedia.random;
 
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -78,8 +77,10 @@ public class RandomItemFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_random_item, container, false);
         ButterKnife.bind(this, view);
-        imageView.setLegacyVisibilityHandlingEnabled(true);
-        imageView.setAspectRatio(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? IMAGE_ASPECT_RATIO_LANDSCAPE : IMAGE_ASPECT_RATIO_PORTRAIT);
+
+        // TODO
+        //imageView.setAspectRatio(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? IMAGE_ASPECT_RATIO_LANDSCAPE : IMAGE_ASPECT_RATIO_PORTRAIT);
+
         errorView.setBackClickListener(v -> requireActivity().finish());
         errorView.setRetryClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);

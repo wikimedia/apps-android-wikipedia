@@ -9,21 +9,13 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.RetainingDataSourceSupplier;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-
-import org.wikipedia.R;
+import com.bumptech.glide.Glide;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
-public class FaceAndColorDetectImageView extends SimpleDraweeView {
-    private RetainingDataSourceSupplier<CloseableReference<CloseableImage>> supplier;
+public class FaceAndColorDetectImageView extends AppCompatImageView {
 
     public interface OnImageLoadListener {
         void onImageLoaded(int bmpHeight, @Nullable PointF faceLocation, @ColorInt int mainColor);
@@ -34,17 +26,14 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
 
     public FaceAndColorDetectImageView(Context context) {
         super(context);
-        init();
     }
 
     public FaceAndColorDetectImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
     public FaceAndColorDetectImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
     }
 
     public void setOnImageLoadListener(@Nullable OnImageLoadListener listener) {
@@ -53,29 +42,16 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
 
     public void loadImage(@Nullable Uri uri) {
         if (!isImageDownloadEnabled() || uri == null) {
-            setImageURI((Uri) null);
+            setImageURI(null);
             return;
         }
-        loadImage(ImageRequestBuilder.newBuilderWithSource(uri));
+        Glide.with(this).load(uri).into(this);
     }
 
     public void loadImage(@DrawableRes int id) {
-        loadImage(ImageRequestBuilder.newBuilderWithResourceId(id));
+        this.setImageResource(id);
     }
 
-    private void loadImage(@NonNull ImageRequestBuilder builder) {
-        ImageRequest imageRequest = builder.setPostprocessor(new FacePostprocessor(listener)).build();
-        supplier.replaceSupplier(Fresco.getImagePipeline()
-                .getDataSourceSupplier(imageRequest, null, ImageRequest.RequestLevel.FULL_FETCH));
-    }
-
-    private void init() {
-        supplier = new RetainingDataSourceSupplier<>();
-        setController(Fresco.newDraweeControllerBuilder()
-                .setAutoPlayAnimations(true)
-                .setDataSourceSupplier(supplier)
-                .build());
-    }
 
     private class DefaultListener implements OnImageLoadListener {
         @Override
@@ -83,7 +59,8 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
             if (isAttachedToWindow() && faceLocation != null) {
                 post(() -> {
                     if (isAttachedToWindow()) {
-                        getHierarchy().setActualImageFocusPoint(faceLocation);
+                        // TODO:
+                        //getHierarchy().setActualImageFocusPoint(faceLocation);
                     }
                 });
             }
@@ -91,7 +68,8 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
 
         @Override
         public void onImageFailed() {
-            setActualImageResource(R.drawable.lead_default);
+            // TODO:
+            //setActualImageResource(R.drawable.lead_default);
         }
     }
 }

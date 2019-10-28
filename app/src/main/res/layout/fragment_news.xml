@@ -31,8 +31,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:transitionName="@string/transition_news_item"
-                    app:actualImageScaleType="focusCrop"
-                    app:fadeDuration="0" />
+                    android:scaleType="centerCrop" />
 
                 <View
                     android:id="@+id/view_news_fullscreen_gradient"

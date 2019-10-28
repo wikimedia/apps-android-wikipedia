@@ -15,11 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@null"
-            app:actualImageScaleType="focusCrop"
-            app:backgroundImage="?android:colorBackground"
-            app:failureImage="?lead_image_drawable"
-            app:failureImageScaleType="centerCrop"
-            app:placeholderImageScaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:background="?android:colorBackground" />
 
         <View
             android:id="@+id/view_page_header_image_gradient_top"

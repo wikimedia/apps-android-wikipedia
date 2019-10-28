@@ -1,22 +1,9 @@
 package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.net.Uri;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import org.wikipedia.WikipediaApp;
 
@@ -34,14 +21,18 @@ public abstract class ImagePipelineBitmapGetter {
     }
 
     public void get() {
+        /*
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(imageUrl))
                 .build();
         ImagePipeline imagePipeline = Fresco.getImagePipeline();
         DataSource<CloseableReference<CloseableImage>> dataSource
                 = imagePipeline.fetchDecodedImage(request, WikipediaApp.getInstance());
         dataSource.subscribe(new BitmapDataSubscriber(), UiThreadImmediateExecutorService.getInstance());
+        */
     }
 
+    // TODO
+    /*
     private class BitmapDataSubscriber extends BaseBitmapDataSubscriber {
         @Override
         protected void onNewResultImpl(@Nullable Bitmap tempBitmap) {
@@ -59,4 +50,5 @@ public abstract class ImagePipelineBitmapGetter {
             onError(dataSource.getFailureCause());
         }
     }
+    */
 }

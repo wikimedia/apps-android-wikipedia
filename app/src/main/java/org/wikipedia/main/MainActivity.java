@@ -36,7 +36,6 @@ import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.TabCountsView;
@@ -71,7 +70,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         super.onCreate(savedInstanceState);
         WikipediaApp.getInstance().checkCrashes(this);
         ButterKnife.bind(this);
-        AnimationUtil.setSharedElementTransitions(this);
         AppShortcuts.setShortcuts(this);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {

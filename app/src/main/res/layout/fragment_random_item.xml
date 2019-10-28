@@ -47,9 +47,7 @@
                 style="@style/SimpleDraweeViewPlaceholder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:actualImageScaleType="focusCrop"
-                app:viewAspectRatio="1.77"
-                app:fadeDuration="0" />
+                android:scaleType="centerCrop" />
 
             <View
                 android:layout_width="match_parent"

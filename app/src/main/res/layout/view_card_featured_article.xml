@@ -16,7 +16,7 @@
         style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="match_parent"
         android:layout_height="192dp"
-        app:actualImageScaleType="focusCrop"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header" />
 
     <View

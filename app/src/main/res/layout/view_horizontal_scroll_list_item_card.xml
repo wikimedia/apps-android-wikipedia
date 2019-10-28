@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="96dp"
         android:transitionName="@string/transition_news_item"
-        app:actualImageScaleType="focusCrop" />
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/horizontal_scroll_list_item_text"

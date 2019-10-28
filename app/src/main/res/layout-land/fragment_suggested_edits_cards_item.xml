@@ -60,9 +60,7 @@
                     android:id="@+id/viewArticleImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:actualImageScaleType="focusCrop"
-                    app:viewAspectRatio="3.8"
-                    app:fadeDuration="0" />
+                    android:scaleType="centerCrop" />
 
                 <LinearLayout
                     android:id="@+id/viewArticleContainer"

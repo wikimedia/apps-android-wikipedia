@@ -91,13 +91,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/page_list_header_text">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/page_list_item_image"
             style="@style/SimpleDraweeViewPlaceholder"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
-            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            app:roundedCornerRadius="2dp" />
+            android:layout_marginEnd="@dimen/list_item_horizontal_padding" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/page_list_item_selected_image"

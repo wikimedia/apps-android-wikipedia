@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,8 +16,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
@@ -74,7 +73,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private LinkPreviewErrorView errorContainer;
     private ProgressBar progressBar;
     private TextView extractText;
-    private SimpleDraweeView thumbnailView;
+    private ImageView thumbnailView;
     private GalleryThumbnailScrollView thumbnailGallery;
     private LinkPreviewOverlayView overlayView;
     private TextView titleText;

@@ -16,8 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionMode;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.bumptech.glide.Glide;
 
 import org.wikipedia.R;
 
@@ -26,11 +25,8 @@ import java.util.Locale;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
-    public static void loadImageUrlInto(@NonNull SimpleDraweeView drawee, @Nullable String url) {
-        drawee.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
-                .setAutoPlayAnimations(true)
-                .build());
+    public static void loadImageUrlInto(@NonNull ImageView drawee, @Nullable String url) {
+        Glide.with(drawee).load(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null).into(drawee);
     }
 
     public static void setCloseButtonInActionMode(@NonNull Context context, @NonNull android.view.ActionMode actionMode) {

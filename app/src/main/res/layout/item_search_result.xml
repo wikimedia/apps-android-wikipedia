@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/page_list_item_redirect"
         tools:text="Lorem ipsum" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <ImageView
         android:id="@+id/page_list_item_image"
         style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="@dimen/view_list_card_item_image"
@@ -69,5 +69,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/page_list_item_title"
         app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="2dp" />
+        android:contentDescription="@null"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

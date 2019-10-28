@@ -1,26 +1,20 @@
 package org.wikipedia.captcha;
 
 import android.app.Activity;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.LinkMovementMethodExt;
@@ -28,6 +22,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -37,7 +32,7 @@ public class CaptchaHandler {
     private final Activity activity;
     private final View captchaContainer;
     private final View captchaProgress;
-    private final SimpleDraweeView captchaImage;
+    private final ImageView captchaImage;
     private final EditText captchaText;
     private final WikiSite wiki;
     private final View primaryView;
@@ -143,6 +138,10 @@ public class CaptchaHandler {
         }
         // In case there was a captcha attempt before
         captchaText.setText("");
+
+        // TODO:
+        ViewUtil.loadImageUrlInto(captchaImage, captchaResult.getCaptchaUrl(wiki));
+        /*
         captchaImage.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(captchaResult.getCaptchaUrl(wiki))
                 .setAutoPlayAnimations(true)
@@ -167,6 +166,7 @@ public class CaptchaHandler {
                     }
                 })
                 .build());
+         */
     }
 
     public void hideCaptcha() {

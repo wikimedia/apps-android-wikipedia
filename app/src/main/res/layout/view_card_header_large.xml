@@ -17,7 +17,7 @@
         style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="96dp"
         android:layout_height="match_parent"
-        app:actualImageScaleType="focusCrop"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
