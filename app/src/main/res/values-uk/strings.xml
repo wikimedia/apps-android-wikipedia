@@ -723,6 +723,7 @@
     <item quantity="one">%d день</item>
     <item quantity="few">%d дні</item>
     <item quantity="many">%d днів</item>
+    <item quantity="other">%d днів</item>
   </plurals>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
