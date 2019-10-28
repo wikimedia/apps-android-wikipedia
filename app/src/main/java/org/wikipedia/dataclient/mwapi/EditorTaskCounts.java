@@ -18,7 +18,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class EditorTaskCounts {
     @Nullable private JsonElement counts;
-    @Nullable @SerializedName("edit_streak") private EditStreak editStreak;
+    @Nullable @SerializedName("edit_streak") private JsonElement editStreak;
 
     @NonNull
     public Map<String, Integer> getDescriptionEditsPerLanguage() {
@@ -39,18 +39,24 @@ public class EditorTaskCounts {
     }
 
     public int getEditStreak() {
-        return editStreak != null ? editStreak.length : 0;
+        if (editStreak == null || (editStreak instanceof JsonArray)) {
+            return 0;
+        }
+        EditStreak streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak.class);
+        return streak.length;
     }
 
     @NonNull
     public Date getLastEditDate() {
         Date date = new Date(0);
-        if (editStreak != null) {
-            try {
-                date = DateUtil.iso8601DateParse(editStreak.lastEditTime);
-            } catch (ParseException e) {
-                // ignore
-            }
+        if (editStreak == null || (editStreak instanceof JsonArray)) {
+            return date;
+        }
+        EditStreak streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak.class);
+        try {
+            date = DateUtil.iso8601DateParse(streak.lastEditTime);
+        } catch (ParseException e) {
+            // ignore
         }
         return date;
     }
