@@ -54,7 +54,7 @@ public class EditorTaskCounts {
         }
         EditStreak streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak.class);
         try {
-            date = DateUtil.iso8601DateParse(streak.lastEditTime);
+            date = DateUtil.dbDateParse(streak.lastEditTime);
         } catch (ParseException e) {
             // ignore
         }
