@@ -16,6 +16,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
+    @SerializedName("usercontribs") @Nullable private List<UserContributions> userContributions;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -142,6 +144,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @Nullable public EditorTaskCounts editorTaskCounts() {
         return editorTaskCounts;
+    }
+
+    @NonNull public List<UserContributions> userContributions() {
+        return userContributions != null ? userContributions : Collections.emptyList();
     }
 
     @Override

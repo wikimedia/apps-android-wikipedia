@@ -289,7 +289,13 @@ public interface Service {
                                        @Nullable @Field("captchaid") String captchaId,
                                        @Nullable @Field("captchaword") String captchaWord);
 
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs")
+    @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username);
+
+    @GET(MW_API_PREFIX + "action=query&prop=pageviews")
+    @NonNull Observable<MwQueryResponse> getPageViewsForTitles(@NonNull @Query("titles") String titles);
+
+    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo")
     @NonNull Observable<MwQueryResponse> getEditorTaskCounts();
 
     @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=missingdescriptions&gwetslimit=3")

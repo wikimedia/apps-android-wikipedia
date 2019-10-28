@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="110dp"
         android:background="?attr/main_toolbar_color"
         android:orientation="vertical"
@@ -41,7 +41,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/paper_color"
         android:gravity="center_horizontal"
@@ -61,6 +61,8 @@
                 android:layout_gravity="center_vertical"
                 android:scaleX="-1"
                 android:tint="?attr/secondary_text_color"
+                android:contentDescription="@string/on_this_day_dialog_previous_month"
+                android:background="?android:selectableItemBackgroundBorderless"
                 app:srcCompat="@drawable/ic_chevron_forward_gray" />
 
             <TextView
@@ -84,6 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:tint="?attr/secondary_text_color"
+                android:contentDescription="@string/on_this_day_dialog_next_month"
+                android:background="?android:selectableItemBackgroundBorderless"
                 app:srcCompat="@drawable/ic_chevron_forward_gray" />
         </LinearLayout>
 
@@ -91,7 +95,7 @@
             android:id="@+id/grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="24dp"/>
     </LinearLayout>
 
 </LinearLayout>
