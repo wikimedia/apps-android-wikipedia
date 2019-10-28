@@ -1,51 +1,50 @@
 package org.wikipedia.suggestededits
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import kotlinx.android.synthetic.main.view_suggested_edits_task.view.*
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.widget.ImageViewCompat
+import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
+import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
+import org.wikipedia.util.ResourceUtil
 
-internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
+internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     init {
-        View.inflate(context, R.layout.view_suggested_edits_task, this)
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        View.inflate(context, R.layout.view_suggested_edits_task_item, this)
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+    }
+
+    private fun updateTranslateActionUI() {
+        val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
+            R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
+        ImageViewCompat.setImageTintList(suggestedEditsTranslateImage, ColorStateList.valueOf(color))
+        suggestedEditsTranslateActionText.setTextColor(color)
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
+        updateTranslateActionUI()
         taskTitle.text = task.title
         taskDescription.text = task.description
-        taskImage.visibility = if (task.showImagePlaceholder) View.VISIBLE else View.GONE
-        taskImage.setImageDrawable(task.imageDrawable)
-        taskInfoContainer.alpha = if (task.disabled) 0.56f else 1.0f
-        unlockMessageContainer.visibility = if (task.disabled) View.VISIBLE else View.GONE
-        unlockMessageText.text = task.unlockMessageText
-        unlockActionsContainer.visibility = if (task.disabled) View.GONE else View.VISIBLE
-        unlockActionPositiveButton.text = task.unlockActionPositiveButtonString
-        unlockActionNegativeButton.text = task.unlockActionNegativeButtonString
-        taskActionLayout.visibility = if (task.showActionLayout) View.VISIBLE else View.GONE
+        taskIcon.setImageResource(task.imageDrawable)
 
-        taskInfoContainer.setOnClickListener {
+        addContainer.setOnClickListener {
             if (!task.disabled) {
-                callback?.onViewClick(task)
+                callback?.onViewClick(task, false)
             }
         }
-
-        unlockActionPositiveButton.setOnClickListener {
-            callback?.onPositiveActionClick(task)
-        }
-
-        unlockActionNegativeButton.setOnClickListener {
-            callback?.onNegativeActionClick(task)
+        translateContainer.setOnClickListener {
+            if (!task.disabled) {
+                callback?.onViewClick(task, true)
+            }
         }
     }
 
     interface Callback {
-        fun onPositiveActionClick(task: SuggestedEditsTask)
-        fun onNegativeActionClick(task: SuggestedEditsTask)
-        fun onViewClick(task: SuggestedEditsTask)
+        fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean)
     }
 }

@@ -35,6 +35,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -125,8 +126,9 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        getFragment().requestUpdateToolbarElevation();
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
-        if (WikipediaApp.getInstance().getTabCount() < 1) {
+        if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
             tabsItem.setVisible(false);
         } else {
             tabsItem.setVisible(true);

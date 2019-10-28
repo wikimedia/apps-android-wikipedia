@@ -693,8 +693,6 @@
     <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_task_add_description_title">Add article descriptions</string>
     <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
-    <string name="suggested_edits_task_translation_title">Translate article descriptions</string>
-    <string name="suggested_edits_task_translation_description">Translate descriptions across article languages.</string>
     <string name="suggested_edits_task_image_caption_title">Add image captions</string>
     <string name="suggested_edits_task_image_caption_description">Add missing short captions to images</string>
     <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>
@@ -734,6 +732,41 @@
     <string name="suggested_edits_feed_card_translate_image_caption">Add image caption (%s)</string>
     <string name="suggested_edits_snackbar_survey_text">How was your editing experience? Please take a moment to fill out the survey about in-app editing.</string>
     <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
+    <string name="suggested_edits_task_action_text_add">Add</string>
+    <string name="suggested_edits_task_action_text_translate">Translate</string>
+    <string name="suggested_edits_image_captions">Image Captions</string>
+    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia</string>
+    <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
+    <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context</string>
+    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions summarize an article to help readers understand the subject at a glance</string>
+    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits</string>
+    <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed using Suggested edits</string>
+    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits</string>
+    <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted. Reverted edits: %d</string>
+    <string name="suggested_edits_paused_message"><![CDATA[<b>Suggested edits is paused until %1$s.</b> Sorry %2$s, some of your recent contributions have been reverted.\n\n Learn how to improve your editing skills on Wikipedia with the links below.]]></string>
+    <string name="suggested_edits_disabled_message"><![CDATA[<b>Suggested edits is disabled.</b> Sorry %s, too many of your recent contributions have been reverted.\n\n Learn what this means with the links below.]]></string>
+    <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia. Learn more about what this means by visiting the link below.</string>
+    <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
+    <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
+    <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
+    <string name="suggested_edits_pageviews_label_text">Pageviews</string>
+    <string name="suggested_edits_quality_label_text">Edit quality</string>
+    <string name="suggested_edits_quality_perfect_text">Perfect</string>
+    <string name="suggested_edits_quality_excellent_text">Excellent</string>
+    <string name="suggested_edits_quality_very_good_text">Very good</string>
+    <string name="suggested_edits_quality_good_text">Good</string>
+    <string name="suggested_edits_quality_okay_text">Okay</string>
+    <string name="suggested_edits_quality_sufficient_text">Sufficient</string>
+    <string name="suggested_edits_quality_poor_text">Poor</string>
+    <string name="suggested_edits_quality_bad_text">Bad</string>
+    <plurals name="suggested_edits_contribution">
+        <item quantity="one">Contribution</item>
+        <item quantity="other">Contributions</item>
+    </plurals>
+    <plurals name="suggested_edits_edit_streak_detail_text">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
@@ -787,6 +820,9 @@
     <string name="events_count_text">%1$s events from %2$s–%3$d</string>
     <string name="this_year">This year</string>
     <string name="back_to_top">Back to top</string>
+    <string name="on_this_day_dialog_next_month">Next month</string>
+    <string name="on_this_day_dialog_previous_month">Previous month</string>
+    <string name="on_this_day_open_date_picker">Open date picker</string>
     <plurals name="diff_years">
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>

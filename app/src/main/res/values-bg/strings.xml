@@ -636,10 +636,8 @@
   <string name="suggested_edits_tasks_activity_title">Предложение за редактиране</string>
   <string name="suggested_edits_task_add_description_title">Добавяне описания на статии</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
-  <string name="suggested_edits_task_translation_title">Превод на описания на статии</string>
-  <string name="suggested_edits_task_translation_description">Превод на описания на други езици.</string>
-  <string name="suggested_edits_task_image_caption_title">Добавяне описания на изображения</string>
-  <string name="suggested_edits_task_image_caption_description">Добавяне липсващи кратки описания на изображения</string>
+  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Описания на картини</string>
+  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Добавяне на описания на картини</string>
   <string name="suggested_edits_task_translate_caption_title">Превод на описания на картини</string>
   <string name="suggested_edits_task_translate_caption_description">Превод на описания на други езици</string>
   <string name="suggested_edits_task_multilingual_title">Повече задачи за многоезични редактори</string>
