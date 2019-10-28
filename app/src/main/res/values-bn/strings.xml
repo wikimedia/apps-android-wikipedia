@@ -577,6 +577,8 @@
   <string name="events_count_text">%2$s হতে %3$d এর মধ্যে %1$sটি ঘটনা</string>
   <string name="this_year">এই বছর</string>
   <string name="back_to_top">উপরে ফিরে যান</string>
+  <string name="on_this_day_dialog_next_month">পরবর্তী মাস</string>
+  <string name="on_this_day_dialog_previous_month">পূর্ববর্তী মাস</string>
   <plurals name="diff_years">
     <item quantity="one">গত বছর</item>
     <item quantity="other">%d বছর আগে</item>
