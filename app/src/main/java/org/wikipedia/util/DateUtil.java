@@ -38,6 +38,10 @@ public final class DateUtil {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date);
     }
 
+    public static synchronized Date dbDateParse(String date) throws ParseException {
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date);
+    }
+
     public static String getFeedCardDayHeaderDate(int age) {
         return getDateStringWithSkeletonPattern(new UtcDate(age).baseCalendar().getTime(), "EEEE MMM d");
     }
@@ -56,6 +60,10 @@ public final class DateUtil {
 
     public static String getFeedCardShortDateString(@NonNull Calendar date) {
         return getExtraShortDateString(date.getTime());
+    }
+
+    public static String getMDYDateString(@NonNull Date date) {
+        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy");
     }
 
     public static String getMonthOnlyDateString(@NonNull Date date) {
