@@ -217,8 +217,14 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                         editQualityStatsView.setGoodnessState((editQualityState++) % 7) // TODO: use edit quality metric from API response
 
-                        editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
-                                editorTaskCounts.editStreak, editorTaskCounts.editStreak))
+                        if (editorTaskCounts.editStreak < 2) {
+                            editStreakStatsView.setTitle(if (editorTaskCounts.lastEditDate.time > 0) DateUtil.getMDYDateString(editorTaskCounts.lastEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+                            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+                        } else {
+                            editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+                                    editorTaskCounts.editStreak, editorTaskCounts.editStreak))
+                            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+                        }
 
                         totalEdits = 0
                         for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {

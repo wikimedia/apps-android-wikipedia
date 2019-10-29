@@ -62,6 +62,10 @@ public final class DateUtil {
         return getExtraShortDateString(date.getTime());
     }
 
+    public static String getMDYDateString(@NonNull Date date) {
+        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy");
+    }
+
     public static String getMonthOnlyDateString(@NonNull Date date) {
         return getDateStringWithSkeletonPattern(date, "MMMM d");
     }
