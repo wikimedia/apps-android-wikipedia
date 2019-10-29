@@ -717,10 +717,45 @@
   <string name="suggested_edits_article_cta_image_caption">Resim yazısı ekle</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Görüntüle</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Altyazı ekle</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Altyazı ekle (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Resim yazısı ekle</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Düzenleme deneyiminiz nasıldı? Lütfen uygulama içi düzenleme ile ilgili anketi doldurmak için bir dakikanızı ayırın.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Anketi Doldur</string>
+  <string name="suggested_edits_task_action_text_add">Ekle</string>
+  <string name="suggested_edits_task_action_text_translate">Çevir</string>
+  <string name="suggested_edits_image_captions">Resim Başlıkları</string>
+  <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
+  <string name="suggested_edits_image_captions_task_detail">Resim yazıları, okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tarif eder.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Makale açıklamaları, okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir makaleyi özetler</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Önerilen düzenlemeleri kullanarak ara vermeden kaç gün katkıda bulundunuz</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içerisinde katkıda bulunduğunuz öğelerin sayfa görüntüleme sayısı Önerilen düzenlemelerle</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Katkılarınızdan kaç tanesinin geri alındığına bağlı olarak. Geri alınan düzenlemeler: %d</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Önerilen düzenlemeler %1$s kadar duraklatılıyor.&lt;/b&gt; Maalesef %2$s, son katkılarınızdan bazıları geri alındı.\n\n Vikipedi\'deki düzenleme becerilerinizi aşağıdaki linklerle nasıl geliştireceğinizi öğrenin.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Önerilen düzenlemeler devre dışı.&lt;/b&gt; Maalesef %s, son katkılarınızdan çok azı geri alındı.\n\n Bunun ne anlama geldiğini aşağıdaki bağlantıları öğrenin.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adresinizin (veya IP adreslerinin aralığının) şu anda Vikipedi\'yi düzenlemesi engellenmiş gibi görünüyor. Bunun ne anlama geldiği hakkında daha fazla bilgi için aşağıdaki bağlantıyı ziyaret edin.</string>
+  <string name="suggested_edits_editing_tips_link_text">İpuçlarını ve püf noktalarını düzenleme</string>
+  <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>
+  <string name="suggested_edits_edit_streak_label_text">Çizgiyi düzenle</string>
+  <string name="suggested_edits_pageviews_label_text">Sayfa gösterimleri</string>
+  <string name="suggested_edits_quality_label_text">Kaliteyi düzenle</string>
+  <string name="suggested_edits_quality_perfect_text">Mükemmel</string>
+  <string name="suggested_edits_quality_excellent_text">Mükemmel</string>
+  <string name="suggested_edits_quality_very_good_text">Çok iyi</string>
+  <string name="suggested_edits_quality_good_text">Güzel</string>
+  <string name="suggested_edits_quality_okay_text">İyi</string>
+  <string name="suggested_edits_quality_sufficient_text">Yeterli</string>
+  <string name="suggested_edits_quality_poor_text">Zayıf</string>
+  <string name="suggested_edits_quality_bad_text">Kötü</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Katkı</item>
+    <item quantity="other">Katkı</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d gün</item>
+    <item quantity="other">%d gün</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama incleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -759,6 +794,9 @@
   <string name="events_count_text">%2$s–%3$d yıllarından %1$s olay</string>
   <string name="this_year">Bu yıl</string>
   <string name="back_to_top">Başa dön</string>
+  <string name="on_this_day_dialog_next_month">Sonraki ay</string>
+  <string name="on_this_day_dialog_previous_month">Önceki ay</string>
+  <string name="on_this_day_open_date_picker">Tarih seçiciyi aç</string>
   <plurals name="diff_years">
     <item quantity="one">Geçen yıl</item>
     <item quantity="other">%d yıl önce</item>
