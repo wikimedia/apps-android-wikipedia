@@ -70,7 +70,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
         contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
-        editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text, 4, 4))
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
         editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
@@ -217,7 +216,15 @@ class SuggestedEditsTasksFragment : Fragment() {
                     } else if (!maybeSetDisabledStatus(80)) { // TODO: use edit quality metric from API response
 
                         editQualityStatsView.setGoodnessState((editQualityState++) % 7) // TODO: use edit quality metric from API response
-                        // TODO: apply edit streak from API response
+
+                        if (editorTaskCounts.editStreak < 2) {
+                            editStreakStatsView.setTitle(if (editorTaskCounts.lastEditDate.time > 0) DateUtil.getMDYDateString(editorTaskCounts.lastEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+                            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+                        } else {
+                            editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+                                    editorTaskCounts.editStreak, editorTaskCounts.editStreak))
+                            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+                        }
 
                         totalEdits = 0
                         for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
