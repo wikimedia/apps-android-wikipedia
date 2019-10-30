@@ -62,23 +62,26 @@
                         android:id="@+id/contributionsStatsView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:minWidth="120dp"
                         android:layout_marginTop="16dp"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/editStreakStatsView"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <org.wikipedia.views.ImageTitleDescriptionView
                         android:id="@+id/editStreakStatsView"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:minWidth="120dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/editQualityStatsView"
-                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toEndOf="@id/contributionsStatsView"
                         app:layout_constraintTop_toTopOf="@id/contributionsStatsView" />
 
                     <org.wikipedia.views.ImageTitleDescriptionView
                         android:id="@+id/pageViewStatsView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:minWidth="120dp"
                         android:layout_marginTop="20dp"
                         app:layout_constraintStart_toStartOf="@id/contributionsStatsView"
                         app:layout_constraintTop_toBottomOf="@id/contributionsStatsView" />
@@ -87,7 +90,8 @@
                         android:id="@+id/editQualityStatsView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:minWidth="120dp"
+                        app:layout_constraintStart_toStartOf="@id/editStreakStatsView"
                         app:layout_constraintTop_toTopOf="@id/pageViewStatsView" />
 
                     <ImageView
