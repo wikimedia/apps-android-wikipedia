@@ -1248,6 +1248,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private void maybeShowFundraisingBottomSheet() {
         // TODO: update to getRest()
         // TODO: design may be changed later
+        // TODO: how many times will it show?
         disposables.add(ServiceFactory.getLocalRest(getTitle().getWikiSite(), "http://10.0.0.51:8889/en.wikipedia.org/v1/").getAnnouncements()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
