@@ -73,8 +73,7 @@ public class AnnouncementClient implements FeedClient {
         return cards;
     }
 
-    @VisibleForTesting
-    static boolean shouldShow(@Nullable Announcement announcement,
+    public static boolean shouldShow(@Nullable Announcement announcement,
                               @Nullable String country,
                               @NonNull Date date) {
         return announcement != null

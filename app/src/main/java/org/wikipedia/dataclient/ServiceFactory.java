@@ -53,6 +53,12 @@ public final class ServiceFactory {
         return s;
     }
 
+    // TODO: remove or keep for dev testing?
+    public static RestService getLocalRest(@NonNull WikiSite wiki, @NonNull String host) {
+        Retrofit r = createRetrofit(wiki, host);
+        return r.create(RestService.class);
+    }
+
     public static <T> T get(@NonNull WikiSite wiki, @Nullable String baseUrl, Class<T> service) {
         Retrofit r = createRetrofit(wiki, TextUtils.isEmpty(baseUrl) ? wiki.url() + "/" : baseUrl);
         return r.create(service);

@@ -58,7 +58,8 @@ public class Announcement extends BaseModel {
         return id;
     }
 
-    @NonNull String type() {
+    @NonNull
+    public String type() {
         return type;
     }
 
