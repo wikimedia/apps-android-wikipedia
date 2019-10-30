@@ -17,6 +17,9 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        isClickable = true
+        isFocusable = true
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
     }
 
     private fun updateTranslateActionUI() {
@@ -32,6 +35,11 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         taskDescription.text = task.description
         taskIcon.setImageResource(task.imageDrawable)
 
+        this.setOnClickListener {
+            if (!task.disabled) {
+                callback?.onViewClick(task, false)
+            }
+        }
         addContainer.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
