@@ -39,7 +39,10 @@
             android:background="@android:color/transparent"
             app:itemIconTint="?attr/nav_tab_item_color_state"
             app:itemTextColor="?attr/nav_tab_item_color_state"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
             app:tabGravity="fill"
+            app:labelVisibilityMode="labeled"
             app:tabIndicatorColor="@android:color/transparent" />
     </FrameLayout>
 
