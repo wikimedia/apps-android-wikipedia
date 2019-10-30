@@ -72,7 +72,7 @@
                         android:id="@+id/editStreakStatsView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:minWidth="140dp"
+                        android:minWidth="160dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/contributionsStatsView"
                         app:layout_constraintTop_toTopOf="@id/contributionsStatsView" />
@@ -81,7 +81,7 @@
                         android:id="@+id/pageViewStatsView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:minWidth="140dp"
+                        android:minWidth="160dp"
                         android:layout_marginTop="20dp"
                         app:layout_constraintStart_toStartOf="@id/contributionsStatsView"
                         app:layout_constraintTop_toBottomOf="@id/contributionsStatsView" />
@@ -90,7 +90,7 @@
                         android:id="@+id/editQualityStatsView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:minWidth="140dp"
+                        android:minWidth="160dp"
                         app:layout_constraintStart_toStartOf="@id/editStreakStatsView"
                         app:layout_constraintTop_toTopOf="@id/pageViewStatsView" />
 

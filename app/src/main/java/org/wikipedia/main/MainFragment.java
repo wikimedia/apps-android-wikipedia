@@ -28,6 +28,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -71,6 +72,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
@@ -89,6 +92,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     private Snackbar suggestedEditsNavTabSnackbar;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -112,6 +116,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
         viewPager.setOffscreenPageLimit(2);
@@ -144,11 +149,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
         SuggestedEditsSurvey.maybeRunSurvey(requireActivity());
+        resetNavTabLayouts();
     }
 
     @Override public void onDestroyView() {
         unbinder.unbind();
         unbinder = null;
+        disposables.dispose();
         super.onDestroyView();
     }
 
@@ -169,8 +176,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             if (!Prefs.shouldShowSuggestedEditsTooltip()) {
                 FeedbackUtil.showMessage(this, R.string.login_success_toast);
             }
-            tabLayout.setTabViews();
-            setupPulsingIcon();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -194,7 +199,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        setupPulsingIcon();
     }
 
     @Override
@@ -445,12 +449,18 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    private void setupPulsingIcon() {
-        if (AccountUtil.isLoggedIn() && Prefs.shouldShowSuggestedEditsTooltip()) {
-            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
-            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-            suggestedEditsNavTabSnackbar.show();
+    void resetNavTabLayouts() {
+        tabLayout.setTabViews();
+        tabLayout.setSelectedItemId(viewPager.getCurrentItem());
+        if (AccountUtil.isLoggedIn()) {
+            if (Prefs.shouldShowSuggestedEditsTooltip()) {
+                tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
+                suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+                suggestedEditsNavTabSnackbar.show();
+            }
+        } else {
+            hideNavTabOverlayLayout();
         }
     }
 
@@ -469,6 +479,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void onSuccess() {
             FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_success);
+        }
+    }
+
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) {
+            if (event instanceof LoggedOutInBackgroundEvent) {
+                resetNavTabLayouts();
+            }
         }
     }
 

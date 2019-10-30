@@ -767,6 +767,8 @@
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
     </plurals>
+    <string name="suggested_edits_last_edited">Last edited</string>
+    <string name="suggested_edits_last_edited_never">Never</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
