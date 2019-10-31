@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
@@ -38,7 +38,6 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.*
-import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.collections.HashSet
@@ -51,7 +50,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
-    private val toolTipDisposable = CompositeDisposable()
     private var totalEdits = 0
 
     // TODO: remove when ready
@@ -99,7 +97,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun onUserStatClicked(view: View) {
-        dismissTooltips()
         when (view) {
             contributionsStatsView -> showContributionsStatsViewTooltip()
             editStreakStatsView -> showEditStreakStatsViewTooltip()
@@ -109,51 +106,19 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showContributionsStatsViewTooltip() {
-        val param = toolTipArrowFirstRow.layoutParams as LinearLayout.LayoutParams
-        param.gravity = Gravity.START
-        toolTipArrowFirstRow.layoutParams = param
-        toolTipTextFirstRow.text = getString(R.string.suggested_edits_contributions_stat_tooltip)
-        toolTipFirstRow.visibility = VISIBLE
-        dismissTooltipsAfterTimeout()
+        FeedbackUtil.showToastOverView(contributionsStatsView, getString(R.string.suggested_edits_contributions_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showEditStreakStatsViewTooltip() {
-        val param = toolTipArrowFirstRow.layoutParams as LinearLayout.LayoutParams
-        param.gravity = Gravity.END
-        toolTipArrowFirstRow.layoutParams = param
-        toolTipTextFirstRow.text = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
-        toolTipFirstRow.visibility = VISIBLE
-        dismissTooltipsAfterTimeout()
+        FeedbackUtil.showToastOverView(editStreakStatsView, getString(R.string.suggested_edits_edit_streak_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showPageViewStatsViewTooltip() {
-        val param = toolTipArrowSecondRow.layoutParams as LinearLayout.LayoutParams
-        param.gravity = Gravity.START
-        toolTipArrowSecondRow.layoutParams = param
-        toolTipTextSecondRow.text = getString(R.string.suggested_edits_page_views_stat_tooltip)
-        toolTipSecondRow.visibility = VISIBLE
-        dismissTooltipsAfterTimeout()
+        FeedbackUtil.showToastOverView(pageViewStatsView, getString(R.string.suggested_edits_page_views_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showEditQualityStatsViewTooltip() {
-        val param = toolTipArrowSecondRow.layoutParams as LinearLayout.LayoutParams
-        param.gravity = Gravity.END
-        toolTipArrowSecondRow.layoutParams = param
-        toolTipTextSecondRow.text = getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3)
-        toolTipSecondRow.visibility = VISIBLE
-        dismissTooltipsAfterTimeout()
-    }
-
-    private fun dismissTooltipsAfterTimeout() {
-        toolTipDisposable.clear()
-        toolTipDisposable.add(Observable.timer(5000, TimeUnit.MILLISECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { dismissTooltips() })
-    }
-
-    private fun dismissTooltips() {
-        toolTipFirstRow.visibility = GONE
-        toolTipSecondRow.visibility = GONE
+        FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3), Toast.LENGTH_LONG)
     }
 
     override fun onResume() {
@@ -179,7 +144,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             tasksRecyclerView.adapter!!.notifyDataSetChanged()
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -195,7 +159,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
-        toolTipDisposable.clear()
     }
 
     private fun fetchUserContributions() {
@@ -341,6 +304,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
         suggestedEditsScrollView.scrollTo(0, 0)
+        swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_color))
     }
 
     private fun showError(t: Throwable) {
@@ -370,6 +334,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
         }
 
+        swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         tasksContainer.visibility = VISIBLE
     }
 
@@ -412,7 +377,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
-        addImageCaptionsTask.imageDrawable = R.drawable.ic_icon_caption_images
+        addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
         displayedTasks.add(addImageCaptionsTask)
 
         addDescriptionsTask = SuggestedEditsTask()
