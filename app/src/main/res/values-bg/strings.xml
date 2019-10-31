@@ -684,9 +684,29 @@
   <string name="suggested_edits_task_action_text_translate">Превод</string>
   <string name="suggested_edits_image_captions">Описания на изображения</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">Здравейте, %s, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
   <string name="suggested_edits_image_captions_task_detail">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
+  <string name="suggested_edits_pageviews_label_text">Преглеждания</string>
+  <string name="suggested_edits_quality_label_text">Качество на редакциите</string>
+  <string name="suggested_edits_quality_perfect_text">Съвършено</string>
+  <string name="suggested_edits_quality_excellent_text">Отлично</string>
+  <string name="suggested_edits_quality_very_good_text">Много добро</string>
+  <string name="suggested_edits_quality_good_text">Добро</string>
+  <string name="suggested_edits_quality_okay_text">Прилично</string>
+  <string name="suggested_edits_quality_sufficient_text">Достатъчно</string>
+  <string name="suggested_edits_quality_poor_text">Ниско</string>
+  <string name="suggested_edits_quality_bad_text">Лошо</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Принос</item>
+    <item quantity="other">Приноси</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d ден</item>
+    <item quantity="other">%d дни</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Последна редакция</string>
+  <string name="suggested_edits_last_edited_never">Никога</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
@@ -725,6 +745,8 @@
   <string name="events_count_text">%1$s събития от %2$s-%3$d</string>
   <string name="this_year">Тази година</string>
   <string name="back_to_top">Връщане в началото</string>
+  <string name="on_this_day_dialog_next_month">Следващ месец</string>
+  <string name="on_this_day_dialog_previous_month">Предходен месец</string>
   <plurals name="diff_years">
     <item quantity="one">Миналата година</item>
     <item quantity="other">Преди %d години</item>

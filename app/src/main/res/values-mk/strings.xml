@@ -20,7 +20,7 @@
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
   <string name="nav_item_history">Историја</string>
-  <string name="nav_item_suggested_edits">Предложени уредувања</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Предложени уредувања</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -728,6 +728,8 @@
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дена</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Последно уредување</string>
+  <string name="suggested_edits_last_edited_never">Никогаш</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

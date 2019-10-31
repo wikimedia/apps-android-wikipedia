@@ -748,6 +748,8 @@
     <item quantity="few">%d dny</item>
     <item quantity="other">%d dní</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Poslední editace</string>
+  <string name="suggested_edits_last_edited_never">Nikdy</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
