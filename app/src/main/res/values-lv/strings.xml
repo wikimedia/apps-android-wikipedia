@@ -304,6 +304,8 @@
   <string name="suggested_edits_feed_card_title">Ieteiktie labojumi</string>
   <string name="suggested_edits_image_preview_dialog_date">Datums</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencēšana</string>
+  <string name="suggested_edits_last_edited">Pēdējais labojums</string>
+  <string name="suggested_edits_last_edited_never">Nekad</string>
   <string name="description_edit_login_cancel_button_text">Atcelt</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>

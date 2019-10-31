@@ -18,7 +18,7 @@
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="search_hint_search_history">Paieškos istorija</string>
   <string name="nav_item_history">Istorija</string>
-  <string name="nav_item_suggested_edits">Siūlomi Keitimai</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Siūlomi Keitimai</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="page_error_back_to_main">Grįžti atgal</string>
