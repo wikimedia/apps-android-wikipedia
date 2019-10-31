@@ -10,6 +10,7 @@
 * Fitoschido
 * Jaumeortola
 * Jey
+* Jlrb+
 * Joan manel
 * Kippelboy
 * Lluis tgn
@@ -33,6 +34,7 @@
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Edicions suggerides</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
   <string name="card_offline_error_retry">Reintenta</string>
@@ -279,6 +281,7 @@
   <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Cal tenir permís d’escriptura en el vostre dispositiu per a poder desar les imatges.</string>
+  <string name="gallery_add_image_caption_button">Afegeix una llegenda a la imatge</string>
   <string name="gallery_add_image_caption_in_language_button">Afegeix una llegenda a la imatge (%s)</string>
   <string name="err_cannot_save_file">No es pot desar el fitxer</string>
   <string name="snippet_share_intro">«%1$s» a @Viquipedia: %2$s</string>
@@ -337,6 +340,7 @@
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
   <string name="error_page_does_not_exist">La pàgina no existeix</string>
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
+  <string name="view_wiki_error_message_timeout">No es pot connectar a la Viquipèdia. Comproveu la connexió a la xarxa o torneu-ho a provar més endavant</string>
   <string name="reference_title">Referència %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuació d\'imatges (en el tema fosc)</string>
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
@@ -605,9 +609,12 @@
   <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Carrega’n més</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
-  <string name="description_edit_article_description_label_per_language">Article (%s)</string>
+  <string name="description_edit_article_description_label">Article</string>
+  <string name="description_edit_translate_article_description_label_per_language">Descripció de l\'article (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripció de l\'article (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descripció de la imatge (%s)</string>
+  <string name="description_edit_add_caption_label">Descripció de la imatge</string>
+  <string name="description_edit_add_caption_hint">Llegenda de la imatge</string>
+  <string name="description_edit_translate_caption_label_per_language">Llegenda de la imatge (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Llegendes de la imatge (%s)</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_read">Llegeix</string>
@@ -660,8 +667,6 @@
   <string name="suggested_edits_tasks_activity_title">Edicions suggerides</string>
   <string name="suggested_edits_task_add_description_title">Afegeix descripcions d\'article</string>
   <string name="suggested_edits_task_add_description_description">Contribuïu a articles sense descripcions</string>
-  <string name="suggested_edits_task_translation_title">Tradueix descripcions d\'article</string>
-  <string name="suggested_edits_task_translation_description">Tradueix les descripcions en les diferents llengües de l\'article.</string>
   <string name="suggested_edits_task_image_caption_title">Addició de llegendes a les imatges</string>
   <string name="suggested_edits_task_image_caption_description">Afegeix llegendes curtes a les imatges que no en tenen</string>
   <string name="suggested_edits_task_translate_caption_title">Tradueix les llegendes de les imatges</string>
@@ -682,6 +687,7 @@
     <item quantity="other">%d contribucions</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Edicions suggerides</string>
+  <string name="suggested_edits_feed_card_add_description_button">Afegeix una descripció a l\'article</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Afegeix una descripció de l\'article (%s)</string>
   <string name="suggested_edits_tutorial_message">Us donem la benvinguda a la nova pàgina inicial d\'edició ràpida de l\'aplicació de la Viquipèdia. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primers passos</string>
@@ -693,13 +699,25 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Llicència</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Més informació</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pàgina del fitxer a Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Afegeix una llegenda d\'imatge</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Afegeix una llegenda d\'imatge (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Mostra</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Afegeix una descripció a l\'article</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Afegeix una llegenda a la imatge</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda a la imatge (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Com ha estat la vostra experiència editant-hi? Dediqueu un moment a omplir l\'enquesta d\'edició amb l\'aplicació.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Inicia l\'enquesta</string>
+  <string name="suggested_edits_task_action_text_add">Afegeix</string>
+  <string name="suggested_edits_task_action_text_translate">Tradueix</string>
+  <string name="suggested_edits_image_captions">Llegendes d\'imatges</string>
+  <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Les descripcions d\'article resumeixen un article per tal d\'ajudar els lectors a entendre el tema a primera vista</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="other">un=Contribució</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d dia</item>
+    <item quantity="other">%d dies</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
@@ -738,6 +756,9 @@
   <string name="events_count_text">%1$s esdeveniments des de %2$s–%3$d</string>
   <string name="this_year">Enguany</string>
   <string name="back_to_top">Torna a dalt</string>
+  <string name="on_this_day_dialog_next_month">El mes següent</string>
+  <string name="on_this_day_dialog_previous_month">El mes anterior</string>
+  <string name="on_this_day_open_date_picker">Obre la selecció de dates</string>
   <plurals name="diff_years">
     <item quantity="one">El darrer any</item>
     <item quantity="other">Fa %d anys</item>
@@ -785,6 +806,8 @@
   <string name="main_drawer_content_description">Obre el calaix principal de navegació</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
+  <string name="main_tooltip_text">%s, sabíeu que tothom pot editar la Viquipèdia?</string>
+  <string name="main_tooltip_action_button">Primers passos</string>
   <string name="custom_date_picker_dialog_ok_button_text">D’acord</string>
   <string name="text_input_dialog_ok_button_text">D’acord</string>
   <string name="text_input_dialog_cancel_button_text">Cancel·la</string>

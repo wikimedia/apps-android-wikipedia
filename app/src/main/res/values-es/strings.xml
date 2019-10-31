@@ -4,6 +4,7 @@
 * Amaia
 * Anarhistička Maca
 * Athena in Wonderland
+* Canaan9801
 * Codynguyen1116
 * Csbotero
 * David.novella
@@ -54,6 +55,7 @@
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Ediciones sugeridas</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -625,9 +627,8 @@
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
-  <string name="description_edit_article_description_label_per_language">Artículo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artículo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripción de artículo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descripción de imagen (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Leyenda de imagen (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Leer</string>
@@ -676,8 +677,6 @@
   <string name="suggested_edits_tasks_activity_title">Ediciones sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Añade descripciones de artículos</string>
   <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
-  <string name="suggested_edits_task_translation_title">Traducir descripciones de artículos</string>
-  <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
   <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>
   <string name="suggested_edits_task_image_caption_description">Añadir títulos faltados a imágenes</string>
   <string name="suggested_edits_task_translate_caption_title">Traduce la leyenda de la imagen</string>
@@ -698,6 +697,7 @@
     <item quantity="other">%d contribuciones desde la aplicación</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Ediciones sugeridas</string>
+  <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Añadir descripción de imagen (%s)</string>
   <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
@@ -708,12 +708,30 @@
   <string name="suggested_edits_image_preview_dialog_source">Fuente/fotógrafo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Más información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página del archivo en Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Añadir leyenda de imagen</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda de imagen</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
+  <string name="suggested_edits_task_action_text_translate">Traducir</string>
+  <string name="suggested_edits_pageviews_label_text">Visitas de página</string>
+  <string name="suggested_edits_quality_label_text">Calidad de ediciones</string>
+  <string name="suggested_edits_quality_perfect_text">Perfecta</string>
+  <string name="suggested_edits_quality_excellent_text">Excelente</string>
+  <string name="suggested_edits_quality_very_good_text">Muy buena</string>
+  <string name="suggested_edits_quality_good_text">Buena</string>
+  <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
+  <string name="suggested_edits_quality_poor_text">Deficiente</string>
+  <string name="suggested_edits_quality_bad_text">Mala</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Contribución</item>
+    <item quantity="other">Contribuciones</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d día</item>
+    <item quantity="other">%d días</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -752,6 +770,9 @@
   <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
   <string name="back_to_top">Volver al principio</string>
+  <string name="on_this_day_dialog_next_month">El próximo mes</string>
+  <string name="on_this_day_dialog_previous_month">El mes prévio</string>
+  <string name="on_this_day_open_date_picker">Selector de fechas abiertas</string>
   <plurals name="diff_years">
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>

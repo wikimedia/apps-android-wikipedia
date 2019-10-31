@@ -4,6 +4,7 @@
 * Abijeet Patro
 * Alluk.
 * BriskyBlizzard
+* Cxz
 * ElmA
 * Envlh
 * Jack Phoenix
@@ -31,10 +32,12 @@
   <string name="page_tabs_back">Takaisin</string>
   <string name="nav_item_forward">Eteenpäin</string>
   <string name="search_hint">Hae Wikipediasta</string>
+  <string name="search_hint_voice_search">Hae äänitulon perusteella</string>
   <string name="search_hint_search_history">Hae historiasta</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
+  <string name="nav_item_suggested_edits">Ehdotetut muokkaukset</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="card_offline_error_retry">Yritä uudelleen</string>
@@ -88,7 +91,7 @@
   <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kielet</string>
   <string name="langlinks_filter_hint">Haku</string>
-  <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
+  <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä.</string>
   <string name="langlinks_no_match">Kieliä ei löytynyt</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="langlinks_your_wikipedia_languages">Omat Wikipedia-kielet</string>
@@ -281,6 +284,7 @@
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten.</string>
+  <string name="gallery_add_image_caption_button">Lisää kuvateksti</string>
   <string name="gallery_add_image_caption_in_language_button">Lisää kuvateksti (%s)</string>
   <string name="err_cannot_save_file">Tiedostoa ei voitu tallentaa</string>
   <string name="snippet_share_intro">\"%1$s\" sivustolla @Wikipedia: %2$s</string>
@@ -339,6 +343,7 @@
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
+  <string name="view_wiki_error_message_timeout">Wikipediaan ei saada yhteyttä. Tarkista verkkoyhteytesi tai yritä myöhemmin uudelleen.</string>
   <string name="reference_title">Viite %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
   <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
@@ -466,7 +471,7 @@
   <string name="reading_lists_menu_create_list">Luo uusi lista</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
   <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään /rekisteröidy</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kirjaudu sisään / rekisteröidy</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
@@ -603,8 +608,11 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
-  <string name="description_edit_article_description_label_per_language">Artikkeli (%s)</string>
+  <string name="description_edit_article_description_label">Artikkeli</string>
+  <string name="description_edit_translate_article_description_label_per_language">Artikkelin kuvaus (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikkelin kuvaus (%s)</string>
+  <string name="description_edit_add_caption_hint">Kuvateksti</string>
+  <string name="description_edit_translate_caption_label_per_language">Kuvateksti (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Kuvateksti (%s)</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_read">Lue</string>
@@ -624,6 +632,9 @@
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Kuvateksti julkaistu!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Kuvateksti julkaistu! (%s)</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
@@ -636,25 +647,28 @@
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
   <string name="suggested_edits_add_descriptions">Lisää artikkelin kuvaukset</string>
   <string name="suggested_edits_translate_descriptions">Käännä artikkelin kuvaukset</string>
+  <string name="suggested_edits_add_image_captions">Lisää kuvatekstit</string>
+  <string name="suggested_edits_translate_image_captions">Käännä kuvatekstit</string>
   <string name="suggested_edits_review_description">Esikatsele artikkelin kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
   <string name="suggested_edits_edit_description_button">Muokkaa kuvausta</string>
   <string name="suggested_edits_add_translation_button">Lisää käännös</string>
   <string name="suggested_edits_edit_translation_button">Muokkaa käännöstä</string>
+  <string name="suggested_edits_add_caption_button">Lisää kuvateksti</string>
+  <string name="suggested_edits_edit_caption_button">Muokkaa kuvatekstejä</string>
+  <string name="suggested_edits_review_image_caption">Esikatsele kuvatekstiä</string>
   <string name="suggested_edits_my_contributions">Omat muokkaukset</string>
   <string name="suggested_edits_no_description">Tällä tiedostolla ei ole kuvausta</string>
   <string name="suggested_edits_license_notice">Lisäämällä kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_menu_info">Tiedot</string>
   <string name="suggested_edits_tasks_activity_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_task_add_description_title">Lisää artikkelin kuvaukset</string>
-  <string name="suggested_edits_task_translation_title">Käännä artikkelin kuvaukset</string>
-  <string name="suggested_edits_task_translation_description">Käännä kuvaukset muille kielille.</string>
   <string name="suggested_edits_task_image_caption_title">Lisää kuvatekstit</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Lisää kuvatekstejä</string>
+  <string name="suggested_edits_task_image_caption_description">Lisää puuttuvia lyhyitä kuvatekstejä kuviin</string>
   <string name="suggested_edits_task_translate_caption_title">Käännä kuvatekstit</string>
   <string name="suggested_edits_task_translate_caption_description">Käännä kuvatekstit muille kielille</string>
   <string name="suggested_edits_task_multilingual_title">Lisää tehtäviä monikielisille muokkaajille</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Lukittu, kunnes olet tehnyt %d vahvistettua muokkausta</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Lukittu, kunnes olet muokannut %d kuvatekstiä</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Lukittu, kunnes olet tehnyt %d vahvistettua artikkelikuvausta</string>
   <string name="suggested_edits_task_multilingual_negative">Ei minulle</string>
   <string name="suggested_edits_task_multilingual_positive">Lisää kieliä</string>
@@ -668,6 +682,7 @@
     <item quantity="other">%d muokkausta</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Ehdotetut muokkaukset</string>
+  <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lisää artikkelin kuvaus (%s)</string>
   <string name="suggested_edits_tutorial_message">Tervetuloa pikamuokkauksen uuteen kotiin Wikipedia-sovelluksessa. Muokkauksesi ovat hyvin arvostettuja. Iloista muokkaamista!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
@@ -679,9 +694,23 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Lisätietoja</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Tiedostosivu Wikimedia Commonsissa</string>
   <string name="suggested_edits_article_cta_image_caption">Lisää kuvateksti</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Näytä</string>
-  <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Lisää kuvateksti</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Lisää kuvateksti (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vastaa kyselyyn</string>
+  <string name="suggested_edits_task_action_text_add">Lisää</string>
+  <string name="suggested_edits_task_action_text_translate">Käännä</string>
+  <string name="suggested_edits_image_captions">Kuvatekstit</string>
+  <string name="suggested_edits_quality_very_good_text">Oikein hyvä</string>
+  <string name="suggested_edits_quality_good_text">Hyvä</string>
+  <string name="suggested_edits_quality_okay_text">Ok</string>
+  <string name="suggested_edits_quality_poor_text">Heikko</string>
+  <string name="suggested_edits_quality_bad_text">Huono</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d päivä</item>
+    <item quantity="other">%d päivää</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
@@ -720,6 +749,8 @@
   <string name="events_count_text">%1$s tapahtumat %2$s–%3$d</string>
   <string name="this_year">Tänä vuonna</string>
   <string name="back_to_top">Takaisin alkuun</string>
+  <string name="on_this_day_dialog_next_month">Seuraava kuukausi</string>
+  <string name="on_this_day_dialog_previous_month">Edellinen kuukausi</string>
   <plurals name="diff_years">
     <item quantity="one">Viime vuonna</item>
     <item quantity="other">%d vuotta sitten</item>
@@ -753,6 +784,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Peruuta</string>
+  <string name="content_description_for_page_indicator">Sivu %1$d/%2$d</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>
@@ -765,6 +797,8 @@
   <string name="main_drawer_close">Sulje</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
+  <string name="main_tooltip_text">%s, tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Peruuta</string>

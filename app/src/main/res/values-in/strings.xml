@@ -337,6 +337,7 @@
   <string name="view_link_preview_error_button_dismiss">Tutup</string>
   <string name="error_page_does_not_exist">Halaman ini tidak ada</string>
   <string name="view_wiki_error_message_offline">Tidak dapat terhubung ke internet</string>
+  <string name="view_wiki_error_message_timeout">Tidak dapat menghubungi Wikipedia. Periksa sambungan jaringan Anda, atau coba lagi nanti</string>
   <string name="reference_title">Referensi %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Peredupan gambar (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Tampilkan konten luring dahulu</string>
@@ -479,6 +480,8 @@
   <string name="reading_list_delete_dialog_ok_button_text">Oke</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Batal</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Batal</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Batalkan</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Batalkan</string>
   <string name="reading_list_split_dialog_ok_button_text">Oke</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_reverted_title">Suntingan yang dibalikkan</string>
@@ -533,12 +536,15 @@
   <string name="preference_title_notification_poll">Pilih pemberitahuan</string>
   <string name="preference_summary_notification_poll">Izinkan aplikasi menggunakan data untuk memeriksa pemberitahuan baru di latar belakang.</string>
   <string name="preference_category_notification_types">Jenis pemberitahuan dalam aplikasi</string>
+  <string name="preference_title_notification_system">Sistem</string>
+  <string name="preference_summary_notification_system">Pesan dari sistem</string>
   <string name="preference_title_notification_milestone">Pencapaian</string>
   <string name="preference_summary_notification_milestone">Jumlah suntingan tertentu tercapai</string>
   <string name="preference_title_notification_thanks">Terima kasih</string>
   <string name="preference_summary_notification_thanks">Seseorang berterima kasih atas suntingan Anda</string>
   <string name="preference_title_notification_revert">Pulihkan</string>
   <string name="preference_summary_notification_revert">Salah satu kontribusi Anda dipulihkan</string>
+  <string name="preference_title_notification_login_fail">Masuk log</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_card_subtitle">Membolak-balik sembarang artikel untuk dibaca dari Wikipedia.</string>
@@ -593,8 +599,10 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Oke</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="description_edit_text_hint">Deskripsi judul</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Deskripsi gambar (%s)</string>
+  <string name="description_edit_article_description_label">Artikel</string>
+  <string name="description_edit_translate_article_description_label_per_language">Deskripsi artikel (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Deskripsi artikel (%s)</string>
+  <string name="description_edit_add_caption_label">Deskripsi gambar</string>
   <string name="description_edit_translate_caption_hint_per_language">Takarir gambar (%s)</string>
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_read">Baca</string>
@@ -617,22 +625,27 @@
   <string name="description_edit_success_done">Selesai</string>
   <string name="description_edit_success_did_you_know">Tahukah Anda?</string>
   <string name="description_edit_success_article_edit_hint">Anda juga dapat menyunting artikel dalam aplikasi ini. Coba memperbaiki kesalahan ketik dan kalimat kecil dengan mengklik ikon ^1 lain kali</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Deskripsi judul</string>
+  <string name="description_edit_tutorial_title_descriptions">Deskripsi artikel</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Meringkaskan sebuah artikel untuk membantu pembaca memahami subjek dengan sekilas</string>
   <string name="description_edit_tutorial_keep_it_short">Jagalah agar singkat</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambahkan deskripsi judul</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Tinjau deskripsi judul</string>
+  <string name="suggested_edits_add_descriptions">Tambahkan deskripsi artikel</string>
+  <string name="suggested_edits_translate_descriptions">Terjemahkan deskripsi artikel</string>
+  <string name="suggested_edits_add_image_captions">Tambahkan takarir gambar</string>
+  <string name="suggested_edits_translate_image_captions">Terjemahkan takarir gambar</string>
+  <string name="suggested_edits_review_description">Tinjau deskripsi artikel</string>
   <string name="suggested_edits_add_description_button">Tambahkan deskripsi</string>
+  <string name="suggested_edits_edit_description_button">Sunting deskripsi</string>
+  <string name="suggested_edits_add_translation_button">Tambah terjemahan</string>
+  <string name="suggested_edits_edit_translation_button">Sunting terjemahan</string>
+  <string name="suggested_edits_add_caption_button">Tambah takarir</string>
   <string name="suggested_edits_my_contributions">Kontribusi saya</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_tasks_activity_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambahkan deskripsi judul</string>
   <string name="suggested_edits_task_add_description_description">Menyumbang ke artikel tanpa deskripsi judul</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemahkan deskripsi</string>
-  <string name="suggested_edits_task_translation_description">Terjemahkan deskripsi artikel lintas bahasa.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan gambar</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambahkan keterangan ke gambar</string>
   <string name="suggested_edits_task_translate_caption_title">Terjemahkan keterangan gambar</string>

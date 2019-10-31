@@ -278,6 +278,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Labi</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Atcelt</string>
   <string name="description_edit_text_hint" fuzzy="true">Uzraksti aprakstu!</string>
+  <string name="description_edit_article_description_label">Raksts</string>
   <string name="description_edit_save">Publicēt</string>
   <string name="description_edit_read">Lasīt</string>
   <string name="description_edit_add_description" fuzzy="true">Pievieno īsu aprakstu!</string>

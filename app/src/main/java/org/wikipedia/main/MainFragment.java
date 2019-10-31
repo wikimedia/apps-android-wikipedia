@@ -6,7 +6,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.location.Location;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -19,6 +18,8 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -26,6 +27,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -42,6 +45,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
+import org.wikipedia.navtab.NavTabOverlayLayout;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -52,7 +56,9 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSurvey;
+import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -66,6 +72,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
@@ -78,10 +86,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
+    @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
+    private Snackbar suggestedEditsNavTabSnackbar;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -105,6 +116,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
         viewPager.setOffscreenPageLimit(2);
@@ -137,11 +149,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
         SuggestedEditsSurvey.maybeRunSurvey(requireActivity());
+        resetNavTabLayouts();
     }
 
     @Override public void onDestroyView() {
         unbinder.unbind();
         unbinder = null;
+        disposables.dispose();
         super.onDestroyView();
     }
 
@@ -159,8 +173,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             refreshExploreFeed();
             ((MainActivity) requireActivity()).setUpHomeMenuIcon();
-            FeedbackUtil.showMessage(this, R.string.login_success_toast);
-            tabLayout.setTabViews();
+            if (!Prefs.shouldShowSuggestedEditsTooltip()) {
+                FeedbackUtil.showMessage(this, R.string.login_success_toast);
+            }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -172,8 +187,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
             }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY
-                && resultCode == SearchFragment.RESULT_LANG_CHANGED) {
+        } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
+                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
             refreshExploreFeed();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -323,7 +338,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void requestUpdateToolbarElevation() {
         Fragment fragment = getCurrentFragment();
-        updateToolbarElevation(!(fragment instanceof FeedFragment) || ((FeedFragment) fragment).shouldElevateToolbar());
+        updateToolbarElevation(!(fragment instanceof FeedFragment || fragment instanceof SuggestedEditsTasksFragment) || (fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
     }
 
     @Override public void onLoadPage(@NonNull HistoryEntry entry) {
@@ -394,10 +409,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    private void showLinkPreview(@NonNull HistoryEntry entry, @Nullable Location location) {
-        bottomSheetPresenter.show(getChildFragmentManager(), LinkPreviewDialog.newInstance(entry, location));
-    }
-
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(requireContext(), null, url);
         FeedbackUtil.showMessage(this, R.string.address_copied);
@@ -438,6 +449,28 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
+    void resetNavTabLayouts() {
+        tabLayout.setTabViews();
+        tabLayout.setSelectedItemId(viewPager.getCurrentItem());
+        if (AccountUtil.isLoggedIn()) {
+            if (Prefs.shouldShowSuggestedEditsTooltip()) {
+                tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
+                suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+                suggestedEditsNavTabSnackbar.show();
+            }
+        } else {
+            hideNavTabOverlayLayout();
+        }
+    }
+
+    void hideNavTabOverlayLayout() {
+        tabOverlayLayout.hide();
+        if (suggestedEditsNavTabSnackbar != null) {
+            suggestedEditsNavTabSnackbar.dismiss();
+        }
+    }
+
     public Fragment getCurrentFragment() {
         return ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
     }
@@ -446,6 +479,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void onSuccess() {
             FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_success);
+        }
+    }
+
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) {
+            if (event instanceof LoggedOutInBackgroundEvent) {
+                resetNavTabLayouts();
+            }
         }
     }
 

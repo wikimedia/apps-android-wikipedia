@@ -275,6 +275,7 @@
   <string name="gallery_save_success">O ficheiro gardouse correctamente.</string>
   <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">É necesario o permiso de escritura no seu dispositivo para gardar imaxes.</string>
+  <string name="gallery_add_image_caption_button">Engadir lenda de imaxe</string>
   <string name="gallery_add_image_caption_in_language_button">Engadir lenda de imaxe (%s)</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
@@ -602,9 +603,12 @@
   <string name="feed_accessibility_card_text">Chegou ó final da canle.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar máis</string>
   <string name="description_edit_text_hint">Descrición do artigo</string>
-  <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
+  <string name="description_edit_article_description_label">Artigo</string>
+  <string name="description_edit_translate_article_description_label_per_language">Descrición do artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrición do artigo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descrición da imaxe (%s)</string>
+  <string name="description_edit_add_caption_label">Descrición da imaxe</string>
+  <string name="description_edit_add_caption_hint">Lenda da imaxe</string>
+  <string name="description_edit_translate_caption_label_per_language">Lenda de imaxe (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Lenda de imaxe (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
@@ -657,8 +661,6 @@
   <string name="suggested_edits_tasks_activity_title">Edicións suxeridas</string>
   <string name="suggested_edits_task_add_description_title">Engadir descricións de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
-  <string name="suggested_edits_task_translation_title">Traducir descricións de artigos</string>
-  <string name="suggested_edits_task_translation_description">Traducir descricións nas linguas dos artigos.</string>
   <string name="suggested_edits_task_image_caption_title">Engadir lendas ás imaxes</string>
   <string name="suggested_edits_task_image_caption_description">Engadir lendas curtas ás imaxes que non teñen</string>
   <string name="suggested_edits_task_translate_caption_title">Traducir pés de imaxe</string>
@@ -679,6 +681,7 @@
     <item quantity="other">%d contribucións</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Edicións suxeridas</string>
+  <string name="suggested_edits_feed_card_add_description_button">Engadir descrición de artigo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Engadir descrición de imaxe (%s)</string>
   <string name="suggested_edits_tutorial_message">Benvido á nova páxina inicial de edición rápida da aplicación da Wikipedia. As súas contribucións son moi apreciadas. Boas ediciónsǃ</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Comezar</string>
@@ -690,11 +693,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Máis información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Páxina do ficheiro en Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Engadir lenda de imaxe</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Engadir lenda (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Engadir descrición de artigo</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Engadir lenda</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Engadir lenda (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Como foi a súa experiencia editando? Por favor, adique un momento a cubrir a enquisa de edición na aplicación.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Comezar a enquisa</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
@@ -782,6 +785,8 @@
   <string name="main_drawer_content_description">Abrir o panel principal de navegación</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
+  <string name="main_tooltip_text">%s, sabía que todo o mundo pode editar a Wikipedia?</string>
+  <string name="main_tooltip_action_button">Comezar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>

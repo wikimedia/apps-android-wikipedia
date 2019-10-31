@@ -409,9 +409,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="feed_accessibility_card_load_more_button">കൂടുതൽ എടുക്കുക</string>
   <string name="description_edit_text_hint">ലേഖനനത്തിന്റെ വിവരണം</string>
-  <string name="description_edit_article_description_label_per_language">ലേഖനം (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ലേഖനം (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ലേഖനത്തിന്റെ വിവരണം (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ചിത്രത്തിന്റെ വിവരണം (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>
   <string name="description_edit_read">വായിക്കുക</string>
@@ -452,7 +451,6 @@
   <string name="suggested_edits_tasks_activity_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
   <string name="suggested_edits_task_add_description_title">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_add_description_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
-  <string name="suggested_edits_task_translation_title">ലേഖനത്തിന്റെ വിവരണങ്ങൾ തർജ്ജമ ചെയ്യുക</string>
   <string name="suggested_edits_task_image_caption_title">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_translate_caption_title">ചിത്രത്തിന്റെ തലവാചകം തർജ്ജമ ചെയ്യുക</string>
@@ -465,6 +463,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">സ്രോതസ്സ്</string>
   <string name="suggested_edits_image_caption_summary_title_date">തീയതി</string>
   <string name="suggested_edits_feed_card_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
+  <string name="suggested_edits_feed_card_add_description_button">ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ലേഖനത്തിന് വിവരണം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">തുടക്കം കുറിക്കുക</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
@@ -472,11 +471,11 @@
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>
+  <string name="suggested_edits_article_cta_image_caption">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">കാണുക</string>
-  <string name="suggested_edits_feed_card_add_image_caption">തലവാചകം ചേർക്കുക</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">തലവാചകം ചേർക്കുക (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">തലവാചകം ചേർക്കുക</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">തലവാചകം ചേർക്കുക (%s)</string>
   <string name="description_edit_revert_subtitle">വിക്കിപീഡിയ തിരുത്തുന്നതിന് നന്ദി!</string>
   <string name="description_edit_login_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="onboarding_skip">മറികടക്കുക</string>

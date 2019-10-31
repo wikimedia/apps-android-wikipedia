@@ -282,6 +282,7 @@
   <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다.</string>
+  <string name="gallery_add_image_caption_button">이미지 캡션 추가</string>
   <string name="gallery_add_image_caption_in_language_button">이미지 설명 추가 (%s)</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
   <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
@@ -602,9 +603,12 @@
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
   <string name="description_edit_text_hint">문서 설명</string>
-  <string name="description_edit_article_description_label_per_language">문서 (%s)</string>
+  <string name="description_edit_article_description_label">문서</string>
+  <string name="description_edit_translate_article_description_label_per_language">문서 설명 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">문서 설명 (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">이미지 설명 (%s)</string>
+  <string name="description_edit_add_caption_label">이미지 설명</string>
+  <string name="description_edit_add_caption_hint">이미지 캡션</string>
+  <string name="description_edit_translate_caption_label_per_language">이미지 캡션 (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">이미지 설명 (%s)</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_read">읽기</string>
@@ -657,8 +661,6 @@
   <string name="suggested_edits_tasks_activity_title">편집 제안</string>
   <string name="suggested_edits_task_add_description_title">문서 설명 추가</string>
   <string name="suggested_edits_task_add_description_description">설명 없이 문서에 기여</string>
-  <string name="suggested_edits_task_translation_title">문서 설명 번역하기</string>
-  <string name="suggested_edits_task_translation_description">문서 언어별로 설명을 번역합니다.</string>
   <string name="suggested_edits_task_image_caption_title">이미지 설명 추가</string>
   <string name="suggested_edits_task_image_caption_description">이미지에 존재하지 않는 짧은 캡션 추가</string>
   <string name="suggested_edits_task_translate_caption_title">이미지 설명 번역하기</string>
@@ -679,6 +681,7 @@
     <item quantity="other">%d개 기여</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">편집 제안</string>
+  <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
   <string name="suggested_edits_tutorial_message">위키백과 앱의 빠른 편집의 새 터전에 오신 것을 환영합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
@@ -690,13 +693,33 @@
   <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
+  <string name="suggested_edits_article_cta_image_caption">이미지 캡션 추가</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
-  <string name="suggested_edits_feed_card_add_image_caption">설명 추가</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">설명 추가 (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
+  <string name="suggested_edits_feed_card_add_image_caption">이미지 캡션 추가</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">편집 경험은 어떠셨나요? 시간을 내어 인앱 편집에 관한 설문조사를 작성해 주십시오.</string>
   <string name="suggested_edits_snackbar_survey_action_text">설문 조사 참가</string>
+  <string name="suggested_edits_task_action_text_add">추가</string>
+  <string name="suggested_edits_task_action_text_translate">번역</string>
+  <string name="suggested_edits_image_captions">이미지 캡션</string>
+  <string name="suggested_edits_ip_blocked_message">IP 주소(또는 IP 주소 대역)가 현재 위키백과 편집으로부터 차단된 것으로 보입니다. 아래의 링크를 방문하여 이것이 무엇을 의미하는지 더 알아보십시오.</string>
+  <string name="suggested_edits_quality_label_text">편집 품질</string>
+  <string name="suggested_edits_quality_perfect_text">완벽함</string>
+  <string name="suggested_edits_quality_excellent_text">우수함</string>
+  <string name="suggested_edits_quality_very_good_text">매우 좋음</string>
+  <string name="suggested_edits_quality_good_text">좋음</string>
+  <string name="suggested_edits_quality_sufficient_text">충분함</string>
+  <string name="suggested_edits_quality_poor_text">낮음</string>
+  <string name="suggested_edits_quality_bad_text">나쁨</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">기여</item>
+    <item quantity="other">기여</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d일</item>
+    <item quantity="other">%d일</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
@@ -735,6 +758,9 @@
   <string name="events_count_text">%2$s~%3$d년 사이의 이벤트 %1$s개</string>
   <string name="this_year">올해</string>
   <string name="back_to_top">맨 위로 돌아가기</string>
+  <string name="on_this_day_dialog_next_month">다음 달</string>
+  <string name="on_this_day_dialog_previous_month">이전 달</string>
+  <string name="on_this_day_open_date_picker">날짜 선택기 열기</string>
   <plurals name="diff_years">
     <item quantity="one">지난해</item>
     <item quantity="other">%d년 전</item>
@@ -781,6 +807,7 @@
   <string name="main_drawer_content_description">주 둘러보기 서랍 열기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
+  <string name="main_tooltip_action_button">시작하기</string>
   <string name="custom_date_picker_dialog_ok_button_text">확인</string>
   <string name="text_input_dialog_ok_button_text">확인</string>
   <string name="text_input_dialog_cancel_button_text">취소</string>

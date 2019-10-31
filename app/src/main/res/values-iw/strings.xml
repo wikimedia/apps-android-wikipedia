@@ -31,6 +31,7 @@
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="search_hint_search_my_lists_and_articles">חיפוש ברשימות ובערכים</string>
   <string name="nav_item_history">היסטוריה</string>
+  <string name="nav_item_suggested_edits">עריכות מוצעות</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="card_offline_error_retry">ניסיון חוזר</string>
@@ -278,6 +279,7 @@
   <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
+  <string name="gallery_add_image_caption_button">הוספת כיתוב לתמונה</string>
   <string name="gallery_add_image_caption_in_language_button">הוספת כיתוב תמונה (%s)</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
   <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
@@ -336,6 +338,7 @@
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
+  <string name="view_wiki_error_message_timeout">לא ניתן להתחבר לוויקיפדיה. יש לבדוק את החיבור שלך לרשת או לנסות שוב מאוחר יותר</string>
   <string name="reference_title">הערת שוליים %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
@@ -604,9 +607,12 @@
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
   <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
-  <string name="description_edit_article_description_label_per_language">ערך (%s)</string>
+  <string name="description_edit_article_description_label">ערך</string>
+  <string name="description_edit_translate_article_description_label_per_language">תיאור הערך (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">תיאור ערך (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">תיאור תמונה (%s)</string>
+  <string name="description_edit_add_caption_label">תיאור התמונה</string>
+  <string name="description_edit_add_caption_hint">כיתוב התמונה</string>
+  <string name="description_edit_translate_caption_label_per_language">כיתוב התמונה (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">כיתובי תמונות (%s)</string>
   <string name="description_edit_save">פרסום</string>
   <string name="description_edit_read">לקרוא</string>
@@ -659,8 +665,6 @@
   <string name="suggested_edits_tasks_activity_title">עריכות מוצעות</string>
   <string name="suggested_edits_task_add_description_title">הוספת תיאורי ערכים</string>
   <string name="suggested_edits_task_add_description_description">תרומה לערכים חסרי תיאורים</string>
-  <string name="suggested_edits_task_translation_title">תרגום תיאורי ערכים</string>
-  <string name="suggested_edits_task_translation_description">תרגום תיאורים לשפות אחרות.</string>
   <string name="suggested_edits_task_image_caption_title">הוספת כיתובים לתמונות</string>
   <string name="suggested_edits_task_image_caption_description">הוספת תיאורים קצרים שחסרים לתמונות</string>
   <string name="suggested_edits_task_translate_caption_title">תרגום כיתובי תמונה</string>
@@ -681,6 +685,7 @@
     <item quantity="other">%d תרומות</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
+  <string name="suggested_edits_feed_card_add_description_button">הוספת תיאור ערך</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">הוספת תיאור ערך (%s)</string>
   <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
@@ -692,11 +697,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
   <string name="suggested_edits_image_preview_dialog_more_info">מידע נוסף</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">דף הקובץ בוויקישיתוף</string>
+  <string name="suggested_edits_article_cta_image_caption">הוספת כיתוב לתמונה</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">הוספת כיתוב לתמונה (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
-  <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">הוספת תיאור ערך</string>
+  <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
@@ -784,6 +789,8 @@
   <string name="main_drawer_content_description">פתיחת מגירת הניווט הראשית</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
+  <string name="main_tooltip_text">%s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
+  <string name="main_tooltip_action_button">להתחיל</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_cancel_button_text">ביטול</string>

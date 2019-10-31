@@ -38,6 +38,10 @@ public final class DateUtil {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false).format(date);
     }
 
+    public static synchronized Date dbDateParse(String date) throws ParseException {
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true).parse(date);
+    }
+
     public static String getFeedCardDayHeaderDate(int age) {
         return getDateStringWithSkeletonPattern(new UtcDate(age).baseCalendar().getTime(), "EEEE MMM d");
     }
@@ -56,6 +60,10 @@ public final class DateUtil {
 
     public static String getFeedCardShortDateString(@NonNull Calendar date) {
         return getExtraShortDateString(date.getTime());
+    }
+
+    public static String getMDYDateString(@NonNull Date date) {
+        return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy");
     }
 
     public static String getMonthOnlyDateString(@NonNull Date date) {
@@ -156,20 +164,6 @@ public final class DateUtil {
             return daysAgo == 0 ? context.getResources().getString(R.string.view_continue_reading_card_subtitle_today)
                     : context.getResources().getQuantityString(R.plurals.view_continue_reading_card_subtitle, daysAgo, daysAgo);
         }
-    }
-
-    public static Date getDateObjectFor(int year, int month, int day) {
-        Calendar calendar = Calendar.getInstance();
-
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-
-        return calendar.getTime();
-    }
-
-    public static boolean isGivenDateBetweenDates(Date givenDate, Date startDate, Date endDate) {
-        return givenDate.after(startDate) && givenDate.before(endDate);
     }
 
     private DateUtil() {

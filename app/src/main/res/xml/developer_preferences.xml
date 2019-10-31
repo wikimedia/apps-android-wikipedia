@@ -265,12 +265,16 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_edit_tasks_onboarding"
-            android:title="@string/preference_key_show_edit_tasks_onboarding" />
+            android:key="@string/preference_key_show_suggested_edits_survey"
+            android:title="@string/preference_key_show_suggested_edits_survey" />
 
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_suggested_edits_multilingual_teaser_task"
-            android:title="@string/preference_key_show_suggested_edits_multilingual_teaser_task" />
+            android:key="@string/preference_key_show_suggested_edits_tooltip"
+            android:title="@string/preference_key_show_suggested_edits_tooltip" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_edit_tasks_onboarding"
+            android:title="@string/preference_key_show_edit_tasks_onboarding" />
 
     </PreferenceCategory>
 

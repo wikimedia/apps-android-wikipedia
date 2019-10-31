@@ -58,9 +58,6 @@
 
     <dimen name="lead_no_image_top_offset_dp">56dp</dimen>
 
-    <!-- Maps -->
-    <integer name="map_default_zoom">12</integer>
-
     <!-- Crash report -->
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
 
@@ -103,7 +100,6 @@
 
     <!-- Randomizer -->
     <dimen name="randomizer_card_view_bottom_padding">0dp</dimen>
-    <dimen name="randomizer_image_view_height">192dp</dimen>
     <dimen name="randomizer_text_view_height">164dp</dimen>
 
     <!-- Divider width -->
@@ -111,5 +107,14 @@
 
     <!-- Snackbar -->
     <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
+
+    <!-- Suggested Edits -->
+    <dimen name="suggested_edits_icon_size">32dp</dimen>
+    <dimen name="suggested_edits_icon_background_size">26dp</dimen>
+    <dimen name="suggested_edits_icon_title_text_size">18sp</dimen>
+    <dimen name="suggested_edits_icon_description_text_size">14sp</dimen>
+    <dimen name="suggested_edits_title_margin_start">14dp</dimen>
+    <dimen name="suggested_edits_message_textview_text_size">14sp</dimen>
+    <dimen name="suggested_edits_top_tooltip_margin">32dp</dimen>
 
 </resources>
