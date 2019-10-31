@@ -88,6 +88,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiErrorView;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -102,6 +103,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
+import static org.wikipedia.feed.announcement.Announcement.FUNDRAISING_PLACEMENT_ARTICLE;
 import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
@@ -1248,19 +1250,20 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private void maybeShowFundraisingBottomSheet() {
         // TODO: update to getRest()
         // TODO: design may be changed later
-        // TODO: how many times will it show?
-        disposables.add(ServiceFactory.getLocalRest(getTitle().getWikiSite(), "http://10.0.0.51:8889/en.wikipedia.org/v1/").getAnnouncements()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(list -> {
-                    String country = GeoUtil.getGeoIPCountry();
-                    Date now = new Date();
-                    for (Announcement announcement : list.items()) {
-                        if (shouldShow(announcement, country, now)) {
-                            showBottomSheet(new AnnouncementDialog(requireActivity(), new AnnouncementCard(announcement)));
-                            break;
+        if (Prefs.hasVisitedArticlePage() && Prefs.fundraisingBottomSheetShownInYear() < Calendar.getInstance().get(Calendar.YEAR)) {
+            disposables.add(ServiceFactory.getLocalRest(getTitle().getWikiSite(), "http://10.0.0.51:8889/en.wikipedia.org/v1/").getAnnouncements()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(list -> {
+                        String country = GeoUtil.getGeoIPCountry();
+                        Date now = new Date();
+                        for (Announcement announcement : list.items()) {
+                            if (shouldShow(announcement, country, now) && announcement.placement().equals(FUNDRAISING_PLACEMENT_ARTICLE)) {
+                                showBottomSheet(new AnnouncementDialog(requireActivity(), new AnnouncementCard(announcement)));
+                                break;
+                            }
                         }
-                    }
-                }, L::d));
+                    }, L::d));
+        }
     }
 }

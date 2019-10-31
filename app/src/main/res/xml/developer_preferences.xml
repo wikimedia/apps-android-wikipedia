@@ -24,6 +24,12 @@
             android:title="@string/preference_key_announcement_version_code"
             android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_fundraising_bottom_sheet_shown_in_year"
+            android:title="@string/preference_key_fundraising_bottom_sheet_shown_in_year"
+            android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_restbase_heading">
@@ -99,6 +105,11 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_visited_article_page"
+            android:title="@string/preference_key_visited_article_page"
+            android:defaultValue="false" />
+
         <SwitchPreferenceCompat
             android:key="@string/preference_key_notification_show_all"
             android:title="@string/preference_key_notification_show_all"

@@ -799,5 +799,21 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_tooltip, enabled);
     }
 
+    public static boolean hasVisitedArticlePage() {
+        return getBoolean(R.string.preference_key_visited_article_page, false);
+    }
+
+    public static void setHasVisitedArticlePage(boolean visited) {
+        setBoolean(R.string.preference_key_visited_article_page, visited);
+    }
+
+    public static int fundraisingBottomSheetShownInYear() {
+        return getInt(R.string.preference_key_fundraising_bottom_sheet_shown_in_year, 0);
+    }
+
+    public static void setFundraisingBottomSheetShownInYear(int year) {
+        setInt(R.string.preference_key_fundraising_bottom_sheet_shown_in_year, year);
+    }
+
     private Prefs() { }
 }

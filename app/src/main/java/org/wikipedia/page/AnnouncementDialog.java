@@ -16,10 +16,13 @@ import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
+
+import java.util.Calendar;
 
 public class AnnouncementDialog extends BottomSheetDialog implements AnnouncementCardView.Callback {
     AnnouncementDialog(@NonNull Context context, @NonNull AnnouncementCard card) {
@@ -47,10 +50,12 @@ public class AnnouncementDialog extends BottomSheetDialog implements Announcemen
         } else {
             UriUtil.handleExternalLink(getContext(), uri);
         }
+        Prefs.setFundraisingBottomSheetShownInYear(Calendar.getInstance().get(Calendar.YEAR));
     }
 
     @Override
     public void onAnnouncementNegativeAction(@NonNull Card card) {
         dismiss();
+        Prefs.setFundraisingBottomSheetShownInYear(Calendar.getInstance().get(Calendar.YEAR));
     }
 }

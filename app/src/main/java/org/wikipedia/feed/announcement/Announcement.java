@@ -66,7 +66,8 @@ public class Announcement extends BaseModel {
         return type;
     }
 
-    @Nullable Date startTime() {
+    @Nullable
+    public Date startTime() {
         try {
             return DateUtil.iso8601DateParse(startTime);
         } catch (ParseException e) {
@@ -142,7 +143,8 @@ public class Announcement extends BaseModel {
         return beta;
     }
 
-    @NonNull String placement() {
+    @NonNull
+    public String placement() {
         return defaultString(placement, FUNDRAISING_PLACEMENT_FEED);
     }
 
