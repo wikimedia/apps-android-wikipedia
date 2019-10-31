@@ -31,7 +31,7 @@
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhľadávať v mojich zoznamoch a článkoch</string>
   <string name="nav_item_history">História</string>
-  <string name="nav_item_suggested_edits">Navrhované úpravy</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Navrhované úpravy</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
@@ -90,7 +90,7 @@
   <string name="langlinks_activity_title">Iné jazyky</string>
   <string name="langlinks_your_wikipedia_languages">Vaše jazyky</string>
   <string name="menu_save_changes">Uverejniť zmeny</string>
-  <string name="edit_saved_successfully">Úprava bola uverejnená!</string>
+  <string name="edit_saved_successfully">Úprava bola zverejnená!</string>
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
@@ -550,7 +550,7 @@
   <string name="preference_title_notification_user_talk">Diskusná stránka</string>
   <string name="preference_summary_notification_user_talk">Správy na vašej diskusnej stránke</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
-  <string name="view_random_card_title">Randomizér</string>
+  <string name="view_random_card_title">Náhodný článok</string>
   <string name="view_random_card_subtitle">Prečítajte si náhodný článok z Wikipédie.</string>
   <string name="view_random_card_action">Hoďte kockou</string>
   <string name="view_next_random_article">Vložte ďalší náhodný článok</string>
@@ -593,7 +593,7 @@
   <string name="feed_item_type_trending">Najčastejšie prezerané články za tento deň</string>
   <string name="feed_item_type_featured_image">Denný odporúčaný obrázok z Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hlavná stránka Wikipédie s odporúčaným obsahom</string>
-  <string name="feed_item_type_randomizer">Vygenerujte si náhodný článok na prečítanie</string>
+  <string name="feed_item_type_randomizer">Generuje náhodné články na prečítanie</string>
   <string name="feed_item_type_suggested_edits">Návrhy na pridanie obsahu na Wikipédiu</string>
   <string name="feed_empty_message">Nič nie je vo vašom kanále Objaviť</string>
   <string name="feed_configure_onboarding_action">Prispôsobiť</string>
@@ -633,12 +633,12 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulok obrázku bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Titulok obrázku v jazyku %s bol uverejnený!</string>
-  <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>
+  <string name="description_edit_success_encouragement">Práve ste zlepšili Wikipédiu pre všetkých</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>
   <string name="description_edit_success_article_edit_hint">Články môžete upravovať priamo v tejto aplikácii. Skúste opraviť preklepy kliknutím na ikonu ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Popis článku</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Sumarizuje článok, čím pomáha čitateľom ľahšie mu porozumieť</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Zhŕňa článok, čím pomáha čitateľom ihneď pochopiť predmet článku</string>
   <string name="description_edit_tutorial_keep_it_short">Píšte stručne</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
@@ -702,6 +702,44 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Pridať titulok obrázku %s</string>
   <string name="suggested_edits_snackbar_survey_text">Ako sa vám upravovalo? Venujte, prosím, chvíľku vyplneniu dotazníka o editovaní v aplikácii.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vyplniť anketu</string>
+  <string name="suggested_edits_task_action_text_add">Pridať</string>
+  <string name="suggested_edits_task_action_text_translate">Preložiť</string>
+  <string name="suggested_edits_image_captions">Titulky obrázkov</string>
+  <string name="suggested_edits_encouragement_message">%s, ďakujeme za vaše úpravy. Nižšie nájdete ďalšie spôsoby, ako prispievať na Wikipédiu</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
+  <string name="suggested_edits_image_captions_task_detail">Titulky obrázkov popisujú obrázok, aby čitateľom pomohli pochopiť jeho význam a kontext</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Popisy článkov zhŕňajú článok a pomôžu čitateľom ihneď pochopiť predmet článku</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet príspevkov s Navrhovanými úpravami</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Koľko dní bez prestávky ste prispievali pomocou Navrhovaných úprav</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položiek, ku ktorým ste za posledných 30 dní prispeli pomocou Navrhovaných úprav</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Na základe toho, koľkokrát boli vaše príspevky vrátené. Vrátene úpravy: %d</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Navrhované úpravy sú pozastavené do %1$s.&lt;/b&gt; Ľutujeme %2$s, niektoré vaše nedávne príspevky boli vrátené.\n\nNa nižšie uvedených odkazoch sa dozviete, ako zlepšiť svoje editačné schopnosti na Wikipédii.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhované úpravy sú vypnuté.&lt;/b&gt; Ľutujeme %s, veľke množstvo vašich nedávnych príspevkov bolo vrátené.\n\nPrečítajte si, čo to znamená, pomocou odkazov nižšie.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adresa (alebo rozsah IP adries), ktorú používate, má momentálne zablokované upravovanie Wikipédie. Ďalšie informácie o tom, čo to znamená, nájdete na nižšie uvedenom odkaze.</string>
+  <string name="suggested_edits_editing_tips_link_text">Editačné tipy a triky</string>
+  <string name="suggested_edits_help_page_link_text">Nápoveda Navrhovaných úprav</string>
+  <string name="suggested_edits_edit_streak_label_text">Úprav v sérii</string>
+  <string name="suggested_edits_pageviews_label_text">Návštevnosť stránok</string>
+  <string name="suggested_edits_quality_label_text">Kvalita úprav</string>
+  <string name="suggested_edits_quality_perfect_text">Perfektná</string>
+  <string name="suggested_edits_quality_excellent_text">Vynikajúca</string>
+  <string name="suggested_edits_quality_very_good_text">Veľmi dobrá</string>
+  <string name="suggested_edits_quality_good_text">Dobrá</string>
+  <string name="suggested_edits_quality_okay_text">V poriadku</string>
+  <string name="suggested_edits_quality_sufficient_text">Dostatočná</string>
+  <string name="suggested_edits_quality_poor_text">Zlá</string>
+  <string name="suggested_edits_quality_bad_text">Mizerná</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Príspevok</item>
+    <item quantity="other">Príspevky</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d deň</item>
+    <item quantity="few">%d dni</item>
+    <item quantity="other">%d dní</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Posledná úprava</string>
+  <string name="suggested_edits_last_edited_never">Nikdy</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>
@@ -740,6 +778,9 @@
   <string name="events_count_text">%1$s udalostí od roku %2$s do roku %3$d</string>
   <string name="this_year">Tento rok</string>
   <string name="back_to_top">Späť na začiatok</string>
+  <string name="on_this_day_dialog_next_month">Ďalší mesiac</string>
+  <string name="on_this_day_dialog_previous_month">Minulý mesiac</string>
+  <string name="on_this_day_open_date_picker">Otvoriť výber dátumu</string>
   <plurals name="diff_years">
     <item quantity="one">Minulý rok</item>
     <item quantity="other">Pred %d rokmi</item>

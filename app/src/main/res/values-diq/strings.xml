@@ -288,6 +288,8 @@
     <item quantity="one">%d roce</item>
     <item quantity="other">%d roci</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Vurnayışo peyên</string>
+  <string name="suggested_edits_last_edited_never">Qet</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
