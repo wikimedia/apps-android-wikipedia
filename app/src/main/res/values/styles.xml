@@ -136,6 +136,14 @@
         <item name="titleTextStyle">@style/PageToolbarTitleText</item>
     </style>
 
+    <style name="BottomNavigationTextAppearanceInactive">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearanceActive">
+        <item name="android:textSize">10dp</item>
+    </style>
+
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">?attr/main_toolbar_title_color</item>
     </style>

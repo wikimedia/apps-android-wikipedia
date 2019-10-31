@@ -22,6 +22,8 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 public class Announcement extends BaseModel {
     public static final String SURVEY = "survey";
     public static final String FUNDRAISING = "fundraising";
+    public static final String FUNDRAISING_PLACEMENT_FEED = "feed";
+    public static final String FUNDRAISING_PLACEMENT_ARTICLE = "article";
 
     @SuppressWarnings("NullableProblems") @Required @NonNull private String id;
     @SuppressWarnings("NullableProblems") @Required @NonNull private String type;
@@ -36,6 +38,7 @@ public class Announcement extends BaseModel {
     @SerializedName("reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
     @Nullable private Boolean beta;
     @Nullable private Boolean border;
+    @Nullable private String placement;
     @SerializedName("min_version") @Nullable private String minVersion;
     @SerializedName("max_version") @Nullable private String maxVersion;
 
@@ -137,6 +140,10 @@ public class Announcement extends BaseModel {
 
     @Nullable Boolean beta() {
         return beta;
+    }
+
+    @NonNull String placement() {
+        return defaultString(placement, FUNDRAISING_PLACEMENT_FEED);
     }
 
     boolean hasBorder() {

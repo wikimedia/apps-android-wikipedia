@@ -27,6 +27,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.feed.announcement.Announcement.FUNDRAISING_PLACEMENT_FEED;
+
 public class AnnouncementClient implements FeedClient {
     private static final String PLATFORM_CODE = "AndroidApp";
     private static final String PLATFORM_CODE_NEW = "AndroidAppV2";
@@ -62,7 +64,9 @@ public class AnnouncementClient implements FeedClient {
                         cards.add(new SurveyCard(announcement));
                         break;
                     case Announcement.FUNDRAISING:
-                        cards.add(new FundraisingCard(announcement));
+                        if (announcement.placement().equals(FUNDRAISING_PLACEMENT_FEED)) {
+                            cards.add(new FundraisingCard(announcement));
+                        }
                         break;
                     default:
                         cards.add(new AnnouncementCard(announcement));
