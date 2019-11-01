@@ -51,7 +51,7 @@
   <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
   <string name="nav_item_history">Cronologia</string>
-  <string name="nav_item_suggested_edits">Modifiche suggerite</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Modifiche suggerite</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="card_offline_error_retry">Riprova</string>
@@ -710,6 +710,11 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia immagine (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Come è stata la tua esperienza di modifica? Ti preghiamo di dedicare un momento per compilare il sondaggio sulla modifica in-app.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Rispondi sondaggio</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Contributo</item>
+    <item quantity="other">Contributi</item>
+  </plurals>
+  <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>

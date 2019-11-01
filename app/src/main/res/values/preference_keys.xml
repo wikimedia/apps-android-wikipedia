@@ -101,7 +101,6 @@
     <string name="preference_key_show_edit_menu_option_indicator">showEditMenuOptionIndicator</string>
     <string name="preference_key_show_action_feed_indicator">showActionFeedIndicator</string>
     <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
-    <string name="preference_key_show_suggested_edits_multilingual_teaser_task">showSuggestedEditsMultilingualTeaserTask</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
     <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
     <string name="preference_key_suggested_edits_count_for_survey">surveyShownCount</string>

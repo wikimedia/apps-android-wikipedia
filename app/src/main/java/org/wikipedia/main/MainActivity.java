@@ -35,6 +35,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -60,7 +61,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
 
     private boolean controlNavTabInFragment;
-    private NavTab currentTab;
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);
@@ -126,8 +126,9 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        getFragment().requestUpdateToolbarElevation();
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
-        if (WikipediaApp.getInstance().getTabCount() < 1 || (currentTab != null && currentTab.equals(NavTab.SUGGESTED_EDITS))) {
+        if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
             tabsItem.setVisible(false);
         } else {
             tabsItem.setVisible(true);
@@ -160,7 +161,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onTabChanged(@NonNull NavTab tab) {
-        currentTab = tab;
         if (tab.equals(NavTab.EXPLORE)) {
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
             toolbar.setTitle("");
@@ -279,14 +279,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                         .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
-                            getFragment().tabLayout.setTabViews();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
                             if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
                                 ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
-                            getFragment().hideNavTabOverlayLayout();
+                            getFragment().resetNavTabLayouts();
                         }).show();
             } else {
                 getFragment().onLoginRequested();

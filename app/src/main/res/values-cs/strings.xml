@@ -712,6 +712,44 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
+  <string name="suggested_edits_task_action_text_add">Přidat</string>
+  <string name="suggested_edits_task_action_text_translate">Přeložit</string>
+  <string name="suggested_edits_image_captions">Titulky obrázků</string>
+  <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den uživateli %s&lt;/b&gt;, věděli jste, že každý může Wikipedii editovat? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
+  <string name="suggested_edits_image_captions_task_detail">Titulky obrázků popisují obrázek, který čtenářům pomůže pochopit jeho význam a kontext</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Popisy článků shrnují článek a pomohou čtenářům pochopit ihned předmět článku</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali pomocí Navrhování editací</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky vráceny. Vrácené editace: %d</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme uživateli %2$s, některé vaše nedávné příspěvky byly vráceny.\n\n  Na níže uvedených odkazech se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme uživateli %s, velké množství vašich nedávných příspěvků bylo vráceno.\n\n Přečtěte si, co to znamená, pomocí odkazů níže.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adrese (nebo rozsahu IP adres), kterou používáte, je blokována editace Wikipedie. Další informace o tom, co to znamená, naleznete na níže uvedeném odkazu.</string>
+  <string name="suggested_edits_editing_tips_link_text">Editační tipy a triky</string>
+  <string name="suggested_edits_help_page_link_text">Nápověda Navrhování editací</string>
+  <string name="suggested_edits_edit_streak_label_text">Editací v řadě</string>
+  <string name="suggested_edits_pageviews_label_text">Návštěvnost stránek</string>
+  <string name="suggested_edits_quality_label_text">Upravit kvalitu</string>
+  <string name="suggested_edits_quality_perfect_text">Perfektní</string>
+  <string name="suggested_edits_quality_excellent_text">Vynikající</string>
+  <string name="suggested_edits_quality_very_good_text">Velmi dobrý</string>
+  <string name="suggested_edits_quality_good_text">Dobrý</string>
+  <string name="suggested_edits_quality_okay_text">Chvalitebný</string>
+  <string name="suggested_edits_quality_sufficient_text">Dostatečný</string>
+  <string name="suggested_edits_quality_poor_text">Špatný</string>
+  <string name="suggested_edits_quality_bad_text">Mizerný</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Příspěvek</item>
+    <item quantity="other">Příspěvky</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d den</item>
+    <item quantity="few">%d dny</item>
+    <item quantity="other">%d dní</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Poslední editace</string>
+  <string name="suggested_edits_last_edited_never">Nikdy</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -750,6 +788,9 @@
   <string name="events_count_text">%1$s událostí z let %2$s–%3$d</string>
   <string name="this_year">Letos</string>
   <string name="back_to_top">Zpět na začátek</string>
+  <string name="on_this_day_dialog_next_month">Příští měsíc</string>
+  <string name="on_this_day_dialog_previous_month">Minulý měsíc</string>
+  <string name="on_this_day_open_date_picker">Otevřít výběr data</string>
   <plurals name="diff_years">
     <item quantity="one">Loni</item>
     <item quantity="other">Před %d lety</item>

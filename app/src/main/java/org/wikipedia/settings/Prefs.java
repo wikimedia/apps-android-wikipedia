@@ -751,14 +751,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
     }
 
-    public static boolean showSuggestedEditsMultilingualTeaserTask() {
-        return getBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, true);
-    }
-
-    public static void setShowSuggestedEditsMultilingualTeaserTask(boolean showTask) {
-        setBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, showTask);
-    }
-
     public static boolean wasLoggedOutInBackground() {
         return getBoolean(R.string.preference_key_logged_out_in_background, false);
     }

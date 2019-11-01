@@ -10,6 +10,7 @@
 * Fitoschido
 * Jaumeortola
 * Jey
+* Jlrb+
 * Joan manel
 * Kippelboy
 * Lluis tgn
@@ -33,7 +34,7 @@
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Edicions suggerides</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Edicions suggerides</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
   <string name="card_offline_error_retry">Reintenta</string>
@@ -705,6 +706,18 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Afegeix una llegenda a la imatge (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Com ha estat la vostra experiència editant-hi? Dediqueu un moment a omplir l\'enquesta d\'edició amb l\'aplicació.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Inicia l\'enquesta</string>
+  <string name="suggested_edits_task_action_text_add">Afegeix</string>
+  <string name="suggested_edits_task_action_text_translate">Tradueix</string>
+  <string name="suggested_edits_image_captions">Llegendes d\'imatges</string>
+  <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Les descripcions d\'article resumeixen un article per tal d\'ajudar els lectors a entendre el tema a primera vista</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="other">un=Contribució</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d dia</item>
+    <item quantity="other">%d dies</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
@@ -743,6 +756,9 @@
   <string name="events_count_text">%1$s esdeveniments des de %2$s–%3$d</string>
   <string name="this_year">Enguany</string>
   <string name="back_to_top">Torna a dalt</string>
+  <string name="on_this_day_dialog_next_month">El mes següent</string>
+  <string name="on_this_day_dialog_previous_month">El mes anterior</string>
+  <string name="on_this_day_open_date_picker">Obre la selecció de dates</string>
   <plurals name="diff_years">
     <item quantity="one">El darrer any</item>
     <item quantity="other">Fa %d anys</item>

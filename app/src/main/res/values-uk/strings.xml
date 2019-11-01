@@ -33,7 +33,7 @@
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="search_hint_search_my_lists_and_articles">Пошук у читальних списках</string>
   <string name="nav_item_history">Історія</string>
-  <string name="nav_item_suggested_edits">Пропоновані редагування</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Пропоновані редагування</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="card_offline_error_retry">Повторити</string>
@@ -669,8 +669,6 @@
   <string name="suggested_edits_tasks_activity_title">Пропоновані редагування</string>
   <string name="suggested_edits_task_add_description_title">Додавання описів статей</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
-  <string name="suggested_edits_task_translation_title">Перекласти описи статей</string>
-  <string name="suggested_edits_task_translation_description">Перекласти описи різним мовами.</string>
   <string name="suggested_edits_task_image_caption_title">Додавання підписів зображень</string>
   <string name="suggested_edits_task_image_caption_description">Додати короткі підписи до зображень</string>
   <string name="suggested_edits_task_translate_caption_title">Переклад підписів для зображень</string>
@@ -710,6 +708,24 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Яким був ваш досвід використання? Якщо маєте хвилинку, заповніть будь ласка опитування щодо редагування у додатку.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Взяти участь в опитуванні</string>
+  <string name="suggested_edits_task_action_text_add">Додати</string>
+  <string name="suggested_edits_task_action_text_translate">Перекласти</string>
+  <string name="suggested_edits_image_captions">Підписи зображень</string>
+  <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію</string>
+  <string name="suggested_edits_image_captions_task_detail">Підписи зображень допомогають читачам зрозуміти значення та контекст зображень</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок зі списку \"Пропонованих\"</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
+  <string name="suggested_edits_ip_blocked_message">Схоже що IP-адреса якою ви користуєтесь (або диапазон IP-адрес), зараз заблокована для редагування у Вікіпедії. Докладніше про що це означає ви може дізнатись з посилання нижче.</string>
+  <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
+  <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
+  <string name="suggested_edits_pageviews_label_text">Переглядів сторінок</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d день</item>
+    <item quantity="few">%d дні</item>
+    <item quantity="many">%d днів</item>
+    <item quantity="other">%d днів</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>

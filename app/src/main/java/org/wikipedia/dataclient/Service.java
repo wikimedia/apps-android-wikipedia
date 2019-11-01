@@ -289,10 +289,10 @@ public interface Service {
                                        @Nullable @Field("captchaid") String captchaId,
                                        @Nullable @Field("captchaword") String captchaWord);
 
-    @GET(MW_API_PREFIX + "action=query&format=json&list=usercontribs&formatversion=latest&ucprop=title")
-    @NonNull Observable<MwQueryResponse> getUserContributedPages(@NonNull @Query("ucuser") String username);
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs")
+    @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username);
 
-    @GET(MW_API_PREFIX + "action=query&format=json&prop=pageviews&formatversion=latest")
+    @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     @NonNull Observable<MwQueryResponse> getPageViewsForTitles(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo")
