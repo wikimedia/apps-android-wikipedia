@@ -43,7 +43,7 @@
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="nav_item_suggested_edits">التعديلات المقترحة</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">التعديلات المقترحة</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
@@ -751,6 +751,8 @@
     <item quantity="one">%d يوم</item>
     <item quantity="other">%d أيام</item>
   </plurals>
+  <string name="suggested_edits_last_edited">آخر تعديل</string>
+  <string name="suggested_edits_last_edited_never">أبدا</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>

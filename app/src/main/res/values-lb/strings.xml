@@ -545,6 +545,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Méi Informatiounen</string>
   <string name="suggested_edits_article_cta_snackbar_action">Weisen</string>
   <string name="suggested_edits_snackbar_survey_action_text">Bei der Ëmfro matmaachen</string>
+  <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -572,6 +573,8 @@
   <string name="events_count_text">%1$s Evenementer vum %2$s bis %3$d</string>
   <string name="this_year">Dëst Joer</string>
   <string name="back_to_top">Zréck no uewen</string>
+  <string name="on_this_day_dialog_next_month">Nächste Mount</string>
+  <string name="on_this_day_dialog_previous_month">Virege Mount</string>
   <plurals name="diff_years">
     <item quantity="one">Lescht Joer</item>
     <item quantity="other">Viru(n) %d Joer</item>
