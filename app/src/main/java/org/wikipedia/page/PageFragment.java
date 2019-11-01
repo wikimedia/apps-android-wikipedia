@@ -803,7 +803,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         checkAndShowBookmarkOnboarding();
-        maybeShowFundraisingBottomSheet();
+        maybeShowFundraisingDialog();
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -1247,10 +1247,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         leadImagesHandler.openImageInGallery(language);
     }
 
-    private void maybeShowFundraisingBottomSheet() {
+    private void maybeShowFundraisingDialog() {
         // TODO: update to getRest()
         // TODO: design may be changed later
-        if (Prefs.hasVisitedArticlePage() && Prefs.fundraisingBottomSheetShownInYear() < Calendar.getInstance().get(Calendar.YEAR)) {
+        if (Prefs.hasVisitedArticlePage() && Prefs.fundraisingDialogShownInYear() < Calendar.getInstance().get(Calendar.YEAR)) {
             disposables.add(ServiceFactory.getLocalRest(getTitle().getWikiSite(), "http://10.0.0.51:8889/en.wikipedia.org/v1/").getAnnouncements()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -1259,7 +1259,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         Date now = new Date();
                         for (Announcement announcement : list.items()) {
                             if (shouldShow(announcement, country, now) && announcement.placement().equals(FUNDRAISING_PLACEMENT_ARTICLE)) {
-                                showBottomSheet(new AnnouncementDialog(requireActivity(), new AnnouncementCard(announcement)));
+                                new AnnouncementDialog(requireActivity(), new AnnouncementCard(announcement)).show();
                                 break;
                             }
                         }

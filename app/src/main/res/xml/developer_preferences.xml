@@ -26,8 +26,8 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="@string/preference_key_fundraising_bottom_sheet_shown_in_year"
-            android:title="@string/preference_key_fundraising_bottom_sheet_shown_in_year"
+            android:key="@string/preference_key_fundraising_dialog_shown_in_year"
+            android:title="@string/preference_key_fundraising_dialog_shown_in_year"
             android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
 
     </PreferenceCategory>

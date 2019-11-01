@@ -90,8 +90,9 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         }
 
         if (card.hasBorder()) {
-            setStrokeColor(getResources().getColor(R.color.red50));
+            setStrokeColor(getResources().getColor(R.color.red30));
             setStrokeWidth(10);
+            setRadius(0);
         } else {
             setStrokeWidth(0);
         }

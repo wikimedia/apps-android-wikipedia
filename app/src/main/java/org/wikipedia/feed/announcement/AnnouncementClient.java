@@ -38,7 +38,7 @@ public class AnnouncementClient implements FeedClient {
     @Override
     public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
         cancel();
-        disposables.add(ServiceFactory.getRest(wiki).getAnnouncements()
+        disposables.add(ServiceFactory.getLocalRest(wiki, "http://10.0.0.51:8889/en.wikipedia.org/v1/").getAnnouncements()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(list -> FeedCoordinator.postCardsToCallback(cb, new ArrayList<>(buildCards(list.items()))), throwable -> {

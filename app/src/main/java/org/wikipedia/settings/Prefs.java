@@ -807,12 +807,12 @@ public final class Prefs {
         setBoolean(R.string.preference_key_visited_article_page, visited);
     }
 
-    public static int fundraisingBottomSheetShownInYear() {
-        return getInt(R.string.preference_key_fundraising_bottom_sheet_shown_in_year, 0);
+    public static int fundraisingDialogShownInYear() {
+        return getInt(R.string.preference_key_fundraising_dialog_shown_in_year, 0);
     }
 
-    public static void setFundraisingBottomSheetShownInYear(int year) {
-        setInt(R.string.preference_key_fundraising_bottom_sheet_shown_in_year, year);
+    public static void setFundraisingDialogShownInYear(int year) {
+        setInt(R.string.preference_key_fundraising_dialog_shown_in_year, year);
     }
 
     private Prefs() { }

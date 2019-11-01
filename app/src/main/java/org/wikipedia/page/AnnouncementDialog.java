@@ -1,13 +1,10 @@
 package org.wikipedia.page;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.net.Uri;
-import android.view.View;
 
 import androidx.annotation.NonNull;
-
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.announcement.AnnouncementCard;
@@ -19,21 +16,17 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
 
 import java.util.Calendar;
 
-public class AnnouncementDialog extends BottomSheetDialog implements AnnouncementCardView.Callback {
+public class AnnouncementDialog extends AlertDialog implements AnnouncementCardView.Callback {
     AnnouncementDialog(@NonNull Context context, @NonNull AnnouncementCard card) {
         super(context);
         AnnouncementCardView rootView = new AnnouncementCardView(context);
         rootView.setCard(card);
         rootView.setCallback(this);
-        setContentView(rootView);
-
-        BottomSheetBehavior behavior = BottomSheetBehavior.from((View) rootView.getParent());
-        behavior.setPeekHeight(DimenUtil.getDisplayHeightPx() / 2);
+        setView(rootView);
     }
 
     @Override
@@ -50,12 +43,13 @@ public class AnnouncementDialog extends BottomSheetDialog implements Announcemen
         } else {
             UriUtil.handleExternalLink(getContext(), uri);
         }
-        Prefs.setFundraisingBottomSheetShownInYear(Calendar.getInstance().get(Calendar.YEAR));
+        Prefs.setFundraisingDialogShownInYear(Calendar.getInstance().get(Calendar.YEAR));
+        dismiss();
     }
 
     @Override
     public void onAnnouncementNegativeAction(@NonNull Card card) {
         dismiss();
-        Prefs.setFundraisingBottomSheetShownInYear(Calendar.getInstance().get(Calendar.YEAR));
+        Prefs.setFundraisingDialogShownInYear(Calendar.getInstance().get(Calendar.YEAR));
     }
 }

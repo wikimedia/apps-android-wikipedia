@@ -108,5 +108,5 @@
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
     <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
     <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
-    <string name="preference_key_fundraising_bottom_sheet_shown_in_year">fundraisingBottomSheetShownInYear</string>
+    <string name="preference_key_fundraising_dialog_shown_in_year">fundraisingDialogShownInYear</string>
 </resources>
