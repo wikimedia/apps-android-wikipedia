@@ -217,7 +217,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation mockitoCore
-    testImplementation 'org.robolectric:robolectric:4.2'
+    testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation "commons-io:commons-io:2.6"
 
