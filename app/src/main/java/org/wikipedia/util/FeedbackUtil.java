@@ -134,7 +134,7 @@ public final class FeedbackUtil {
         return snackbar;
     }
 
-    public static void showToastOverView(View view, CharSequence text, int duration) {
+    public static Toast showToastOverView(View view, CharSequence text, int duration) {
         Toast toast = Toast.makeText(view.getContext(), text, duration);
         View v = LayoutInflater.from(view.getContext()).inflate(R.layout.abc_tooltip, null);
         TextView message = v.findViewById(R.id.message);
@@ -144,6 +144,7 @@ public final class FeedbackUtil {
         view.getLocationOnScreen(location);
         toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);
         toast.show();
+        return toast;
     }
 
     private static View findBestView(Activity activity) {
