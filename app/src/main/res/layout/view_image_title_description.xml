@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
-            android:textColor="?attr/material_theme_de_emphasised_color"/>
+            android:textColor="?attr/material_theme_secondary_color"/>
 
     </LinearLayout>
 

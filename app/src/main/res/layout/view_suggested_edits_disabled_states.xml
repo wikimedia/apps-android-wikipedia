@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/suggested_edits_editing_tips_link_text"
+            android:text="@string/suggested_edits_help_page_link_text"
             android:textColor="?attr/colorAccent"/>
 
         <ImageView
@@ -57,34 +57,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/list_separator_drawable" />
-
-    <LinearLayout
-        android:id="@+id/linkContainer2"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackground"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/linkText2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/suggested_edits_help_page_link_text"
-            android:textColor="?attr/colorAccent"/>
-
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:contentDescription="@null"
-            android:tint="?attr/colorAccent"
-            app:srcCompat="@drawable/ic_open_in_new_black_24px" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?attr/list_separator_drawable"/>
 
 </LinearLayout>
