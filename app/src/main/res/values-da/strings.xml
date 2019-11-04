@@ -633,6 +633,8 @@
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
   <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_last_edited">Sidst redigeret</string>
+  <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
