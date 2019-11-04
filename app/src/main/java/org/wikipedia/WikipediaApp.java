@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -184,12 +185,17 @@ public class WikipediaApp extends Application {
 
         enableWebViewDebugging();
 
-        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+        ImagePipelineConfig.Builder config = ImagePipelineConfig.newBuilder(this)
                 .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
-                .setFileCacheFactory(DisabledCache.factory())
-                .build();
+                .setFileCacheFactory(DisabledCache.factory());
         try {
-            Fresco.initialize(this, config);
+            Fresco.initialize(this, config.build());
+            ImagePipelineNativeLoader.load();
+        } catch (UnsatisfiedLinkError e) {
+            L.e(e);
+            Fresco.shutDown();
+            config.experiment().setNativeCodeDisabled(true);
+            Fresco.initialize(this, config.build());
         } catch (Exception e) {
             L.e(e);
             // TODO: Remove when we're able to initialize Fresco in test builds.
