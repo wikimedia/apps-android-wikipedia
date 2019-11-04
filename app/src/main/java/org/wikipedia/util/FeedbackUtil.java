@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.text.method.LinkMovementMethod;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -135,6 +136,10 @@ public final class FeedbackUtil {
 
     public static void showToastOverView(View view, CharSequence text, int duration) {
         Toast toast = Toast.makeText(view.getContext(), text, duration);
+        View v = LayoutInflater.from(view.getContext()).inflate(R.layout.abc_tooltip, null);
+        TextView message = v.findViewById(R.id.message);
+        message.setText(text);
+        toast.setView(v);
         int[] location = new int[2];
         view.getLocationOnScreen(location);
         toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);

@@ -1,12 +1,15 @@
 package org.wikipedia.suggestededits
 
 import android.content.Intent
+import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
