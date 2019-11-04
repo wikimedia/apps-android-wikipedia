@@ -53,7 +53,7 @@
         android:id="@+id/view_announcement_footer_border"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color"
+        android:background="?attr/chip_background_color"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
