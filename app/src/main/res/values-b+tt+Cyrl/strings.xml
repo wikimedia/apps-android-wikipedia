@@ -144,7 +144,7 @@
   <string name="preference_title_download_only_over_wifi">Wi-Fi аша гына күчереп алырга</string>
   <string name="dialog_title_download_only_over_wifi_allow">Рөхсәт итү</string>
   <string name="gallery_menu_share">Уртаклашу</string>
-  <string name="gallery_save_progress">Файлны күчереп алу бара…</string>
+  <string name="gallery_save_progress">Файл күчереп алына…</string>
   <string name="gallery_add_image_caption_button">Сурәт тасвирын өстәү</string>
   <string name="share_snippet_button">Сурәтне уртаклашу</string>
   <string name="share_normal_button">Текстны уртаклашу</string>
@@ -221,6 +221,7 @@
   </plurals>
   <string name="suggested_edits_article_cta_image_caption">Сурәт тасвирын өстәү</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Сурәт тасвирын өстәү (%s)</string>
+  <string name="suggested_edits_last_edited_never">Һичкайчан</string>
   <string name="app_shortcuts_search">Эзләү</string>
   <string name="wikipedia_languages_your_languages_text">Телләрегез</string>
   <string name="wikipedia_languages_add_language_text">Тел өстәү</string>

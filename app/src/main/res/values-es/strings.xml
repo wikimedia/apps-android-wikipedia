@@ -771,9 +771,9 @@
   <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
   <string name="back_to_top">Volver al principio</string>
-  <string name="on_this_day_dialog_next_month">El próximo mes</string>
-  <string name="on_this_day_dialog_previous_month">El mes prévio</string>
-  <string name="on_this_day_open_date_picker">Selector de fechas abiertas</string>
+  <string name="on_this_day_dialog_next_month">Mes siguiente</string>
+  <string name="on_this_day_dialog_previous_month">Mes anterior</string>
+  <string name="on_this_day_open_date_picker">Abrir selector de fecha</string>
   <plurals name="diff_years">
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>

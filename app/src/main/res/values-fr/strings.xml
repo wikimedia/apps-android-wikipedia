@@ -50,7 +50,7 @@
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="search_hint_search_my_lists_and_articles">Rechercher dans mes listes et articles</string>
   <string name="nav_item_history">Historique</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Modifications suggérées</string>
+  <string name="nav_item_suggested_edits">Modifications suggérées</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="card_offline_error_retry">Réessayer</string>
@@ -514,9 +514,25 @@
     <item quantity="one">Téléchargement d’un article</item>
     <item quantity="other">Téléchargement des articles</item>
   </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Téléchargement d’un article...</item>
+    <item quantity="other">Téléchargement de %1$d articles...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">Un article restant</item>
+    <item quantity="other">%1$d articles restants</item>
+  </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Synchronisation de la liste de lecture</item>
     <item quantity="other">Synchronisation des listes de lecture</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Synchronisation d’une liste...</item>
+    <item quantity="other">Synchronisation de %1$d listes...</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">une liste restante</item>
+    <item quantity="other">%1$d listes restantes</item>
   </plurals>
   <string name="notification_echo_channel_description">Notifications de Wikipédia</string>
   <string name="notifications_activity_title">Notifications</string>
