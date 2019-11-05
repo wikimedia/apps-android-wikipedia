@@ -52,6 +52,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
     public interface Callback {
+        void onToggleMatchSystemTheme();
         void onToggleDimImages();
         void onCancel();
     }
@@ -151,6 +152,17 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         if (callback() != null) {
             // noinspection ConstantConditions
             callback().onToggleDimImages();
+        }
+    }
+
+    @OnCheckedChanged(R.id.theme_chooser_match_system_theme_switch)
+    void onToggleMatchSystemTheme(boolean enabled) {
+        if (enabled == Prefs.shouldMatchSystemTheme()) {
+            return;
+        }
+        Prefs.setMatchSystemTheme(enabled);
+        if (callback() != null) {
+            callback().onToggleMatchSystemTheme();
         }
     }
 

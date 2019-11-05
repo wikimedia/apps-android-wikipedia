@@ -110,6 +110,15 @@
             android:text="@string/color_theme_select"
             android:textColor="?attr/section_title_color" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/theme_chooser_match_system_theme_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
+            android:textColor="?attr/section_title_color" />
+
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="56dp"

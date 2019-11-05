@@ -799,5 +799,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_tooltip, enabled);
     }
 
+    public static boolean shouldMatchSystemTheme() {
+        return getBoolean(R.string.preference_key_dim_dark_mode_images, true);
+    }
+
+    public static void setMatchSystemTheme(boolean enabled) {
+        setBoolean(R.string.preference_key_dim_dark_mode_images, enabled);
+    }
+
     private Prefs() { }
 }
