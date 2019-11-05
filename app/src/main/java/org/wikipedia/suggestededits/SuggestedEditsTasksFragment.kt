@@ -50,6 +50,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
+    private var currentTooltip: Toast? = null
     private var totalEdits = 0
 
     // TODO: remove when ready
@@ -105,20 +106,36 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
+    private fun hideCurrentTooltip() {
+        if (currentTooltip != null) {
+            currentTooltip!!.cancel()
+            currentTooltip = null
+        }
+    }
+
     private fun showContributionsStatsViewTooltip() {
-        FeedbackUtil.showToastOverView(contributionsStatsView, getString(R.string.suggested_edits_contributions_stat_tooltip), Toast.LENGTH_LONG)
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(contributionsStatsView, getString(R.string.suggested_edits_contributions_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showEditStreakStatsViewTooltip() {
-        FeedbackUtil.showToastOverView(editStreakStatsView, getString(R.string.suggested_edits_edit_streak_stat_tooltip), Toast.LENGTH_LONG)
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(editStreakStatsView, getString(R.string.suggested_edits_edit_streak_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showPageViewStatsViewTooltip() {
-        FeedbackUtil.showToastOverView(pageViewStatsView, getString(R.string.suggested_edits_page_views_stat_tooltip), Toast.LENGTH_LONG)
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(pageViewStatsView, getString(R.string.suggested_edits_page_views_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showEditQualityStatsViewTooltip() {
-        FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3), Toast.LENGTH_LONG)
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, 3), Toast.LENGTH_LONG)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        hideCurrentTooltip()
     }
 
     override fun onResume() {

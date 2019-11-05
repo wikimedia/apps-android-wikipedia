@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="24dp"
         android:src="@drawable/shape_circle"
-        android:tint="?attr/multi_select_background_color"
+        android:tint="?attr/color_group_53"
         android:contentDescription="@null"/>
 
     <ImageView

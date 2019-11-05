@@ -754,6 +754,8 @@
     <item quantity="one">%d dia</item>
     <item quantity="other">%d dias</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Última edição</string>
+  <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>

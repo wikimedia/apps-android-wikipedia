@@ -546,6 +546,8 @@
   <string name="suggested_edits_article_cta_snackbar_action">Weisen</string>
   <string name="suggested_edits_snackbar_survey_action_text">Bei der Ëmfro matmaachen</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_last_edited">Lescht Ännerung</string>
+  <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>

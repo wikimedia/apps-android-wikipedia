@@ -455,7 +455,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (AccountUtil.isLoggedIn()) {
             if (Prefs.shouldShowSuggestedEditsTooltip()) {
                 tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_INDEFINITE);
+                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_LONG);
                 suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
                 suggestedEditsNavTabSnackbar.show();
             }
