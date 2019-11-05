@@ -376,10 +376,10 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(totalEdits:Int, totalReverts: Int): Boolean {
-        // Are we currently in a pause period?
         val pauseDate = Prefs.getSuggestedEditsPauseDate()
         var pauseEndDate: Date? = null
 
+        // Are we currently in a pause period?
         if (pauseDate.time != 0L) {
             val cal = Calendar.getInstance()
             cal.time = pauseDate
@@ -387,20 +387,20 @@ class SuggestedEditsTasksFragment : Fragment() {
             pauseEndDate = cal.time
 
             if (Date().after((pauseEndDate))) {
-                // remove the pause
+                // We've exceeded the pause period, so remove it.
                 Prefs.setSuggestedEditsPauseDate(Date(0))
                 pauseEndDate = null
             }
         }
 
         val revertSeverity = getRevertSeverity(totalEdits, totalReverts)
-        if (revertSeverity > 7) {
+        if (revertSeverity > REVERT_SEVERITY_DISABLE_THRESHOLD) {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             return true
-        } else if (revertSeverity > 5) {
+        } else if (revertSeverity > REVERT_SEVERITY_PAUSE_THRESHOLD) {
             // Do we need to impose a new pause?
             if (totalReverts > Prefs.getSuggestedEditsPauseReverts()) {
                 val cal = Calendar.getInstance()
@@ -479,6 +479,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
+        const val REVERT_SEVERITY_PAUSE_THRESHOLD = 5
+        const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
         const val PAUSE_DURATION_DAYS = 7
 
         fun newInstance(): SuggestedEditsTasksFragment {
