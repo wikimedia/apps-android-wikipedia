@@ -41,6 +41,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -64,6 +65,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
@@ -71,6 +73,7 @@ import org.wikipedia.views.ViewUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -545,6 +548,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         showAddToListDialog(title, source);
+
+        // Experiment: WebArchive
+        String webArchivePath = app.getFilesDir().getAbsolutePath() + "/" + OkHttpConnectionFactory.WEB_ARCHIVE_DIR_NAME + "/" + File.separator + pageFragment.getTitle().getWikiSite().languageCode() + ":" + pageFragment.getTitle().getConvertedText() + ".xml";
+        L.d("Save webview archive to: " + webArchivePath);
+        pageFragment.getWebView().saveWebArchive(webArchivePath);
     }
 
     @Override
