@@ -550,9 +550,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         showAddToListDialog(title, source);
 
         // Experiment: WebArchive
-        String webArchivePath = app.getFilesDir().getAbsolutePath() + "/" + OkHttpConnectionFactory.WEB_ARCHIVE_DIR_NAME + "/" + File.separator + pageFragment.getTitle().getWikiSite().languageCode() + ":" + pageFragment.getTitle().getConvertedText() + ".xml";
-        L.d("Save webview archive to: " + webArchivePath);
-        pageFragment.getWebView().saveWebArchive(webArchivePath);
+        String webArchiveFolderPath = app.getFilesDir().getAbsolutePath() + File.separator + OkHttpConnectionFactory.WEB_ARCHIVE_DIR_NAME;
+        File webArchiveFolder = new File(webArchiveFolderPath);
+        boolean success = true;
+        if (!webArchiveFolder.exists()) {
+            success = webArchiveFolder.mkdir();
+        }
+
+        if (success) {
+            String webArchivePath = webArchiveFolderPath + File.separator + pageFragment.getTitle().getWikiSite().languageCode() + ":" + pageFragment.getTitle().getConvertedText() + ".xml";
+            L.d("Save webview archive to: " + webArchivePath);
+            pageFragment.getWebView().saveWebArchive(webArchivePath);
+        }
     }
 
     @Override
