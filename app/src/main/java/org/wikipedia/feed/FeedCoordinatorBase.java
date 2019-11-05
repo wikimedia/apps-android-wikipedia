@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.accessibility.AccessibilityCard;
+import org.wikipedia.feed.announcement.FundraisingCard;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.dayheader.DayHeaderCard;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
@@ -283,6 +284,7 @@ public abstract class FeedCoordinatorBase {
     private boolean isDailyCardType(@NonNull Card card) {
         return card instanceof NewsListCard || card instanceof OnThisDayCard
                 || card instanceof MostReadListCard || card instanceof FeaturedArticleCard
-                || card instanceof FeaturedImageCard;
+                || card instanceof FeaturedImageCard
+                || card instanceof FundraisingCard;
     }
 }
