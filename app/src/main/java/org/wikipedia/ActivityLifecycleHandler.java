@@ -29,7 +29,6 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
         }
         if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
-
                 case Configuration.UI_MODE_NIGHT_YES:
                     if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
                         WikipediaApp.getInstance().setCurrentTheme(Theme.BLACK);
