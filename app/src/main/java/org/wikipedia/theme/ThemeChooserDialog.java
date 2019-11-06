@@ -1,6 +1,8 @@
 package org.wikipedia.theme;
 
 import android.content.DialogInterface;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +51,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
     @BindView(R.id.button_theme_sepia_highlight) View buttonThemeSepiaHighlight;
     @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
+    @BindView(R.id.theme_chooser_match_system_theme_switch) SwitchCompat matchSystemSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
     public interface Callback {
@@ -103,7 +106,9 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         });
 
         updateComponents();
+        matchSystemSwitch.setChecked(Prefs.shouldMatchSystemTheme());
         disableBackgroundDim();
+        setUpDisabledThemeButtons();
         return rootView;
     }
 
@@ -161,8 +166,59 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
         Prefs.setMatchSystemTheme(enabled);
+        if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+                case Configuration.UI_MODE_NIGHT_YES:
+                    if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                        WikipediaApp.getInstance().setCurrentTheme(Theme.BLACK);
+                    }
+                    break;
+                case Configuration.UI_MODE_NIGHT_NO:
+                    if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                        WikipediaApp.getInstance().setCurrentTheme(Theme.LIGHT);
+                    }
+                    break;
+                default:
+                    WikipediaApp.getInstance().setCurrentTheme(Theme.LIGHT);
+            }
+        }
+        setUpDisabledThemeButtons();
+
         if (callback() != null) {
             callback().onToggleMatchSystemTheme();
+        }
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setUpDisabledThemeButtons() {
+        if (Prefs.shouldMatchSystemTheme()) {
+            if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                buttonThemeLight.setAlpha(0.2f);
+                buttonThemeSepia.setAlpha(0.2f);
+
+                buttonThemeLight.setEnabled(false);
+                buttonThemeSepia.setEnabled(false);
+                buttonThemeDark.setEnabled(true);
+                buttonThemeBlack.setEnabled(true);
+            } else {
+                buttonThemeDark.setAlpha(0.2f);
+                buttonThemeBlack.setAlpha(0.2f);
+                buttonThemeDark.setEnabled(false);
+                buttonThemeBlack.setEnabled(false);
+                buttonThemeLight.setEnabled(true);
+                buttonThemeSepia.setEnabled(true);
+
+            }
+        } else {
+
+            buttonThemeLight.setAlpha(1.0f);
+            buttonThemeSepia.setAlpha(1.0f);
+            buttonThemeDark.setAlpha(1.0f);
+            buttonThemeBlack.setAlpha(1.0f);
+            buttonThemeDark.setEnabled(true);
+            buttonThemeBlack.setEnabled(true);
+            buttonThemeLight.setEnabled(true);
+            buttonThemeSepia.setEnabled(true);
         }
     }
 

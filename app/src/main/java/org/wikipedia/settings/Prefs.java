@@ -800,11 +800,11 @@ public final class Prefs {
     }
 
     public static boolean shouldMatchSystemTheme() {
-        return getBoolean(R.string.preference_key_dim_dark_mode_images, true);
+        return getBoolean(R.string.preference_key_match_system_theme, false);
     }
 
     public static void setMatchSystemTheme(boolean enabled) {
-        setBoolean(R.string.preference_key_dim_dark_mode_images, enabled);
+        setBoolean(R.string.preference_key_match_system_theme, enabled);
     }
 
     private Prefs() { }
