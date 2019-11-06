@@ -1,5 +1,7 @@
 package org.wikipedia.readinglist.database;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -47,7 +49,7 @@ public class ReadingListPage implements Serializable {
         this.wiki = wiki;
         this.namespace = namespace;
         this.displayTitle = displayTitle;
-        this.apiTitle = apiTitle;
+        this.apiTitle = TextUtils.isEmpty(apiTitle) ? displayTitle : apiTitle;
         this.listId = listId;
     }
 
