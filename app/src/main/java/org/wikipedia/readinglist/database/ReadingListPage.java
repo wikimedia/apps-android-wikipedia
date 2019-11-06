@@ -23,8 +23,8 @@ public class ReadingListPage implements Serializable {
     private long listId;
     @NonNull private final WikiSite wiki;
     @NonNull private final Namespace namespace;
-    @NonNull private String title;
-    @NonNull private final String convertedTitle;
+    @NonNull private String displayTitle;
+    @NonNull private final String apiTitle;
     @Nullable private String description;
     @Nullable private String thumbUrl;
 
@@ -43,19 +43,19 @@ public class ReadingListPage implements Serializable {
     @Nullable private transient String accentAndCaseInvariantTitle;
 
     public ReadingListPage(@NonNull WikiSite wiki, @NonNull Namespace namespace,
-                           @NonNull String title, @NonNull String convertedTitle, long listId) {
+                           @NonNull String displayTitle, @NonNull String apiTitle, long listId) {
         this.wiki = wiki;
         this.namespace = namespace;
-        this.title = title;
-        this.convertedTitle = convertedTitle;
+        this.displayTitle = displayTitle;
+        this.apiTitle = apiTitle;
         this.listId = listId;
     }
 
     public ReadingListPage(@NonNull PageTitle title) {
         this.wiki = title.getWikiSite();
         this.namespace = title.namespace();
-        this.title = title.getDisplayText();
-        this.convertedTitle = title.getConvertedText();
+        this.displayTitle = title.getDisplayText();
+        this.apiTitle = title.getPrefixedText();
         this.thumbUrl = title.getThumbUrl();
         this.description = title.getDescription();
         listId = -1;
@@ -67,7 +67,7 @@ public class ReadingListPage implements Serializable {
     }
 
     public static PageTitle toPageTitle(@NonNull ReadingListPage page) {
-        return new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description(), page.convertedTitle());
+        return new PageTitle(page.apiTitle(), page.wiki(), page.thumbUrl(), page.description(), page.title());
     }
 
     public long id() {
@@ -91,19 +91,19 @@ public class ReadingListPage implements Serializable {
         return namespace;
     }
     @NonNull public String title() {
-        return title;
+        return displayTitle;
     }
     public void title(String title) {
-        this.title = title;
+        this.displayTitle = title;
     }
 
-    @NonNull public String convertedTitle() {
-        return convertedTitle;
+    @NonNull public String apiTitle() {
+        return apiTitle;
     }
 
     @NonNull public String accentAndCaseInvariantTitle() {
         if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase();
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).toLowerCase();
         }
         return accentAndCaseInvariantTitle;
     }

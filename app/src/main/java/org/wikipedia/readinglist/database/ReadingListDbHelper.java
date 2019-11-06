@@ -442,7 +442,7 @@ public class ReadingListDbHelper {
                         + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
-                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getConvertedText(),
+                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getPrefixedText(),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
             if (cursor.moveToFirst()) {
@@ -475,7 +475,7 @@ public class ReadingListDbHelper {
                         + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
-                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getConvertedText(),
+                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getPrefixedText(),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
             while (cursor.moveToNext()) {
@@ -680,7 +680,7 @@ public class ReadingListDbHelper {
                         + ReadingListPageContract.Col.LISTID.getName() + " = ? AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
-                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getConvertedText(),
+                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getPrefixedText(),
                         Long.toString(list.id()),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {

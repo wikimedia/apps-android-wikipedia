@@ -63,14 +63,13 @@ public class PageTitle implements Parcelable {
     //       isn't consistent across titles. e.g., articles with colons, such as RTÉ News: Six One,
     //       are broken.
     @Nullable private final String namespace;
-    @NonNull private final String text;
+    @NonNull private String text;
     @Nullable private final String fragment;
     @Nullable private String thumbUrl;
     @SerializedName("site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
     @Nullable private final PageProperties properties;
     // TODO: remove after the restbase endpoint supports ZH variants.
-    @Nullable private String convertedText;
     @Nullable private String displayText;
 
     /**
@@ -107,9 +106,9 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
-    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @NonNull String convertedText) {
+    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable String displayText) {
         this(text, wiki, thumbUrl, description);
-        this.convertedText = convertedText;
+        this.displayText = displayText;
     }
 
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description) {
@@ -208,13 +207,9 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
-    @NonNull
-    public String getConvertedText() {
-        return convertedText == null ? getPrefixedText() : convertedText;
-    }
-
-    public void setConvertedText(@Nullable String convertedText) {
-        this.convertedText = convertedText;
+    // This update the text to the API text.
+    public void setText(@NonNull String convertedFromText) {
+        this.text = convertedFromText;
     }
 
     @NonNull public String getDisplayText() {
@@ -308,7 +303,6 @@ public class PageTitle implements Parcelable {
         parcel.writeParcelable(properties, flags);
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
-        parcel.writeString(convertedText);
         parcel.writeString(displayText);
     }
 
@@ -358,7 +352,6 @@ public class PageTitle implements Parcelable {
         properties = in.readParcelable(PageProperties.class.getClassLoader());
         thumbUrl = in.readString();
         description = in.readString();
-        convertedText = in.readString();
         displayText = in.readString();
     }
 }

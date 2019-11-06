@@ -225,7 +225,7 @@ public class LangLinksActivity extends BaseActivity {
 
     private void fetchLangLinks() {
         if (languageEntries == null) {
-            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getConvertedText())
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getPrefixedText())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
@@ -261,7 +261,7 @@ public class LangLinksActivity extends BaseActivity {
                 for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                         AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
 
-                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getConvertedText(),
+                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
                             WikiSite.forLanguageCode(dialect)));
                 }
             }
@@ -296,7 +296,7 @@ public class LangLinksActivity extends BaseActivity {
             for (String languageCode : chineseLanguageCodes) {
                 if (!title.getWikiSite().languageCode().contains(languageCode)) {
                     PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
-                    pageTitle.setConvertedText(title.getConvertedText());
+                    pageTitle.setText(title.getPrefixedText());
                     languageEntries.add(pageTitle);
                 }
             }

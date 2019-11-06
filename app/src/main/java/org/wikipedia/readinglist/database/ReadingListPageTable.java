@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;
-    private static final int DB_VER_CONVERTED_TITLE_ADDED = 19;
+    private static final int DB_VER_API_TITLE_ADDED = 19;
 
     public ReadingListPageTable() {
         super(ReadingListPageContract.TABLE, ReadingListPageContract.URI);
@@ -66,7 +66,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 cols.add(ReadingListPageContract.Col.SIZEBYTES);
                 cols.add(ReadingListPageContract.Col.REMOTEID);
                 return cols.toArray(new Column<?>[cols.size()]);
-            case DB_VER_CONVERTED_TITLE_ADDED:
+            case DB_VER_API_TITLE_ADDED:
                 return new Column<?>[] {ReadingListPageContract.Col.API_TITLE};
             default:
                 return super.getColumnsAdded(version);
@@ -90,7 +90,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         contentValues.put(ReadingListPageContract.Col.LANG.getName(), row.wiki().languageCode());
         contentValues.put(ReadingListPageContract.Col.NAMESPACE.getName(), row.namespace().code());
         contentValues.put(ReadingListPageContract.Col.DISPLAY_TITLE.getName(), row.title());
-        contentValues.put(ReadingListPageContract.Col.API_TITLE.getName(), row.convertedTitle());
+        contentValues.put(ReadingListPageContract.Col.API_TITLE.getName(), row.apiTitle());
         contentValues.put(ReadingListPageContract.Col.MTIME.getName(), row.mtime());
         contentValues.put(ReadingListPageContract.Col.ATIME.getName(), row.atime());
         contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.getName(), row.thumbUrl());

@@ -113,7 +113,7 @@ public class PageImage implements Parcelable {
         for (String key : titlesMap.keySet()) {
             if (thumbnailSourcesMap.containsKey(key)) {
                 PageTitle title = titlesMap.get(key);
-                title.setConvertedText(convertedTitleMap.get(key));
+                title.setText(convertedTitleMap.get(key));
                 pageImagesMap.put(title, new PageImage(title, thumbnailSourcesMap.get(key)));
             }
         }

@@ -234,7 +234,7 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        Observable<RbPageSummary> pageSummaryCall = ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getConvertedText());
+        Observable<RbPageSummary> pageSummaryCall = ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getPrefixedText());
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         final Long[] pageSize = new Long[1];
@@ -266,7 +266,7 @@ public class SavedPageSyncService extends JobIntentService {
                 totalSize += reqSaveImages(page, imageUrls);
             }
 
-            String title = pageTitle.getConvertedText();
+            String title = pageTitle.getPrefixedText();
             L.i("Saved page " + title + " (" + totalSize + ")");
 
             return totalSize;
@@ -283,7 +283,7 @@ public class SavedPageSyncService extends JobIntentService {
                                                                           @Nullable String saveOfflineHeader,
                                                                           @NonNull PageTitle pageTitle) {
         PageClient client = newPageClient(pageTitle);
-        String title = pageTitle.getConvertedText();
+        String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
         return client.lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
     }
@@ -292,7 +292,7 @@ public class SavedPageSyncService extends JobIntentService {
                                                          @Nullable String saveOfflineHeader,
                                                          @NonNull PageTitle pageTitle) {
         PageClient client = newPageClient(pageTitle);
-        String title = pageTitle.getConvertedText();
+        String title = pageTitle.getPrefixedText();
         return client.sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
     }
 

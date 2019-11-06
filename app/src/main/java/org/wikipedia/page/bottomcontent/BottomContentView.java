@@ -312,7 +312,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
         final long timeMillis = System.currentTimeMillis();
 
-        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getConvertedText())
+        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.getPages(Constants.MAX_SUGGESTION_RESULTS * 2))

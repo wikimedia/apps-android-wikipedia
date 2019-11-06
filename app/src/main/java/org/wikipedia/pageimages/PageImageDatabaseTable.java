@@ -38,7 +38,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
         contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
-        contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getConvertedText());
+        contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getPrefixedText());
         contentValues.put(Col.DISPLAY_TITLE.getName(), obj.getTitle().getDisplayText());
         contentValues.put(Col.IMAGE_NAME.getName(), obj.getImageName());
         return contentValues;
