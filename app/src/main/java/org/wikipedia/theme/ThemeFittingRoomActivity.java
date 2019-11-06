@@ -34,11 +34,6 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
     }
 
     @Override
-    public void onToggleMatchSystemTheme() {
-
-    }
-
-    @Override
     public void onToggleDimImages() {
         recreate();
     }

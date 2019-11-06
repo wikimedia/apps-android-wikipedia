@@ -609,11 +609,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onToggleMatchSystemTheme() {
-
-    }
-
-    @Override
     public void onToggleDimImages() {
         recreate();
     }

@@ -55,7 +55,6 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
     public interface Callback {
-        void onToggleMatchSystemTheme();
         void onToggleDimImages();
         void onCancel();
     }
@@ -106,9 +105,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         });
 
         updateComponents();
-        matchSystemSwitch.setChecked(Prefs.shouldMatchSystemTheme());
         disableBackgroundDim();
-        setUpDisabledThemeButtons();
         return rootView;
     }
 
@@ -166,7 +163,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
         Prefs.setMatchSystemTheme(enabled);
-        if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (isMatchingSystemthemeEnabled()) {
             switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
                 case Configuration.UI_MODE_NIGHT_YES:
                     if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
@@ -182,50 +179,39 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
                     WikipediaApp.getInstance().setCurrentTheme(Theme.LIGHT);
             }
         }
-        setUpDisabledThemeButtons();
-
-        if (callback() != null) {
-            callback().onToggleMatchSystemTheme();
-        }
+        conditionallyDisableThemeButtons();
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private void setUpDisabledThemeButtons() {
-        if (Prefs.shouldMatchSystemTheme()) {
-            if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                buttonThemeLight.setAlpha(0.2f);
-                buttonThemeSepia.setAlpha(0.2f);
+    private void conditionallyDisableThemeButtons() {
+        buttonThemeLight.setAlpha((isMatchingSystemthemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeSepia.setAlpha((isMatchingSystemthemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeDark.setAlpha((isMatchingSystemthemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeBlack.setAlpha((isMatchingSystemthemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
 
-                buttonThemeLight.setEnabled(false);
-                buttonThemeSepia.setEnabled(false);
-                buttonThemeDark.setEnabled(true);
-                buttonThemeBlack.setEnabled(true);
-            } else {
-                buttonThemeDark.setAlpha(0.2f);
-                buttonThemeBlack.setAlpha(0.2f);
-                buttonThemeDark.setEnabled(false);
-                buttonThemeBlack.setEnabled(false);
-                buttonThemeLight.setEnabled(true);
-                buttonThemeSepia.setEnabled(true);
+        buttonThemeLight.setEnabled(!isMatchingSystemthemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeSepia.setEnabled(!isMatchingSystemthemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeDark.setEnabled(!isMatchingSystemthemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeBlack.setEnabled(!isMatchingSystemthemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
+    }
 
-            }
-        } else {
-
-            buttonThemeLight.setAlpha(1.0f);
-            buttonThemeSepia.setAlpha(1.0f);
-            buttonThemeDark.setAlpha(1.0f);
-            buttonThemeBlack.setAlpha(1.0f);
-            buttonThemeDark.setEnabled(true);
-            buttonThemeBlack.setEnabled(true);
-            buttonThemeLight.setEnabled(true);
-            buttonThemeSepia.setEnabled(true);
-        }
+    private boolean isMatchingSystemthemeEnabled(){
+        return Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
     }
 
     private void updateComponents() {
         updateFontSize();
         updateThemeButtons();
         updateDimImagesSwitch();
+        updateMatchSystemThemeSwitch();
+    }
+
+    private void updateMatchSystemThemeSwitch() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            matchSystemSwitch.setVisibility(View.VISIBLE);
+            matchSystemSwitch.setChecked(Prefs.shouldMatchSystemTheme());
+            conditionallyDisableThemeButtons();
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

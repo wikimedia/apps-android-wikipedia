@@ -118,7 +118,8 @@
             android:layout_marginBottom="16dp"
             android:gravity="center_vertical"
             android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
-            android:textColor="?attr/primary_text_color" />
+            android:textColor="?attr/primary_text_color"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="300dp"
