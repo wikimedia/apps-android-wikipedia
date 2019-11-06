@@ -186,25 +186,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .subscribe({ response ->
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
 
-                    totalEdits = 0
-                    for (count in editorTaskCounts.descriptionEditsPerLanguage.values) {
-                        totalEdits += count
-                    }
-                    for (count in editorTaskCounts.captionEditsPerLanguage.values) {
-                        totalEdits += count
-                    }
-                    totalReverts = 0
-                    for (count in editorTaskCounts.descriptionRevertsPerLanguage.values) {
-                        totalReverts += count
-                    }
-                    for (count in editorTaskCounts.captionRevertsPerLanguage.values) {
-                        totalReverts += count
-                    }
-
-                    if (Prefs.shouldOverrideSuggestedEditCounts()) {
-                        totalEdits = Prefs.getOverrideSuggestedEditCount()
-                        totalReverts = Prefs.getOverrideSuggestedRevertCount()
-                    }
+                    totalEdits = editorTaskCounts.totalEdits
+                    totalReverts = editorTaskCounts.totalReverts
 
                     if (response.query()!!.userInfo()!!.isBlocked) {
 
@@ -371,49 +354,16 @@ class SuggestedEditsTasksFragment : Fragment() {
         disabledStatesView.visibility = VISIBLE
     }
 
-    private fun getRevertSeverity(totalEdits: Int, totalReverts: Int): Int {
-        return if (totalEdits <= 100) totalReverts else ceil(totalReverts.toFloat() / totalEdits.toFloat() * 100f).toInt()
-    }
-
     private fun maybeSetPausedOrDisabled(totalEdits:Int, totalReverts: Int): Boolean {
-        val pauseDate = Prefs.getSuggestedEditsPauseDate()
-        var pauseEndDate: Date? = null
+        val pauseEndDate = getPauseEndDate(totalEdits, totalReverts)
 
-        // Are we currently in a pause period?
-        if (pauseDate.time != 0L) {
-            val cal = Calendar.getInstance()
-            cal.time = pauseDate
-            cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-            pauseEndDate = cal.time
-
-            if (Date().after((pauseEndDate))) {
-                // We've exceeded the pause period, so remove it.
-                Prefs.setSuggestedEditsPauseDate(Date(0))
-                pauseEndDate = null
-            }
-        }
-
-        val revertSeverity = getRevertSeverity(totalEdits, totalReverts)
-        if (revertSeverity > REVERT_SEVERITY_DISABLE_THRESHOLD) {
+        if (isDisabled(totalEdits, totalReverts)) {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             return true
-        } else if (revertSeverity > REVERT_SEVERITY_PAUSE_THRESHOLD) {
-            // Do we need to impose a new pause?
-            if (totalReverts > Prefs.getSuggestedEditsPauseReverts()) {
-                val cal = Calendar.getInstance()
-                cal.time = Date()
-                Prefs.setSuggestedEditsPauseDate(cal.time)
-                Prefs.setSuggestedEditsPauseReverts(totalReverts)
-
-                cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-                pauseEndDate = cal.time
-            }
-        }
-
-        if (pauseEndDate != null) {
+        } else if (pauseEndDate != null) {
             clearContents()
             disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
@@ -479,12 +429,53 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
-        const val REVERT_SEVERITY_PAUSE_THRESHOLD = 5
-        const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
-        const val PAUSE_DURATION_DAYS = 7
+        private const val REVERT_SEVERITY_PAUSE_THRESHOLD = 5
+        private const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
+        private const val PAUSE_DURATION_DAYS = 7
 
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
+        }
+
+        fun getRevertSeverity(totalEdits: Int, totalReverts: Int): Int {
+            return if (totalEdits <= 100) totalReverts else ceil(totalReverts.toFloat() / totalEdits.toFloat() * 100f).toInt()
+        }
+
+        fun isDisabled(totalEdits: Int, totalReverts: Int): Boolean {
+            return getRevertSeverity(totalEdits, totalReverts) > REVERT_SEVERITY_DISABLE_THRESHOLD
+        }
+
+        fun getPauseEndDate(totalEdits: Int, totalReverts: Int): Date? {
+            val pauseDate = Prefs.getSuggestedEditsPauseDate()
+            var pauseEndDate: Date? = null
+
+            // Are we currently in a pause period?
+            if (pauseDate.time != 0L) {
+                val cal = Calendar.getInstance()
+                cal.time = pauseDate
+                cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
+                pauseEndDate = cal.time
+
+                if (Date().after((pauseEndDate))) {
+                    // We've exceeded the pause period, so remove it.
+                    Prefs.setSuggestedEditsPauseDate(Date(0))
+                    pauseEndDate = null
+                }
+            }
+
+            if (getRevertSeverity(totalEdits, totalReverts) > REVERT_SEVERITY_PAUSE_THRESHOLD) {
+                // Do we need to impose a new pause?
+                if (totalReverts > Prefs.getSuggestedEditsPauseReverts()) {
+                    val cal = Calendar.getInstance()
+                    cal.time = Date()
+                    Prefs.setSuggestedEditsPauseDate(cal.time)
+                    Prefs.setSuggestedEditsPauseReverts(totalReverts)
+
+                    cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
+                    pauseEndDate = cal.time
+                }
+            }
+            return pauseEndDate
         }
     }
 }
