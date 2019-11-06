@@ -146,26 +146,6 @@
                     android:padding="8dp">
 
                     <TextView
-                        android:id="@+id/paused"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:textAllCaps="true"
-                        android:textColor="?attr/colorAccent"
-                        android:textSize="10sp"
-                        android:text="Paused" />
-
-                    <TextView
-                        android:id="@+id/disabled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:textAllCaps="true"
-                        android:textColor="?attr/colorAccent"
-                        android:textSize="10sp"
-                        android:text="Disabled" />
-
-                    <TextView
                         android:id="@+id/ipBlocked"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

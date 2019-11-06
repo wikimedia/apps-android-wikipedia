@@ -18,6 +18,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class EditorTaskCounts {
     @Nullable private JsonElement counts;
+    @Nullable @SerializedName("revert_counts") private JsonElement revertCounts;
     @Nullable @SerializedName("edit_streak") private JsonElement editStreak;
 
     @NonNull
@@ -36,6 +37,24 @@ public class EditorTaskCounts {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appCaptionEdits;
         }
         return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
+    }
+
+    @NonNull
+    public Map<String, Integer> getDescriptionRevertsPerLanguage() {
+        Map<String, Integer> revertsPerLanguage = null;
+        if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
+            revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appDescriptionEdits;
+        }
+        return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
+    }
+
+    @NonNull
+    public Map<String, Integer> getCaptionRevertsPerLanguage() {
+        Map<String, Integer> revertsPerLanguage = null;
+        if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
+            revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appCaptionEdits;
+        }
+        return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
     }
 
     public int getEditStreak() {

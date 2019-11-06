@@ -16,10 +16,13 @@ import org.wikipedia.json.SessionUnmarshaller;
 import org.wikipedia.json.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -813,6 +816,42 @@ public final class Prefs {
 
     public static void setFundraisingDialogShownInYear(int year) {
         setInt(R.string.preference_key_fundraising_dialog_shown_in_year, year);
+    }
+
+    public static Date getSuggestedEditsPauseDate() {
+        Date date = new Date(0);
+        try {
+            if (contains(R.string.preference_key_suggested_edits_pause_date)) {
+                date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
+            }
+        } catch (ParseException e) {
+            // ignore
+        }
+        return date;
+    }
+
+    public static void setSuggestedEditsPauseDate(Date date) {
+        setString(R.string.preference_key_suggested_edits_pause_date, DateUtil.dbDateFormat(date));
+    }
+
+    public static int getSuggestedEditsPauseReverts() {
+        return getInt(R.string.preference_key_suggested_edits_pause_reverts, 0);
+    }
+
+    public static void setSuggestedEditsPauseReverts(int count) {
+        setInt(R.string.preference_key_suggested_edits_pause_reverts, count);
+    }
+
+    public static boolean shouldOverrideSuggestedEditCounts() {
+        return getBoolean(R.string.preference_key_suggested_edits_override_counts, false);
+    }
+
+    public static int getOverrideSuggestedEditCount() {
+        return getInt(R.string.preference_key_suggested_edits_override_edits, 0);
+    }
+
+    public static int getOverrideSuggestedRevertCount() {
+        return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
     private Prefs() { }
