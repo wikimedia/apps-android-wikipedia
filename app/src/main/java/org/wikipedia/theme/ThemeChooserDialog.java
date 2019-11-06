@@ -195,7 +195,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         buttonThemeBlack.setEnabled(!isMatchingSystemthemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
     }
 
-    private boolean isMatchingSystemthemeEnabled(){
+    private boolean isMatchingSystemthemeEnabled() {
         return Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
     }
 
