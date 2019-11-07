@@ -89,7 +89,7 @@
   <string name="dialog_message_leaving_edit_stay">ترسو</string>
   <string name="menu_show_toc">عنوانن جي فھرست</string>
   <string name="search_no_results_found">ڪي بہ نتيجا نہ لڌي</string>
-  <string name="search_reading_list_no_results">\"%s\" ۾ ڪي به نتيجا نه مليا</string>
+  <string name="search_reading_list_no_results">\"%s\" ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_reading_lists_no_results">پڙھڻ جي فھرستن ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_history_no_results">سوانح ۾ ڪي بہ نتيجا نہ لڌا</string>
   <string name="edit_section_captcha_message">پاڻمرادو اسپام کان بچڻ ۾ مدد لاءِ، مھرباني ڪري ھيٺ ظاھر ٿيندڙ لفظ داخل ڪريو</string>
@@ -546,8 +546,12 @@
   <string name="feed_accessibility_card_text">توھان رسد جي تري تائين پھچي چڪا آھيو.</string>
   <string name="feed_accessibility_card_load_more_button">وڌيڪ لاھيو</string>
   <string name="description_edit_text_hint">مضمون جي تشريح</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">مضمون (%s)</string>
+  <string name="description_edit_article_description_label">مضمون</string>
+  <string name="description_edit_translate_article_description_label_per_language">مضمون تشريح (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">مضمون جي تشريح (%s)</string>
+  <string name="description_edit_add_caption_label">عڪس جي تشريح</string>
+  <string name="description_edit_add_caption_hint">عڪس جو عنوان</string>
+  <string name="description_edit_translate_caption_label_per_language">عڪس جو عنوان (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">عڪس جو عنوان (%s)</string>
   <string name="description_edit_save">ڇاپيو</string>
   <string name="description_edit_read">پڙهو</string>
@@ -635,8 +639,39 @@
   <string name="suggested_edits_article_cta_image_caption">عڪس جو عنوان وجھو</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">عڪس جو عنوان وجھو (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">ڏسو</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">عنوان وجھو</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">عنوان وجھو (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">عڪس جو عنوان وجھو</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">عڪس جو عنوان وجھو (%s)</string>
+  <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
+  <string name="suggested_edits_task_action_text_add">وجھو</string>
+  <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
+  <string name="suggested_edits_image_captions">عڪسن جا عنوان</string>
+  <string name="suggested_edits_encouragement_message">%s، توھان جي سنوارن لاءِ مھرباني. ھيٺ توھان وڪيپيڊيا ۾ ڀاڱيداري ڪرڻ جا وڌيڪ طريقا ڏسي سگھو ٿا.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;سلام %s&lt;/b&gt;، ڇا توھان کي ڄاڻ ھئي تہ ھرڪوئي وڪيپيڊيا کي سنواري سگھي ٿو؟ ھيٺ توھان وڪيپيڊيا کي بھتر بڻائڻ جا طريقا ڏسي سگھو ٿا. خوشگوار سنوارڪاري!</string>
+  <string name="suggested_edits_image_captions_task_detail">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي</string>
+  <string name="suggested_edits_add_descriptions_task_detail">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي</string>
+  <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي</string>
+  <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون</string>
+  <string name="suggested_edits_pageviews_label_text">صفحو-ڏيٺون</string>
+  <string name="suggested_edits_quality_label_text">معيار سنواريو</string>
+  <string name="suggested_edits_quality_perfect_text">ڪامل</string>
+  <string name="suggested_edits_quality_excellent_text">شاندار</string>
+  <string name="suggested_edits_quality_very_good_text">تمام سٺو</string>
+  <string name="suggested_edits_quality_good_text">سٺو</string>
+  <string name="suggested_edits_quality_okay_text">ٺيڪ</string>
+  <string name="suggested_edits_quality_sufficient_text">مناسب</string>
+  <string name="suggested_edits_quality_poor_text">ڪمزور</string>
+  <string name="suggested_edits_quality_bad_text">خراب</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">ڀاڱيداري</item>
+    <item quantity="other">ڀاڱيداريون</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d ڏينھن</item>
+    <item quantity="other">%d ڏينھن</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">آخري دفعو سنواريل</string>
+  <string name="suggested_edits_last_edited_never">ڪڏهن بہ نہ</string>
   <string name="description_edit_revert_subtitle">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني!</string>
   <string name="description_edit_revert_intro">اسان ڄاڻون ٿا توھان ڀرپور ڪوشش ڪئي، پر ھڪ جائزيڪار کي ڪو شڪ آھي. توھان جي سنوار ورائي وڃڻ جي سببن ۾ شامل آھن:</string>
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>
