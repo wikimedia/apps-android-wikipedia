@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
 import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementCard
 import org.wikipedia.feed.announcement.AnnouncementCardView
 import org.wikipedia.feed.configure.ConfigureActivity
@@ -14,12 +15,11 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.UriUtil
-import java.util.*
 
-class AnnouncementDialog internal constructor(context: Context, card: AnnouncementCard) : AlertDialog(context), AnnouncementCardView.Callback {
+class AnnouncementDialog internal constructor(context: Context, val announcement: Announcement) : AlertDialog(context), AnnouncementCardView.Callback {
     init {
         val rootView = AnnouncementCardView(context)
-        rootView.setCard(card)
+        rootView.setCard(AnnouncementCard(announcement))
         rootView.setCallback(this)
         setView(rootView)
     }
@@ -44,7 +44,7 @@ class AnnouncementDialog internal constructor(context: Context, card: Announceme
     }
 
     private fun dismissDialog() {
-        Prefs.setFundraisingDialogShownInYear(Calendar.getInstance().get(Calendar.YEAR))
+        Prefs.setAnnouncementShownDialogs(setOf(announcement.id()))
         dismiss()
     }
 }

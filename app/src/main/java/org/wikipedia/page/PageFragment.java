@@ -54,7 +54,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.feed.announcement.Announcement;
-import org.wikipedia.feed.announcement.AnnouncementCard;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
@@ -88,7 +87,6 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiErrorView;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -103,7 +101,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
-import static org.wikipedia.feed.announcement.Announcement.FUNDRAISING_PLACEMENT_ARTICLE;
+import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
 import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
@@ -1248,7 +1246,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void maybeShowFundraisingDialog() {
-        if (Prefs.hasVisitedArticlePage() && Prefs.fundraisingDialogShownInYear() < Calendar.getInstance().get(Calendar.YEAR)) {
+        if (Prefs.hasVisitedArticlePage()) {
             disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getAnnouncements()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -1256,8 +1254,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         String country = GeoUtil.getGeoIPCountry();
                         Date now = new Date();
                         for (Announcement announcement : list.items()) {
-                            if (shouldShow(announcement, country, now) && announcement.placement().equals(FUNDRAISING_PLACEMENT_ARTICLE)) {
-                                new AnnouncementDialog(requireActivity(), new AnnouncementCard(announcement)).show();
+                            if (shouldShow(announcement, country, now)
+                                    && announcement.placement().equals(PLACEMENT_ARTICLE)
+                                    && !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
+                                AnnouncementDialog dialog = new AnnouncementDialog(requireActivity(), announcement);
+                                dialog.setCancelable(false);
+                                dialog.show();
                                 break;
                             }
                         }
