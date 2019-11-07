@@ -211,9 +211,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     return true;
                 });
 
-        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key))
-                .setSummary(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.getAnnouncementShownDialogs().size()))
-        ;
+        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key)).setSummary(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.getAnnouncementShownDialogs().size()));
         findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key))
                 .setOnPreferenceClickListener(preference -> {
                     Prefs.resetAnnouncementShownDialogs();
