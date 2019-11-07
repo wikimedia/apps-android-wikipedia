@@ -237,6 +237,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                             .observeOn(AndroidSchedulers.mainThread())
                 }
                 .flatMap { entities ->
+                    if (entities.entities() == null) {
+                        return@flatMap Observable.just(0L)
+                    }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
                     for (entityKey in entities.entities()!!.keys) {
                         val entity = entities.entities()!![entityKey]!!
