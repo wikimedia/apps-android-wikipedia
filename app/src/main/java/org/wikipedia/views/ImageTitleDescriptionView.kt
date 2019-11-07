@@ -68,8 +68,8 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, iconTint)))
 
         val params = image.layoutParams
-        params.width = DimenUtil.roundedDpToPx(24f)
-        params.height = DimenUtil.roundedDpToPx(24f)
+        params.width = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.suggested_edits_icon_size) * 3 / 4)
+        params.height = params.width
         image.layoutParams = params
         image.requestLayout()
     }

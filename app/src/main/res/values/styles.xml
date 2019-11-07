@@ -137,11 +137,11 @@
     </style>
 
     <style name="BottomNavigationTextAppearanceInactive">
-        <item name="android:textSize">10dp</item>
+        <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
     </style>
 
     <style name="BottomNavigationTextAppearanceActive">
-        <item name="android:textSize">10dp</item>
+        <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
     </style>
 
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
