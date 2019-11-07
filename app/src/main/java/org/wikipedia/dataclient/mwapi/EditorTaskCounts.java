@@ -8,6 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.json.GsonUtil;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 
 import java.text.ParseException;
@@ -39,6 +40,20 @@ public class EditorTaskCounts {
         return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
     }
 
+    public int getTotalEdits() {
+        int totalEdits = 0;
+        for (int count : getDescriptionEditsPerLanguage().values()) {
+            totalEdits += count;
+        }
+        for (int count : getCaptionEditsPerLanguage().values()) {
+            totalEdits += count;
+        }
+        if (Prefs.shouldOverrideSuggestedEditCounts()) {
+            totalEdits = Prefs.getOverrideSuggestedEditCount();
+        }
+        return totalEdits;
+    }
+
     @NonNull
     public Map<String, Integer> getDescriptionRevertsPerLanguage() {
         Map<String, Integer> revertsPerLanguage = null;
@@ -55,6 +70,20 @@ public class EditorTaskCounts {
             revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appCaptionEdits;
         }
         return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
+    }
+
+    public int getTotalReverts() {
+        int totalReverts = 0;
+        for (int count : getDescriptionRevertsPerLanguage().values()) {
+            totalReverts += count;
+        }
+        for (int count : getCaptionRevertsPerLanguage().values()) {
+            totalReverts += count;
+        }
+        if (Prefs.shouldOverrideSuggestedEditCounts()) {
+            totalReverts = Prefs.getOverrideSuggestedRevertCount();
+        }
+        return totalReverts;
     }
 
     public int getEditStreak() {

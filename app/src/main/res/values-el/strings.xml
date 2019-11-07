@@ -423,7 +423,7 @@
     <item quantity="one">Αυτό το λήμμα δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα δεν θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Τελευταίος συγχρονισμός</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Τελευταίος συγχρονισμός</string>
   <string name="reading_list_menu_last_sync">Τελευταίος συγχρονισμός: %s</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>
