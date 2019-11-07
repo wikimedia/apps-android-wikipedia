@@ -734,8 +734,8 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Pendant combien de jours sans arrêt vous avez contribué à utiliser Modifications suggérées</string>
   <string name="suggested_edits_page_views_stat_tooltip">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours avec Modifications suggérées</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basé sur combien de fois une de vos contributions a été annulée. Modifications révoquées : %d</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Modifications suggérées est en pause jusqu’au %1$s.&lt;/b&gt; Désolé %2$s, certaines de vos contributions récentes ont été annulées.\n\n En savoir plus pour améliorer vos talents d’éditeur sur Wikipédia avec le lien ci-dessous.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Les modifications suggérées sont désactivées.&lt;/b&gt; Désolé %s, vous avez trop de contributions récentes annulées.\n\n Explications en suivant le lien ci-dessous.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Modifications suggérées est en pause jusqu’au %1$s.&lt;/b&gt; Désolé %2$s, certaines de vos contributions récentes ont été annulées.\n\n En savoir plus pour améliorer vos talents d’éditeur sur Wikipédia avec le lien ci-dessous.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Les modifications suggérées sont désactivées.&lt;/b&gt; Désolé %s, vous avez trop de contributions récentes annulées.\n\n Explications en suivant le lien ci-dessous.</string>
   <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia. En savoir plus sur ce que cela signifie en allant sur le lien ci-dessous.</string>
   <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
   <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>

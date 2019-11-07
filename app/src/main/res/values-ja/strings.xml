@@ -713,6 +713,9 @@
   <string name="suggested_edits_feed_card_translate_image_caption">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか？ アプリを使った編集について、アンケートに回答をお願いします。</string>
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
+  <string name="suggested_edits_task_action_text_add">追加</string>
+  <string name="suggested_edits_task_action_text_translate">翻訳</string>
+  <string name="suggested_edits_pageviews_label_text">ページビュー</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
@@ -751,6 +754,8 @@
   <string name="events_count_text">%2$sから%3$dまでに起こった%1$s件の出来事</string>
   <string name="this_year">今年</string>
   <string name="back_to_top">トップへ</string>
+  <string name="on_this_day_dialog_next_month">次の月</string>
+  <string name="on_this_day_dialog_previous_month">前の月</string>
   <plurals name="diff_years">
     <item quantity="one">昨年</item>
     <item quantity="other">%d年前</item>
