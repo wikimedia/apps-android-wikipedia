@@ -15,7 +15,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsSummary
-import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
+import org.wikipedia.suggestededits.SuggestedEditsUserStats
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.StringUtil
 import java.util.*
@@ -40,10 +40,10 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
             // Suggested Edits feature is paused or disabled, the next time the feed is refreshed.
-            SuggestedEditsTasksFragment.updateStatsInBackground()
+            SuggestedEditsUserStats.updateStatsInBackground()
         }
 
-        if (SuggestedEditsTasksFragment.isDisabled() || SuggestedEditsTasksFragment.maybePauseAndGetEndDate() != null) {
+        if (SuggestedEditsUserStats.isDisabled() || SuggestedEditsUserStats.maybePauseAndGetEndDate() != null) {
             FeedCoordinator.postCardsToCallback(cb, Collections.emptyList())
             return
         }

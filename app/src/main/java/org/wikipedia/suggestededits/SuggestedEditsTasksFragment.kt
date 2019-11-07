@@ -28,18 +28,15 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
-import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.collections.HashSet
-import kotlin.math.ceil
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
@@ -124,7 +121,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun showEditQualityStatsViewTooltip() {
         hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, totalReverts), Toast.LENGTH_LONG)
+        currentTooltip = FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts), Toast.LENGTH_LONG)
     }
 
     override fun onPause() {
@@ -178,7 +175,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         progressBar.visibility = VISIBLE
-        disposables.add(getEditCountsObservable()
+        disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
                 .subscribe({ response ->
                     val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     if (response.query()!!.userInfo()!!.isBlocked) {
@@ -187,7 +184,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     } else if (!maybeSetPausedOrDisabled()) {
 
-                        editQualityStatsView.setGoodnessState(getRevertSeverity())
+                        editQualityStatsView.setGoodnessState(SuggestedEditsUserStats.getRevertSeverity())
 
                         if (editorTaskCounts.editStreak < 2) {
                             editStreakStatsView.setTitle(if (editorTaskCounts.lastEditDate.time > 0) DateUtil.getMDYDateString(editorTaskCounts.lastEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
@@ -317,7 +314,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setFinalUIState() {
         clearContents()
 
-        if (totalEdits == 0) {
+        if (SuggestedEditsUserStats.totalEdits == 0) {
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
             editStreakStatsView.visibility = GONE
@@ -330,8 +327,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             editStreakStatsView.visibility = VISIBLE
             pageViewStatsView.visibility = VISIBLE
             onboardingImageView.visibility = GONE
-            contributionsStatsView.setTitle(totalEdits.toString())
-            contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalEdits))
+            contributionsStatsView.setTitle(SuggestedEditsUserStats.totalEdits.toString())
+            contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, SuggestedEditsUserStats.totalEdits))
             textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
         }
 
@@ -346,9 +343,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        val pauseEndDate = maybePauseAndGetEndDate()
+        val pauseEndDate = SuggestedEditsUserStats.maybePauseAndGetEndDate()
 
-        if (isDisabled()) {
+        if (SuggestedEditsUserStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
@@ -371,7 +368,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             onboarding1.visibility = GONE
         }
         ipBlocked.setOnClickListener { setIPBlockedStatus() }
-        onboarding1.setOnClickListener { totalEdits = 0; setFinalUIState() }
+        onboarding1.setOnClickListener { SuggestedEditsUserStats.totalEdits = 0; setFinalUIState() }
     }
 
     private fun setUpTasks() {
@@ -420,72 +417,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
-        private const val REVERT_SEVERITY_PAUSE_THRESHOLD = 5
-        private const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
-        private const val PAUSE_DURATION_DAYS = 7
-
-        private var totalEdits: Int = 0
-        private var totalReverts: Int = 0
-
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
-        }
-
-        fun getEditCountsObservable(): Observable<MwQueryResponse> {
-            return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doOnNext {
-                        val editorTaskCounts = it.query()!!.editorTaskCounts()!!
-                        totalEdits = editorTaskCounts.totalEdits
-                        totalReverts = editorTaskCounts.totalReverts
-                        maybePauseAndGetEndDate()
-                    }
-        }
-
-        fun updateStatsInBackground() {
-            getEditCountsObservable().subscribe()
-        }
-
-        fun getRevertSeverity(): Int {
-            return if (totalEdits <= 100) totalReverts else ceil(totalReverts.toFloat() / totalEdits.toFloat() * 100f).toInt()
-        }
-
-        fun isDisabled(): Boolean {
-            return getRevertSeverity() > REVERT_SEVERITY_DISABLE_THRESHOLD
-        }
-
-        fun maybePauseAndGetEndDate(): Date? {
-            val pauseDate = Prefs.getSuggestedEditsPauseDate()
-            var pauseEndDate: Date? = null
-
-            // Are we currently in a pause period?
-            if (pauseDate.time != 0L) {
-                val cal = Calendar.getInstance()
-                cal.time = pauseDate
-                cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-                pauseEndDate = cal.time
-
-                if (Date().after((pauseEndDate))) {
-                    // We've exceeded the pause period, so remove it.
-                    Prefs.setSuggestedEditsPauseDate(Date(0))
-                    pauseEndDate = null
-                }
-            }
-
-            if (getRevertSeverity() > REVERT_SEVERITY_PAUSE_THRESHOLD) {
-                // Do we need to impose a new pause?
-                if (totalReverts > Prefs.getSuggestedEditsPauseReverts()) {
-                    val cal = Calendar.getInstance()
-                    cal.time = Date()
-                    Prefs.setSuggestedEditsPauseDate(cal.time)
-                    Prefs.setSuggestedEditsPauseReverts(totalReverts)
-
-                    cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-                    pauseEndDate = cal.time
-                }
-            }
-            return pauseEndDate
         }
     }
 }
