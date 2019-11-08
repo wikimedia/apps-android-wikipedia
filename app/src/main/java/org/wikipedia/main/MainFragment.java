@@ -72,8 +72,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
+import io.reactivex.Completable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
@@ -341,12 +343,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         updateToolbarElevation(!(fragment instanceof FeedFragment || fragment instanceof SuggestedEditsTasksFragment) || (fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
     }
 
-    @Override public void onLoadPage(@NonNull HistoryEntry entry) {
+    @Override
+    public void onLoadPage(@NonNull HistoryEntry entry) {
         startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
-    @Override public void onClearHistory() {
-        // todo: [overhaul] clear history.
+    @Override
+    public void onClearHistory() {
+        disposables.add(Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class).deleteAll())
+                .subscribeOn(Schedulers.io()).subscribe());
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
