@@ -460,7 +460,7 @@
     <item quantity="one">Sinkronelaat ar %1$d roll…</item>
     <item quantity="other">Sinkronelaat ar %1$d rolloù…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d 1 roll a chom</item>
     <item quantity="other">%1$d roll a chom</item>
   </plurals>

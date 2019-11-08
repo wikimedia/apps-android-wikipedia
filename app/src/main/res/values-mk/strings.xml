@@ -704,8 +704,8 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале со „Предложени уредувања“</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања. Отповикани уредувања: %d</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Предложените уредувања се во прекин до %1$s.&lt;/b&gt; За жал, %2$s, некои од вашите скорешни уредувања се отповикани.\n\n Дознајте како да си ги подобрите уредувачките вештини на Википедија од страниците подолу.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Предложените уредувања се оневозможени.&lt;/b&gt; За жал, %s, имате премногу отповикани скорешни уредувања.\n\n Дознајте што ова значи од страниците подолу.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Предложените уредувања се во прекин до %1$s.&lt;/b&gt; За жал, %2$s, некои од вашите скорешни уредувања се отповикани.\n\n Дознајте како да си ги подобрите уредувачките вештини на Википедија од страниците подолу.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Предложените уредувања се оневозможени.&lt;/b&gt; За жал, %s, имате премногу отповикани скорешни уредувања.\n\n Дознајте што ова значи од страниците подолу.</string>
   <string name="suggested_edits_ip_blocked_message">Изгледа дека не вашата IP-адреса (или адресен опсег) ѝ е забрането да уредува на Википедија. Посетете ја страницата подолу за да дознаете што ова значи.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
@@ -728,6 +728,8 @@
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дена</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Последно уредување</string>
+  <string name="suggested_edits_last_edited_never">Никогаш</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

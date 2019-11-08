@@ -708,7 +708,7 @@
   <string name="suggested_edits_task_action_text_translate">Översätt</string>
   <string name="suggested_edits_image_captions">Bildtexter</string>
   <string name="suggested_edits_encouragement_message">%s, tack för dina redigeringar. Nedan kan du hitta fler sätt att bidra på Wikipedia</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>
+  <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>
   <string name="suggested_edits_image_captions_task_detail">Biltexter beskriver en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Titelbeskrivningar sammanfattar en artikel för att hjälpa läsare förstå ämnet på ett ögonblick</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ditt totala antal bidrag med förslag på redigeringar</string>
@@ -716,13 +716,14 @@
   <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt du har bidragit till de senaste 30 dagarna med förslag på redigeringar</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baserat på hur många gånger ett av dina bidrag har återställts. Återställa redigeringar: %d</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Förslag på redigeringar pausas t.o.m. %1$s.&lt;/b&gt; Förlåt, %2$s. Några av dina senaste bidrag har återställts.\n\n Läs om hur du kan förbättra dina redigeringskunskaper på Wikipedia med länkarna nedan.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Förslag på redigeringar har inaktiverats.&lt;/b&gt; Förlåt, %s. Alltför många av dina senaste bidrag har återställts.\n\n Läs om vad detta innebär med länkarna nedan.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">IP-adressen du använder är blockerad från att redigera på Wikipedia. Läs mer om blockeringar via länken nedan.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Förslag på redigeringar har inaktiverats.&lt;/b&gt; Förlåt, %s. Alltför många av dina senaste bidrag har återställts.\n\n Läs om vad detta innebär med länkarna nedan.</string>
+  <string name="suggested_edits_ip_blocked_message">IP-adressen du använder är blockerad från att redigera på Wikipedia. Läs mer om blockeringar via länken nedan.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips och tricks för att redigera</string>
   <string name="suggested_edits_help_page_link_text">Hjälpsida för förslag på redigeringar</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringar i rad</string>
   <string name="suggested_edits_pageviews_label_text">Sidvisningar</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
+  <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_quality_excellent_text">Utmärkt</string>
   <string name="suggested_edits_quality_very_good_text">Mycket bra</string>
   <string name="suggested_edits_quality_good_text">Bra</string>
@@ -738,6 +739,8 @@
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagar</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Redigerades senast</string>
+  <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
@@ -776,6 +779,9 @@
   <string name="events_count_text">%1$s händelser från %2$s–%3$d</string>
   <string name="this_year">Detta år</string>
   <string name="back_to_top">Tillbaka till början</string>
+  <string name="on_this_day_dialog_next_month">Nästa månad</string>
+  <string name="on_this_day_dialog_previous_month">Föregående månad</string>
+  <string name="on_this_day_open_date_picker">Öppna datumväljare</string>
   <plurals name="diff_years">
     <item quantity="one">Senaste året</item>
     <item quantity="other">%d år sedan</item>

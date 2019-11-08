@@ -42,6 +42,7 @@
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="search_hint_search_my_lists_and_articles">Doorzoek mijn lijsten en artikelen</string>
   <string name="nav_item_history">Geschiedenis</string>
+  <string name="nav_item_suggested_edits">Voorgestelde bewerkingen</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="card_offline_error_retry">Opnieuw proberen</string>
@@ -707,6 +708,26 @@
   <string name="suggested_edits_feed_card_add_image_caption">Afbeeldingsbijschrift toevoegen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vragenlijst invullen</string>
+  <string name="suggested_edits_task_action_text_add">Toevoegen</string>
+  <string name="suggested_edits_task_action_text_translate">Vertalen</string>
+  <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>
+  <string name="suggested_edits_quality_perfect_text">Perfect</string>
+  <string name="suggested_edits_quality_excellent_text">Uitstekend</string>
+  <string name="suggested_edits_quality_very_good_text">Erg goed</string>
+  <string name="suggested_edits_quality_good_text">Goed</string>
+  <string name="suggested_edits_quality_okay_text">Redelijk</string>
+  <string name="suggested_edits_quality_sufficient_text">Voldoende</string>
+  <string name="suggested_edits_quality_poor_text">Teleurstellend</string>
+  <string name="suggested_edits_quality_bad_text">Slecht</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Bijdrage</item>
+    <item quantity="other">Bijdragen</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d dag</item>
+    <item quantity="other">%d dagen</item>
+  </plurals>
+  <string name="suggested_edits_last_edited_never">Nooit</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -745,6 +766,8 @@
   <string name="events_count_text">%1$s gebeurtenissen van %2$s–%3$d</string>
   <string name="this_year">Dit jaar</string>
   <string name="back_to_top">Terug naar boven</string>
+  <string name="on_this_day_dialog_next_month">Volgende maand</string>
+  <string name="on_this_day_dialog_previous_month">Vorige maand</string>
   <plurals name="diff_years">
     <item quantity="one">Vorig jaar</item>
     <item quantity="other">%d jaar geleden</item>

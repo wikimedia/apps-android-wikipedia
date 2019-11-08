@@ -15,8 +15,8 @@ public class Entities extends MwResponse implements PostProcessingTypeAdapter.Po
     @Nullable private Map<String, Entity> entities;
     private int success;
 
-    @Nullable public Map<String, Entity> entities() {
-        return entities;
+    @NonNull public Map<String, Entity> entities() {
+        return entities != null ? entities : Collections.emptyMap();
     }
 
     @Nullable public Entity getFirst() {

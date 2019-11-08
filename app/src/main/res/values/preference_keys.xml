@@ -103,4 +103,9 @@
     <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
     <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
+    <string name="preference_key_suggested_edits_pause_date">suggestedEditsPauseDate</string>
+    <string name="preference_key_suggested_edits_pause_reverts">suggestedEditsPauseReverts</string>
+    <string name="preference_key_suggested_edits_override_counts">suggestedEditsOverrideCounts</string>
+    <string name="preference_key_suggested_edits_override_edits">suggestedEditsOverrideEdits</string>
+    <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
 </resources>

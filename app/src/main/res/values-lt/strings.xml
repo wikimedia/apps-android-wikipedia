@@ -8,6 +8,7 @@
 * Nersip
 * Nuodas
 * Pofka
+* Tomasdd
 * Zygimantus
 -->
 <resources>
@@ -18,7 +19,7 @@
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="search_hint_search_history">Paieškos istorija</string>
   <string name="nav_item_history">Istorija</string>
-  <string name="nav_item_suggested_edits">Siūlomi Keitimai</string>
+  <string name="nav_item_suggested_edits">Siūlomi keitimai</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="page_error_back_to_main">Grįžti atgal</string>
@@ -326,6 +327,8 @@
   <string name="description_edit_success_did_you_know">Ar žinote?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Pradėti redagavimą</string>
   <string name="suggested_edits_article_cta_snackbar_action">Žiūrėti</string>
+  <string name="suggested_edits_quality_perfect_text">Puiku</string>
+  <string name="suggested_edits_last_edited_never">Niekada</string>
   <string name="onboarding_skip">Praleisti</string>
   <string name="onboarding_continue">Tęsti</string>
   <string name="onboarding_get_started">Pradėti</string>
