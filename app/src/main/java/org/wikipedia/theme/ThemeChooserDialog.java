@@ -51,7 +51,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
     @BindView(R.id.button_theme_sepia_highlight) View buttonThemeSepiaHighlight;
     @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
-    @BindView(R.id.theme_chooser_match_system_theme_switch) SwitchCompat matchSystemSwitch;
+    @BindView(R.id.theme_chooser_match_system_theme_switch) SwitchCompat matchSystemThemeSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
     public interface Callback {
@@ -163,7 +163,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
         Prefs.setMatchSystemTheme(enabled);
-        if (isMatchingSystemthemeEnabled()) {
+        if (isMatchingSystemThemeEnabled()) {
             switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
                 case Configuration.UI_MODE_NIGHT_YES:
                     if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
@@ -184,19 +184,19 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void conditionallyDisableThemeButtons() {
-        buttonThemeLight.setAlpha((isMatchingSystemthemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
-        buttonThemeSepia.setAlpha((isMatchingSystemthemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
-        buttonThemeDark.setAlpha((isMatchingSystemthemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
-        buttonThemeBlack.setAlpha((isMatchingSystemthemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeLight.setAlpha((isMatchingSystemThemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeSepia.setAlpha((isMatchingSystemThemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeDark.setAlpha((isMatchingSystemThemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeBlack.setAlpha((isMatchingSystemThemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
 
-        buttonThemeLight.setEnabled(!isMatchingSystemthemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
-        buttonThemeSepia.setEnabled(!isMatchingSystemthemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
-        buttonThemeDark.setEnabled(!isMatchingSystemthemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
-        buttonThemeBlack.setEnabled(!isMatchingSystemthemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeLight.setEnabled(!isMatchingSystemThemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeSepia.setEnabled(!isMatchingSystemThemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeDark.setEnabled(!isMatchingSystemThemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeBlack.setEnabled(!isMatchingSystemThemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
     }
 
-    private boolean isMatchingSystemthemeEnabled() {
-        return Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    private boolean isMatchingSystemThemeEnabled() {
+        return Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
     }
 
     private void updateComponents() {
@@ -207,10 +207,12 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateMatchSystemThemeSwitch() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            matchSystemSwitch.setVisibility(View.VISIBLE);
-            matchSystemSwitch.setChecked(Prefs.shouldMatchSystemTheme());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            matchSystemThemeSwitch.setVisibility(View.VISIBLE);
+            matchSystemThemeSwitch.setChecked(Prefs.shouldMatchSystemTheme());
             conditionallyDisableThemeButtons();
+        } else {
+            matchSystemThemeSwitch.setVisibility(View.GONE);
         }
     }
 

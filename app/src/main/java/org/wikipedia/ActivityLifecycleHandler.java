@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
@@ -23,11 +24,11 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     }
 
     @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+    public void onActivityCreated(@NotNull Activity activity, Bundle savedInstanceState) {
         if (activity instanceof MainActivity) {
             haveMainActivity = true;
         }
-        if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
                 case Configuration.UI_MODE_NIGHT_YES:
                     if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
@@ -46,29 +47,29 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     }
 
     @Override
-    public void onActivityStarted(Activity activity) {
+    public void onActivityStarted(@NotNull Activity activity) {
     }
 
     @Override
-    public void onActivityResumed(Activity activity) {
+    public void onActivityResumed(@NotNull Activity activity) {
         anyActivityResumed = true;
     }
 
     @Override
-    public void onActivityPaused(Activity activity) {
+    public void onActivityPaused(@NotNull Activity activity) {
         anyActivityResumed = false;
     }
 
     @Override
-    public void onActivityStopped(Activity activity) {
+    public void onActivityStopped(@NotNull Activity activity) {
     }
 
     @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+    public void onActivitySaveInstanceState(@NotNull Activity activity, @NotNull Bundle outState) {
     }
 
     @Override
-    public void onActivityDestroyed(Activity activity) {
+    public void onActivityDestroyed(@NotNull Activity activity) {
         if (activity instanceof MainActivity) {
             haveMainActivity = false;
         }
