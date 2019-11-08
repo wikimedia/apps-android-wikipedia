@@ -38,7 +38,6 @@ public class FindInPageActionProvider extends ActionProvider {
 
     private Context context;
     private FindInPageListener listener;
-    private boolean lastOccurrenceSearchFlag;
     private boolean isFirstOccurrence;
     private boolean isLastOccurrence;
 
@@ -98,11 +97,6 @@ public class FindInPageActionProvider extends ActionProvider {
             isFirstOccurrence = false;
             isLastOccurrence = false;
         }
-        if (lastOccurrenceSearchFlag) {
-            // Go one occurrence back from the first one so it shows the last one.
-            lastOccurrenceSearchFlag = false;
-            listener.onFindPrevClicked();
-        }
         findInPageMatch.setVisibility(View.VISIBLE);
     }
 
@@ -119,7 +113,6 @@ public class FindInPageActionProvider extends ActionProvider {
         } else {
             DeviceUtil.hideSoftKeyboard(v);
             listener.onFindNextLongClicked();
-            lastOccurrenceSearchFlag = true;
         }
         return true;
     }

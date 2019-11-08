@@ -42,6 +42,7 @@ public class FindInWebPageActionProvider extends FindInPageActionProvider
         funnel.addFindPrev();
         fragment.getWebView().clearMatches();
         fragment.getWebView().findAllAsync(searchQuery);
+        fragment.getWebView().findNext(false);
     }
 
     @Override
