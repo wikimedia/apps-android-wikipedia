@@ -343,11 +343,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         updateToolbarElevation(!(fragment instanceof FeedFragment || fragment instanceof SuggestedEditsTasksFragment) || (fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
     }
 
-    @Override public void onLoadPage(@NonNull HistoryEntry entry) {
+    @Override
+    public void onLoadPage(@NonNull HistoryEntry entry) {
         startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
     }
 
-    @Override public void onClearHistory() {
+    @Override
+    public void onClearHistory() {
         disposables.add(Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class).deleteAll())
                 .subscribeOn(Schedulers.io()).subscribe());
     }
