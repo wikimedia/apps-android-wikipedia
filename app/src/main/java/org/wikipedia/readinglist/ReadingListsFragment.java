@@ -165,6 +165,15 @@ public class ReadingListsFragment extends Fragment implements
     public void onResume() {
         super.onResume();
         updateLists();
+        maybeShowOnboarding();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (actionMode != null) {
+            actionMode.finish();
+        }
     }
 
     @Override
@@ -273,20 +282,6 @@ public class ReadingListsFragment extends Fragment implements
         }
     }
 
-    @Override
-    public void setUserVisibleHint(boolean visible) {
-        super.setUserVisibleHint(visible);
-        if (!isAdded()) {
-            return;
-        }
-        if (visible) {
-            updateLists();
-            maybeShowOnboarding();
-        } else if (actionMode != null) {
-            actionMode.finish();
-        }
-    }
-
     private void enableLayoutTransition(boolean enable) {
         if (enable) {
             contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
@@ -359,7 +354,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void maybeShowListLimitMessage() {
-        if (getUserVisibleHint() && displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+        if (displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
             String message = getString(R.string.reading_lists_limit_message);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
         }
