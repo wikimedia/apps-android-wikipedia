@@ -163,16 +163,19 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
         Prefs.setMatchSystemTheme(enabled);
+        Theme currentTheme = app.getCurrentTheme();
         if (isMatchingSystemThemeEnabled()) {
             switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
                 case Configuration.UI_MODE_NIGHT_YES:
                     if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                        WikipediaApp.getInstance().setCurrentTheme(Theme.BLACK);
+                        app.setCurrentTheme(!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.BLACK : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
                     }
                     break;
                 case Configuration.UI_MODE_NIGHT_NO:
                     if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                        WikipediaApp.getInstance().setCurrentTheme(Theme.LIGHT);
+                        app.setCurrentTheme(app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.LIGHT : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
                     }
                     break;
                 default:

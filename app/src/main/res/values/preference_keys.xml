@@ -7,6 +7,7 @@
     <string name="preference_key_reading_app_install_id">readingAppInstallID</string>
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
+    <string name="preference_key_previous_color_theme">previousColorTheme</string>
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
     <string name="preference_key_language_app">languageApp</string>

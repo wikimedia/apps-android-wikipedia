@@ -25,23 +25,27 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
 
     @Override
     public void onActivityCreated(@NotNull Activity activity, Bundle savedInstanceState) {
+        WikipediaApp app = WikipediaApp.getInstance();
         if (activity instanceof MainActivity) {
             haveMainActivity = true;
         }
         if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+            Theme currentTheme = app.getCurrentTheme();
+            switch (app.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
                 case Configuration.UI_MODE_NIGHT_YES:
-                    if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                        WikipediaApp.getInstance().setCurrentTheme(Theme.BLACK);
+                    if (!app.getCurrentTheme().isDark()) {
+                        app.setCurrentTheme(!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.BLACK : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
                     }
                     break;
                 case Configuration.UI_MODE_NIGHT_NO:
-                    if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                        WikipediaApp.getInstance().setCurrentTheme(Theme.LIGHT);
+                    if (app.getCurrentTheme().isDark()) {
+                        app.setCurrentTheme(app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.LIGHT : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
                     }
                     break;
                 default:
-                    WikipediaApp.getInstance().setCurrentTheme(Theme.LIGHT);
+                    app.setCurrentTheme(Theme.LIGHT);
             }
         }
     }
