@@ -713,8 +713,8 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Koľko dní bez prestávky ste prispievali pomocou Navrhovaných úprav</string>
   <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položiek, ku ktorým ste za posledných 30 dní prispeli pomocou Navrhovaných úprav</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Na základe toho, koľkokrát boli vaše príspevky vrátené. Vrátene úpravy: %d</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Navrhované úpravy sú pozastavené do %1$s.&lt;/b&gt; Ľutujeme %2$s, niektoré vaše nedávne príspevky boli vrátené.\n\nNa nižšie uvedených odkazoch sa dozviete, ako zlepšiť svoje editačné schopnosti na Wikipédii.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhované úpravy sú vypnuté.&lt;/b&gt; Ľutujeme %s, veľke množstvo vašich nedávnych príspevkov bolo vrátené.\n\nPrečítajte si, čo to znamená, pomocou odkazov nižšie.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Navrhované úpravy sú pozastavené do %1$s.&lt;/b&gt; Ľutujeme %2$s, niektoré vaše nedávne príspevky boli vrátené.\n\nNa nižšie uvedených odkazoch sa dozviete, ako zlepšiť svoje editačné schopnosti na Wikipédii.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Navrhované úpravy sú vypnuté.&lt;/b&gt; Ľutujeme %s, veľke množstvo vašich nedávnych príspevkov bolo vrátené.\n\nPrečítajte si, čo to znamená, pomocou odkazov nižšie.</string>
   <string name="suggested_edits_ip_blocked_message">IP adresa (alebo rozsah IP adries), ktorú používate, má momentálne zablokované upravovanie Wikipédie. Ďalšie informácie o tom, čo to znamená, nájdete na nižšie uvedenom odkaze.</string>
   <string name="suggested_edits_editing_tips_link_text">Editačné tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápoveda Navrhovaných úprav</string>
