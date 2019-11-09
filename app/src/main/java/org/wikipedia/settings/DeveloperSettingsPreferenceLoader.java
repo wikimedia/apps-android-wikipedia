@@ -11,6 +11,7 @@ import androidx.preference.TwoStatePreference;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -20,6 +21,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +104,12 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preferences_developer_crash_key))
                 .setOnPreferenceClickListener(preference -> {
                     throw new TestException("User tested crash functionality.");
+                });
+
+        findPreference(R.string.preference_key_remote_log)
+                .setOnPreferenceChangeListener((preference, newValue) -> {
+                    L.logRemoteError(new RemoteLogException(newValue.toString()));
+                    return true;
                 });
 
         findPreference(R.string.preference_key_add_articles)
