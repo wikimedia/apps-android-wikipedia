@@ -202,9 +202,7 @@
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
   <string name="button_get_directions">నిర్దేశాలను పొందండి</string>
   <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
-  <string name="crash_report_dialog_dont_send_button">దాటవేయి</string>
-  <string name="crash_report_dialog_send_button">పంపించు</string>
-  <string name="color_theme_select">నేపథ్యం</string>
+    <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
   <string name="color_theme_dark">చీకటి</string>
   <string name="color_theme_black">నలుపు</string>

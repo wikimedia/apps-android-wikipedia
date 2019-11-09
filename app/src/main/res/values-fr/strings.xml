@@ -362,12 +362,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
   <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
-  <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
-  <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp, un fournisseur de services tiers, afin que Wikimedia puisse examiner votre incident et corriger l’anomalie qui l’a provoqué ?</string>
-  <string name="crash_report_dialog_dont_send_button">Sauter</string>
-  <string name="crash_report_dialog_always_send_button">Toujours envoyer</string>
-  <string name="crash_report_dialog_send_button">Envoyer</string>
-  <string name="crash_report_activity_title">Erreur de l’application</string>
+    <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
   <string name="crash_report_quit">Quitter</string>

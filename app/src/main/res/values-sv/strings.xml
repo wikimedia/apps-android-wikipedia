@@ -343,12 +343,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
   <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
   <string name="preference_summary_prefer_offline_content">Spara dataanvändning genom att läsa in artiklar som är tillgängliga offline istället för att alltid läsa in den senaste versionen av en artikel</string>
-  <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
-  <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
-  <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
-  <string name="crash_report_dialog_always_send_button">Skicka alltid</string>
-  <string name="crash_report_dialog_send_button">Skicka</string>
-  <string name="crash_report_activity_title">Applikationsfel</string>
+    <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
   <string name="crash_report_quit">Avsluta</string>

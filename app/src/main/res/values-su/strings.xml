@@ -305,12 +305,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pamoékan gambar (dina téma Poék)</string>
   <string name="preference_title_prefer_offline_content">Resep kénéh kontén oflén</string>
   <string name="preference_summary_prefer_offline_content">Ngirit pamakéan data ku cara muat artikel nu sayaga sacara oflén tinimbang muat vérsi anyar artikel</string>
-  <string name="crash_report_dialog_title">Hampura, aplikasi eureun sorangan bieu téh</string>
-  <string name="crash_report_dialog_text">Ari anjeun hayang ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sangkan Wikimédia bisa mariksa karuksakan anjeun sarta ngoméan kasalahan nu disumebabkeunna?</string>
-  <string name="crash_report_dialog_dont_send_button">Liwatkeun</string>
-  <string name="crash_report_dialog_always_send_button">Kirim terus</string>
-  <string name="crash_report_dialog_send_button">Kirim</string>
-  <string name="crash_report_activity_title">Kasalahan aplikasi</string>
+    <string name="crash_report_activity_title">Kasalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kumaha atuh? Rék dibalikan deui atawa kaluar baé?</string>
   <string name="crash_report_relaunch">Balikan deui</string>
   <string name="crash_report_quit">Kaluar</string>

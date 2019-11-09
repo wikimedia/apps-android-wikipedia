@@ -218,12 +218,7 @@
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі выгляд артыкулаў пры доўгім націсканьні на спасылку.</string>
   <string name="nav_item_donate">Падтрымаць Вікіпэдыю</string>
-  <string name="crash_report_dialog_title">Выбачайце, праграма спынілася мінулым разам</string>
-  <string name="crash_report_dialog_text">Вы хацелі б адаслаць справаздачу пра крах у HockeyApp / да староньняга правайдару паслуг, каб Вікімэдыя магла праглядзець Вашую інфармацыю і выправіць памылку, якая выклікала крах?</string>
-  <string name="crash_report_dialog_dont_send_button">Прапусьціць</string>
-  <string name="crash_report_dialog_always_send_button">Заўсёды дасылаць</string>
-  <string name="crash_report_dialog_send_button">Даслаць</string>
-  <string name="crash_report_activity_title">Памылка праграмы</string>
+    <string name="crash_report_activity_title">Памылка праграмы</string>
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>
   <string name="crash_report_quit">Выйсьці</string>

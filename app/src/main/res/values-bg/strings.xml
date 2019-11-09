@@ -332,12 +332,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
   <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
-  <string name="crash_report_dialog_title">За съжаление, приложението се срина последния път</string>
-  <string name="crash_report_dialog_text">Желаете ли да изпратите доклад за срива на HockeyApp / услуга на трети страни, така че Уикимедия да разгледа срива и да оправи бъга, който го е причинил?</string>
-  <string name="crash_report_dialog_dont_send_button">Пропускане</string>
-  <string name="crash_report_dialog_always_send_button">Винаги изпращай</string>
-  <string name="crash_report_dialog_send_button">Изпращане</string>
-  <string name="crash_report_activity_title">Грешка в приложението</string>
+    <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
   <string name="crash_report_relaunch">Започване отначало</string>
   <string name="crash_report_quit">Излизане</string>

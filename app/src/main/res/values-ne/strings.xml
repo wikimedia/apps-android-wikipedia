@@ -274,12 +274,7 @@
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
   <string name="reference_title">सन्दर्भ %s</string>
-  <string name="crash_report_dialog_title">माफ गर्नुहोस्, अनुप्रयोग पछिल्लो पटक क्र्यास भयो</string>
-  <string name="crash_report_dialog_text">तपाईं विकिमिडियालाई आफ्नो क्र्यासको समीक्षा गर्ने तथा सो क्र्यास गराउने समस्याको समाधान गर्न सक्षम बनाउने प्रयोजनका लागि उक्त क्र्यासको प्रतिवेदन HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलार्इ पठाउन चाहनुहुन्छ?</string>
-  <string name="crash_report_dialog_dont_send_button">छोड्नुहोस्</string>
-  <string name="crash_report_dialog_always_send_button">सधैँ पठाउनुहोस्</string>
-  <string name="crash_report_dialog_send_button">पठाउनुहोस्</string>
-  <string name="crash_report_activity_title">अनुप्रयोगसम्बन्धी त्रुटि</string>
+    <string name="crash_report_activity_title">अनुप्रयोगसम्बन्धी त्रुटि</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
   <string name="article_menu_bar_bookmark">यो लेखलार्इ कुनै अध्ययन सूचीमा थप्नुहोस्</string>

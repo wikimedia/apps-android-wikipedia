@@ -74,8 +74,6 @@
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title">Лицензин йоза %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолаялита цаелира.</string>
-  <string name="crash_report_dialog_dont_send_button">ТӀехйовлийта</string>
-  <string name="crash_report_dialog_send_button">ДӀадахьийта</string>
-  <string name="crash_report_relaunch">Юху доладан</string>
+    <string name="crash_report_relaunch">Юху доладан</string>
   <string name="crash_report_quit">АрагӀо</string>
 </resources>

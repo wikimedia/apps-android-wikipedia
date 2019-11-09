@@ -332,12 +332,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
-  <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
-  <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
-  <string name="crash_report_dialog_dont_send_button">Прескокни</string>
-  <string name="crash_report_dialog_always_send_button">Секогаш испраќај</string>
-  <string name="crash_report_dialog_send_button">Испрати</string>
-  <string name="crash_report_activity_title">Грешка во прилогот</string>
+    <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>

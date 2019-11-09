@@ -345,11 +345,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuació d\'imatges (en el tema fosc)</string>
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
   <string name="preference_summary_prefer_offline_content">Estalvia ús de dades carregant articles que són disponibles fora de línia en comptes de carregar la darrera versió de l\'article</string>
-  <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
-  <string name="crash_report_dialog_text">Voleu enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
-  <string name="crash_report_dialog_dont_send_button">Omet</string>
-  <string name="crash_report_dialog_always_send_button">Envia sempre</string>
-  <string name="crash_report_dialog_send_button">Envia</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>

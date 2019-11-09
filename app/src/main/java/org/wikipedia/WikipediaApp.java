@@ -1,7 +1,6 @@
 package org.wikipedia;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Application;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -18,6 +17,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.crashes.Crashes;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -26,7 +27,7 @@ import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
+import org.wikipedia.crash.AppCenterCrashesListener;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -84,7 +85,7 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    private HockeyAppCrashReporter crashReporter;
+    private AppCenterCrashesListener crashListener;
     private RefWatcher refWatcher;
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
@@ -321,14 +322,12 @@ public class WikipediaApp extends Application {
 
     public void putCrashReportProperty(String key, String value) {
         if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter.putReportProperty(key, value);
+            crashListener.putReportProperty(key, value);
         }
     }
 
-    public void checkCrashes(@NonNull Activity activity) {
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter.checkCrashes(activity);
-        }
+    public void logCrashManually(@NonNull Throwable throwable) {
+        crashListener.logCrashManually(throwable);
     }
 
     public Handler getMainThreadHandler() {
@@ -391,15 +390,17 @@ public class WikipediaApp extends Application {
     }
 
     private void initExceptionHandling() {
-        // HockeyApp exception handling interferes with the test runner, so enable it only for beta and stable releases
+        // AppCenter exception handling interferes with the test runner, so enable it only for beta and stable releases
         if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
-            L.setRemoteLogger(crashReporter);
+            crashListener = new AppCenterCrashesListener();
+            Crashes.setListener(crashListener);
+            AppCenter.start(this, getString(R.string.appcenter_id), Crashes.class);
+            Crashes.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
         }
     }
 
     private void updateCrashReportProps() {
-        // HockeyApp exception handling interferes with the test runner, so enable it only for beta and stable releases
+        // AppCenter exception handling interferes with the test runner, so enable it only for beta and stable releases
         if (!ReleaseUtil.isPreBetaRelease()) {
             putCrashReportProperty("locale", Locale.getDefault().toString());
             if (appLanguageState != null) {
@@ -407,10 +408,6 @@ public class WikipediaApp extends Application {
                 putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
             }
         }
-    }
-
-    private HockeyAppCrashReporter.AutoUploadConsentAccessor consentAccessor() {
-        return Prefs::isCrashReportAutoUploadEnabled;
     }
 
     private void enableWebViewDebugging() {

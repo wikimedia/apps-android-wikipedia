@@ -201,11 +201,7 @@
   <string name="error_page_does_not_exist">ਇਹ ਪੰਨਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="view_wiki_error_message_offline">ਇੰਟਰਨੈਟ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਦੇ</string>
   <string name="reference_title">ਹਵਾਲੇ %s</string>
-  <string name="crash_report_dialog_title">ਮੁਅਾਫ਼ ਕਰਨਾ, ਪਿਛਲੀ ਵਾਰ ਐਪ ਟੁੱਟ ਗੲੀ ਸੀ</string>
-  <string name="crash_report_dialog_dont_send_button">ਛੱਡ ਦਿਉ</string>
-  <string name="crash_report_dialog_always_send_button">ਹਮੇਸ਼ਾ ਭੇਜੋ</string>
-  <string name="crash_report_dialog_send_button">ਭੇਜੋ</string>
-  <string name="crash_report_activity_title">ਆਦੇਸ਼ਕਾਰੀ ਦੀ ਗਲਤੀ</string>
+    <string name="crash_report_activity_title">ਆਦੇਸ਼ਕਾਰੀ ਦੀ ਗਲਤੀ</string>
   <string name="crash_report_relaunch">ਸ਼ੁਰੂ \'ਤੋਂ</string>
   <string name="crash_report_quit">ਛੱਡੋ</string>
   <string name="article_menu_bar_bookmark">ਇਸ ਲੇਖ ਨੂੰ ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਜੋੜੋ</string>

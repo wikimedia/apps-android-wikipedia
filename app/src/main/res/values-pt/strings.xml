@@ -347,12 +347,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuação de imagens (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir conteúdo offline</string>
   <string name="preference_summary_prefer_offline_content">Economizar na utilização de dados, carregando artigos que estão disponíveis sem acesso à Internet em vez de carregar sempre a versão mais recente de um artigo</string>
-  <string name="crash_report_dialog_title">Desculpe, a aplicação encerrou inesperadamente da última vez</string>
-  <string name="crash_report_dialog_text">Gostaria de enviar um relatório desta falha para o fornecedor de serviços externo HockeyApp, de modo a permitir que a Wikimedia analise e corrija o erro que causou o encerramento?</string>
-  <string name="crash_report_dialog_dont_send_button">Ignorar</string>
-  <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
-  <string name="crash_report_dialog_send_button">Enviar</string>
-  <string name="crash_report_activity_title">Erro da aplicação</string>
+    <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
   <string name="crash_report_quit">Sair</string>

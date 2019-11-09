@@ -311,12 +311,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Irudia lausotu (gai ilunetan)</string>
   <string name="preference_title_prefer_offline_content">Konexiorik gabeko edukia hobestu</string>
   <string name="preference_summary_prefer_offline_content">Aurreztu itzazu datuak, lineaz kanpo erabilgarri dauden artikuluak kargatuz, artikulu baten azken bertsioa kargatzearen ordez</string>
-  <string name="crash_report_dialog_title">Barkatu, aplikazioa eten egin da</string>
-  <string name="crash_report_dialog_text">Kraskadurari buruzko txostena HockeyApp / hirugarrenen zerbitzu-hornitzaileari bidali nahi diozu Wikimedia-ek zure kraskadura berrikusi eta konpondu duen akatsa zuzentzeko?</string>
-  <string name="crash_report_dialog_dont_send_button">Utzi</string>
-  <string name="crash_report_dialog_always_send_button">Beti bidali</string>
-  <string name="crash_report_dialog_send_button">Bidali</string>
-  <string name="crash_report_activity_title">Aplikazioaren akatsa</string>
+    <string name="crash_report_activity_title">Aplikazioaren akatsa</string>
   <string name="crash_report_relaunch_or_quit">Sentitzen dugu, Wikipedia aplikazioak errorea jasan du eta eten egin da.\n\nBerriro hasi ala irten nahiko zenuke?</string>
   <string name="crash_report_relaunch">Berriro ere hasi</string>
   <string name="crash_report_quit">Irten</string>

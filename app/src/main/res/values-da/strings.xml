@@ -333,12 +333,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Billedmørklægning (i mørkt tema)</string>
   <string name="preference_title_prefer_offline_content">Fortræk lokalt indhold</string>
   <string name="preference_summary_prefer_offline_content">Spar på dataforbruget ved at indlæse artikler, som er tilgængeligt lokalt frem for altid at indlæse den seneste version af en artikel</string>
-  <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
-  <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
-  <string name="crash_report_dialog_dont_send_button">Spring over</string>
-  <string name="crash_report_dialog_always_send_button">Send altid</string>
-  <string name="crash_report_dialog_send_button">Send</string>
-  <string name="crash_report_activity_title">Applikationsfejl</string>
+    <string name="crash_report_activity_title">Applikationsfejl</string>
   <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.\n\nVil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>

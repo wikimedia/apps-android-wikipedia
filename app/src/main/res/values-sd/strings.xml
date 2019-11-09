@@ -315,11 +315,7 @@
   <string name="reference_title">حوالو %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">(گھري نظاري ۾) عڪسن کي ڊم ڪندي</string>
   <string name="preference_title_prefer_offline_content">آفلائين مواد کي ترجيح ڏيو</string>
-  <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ خراب ٿي وئي</string>
-  <string name="crash_report_dialog_dont_send_button">ڇڏيو</string>
-  <string name="crash_report_dialog_always_send_button">ھميشہ اماڻيو</string>
-  <string name="crash_report_dialog_send_button">اماڻيو</string>
-  <string name="crash_report_activity_title">ايپليڪيشن جي چُڪَ</string>
+    <string name="crash_report_activity_title">ايپليڪيشن جي چُڪَ</string>
   <string name="crash_report_relaunch_or_quit">اسان معذرتخواھ آهيون، وڪيپيڊيا ايپ هڪ خرابي کي منھن ڏنو ۽ بند ٿي وئي.\n\nڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
   <string name="crash_report_relaunch">شروع ڪريو</string>
   <string name="crash_report_quit">نڪرو</string>
