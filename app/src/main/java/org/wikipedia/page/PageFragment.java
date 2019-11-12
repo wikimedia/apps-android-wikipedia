@@ -801,7 +801,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         checkAndShowBookmarkOnboarding();
-        maybeShowFundraisingDialog();
+        maybeShowAnnouncement();
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -1245,7 +1245,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         leadImagesHandler.openImageInGallery(language);
     }
 
-    private void maybeShowFundraisingDialog() {
+    private void maybeShowAnnouncement() {
         if (Prefs.hasVisitedArticlePage()) {
             disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getAnnouncements()
                     .subscribeOn(Schedulers.io())

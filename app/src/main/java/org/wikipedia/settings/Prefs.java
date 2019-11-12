@@ -824,12 +824,14 @@ public final class Prefs {
             return emptySet;
         }
         //noinspection unchecked
-        Set<String> cards = GsonUnmarshaller.unmarshal(emptySet.getClass(),
+        Set<String> announcement = GsonUnmarshaller.unmarshal(emptySet.getClass(),
                 getString(R.string.preference_key_announcement_shown_dialogs, null));
-        return cards != null ? cards : emptySet;
+        return announcement != null ? announcement : emptySet;
     }
 
-    public static void setAnnouncementShownDialogs(@NonNull Set<String> announcementIds) {
+    public static void setAnnouncementShownDialogs(@NonNull Set<String> newAnnouncementIds) {
+        Set<String> announcementIds = getAnnouncementShownDialogs();
+        announcementIds.addAll(newAnnouncementIds);
         setString(R.string.preference_key_announcement_shown_dialogs, GsonMarshaller.marshal(announcementIds));
     }
 
