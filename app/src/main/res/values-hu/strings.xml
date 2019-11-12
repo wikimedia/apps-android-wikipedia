@@ -702,7 +702,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Kérdőív kitöltése</string>
   <string name="suggested_edits_task_action_text_add">Hozzáadás</string>
   <string name="suggested_edits_task_action_text_translate">Fordítás</string>
-  <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, köszönet a szerkesztéseidért! Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához</string>
   <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>
   <string name="suggested_edits_quality_label_text">Szerkesztési minőség</string>
   <string name="suggested_edits_quality_perfect_text">Tökéletes</string>
