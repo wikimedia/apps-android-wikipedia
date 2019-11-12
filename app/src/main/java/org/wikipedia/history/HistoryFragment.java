@@ -126,6 +126,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        if (actionMode != null) {
+            actionMode.finish();
+        }
+    }
+
+    @Override
     public void onDestroyView() {
         LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
@@ -133,16 +141,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean visible) {
-        if (!isAdded()) {
-            return;
-        }
-        if (!visible && actionMode != null) {
-            actionMode.finish();
-        }
     }
 
     @Override
