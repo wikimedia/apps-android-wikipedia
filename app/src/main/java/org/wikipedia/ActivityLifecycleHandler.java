@@ -45,7 +45,7 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
                     }
                     break;
                 default:
-                    app.setCurrentTheme(Theme.LIGHT);
+                    break;
             }
         }
     }

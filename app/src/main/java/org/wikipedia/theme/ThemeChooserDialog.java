@@ -179,7 +179,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
                     }
                     break;
                 default:
-                    WikipediaApp.getInstance().setCurrentTheme(Theme.LIGHT);
+                    break;
             }
         }
         conditionallyDisableThemeButtons();
