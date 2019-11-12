@@ -17,6 +17,7 @@ public class FindInWebPageActionProvider extends FindInPageActionProvider
         this.fragment = fragment;
         this.funnel = funnel;
         setListener(this);
+        setEnableLastOccurrenceSearchFlag(true);
     }
 
     public void findInPage(String s) {
@@ -42,7 +43,6 @@ public class FindInWebPageActionProvider extends FindInPageActionProvider
         funnel.addFindPrev();
         fragment.getWebView().clearMatches();
         fragment.getWebView().findAllAsync(searchQuery);
-        fragment.getWebView().findNext(false);
     }
 
     @Override
