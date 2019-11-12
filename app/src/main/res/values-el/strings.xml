@@ -313,11 +313,7 @@
   <string name="reference_title">Παραπομπή %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Αμυδρότητα εικόνων (στο Σκοτεινό θέμα)</string>
   <string name="preference_title_prefer_offline_content">Προτίμηση περιεχόμενου εκτός σύνδεσης</string>
-  <string name="crash_report_dialog_title">Λυπούμαστε, η εφαρμογή κράσαρε την τελευταία φορά</string>
-  <string name="crash_report_dialog_dont_send_button">Παράβλεψη</string>
-  <string name="crash_report_dialog_always_send_button">Αποστολή πάντα</string>
-  <string name="crash_report_dialog_send_button">Αποστολή</string>
-  <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
+    <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
   <string name="article_menu_bar_bookmark">Προσθέστε αυτό το λήμμα  σε λίστα ανάγνωσης</string>
