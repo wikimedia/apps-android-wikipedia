@@ -116,7 +116,9 @@ public final class L {
     // worth crashing on everything but prod
     public static void logRemoteError(@NonNull Throwable t) {
         LEVEL_E.log("", t);
-        WikipediaApp.getInstance().logCrashManually(t);
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            WikipediaApp.getInstance().logCrashManually(t);
+        }
     }
 
     private abstract static class LogLevel {
