@@ -359,12 +359,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">图片变暗（在黑暗主题中）</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载可供离线使用的条目保存数据使用，而不总是加载条目最新版本</string>
-  <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
-  <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
-  <string name="crash_report_dialog_dont_send_button">跳过</string>
-  <string name="crash_report_dialog_always_send_button">总是发送</string>
-  <string name="crash_report_dialog_send_button">发送</string>
-  <string name="crash_report_activity_title">应用程序错误</string>
+    <string name="crash_report_activity_title">应用程序错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用程序发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重新开始</string>
   <string name="crash_report_quit">退出</string>

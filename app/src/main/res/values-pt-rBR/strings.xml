@@ -358,12 +358,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Escurecimento da imagem (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Prefira o conteúdo off-line</string>
   <string name="preference_summary_prefer_offline_content">Salve o uso de dados carregando artigos que estão disponíveis offline em vez de carregar sempre a versão mais recente de um artigo</string>
-  <string name="crash_report_dialog_title">Desculpe, o aplicativo encerrou inesperadamente da última vez</string>
-  <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falha ao HockeyApp / um provedor de serviço de terceiros para que a Wikimedia possa analisar a falha e corrigi-la?</string>
-  <string name="crash_report_dialog_dont_send_button">Pular</string>
-  <string name="crash_report_dialog_always_send_button">Sempre enviar</string>
-  <string name="crash_report_dialog_send_button">Enviar</string>
-  <string name="crash_report_activity_title">Erro no aplicativo</string>
+    <string name="crash_report_activity_title">Erro no aplicativo</string>
   <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de reiniciá-lo ou sair?</string>
   <string name="crash_report_relaunch">Reiniciar</string>
   <string name="crash_report_quit">Sair</string>

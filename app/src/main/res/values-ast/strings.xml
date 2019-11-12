@@ -325,12 +325,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Amortecimientu d\'imaxes (na tema escura)</string>
   <string name="preference_title_prefer_offline_content">Preferir conteníu ensin conexón</string>
   <string name="preference_summary_prefer_offline_content">Aforrar l\'usu de datos cargando artículos que tean disponibles ensin conexón, en llugar de cargar siempres la última versión d\'un artículu.</string>
-  <string name="crash_report_dialog_title">Sentímoslo, l\'aplicación falló la última vez</string>
-  <string name="crash_report_dialog_text">¿Quies unviar un informe de cuelgue a HockeyApp / un fornidor de serviciu d\'un terceru pa que Wikimedia pueda revisar el cuelgue ya iguar el fallu que lu causó?</string>
-  <string name="crash_report_dialog_dont_send_button">Saltar</string>
-  <string name="crash_report_dialog_always_send_button">Unviar siempre</string>
-  <string name="crash_report_dialog_send_button">Unviar</string>
-  <string name="crash_report_activity_title">Error de l\'aplicación:</string>
+    <string name="crash_report_activity_title">Error de l\'aplicación:</string>
   <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.\n\n¿Quies volver a arrancar o colar?</string>
   <string name="crash_report_relaunch">Volver a arrancar</string>
   <string name="crash_report_quit">Colar</string>
