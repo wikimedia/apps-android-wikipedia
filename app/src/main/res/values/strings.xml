@@ -338,6 +338,7 @@
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
+    <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_dialog_title">Sorry, app crashed last time</string>
@@ -736,17 +737,17 @@
     <string name="suggested_edits_task_action_text_add">Add</string>
     <string name="suggested_edits_task_action_text_translate">Translate</string>
     <string name="suggested_edits_image_captions">Image Captions</string>
-    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia</string>
+    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
-    <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context</string>
-    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions summarize an article to help readers understand the subject at a glance</string>
-    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits</string>
-    <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed using Suggested edits</string>
-    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits</string>
-    <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted. Reverted edits: %d</string>
+    <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context.</string>
+    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions summarize an article to help readers understand the subject at a glance.</string>
+    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits.</string>
+    <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed using Suggested edits.</string>
+    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits.</string>
+    <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted. Reverted edits: %d.</string>
     <string name="suggested_edits_paused_message"><![CDATA[<b>Suggested edits is paused until %1$s.</b> Sorry %2$s, some of your recent contributions have been reverted.\n\n Learn how to improve your editing skills on Wikipedia with the link below.]]></string>
     <string name="suggested_edits_disabled_message"><![CDATA[<b>Suggested edits is disabled.</b> Sorry %s, too many of your recent contributions have been reverted.\n\n Learn what this means with the link below.]]></string>
-    <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia. Learn more about what this means by visiting the link below.</string>
+    <string name="suggested_edits_ip_blocked_message">The IP you are using is blocked from editing Wikipedia. Learn more about blocks by visiting the link below.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>

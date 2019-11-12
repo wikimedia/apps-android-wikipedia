@@ -172,7 +172,7 @@ public class WikipediaApp extends Application {
         bus = new RxBus();
 
         ViewAnimations.init(getResources());
-        currentTheme = unmarshalCurrentTheme();
+        currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
 
         appLanguageState = new AppLanguageState(this);
         updateCrashReportProps();
@@ -298,7 +298,7 @@ public class WikipediaApp extends Application {
     public void setCurrentTheme(@NonNull Theme theme) {
         if (theme != currentTheme) {
             currentTheme = theme;
-            Prefs.setThemeId(currentTheme.getMarshallingId());
+            Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
             bus.post(new ThemeChangeEvent());
         }
     }
@@ -419,11 +419,10 @@ public class WikipediaApp extends Application {
         }
     }
 
-    private Theme unmarshalCurrentTheme() {
-        int id = Prefs.getThemeId();
-        Theme result = Theme.ofMarshallingId(id);
+    public Theme unmarshalTheme(int themeId) {
+        Theme result = Theme.ofMarshallingId(themeId);
         if (result == null) {
-            L.d("Theme id=" + id + " is invalid, using fallback.");
+            L.d("Theme id=" + themeId + " is invalid, using fallback.");
             result = Theme.getFallback();
         }
         return result;

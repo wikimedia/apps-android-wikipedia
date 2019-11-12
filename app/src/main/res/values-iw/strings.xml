@@ -365,7 +365,7 @@
   <string name="color_theme_sepia">ספיה</string>
   <string name="color_theme_test_title">טקסט לדוגמה</string>
   <string name="color_theme_test_text">יש לגרור את המחלק כדי לשנות את גודל הטקסט שמוצג בעת קריאת הערכים. כדי להגדיר את גודל הטקסט בשאר היישום, יש לשנות את גודל הטקסט בהגדרות המערכת של המכשיר.</string>
-  <string name="preference_title_app_theme">ערכת הנושא של האפליקציה</string>
+  <string name="preference_title_app_theme">ערכת הנושא של היישום</string>
   <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של היישום</string>
   <string name="text_size_increase">הגדלת הטקסט</string>
   <string name="text_size_decrease">הקטנת הטקסט</string>
@@ -708,7 +708,7 @@
   <string name="suggested_edits_task_action_text_add">הוספה</string>
   <string name="suggested_edits_task_action_text_translate">תרגום</string>
   <string name="suggested_edits_image_captions">כיתוב התמונה</string>
-  <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לויקיפדיה</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לויקיפדיה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
