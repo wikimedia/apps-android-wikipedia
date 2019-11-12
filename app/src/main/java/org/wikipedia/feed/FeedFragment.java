@@ -268,19 +268,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
-    public void setUserVisibleHint(boolean visible) {
-        super.setUserVisibleHint(visible);
-        if (!isAdded()) {
-            return;
-        }
-        if (visible) {
-            funnel.enter();
-        } else {
-            funnel.exit();
-        }
-    }
-
-    @Override
     public void onDestroyView() {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
