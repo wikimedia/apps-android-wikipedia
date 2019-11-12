@@ -347,12 +347,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
-  <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
-  <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體能夠檢視您的錯誤，並修正造成問題的程式臭蟲？</string>
-  <string name="crash_report_dialog_dont_send_button">略過</string>
-  <string name="crash_report_dialog_always_send_button">總是傳送</string>
-  <string name="crash_report_dialog_send_button">傳送</string>
-  <string name="crash_report_activity_title">應用程式錯誤</string>
+    <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
   <string name="crash_report_quit">結束</string>

@@ -317,12 +317,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Teñvalaat ar skeudenn (en tem Teñval)</string>
   <string name="preference_title_prefer_offline_content">Kavout gwelloc\'h an endalc\'h ezlinenn</string>
   <string name="preference_summary_prefer_offline_content">Espernout implij ar roadennoù en ur gargañ pennadoù a c\'haller kaout ezlinenn, kentoc\'h eget kargañ bepred doare diwezhañ ur pennad</string>
-  <string name="crash_report_dialog_title">Hon digarezit, c\'hwitet eo an arload ar wech diwezhañ</string>
-  <string name="crash_report_dialog_text">Ha c\'hoant ho peus da gas un danevell implij da HockeyApp - ur pourchaser servijoù tredeour - abalamour ma c\'hallo Wikimedia kompren war ho tarvoud ha reizhañ an draen degaset gantañ ?</string>
-  <string name="crash_report_dialog_dont_send_button">Lezel a-gostez</string>
-  <string name="crash_report_dialog_always_send_button">Kas atav</string>
-  <string name="crash_report_dialog_send_button">Kas</string>
-  <string name="crash_report_activity_title">Fazi an arload</string>
+    <string name="crash_report_activity_title">Fazi an arload</string>
   <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.\n\nHa c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
   <string name="crash_report_quit">Kuitaat</string>

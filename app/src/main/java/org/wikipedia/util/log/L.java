@@ -3,8 +3,8 @@ package org.wikipedia.util.log;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ReleaseUtil;
 
 /** Logging utility like {@link Log} but with implied tags. */
@@ -43,8 +43,6 @@ public final class L {
             Log.e(tag, msg, t);
         }
     };
-
-    @Nullable private static RemoteExceptionLogger REMOTE_EXCEPTION_LOGGER;
 
     public static void v(CharSequence msg) {
         LEVEL_V.log(msg, null);
@@ -114,16 +112,12 @@ public final class L {
         }
     }
 
-    public static void setRemoteLogger(@Nullable RemoteExceptionLogger logger) {
-        REMOTE_EXCEPTION_LOGGER = logger;
-    }
-
     // Favor logRemoteErrorIfProd(). If it's worth consuming bandwidth and developer hours, it's
     // worth crashing on everything but prod
     public static void logRemoteError(@NonNull Throwable t) {
         LEVEL_E.log("", t);
-        if (REMOTE_EXCEPTION_LOGGER != null) {
-            REMOTE_EXCEPTION_LOGGER.log(t);
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            WikipediaApp.getInstance().logCrashManually(t);
         }
     }
 

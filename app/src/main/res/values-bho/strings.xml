@@ -300,10 +300,7 @@
   <string name="view_link_preview_error_button_dismiss">रद्द करीं</string>
   <string name="error_page_does_not_exist">ई पन्ना मौजूद नइखे।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
-  <string name="crash_report_dialog_dont_send_button">छोड़ीं</string>
-  <string name="crash_report_dialog_always_send_button">हमेशा भेजीं</string>
-  <string name="crash_report_dialog_send_button">भेजल जाय</string>
-  <string name="crash_report_activity_title">एप्लीकेशन खराबी</string>
+    <string name="crash_report_activity_title">एप्लीकेशन खराबी</string>
   <string name="crash_report_quit">छोड़ के हटीं</string>
   <string name="article_menu_bar_bookmark">एह लेख के पढ़ाई सूची में जोड़ीं</string>
   <string name="article_menu_bar_share">लेख के लिंक शेयर करीं</string>
