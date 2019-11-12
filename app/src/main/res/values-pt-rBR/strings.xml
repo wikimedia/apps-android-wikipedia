@@ -719,15 +719,15 @@
   <string name="suggested_edits_image_captions">Legendas da imagem</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, você sabia que todos podem editar a Wikipédia? Abaixo, você encontrará maneiras divertidas de ajudar a melhorar a Wikipedia. Edição feliz!</string>
-  <string name="suggested_edits_image_captions_task_detail">As legendas das imagens descrevem uma imagem para ajudar os leitores a entender seu significado e contexto</string>
-  <string name="suggested_edits_add_descriptions_task_detail">As descrições dos artigos resumem um artigo para ajudar os leitores a entender rapidamente o assunto</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu usando as edições sugeridas</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página dos itens nos quais você contribuiu nos últimos 30 dias com edições sugeridas</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida. Edições revertidas: %d</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.\n\n Aprenda como melhorar suas habilidades de edição na Wikipédia com os links abaixo.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;As edições sugeridas estão desativadas.&lt;/b&gt; Desculpa %s, muitas das suas recentes contribuições foram revertidas.\n\n Saiba o que isso significa nos links abaixo.</string>
-  <string name="suggested_edits_ip_blocked_message">Parece que seu endereço IP (ou intervalo de endereços IP) está atualmente bloqueado na edição da Wikipedia. Saiba mais sobre o que isso significa visitando o link abaixo.</string>
+  <string name="suggested_edits_image_captions_task_detail">As legendas das imagens descrevem uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">As descrições dos artigos resumem um artigo para ajudar os leitores a entender rapidamente o assunto.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu usando as edições sugeridas.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página dos itens nos quais você contribuiu nos últimos 30 dias com edições sugeridas.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida. Edições revertidas: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.\n\n Aprenda como melhorar suas habilidades de edição na Wikipédia com o link abaixo.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;As edições sugeridas estão desativadas.&lt;/b&gt; Desculpa %s, muitas das suas recentes contribuições foram revertidas.\n\n Saiba o que isso significa no link abaixo.</string>
+  <string name="suggested_edits_ip_blocked_message">O IP que você está usando está impedido de editar a Wikipédia. Saiba mais sobre bloqueio visitando o link abaixo.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>

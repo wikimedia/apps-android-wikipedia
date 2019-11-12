@@ -21,7 +21,7 @@
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
   <string name="search_hint_search_my_lists_and_articles">منھنجون فھرستون ۽ مضمون ڳوليو</string>
   <string name="nav_item_history">سوانح</string>
-  <string name="nav_item_suggested_edits">تجويز ڪيل تبديليون</string>
+  <string name="nav_item_suggested_edits">صلاح-ڏنل تبديليون</string>
   <string name="error_network_error">انٽرنيٽ سان ڳنڍي نٿو سگھي.</string>
   <string name="page_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="card_offline_error_retry">ٻيهر ڪوشش ڪريو</string>
@@ -201,7 +201,7 @@
   <string name="edit_how_page_improved">توهان ان صفحي کي ڪيئن سڌاريو؟</string>
   <string name="edit_next">اڳيون</string>
   <string name="edit_done">ڇاپڻ</string>
-  <string name="edit_preview">پيش نگاھ</string>
+  <string name="edit_preview">پيش-نگاھ</string>
   <string name="edit_undo">اڻڪريو</string>
   <string name="edit_redo">وري-ڪريو</string>
   <string name="edit_zoom_in">وڏو ڪريو</string>
@@ -225,7 +225,7 @@
   <string name="search_did_you_mean">ڇا توهان جي مراد %s ھئي؟</string>
   <string name="search_recent_header">تازيون ڳولائون:</string>
   <string name="button_clear_all_recent_searches">تازيون ڳولائون ختم ڪريو</string>
-  <string name="clear_recent_searches_confirm">توهان کي پڪ آهي تہ توهان پنهنجي ڳولا جي سوانح ڊاهڻ گھرو ٿا؟</string>
+  <string name="clear_recent_searches_confirm">توهان کي پڪ آهي تہ توهان پنھنجي ڳولا جي سوانح ڊاهڻ گھرو ٿا؟</string>
   <string name="clear_recent_searches_confirm_yes">ھا</string>
   <string name="clear_recent_searches_confirm_no">نہ</string>
   <string name="error_browser_not_found">ويب صفحو کولي نہ سگھيو (ڪابہ جھانگو ايپ نہ لڌي)</string>
@@ -241,8 +241,8 @@
   <string name="dialog_close_description">بند ڪريو</string>
   <string name="preference_title_show_images">عڪس ڏيکاريو</string>
   <string name="preference_summary_show_images">صفحن ۾ عڪسن جو لوڊ ٿيڻ لائق يا نالائق بڻايو. هن ترتيب تان نشان هٽايو جيڪڏهن توهانجو انٽرنيٽ ڪنيڪشن آهستي آهي، يا توهان جو ڊيٽا منصوبو محدود آهي.</string>
-  <string name="preference_title_download_only_over_wifi">رڳو واءِ فاءِ ذريعي ڊائونلوڊ ڪيو</string>
-  <string name="dialog_title_download_only_over_wifi">موبائيل ڊيٽا سان ڊائونلوڊ ڪرڻ چاهيو ٿا؟</string>
+  <string name="preference_title_download_only_over_wifi">رڳو واءِ-فاءِ ذريعي ڊائونلوڊ ڪريو</string>
+  <string name="dialog_title_download_only_over_wifi">موبائل ڊيٽا سان ڊائونلوڊ ڪرڻ چاهيو ٿا؟</string>
   <string name="dialog_text_download_only_over_wifi">اوهان جي ترجيحن ۾ ″رڳو واءِ-فاءِ تي لاھيو″ کليل آهي. ڇا اوھان رڳو ھي لاھ ڪرڻ لاءِ پنھنجو موبائيل ڊيٽا پلان استعمال ڪرڻ جي اجازت ڏيڻ چاھيو ٿا؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
@@ -296,8 +296,8 @@
   <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورزن پڙھي رھيا آھيو.</string>
   <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
   <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
-  <string name="preference_title_show_link_previews">ڳنڍڻن جي پيش نگاھ ڏيکاريو</string>
-  <string name="preference_summary_show_link_previews">ڳنڍڻن تي رکڻ وقت صفحن تي تڪڙي پيش نگاھ ڏيکاريو.</string>
+  <string name="preference_title_show_link_previews">ڳنڍڻن جي پيش-نگاھ ڏيکاريو</string>
+  <string name="preference_summary_show_link_previews">ڳنڍڻن تي ڇھڻ وقت صفحن جي تڪڙي پيش-نگاھ ڏيکاريو.</string>
   <string name="preference_title_collapse_tables">جدولون کوليو</string>
   <string name="preference_summary_collapse_tables">جدولون، جھڙوڪ ڄاڻخانا، حوالا ۽ نوٽ پاڻمرادو کولي ڇڏيو.</string>
   <string name="nav_item_donate">وڪيپيڊيا کي سوورٽ ڪريو</string>
@@ -319,7 +319,7 @@
   <string name="crash_report_relaunch_or_quit">اسان معذرتخواھ آهيون، وڪيپيڊيا ايپ هڪ خرابي کي منھن ڏنو ۽ بند ٿي وئي.\n\nڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
   <string name="crash_report_relaunch">شروع ڪريو</string>
   <string name="crash_report_quit">نڪرو</string>
-  <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ شامل ڪريو</string>
+  <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ وجھو</string>
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_header_edit_hint">سنواريو...</string>
   <string name="article_header_edit_description">مضمون جي تشريح سنواريو</string>
@@ -382,7 +382,7 @@
   <string name="reading_list_article_make_offline">ھن مضمون کي آفلائين موجود ڪرايو</string>
   <string name="reading_list_add_to_other_list">ھڪ ٻي پڙھڻ جي فھرست ۾ شامو ڪريو</string>
   <string name="reading_list_remove_from_list">%s مان ھٽايو</string>
-  <string name="reading_list_remove_from_lists">پڙھڻ جي فھرستن ۾ شامل ڪريو</string>
+  <string name="reading_list_remove_from_lists">پڙھڻ جي فھرستن مان ھٽايو</string>
   <string name="reading_list_select_item">چونڊيو</string>
   <string name="reading_list_confirm_remove_article_from_offline">آفلائين مان ھٽايو</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مضمون ڪيترين ئي فھرستن ۾ ظاھر ٿئي ٿو</string>
@@ -401,7 +401,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">مون کي ھي ٻيھر نہ ڏيکاريو</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہ مھرباني</string>
   <string name="reading_list_login_option_reminder_dialog_title">پڙھڻ جي فھرست جا مضمون لڌا</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">ھا، انھن کي منھنجي پڙھڻ جي فھرستن ۾ شامل ڪريو</string>
+  <string name="reading_list_login_option_reminder_dialog_yes">ھا، انھن کي منھنجي پڙھڻ جي فھرستن ۾ وجھو</string>
   <string name="reading_list_login_option_reminder_dialog_no">نہ، مضمونن کي ڊاھيو</string>
   <string name="reading_list_logout_option_reminder_dialog_title">سانڍيل مضمونن کي ايپ ۾ رکو؟</string>
   <string name="reading_list_logout_option_reminder_dialog_yes">ھا، مضمونن کي فھرستن ۾ رکو</string>
@@ -643,11 +643,11 @@
   <string name="suggested_edits_image_captions">عڪسن جا عنوان</string>
   <string name="suggested_edits_encouragement_message">%s، توھان جي سنوارن لاءِ مھرباني. ھيٺ توھان وڪيپيڊيا ۾ ڀاڱيداري ڪرڻ جا وڌيڪ طريقا ڏسي سگھو ٿا.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;سلام %s&lt;/b&gt;، ڇا توھان کي ڄاڻ ھئي تہ ھرڪوئي وڪيپيڊيا کي سنواري سگھي ٿو؟ ھيٺ توھان وڪيپيڊيا کي بھتر بڻائڻ جا طريقا ڏسي سگھو ٿا. خوشگوار سنوارڪاري!</string>
-  <string name="suggested_edits_image_captions_task_detail">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي</string>
-  <string name="suggested_edits_add_descriptions_task_detail">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي</string>
-  <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي</string>
-  <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون</string>
+  <string name="suggested_edits_image_captions_task_detail">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
   <string name="suggested_edits_pageviews_label_text">صفحو-ڏيٺون</string>
   <string name="suggested_edits_quality_label_text">معيار سنواريو</string>
   <string name="suggested_edits_quality_perfect_text">ڪامل</string>
@@ -689,7 +689,7 @@
   <string name="onboarding_create_account_preferences">پنھنجون ترجيحون سانڍيو</string>
   <string name="onboarding_got_it">سمجھي ويئو</string>
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
-  <string name="onboarding_multilingual_add_language_text">وجهو يا ٻوليون سنواريو</string>
+  <string name="onboarding_multilingual_add_language_text">ٻوليون وجھو يا سنواريو</string>
   <string name="onboarding_welcome_title_v2">کليل ڄاڻ-چيڪلو\n...300 کان مٿي ٻولين ۾</string>
   <string name="app_shortcuts_random">بلاترتيب</string>
   <string name="app_shortcuts_continue_reading">پڙھڻ جاري رکو</string>
@@ -721,7 +721,7 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">سڀ ٻوليون ھٽائي نٿيون سگھجن</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">گھٽ ۾ گھٽ ھڪ وڪيپيڊيا ٻولي رکو جنھن ۾ مواد ڳولي ۽ پڙھي سگھجي.</string>
   <string name="more_language_options">وڌيڪ</string>
-  <string name="add_wikipedia_languages_text">وڪيپيڊيا ٻوليون داخل ڪيو</string>
+  <string name="add_wikipedia_languages_text">وڪيپيڊيا ٻوليون وجھو</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">چيني ٻولي کي ايپ مان ختم ڪرڻ چاهيو ٿا؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ٻوليون سنواريو</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">نہ مھرباني</string>

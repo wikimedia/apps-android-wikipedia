@@ -706,17 +706,17 @@
   <string name="suggested_edits_task_action_text_add">新增</string>
   <string name="suggested_edits_task_action_text_translate">翻譯</string>
   <string name="suggested_edits_image_captions">圖片說明</string>
-  <string name="suggested_edits_encouragement_message">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：您知道維基百科是每個人都可編輯的嗎？您可以在下方找到協助改善維基百科的有趣方式，來快樂地編輯吧！</string>
-  <string name="suggested_edits_image_captions_task_detail">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
-  <string name="suggested_edits_add_descriptions_task_detail">標題描述能概括條目，幫助讀者清楚了解主題。</string>
-  <string name="suggested_edits_contributions_stat_tooltip">您的建議編輯總數</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">您採用建議編輯來做貢獻的連續不中斷天數</string>
-  <string name="suggested_edits_page_views_stat_tooltip">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">基於您的編輯裡有多少次被回退。回退編輯數：%d</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">標題描述能概括條目，幫助讀者清楚了解主題。</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">您的建議編輯總數</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您採用建議編輯來做貢獻的連續不中斷天數</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">基於您的編輯裡有多少次被回退。回退編輯數：%d</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;建議編輯被暫停至 %1$s。&lt;/b&gt;很抱歉，%2$s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解如何增進您的維基百科編輯技能。</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;建議編輯已停用。&lt;/b&gt;很抱歉，%s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解此情況代表的含意。</string>
-  <string name="suggested_edits_ip_blocked_message">這看起來像是您的 IP 位址（或是 IP 位址的範圍）目前被禁止編輯維基百科，請參訪以下連結來了解更多這代表的含義。</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">這看起來像是您的 IP 位址（或是 IP 位址的範圍）目前被禁止編輯維基百科，請參訪以下連結來了解更多這代表的含義。</string>
   <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
   <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>
   <string name="suggested_edits_edit_streak_label_text">連續編輯紀錄</string>

@@ -49,7 +49,7 @@
   <string name="edit_history_link_text">Peržiūrėti keitimų istoriją</string>
   <string name="map_view_link_text">Žiūrėti žemėlapyje</string>
   <string name="content_license_html">Turinys prieinamas pagal &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, jei nenurodyta kitaip</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Išsaugodami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
+  <string name="edit_save_action_license_logged_in">Paskelbdami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
   <string name="preference_title_language">Vikipedijos kalbos</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
@@ -60,7 +60,7 @@
   <string name="dialog_message_edit_failed">Išsaugoti nepavyko!</string>
   <string name="dialog_message_edit_failed_retry">Bandyti dar kartą</string>
   <string name="dialog_message_edit_failed_cancel">Atšaukti</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Jūsų pakeitimai dar neišsaugoti. Ar tikrai norite palikti šį puslapį?</string>
+  <string name="dialog_message_leaving_edit">Jūsų pakeitimai dar nepaskelbti. Ar tikrai norite palikti šį puslapį?</string>
   <string name="dialog_message_leaving_edit_leave">Išeiti</string>
   <string name="dialog_message_leaving_edit_stay">Likti</string>
   <string name="menu_show_toc">Turinys</string>
@@ -227,7 +227,7 @@
   <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_header_edit_hint">Redaguoti...</string>
-  <string name="article_header_edit_description" fuzzy="true">Redaguoti pavadinimo aprašymą</string>
+  <string name="article_header_edit_description">Redaguoti straipsnio aprašymą</string>
   <string name="article_header_edit_lead_section">Redaguoti įžangą</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Šviesi</string>
@@ -310,20 +310,21 @@
   <string name="view_featured_article_footer_saved_button_label">Išsaugota</string>
   <string name="feed_configure_menu_select_all">Rodyti viską</string>
   <string name="feed_configure_menu_deselect_all">Paslėpti viską</string>
-  <string name="description_edit_text_hint" fuzzy="true">Pavadinimo aprašymas</string>
+  <string name="description_edit_text_hint">Straipsnio aprašymas</string>
   <string name="description_edit_save">Paskelbti</string>
-  <string name="description_edit_add_description" fuzzy="true">Pridėti pavadinimo aprašymą</string>
-  <string name="description_edit_edit_description" fuzzy="true">Redaguoti aprašymą</string>
+  <string name="description_edit_add_description">Pridėti straipsnio aprašymą</string>
+  <string name="description_edit_edit_description">Redaguoti straipsnio aprašymą</string>
   <string name="description_edit_cancel_hint">Atšaukti</string>
   <string name="description_edit_help_about_wikidata">Apie Vikiduomenis</string>
   <string name="description_edit_help_wikidata_guide">Vikiduomenų gidas aprašymų rašymui</string>
-  <string name="description_edit_success_saved" fuzzy="true">Aprašymas paskelbtas!</string>
+  <string name="description_edit_success_saved">Straipsnio aprašymas paskelbtas!</string>
   <string name="description_edit_success_encouragement">Jūs ką tik padarėte Vikipediją geresne visiems</string>
   <string name="description_edit_success_done">Atlikta</string>
   <string name="description_edit_success_did_you_know">Ar žinote?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Pradėti redagavimą</string>
   <string name="suggested_edits_article_cta_snackbar_action">Žiūrėti</string>
   <string name="suggested_edits_quality_perfect_text">Puiku</string>
+  <string name="suggested_edits_last_edited">Paskutinis pakeitimas</string>
   <string name="suggested_edits_last_edited_never">Niekada</string>
   <string name="onboarding_skip">Praleisti</string>
   <string name="onboarding_continue">Tęsti</string>
@@ -337,4 +338,6 @@
   <string name="events_count_text">%1$s įvykiai nuo %2$s–%3$d</string>
   <string name="this_year">Šie metai</string>
   <string name="back_to_top">Į viršų</string>
+  <string name="on_this_day_dialog_next_month">Kitas mėnuo</string>
+  <string name="on_this_day_dialog_previous_month">Ankstesnis mėnuo</string>
 </resources>
