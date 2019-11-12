@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Ibrahim
 * TajikMaterialist
 * ToJack
@@ -179,7 +180,7 @@
   <string name="view_static_card_save_button_label">Захира</string>
   <string name="view_featured_article_footer_saved_button_label">Захира</string>
   <string name="description_edit_text_hint">Тавзеҳоти иақола</string>
-  <string name="description_edit_article_description_label_per_language">Мақолаҳо (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Мақолаҳо (%s)</string>
   <string name="description_edit_save">Нашр</string>
   <string name="description_edit_read">Хондан</string>
   <string name="description_edit_edit_description">Иловаи тавзеҳоти мауола</string>
@@ -194,7 +195,6 @@
   <string name="suggested_edits_edit_caption_button">Вироиши тавзеҳот</string>
   <string name="suggested_edits_my_contributions">Ҳиссагузориҳои ман</string>
   <string name="suggested_edits_menu_info">Маълумот</string>
-  <string name="suggested_edits_task_translation_title">Тарҷумаи тавзеҳоти мақола</string>
   <string name="suggested_edits_task_multilingual_positive">Иловаи забонҳо</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Артист</string>
   <string name="suggested_edits_image_caption_summary_title_author">Муаллиф</string>
@@ -209,6 +209,9 @@
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Тавзеҳоти акс (%s)</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Маълумоти бештар</string>
   <string name="suggested_edits_article_cta_snackbar_action">Дидан</string>
+  <string name="suggested_edits_encouragement_message">%s, шуморо барои вироишатон ташаккур кард. Шумо метавонед роҳҳои зиёде барои саҳм ба Википедиа ёбед.</string>
+  <string name="suggested_edits_last_edited">Охирин вироиш</string>
+  <string name="suggested_edits_last_edited_never">Ҳеҷгоҳ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Вироиши забонҳо</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не,раҳмат</string>
   <string name="remove_language_dialog_cancel_button_text">Тамом кардан</string>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="16dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/ic_suggested_edits_disabled" />
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="8sp"
+        android:textColor="?attr/material_theme_primary_color"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/list_separator_drawable" />
+
+    <LinearLayout
+        android:id="@+id/linkContainer1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/linkText1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/suggested_edits_help_page_link_text"
+            android:textColor="?attr/colorAccent"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:contentDescription="@null"
+            android:tint="?attr/colorAccent"
+            app:srcCompat="@drawable/ic_open_in_new_black_24px" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/linksDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/list_separator_drawable" />
+
+</LinearLayout>

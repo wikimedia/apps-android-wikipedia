@@ -283,6 +283,7 @@
   <string name="gallery_save_success">Soubor úspěšně uložen.</string>
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Pro ukládání obrázků je nutné oprávnění zapisovat na úložiště vašeho zařízení.</string>
+  <string name="gallery_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Přidat titulek obrázku (%s)</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
   <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
@@ -613,9 +614,12 @@
   <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
   <string name="feed_accessibility_card_load_more_button">Načíst další</string>
   <string name="description_edit_text_hint">Popis článku</string>
-  <string name="description_edit_article_description_label_per_language">Článek (v jazyce %s)</string>
+  <string name="description_edit_article_description_label">Článek</string>
+  <string name="description_edit_translate_article_description_label_per_language">Popis článku (v jazyce %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Popis článku (v jazyce %s)</string>
-  <string name="description_edit_add_caption_label_per_language">Popis obrázku (v jazyce %s)</string>
+  <string name="description_edit_add_caption_label">Popis obrázku</string>
+  <string name="description_edit_add_caption_hint">Titulek obrázku</string>
+  <string name="description_edit_translate_caption_label_per_language">Titulek obrázku (v jazyce %s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Titulek obrázku (v jazyce %s)</string>
   <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_read">Číst</string>
@@ -668,8 +672,6 @@
   <string name="suggested_edits_tasks_activity_title">Navrhování editací</string>
   <string name="suggested_edits_task_add_description_title">Přidat popisy článků</string>
   <string name="suggested_edits_task_add_description_description">Přispět článkům bez popisu</string>
-  <string name="suggested_edits_task_translation_title">Přeložit popisy článků</string>
-  <string name="suggested_edits_task_translation_description">Přeložit popisy článků napříč jazyky.</string>
   <string name="suggested_edits_task_image_caption_title">Přidat titulky obrázků</string>
   <string name="suggested_edits_task_image_caption_description">Přidat chybějící krátké titulky k obrázkům</string>
   <string name="suggested_edits_task_translate_caption_title">Přeložit popisy obrázků</string>
@@ -691,6 +693,7 @@
     <item quantity="other">%d příspěvků</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Navrhování editací</string>
+  <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Přidat popis článku (v jazyce %s)</string>
   <string name="suggested_edits_tutorial_message">Vítejte v novém domově pro jednoduchou editaci Wikipedie v aplikaci. Vaše příspěvky jsou velmi oceňovány. Hodně štěstí!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
@@ -702,13 +705,51 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencování</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Přidat titulek obrázku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobrazit</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek obrázku</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
+  <string name="suggested_edits_task_action_text_add">Přidat</string>
+  <string name="suggested_edits_task_action_text_translate">Přeložit</string>
+  <string name="suggested_edits_image_captions">Titulky obrázků</string>
+  <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
+  <string name="suggested_edits_image_captions_task_detail">Titulky obrázků popisují obrázek, který čtenářům pomůže pochopit jeho význam a kontext.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Popisy článků shrnují článek a pomohou čtenářům ihned pochopit předmět článku.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali pomocí Navrhování editací.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny. Vrácené editace: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.\n\n  Na níže uvedeném odkazu se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.\n\n Přečtěte si, co to znamená, pomocí odkazu níže.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adrese, kterou používáte, je blokována editace Wikipedie. Další informace o blokováních naleznete na níže uvedeném odkazu.</string>
+  <string name="suggested_edits_editing_tips_link_text">Editační tipy a triky</string>
+  <string name="suggested_edits_help_page_link_text">Nápověda Navrhování editací</string>
+  <string name="suggested_edits_edit_streak_label_text">Editací v řadě</string>
+  <string name="suggested_edits_pageviews_label_text">Návštěvnost stránek</string>
+  <string name="suggested_edits_quality_label_text">Upravit kvalitu</string>
+  <string name="suggested_edits_quality_perfect_text">Perfektní</string>
+  <string name="suggested_edits_quality_excellent_text">Vynikající</string>
+  <string name="suggested_edits_quality_very_good_text">Velmi dobrý</string>
+  <string name="suggested_edits_quality_good_text">Dobrý</string>
+  <string name="suggested_edits_quality_okay_text">Chvalitebný</string>
+  <string name="suggested_edits_quality_sufficient_text">Dostatečný</string>
+  <string name="suggested_edits_quality_poor_text">Špatný</string>
+  <string name="suggested_edits_quality_bad_text">Mizerný</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Příspěvek</item>
+    <item quantity="other">Příspěvky</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d den</item>
+    <item quantity="few">%d dny</item>
+    <item quantity="other">%d dní</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Poslední editace</string>
+  <string name="suggested_edits_last_edited_never">Nikdy</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -747,6 +788,9 @@
   <string name="events_count_text">%1$s událostí z let %2$s–%3$d</string>
   <string name="this_year">Letos</string>
   <string name="back_to_top">Zpět na začátek</string>
+  <string name="on_this_day_dialog_next_month">Příští měsíc</string>
+  <string name="on_this_day_dialog_previous_month">Minulý měsíc</string>
+  <string name="on_this_day_open_date_picker">Otevřít výběr data</string>
   <plurals name="diff_years">
     <item quantity="one">Loni</item>
     <item quantity="other">Před %d lety</item>
@@ -794,6 +838,8 @@
   <string name="main_drawer_content_description">Otevřete hlavní nabídku</string>
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit/zaregistrovat se do Wikipedie</string>
+  <string name="main_tooltip_text">Pro uživatele %s: Věděli jste, že každý může editovat Wikipedii?</string>
+  <string name="main_tooltip_action_button">Začít</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Zrušit</string>

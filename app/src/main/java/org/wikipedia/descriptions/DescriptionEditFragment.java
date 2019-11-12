@@ -55,6 +55,7 @@ import io.reactivex.schedulers.Schedulers;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
@@ -114,12 +115,14 @@ public class DescriptionEditFragment extends Fragment {
             }
             editView.setSaveState(false);
             if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == PAGE_ACTIVITY) {
-                startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
+                startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
                 Prefs.shouldShowDescriptionEditSuccessPrompt(false);
             } else {
-                requireActivity().setResult(RESULT_OK,
-                        new Intent().putExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION, editView.getDescription()));
+                Intent intent = new Intent();
+                intent.putExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION, editView.getDescription());
+                intent.putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
+                requireActivity().setResult(RESULT_OK, intent);
                 hideSoftKeyboard(requireActivity());
                 requireActivity().finish();
             }

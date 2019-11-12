@@ -23,7 +23,7 @@ def computeVersionName(label) {
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
@@ -38,8 +38,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 50298
+        targetSdkVersion 29
+        versionCode 50302
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -146,13 +146,6 @@ android {
 apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
 
-// TODO: remove when Fresco updates its bundled version of soloader.
-configurations.all {
-    resolutionStrategy {
-        force "com.facebook.soloader:soloader:0.8.0"
-    }
-}
-
 dependencies {
 
     // To keep the Maven Central dependencies up-to-date
@@ -217,7 +210,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation mockitoCore
-    testImplementation 'org.robolectric:robolectric:4.2'
+    testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation "commons-io:commons-io:2.6"
 

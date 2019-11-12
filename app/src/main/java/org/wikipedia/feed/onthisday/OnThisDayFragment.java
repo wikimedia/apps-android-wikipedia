@@ -242,7 +242,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         requestEvents(month, day);
     }
 
-    @OnClick({R.id.drop_down, R.id.day, R.id.toolbar_day, R.id.drop_down_toolbar})
+    @OnClick({R.id.day_container, R.id.toolbar_day_container})
     public void onCalendarClicked() {
         CustomDatePicker newFragment = new CustomDatePicker();
         newFragment.setSelectedDay(date.get(Calendar.MONTH), date.get(Calendar.DATE));

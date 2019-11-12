@@ -542,7 +542,7 @@
   <string name="most_read_list_card_title">သၢႆတၢင်း</string>
   <string name="view_static_card_icon_content_description">ႁၢင်ႈႁိင်ႈ ၶႅပ်း</string>
   <string name="view_card_news_title">တီႈၼႂ်းၶၢဝ်ႇ</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="other">%d ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">မိူဝ်ႈၼႆႉ</string>
@@ -626,8 +626,6 @@
   <string name="suggested_edits_tasks_activity_title">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="suggested_edits_task_add_description_title">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_task_add_description_description">ဢမ်ႇပႃးၶေႃႈသပ်းလႅင်းသေ ၶဝ်ႈႁူမ်ႈတင်း ပွင်ႈၵႂၢမ်း</string>
-  <string name="suggested_edits_task_translation_title">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း</string>
-  <string name="suggested_edits_task_translation_description">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း တီႈ ၽႃႇသႃႇပွင်ႈၵႂၢမ်း လၢႆဢၼ်</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">သႂ်ႇႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၸူး ၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_task_translate_caption_title">ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>

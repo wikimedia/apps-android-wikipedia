@@ -35,7 +35,7 @@
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="search_hint_search_my_lists_and_articles">搜尋我的清單與條目</string>
   <string name="nav_item_history">歷史</string>
-  <string name="nav_item_suggested_edits">建議編輯</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">建議編輯</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
   <string name="card_offline_error_retry">重試</string>
@@ -283,6 +283,7 @@
   <string name="gallery_save_success">已成功儲存檔案。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
   <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存庫的權限方能儲存圖片。</string>
+  <string name="gallery_add_image_caption_button">新增語言說明</string>
   <string name="gallery_add_image_caption_in_language_button">新增圖片說明（%s）</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
   <string name="snippet_share_intro">\"%1$s\" 於 @Wikipedia：%2$s</string>
@@ -610,9 +611,12 @@
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
   <string name="description_edit_text_hint">條目描述</string>
-  <string name="description_edit_article_description_label_per_language">條目（%s）</string>
+  <string name="description_edit_article_description_label">條目</string>
+  <string name="description_edit_translate_article_description_label_per_language">條目描述（%s）</string>
   <string name="description_edit_translate_article_description_hint_per_language">條目描述（%s）</string>
-  <string name="description_edit_add_caption_label_per_language">圖片描述（%s）</string>
+  <string name="description_edit_add_caption_label">圖片描述</string>
+  <string name="description_edit_add_caption_hint">圖片說明</string>
+  <string name="description_edit_translate_caption_label_per_language">圖片說明（%s）</string>
   <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_read">閱讀</string>
@@ -665,8 +669,6 @@
   <string name="suggested_edits_tasks_activity_title">建議編輯</string>
   <string name="suggested_edits_task_add_description_title">新增條目描述</string>
   <string name="suggested_edits_task_add_description_description">不帶描述來貢獻條目</string>
-  <string name="suggested_edits_task_translation_title">翻譯條目描述</string>
-  <string name="suggested_edits_task_translation_description">跨條目語言翻譯描述。</string>
   <string name="suggested_edits_task_image_caption_title">新增語言說明</string>
   <string name="suggested_edits_task_image_caption_description">為圖片新增缺少的簡短說明</string>
   <string name="suggested_edits_task_translate_caption_title">翻譯圖片說明</string>
@@ -687,6 +689,7 @@
     <item quantity="other">%d 次貢獻</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">建議編輯</string>
+  <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">新增條目描述（%s）</string>
   <string name="suggested_edits_tutorial_message">歡迎來到在維基百科應用程式裡用於快速編輯的新主頁。對於您的貢獻我們在此感激，祝編安！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
@@ -698,13 +701,50 @@
   <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
+  <string name="suggested_edits_article_cta_image_caption">新增圖片說明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
-  <string name="suggested_edits_feed_card_add_image_caption">新增說明</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">新增說明（%s）</string>
-  <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>
+  <string name="suggested_edits_feed_card_add_image_caption">新增圖片說明</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">新增圖片說明（%s）</string>
   <string name="suggested_edits_snackbar_survey_text">您的編輯體驗如何？請花些許時間來填寫有關應用程式內編輯的調查。</string>
   <string name="suggested_edits_snackbar_survey_action_text">參加調查</string>
+  <string name="suggested_edits_task_action_text_add">新增</string>
+  <string name="suggested_edits_task_action_text_translate">翻譯</string>
+  <string name="suggested_edits_image_captions">圖片說明</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：您知道維基百科是每個人都可編輯的嗎？您可以在下方找到協助改善維基百科的有趣方式，來快樂地編輯吧！</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">標題描述能概括條目，幫助讀者清楚了解主題。</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">您的建議編輯總數</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您採用建議編輯來做貢獻的連續不中斷天數</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">基於您的編輯裡有多少次被回退。回退編輯數：%d</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;建議編輯被暫停至 %1$s。&lt;/b&gt;很抱歉，%2$s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解如何增進您的維基百科編輯技能。</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;建議編輯已停用。&lt;/b&gt;很抱歉，%s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解此情況代表的含意。</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">這看起來像是您的 IP 位址（或是 IP 位址的範圍）目前被禁止編輯維基百科，請參訪以下連結來了解更多這代表的含義。</string>
+  <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
+  <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>
+  <string name="suggested_edits_edit_streak_label_text">連續編輯紀錄</string>
+  <string name="suggested_edits_pageviews_label_text">頁面瀏覽次數</string>
+  <string name="suggested_edits_quality_label_text">編輯品質</string>
+  <string name="suggested_edits_quality_perfect_text">完美</string>
+  <string name="suggested_edits_quality_excellent_text">傑出</string>
+  <string name="suggested_edits_quality_very_good_text">非常好</string>
+  <string name="suggested_edits_quality_good_text">良好</string>
+  <string name="suggested_edits_quality_okay_text">不錯</string>
+  <string name="suggested_edits_quality_sufficient_text">尚可</string>
+  <string name="suggested_edits_quality_poor_text">粗劣</string>
+  <string name="suggested_edits_quality_bad_text">糟糕</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">貢獻</item>
+    <item quantity="other">貢獻</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d 天</item>
+    <item quantity="other">%d 天</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">上一次編輯</string>
+  <string name="suggested_edits_last_edited_never">從不</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -743,6 +783,9 @@
   <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>
   <string name="this_year">今年</string>
   <string name="back_to_top">返回頂端</string>
+  <string name="on_this_day_dialog_next_month">下一個月</string>
+  <string name="on_this_day_dialog_previous_month">前一個月</string>
+  <string name="on_this_day_open_date_picker">開啟日期選擇器</string>
   <plurals name="diff_years">
     <item quantity="one">去年</item>
     <item quantity="other">%d 年前</item>
@@ -790,6 +833,8 @@
   <string name="main_drawer_content_description">開啟主導航選單</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
+  <string name="main_tooltip_text">%s，您知道維基百科是每個人都可編輯的嗎？</string>
+  <string name="main_tooltip_action_button">入門</string>
   <string name="custom_date_picker_dialog_ok_button_text">確認</string>
   <string name="text_input_dialog_ok_button_text">確認</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>

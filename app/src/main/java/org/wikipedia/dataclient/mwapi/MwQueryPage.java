@@ -39,6 +39,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
     @Nullable private Map<String, String> varianttitles;
+    @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
 
     @NonNull public String title() {
         return StringUtils.defaultString(title);
@@ -136,6 +137,10 @@ public class MwQueryPage extends BaseModel {
 
     @NonNull public String displayTitle(@NonNull String langCode) {
         return varianttitles != null ? StringUtils.defaultIfEmpty(varianttitles.get(langCode), title()) : title();
+    }
+
+    @NonNull public Map<String, Long> getPageViewsMap() {
+        return pageViewsMap != null ? pageViewsMap : Collections.emptyMap();
     }
 
     public static class Revision {

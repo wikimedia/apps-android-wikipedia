@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -171,7 +172,7 @@ public class WikipediaApp extends Application {
         bus = new RxBus();
 
         ViewAnimations.init(getResources());
-        currentTheme = unmarshalCurrentTheme();
+        currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
 
         appLanguageState = new AppLanguageState(this);
         updateCrashReportProps();
@@ -184,12 +185,17 @@ public class WikipediaApp extends Application {
 
         enableWebViewDebugging();
 
-        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+        ImagePipelineConfig.Builder config = ImagePipelineConfig.newBuilder(this)
                 .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
-                .setFileCacheFactory(DisabledCache.factory())
-                .build();
+                .setFileCacheFactory(DisabledCache.factory());
         try {
-            Fresco.initialize(this, config);
+            Fresco.initialize(this, config.build());
+            ImagePipelineNativeLoader.load();
+        } catch (UnsatisfiedLinkError e) {
+            L.e(e);
+            Fresco.shutDown();
+            config.experiment().setNativeCodeDisabled(true);
+            Fresco.initialize(this, config.build());
         } catch (Exception e) {
             L.e(e);
             // TODO: Remove when we're able to initialize Fresco in test builds.
@@ -292,7 +298,7 @@ public class WikipediaApp extends Application {
     public void setCurrentTheme(@NonNull Theme theme) {
         if (theme != currentTheme) {
             currentTheme = theme;
-            Prefs.setThemeId(currentTheme.getMarshallingId());
+            Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
             bus.post(new ThemeChangeEvent());
         }
     }
@@ -413,11 +419,10 @@ public class WikipediaApp extends Application {
         }
     }
 
-    private Theme unmarshalCurrentTheme() {
-        int id = Prefs.getThemeId();
-        Theme result = Theme.ofMarshallingId(id);
+    public Theme unmarshalTheme(int themeId) {
+        Theme result = Theme.ofMarshallingId(themeId);
         if (result == null) {
-            L.d("Theme id=" + id + " is invalid, using fallback.");
+            L.d("Theme id=" + themeId + " is invalid, using fallback.");
             result = Theme.getFallback();
         }
         return result;

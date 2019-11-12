@@ -15,7 +15,7 @@
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
     <string name="nav_item_history">History</string>
-    <string name="nav_item_suggested_edits">Suggested Edits</string>
+    <string name="nav_item_suggested_edits">Suggested edits</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
     <string name="card_offline_error_retry">Retry</string>
@@ -338,6 +338,7 @@
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
+    <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_dialog_title">Sorry, app crashed last time</string>
@@ -694,8 +695,6 @@
     <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_task_add_description_title">Add article descriptions</string>
     <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
-    <string name="suggested_edits_task_translation_title">Translate article descriptions</string>
-    <string name="suggested_edits_task_translation_description">Translate descriptions across article languages.</string>
     <string name="suggested_edits_task_image_caption_title">Add image captions</string>
     <string name="suggested_edits_task_image_caption_description">Add missing short captions to images</string>
     <string name="suggested_edits_task_translate_caption_title">Translate image captions</string>
@@ -716,6 +715,7 @@
         <item quantity="other">%d contributions</item>
     </plurals>
     <string name="suggested_edits_feed_card_title">Suggested edits</string>
+    <string name="suggested_edits_feed_card_add_description_button">Add article description</string>
     <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
@@ -730,11 +730,47 @@
     <string name="suggested_edits_article_cta_image_caption">Add image caption</string>
     <string name="suggested_edits_article_cta_image_caption_in_language">Add image caption (%s)</string>
     <string name="suggested_edits_article_cta_snackbar_action">View</string>
-    <string name="suggested_edits_feed_card_add_image_caption">Add caption</string>
-    <string name="suggested_edits_feed_card_translate_image_caption">Add caption (%s)</string>
-    <string name="suggested_edits_feed_card_add_description_button">Add article description</string>
+    <string name="suggested_edits_feed_card_add_image_caption">Add image caption</string>
+    <string name="suggested_edits_feed_card_translate_image_caption">Add image caption (%s)</string>
     <string name="suggested_edits_snackbar_survey_text">How was your editing experience? Please take a moment to fill out the survey about in-app editing.</string>
     <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
+    <string name="suggested_edits_task_action_text_add">Add</string>
+    <string name="suggested_edits_task_action_text_translate">Translate</string>
+    <string name="suggested_edits_image_captions">Image Captions</string>
+    <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
+    <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
+    <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context.</string>
+    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions summarize an article to help readers understand the subject at a glance.</string>
+    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits.</string>
+    <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed using Suggested edits.</string>
+    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits.</string>
+    <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted. Reverted edits: %d.</string>
+    <string name="suggested_edits_paused_message"><![CDATA[<b>Suggested edits is paused until %1$s.</b> Sorry %2$s, some of your recent contributions have been reverted.\n\n Learn how to improve your editing skills on Wikipedia with the link below.]]></string>
+    <string name="suggested_edits_disabled_message"><![CDATA[<b>Suggested edits is disabled.</b> Sorry %s, too many of your recent contributions have been reverted.\n\n Learn what this means with the link below.]]></string>
+    <string name="suggested_edits_ip_blocked_message">The IP you are using is blocked from editing Wikipedia. Learn more about blocks by visiting the link below.</string>
+    <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
+    <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
+    <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
+    <string name="suggested_edits_pageviews_label_text">Pageviews</string>
+    <string name="suggested_edits_quality_label_text">Edit quality</string>
+    <string name="suggested_edits_quality_perfect_text">Perfect</string>
+    <string name="suggested_edits_quality_excellent_text">Excellent</string>
+    <string name="suggested_edits_quality_very_good_text">Very good</string>
+    <string name="suggested_edits_quality_good_text">Good</string>
+    <string name="suggested_edits_quality_okay_text">Okay</string>
+    <string name="suggested_edits_quality_sufficient_text">Sufficient</string>
+    <string name="suggested_edits_quality_poor_text">Poor</string>
+    <string name="suggested_edits_quality_bad_text">Bad</string>
+    <plurals name="suggested_edits_contribution">
+        <item quantity="one">Contribution</item>
+        <item quantity="other">Contributions</item>
+    </plurals>
+    <plurals name="suggested_edits_edit_streak_detail_text">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <string name="suggested_edits_last_edited">Last edited</string>
+    <string name="suggested_edits_last_edited_never">Never</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
@@ -788,6 +824,9 @@
     <string name="events_count_text">%1$s events from %2$s–%3$d</string>
     <string name="this_year">This year</string>
     <string name="back_to_top">Back to top</string>
+    <string name="on_this_day_dialog_next_month">Next month</string>
+    <string name="on_this_day_dialog_previous_month">Previous month</string>
+    <string name="on_this_day_open_date_picker">Open date picker</string>
     <plurals name="diff_years">
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
@@ -847,6 +886,8 @@
     <string name="main_drawer_content_description">Open main navigation drawer</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
+    <string name="main_tooltip_text">%s, did you know that everyone can edit Wikipedia?</string>
+    <string name="main_tooltip_action_button">Get started</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>

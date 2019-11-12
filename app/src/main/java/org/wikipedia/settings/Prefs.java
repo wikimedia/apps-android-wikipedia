@@ -15,10 +15,13 @@ import org.wikipedia.json.SessionUnmarshaller;
 import org.wikipedia.json.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -66,12 +69,20 @@ public final class Prefs {
         setString(R.string.preference_key_reading_app_install_id, id);
     }
 
-    public static int getThemeId() {
+    public static int getCurrentThemeId() {
         return getInt(R.string.preference_key_color_theme, Theme.getFallback().getMarshallingId());
     }
 
-    public static void setThemeId(int theme) {
+    public static void setCurrentThemeId(int theme) {
         setInt(R.string.preference_key_color_theme, theme);
+    }
+
+    public static int getPreviousThemeId() {
+        return getInt(R.string.preference_key_previous_color_theme, Theme.getFallback().getMarshallingId());
+    }
+
+    public static void setPreviousThemeId(int theme) {
+        setInt(R.string.preference_key_previous_color_theme, theme);
     }
 
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
@@ -722,14 +733,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
     }
 
-    public static boolean showSuggestedEditsMultilingualTeaserTask() {
-        return getBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, true);
-    }
-
-    public static void setShowSuggestedEditsMultilingualTeaserTask(boolean showTask) {
-        setBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, showTask);
-    }
-
     public static boolean wasLoggedOutInBackground() {
         return getBoolean(R.string.preference_key_logged_out_in_background, false);
     }
@@ -768,6 +771,58 @@ public final class Prefs {
 
     public static void setShouldShowSuggestedEditsSurvey(boolean showSurvey) {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
+    }
+
+    public static boolean shouldShowSuggestedEditsTooltip() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true);
+    }
+
+    public static void setShouldShowSuggestedEditsTooltip(boolean enabled) {
+        setBoolean(R.string.preference_key_show_suggested_edits_tooltip, enabled);
+    }
+
+    public static boolean shouldMatchSystemTheme() {
+        return getBoolean(R.string.preference_key_match_system_theme, false);
+    }
+
+    public static void setMatchSystemTheme(boolean enabled) {
+        setBoolean(R.string.preference_key_match_system_theme, enabled);
+    }
+
+    public static Date getSuggestedEditsPauseDate() {
+        Date date = new Date(0);
+        try {
+            if (contains(R.string.preference_key_suggested_edits_pause_date)) {
+                date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
+            }
+        } catch (ParseException e) {
+            // ignore
+        }
+        return date;
+    }
+
+    public static void setSuggestedEditsPauseDate(Date date) {
+        setString(R.string.preference_key_suggested_edits_pause_date, DateUtil.dbDateFormat(date));
+    }
+
+    public static int getSuggestedEditsPauseReverts() {
+        return getInt(R.string.preference_key_suggested_edits_pause_reverts, 0);
+    }
+
+    public static void setSuggestedEditsPauseReverts(int count) {
+        setInt(R.string.preference_key_suggested_edits_pause_reverts, count);
+    }
+
+    public static boolean shouldOverrideSuggestedEditCounts() {
+        return getBoolean(R.string.preference_key_suggested_edits_override_counts, false);
+    }
+
+    public static int getOverrideSuggestedEditCount() {
+        return getInt(R.string.preference_key_suggested_edits_override_edits, 0);
+    }
+
+    public static int getOverrideSuggestedRevertCount() {
+        return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
     private Prefs() { }

@@ -65,12 +65,30 @@
                 android:textSize="14sp"
                 tools:text="Lorem ipsum" />
 
+            <View
+                android:id="@+id/divider"
+                android:layout_width="@dimen/divider_width_for_article"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/material_theme_border_color" />
+
+            <TextView
+                android:id="@+id/viewArticleExtract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:ellipsize="end"
+                android:lineSpacingExtra="10sp"
+                android:minLines="3"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="14sp"
+                tools:text="Lorem ipsum" />
 
             <LinearLayout
                 android:id="@+id/viewAddDescriptionButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_vertical">
 
                 <ImageView
@@ -91,25 +109,6 @@
                     android:letterSpacing="0.04" />
 
             </LinearLayout>
-
-            <View
-                android:id="@+id/divider"
-                android:layout_width="@dimen/divider_width_for_article"
-                android:layout_height="1dp"
-                android:layout_marginTop="19dp"
-                android:background="?attr/material_theme_border_color" />
-
-            <TextView
-                android:id="@+id/viewArticleExtract"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:ellipsize="end"
-                android:lineSpacingExtra="10sp"
-                android:minLines="3"
-                android:textColor="?attr/primary_text_color"
-                android:textSize="14sp"
-                tools:text="Lorem ipsum" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
