@@ -347,12 +347,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ztmavení obrázků (v Tmavém a Černém motivu)</string>
   <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetří využití dat tím, že aplikace načte články pro offline čtení, místo načtení aktuální verze článku.</string>
-  <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla (přestala pracovat)</string>
-  <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o chybě do HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
-  <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
-  <string name="crash_report_dialog_always_send_button">Vždy posílat</string>
-  <string name="crash_report_dialog_send_button">Odeslat</string>
-  <string name="crash_report_activity_title">Chyba aplikace</string>
+    <string name="crash_report_activity_title">Chyba aplikace</string>
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
   <string name="crash_report_relaunch">Otevřít znovu</string>
   <string name="crash_report_quit">Ukončit</string>
@@ -715,17 +710,17 @@
   <string name="suggested_edits_task_action_text_add">Přidat</string>
   <string name="suggested_edits_task_action_text_translate">Přeložit</string>
   <string name="suggested_edits_image_captions">Titulky obrázků</string>
-  <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii</string>
+  <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
-  <string name="suggested_edits_image_captions_task_detail">Titulky obrázků popisují obrázek, který čtenářům pomůže pochopit jeho význam a kontext</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Popisy článků shrnují článek a pomohou čtenářům ihned pochopit předmět článku</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali pomocí Navrhování editací</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny. Vrácené editace: %d</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.\n\n  Na níže uvedených odkazech se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.\n\n Přečtěte si, co to znamená, pomocí odkazů níže.</string>
-  <string name="suggested_edits_ip_blocked_message">IP adrese (nebo rozsahu IP adres), kterou používáte, je blokována editace Wikipedie. Další informace o tom, co to znamená, naleznete na níže uvedeném odkazu.</string>
+  <string name="suggested_edits_image_captions_task_detail">Titulky obrázků popisují obrázek, který čtenářům pomůže pochopit jeho význam a kontext.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Popisy článků shrnují článek a pomohou čtenářům ihned pochopit předmět článku.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali pomocí Navrhování editací.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny. Vrácené editace: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.\n\n  Na níže uvedeném odkazu se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.\n\n Přečtěte si, co to znamená, pomocí odkazu níže.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adrese, kterou používáte, je blokována editace Wikipedie. Další informace o blokováních naleznete na níže uvedeném odkazu.</string>
   <string name="suggested_edits_editing_tips_link_text">Editační tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápověda Navrhování editací</string>
   <string name="suggested_edits_edit_streak_label_text">Editací v řadě</string>

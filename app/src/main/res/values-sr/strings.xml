@@ -338,12 +338,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затамњење слика (у тамној теми)</string>
   <string name="preference_title_prefer_offline_content">Приоритет има офлајн-садржај</string>
   <string name="preference_summary_prefer_offline_content">Уштедите на саобраћају приказивањем офлајн-верзије чланка уместо сталног преузимања најновије верзије.</string>
-  <string name="crash_report_dialog_title">Апликација је отказала прошли пут</string>
-  <string name="crash_report_dialog_text">Желите ли да пошаљете извештај о отказивању независној услузи HockeyApp како би Викимедија испитала ваш случај и исправила грешку?</string>
-  <string name="crash_report_dialog_dont_send_button">Прескочи</string>
-  <string name="crash_report_dialog_always_send_button">Увек шаљи</string>
-  <string name="crash_report_dialog_send_button">Пошаљи</string>
-  <string name="crash_report_activity_title">Грешка у апликацији</string>
+    <string name="crash_report_activity_title">Грешка у апликацији</string>
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>
   <string name="crash_report_relaunch">Покрени поново</string>
   <string name="crash_report_quit">Изађи</string>

@@ -335,12 +335,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Malheligo de bildoj (en Malhela etoso)</string>
   <string name="preference_title_prefer_offline_content">Preferi eksterretan enhavon</string>
   <string name="preference_summary_prefer_offline_content">Konservi datenan uzadon per ŝarĝado de artikoloj haveblaj senkonekte, anstataŭ de la plej aktualaj versioj</string>
-  <string name="crash_report_dialog_title">Pardonon, la aplikaĵo kraŝis pasintfoje</string>
-  <string name="crash_report_dialog_text">Ĉu volas sendi raporton pri fiasko al HockeyApp / triapartia servoprovizanto, tiel ke Vikimedio povas ekzameni vian fiaskon kaj ripari la cimon kaŭzinta ĝin?</string>
-  <string name="crash_report_dialog_dont_send_button">Preterpasi</string>
-  <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
-  <string name="crash_report_dialog_send_button">Sendi</string>
-  <string name="crash_report_activity_title">Aplikaĵa eraro</string>
+    <string name="crash_report_activity_title">Aplikaĵa eraro</string>
   <string name="crash_report_relaunch_or_quit">Domaĝe, eraro okazis kaj la aplikaĵo Vikipedio fiaskis.\n\nĈu restarti aŭ ĉesi?</string>
   <string name="crash_report_relaunch">Rekomenci</string>
   <string name="crash_report_quit">Ĉesigi</string>
