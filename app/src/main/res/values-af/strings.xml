@@ -249,11 +249,7 @@
   <string name="error_page_does_not_exist">Hierdie blad bestaan nie</string>
   <string name="view_wiki_error_message_offline">Kan nie aan die internet koppel nie</string>
   <string name="reference_title">Verwysing %s</string>
-  <string name="crash_report_dialog_title">Jammer, toep het vorige keer gebom</string>
-  <string name="crash_report_dialog_dont_send_button">Slaan oor</string>
-  <string name="crash_report_dialog_always_send_button">Stuur altyd</string>
-  <string name="crash_report_dialog_send_button">Stuur</string>
-  <string name="crash_report_activity_title">Toepassingfout</string>
+    <string name="crash_report_activity_title">Toepassingfout</string>
   <string name="crash_report_relaunch">Begin voor</string>
   <string name="crash_report_quit">Sluit Af</string>
   <string name="article_menu_bar_bookmark">Voeg hierdie artikel toe tot leeslys</string>

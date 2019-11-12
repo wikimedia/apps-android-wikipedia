@@ -353,12 +353,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
-  <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
-  <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか?　これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
-  <string name="crash_report_dialog_dont_send_button">スキップ</string>
-  <string name="crash_report_dialog_always_send_button">常に送信</string>
-  <string name="crash_report_dialog_send_button">送信</string>
-  <string name="crash_report_activity_title">アプリケーションエラー</string>
+    <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
@@ -715,6 +710,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="suggested_edits_task_action_text_add">追加</string>
   <string name="suggested_edits_task_action_text_translate">翻訳</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;提案した編集は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎます。\n\n 以下のリンクでどういう意味か理解しましょう。</string>
   <string name="suggested_edits_pageviews_label_text">ページビュー</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>

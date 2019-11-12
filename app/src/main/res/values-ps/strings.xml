@@ -134,10 +134,7 @@
   <string name="button_continue_to_article">ليکنه لوستل</string>
   <string name="button_get_directions">لارښوونې ترلاسه کول</string>
   <string name="nav_item_donate">د ويکيپېډيا ملاتړ وکړئ</string>
-  <string name="crash_report_dialog_dont_send_button">تېرېدل</string>
-  <string name="crash_report_dialog_always_send_button">تل لېږل</string>
-  <string name="crash_report_dialog_send_button">لېږل</string>
-  <string name="crash_report_activity_title">د کاريال تېروتنه</string>
+    <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
   <string name="article_header_edit_hint">سمول…</string>

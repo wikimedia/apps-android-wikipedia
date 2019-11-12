@@ -70,12 +70,20 @@ public final class Prefs {
         setString(R.string.preference_key_reading_app_install_id, id);
     }
 
-    public static int getThemeId() {
+    public static int getCurrentThemeId() {
         return getInt(R.string.preference_key_color_theme, Theme.getFallback().getMarshallingId());
     }
 
-    public static void setThemeId(int theme) {
+    public static void setCurrentThemeId(int theme) {
         setInt(R.string.preference_key_color_theme, theme);
+    }
+
+    public static int getPreviousThemeId() {
+        return getInt(R.string.preference_key_previous_color_theme, Theme.getFallback().getMarshallingId());
+    }
+
+    public static void setPreviousThemeId(int theme) {
+        setInt(R.string.preference_key_previous_color_theme, theme);
     }
 
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
@@ -800,6 +808,14 @@ public final class Prefs {
 
     public static void setShouldShowSuggestedEditsTooltip(boolean enabled) {
         setBoolean(R.string.preference_key_show_suggested_edits_tooltip, enabled);
+    }
+
+    public static boolean shouldMatchSystemTheme() {
+        return getBoolean(R.string.preference_key_match_system_theme, false);
+    }
+
+    public static void setMatchSystemTheme(boolean enabled) {
+        setBoolean(R.string.preference_key_match_system_theme, enabled);
     }
 
     public static Date getSuggestedEditsPauseDate() {

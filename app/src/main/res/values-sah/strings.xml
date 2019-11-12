@@ -330,12 +330,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ойууну хараҥардыы (Хараҥа тиэмэҕэ)</string>
   <string name="preference_title_prefer_offline_content">Ситимэ суоҕу талар буол</string>
   <string name="preference_summary_prefer_offline_content">Ыстатыйа тиһэх барылын буолбакка, урут хачайдаммыты көрөдөрөн трафигы кэмчилиир</string>
-  <string name="crash_report_dialog_title">Хомойуох иһин, ааспыкка дьибилгэт моһуогура сылдьыбыт</string>
-  <string name="crash_report_dialog_text">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо Бикимиэдьийэ саахал туһунан тута билиэ этэ уонна алҕаһы түргэнник көннөрүө этэ.</string>
-  <string name="crash_report_dialog_dont_send_button">Аһар</string>
-  <string name="crash_report_dialog_always_send_button">Куруук ыытар буол</string>
-  <string name="crash_report_dialog_send_button">Ыыт</string>
-  <string name="crash_report_activity_title">Дьибилгэт алҕаһа</string>
+    <string name="crash_report_activity_title">Дьибилгэт алҕаһа</string>
   <string name="crash_report_relaunch_or_quit">Бикипиэдьийэ дьибилгэтэ моһуогурда онон сабылынна.\n\nХос ыытаҕын дуу, отой тахсаҕын дуу?</string>
   <string name="crash_report_relaunch">Хос холбоо</string>
   <string name="crash_report_quit">Таҕыс</string>
@@ -511,6 +506,7 @@
   <string name="notifications_mark_unread">Ааҕыллыбатах курдук бэлиэтээ</string>
   <string name="preference_title_notification_poll">Ыйытыктар биллэриилэрэ</string>
   <string name="preference_category_notification_types">Биллэриилэр көрүҥнэрэ</string>
+  <string name="preference_summary_notification_system">Тиһик биллэриилэрэ</string>
   <string name="preference_title_notification_milestone">Хардыы</string>
   <string name="preference_summary_notification_milestone">Төһө эрэ көннөрүү оҥоһуллубут</string>
   <string name="preference_title_notification_thanks">Махтал</string>
@@ -669,6 +665,9 @@
   <string name="suggested_edits_article_cta_snackbar_action">Көрүү</string>
   <string name="suggested_edits_feed_card_add_image_caption">Ойуу аатын эбии</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ойуу аатын эбии (%s)</string>
+  <string name="suggested_edits_task_action_text_add">Эбэргэ</string>
+  <string name="suggested_edits_task_action_text_translate">Тылбаастаа</string>
+  <string name="suggested_edits_image_captions">Ойуу туһунан</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>

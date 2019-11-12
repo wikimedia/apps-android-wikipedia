@@ -247,12 +247,7 @@
   <string name="view_wiki_error_message_offline">Ne mogu se povezati na internet</string>
   <string name="reference_title">Referenca %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjenje slike (u tamnoj temi)</string>
-  <string name="crash_report_dialog_title">Izvinjavamo se, aplikacija se srušila prethodni put</string>
-  <string name="crash_report_dialog_text">Želite li poslati izvještaj o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga tako da ga Wikimedia može pregledati i popraviti programsku grešku koja ju je izazvala?</string>
-  <string name="crash_report_dialog_dont_send_button">Preskoči</string>
-  <string name="crash_report_dialog_always_send_button">Uvijek pošalji</string>
-  <string name="crash_report_dialog_send_button">Pošalji</string>
-  <string name="crash_report_activity_title">Greška u aplikaciji</string>
+    <string name="crash_report_activity_title">Greška u aplikaciji</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je. Došlo je do greške u aplikaciji Wikipedia i prekinula je s radom.\n\nŽelite li je ponovo pokrenuti ili je zatvoriti?</string>
   <string name="crash_report_relaunch">Ponovo pokreni</string>
   <string name="crash_report_quit">Zatvori</string>

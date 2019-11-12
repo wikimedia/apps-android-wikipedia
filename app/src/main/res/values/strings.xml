@@ -175,7 +175,7 @@
     <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
     <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
     <string name="preference_title_auto_upload_crash_reports">Send crash reports</string>
-    <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
+    <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
     <string name="history_search_list_hint">Search history</string>
     <string name="error_can_not_process_link">Could not display this link</string>
@@ -337,13 +337,9 @@
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
+    <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
 
     <!-- Crash reporter -->
-    <string name="crash_report_dialog_title">Sorry, app crashed last time</string>
-    <string name="crash_report_dialog_text">Would you like to send a crash report to HockeyApp / a third-party service provider so that Wikimedia can review your crash and fix the bug that caused it?</string>
-    <string name="crash_report_dialog_dont_send_button">Skip</string>
-    <string name="crash_report_dialog_always_send_button">Always send</string>
-    <string name="crash_report_dialog_send_button">Send</string>
     <string name="crash_report_activity_title">Application error</string>
     <string name="crash_report_relaunch_or_quit">We\'re sorry, the Wikipedia app has experienced an error and was terminated.\n\nWould you like to start over or quit?</string>
     <string name="crash_report_relaunch">Start over</string>

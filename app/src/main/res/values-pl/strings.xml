@@ -357,12 +357,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
   <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
-  <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
-  <string name="crash_report_dialog_text">Czy chcesz wysłać raport awarii do HockeyApp / dostawcy zewnętrznej usługi, aby Wikimedia mogła sprawdzić awarię i naprawić problem, który ją spowodował?</string>
-  <string name="crash_report_dialog_dont_send_button">Pomiń</string>
-  <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
-  <string name="crash_report_dialog_send_button">Wyślij</string>
-  <string name="crash_report_activity_title">Błąd aplikacji</string>
+    <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
   <string name="crash_report_quit">Wyjście</string>
@@ -720,7 +715,11 @@
   <string name="suggested_edits_snackbar_survey_action_text">Wypełnij ankietę</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Tłumacz</string>
-  <string name="suggested_edits_ip_blocked_message">Wygląda na to, że twój adres IP (lub zakres adresów IP) jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej wchodząc w link poniżej.</string>
+  <string name="suggested_edits_encouragement_message">%s, dziękujemy za twoje edycje. Poniżej możesz znaleźć więcej sposobów aby rozwijać Wikipedię.</string>
+  <string name="suggested_edits_image_captions_task_detail">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
+  <string name="suggested_edits_ip_blocked_message">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>
