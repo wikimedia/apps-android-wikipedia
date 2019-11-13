@@ -198,7 +198,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { siteMatrix = it; }
-                .doFinally { initLanguageSpinners() }
+                .doAfterTerminate { initLanguageSpinners() }
                 .subscribe({
                     app.language().appLanguageCodes.forEach {
                         languageList.add(getLanguageLocalName(it))
@@ -293,7 +293,8 @@ class SuggestedEditsCardsFragment : Fragment() {
         }
     }
 
-    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): FragmentStatePagerAdapter(activity.supportFragmentManager) {
+    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): FragmentStatePagerAdapter(activity.supportFragmentManager,
+            BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getCount(): Int {
             return Integer.MAX_VALUE

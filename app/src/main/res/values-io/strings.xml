@@ -61,9 +61,6 @@
   <string name="on_this_day_page_share">Partigez l\'arkivo</string>
   <string name="reading_list_page_share">Partigez l\'arkivo</string>
   <string name="menu_text_select_edit_here">Modifikez ol hike</string>
-  <string name="nav_item_nearby">Proxime</string>
-  <string name="nearby_zoom_to_location">Plugrandigar la loko an la mapo</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; kontributeri</string>
   <string name="last_updated_text">Lasta modifiki %s</string>
   <string name="talk_page_link_text">Vidar diskuto-pagino</string>
   <string name="edit_history_link_text">Vidar redakto-historio</string>
@@ -304,10 +301,11 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d ek 1 artikli disponebla \'offline\'; %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d ek %2$d artikli disponebla \'offline\', %3$.2f MB</string>
   <string name="reading_list_sort">Klasifikar</string>
+  <string name="reading_list_sort_ellipsis">Ordenar segun...</string>
   <string name="reading_list_sort_by_name">Ordenar segun nomo</string>
   <string name="reading_list_sort_by_name_desc">Ordenar segun nomo (inversa)</string>
   <string name="reading_list_sort_by_recent">Ordenar segun antiqueso (unesme la maxim recenta)</string>
-  <string name="reading_list_sort_by_recent_desc">Ordenar segun antiqueso (unesma la maxim antiqua)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar segun antiqueso (unesme la maxim antiqua)</string>
   <string name="reading_list_sort_by_created">Organizar segun dato di kreado (unesme la maxim recenta)</string>
   <string name="reading_list_sort_by_created_desc">Organizar segun dato di kreado (unesme la maxim antiqua)</string>
   <string name="reading_list_menu_delete">Efacar la listo</string>
@@ -342,12 +340,11 @@
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
   <string name="suggested_edits_add_image_captions">Adjuntez informi pri l\'imaji</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Posible pose</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Thanks for all your contributions! Since we think you like adding captions to images, we’ve compiled a list of images that are missing captions. Could you help us improve Wikipedia?</string>
   <string name="suggested_edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
+  <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
@@ -356,9 +353,8 @@
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Plusa informi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagino dil arkivo che Wikimedia Commons</string>
   <string name="suggested_edits_article_cta_snackbar_action">Videz</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Adjuntez expliko</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez expliko (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Adjuntez expliko</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Adjuntez expliko (%s)</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
   <string name="this_year">Cayare</string>

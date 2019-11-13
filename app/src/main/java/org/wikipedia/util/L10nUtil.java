@@ -41,8 +41,8 @@ public final class L10nUtil {
      * Ensure that this is always sorted alphabetically.
      */
     private static final String[] RTL_LANGS = {
-            "ar", "arc", "arz", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
-            "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
+            "ar", "arc", "arz", "azb", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
+            "khw", "ks", "lrc", "mzn", "nqo", "pnb", "ps", "sd", "ug", "ur", "yi"
     };
 
     /**
@@ -130,6 +130,12 @@ public final class L10nUtil {
                                                            @StringRes int[] strings) {
         Configuration config = getCurrentConfiguration();
         Locale systemLocale = ConfigurationCompat.getLocale(config);
+        if (systemLocale.getLanguage().equals(targetLocale.getLanguage())) {
+            SparseArray<String> localizedStrings = new SparseArray<>();
+            for (int stringRes : strings) {
+                localizedStrings.put(stringRes, WikipediaApp.getInstance().getString(stringRes));
+            }
+        }
         setDesiredLocale(config, targetLocale);
         SparseArray<String> localizedStrings = getTargetStrings(strings, config);
         config.setLocale(systemLocale);

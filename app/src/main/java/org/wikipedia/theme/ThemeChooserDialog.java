@@ -1,6 +1,8 @@
 package org.wikipedia.theme;
 
 import android.content.DialogInterface;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -47,6 +51,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
     @BindView(R.id.button_theme_sepia_highlight) View buttonThemeSepiaHighlight;
     @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
+    @BindView(R.id.theme_chooser_match_system_theme_switch) SwitchCompat matchSystemThemeSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
     public interface Callback {
@@ -105,6 +110,13 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        BottomSheetBehavior.from((View) getView().getParent()).setPeekHeight(DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.themeChooserSheetPeekHeight)));
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
@@ -145,10 +157,66 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
+    @OnCheckedChanged(R.id.theme_chooser_match_system_theme_switch)
+    void onToggleMatchSystemTheme(boolean enabled) {
+        if (enabled == Prefs.shouldMatchSystemTheme()) {
+            return;
+        }
+        Prefs.setMatchSystemTheme(enabled);
+        Theme currentTheme = app.getCurrentTheme();
+        if (isMatchingSystemThemeEnabled()) {
+            switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+                case Configuration.UI_MODE_NIGHT_YES:
+                    if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                        app.setCurrentTheme(!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.BLACK : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
+                    }
+                    break;
+                case Configuration.UI_MODE_NIGHT_NO:
+                    if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                        app.setCurrentTheme(app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.LIGHT : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        conditionallyDisableThemeButtons();
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void conditionallyDisableThemeButtons() {
+        buttonThemeLight.setAlpha((isMatchingSystemThemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeSepia.setAlpha((isMatchingSystemThemeEnabled() && (WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeDark.setAlpha((isMatchingSystemThemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+        buttonThemeBlack.setAlpha((isMatchingSystemThemeEnabled() && (!WikipediaApp.getInstance().getCurrentTheme().isDark())) ? 0.2f : 1.0f);
+
+        buttonThemeLight.setEnabled(!isMatchingSystemThemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeSepia.setEnabled(!isMatchingSystemThemeEnabled() || (!WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeDark.setEnabled(!isMatchingSystemThemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
+        buttonThemeBlack.setEnabled(!isMatchingSystemThemeEnabled() || (WikipediaApp.getInstance().getCurrentTheme().isDark()));
+    }
+
+    private boolean isMatchingSystemThemeEnabled() {
+        return Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
+    }
+
     private void updateComponents() {
         updateFontSize();
         updateThemeButtons();
         updateDimImagesSwitch();
+        updateMatchSystemThemeSwitch();
+    }
+
+    private void updateMatchSystemThemeSwitch() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            matchSystemThemeSwitch.setVisibility(View.VISIBLE);
+            matchSystemThemeSwitch.setChecked(Prefs.shouldMatchSystemTheme());
+            conditionallyDisableThemeButtons();
+        } else {
+            matchSystemThemeSwitch.setVisibility(View.GONE);
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -229,7 +297,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof WebViewInvalidateEvent) {
                 updatingFont = false;
                 updateComponents();

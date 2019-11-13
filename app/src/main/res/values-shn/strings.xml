@@ -60,9 +60,6 @@
   <string name="on_this_day_page_share">ၽႄႈတိုၼ်း</string>
   <string name="reading_list_page_share">ၽႄႈတိုၼ်း</string>
   <string name="menu_text_select_edit_here">မႄးထတ်း တီႈၼႆႈ</string>
-  <string name="nav_item_nearby">ႁိမ်းႁွမ်း</string>
-  <string name="nearby_zoom_to_location">ၶႂၢၵ်ႈတူၺ်း ဢွင်ႈတီႈ တီႈၼိူဝ် ႁၢင်ႈၽႅၼ်ႇလိၼ်</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ၽူႈၶဝ်ႈႁူမ်ႈ</string>
   <string name="last_updated_text">%s ဢၼ်ပဵၼ် ဢၢပ်ႉတဵတ်ႉ ၵမ်းလိုၼ်းသုတ်း</string>
   <string name="talk_page_link_text">တူၺ်းၼႃႈလိၵ်ႈတွၼ်ႈဢုပ်ႇ</string>
   <string name="edit_history_link_text">တူၺ်း ပိုၼ်းမႄးထတ်း</string>
@@ -520,8 +517,6 @@
   <string name="preference_title_notification_poll">ပၼ်သဵင် ၶေႃႈၽၢင်ႉ</string>
   <string name="preference_summary_notification_poll">ၶႂၢင်းပၼ်ဢႅပ်ႉ တွၼ်ႈတႃႇၸႂ်ႉတေႇတႃႇ တႃႇၵူတ်ႇတူၺ်း ၶေႃႈၽၢင်ႉဢၼ်မႂ်ႇ တီႈပိုၼ်ႉလင်။</string>
   <string name="preference_category_notification_types">မဵဝ်းၶေႃႈၽၢင်ႉ ၼႂ်းဢႅပ်ႉ</string>
-  <string name="preference_title_notification_welcome">ႁပ်ႉတွၼ်ႈယူႇၶႃႈ</string>
-  <string name="preference_summary_notification_welcome">ဢၶွင်ႉ ၵေႃႇသၢင်ႈယဝ်ႉယဝ်ႈ</string>
   <string name="preference_title_notification_milestone">လၵ်းႁိၼ်</string>
   <string name="preference_summary_notification_milestone">ႁူဝ်ၼပ်ႉ လွင်ႈမႄးထတ်းၼႄႉၼွၼ်း ႁွတ်ႈၽႅဝ်ထိုင်တီႈမၼ်းယဝ်ႉ</string>
   <string name="preference_title_notification_thanks">ၶွပ်ႈၸႂ်</string>
@@ -547,7 +542,7 @@
   <string name="most_read_list_card_title">သၢႆတၢင်း</string>
   <string name="view_static_card_icon_content_description">ႁၢင်ႈႁိင်ႈ ၶႅပ်း</string>
   <string name="view_card_news_title">တီႈၼႂ်းၶၢဝ်ႇ</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="other">%d ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">မိူဝ်ႈၼႆႉ</string>
@@ -625,34 +620,12 @@
   <string name="suggested_edits_review_image_caption">ထတ်းသၢင် ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_my_contributions">လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ</string>
   <string name="suggested_edits_no_description" fuzzy="true">ဢမ်ႇမီး ၶေႃႈသပ်းလႅင်း</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">ၶွပ်ႈၸႂ်ထိုင် ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇတင်းသဵင်ႈ! ၸဝ်ႈၵဝ်ႇႁဵတ်းလႆႈ လွင်ႈမႄးထတ်း ၶိုၵ်ႉတွၼ်းလီၼႆလႄႈ ႁဝ်းၶႃႈလႆႈၵဵပ်းႁွမ်တွမ်ဝႆႉ သဵၼ်ႈမၢႆပွင်ႈၵႂၢမ်း ဢၼ်ဢမ်ႇပႆႇမီးၶေႃႈသပ်းလႅင်းၼၼ်ႉ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၸွႆႈထႅမ်ႁဝ်းၶႃႈ တွၼ်ႈတႃႇ ႁဵတ်းႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶိုၼ်ႈယႂ်ႇၼၼ်ႉၶႃႈႁိုဝ်?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">ဢဝ်ၵုင်ႇမုၼ်ၸွမ်း လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇယူႇ။ ႁဝ်းၶႃႈယွင်ႈယေႃးတႄႉ! ၸဝ်ႈၵဝ်ႇ ၸႂ်ႉဢႅပ်ႉဝႆႉတင်း ၽႃႇသႃႇၵႂၢမ်းလၢႆႇဢၼ်၊ ယွၼ်ႉၼၼ်လႄႈ ႁဝ်းႁဵတ်းသဵၼ်ႈမၢႆ ပွင်ႈၵႂၢမ်း ၸိူဝ်းလူဝ်ႇပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်းမၼ်း။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈသိုပ်ႇတႃႇ ၸွႆႈထႅမ်ႁဝ်းၶႃႈ တႃႇႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶႅမ်ႉမႃးၶႃႈႁိုဝ်?</string>
-  <string name="suggested_edits_unlock_dialog_no">ဝၢႆးလင်ၵွၼ်ႇၵႂႃႈ</string>
-  <string name="suggested_edits_unlock_dialog_yes">လႆႈဢေႃႈ၊ ၽွမ်ႉၵၼ်ႁဵတ်းၵႂႃႇၵႂႃႈ</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">ၸဝ်ႈၵဝ်ႇပိုတ်ႇဝေႃး \"ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">ၸဝ်ႈၵဝ်ႇပိုတ်ႇသေႃး \"ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း\"</string>
-  <string name="suggested_edits_unlock_notification_text">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ\n\nၶွပ်ႈၸႂ်ထိုင် ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇတင်းသဵင်ႈ! ၸဝ်ႈၵဝ်ႇႁဵတ်းလႆႈ လွင်ႈမႄးထတ်း ၶိုၵ်ႉတွၼ်းလီၼႆလႄႈ ႁဝ်းၶႃႈလႆႈၵဵပ်းႁွမ်တွမ်ဝႆႉ သဵၼ်ႈမၢႆပွင်ႈၵႂၢမ်း ဢၼ်ဢမ်ႇပႆႇမီးၶေႃႈသပ်းလႅင်းၼၼ်ႉ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၸွႆႈထႅမ်ႁဝ်းၶႃႈ တွၼ်ႈတႃႇ ႁဵတ်းႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶိုၼ်ႈယႂ်ႇၼၼ်ႉၶႃႈႁိုဝ်?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">လွင်ႈမႄးထတ်း ၶႆႈၸႂ်ဝႆႉ\n\nဢဝ်ၵုင်ႇမုၼ်ၸွမ်း လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇယူႇ။ ႁဝ်းၶႃႈယွင်ႈယေႃးတႄႉ! ၸဝ်ႈၵဝ်ႇ ၸႂ်ႉဢႅပ်ႉဝႆႉတင်း ၽႃႇသႃႇၵႂၢမ်းလၢႆႇဢၼ်၊ ယွၼ်ႉၼၼ်လႄႈ ႁဝ်းႁဵတ်းသဵၼ်ႈမၢႆ ပွင်ႈၵႂၢမ်း ၸိူဝ်းလူဝ်ႇပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်းမၼ်း။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈသိုပ်ႇတႃႇ ၸွႆႈထႅမ်ႁဝ်းၶႃႈ တႃႇႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶႅမ်ႉမႃးၶႃႈႁိုဝ်?</string>
-  <string name="suggested_edits_unlock_notification_button">လႆႈဢေႃႈ၊ ၽွမ်ႉၵၼ်ႁဵတ်းၵႂႃႇၵႂႃႈ</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး \"ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">ၶွပ်ႈၸႂ်ထိုင်ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ တင်ႈသဵင်ႈၶႃႈ! ၸဵမ်မိူဝ်ႈႁဝ်းၶႃႈႁၼ်ထိုင်ဝႃႈ ၸဝ်ႈၵဝ်ႇ လႆႈၸႂ် ထႅမ်သႂ်ႇႁူဝ်ၶေႃႈ တီႈၶႅပ်ႈႁၢင်ႈၼၼ်ႉၼႆ ႁဝ်းၶႃႈလႆႈၸူႉႁွမ်တွမ်ဝႆႉ သဵၼ်ႈမၢႆၶႅပ်းႁၢင်ႈ ၸိူဝ်းဢၼ်ဢမ်ႇပႆႇမီးႁူဝ်ၶေႃႈၼၼ်ႉဢေႃႈ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၸွႆႈထႅမ်ႁဝ်းၶႃႈ တႃႇႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶႅမ်ႉမႃးၶႃႈႁိုဝ်?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ\n\nၶွပ်ႈၸႂ်ထိုင်ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ တင်ႈသဵင်ႈၶႃႈ! ၸဵမ်မိူဝ်ႈႁဝ်းၶႃႈႁၼ်ထိုင်ဝႃႈ ၸဝ်ႈၵဝ်ႇ လႆႈၸႂ် ထႅမ်သႂ်ႇႁူဝ်ၶေႃႈ တီႈၶႅပ်ႈႁၢင်ႈၼၼ်ႉၼႆ ႁဝ်းၶႃႈလႆႈၸူႉႁွမ်တွမ်ဝႆႉ သဵၼ်ႈမၢႆၶႅပ်းႁၢင်ႈ ၸိူဝ်းဢၼ်ဢမ်ႇပႆႇမီးႁူဝ်ၶေႃႈၼၼ်ႉဢေႃႈ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၸွႆႈထႅမ်ႁဝ်းၶႃႈ တႃႇႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶႅမ်ႉမႃးၶႃႈႁိုဝ်?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">ၸဝ်ႈၵဝ်ႇ ပိုတ်ႇသေႃး ၼႃႈၵၢၼ် \"ပိုၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">ၸဝ်ႈၵဝ်ႇပိုတ်ႇသေႃး \"ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">ၶွပ်ႈၸႂ်ထိုင်ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ တင်းသဵင်ႈယူႇၶႃႈ! ၸဝ်ႈၵဝ်ႇ လႆႈၸႂ်ႉဢႅပ်ႉ တင်းၽႃႇသႃႇၵႂၢမ်းလၢႆမဵဝ်းလႄႈ ႁဝ်းၶႃႈ လႆႈၸူႉႁွမ်တွမ် သဵၼ်ႈမၢႆၶႅပ်းႁၢင်ႈ ဢၼ်တိုၵ်ႉလူဝ်ႇ ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈမၼ်းၼၼ်ႉၶႃႈဢေႃႈ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈသိုပ်ႇ တႃႇၸွႆႈထႅမ်ႁဝ်းၶႃႈ တႃႇႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶႅမ်းမႃးၶႃႈႁိုဝ်?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">လွင်ႈမႄးထတ်း ၶႆႈၸႂ်ဝႆႉ\n\nၶွပ်ႈၸႂ်ထိုင်ၼိူဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ တင်းသဵင်ႈယူႇၶႃႈ! ၸဝ်ႈၵဝ်ႇ လႆႈၸႂ်ႉဢႅပ်ႉ တင်းၽႃႇသႃႇၵႂၢမ်းလၢႆမဵဝ်းလႄႈ ႁဝ်းၶႃႈ လႆႈၸူႉႁွမ်တွမ် သဵၼ်ႈမၢႆၶႅပ်းႁၢင်ႈ ဢၼ်တိုၵ်ႉလူဝ်ႇ ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈမၼ်းၼၼ်ႉၶႃႈဢေႃႈ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈသိုပ်ႇ တႃႇၸွႆႈထႅမ်ႁဝ်းၶႃႈ တႃႇႁႂ်ႈ ဝီႇၶီႇၽီးတီးယႃး တိူဝ်းၶႅမ်းမႃးၶႃႈႁိုဝ်?</string>
   <string name="suggested_edits_license_notice">ၸွမ်းၼင်ႇထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်းၼၼ်ႉလႄႈ ၵဝ်ႇၶႃႈၽွမ်ႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၵႂၢမ်း လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt; လႄႈ ၶႃႈႁဝ်းဢဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ ပိုၼ်ဢွၵ်ႇၶၢတ်ႇၶၢတ်ႇ ၸွမ်းၼင်ႇ  ဝႂ်ၶႂၢင်း&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ၼၼ်ႉၶႃႈ။</string>
   <string name="suggested_edits_image_caption_license_notice">ၸွမ်းၼင်ႇ ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈၼၼ်ႉလႄႈ ၵဝ်ႇၶႃႈၽွမ်ႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၵႂၢမ်း လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt; လႄႈ ၶႃႈႁဝ်းဢဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ ပိုၼ်ဢွၵ်ႇၶၢတ်ႇၶၢတ်ႇ ၸွမ်းၼင်ႇ  ဝႂ်ၶႂၢင်း&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ၼၼ်ႉၶႃႈ။</string>
   <string name="suggested_edits_menu_info">လွၼ်ႉၶၢဝ်ႇ</string>
   <string name="suggested_edits_tasks_activity_title">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="suggested_edits_task_add_description_title">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_task_add_description_description">ဢမ်ႇပႃးၶေႃႈသပ်းလႅင်းသေ ၶဝ်ႈႁူမ်ႈတင်း ပွင်ႈၵႂၢမ်း</string>
-  <string name="suggested_edits_task_translation_title">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း</string>
-  <string name="suggested_edits_task_translation_description">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း တီႈ ၽႃႇသႃႇပွင်ႈၵႂၢမ်း လၢႆဢၼ်</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">သႂ်ႇႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၸူး ၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_task_translate_caption_title">ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>

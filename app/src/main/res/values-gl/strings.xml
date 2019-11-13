@@ -6,6 +6,7 @@
 * Chairego apc
 * Elisardojm
 * Fitoschido
+* Iváns
 * Macofe
 * Navhy
 * Toliño
@@ -21,10 +22,12 @@
   <string name="page_tabs_back">Volver</string>
   <string name="nav_item_forward">Seguinte</string>
   <string name="search_hint">Procurar na Wikipedia</string>
+  <string name="search_hint_voice_search">Procura con entrada por voz</string>
   <string name="search_hint_search_history">Procurar no historial</string>
   <string name="search_hint_search_languages">Procurar unha lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Procurar as miñas listas e artigos</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Edicións suxeridas</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -67,9 +70,6 @@
   <string name="on_this_day_page_share">Compartir</string>
   <string name="reading_list_page_share">Compartir</string>
   <string name="menu_text_select_edit_here">Editar aquí</string>
-  <string name="nav_item_nearby">Preto</string>
-  <string name="nearby_zoom_to_location">Zoom a unha localización do mapa</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Colaboradores de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última actualización o %s</string>
   <string name="talk_page_link_text">Ver a páxina de conversa</string>
   <string name="edit_history_link_text">Ver o historial de edicións</string>
@@ -275,6 +275,8 @@
   <string name="gallery_save_success">O ficheiro gardouse correctamente.</string>
   <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">É necesario o permiso de escritura no seu dispositivo para gardar imaxes.</string>
+  <string name="gallery_add_image_caption_button">Engadir lenda de imaxe</string>
+  <string name="gallery_add_image_caption_in_language_button">Engadir lenda de imaxe (%s)</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para ampliar</string>
@@ -285,6 +287,8 @@
   <string name="captcha_image">Imaxe Captcha</string>
   <string name="gallery_fair_use_license">Uso lexítimo</string>
   <string name="gallery_uploader_unknown">Descoñécese a persoa que cargou o ficheiro</string>
+  <string name="gallery_not_available_offline_snackbar">A vista de galería non está dispoñible sen conexión.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Ignorar</string>
   <string name="menu_new_tab">Nova lapela</string>
   <string name="menu_close_all_tabs">Pechar tódalas lapelas</string>
   <string name="close_all_tabs_confirm">Está seguro de que quere pechar tódalas lapelas?</string>
@@ -330,6 +334,7 @@
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta páxina non existe</string>
   <string name="view_wiki_error_message_offline">Non se puido conectar a Internet</string>
+  <string name="view_wiki_error_message_timeout">Non se pode conectar con Wikipedia. Comprobe a súa conexión de rede ou ténteo de novo máis tarde</string>
   <string name="reference_title">Referencia %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imaxe (no tema obscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contido sen conexión</string>
@@ -346,7 +351,7 @@
   <string name="article_menu_bar_bookmark">Engadir este artigo a unha lista de lectura</string>
   <string name="article_menu_bar_share">Compartir a ligazón do artigo</string>
   <string name="article_header_edit_hint">Editar...</string>
-  <string name="article_header_edit_description" fuzzy="true">Editar a descrición do título</string>
+  <string name="article_header_edit_description">Editar a descrición do artigo</string>
   <string name="article_header_edit_lead_section">Editar introdución</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
@@ -528,14 +533,20 @@
   <string name="preference_title_notification_poll">Activar as notificacións</string>
   <string name="preference_summary_notification_poll">Permitir que a aplicación use tráfico de datos para comprobar se hai novas notificacións en segundo plano.</string>
   <string name="preference_category_notification_types">Tipos de notificacións internas da aplicación</string>
-  <string name="preference_title_notification_welcome">Benvido/a</string>
-  <string name="preference_summary_notification_welcome">Creouse unha conta</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Mensaxes do sistema</string>
   <string name="preference_title_notification_milestone">Fito</string>
   <string name="preference_summary_notification_milestone">Acada un certo número de edicións</string>
   <string name="preference_title_notification_thanks">Grazas</string>
   <string name="preference_summary_notification_thanks">Algúen agradece unha das súas edicións</string>
   <string name="preference_title_notification_revert">Reverter</string>
   <string name="preference_summary_notification_revert">Unha das súas contribucións foi revertida</string>
+  <string name="preference_title_notification_login_fail">Acceder</string>
+  <string name="preference_summary_notification_login_fail">Os seus inicios de sesión</string>
+  <string name="preference_title_notification_mention">Mención</string>
+  <string name="preference_summary_notification_mention">Alguén menciónao nunha páxina</string>
+  <string name="preference_title_notification_user_talk">Páxina de conversa</string>
+  <string name="preference_summary_notification_user_talk">Mensaxes das páxinas de conversa</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_card_subtitle">Ollar artigos aleatorios da Wikipedia para ler.</string>
@@ -589,79 +600,111 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar a súa canle Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escoller o que desexa amosar na súa canle, e tamén priorizar os seus tipos de contidos favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
-  <string name="description_edit_text_hint" fuzzy="true">Descrición de título</string>
+  <string name="feed_accessibility_card_text">Chegou ó final da canle.</string>
+  <string name="feed_accessibility_card_load_more_button">Cargar máis</string>
+  <string name="description_edit_text_hint">Descrición do artigo</string>
+  <string name="description_edit_article_description_label">Artigo</string>
+  <string name="description_edit_translate_article_description_label_per_language">Descrición do artigo (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Descrición do artigo (%s)</string>
+  <string name="description_edit_add_caption_label">Descrición da imaxe</string>
+  <string name="description_edit_add_caption_hint">Lenda da imaxe</string>
+  <string name="description_edit_translate_caption_label_per_language">Lenda de imaxe (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Lenda de imaxe (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
-  <string name="description_edit_add_description" fuzzy="true">Engadir unha descrición de título</string>
-  <string name="description_edit_translate_description" fuzzy="true">Traducir descrición</string>
-  <string name="description_edit_edit_description" fuzzy="true">Editar a descrición</string>
+  <string name="description_edit_add_description">Engadir descrición de artigo</string>
+  <string name="description_edit_translate_description">Traducir descrición do artigo</string>
+  <string name="description_edit_edit_description">Editar descrición do artigo</string>
+  <string name="description_edit_add_image_caption">Engadir lenda de imaxe</string>
+  <string name="description_edit_edit_image_caption">Editar lenda de imaxe</string>
+  <string name="description_edit_translate_image_caption">Traducir lenda de imaxe</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
-  <string name="description_edit_help_title" fuzzy="true">Axudaː descricións dos títulos</string>
+  <string name="description_edit_help_title">Infoː descricións de artigos</string>
   <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir as descricións</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit" fuzzy="true">Grazas polo seu contínuo interés en editar descriciónsǃ Para facer edicións adicionais, por favor, comece sesión na súa conta de Wikipedia.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Ao cambiar a descrición de título, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Descrición publicada!</string>
-  <string name="description_edit_success_saved_snackbar" fuzzy="true">Descrición publicada!</string>
+  <string name="description_edit_anon_limit">Grazas polo seu contínuo interés en editar descricións de artigosǃ Para facer edicións adicionais, por favor, comece sesión na súa conta de Wikipedia.</string>
+  <string name="description_edit_license_notice">Ao cambiar a descrición do artigo, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">normalmente comeza cunha letra minúscula</string>
+  <string name="description_edit_success_saved">Descrición de artigo publicada!</string>
+  <string name="description_edit_success_saved_snackbar">Descrición de artigo publicada!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Descrición do artigo publicadaǃ (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Lenda da imaxe publicada!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Lenda da imaxe publicada! (%s)</string>
   <string name="description_edit_success_encouragement">Acaba de mellorar Wikipedia para todo o mundo</string>
   <string name="description_edit_success_done">Feito</string>
   <string name="description_edit_success_did_you_know">Sabía que...?</string>
   <string name="description_edit_success_article_edit_hint">Tamén pode editar artigos dentro desta aplicación. A próxima vez intente amañar erros e pequenas frases premendo na icona ^1.</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descrición de títulos</string>
+  <string name="description_edit_tutorial_title_descriptions">Descricións de artigos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artigo para axudar ós lectores a comprender o tema dunha ollada</string>
   <string name="description_edit_tutorial_keep_it_short">Que sexa curto</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente unha liña, entre dúas e unha ducia de palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comezar a editar</string>
   <string name="description_edit_tutorial_promise">Ó comezar, comprométome a non abusar desta funcionalidade.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Engadir descricións</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Traducir descricións</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Revisar descrición</string>
+  <string name="suggested_edits_add_descriptions">Engadir descricións de artigos</string>
+  <string name="suggested_edits_translate_descriptions">Traducir descricións de artigos</string>
+  <string name="suggested_edits_add_image_captions">Engadir lendas de imaxe</string>
+  <string name="suggested_edits_translate_image_captions">Traducir lendas de imaxes</string>
+  <string name="suggested_edits_review_description">Revisar descrición de artigo</string>
   <string name="suggested_edits_add_description_button">Engadir descrición</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">Engadir unha tradución</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">Editar tradución</string>
+  <string name="suggested_edits_edit_description_button">Editar descrición</string>
+  <string name="suggested_edits_add_translation_button">Engadir tradución</string>
+  <string name="suggested_edits_edit_translation_button">Editar tradución</string>
+  <string name="suggested_edits_add_caption_button">Engadir lenda</string>
+  <string name="suggested_edits_edit_caption_button">Editar lenda</string>
+  <string name="suggested_edits_review_image_caption">Revisar lenda de imaxe</string>
   <string name="suggested_edits_my_contributions">As miñas contribucións</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Desbloqueou a tarefa \"Engadir descricións\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Grazas por tódalas súas achegasǃ Porque é moi bo editando, compilamos unha lista de artigos nos que falta a descrición de título. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Desbloqueou a tarefa \"Traducir descricións\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Felicidades polas moitas contribucións que fixo, estamos impresionadosǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no">Quizais máis tarde</string>
-  <string name="suggested_edits_unlock_dialog_yes">Si, continuar</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Desbloqueou \"Engadir descricións\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Desbloqueou \"Traducir descricións\"</string>
-  <string name="suggested_edits_unlock_notification_text">Edicións suxeridas</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edicións suxeridas\n\nGrazas por tódalas súas contribucións. Como é un editor fantástico, compilamos unha lista de artigos ós que lles falta a descrición. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edicións suxeridas\n\nFelicidades polas moitas contribucións que fixo, estamos impresionadosǃ Está a usar a aplicación en varias linguas, por iso compilamos unha lista de artigos que precisan traducións de descricións. Pode continuar a axudarnos a mellorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_notification_button">Si, continuar</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Desbloqueou a tarefa \"Engadir pés de imaxes\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Desbloqueou \"Engadir pés de imaxes\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Grazas por tódalas súas contribuciónsǃ Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha alista de imaxes ás que lles falta o pé. Pode axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Edicións suxeridas\n\nGrazas por tódalas súas contribucións. Como pensamos que lle gusta engadir pés ás imaxes, compilamos unha lista de imaxes que non teñen o pé. Quere axudarnos a mellorar a Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Desbloqueou a tarefa \"Traducir pés de imaxe\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Desbloqueou \"Traducir pés de imaxe\"</string>
+  <string name="suggested_edits_no_description">Este ficheiro non ten unha descrición</string>
+  <string name="suggested_edits_license_notice">Ó cambiar a descrición, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Ó engadir a lenda da imaxe, concordo cos &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tarefas de editor</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Engadir descricións</string>
+  <string name="suggested_edits_tasks_activity_title">Edicións suxeridas</string>
+  <string name="suggested_edits_task_add_description_title">Engadir descricións de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Traducir descricións</string>
-  <string name="suggested_edits_task_translation_description">Traducir descricións nas linguas dos artigos.</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Engadir pés ás imaxes</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Engadir pés ás imaxes</string>
+  <string name="suggested_edits_task_image_caption_title">Engadir lendas ás imaxes</string>
+  <string name="suggested_edits_task_image_caption_description">Engadir lendas curtas ás imaxes que non teñen</string>
   <string name="suggested_edits_task_translate_caption_title">Traducir pés de imaxe</string>
   <string name="suggested_edits_task_translate_caption_description">Traducir pés a outras linguas</string>
   <string name="suggested_edits_task_multilingual_title">Máis tarefas para editores multilingües</string>
   <string name="suggested_edits_task_multilingual_description">Hai tarefas de tradución se vostede le e escribe en máis dunha lingua de Wikipedia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Bloqueado ata que teña feito %d contribucións verificadas</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Bloqueado ata que teña feito %d contribucións verificadas</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloqueado ata que teña editado %d lendas de imaxes</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado ata que teña editado %d descricións de artigos (verificadas)</string>
   <string name="suggested_edits_task_multilingual_negative">Non é para min</string>
   <string name="suggested_edits_task_multilingual_positive">Engadir linguas</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Orixe</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Licenza</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribucións</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Edicións suxeridas</string>
+  <string name="suggested_edits_feed_card_add_description_button">Engadir descrición de artigo</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Engadir descrición de imaxe (%s)</string>
   <string name="suggested_edits_tutorial_message">Benvido á nova páxina inicial de edición rápida da aplicación da Wikipedia. As súas contribucións son moi apreciadas. Boas ediciónsǃ</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Comezar</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Lenda de imaxe (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrición da imaxe (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
+  <string name="suggested_edits_image_preview_dialog_date">Data</string>
+  <string name="suggested_edits_image_preview_dialog_source">Orixe/Fotógrafo</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Máis información</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Páxina do ficheiro en Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Engadir lenda de imaxe</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Engadir lenda de imaxe (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda de imaxe</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Engadir lenda de imaxe (%s)</string>
+  <string name="suggested_edits_snackbar_survey_text">Como foi a súa experiencia editando? Por favor, adique un momento a cubrir a enquisa de edición na aplicación.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Comezar a enquisa</string>
+  <string name="suggested_edits_task_action_text_add">Engadir</string>
+  <string name="suggested_edits_task_action_text_translate">Traducir</string>
+  <string name="suggested_edits_image_captions">Lendas de imaxes</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, grazas polas súas edicións, Abaixo pode atopar máis formas de contribuír á Wikipedia</string>
+  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Ola %s&lt;/b&gt;, sabe que calquera persoa pode editar a Wikipedia? Atope abaixo algunhas formas divertidas de axudar a mellorar a Wikipedia. Divírtase editandoǃ</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -733,6 +776,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
+  <string name="content_description_for_page_indicator">Páxina %1$d de %2$d</string>
   <string name="wikitext_bold">Negra</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Ligazón</string>
@@ -743,8 +787,11 @@
   <string name="wikitext_preview_link">Vista previa de ligazón</string>
   <string name="main_drawer_open">Abrir</string>
   <string name="main_drawer_close">Pechar</string>
+  <string name="main_drawer_content_description">Abrir o panel principal de navegación</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
+  <string name="main_tooltip_text">%s, sabía que todo o mundo pode editar a Wikipedia?</string>
+  <string name="main_tooltip_action_button">Comezar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>

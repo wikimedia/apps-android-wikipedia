@@ -16,15 +16,17 @@ import org.wikipedia.util.ResourceUtil;
 // todo: replace with DividerItemDecoration once it supports headers and footers
 public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
     @NonNull private final Drawable drawable;
+    private final boolean drawStart;
     private final boolean drawEnd;
 
     public DrawableItemDecoration(@NonNull Context context, @AttrRes int id) {
-        this(context, id, true);
+        this(context, id, true, true);
     }
 
-    public DrawableItemDecoration(@NonNull Context context, @AttrRes int id, boolean drawEnd) {
+    public DrawableItemDecoration(@NonNull Context context, @AttrRes int id, boolean drawStart, boolean drawEnd) {
         this.drawable = AppCompatResources.getDrawable(context,
                 ResourceUtil.getThemedAttributeId(context, id));
+        this.drawStart = drawStart;
         this.drawEnd = drawEnd;
     }
 
@@ -43,7 +45,7 @@ public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
         }
 
         int end = parent.getChildCount() - 1;
-        for (int i = 0; i < end; ++i) {
+        for (int i = drawStart ? 0 : 1; i < end; ++i) {
             draw(canvas, bounds(parent, parent.getChildAt(i), true));
         }
         draw(canvas, bounds(parent, parent.getChildAt(end), true));

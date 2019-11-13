@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -100,17 +99,6 @@ public class PageFragmentLoadState {
         // will invalidate themselves upon completion.
         sequenceNumber.increase();
 
-        // kick off an event to the WebView that will cause it to clear its contents,
-        // and then report back to us when the clearing is complete, so that we can synchronize
-        // the transitions of our native components to the new page content.
-        // The callback event from the WebView will then call the loadOnWebViewReady()
-        // function, which will continue the loading process.
-        if (model.getTitle().getThumbUrl() == null) {
-            leadImagesHandler.hide();
-        }
-
-        // Kick off by checking whether this page exists in a reading list, since that will determine
-        // whether we'll (re)save it to offline cache.
         pageLoadCheckReadingLists();
     }
 
@@ -187,18 +175,15 @@ public class PageFragmentLoadState {
     }
 
     public void onConfigurationChanged() {
-        leadImagesHandler.beginLayout();
-        if (fragment.isAdded()) {
-            fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-        }
-        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMarginForContent()));
+        leadImagesHandler.loadLeadImage();
+        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getPaddingTop()));
+        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 
     public boolean isFirstPage() {
         return currentTab.getBackStack().size() <= 1 && !webView.canGoBack();
     }
 
-    @VisibleForTesting
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
         if (!fragment.isAdded()) {
             return;
@@ -217,7 +202,7 @@ public class PageFragmentLoadState {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(model.getTitle()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError)))
+                .doAfterTerminate(() -> pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError)))
                 .subscribe(page -> model.setReadingListPage(page),
                         throwable -> model.setReadingListPage(null)));
     }
@@ -245,7 +230,7 @@ public class PageFragmentLoadState {
 
         disposables.add(new PageClient()
                 .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth())
+                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(rsp -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
@@ -304,20 +289,22 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
+        leadImagesHandler.loadLeadImage();
+
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
         fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
         final HistoryEntry curEntry = model.getCurEntry();
-        model.setCurEntry(
-                new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
+        model.setCurEntry(new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
         model.getCurEntry().setReferrer(curEntry.getReferrer());
 
         // Save the thumbnail URL to the DB
         PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
-        updateThumbnail(pageImage.getImageName());
+        model.getTitle().setThumbUrl(pageImage.getImageName());
+        model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
     }
 
     /**

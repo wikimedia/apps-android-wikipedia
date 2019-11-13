@@ -1,6 +1,7 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -43,7 +44,7 @@ public class CommunicationBridge {
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
-    public CommunicationBridge(final WebView webView) {
+    public CommunicationBridge(final WebView webView, Context activityContext) {
         this.webView = webView;
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);

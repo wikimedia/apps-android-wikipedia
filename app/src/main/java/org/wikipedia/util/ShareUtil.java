@@ -33,7 +33,7 @@ import io.reactivex.schedulers.Schedulers;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public final class ShareUtil {
-    public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
+    private static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
     private static final String FILE_PROVIDER_AUTHORITY = BuildConfig.APPLICATION_ID + ".fileprovider";
     private static final String FILE_PREFIX = "file://";
 
@@ -171,15 +171,7 @@ public final class ShareUtil {
     public static Intent createChooserIntent(@NonNull Intent targetIntent,
                                              @Nullable CharSequence chooserTitle,
                                              @NonNull Context context) {
-        return createChooserIntent(targetIntent, chooserTitle, context, APP_PACKAGE_REGEX);
-    }
-
-    @Nullable
-    public static Intent createChooserIntent(@NonNull Intent targetIntent,
-                                             @Nullable CharSequence chooserTitle,
-                                             @NonNull Context context,
-                                             String packageNameBlacklistRegex) {
-        List<Intent> intents = queryIntents(context, targetIntent, packageNameBlacklistRegex);
+        List<Intent> intents = queryIntents(context, targetIntent, APP_PACKAGE_REGEX);
 
         if (intents.isEmpty()) {
             return null;
@@ -190,7 +182,7 @@ public final class ShareUtil {
         return bestIntent;
     }
 
-    public static List<Intent> queryIntents(@NonNull Context context,
+    private static List<Intent> queryIntents(@NonNull Context context,
                                             @NonNull Intent targetIntent,
                                             String packageNameBlacklistRegex) {
         List<Intent> intents = new ArrayList<>();
@@ -198,9 +190,9 @@ public final class ShareUtil {
         if (targetIntent.getAction().equals(Intent.ACTION_VIEW)) {
             // To avoid using the Wikipedia app externally opens the wikipedia.org links,
             // we can put a non-wikipedia link for intent choose to fetch browser apps list, and use the list for our "true" external links
-            queryIntent.setData(Uri.parse("https://not.a.website/"));
+            queryIntent.setData(Uri.parse("https://example.com/"));
         }
-        for (ResolveInfo intentActivity : queryIntentActivities(queryIntent, context)) {
+        for (ResolveInfo intentActivity : context.getPackageManager().queryIntentActivities(queryIntent, 0)) {
             if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
                 intents.add(buildLabeledIntent(targetIntent, intentActivity));
             }
@@ -208,14 +200,10 @@ public final class ShareUtil {
         return intents;
     }
 
-    public static List<ResolveInfo> queryIntentActivities(Intent intent, @NonNull Context context) {
-        return context.getPackageManager().queryIntentActivities(intent, 0);
-    }
-
     public static boolean canOpenUrlInApp(@NonNull Context context, @NonNull String url) {
         boolean canOpen = false;
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        for (ResolveInfo intentActivity : queryIntentActivities(intent, context)) {
+        for (ResolveInfo intentActivity : context.getPackageManager().queryIntentActivities(intent, 0)) {
             if (getPackageName(intentActivity).matches(APP_PACKAGE_REGEX)) {
                 canOpen = true;
                 break;

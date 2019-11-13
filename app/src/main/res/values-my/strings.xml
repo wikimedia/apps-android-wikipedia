@@ -22,6 +22,7 @@
   <string name="page_tabs_back">နောက်သို့</string>
   <string name="nav_item_forward">ရှေ့ပြန်သွားရန်</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
+  <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
   <string name="search_hint_search_history">ရှာဖွေမှု သမိုင်း</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
   <string name="search_hint_search_my_lists_and_articles">မိမိ၏စာရင်းနှင့်ဆောင်းပါးများကို ရှာဖွေရန်</string>
@@ -68,9 +69,6 @@
   <string name="on_this_day_page_share">မျှဝေ</string>
   <string name="reading_list_page_share">မျှဝေ</string>
   <string name="menu_text_select_edit_here">ဤနေရာတွင် တည်းဖြတ်ရန်</string>
-  <string name="nav_item_nearby">အနီးအနား</string>
-  <string name="nearby_zoom_to_location">မြေပုံပေါ်တွင် တည်နေရာကို ဆွဲယူကြည့်ရန်</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ပံ့ပိုးသူများ</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="talk_page_link_text">ဆွေးနွေးချက်စာမျက်နှာကို ကြည့်ရန်</string>
   <string name="edit_history_link_text">တည်းဖြတ်မှု ရာဇဝင် ကြည့်ရန်</string>
@@ -283,6 +281,8 @@
   <string name="captcha_image">Captcha ပုံ</string>
   <string name="gallery_fair_use_license">တရားမျှတစွာ အသုံးပြုခြင်း</string>
   <string name="gallery_uploader_unknown">ပုံတင်သူ မသိ</string>
+  <string name="gallery_not_available_offline_snackbar">ပုံပြခန်းမြင်ကွင်းကို အောဖလိုင်းချိန်တွင် မရရှိနိုင်ပါ။</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">ဖြုတ်ရန်</string>
   <string name="menu_new_tab">tab အသစ်</string>
   <string name="menu_close_all_tabs">tab အားလုံး ပိတ်ရန်</string>
   <string name="close_all_tabs_confirm">tab အားလုံးကို ပိတ်ရန် သေချာပါသလား?</string>
@@ -521,14 +521,19 @@
   <string name="preference_title_notification_poll">အသိပေးချက်များကို မဲဆန္ဒပေးရန်</string>
   <string name="preference_summary_notification_poll">နောက်ခံမှ အသိပေးချက်အသစ်များကို စစ်ဆေးရန် ဒေတာသုံးစွဲခွင့်ကို app အား ခွင့်ပြုမည်။</string>
   <string name="preference_category_notification_types">app ထဲရှိ အသိပေးချက် အမျိူးအစားများ</string>
-  <string name="preference_title_notification_welcome">ကြိုဆိုပါသည်</string>
-  <string name="preference_summary_notification_welcome">အကောင့်တစ်ခု ဖန်တီးခဲ့သည်</string>
+  <string name="preference_title_notification_system">စနစ်</string>
+  <string name="preference_summary_notification_system">စနစ်မှ စာတိုများ</string>
   <string name="preference_title_notification_milestone">မှတ်တိုင်</string>
   <string name="preference_summary_notification_milestone">သေချာသော တည်းဖြတ်မှုအရေအတွက် ရောက်ရှိခဲ့ပါသည်</string>
   <string name="preference_title_notification_thanks">ကျေးဇူးတင်ပါသည်</string>
   <string name="preference_summary_notification_thanks">တည်းဖြတ်မှုတစ်ခုအတွက် တစ်စုံတစ်ယောက်က သင့်ကိုကျေးဇူးတင်သည်</string>
   <string name="preference_title_notification_revert">ပြန်ပြောင်းရန်</string>
   <string name="preference_summary_notification_revert">သင်၏ပံ့ပိုးမှုတစ်ခုမှာ နောက်ပြန်ပြင်ခြင်း ခံရသည်</string>
+  <string name="preference_title_notification_login_fail">အကောင့်ထဲဝင်ရန်</string>
+  <string name="preference_title_notification_mention">ရည်ညွန်းပြောဆိုချက်</string>
+  <string name="preference_summary_notification_mention">စာမျက်နှာတစ်ခုတွင် တစ်စုံတစ်ယောက်က သင်အားရည်ညွန်းပြောဆိုခဲ့သည်</string>
+  <string name="preference_title_notification_user_talk">ဆွေးနွေးချက် စာမျက်နှာ</string>
+  <string name="preference_summary_notification_user_talk">ဆွေးနွေးချက်စာမျက်နှာများမှ မက်ဆေ့များ</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
   <string name="view_random_card_subtitle">ဝီကီပီးဒီးယားမှ ကျပန်းဆောင်းပါးတစ်ပုဒ်အား ဖတ်ရန် လှည့်ယမ်းပါ</string>
@@ -582,10 +587,10 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;သင်၏အခင်းအကျင်းအား စိတ်ကြိုက်ပြင်ဆင်ရန်&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;အခုဆိုလျင် သင်၏အခင်းအကျင်းတွင် မည်သည့်အရာများကို ပြသပေးမည်၊ သင်နှစ်သက်သည့် အကြောင်းအရာအမျိုးအစားများကို ဦးစားပေးဖော်ပြမည်ဆိုသည်ကို ရွေးချယ်နိုင်ပါပြီ။</string>
   <string name="feed_lang_selection_dialog_ok_button_text">အိုကေ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="feed_accessibility_card_load_more_button">ပိုမိုခေါ်ယူရန်</string>
   <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
-  <string name="description_edit_article_description_label_per_language">ဆောင်းပါး (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ဆောင်းပါး (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ဆောင်းပါး ဖော်ပြချက် (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ရုပ်ပုံ ဖော်ပြချက် (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ရုပ်ပုံ ပုံစာများ (%s)</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
   <string name="description_edit_read">ဖတ်ရန်</string>
@@ -631,21 +636,15 @@
   <string name="suggested_edits_review_image_caption">ရုပ်ပုံ ပုံစာ ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_my_contributions">ပံ့ပိုးထားမှုများ</string>
   <string name="suggested_edits_no_description">ဤဖိုင်တွင် ဖော်ပြချက် မရှိပါ</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">သင်၏ပံ့ပိုးမှုများအားလုံးအတွက် ကျေးဇူးတင်ပါသည်။ သင်သည် တည်းဖြတ်ရာတွင် အရမ်းကောင်းမွန်သည့်အတွက် ဆောင်းပါးဖော်ပြချက်ပျောက်နေသောစာရင်းကို ပြုစုထားပေးပါသည်။ ဝီကီပီးဒီးယား တိုးတက်ရေးအတွက် ကူညီပေးမည်လော။</string>
-  <string name="suggested_edits_unlock_dialog_no">နောက်ကြုံမှ</string>
-  <string name="suggested_edits_unlock_dialog_yes">ဟုတ်ကဲ့၊ သွားရအောင်</string>
-  <string name="suggested_edits_unlock_notification_text">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
-  <string name="suggested_edits_unlock_notification_button">ဟုတ်ကဲ့၊ သွားရအောင်</string>
   <string name="suggested_edits_menu_info">အချက်အလက်</string>
   <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_task_add_description_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
-  <string name="suggested_edits_task_translation_title">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
-  <string name="suggested_edits_task_translation_description">ဆောင်းပါးဘာသာစကားများအနှံ့ ဖော်ပြချက်များကို ဘာသာပြန်ဆိုပါ</string>
   <string name="suggested_edits_task_image_caption_title">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_image_caption_description">ရုပ်ပုံများသို့ လိုအပ်နေသောပုံစာများ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_translate_caption_title">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_task_translate_caption_description">ပုံစာများကို အခြားဘာသာသို့ ဘာသာပြန်ရန်</string>
+  <string name="suggested_edits_task_multilingual_title">ဘာသာစကားများစွာ တည်းဖြတ်သူများအတွက် လုပ်ငန်းများပို၍</string>
   <string name="suggested_edits_task_multilingual_description">သင်သည် ဘာသာစကားတစ်ခုထက် ဖတ်ရှု၊ ရေးသားသူဆိုပါက ဘာသာပြန်လုပ်ငန်းများကို ရရှိနိုင်ပါသည်။</string>
   <string name="suggested_edits_task_multilingual_negative">မိမိအတွက် မဟုတ်ပါ</string>
   <string name="suggested_edits_task_multilingual_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
@@ -659,16 +658,19 @@
     <item quantity="other">%d ပံ့ပိုးမှုများ</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ရုပ်ပုံဖော်ပြချက် (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>
   <string name="suggested_edits_image_preview_dialog_source">ရင်းမြစ်/ဓါတ်ပုံဆရာ</string>
   <string name="suggested_edits_image_preview_dialog_licensing">လိုင်စင်သတ်မှတ်ခြင်း</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">အချက်အလက် ပို၍</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">အချက်အလက် ပို၍</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ဝီကီပီးဒီးယား ကွန်မွန်းစ်ရှိ ဖိုင်စာမျက်နှာ</string>
-  <string name="suggested_edits_feed_card_add_image_caption">ပုံစာ ပေါင်းထည့်ရန်</string>
-  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
+  <string name="suggested_edits_article_cta_snackbar_action">ကြည့်ရန်</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">ပုံစာ ပေါင်းထည့်ရန်</string>
+  <string name="suggested_edits_snackbar_survey_action_text">စစ်တမ်း လုပ်ရန်</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>
   <string name="description_edit_revert_reason1">သင်၏ပံပိုးမှုသည် &lt;a href=\"%1$s\"&gt;လမ်းညွှန်များ&lt;/a&gt;များထဲကတစ်ခုနှင့် မကိုက်ညီပါ။</string>
@@ -738,6 +740,7 @@
   <string name="edit_conflict_dialog_ok_button_text">အိုကေ</string>
   <string name="reverted_edit_dialog_ok_button_text">အိုကေ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="content_description_for_page_indicator">စာမျက်နှာ %2$d ၏ %1$d</string>
   <string name="wikitext_bold">အထူ</string>
   <string name="wikitext_italic">အစောင်း</string>
   <string name="wikitext_link">လင့်</string>

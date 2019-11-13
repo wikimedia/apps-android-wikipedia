@@ -57,8 +57,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 
@@ -111,7 +109,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyList.setLayoutManager(new LinearLayoutManager(getContext()));
         historyList.setAdapter(adapter);
 
-        requireActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
         return view;
     }
 
@@ -128,23 +126,21 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        if (actionMode != null) {
+            actionMode.finish();
+        }
+    }
+
+    @Override
     public void onDestroyView() {
-        requireActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
+        LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
         adapter.setCursor(null);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean visible) {
-        if (!isAdded()) {
-            return;
-        }
-        if (!visible && actionMode != null) {
-            actionMode.finish();
-        }
     }
 
     @Override
@@ -209,9 +205,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                         .setTitle(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history)
                         .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> {
-                            // Clear history!
-                            Completable.fromAction(() -> app.getDatabaseClient(HistoryEntry.class).deleteAll())
-                                    .subscribeOn(Schedulers.io()).subscribe();
                             onClearHistoryClick();
                         })
                         .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
@@ -321,7 +314,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private void restartLoader() {
-        requireActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        LoaderManager.getInstance(requireActivity()).restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
     }
 
     private class LoaderCallback implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -338,10 +331,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             }
 
             Uri uri = PageHistoryContract.PageWithImage.URI;
-            final String[] projection = null;
             String order = PageHistoryContract.PageWithImage.ORDER_MRU;
-            return new CursorLoader(requireContext().getApplicationContext(),
-                    uri, projection, selection, selectionArgs, order);
+            return new CursorLoader(requireContext().getApplicationContext(), uri, null, selection, selectionArgs, order);
         }
 
         @Override
