@@ -51,7 +51,6 @@ import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
  * Let user choose between sharing as text or as image.
  */
 public class ShareHandler {
-    private static final String PAYLOAD_PURPOSE_KEY = "purpose";
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_PURPOSE_EDIT_HERE = "edit_here";
