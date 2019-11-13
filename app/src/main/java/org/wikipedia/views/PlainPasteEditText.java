@@ -145,17 +145,25 @@ public class PlainPasteEditText extends TextInputEditText {
         find(false);
     }
 
-    private void find(boolean direction) {
+    public void findFirstOrLast(boolean isFirst) {
         if (findListener == null) {
             return;
         }
-        if (direction) {
+        findInPageCurrentTextPosition = isFirst ? 0 : findInPageTextPositionList.size() - 1;
+        onFinished(true);
+        syntaxHighlighter.setSelectedMatchResultPosition(findInPageCurrentTextPosition);
+    }
+
+    private void find(boolean isNext) {
+        if (findListener == null) {
+            return;
+        }
+        if (isNext) {
             findInPageCurrentTextPosition = findInPageCurrentTextPosition == findInPageTextPositionList.size() - 1 ? 0 : ++findInPageCurrentTextPosition;
-            onFinished(true);
         } else {
             findInPageCurrentTextPosition = findInPageCurrentTextPosition == 0 ? findInPageTextPositionList.size() - 1 : --findInPageCurrentTextPosition;
-            onFinished(true);
         }
+        onFinished(true);
         syntaxHighlighter.setSelectedMatchResultPosition(findInPageCurrentTextPosition);
     }
 
