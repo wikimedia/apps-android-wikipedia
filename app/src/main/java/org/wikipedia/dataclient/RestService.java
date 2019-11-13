@@ -44,7 +44,7 @@ public interface RestService {
 
     String REST_PAGE_SECTIONS_URL = "page/mobile-sections-remaining/{title}";
     String PAGE_HTML_ENDPOINT = "/page/mobile-html/";
-    String PAGE_HTML_PREVIEW_ENDPOINT = "/v1/transform/wikitext/to/mobile-html/";
+    String PAGE_HTML_PREVIEW_ENDPOINT = REST_API_PREFIX + "/transform/wikitext/to/mobile-html/";
 
     /**
      * Gets a page summary for a given title -- for link previews
