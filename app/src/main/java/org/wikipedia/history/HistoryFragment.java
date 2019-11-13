@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,7 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
@@ -82,7 +84,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private SearchActionModeCallback searchActionModeCallback = new HistorySearchCallback();
     private MultiSelectCallback multiSelectCallback = new MultiSelectCallback();
     private HashSet<Integer> selectedIndices = new HashSet<>();
-
     @NonNull public static HistoryFragment newInstance() {
         return new HistoryFragment();
     }
@@ -122,7 +123,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onResume() {
         super.onResume();
-        updateEmptyState();
+        restartLoader();
     }
 
     @Override
@@ -137,7 +138,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     public void onDestroyView() {
         LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
-        adapter.setCursor(null);
+        adapter.clearList();
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -150,10 +151,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             return true;
         }
         return false;
-    }
-
-    private void updateEmptyState() {
-        updateEmptyState(null);
     }
 
     private void updateEmptyState(@Nullable String searchQuery) {
@@ -337,35 +334,82 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
-            adapter.setCursor(cursor);
+            List<Object> list = new ArrayList<>();
+            while (cursor.moveToNext()) {
+                IndexedHistoryEntry indexedEntry = new IndexedHistoryEntry(cursor);
+                // Check the previous item, see if the times differ enough
+                // If they do, display the section header.
+                // Always do it this is the first item.
+                String curTime = getDateString(indexedEntry.getEntry().getTimestamp());
+                String prevTime;
+                if (cursor.getPosition() != 0) {
+                    cursor.moveToPrevious();
+                    HistoryEntry prevEntry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
+                    prevTime = getDateString(prevEntry.getTimestamp());
+                    if (!curTime.equals(prevTime)) {
+                        list.add(curTime);
+                    }
+                    cursor.moveToNext();
+                } else {
+                    list.add(curTime);
+                }
+                list.add(indexedEntry); //add the item
+            }
+            L.d("History onLoadFinished list size " + list.size());
+            adapter.setList(list);
+            cursor.close();
+
             if (!isAdded()) {
                 return;
             }
+
             updateEmptyState(currentSearchQuery);
             requireActivity().invalidateOptionsMenu();
         }
 
         @Override
         public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-            adapter.setCursor(null);
+            adapter.clearList();
+        }
+
+        private String getDateString(Date date) {
+            return DateFormat.getDateInstance().format(date);
         }
     }
 
     private static class IndexedHistoryEntry {
         private final int index;
         @NonNull private final HistoryEntry entry;
+        @Nullable private final String imageUrl;
 
-        IndexedHistoryEntry(@NonNull HistoryEntry entry, int index) {
-            this.entry = entry;
-            this.index = index;
+        IndexedHistoryEntry(@NonNull Cursor cursor) {
+            this.entry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
+            this.index = cursor.getPosition();
+            this.imageUrl = PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor);
         }
 
         public int getIndex() {
             return index;
         }
 
+        @Nullable String getImageUrl() {
+            return imageUrl;
+        }
+
         @NonNull public HistoryEntry getEntry() {
             return entry;
+        }
+    }
+
+    private class HeaderViewHolder extends DefaultViewHolder<View> {
+        TextView headerText;
+        HeaderViewHolder(View itemView) {
+            super(itemView);
+            headerText = itemView.findViewById(R.id.section_header_text);
+        }
+
+        void bindItem(@NonNull String date) {
+            headerText.setText(date);
         }
     }
 
@@ -377,34 +421,16 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             super(itemView);
         }
 
-        void bindItem(@NonNull Cursor cursor) {
-            index = cursor.getPosition();
-            IndexedHistoryEntry indexedEntry
-                    = new IndexedHistoryEntry(HistoryEntry.DATABASE_TABLE.fromCursor(cursor), index);
+        void bindItem(@NonNull IndexedHistoryEntry indexedEntry) {
+            index = indexedEntry.getIndex();
             getView().setItem(indexedEntry);
             getView().setTitle(indexedEntry.getEntry().getTitle().getDisplayText());
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
-            getView().setImageUrl(PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor));
+            getView().setImageUrl(indexedEntry.getImageUrl());
             getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()));
             PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), available -> getView().setViewsGreyedOut(!available));
-
-            // Check the previous item, see if the times differ enough
-            // If they do, display the section header.
-            // Always do it this is the first item.
-            String curTime = getDateString(indexedEntry.getEntry().getTimestamp());
-            String prevTime = "";
-            if (cursor.getPosition() != 0) {
-                cursor.moveToPrevious();
-                HistoryEntry prevEntry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
-                prevTime = getDateString(prevEntry.getTimestamp());
-                cursor.moveToNext();
-            }
-            getView().setHeaderText(curTime.equals(prevTime) ? null : curTime);
         }
 
-        private String getDateString(Date date) {
-            return DateFormat.getDateInstance().format(date);
-        }
 
         @Override
         public void onSwipe() {
@@ -413,61 +439,78 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private final class HistoryEntryItemAdapter extends RecyclerView.Adapter<HistoryEntryItemHolder> {
-        @Nullable private Cursor cursor;
+    private final class HistoryEntryItemAdapter extends RecyclerView.Adapter<DefaultViewHolder> {
+
+        private static final int VIEW_TYPE_HEADER = 0;
+        private static final int VIEW_TYPE_ITEM = 1;
+
+        @NonNull
+        private List<Object> historyEntries = new ArrayList<>();
 
         @Override
         public int getItemCount() {
-            return cursor == null ? 0 : cursor.getCount();
+            return historyEntries.size();
         }
 
         public boolean isEmpty() {
             return getItemCount() == 0;
         }
 
-        @Nullable public HistoryEntry getItem(int position) {
-            if (cursor == null) {
-                return null;
+        @Override
+        public int getItemViewType(int position) {
+            if (historyEntries.get(position) instanceof String) {
+                return VIEW_TYPE_HEADER;
+            } else {
+                return VIEW_TYPE_ITEM;
             }
-            int prevPosition = cursor.getPosition();
-            cursor.moveToPosition(position);
-            HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
-            cursor.moveToPosition(prevPosition);
-            return entry;
         }
 
-        public void setCursor(@Nullable Cursor newCursor) {
-            if (cursor == newCursor) {
-                return;
+        @Nullable public HistoryEntry getItem(int position) {
+            if (historyEntries.get(position) instanceof IndexedHistoryEntry) {
+                return ((IndexedHistoryEntry) historyEntries.get(position)).getEntry();
             }
-            if (cursor != null) {
-                cursor.close();
-            }
-            cursor = newCursor;
+            return null;
+        }
+
+        public void setList(@NonNull List<Object> list) {
+            historyEntries = list;
             this.notifyDataSetChanged();
         }
 
-        @Override
-        public HistoryEntryItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int type) {
-            return new HistoryEntryItemHolder(new PageItemView<>(requireContext()));
+        void clearList() {
+            historyEntries.clear();
         }
 
         @Override
-        public void onBindViewHolder(@NonNull HistoryEntryItemHolder holder, int pos) {
-            if (cursor == null) {
-                return;
+        public DefaultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            if (viewType == VIEW_TYPE_HEADER) {
+                View view = LayoutInflater.from(requireContext()).inflate(R.layout.view_section_header, parent, false);
+                return new HeaderViewHolder(view);
+            } else {
+                return new HistoryEntryItemHolder(new PageItemView<>(requireContext()));
             }
-            cursor.moveToPosition(pos);
-            holder.bindItem(cursor);
         }
 
-        @Override public void onViewAttachedToWindow(@NonNull HistoryEntryItemHolder holder) {
+        @Override
+        public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
+            if (holder instanceof HistoryEntryItemHolder) {
+                ((HistoryEntryItemHolder) holder).bindItem((IndexedHistoryEntry) historyEntries.get(pos));
+            } else {
+                ((HeaderViewHolder) holder).bindItem((String) historyEntries.get(pos));
+            }
+        }
+
+        @Override public void onViewAttachedToWindow(@NonNull DefaultViewHolder holder) {
             super.onViewAttachedToWindow(holder);
-            holder.getView().setCallback(itemCallback);
+            if (holder instanceof HistoryEntryItemHolder) {
+                ((HistoryEntryItemHolder) holder).getView().setCallback(itemCallback);
+            }
         }
 
-        @Override public void onViewDetachedFromWindow(HistoryEntryItemHolder holder) {
-            holder.getView().setCallback(null);
+        @Override public void onViewDetachedFromWindow(@NonNull DefaultViewHolder holder) {
+            if (holder instanceof HistoryEntryItemHolder) {
+                ((HistoryEntryItemHolder) holder).getView().setCallback(null);
+            }
             super.onViewDetachedFromWindow(holder);
         }
     }
