@@ -180,12 +180,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_history, menu);
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
         boolean isHistoryAvailable = !adapter.isEmpty();
         menu.findItem(R.id.menu_clear_all_history)
@@ -200,9 +200,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 new AlertDialog.Builder(requireContext())
                         .setTitle(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history)
-                        .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> {
-                            onClearHistoryClick();
-                        })
+                        .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> onClearHistoryClick())
                         .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
                 return true;
             case R.id.menu_search_history:
