@@ -335,7 +335,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 IndexedHistoryEntry indexedEntry = new IndexedHistoryEntry(cursor);
                 // Check the previous item, see if the times differ enough
                 // If they do, display the section header.
-                // Always do it this is the first item.
+                // Always do it if this is the first item.
                 String curTime = getDateString(indexedEntry.getEntry().getTimestamp());
                 String prevTime;
                 if (cursor.getPosition() != 0) {
