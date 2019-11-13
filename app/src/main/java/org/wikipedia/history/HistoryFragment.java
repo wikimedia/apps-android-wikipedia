@@ -225,6 +225,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         Callback callback = callback();
         if (callback != null) {
             callback.onClearHistory();
+            restartLoader();
         }
     }
 
