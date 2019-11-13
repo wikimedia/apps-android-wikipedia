@@ -741,7 +741,7 @@
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted. Reverted edits: %d.</string>
     <string name="suggested_edits_paused_message"><![CDATA[<b>Suggested edits is paused until %1$s.</b> Sorry %2$s, some of your recent contributions have been reverted.\n\n Learn how to improve your editing skills on Wikipedia with the link below.]]></string>
     <string name="suggested_edits_disabled_message"><![CDATA[<b>Suggested edits is disabled.</b> Sorry %s, too many of your recent contributions have been reverted.\n\n Learn what this means with the link below.]]></string>
-    <string name="suggested_edits_ip_blocked_message">The IP you are using is blocked from editing Wikipedia. Learn more about blocks by visiting the link below.</string>
+    <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia. Learn more about what this means by visiting the link below.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
