@@ -25,6 +25,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 public class CustomDatePicker extends DialogFragment {
     public interface Callback {
@@ -32,8 +33,9 @@ public class CustomDatePicker extends DialogFragment {
     }
 
     public static final int LEAP_YEAR = 2016;
-    public static final int MAX_COLUMN_SPAN = 7;
+    private static final int MAX_COLUMN_SPAN = 7;
     private Callback callback;
+    private Unbinder unbinder;
 
     @BindView(R.id.day) TextView day;
     @BindView(R.id.month_string) TextView monthString;
@@ -42,23 +44,23 @@ public class CustomDatePicker extends DialogFragment {
     @BindView(R.id.next_month) ImageView nextMonthBtn;
 
     private Calendar today, selectedDay = Calendar.getInstance(), callbackDay = Calendar.getInstance();
-    private View dialog;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.dialogTheme));
+        View view = View.inflate(requireContext(), R.layout.date_picker_dialog, null);
+        unbinder = ButterKnife.bind(this, view);
         today = Calendar.getInstance();
-        dialog = getActivity().getLayoutInflater().inflate(R.layout.date_picker_dialog, null);
-        ButterKnife.bind(this, dialog);
         setUpMonthGrid();
         setMonthString();
         setDayString();
-        builder.setView(dialog)
-                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text, (dialog, id) -> callback.onDatePicked(callbackDay.get(Calendar.MONTH), callbackDay.get(Calendar.DATE)))
-                .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text, (dialog, id) -> dialog.dismiss());
-
-        return builder.create();
+        return new AlertDialog.Builder(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.dialogTheme))
+                .setView(view)
+                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text,
+                        (dialog, id) -> callback.onDatePicked(callbackDay.get(Calendar.MONTH), callbackDay.get(Calendar.DATE)))
+                .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text,
+                        (dialog, id) -> dialog.dismiss())
+                .create();
     }
 
     @OnClick(R.id.previous_month)
@@ -78,7 +80,7 @@ public class CustomDatePicker extends DialogFragment {
     }
 
     private void setUpMonthGrid() {
-        monthGrid.setLayoutManager(new GridLayoutManager(getContext(), MAX_COLUMN_SPAN));
+        monthGrid.setLayoutManager(new GridLayoutManager(requireContext(), MAX_COLUMN_SPAN));
         monthGrid.setAdapter(new CustomCalendarAdapter());
     }
 
@@ -86,16 +88,15 @@ public class CustomDatePicker extends DialogFragment {
         monthString.setText(DateUtil.getMonthOnlyWithoutDayDateString(selectedDay.getTime()));
     }
 
-
     public void setCallback(Callback callback) {
         this.callback = callback;
     }
 
     public class CustomCalendarAdapter extends RecyclerView.Adapter<CustomCalendarAdapter.ViewHolder> {
+        @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.view_custom_calendar_day, parent, false);
-            return new ViewHolder(view);
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new ViewHolder(LayoutInflater.from(requireContext()).inflate(R.layout.view_custom_calendar_day, parent, false));
         }
 
         @Override
@@ -129,13 +130,13 @@ public class CustomDatePicker extends DialogFragment {
 
             void setFields(int position) {
                 if ((position == today.get(Calendar.DATE)) && (today.get(Calendar.MONTH) == selectedDay.get(Calendar.MONTH))) {
-                    dayTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent));
+                    dayTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
                 } else {
-                    dayTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color));
+                    dayTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color));
                 }
 
                 if (position == callbackDay.get(Calendar.DATE) && (selectedDay.get(Calendar.MONTH) == callbackDay.get(Calendar.MONTH))) {
-                    dayTextView.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
+                    dayTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
                     dayTextView.setTypeface(Typeface.DEFAULT_BOLD);
                     circleBackGround.setVisibility(View.VISIBLE);
                 } else {
@@ -145,20 +146,24 @@ public class CustomDatePicker extends DialogFragment {
 
                 dayTextView.setText(String.format(Locale.getDefault(), "%d", (position)));
             }
-
         }
-
     }
-
 
     private void setDayString() {
         day.setText(DateUtil.getFeedCardShortDateString(selectedDay));
     }
-
 
     public void setSelectedDay(int month, int day) {
         selectedDay.set(LEAP_YEAR, month, day);
         callbackDay.set(LEAP_YEAR, month, day);
     }
 
+    @Override
+    public void onDestroyView() {
+        if (unbinder != null) {
+            unbinder.unbind();
+            unbinder = null;
+        }
+        super.onDestroyView();
+    }
 }

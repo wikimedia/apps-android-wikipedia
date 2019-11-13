@@ -30,10 +30,12 @@
   <string name="page_tabs_back">Voltar</string>
   <string name="nav_item_forward">Avançar</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
+  <string name="search_hint_voice_search">Pesquisa com entrada por voz</string>
   <string name="search_hint_search_history">Histórico de pesquisa</string>
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar as minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
+  <string name="nav_item_suggested_edits">Edições sugeridas</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="page_error_retry">Tentar novamente</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -76,9 +78,6 @@
   <string name="on_this_day_page_share">Partilhar</string>
   <string name="reading_list_page_share">Partilhar</string>
   <string name="menu_text_select_edit_here">Editar aqui</string>
-  <string name="nav_item_nearby">Aqui perto</string>
-  <string name="nearby_zoom_to_location">Ampliar uma localização no mapa</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Colaboradores do &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="talk_page_link_text">Ver página de discussão</string>
   <string name="edit_history_link_text">Ver histórico de edições</string>
@@ -284,6 +283,7 @@
   <string name="gallery_save_success">O ficheiro foi gravado.</string>
   <string name="gallery_error_video_failed">Não foi possível reproduzir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Para gravar imagens, é necessária permissão de escrita no armazenamento do seu dispositivo.</string>
+  <string name="gallery_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="gallery_add_image_caption_in_language_button">Adicionar legenda à imagem (%s)</string>
   <string name="err_cannot_save_file">Não é possível gravar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
@@ -295,6 +295,8 @@
   <string name="captcha_image">Imagem Captcha</string>
   <string name="gallery_fair_use_license">Uso legítimo</string>
   <string name="gallery_uploader_unknown">Carregador desconhecido</string>
+  <string name="gallery_not_available_offline_snackbar">A vista de galeria não está disponível \'\'offline\'\'.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Ignorar</string>
   <string name="menu_new_tab">Novo separador</string>
   <string name="menu_close_all_tabs">Fechar todos os separadores</string>
   <string name="close_all_tabs_confirm">Tem a certeza que pretende fechar todos os separadores?</string>
@@ -340,6 +342,7 @@
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta página não existe.</string>
   <string name="view_wiki_error_message_offline">Não foi possível ligar à Internet</string>
+  <string name="view_wiki_error_message_timeout">Não foi possível aceder à Wikipédia. Verifique a sua ligação de rede ou tente novamente mais tarde</string>
   <string name="reference_title">Referência %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuação de imagens (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir conteúdo offline</string>
@@ -538,14 +541,20 @@
   <string name="preference_title_notification_poll">Inquérito sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que a aplicação use tráfego de dados para verificar em segundo plano se existem novas notificações</string>
   <string name="preference_category_notification_types">Tipos de notificações na aplicação</string>
-  <string name="preference_title_notification_welcome">Bem-vindo(a)</string>
-  <string name="preference_summary_notification_welcome">É criada uma conta</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Mensagens do sistema</string>
   <string name="preference_title_notification_milestone">Objetivo</string>
   <string name="preference_summary_notification_milestone">São atingidos determinados números de edições</string>
   <string name="preference_title_notification_thanks">Agradecimentos</string>
   <string name="preference_summary_notification_thanks">Alguém agradece uma edição sua</string>
   <string name="preference_title_notification_revert">Reverter</string>
   <string name="preference_summary_notification_revert">Uma das suas contribuições foi revertida</string>
+  <string name="preference_title_notification_login_fail">Entradas</string>
+  <string name="preference_summary_notification_login_fail">Os seus inícios de sessão</string>
+  <string name="preference_title_notification_mention">Menção</string>
+  <string name="preference_summary_notification_mention">Alguém o menciona numa página</string>
+  <string name="preference_title_notification_user_talk">Página de discussão</string>
+  <string name="preference_summary_notification_user_talk">Mensagens das páginas de discussão</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Folhear aleatoriamente artigos da Wikipédia.</string>
@@ -599,10 +608,15 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
+  <string name="feed_accessibility_card_text">Atingiu o fim do feed.</string>
+  <string name="feed_accessibility_card_load_more_button">Carregar mais</string>
   <string name="description_edit_text_hint">Descrição do artigo</string>
-  <string name="description_edit_article_description_label_per_language">Artigo (%s)</string>
+  <string name="description_edit_article_description_label">Artigo</string>
+  <string name="description_edit_translate_article_description_label_per_language">Descrição do artigo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descrição do artigo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descrição da imagem (%s)</string>
+  <string name="description_edit_add_caption_label">Descrição da imagem</string>
+  <string name="description_edit_add_caption_hint">Legenda da imagem</string>
+  <string name="description_edit_translate_caption_label_per_language">Legenda da imagem (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Legendas da imagem (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Ler</string>
@@ -649,34 +663,12 @@
   <string name="suggested_edits_review_image_caption">Rever legenda da imagem</string>
   <string name="suggested_edits_my_contributions">As minhas contribuições</string>
   <string name="suggested_edits_no_description">Este ficheiro não tem uma descrição</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Destrancou a tarefa \"Adicionar descrições de artigos\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Parabéns pelas suas contribuições! Porque é super-bom a editar, compilámos uma lista de artigos a que falta a descrição de título. Pode ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Destrancou a tarefa \"Traduzir descrições de artigos\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Parabéns pelas muitas contribuições que fez, ficámos impressionados! Está a usar a aplicação em várias línguas, por isso compilámos uma lista de artigos que necessitam de tradução das descrições. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_dialog_no">Talvez mais tarde</string>
-  <string name="suggested_edits_unlock_dialog_yes">Sim, continuar</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Destrancou \"Adicionar descrições de artigos\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Destrancou \"Traduzir descrições de artigos\"</string>
-  <string name="suggested_edits_unlock_notification_text">Edições sugeridas</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Edições sugeridas\n\nParabéns pelas suas contribuições! Porque é super-bom a editar, compilámos uma lista de artigos a que falta a descrição de título. Pode ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Edições sugeridas\n\nParabéns pelas muitas contribuições que fez, ficámos impressionados! Está a usar a aplicação em várias línguas, por isso compilámos uma lista de artigos que necessitam de tradução das descrições. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_notification_button">Sim, continuar</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Destrancou a tarefa \"Adicionar legendas a imagens\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Destrancou \"Adicionar legendas a imagens\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Agradecemos todas as suas edições de legendas de imagens! Como vemos que gosta de adicionar legendas às imagens, compilámos uma lista de imagens a que falta legenda. Pode ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Edições sugeridas\n\nAgradecemos todas as suas edições de legendas de imagens! Como vemos que gosta de adicionar legendas às imagens, compilámos uma lista de imagens a que falta legenda. Pode ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Destrancou a tarefa \"Traduzir legendas de imagens\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Destrancou \"Traduzir legendas de imagens\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Parabéns pelas muitas edições de legendas de imagens que fez — ficámos impressionados! Está a usar a aplicação em várias línguas, por isso compilámos uma lista de imagens a que falta a tradução da legenda. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Edições sugeridas\n\nParabéns pelas muitas edições de legendas de imagens que fez — ficámos impressionados!  Está a usar a aplicação em várias línguas, por isso compilámos uma lista de imagens a que falta a tradução da legenda. Pode continuar a ajudar-nos a melhorar a Wikipédia?</string>
   <string name="suggested_edits_license_notice">Ao adicionar a descrição, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Ao adicionar a legenda da imagem, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informação</string>
   <string name="suggested_edits_tasks_activity_title">Edições sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Adicionar descrições de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuir para os artigos a que falta a descrição</string>
-  <string name="suggested_edits_task_translation_title">Traduzir descrições de artigos</string>
-  <string name="suggested_edits_task_translation_description">Traduzir descrições nas línguas dos artigos.</string>
   <string name="suggested_edits_task_image_caption_title">Adicionar legendas a imagens</string>
   <string name="suggested_edits_task_image_caption_description">Adicionar legendas curtas em falta às imagens</string>
   <string name="suggested_edits_task_translate_caption_title">Traduzir legendas de imagem</string>
@@ -697,6 +689,7 @@
     <item quantity="other">%d contribuições</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Edições sugeridas</string>
+  <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
   <string name="suggested_edits_tutorial_message">Bem-vindo(a) à nova página principal para edição rápida na aplicação da Wikipédia. As suas contribuições são muito bem-vindas. Boas edições!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
@@ -708,11 +701,50 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciamento</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mais informações</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página do ficheiro na wiki Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Adicionar legenda à imagem (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Adicionar legenda à imagem</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Adicionar legenda à imagem (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda à imagem (%s)</string>
+  <string name="suggested_edits_snackbar_survey_text">Como foi a sua experiência de edição? Dedique um momento a preencher o inquérito sobre edição com a aplicação, por favor.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Participar no inquérito</string>
+  <string name="suggested_edits_task_action_text_add">Adicionar</string>
+  <string name="suggested_edits_task_action_text_translate">Traduzir</string>
+  <string name="suggested_edits_image_captions">Legendas de imagens</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, sabia que qualquer pessoa pode editar a Wikipédia? Encontra abaixo algumas formas divertidas de ajudar a melhorar a Wikipédia. Divirta-se a editar!</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">As legendas de imagens descrevem uma imagem para ajudar os leitores a entender o seu significado e contexto</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">As descrições de artigos resumem um artigo para ajudar os leitores a compreenderem imediatamente o assunto</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">O seu número total de contribuições com \"Edições sugeridas\"</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Durante quantos dias consecutivos contribuiu usando \"Edições sugeridas\"</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Total de visitas às páginas para as quais contribuiu nos últimos 30 dias com \"Edições sugeridas\"</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Com base no número de vezes que uma das suas contribuições foi revertida. Edições revertidas: %d</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;\"Edições sugeridas\" está interrompida até %1$s.&lt;/b&gt; Desculpe, %2$s, mas algumas das suas contribuições recentes foram revertidas.\n\n Aprenda a melhorar o seu talento como editor da Wikipédia nos \'\'links\'\' abaixo.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;\"Edições sugeridas\" está desativada.&lt;/b&gt; Desculpe, %s, mas demasiadas das suas contribuições recentes foram revertidas.\n\n Saiba o que isto significa nos \'\'links\'\' abaixo.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Parece que o seu endereço IP (ou gama de endereços IP) está atualmente bloqueado, impedindo a edição da Wikipédia. Saiba mais sobre o que isto significa, visitando o \'\'link\'\' abaixo.</string>
+  <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
+  <string name="suggested_edits_help_page_link_text">Página de ajuda de \"Edições sugeridas\"</string>
+  <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
+  <string name="suggested_edits_pageviews_label_text">Visitas de páginas</string>
+  <string name="suggested_edits_quality_label_text">Qualidade das edições</string>
+  <string name="suggested_edits_quality_perfect_text">Perfeita</string>
+  <string name="suggested_edits_quality_excellent_text">Excelente</string>
+  <string name="suggested_edits_quality_very_good_text">Muito boa</string>
+  <string name="suggested_edits_quality_good_text">Boa</string>
+  <string name="suggested_edits_quality_okay_text">Aceitável</string>
+  <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
+  <string name="suggested_edits_quality_poor_text">Pobre</string>
+  <string name="suggested_edits_quality_bad_text">Má</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Contribuição</item>
+    <item quantity="other">Contribuições</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d dia</item>
+    <item quantity="other">%d dias</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Última edição</string>
+  <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
@@ -751,6 +783,9 @@
   <string name="events_count_text">%1$s acontecimentos de %2$s–%3$d</string>
   <string name="this_year">Este ano</string>
   <string name="back_to_top">Voltar ao topo</string>
+  <string name="on_this_day_dialog_next_month">Mês seguinte</string>
+  <string name="on_this_day_dialog_previous_month">Mês anterior</string>
+  <string name="on_this_day_open_date_picker">Abrir seletor de datas</string>
   <plurals name="diff_years">
     <item quantity="one">No ano passado</item>
     <item quantity="other">Há %d anos</item>
@@ -784,6 +819,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
+  <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Hiperligação</string>
@@ -794,8 +830,11 @@
   <string name="wikitext_preview_link">Antever hiperligação</string>
   <string name="main_drawer_open">Abrir</string>
   <string name="main_drawer_close">Fechar</string>
+  <string name="main_drawer_content_description">Abrir o painel principal de navegação</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar ou registar-se na Wikipédia</string>
+  <string name="main_tooltip_text">%s, sabia que todos podem editar a Wikipédia?</string>
+  <string name="main_tooltip_action_button">Começar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>

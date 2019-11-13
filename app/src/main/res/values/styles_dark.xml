@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="ThemeDark">
 
@@ -75,11 +75,13 @@
         <item name="tab_placeholder_text_color">@color/base10</item>
         <item name="chip_background_color">@color/base20</item>
         <item name="chip_text_color">@color/base80</item>
+        <item name="action_mode_green_background">@color/green50</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
         <item name="suggestions_background_color">@color/base12</item>
         <item name="color_group_52">@color/accent75</item>
+        <item name="color_group_53">@color/accent30</item>
 
     </style>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
@@ -24,6 +24,8 @@
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <!-- Theme for dialog after long pressing on internal links -->
         <item name="android:alertDialogTheme">@style/LongPressAlertDialogStyle</item>
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+        <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -132,6 +134,14 @@
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
         <item name="titleTextStyle">@style/PageToolbarTitleText</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearanceInactive">
+        <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearanceActive">
+        <item name="android:textSize">@dimen/bottom_nav_label_text_size</item>
     </style>
 
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
@@ -273,14 +283,10 @@
         <item name="android:textColor">@color/base30</item>
     </style>
 
-    <style name="App.Button.PaperColor">
-        <item name="backgroundTint">?attr/paper_color</item>
-        <item name="android:textColor">?attr/secondary_text_color</item>
-    </style>
-
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
@@ -288,13 +294,6 @@
         <item name="colorControlActivated">?attr/colorAccent</item>
         <item name="colorSwitchThumbNormal">@color/base50</item>
         <item name="android:colorForeground">@color/base30</item>
-    </style>
-
-    <style name="TextHeadingGray" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">?attr/primary_text_color</item>
-
     </style>
 
     <style name="AppBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
@@ -465,7 +464,7 @@
     </style>
 
     <style name="LongPressAlertDialogStyle" parent="AlertDialogStyle">
-        <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
+        <item name="android:backgroundTint">?attr/paper_color</item>
         <item name="android:background">?attr/paper_color</item>
     </style>
 

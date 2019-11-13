@@ -34,10 +34,10 @@ import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -55,6 +55,7 @@ import io.reactivex.schedulers.Schedulers;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
 import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
@@ -100,11 +101,12 @@ public class DescriptionEditFragment extends Fragment {
         @Override public void run() {
             if (!AccountUtil.isLoggedIn()) {
                 Prefs.incrementTotalAnonDescriptionsEdited();
-            } else {
-                // For good measure, poll the editor tasks API explicitly, since the user might have
-                // disabled polling of notifications, which is were the passive polling takes place.
-                NotificationPollBroadcastReceiver.pollEditorTaskCounts(WikipediaApp.getInstance());
             }
+
+            if (isSuggestedEdits()) {
+                SuggestedEditsSurvey.onEditSuccess();
+            }
+
             Prefs.setLastDescriptionEditTime(new Date().getTime());
             SuggestedEditsFunnel.get().success(invokeSource);
 
@@ -113,17 +115,25 @@ public class DescriptionEditFragment extends Fragment {
             }
             editView.setSaveState(false);
             if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == PAGE_ACTIVITY) {
-                startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext()),
+                startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
                 Prefs.shouldShowDescriptionEditSuccessPrompt(false);
             } else {
-                requireActivity().setResult(RESULT_OK,
-                        new Intent().putExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION, editView.getDescription()));
+                Intent intent = new Intent();
+                intent.putExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION, editView.getDescription());
+                intent.putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
+                requireActivity().setResult(RESULT_OK, intent);
                 hideSoftKeyboard(requireActivity());
                 requireActivity().finish();
             }
         }
     };
+
+    private boolean isSuggestedEdits() {
+        return invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC
+                || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || invokeSource == SUGGESTED_EDITS_ADD_DESC || invokeSource == SUGGESTED_EDITS_ADD_CAPTION
+                || invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION;
+    }
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title,
@@ -225,7 +235,7 @@ public class DescriptionEditFragment extends Fragment {
             disposables.add(new PageClient().summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally(() -> setUpEditView(savedInstanceState))
+                    .doAfterTerminate(() -> setUpEditView(savedInstanceState))
                     .subscribe(summary -> sourceSummary.setExtractHtml(summary.getExtractHtml()), L::e));
         } else {
             setUpEditView(savedInstanceState);

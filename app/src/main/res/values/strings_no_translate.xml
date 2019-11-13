@@ -3,10 +3,10 @@
     <string name="app_name">@string/app_name_prod</string>
     <string name="channel" />
     <string name="hockeyapp_app_id">eb167874c1d6569430a9bcfd71d4c24d</string>
-    <string name="mapbox_public_token">pk.eyJ1IjoiZG1pdHJ5YnJhbnQiLCJhIjoiY2lnd3FzdTI1MHNicHZrbTVhMno4anF4dCJ9.HG3mJUj8xbqOvk_ieFDCfA</string>
 
     <!-- URLs -->
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
+    <string name="suggested_edits_survey_url">https://docs.google.com/forms/d/e/1FAIpQLSeT1raQgMf6gIExh9vq-Fk3iDgLYx_NHcH7agg4hfJhaXScLQ/viewform</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

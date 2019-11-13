@@ -73,9 +73,6 @@
   <string name="on_this_day_page_share">Del</string>
   <string name="reading_list_page_share">Del</string>
   <string name="menu_text_select_edit_here">Rediger her</string>
-  <string name="nav_item_nearby">I nærheden</string>
-  <string name="nearby_zoom_to_location">Zoom til et sted på kortet</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;-bidragsydere</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="talk_page_link_text">Vis diskussionsside</string>
   <string name="edit_history_link_text">Vis redigeringshistorik</string>
@@ -530,8 +527,6 @@
   <string name="preference_title_notification_poll">Hent notifikationer</string>
   <string name="preference_summary_notification_poll">Lad appen bruge data for at hente nye notifikationer i baggrunden.</string>
   <string name="preference_category_notification_types">Notifikationstyper i appen</string>
-  <string name="preference_title_notification_welcome">Velkommen</string>
-  <string name="preference_summary_notification_welcome">En konto er oprettet</string>
   <string name="preference_title_notification_milestone">Milepæle</string>
   <string name="preference_summary_notification_milestone">Visse antal redigeringer er opnået</string>
   <string name="preference_title_notification_thanks">Tak</string>
@@ -589,7 +584,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
   <string name="description_edit_text_hint">Artikelbeskrivelse</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_article_description_label">Artikel</string>
+  <string name="description_edit_translate_article_description_label_per_language">Artikelbeskrivelse (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivelse (%s)</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_read">Læs</string>
@@ -623,19 +619,9 @@
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
   <string name="suggested_edits_no_description">Denne fil har ingen beskrivelse</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Listen over opgaver vedrørende redigering af titelbeskrivelser er blevet låst op!</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Vi har bemærket at du kan lide at redigere titelbeskrivelser, så vi har udformet en liste med flere artikler som mangler titelbeskrivelser for at hjælpe dig til at forsætte med at bidrage!</string>
-  <string name="suggested_edits_unlock_dialog_no">Måske senere</string>
-  <string name="suggested_edits_unlock_dialog_yes">Ja, lad os komme igang</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Du låste op for “Tilføj beskrivelser“</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Du låste op for “Oversæt beskrivelser“</string>
-  <string name="suggested_edits_unlock_notification_text">Foreslåede redigeringer</string>
-  <string name="suggested_edits_unlock_notification_button">Ja, lad os komme igang</string>
   <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Oversæt beskrivelser</string>
-  <string name="suggested_edits_task_translation_description">Oversæt beskrivelser på tværs af artikelsprog.</string>
   <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
   <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
@@ -647,6 +633,8 @@
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
   <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_last_edited">Sidst redigeret</string>
+  <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
@@ -685,6 +673,8 @@
   <string name="events_count_text">%1$s hændelser fra %2$s – %3$d</string>
   <string name="this_year">Dette år</string>
   <string name="back_to_top">Tilbage til toppen</string>
+  <string name="on_this_day_dialog_next_month">Næste måned</string>
+  <string name="on_this_day_dialog_previous_month">Forrige måned</string>
   <plurals name="diff_years">
     <item quantity="one">Sidste år</item>
     <item quantity="other">%d år siden</item>
@@ -727,6 +717,7 @@
   <string name="main_drawer_close">Luk</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
+  <string name="main_tooltip_action_button">Kom i gang</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annullér</string>

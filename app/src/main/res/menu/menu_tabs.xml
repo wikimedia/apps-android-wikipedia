@@ -16,7 +16,4 @@
     <item android:id="@+id/menu_history"
         android:title="@string/nav_item_history"
         app:showAsAction="never" />
-    <item android:id="@+id/menu_nearby"
-        android:title="@string/nav_item_nearby"
-        app:showAsAction="never" />
 </menu>

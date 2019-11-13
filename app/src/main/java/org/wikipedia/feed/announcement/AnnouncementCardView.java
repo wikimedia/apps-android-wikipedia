@@ -86,6 +86,13 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
             footerTextView.setVisibility(GONE);
             footerBorderView.setVisibility(GONE);
         }
+
+        if (card.hasBorder()) {
+            setStrokeColor(getResources().getColor(R.color.red50));
+            setStrokeWidth(10);
+        } else {
+            setStrokeWidth(0);
+        }
     }
 
     @OnClick(R.id.view_announcement_action_positive)

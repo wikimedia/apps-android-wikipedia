@@ -155,7 +155,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, true, false));
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
@@ -916,7 +916,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ReadingListSyncEvent) {
                 updateReadingListData();
             } else if (event instanceof PageDownloadEvent) {

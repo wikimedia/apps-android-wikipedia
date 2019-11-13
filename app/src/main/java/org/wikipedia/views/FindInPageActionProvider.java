@@ -100,8 +100,8 @@ public class FindInPageActionProvider extends ActionProvider {
         }
         if (lastOccurrenceSearchFlag) {
             // Go one occurrence back from the first one so it shows the last one.
-            listener.onFindPrevClicked();
             lastOccurrenceSearchFlag = false;
+            listener.onFindPrevClicked();
         }
         findInPageMatch.setVisibility(View.VISIBLE);
     }

@@ -74,8 +74,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     @BindView(R.id.search_progress_bar) ProgressBar progressBar;
     @BindView(R.id.search_lang_button_container) View langButtonContainer;
     @BindView(R.id.search_lang_button) TextView langButton;
-    @BindView(R.id.lang_scroll) LanguageScrollView languageScrollView;
-    @BindView(R.id.language_scroll_container) View languageScrollContainer;
+    @BindView(R.id.search_language_scroll_view) LanguageScrollView languageScrollView;
+    @BindView(R.id.search_language_scroll_view_container) View languageScrollContainer;
     private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 

@@ -13,32 +13,36 @@ import org.wikipedia.page.Namespace;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A class representing a standard page object as returned by the MediaWiki API.
  */
+@SuppressWarnings("unused")
 public class MwQueryPage extends BaseModel {
-    @SuppressWarnings("unused") private int pageid;
-    @SuppressWarnings("unused") private int ns;
-    @SuppressWarnings("unused") private int index;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
-    @SuppressWarnings("unused") @Nullable private List<LangLink> langlinks;
-    @SuppressWarnings("unused") @Nullable private List<Revision> revisions;
-    @SuppressWarnings("unused") @Nullable private List<Coordinates> coordinates;
-    @SuppressWarnings("unused") @Nullable private List<Category> categories;
-    @SuppressWarnings("unused") @Nullable private PageProps pageprops;
-    @SuppressWarnings("unused") @Nullable private String extract;
-    @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
-    @SuppressWarnings("unused") @Nullable private String description;
-    @SuppressWarnings("unused") @SerializedName("descriptionsource") @Nullable private String descriptionSource;
-    @SuppressWarnings("unused") @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
-    @SuppressWarnings("unused") @SerializedName("videoinfo") @Nullable private List<VideoInfo> videoInfo;
+    private int pageid;
+    private int ns;
+    private int index;
+    @Nullable private String title;
+    @Nullable private List<LangLink> langlinks;
+    @Nullable private List<Revision> revisions;
+    @Nullable private List<Coordinates> coordinates;
+    @Nullable private List<Category> categories;
+    @Nullable private PageProps pageprops;
+    @Nullable private String extract;
+    @Nullable private Thumbnail thumbnail;
+    @Nullable private String description;
+    @SerializedName("descriptionsource") @Nullable private String descriptionSource;
+    @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
+    @SerializedName("videoinfo") @Nullable private List<VideoInfo> videoInfo;
     @Nullable private String redirectFrom;
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
+    @Nullable private Map<String, String> varianttitles;
+    @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
 
     @NonNull public String title() {
-        return title;
+        return StringUtils.defaultString(title);
     }
 
     public int index() {
@@ -131,14 +135,22 @@ public class MwQueryPage extends BaseModel {
         title += "#" + fragment;
     }
 
+    @NonNull public String displayTitle(@NonNull String langCode) {
+        return varianttitles != null ? StringUtils.defaultIfEmpty(varianttitles.get(langCode), title()) : title();
+    }
+
+    @NonNull public Map<String, Long> getPageViewsMap() {
+        return pageViewsMap != null ? pageViewsMap : Collections.emptyMap();
+    }
+
     public static class Revision {
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("contentformat") @NonNull private String contentFormat;
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("contentmodel") @NonNull private String contentModel;
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("timestamp") @NonNull private String timeStamp;
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String content;
+        @SerializedName("contentformat") @Nullable private String contentFormat;
+        @SerializedName("contentmodel") @Nullable private String contentModel;
+        @SerializedName("timestamp") @Nullable private String timeStamp;
+        @Nullable private String content;
 
         @NonNull public String content() {
-            return content;
+            return StringUtils.defaultString(content);
         }
 
         @NonNull public String timeStamp() {
@@ -147,19 +159,19 @@ public class MwQueryPage extends BaseModel {
     }
 
     public static class LangLink {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String lang;
+        @Nullable private String lang;
         @NonNull public String lang() {
-            return lang;
+            return StringUtils.defaultString(lang);
         }
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+        @Nullable private String title;
         @NonNull public String title() {
-            return title;
+            return StringUtils.defaultString(title);
         }
     }
 
     public static class Coordinates {
-        @SuppressWarnings("unused") @Nullable private Double lat;
-        @SuppressWarnings("unused") @Nullable private Double lon;
+        @Nullable private Double lat;
+        @Nullable private Double lon;
 
         @Nullable public Double lat() {
             return lat;
@@ -170,18 +182,18 @@ public class MwQueryPage extends BaseModel {
     }
 
     static class Thumbnail {
-        @SuppressWarnings("unused") private String source;
-        @SuppressWarnings("unused") private int width;
-        @SuppressWarnings("unused") private int height;
+        private String source;
+        private int width;
+        private int height;
         String source() {
             return source;
         }
     }
 
     public static class PageProps {
-        @SuppressWarnings("unused") @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
-        @SuppressWarnings("unused") @Nullable private String displaytitle;
-        @SuppressWarnings("unused") @Nullable private String disambiguation;
+        @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
+        @Nullable private String displaytitle;
+        @Nullable private String disambiguation;
 
         @Nullable public String getDisplayTitle() {
             return displaytitle;
@@ -197,9 +209,9 @@ public class MwQueryPage extends BaseModel {
     }
 
     public static class Category {
-        @SuppressWarnings("unused") private int ns;
-        @SuppressWarnings("unused,NullableProblems") @Nullable private String title;
-        @SuppressWarnings("unused") private boolean hidden;
+        private int ns;
+        @Nullable private String title;
+        private boolean hidden;
 
         public int ns() {
             return ns;

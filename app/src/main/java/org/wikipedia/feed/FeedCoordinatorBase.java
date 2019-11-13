@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.feed.accessibility.AccessibilityCard;
+import org.wikipedia.feed.announcement.FundraisingCard;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.dayheader.DayHeaderCard;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
@@ -18,6 +20,7 @@ import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.feed.progress.ProgressCard;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
@@ -93,6 +96,10 @@ public abstract class FeedCoordinatorBase {
 
         if (cards.size() == 0) {
             insertCard(progressCard, 0);
+        }
+
+        if (DeviceUtil.isAccessibilityEnabled()) {
+            removeAccessibilityCard();
         }
 
         buildScript(currentAge);
@@ -193,6 +200,14 @@ public abstract class FeedCoordinatorBase {
         appendCard(new OfflineCard());
     }
 
+    private void removeAccessibilityCard() {
+        if (getLastCard() instanceof AccessibilityCard) {
+            removeCard(getLastCard(), cards.indexOf(getLastCard()));
+            getLastCard().onDismiss();
+            // TODO: possible on optimization if automatically scroll up to the next card.
+        }
+    }
+
     private class ClientRequestCallback implements FeedClient.Callback {
         @Override public void success(@NonNull List<? extends Card> cardList) {
             boolean atLeastOneAppended = false;
@@ -269,6 +284,7 @@ public abstract class FeedCoordinatorBase {
     private boolean isDailyCardType(@NonNull Card card) {
         return card instanceof NewsListCard || card instanceof OnThisDayCard
                 || card instanceof MostReadListCard || card instanceof FeaturedArticleCard
-                || card instanceof FeaturedImageCard;
+                || card instanceof FeaturedImageCard
+                || card instanceof FundraisingCard;
     }
 }

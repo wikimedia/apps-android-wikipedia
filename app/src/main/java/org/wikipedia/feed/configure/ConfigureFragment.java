@@ -66,7 +66,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         disposables.add(ServiceFactory.getRest(new WikiSite("wikimedia.org")).getFeedAvailability()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(this::prepareContentTypeList)
+                .doAfterTerminate(this::prepareContentTypeList)
                 .subscribe(result -> {
                     // apply the new availability rules to our content types
                     FeedContentType.NEWS.getLangCodesSupported().clear();

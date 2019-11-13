@@ -56,7 +56,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                         rsp.body().contentType().charset(Charset.defaultCharset()).name(),
                         rsp.code(),
                         StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
-                        toMap(rsp.headers()),
+                        toMap(addResponseHeaders(rsp.headers())),
                         getInputStream(rsp));
             }
         } catch (Exception e) {
@@ -95,6 +95,11 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             builder.header("Referer", getModel().getCurEntry().getReferrer());
         }
         return builder;
+    }
+
+    private Headers addResponseHeaders(@NonNull Headers headers) {
+        // add CORS header to allow requests from all domains.
+        return headers.newBuilder().set("Access-Control-Allow-Origin", "*").build();
     }
 
     @NonNull private Map<String, String> toMap(@NonNull Headers headers) {

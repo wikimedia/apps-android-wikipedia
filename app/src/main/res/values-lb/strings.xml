@@ -17,6 +17,7 @@
   <string name="search_hint_search_history">Am Historique sichen</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="nav_item_history">Versiounen</string>
+  <string name="nav_item_suggested_edits">Proposéiert Ännerungen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
@@ -58,8 +59,6 @@
   <string name="on_this_day_page_share">Deelen</string>
   <string name="reading_list_page_share">Deelen</string>
   <string name="menu_text_select_edit_here">Hei änneren</string>
-  <string name="nav_item_nearby">Nobäi</string>
-  <string name="nearby_zoom_to_location">Zoom op eng Plaz op der Kaart</string>
   <string name="last_updated_text">Lescht Aktualiséierung %s</string>
   <string name="talk_page_link_text">Diskussiounssäit weisen</string>
   <string name="edit_history_link_text">All Versioune vun der Säit weisen</string>
@@ -253,6 +252,7 @@
   <string name="captcha_image">Captcha-Bild</string>
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Eroplueder onbekannt</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Verwerfen</string>
   <string name="menu_new_tab">Neien Tab</string>
   <string name="menu_close_all_tabs">All Tabs zoumaachen</string>
   <string name="close_all_tabs_confirm">Sidd Dir sécher datt Dir all Tabs zoumaache wëllt?</string>
@@ -446,12 +446,17 @@
   <string name="notifications_empty_message">Dir hutt keng nei Notifikatioune méi!</string>
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
-  <string name="preference_title_notification_welcome">Wëllkomm</string>
-  <string name="preference_summary_notification_welcome">E Benotzerkont gouf ugeluecht</string>
+  <string name="preference_title_notification_system">System</string>
+  <string name="preference_summary_notification_system">Message vum System</string>
   <string name="preference_title_notification_milestone">Meilesteen</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
   <string name="preference_title_notification_revert">Zrécksetzen</string>
+  <string name="preference_title_notification_login_fail">Aloggen</string>
+  <string name="preference_title_notification_mention">Ernimmen</string>
+  <string name="preference_summary_notification_mention">Et huet een Iech op enger Säit ernimmt</string>
+  <string name="preference_title_notification_user_talk">Diskussiounssäit</string>
+  <string name="preference_summary_notification_user_talk">Message vun Diskussiounssäiten</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
@@ -491,9 +496,11 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="feed_accessibility_card_load_more_button">Méi lueden</string>
   <string name="description_edit_text_hint" fuzzy="true">Titelbeschreiwung</string>
+  <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_hint_per_language">Beschreiwung vum Artikel (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Beschreiwung vum Bild (%s)</string>
+  <string name="description_edit_add_caption_label">Beschreiwung vum Bild</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_read">Liesen</string>
   <string name="description_edit_add_description" fuzzy="true">Beschreiwung vum Titel derbäisetzen</string>
@@ -524,12 +531,9 @@
   <string name="suggested_edits_add_translation_button">Iwwersetzung derbäisetzen</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Iwwersetzung änneren</string>
   <string name="suggested_edits_no_description">Dëse Fichier huet keng Beschreiwung</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Vläicht méi spéit</string>
-  <string name="suggested_edits_unlock_notification_button">Jo, et geet lass</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
   <string name="suggested_edits_tasks_activity_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_task_add_description_title">Artikel-Beschreiwungen derbäisetzen</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Beschreiwungen iwwersetzen</string>
   <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
   <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Kënschtler</string>
@@ -541,6 +545,10 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Méi Informatiounen</string>
   <string name="suggested_edits_article_cta_snackbar_action">Weisen</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Bei der Ëmfro matmaachen</string>
+  <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_last_edited">Lescht Ännerung</string>
+  <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -568,6 +576,8 @@
   <string name="events_count_text">%1$s Evenementer vum %2$s bis %3$d</string>
   <string name="this_year">Dëst Joer</string>
   <string name="back_to_top">Zréck no uewen</string>
+  <string name="on_this_day_dialog_next_month">Nächste Mount</string>
+  <string name="on_this_day_dialog_previous_month">Virege Mount</string>
   <plurals name="diff_years">
     <item quantity="one">Lescht Joer</item>
     <item quantity="other">Viru(n) %d Joer</item>
@@ -599,6 +609,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="content_description_for_page_indicator">Säit %1$d vu(n) %2$d</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>
@@ -608,6 +619,7 @@
   <string name="main_drawer_open">Opmaachen</string>
   <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
+  <string name="main_tooltip_action_button">Fir unzefänken</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>

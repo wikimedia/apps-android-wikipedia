@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
+import org.wikipedia.feed.accessibility.AccessibilityCard;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
@@ -61,6 +62,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         if (coordinator.finished()
                 && position == getItemCount() - 1
                 && !(item instanceof OfflineCard)
+                && !(item instanceof AccessibilityCard)
                 && item != lastCardReloadTrigger
                 && callback != null) {
             callback.onRequestMore();
