@@ -42,7 +42,6 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
@@ -83,7 +82,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private ActionMode actionMode;
     private SearchActionModeCallback searchActionModeCallback = new HistorySearchCallback();
     private MultiSelectCallback multiSelectCallback = new MultiSelectCallback();
-    private HashSet<Integer> selectedIndices = new HashSet<>();
+    private HashSet<HistoryEntry> selectedEntries = new HashSet<>();
     @NonNull public static HistoryFragment newInstance() {
         return new HistoryFragment();
     }
@@ -250,12 +249,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         if (indexedEntry == null) {
             return;
         }
-        if (selectedIndices.contains(indexedEntry.getIndex())) {
-            selectedIndices.remove(indexedEntry.getIndex());
+        if (selectedEntries.contains(indexedEntry.getEntry())) {
+            selectedEntries.remove(indexedEntry.getEntry());
         } else {
-            selectedIndices.add(indexedEntry.getIndex());
+            selectedEntries.add(indexedEntry.getEntry());
         }
-        int selectedCount = selectedIndices.size();
+        int selectedCount = selectedEntries.size();
         if (selectedCount == 0) {
             finishActionMode();
         } else if (actionMode != null) {
@@ -273,24 +272,23 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private void unselectAllPages() {
-        selectedIndices.clear();
+        selectedEntries.clear();
         adapter.notifyDataSetChanged();
     }
 
     private void deleteSelectedPages() {
-        List<HistoryEntry> selectedEntries = new ArrayList<>();
-        for (int index : selectedIndices) {
-            HistoryEntry entry = adapter.getItem(index);
+        List<HistoryEntry> selectedEntryList = new ArrayList<>();
+        for (HistoryEntry entry : selectedEntries) {
             if (entry != null) {
-                selectedEntries.add(entry);
+                selectedEntryList.add(entry);
                 app.getDatabaseClient(HistoryEntry.class).delete(entry,
                         PageHistoryContract.PageWithImage.SELECTION);
             }
         }
-        selectedIndices.clear();
-        if (!selectedEntries.isEmpty()) {
-            showDeleteItemsUndoSnackbar(selectedEntries);
-            adapter.notifyDataSetChanged();
+        selectedEntries.clear();
+        if (!selectedEntryList.isEmpty()) {
+            showDeleteItemsUndoSnackbar(selectedEntryList);
+            restartLoader();
         }
     }
 
@@ -305,7 +303,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             for (HistoryEntry entry : entries) {
                 client.upsert(entry, PageHistoryContract.PageWithImage.SELECTION);
             }
-            adapter.notifyDataSetChanged();
+            restartLoader();
         });
         snackbar.show();
     }
@@ -355,7 +353,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 }
                 list.add(indexedEntry); //add the item
             }
-            L.d("History onLoadFinished list size " + list.size());
             adapter.setList(list);
             cursor.close();
 
@@ -378,18 +375,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private static class IndexedHistoryEntry {
-        private final int index;
         @NonNull private final HistoryEntry entry;
         @Nullable private final String imageUrl;
 
         IndexedHistoryEntry(@NonNull Cursor cursor) {
             this.entry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
-            this.index = cursor.getPosition();
             this.imageUrl = PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor);
-        }
-
-        public int getIndex() {
-            return index;
         }
 
         @Nullable String getImageUrl() {
@@ -415,26 +406,26 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     private class HistoryEntryItemHolder extends DefaultViewHolder<PageItemView<IndexedHistoryEntry>>
             implements SwipeableItemTouchHelperCallback.Callback {
-        private int index;
+        private HistoryEntry entry;
 
         HistoryEntryItemHolder(PageItemView<IndexedHistoryEntry> itemView) {
             super(itemView);
         }
 
         void bindItem(@NonNull IndexedHistoryEntry indexedEntry) {
-            index = indexedEntry.getIndex();
+            entry = indexedEntry.getEntry();
             getView().setItem(indexedEntry);
             getView().setTitle(indexedEntry.getEntry().getTitle().getDisplayText());
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
             getView().setImageUrl(indexedEntry.getImageUrl());
-            getView().setSelected(selectedIndices.contains(indexedEntry.getIndex()));
+            getView().setSelected(selectedEntries.contains(indexedEntry.getEntry()));
             PageAvailableOfflineHandler.INSTANCE.check(indexedEntry.getEntry().getTitle(), available -> getView().setViewsGreyedOut(!available));
         }
 
 
         @Override
         public void onSwipe() {
-            selectedIndices.add(index);
+            selectedEntries.add(entry);
             deleteSelectedPages();
         }
     }
@@ -463,13 +454,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             } else {
                 return VIEW_TYPE_ITEM;
             }
-        }
-
-        @Nullable public HistoryEntry getItem(int position) {
-            if (historyEntries.get(position) instanceof IndexedHistoryEntry) {
-                return ((IndexedHistoryEntry) historyEntries.get(position)).getEntry();
-            }
-            return null;
         }
 
         public void setList(@NonNull List<Object> list) {
@@ -598,7 +582,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             super.onCreateActionMode(mode, menu);
             mode.getMenuInflater().inflate(R.menu.menu_action_mode_history, menu);
             actionMode = mode;
-            selectedIndices.clear();
+            selectedEntries.clear();
             return super.onCreateActionMode(mode, menu);
         }
 
