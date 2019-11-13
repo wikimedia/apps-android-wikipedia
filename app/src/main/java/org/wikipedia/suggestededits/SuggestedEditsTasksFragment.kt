@@ -1,13 +1,11 @@
 package org.wikipedia.suggestededits
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -141,10 +139,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
-        var drawable: Drawable = menu.findItem(R.id.menu_help).icon
-        drawable = DrawableCompat.wrap(drawable)
-        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
-        menu.findItem(R.id.menu_help).icon = drawable
+        ResourceUtil.setMenuItemTint(context!!, menu.findItem(R.id.menu_help), R.attr.colorAccent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
