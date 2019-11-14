@@ -58,7 +58,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import de.mrapp.android.util.ThemeUtil;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 
@@ -397,7 +396,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         HeaderViewHolder(View itemView) {
             super(itemView);
             headerText = itemView.findViewById(R.id.section_header_text);
-            headerText.setTextColor(ThemeUtil.getColor(requireContext(), R.attr.material_theme_secondary_color));
         }
 
         void bindItem(@NonNull String date) {
