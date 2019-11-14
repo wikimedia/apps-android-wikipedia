@@ -290,11 +290,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ဗီုရုပ် ဂၠုကၠုဒၟံင်</string>
   <string name="preference_title_prefer_offline_content">ဒးစိုတ် မ္ၚးလာင်</string>
   <string name="preference_summary_prefer_offline_content">တံင်လုပ်ကေတ် လိက်ပရေင် မဗှ်ဂွံ ပ္ဍဲအခိင်မၞုံ မ္ၚးလာင်မ္ဂး ဒါတာ အိုတ်သက်သာ နူ မဗှ်လိက်ပရေင် မပတိုန်ဒၟံင်တၟိတၟိ တွဵုဂှ်ရ၊၊</string>
-  <string name="crash_report_dialog_title">သၠးအခေါင် app လီုအာ နူဗတံဏအ်၊၊</string>
-  <string name="crash_report_dialog_text">မၞး မိက်ဂွံ ပလံင် လိက်ဒုင်စဳရေင် ပရူမလီုဂှ် ကု HockeyApp / a third-party service provider ဟာ？ ပလံင်မ္ဂး ဝဳကဳမဳဒဳယာ ကလေင်ကျောဝ်တုဲ ပလေဝ်ပခိုဟ်ပတိုန်ဂွံရ၊၊</string>
-  <string name="crash_report_dialog_dont_send_button">သလာ်</string>
-  <string name="crash_report_dialog_always_send_button">ပလံင် လၟိုန်</string>
-  <string name="crash_report_dialog_send_button">ပလံင်</string>
   <string name="crash_report_activity_title">ပရေင်အာတ်မိက် ဗၠေတ်</string>
   <string name="crash_report_relaunch_or_quit">မၞး မိက်ဂွံ ကလေင်စဟာ ဟွံသေင်တှ်ေ တိတ်ဟာ？</string>
   <string name="crash_report_relaunch">ကလေင်စ</string>

@@ -219,7 +219,6 @@ public class TranslationTestsOld {
                         || name.startsWith("preference_")
                         // Required after upgrading Support Libraries from v23.0.1 to v23.1.0.
                         || name.equals("character_counter_pattern")
-                        || name.startsWith("hockeyapp_")
                         || name.equals("find_in_page_result")) {
                     continue;
                 }

@@ -17,6 +17,7 @@ public class FindInWebPageActionProvider extends FindInPageActionProvider
         this.fragment = fragment;
         this.funnel = funnel;
         setListener(this);
+        setEnableLastOccurrenceSearchFlag(true);
     }
 
     public void findInPage(String s) {

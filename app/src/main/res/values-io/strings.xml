@@ -275,7 +275,6 @@
   <string name="error_page_does_not_exist">Ica pagino ne existas</string>
   <string name="view_wiki_error_message_offline">Ne povas konektar a la interreto</string>
   <string name="reference_title">Refero %s</string>
-  <string name="crash_report_dialog_send_button">Sendar</string>
   <string name="crash_report_relaunch">Rikomencar</string>
   <string name="crash_report_quit">Ekirar</string>
   <string name="article_menu_bar_bookmark">Adjuntez ica artiklo a lektebla listo</string>

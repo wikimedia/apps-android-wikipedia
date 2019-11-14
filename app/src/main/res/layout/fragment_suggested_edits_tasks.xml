@@ -98,7 +98,7 @@
                     <ImageView
                         android:id="@+id/onboardingImageView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/suggested_edits_top_illustration_height"
                         android:contentDescription="@null"
                         android:visibility="gone"
                         android:layout_marginTop="16dp"

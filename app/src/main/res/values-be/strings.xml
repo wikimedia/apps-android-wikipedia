@@ -235,8 +235,6 @@
   <string name="error_page_does_not_exist">Няма такой старонкі</string>
   <string name="view_wiki_error_message_offline">Немагчыма падлучыцца да Інтэрнэту</string>
   <string name="reference_title">Заўвага %s</string>
-  <string name="crash_report_dialog_dont_send_button">Прапусціць</string>
-  <string name="crash_report_dialog_send_button">Даслаць</string>
   <string name="crash_report_quit">Выхад</string>
   <string name="color_theme_select">Тэма</string>
   <string name="color_theme_light">Светлая</string>

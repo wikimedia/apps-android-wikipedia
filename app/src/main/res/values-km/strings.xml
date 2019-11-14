@@ -229,9 +229,6 @@
   <string name="view_wiki_error_message_offline">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ</string>
   <string name="reference_title">ឯកសារយោង %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">បង្អាប់រូបភាព (ក្នុងរចនាបថងងឹត)</string>
-  <string name="crash_report_dialog_dont_send_button">រំលង</string>
-  <string name="crash_report_dialog_always_send_button">ផ្ញើជានិច្ច</string>
-  <string name="crash_report_dialog_send_button">ផ្ញើ​</string>
   <string name="crash_report_activity_title">បញ្ហាកម្មវិធី</string>
   <string name="crash_report_relaunch">បើកឡើងវិញ</string>
   <string name="crash_report_quit">ចាកចេញ</string>

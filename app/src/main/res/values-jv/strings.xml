@@ -312,11 +312,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pangremenging gambar (ing cakrik Peteng)</string>
   <string name="preference_title_prefer_offline_content">Luwih seneng isèn-isèn \'\'offline\'\'</string>
   <string name="preference_summary_prefer_offline_content">Simpen panganggoning \'\'data\'\' sarana ngamot artikel sing wis cumepak kanthi \'\'offline\'\' katimbang ngamot artikel mawa vèrsi sing anyar dhéwé.</string>
-  <string name="crash_report_dialog_title">Ngapunten, aplikasi mandeg dhéwé</string>
-  <string name="crash_report_dialog_text">Apa kowé gelem ngirim palapuran masalah marang HockeyApp / kang nyawisaké layanan péhak katelu supaya Wikimédia bisa naliti masalahmu lan ndandani ama kang njalari masalah iku?</string>
-  <string name="crash_report_dialog_dont_send_button">Lumpati</string>
-  <string name="crash_report_dialog_always_send_button">Tansah ngirim</string>
-  <string name="crash_report_dialog_send_button">Kirim</string>
   <string name="crash_report_activity_title">Cacad aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Awak dhéwé nyuwun pangapura, aplikasi Wikipédia ngalami masalah mula dipatèni.\n\nApa kowé gelem mbalèni utawa metu waé?</string>
   <string name="crash_report_relaunch">Balèni kawit pisanan</string>

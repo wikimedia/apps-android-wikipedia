@@ -193,9 +193,6 @@
   <string name="location_permissions_enable_action">Ieslēgt</string>
   <string name="error_message_generic">Notika kļūda</string>
   <string name="error_page_does_not_exist">Šī lapa nepastāv</string>
-  <string name="crash_report_dialog_dont_send_button">Izlaist</string>
-  <string name="crash_report_dialog_always_send_button">Vienmēr sūtīt</string>
-  <string name="crash_report_dialog_send_button">Sūtīt</string>
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
   <string name="crash_report_relaunch">Sākt no jauna</string>
   <string name="crash_report_quit">Iziet</string>
