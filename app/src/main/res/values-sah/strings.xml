@@ -268,6 +268,7 @@
   <string name="gallery_save_success">Ойуу сөпкө харалынна.</string>
   <string name="gallery_error_video_failed">Видеону көрдөрөр табыллыбата.</string>
   <string name="gallery_save_image_write_permission_rationale">Ойуулары хаалларарга ҕааддьытыҥ долоҕойугар суруйар көҥүл биэриэхтэххин.</string>
+  <string name="gallery_add_image_caption_button">Ойуу туһунан суруйарга</string>
   <string name="gallery_add_image_caption_in_language_button">Ойуу туһунан суруйарга (%s)</string>
   <string name="err_cannot_save_file">Билэни харайар табыллыбата</string>
   <string name="snippet_share_intro">«%1$s» @Wikipedia-ҕа: %2$s</string>
@@ -326,11 +327,12 @@
   <string name="view_link_preview_error_button_dismiss">Сап</string>
   <string name="error_page_does_not_exist">Маннык сирэй суох эбит</string>
   <string name="view_wiki_error_message_offline">Интэриниэккэ холбонор сатаммата</string>
+  <string name="view_wiki_error_message_timeout">Бикипиэдьийэеэ холбонор сатаммата. Ситимҥин тургутан көр эбэтэр хойутуу киирэ сылдьаар</string>
   <string name="reference_title">Быһаарыы %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ойууну хараҥардыы (Хараҥа тиэмэҕэ)</string>
   <string name="preference_title_prefer_offline_content">Ситимэ суоҕу талар буол</string>
   <string name="preference_summary_prefer_offline_content">Ыстатыйа тиһэх барылын буолбакка, урут хачайдаммыты көрөдөрөн трафигы кэмчилиир</string>
-    <string name="crash_report_activity_title">Дьибилгэт алҕаһа</string>
+  <string name="crash_report_activity_title">Дьибилгэт алҕаһа</string>
   <string name="crash_report_relaunch_or_quit">Бикипиэдьийэ дьибилгэтэ моһуогурда онон сабылынна.\n\nХос ыытаҕын дуу, отой тахсаҕын дуу?</string>
   <string name="crash_report_relaunch">Хос холбоо</string>
   <string name="crash_report_quit">Таҕыс</string>
@@ -506,6 +508,7 @@
   <string name="notifications_mark_unread">Ааҕыллыбатах курдук бэлиэтээ</string>
   <string name="preference_title_notification_poll">Ыйытыктар биллэриилэрэ</string>
   <string name="preference_category_notification_types">Биллэриилэр көрүҥнэрэ</string>
+  <string name="preference_title_notification_system">Тиһиктээх</string>
   <string name="preference_summary_notification_system">Тиһик биллэриилэрэ</string>
   <string name="preference_title_notification_milestone">Хардыы</string>
   <string name="preference_summary_notification_milestone">Төһө эрэ көннөрүү оҥоһуллубут</string>
@@ -668,6 +671,12 @@
   <string name="suggested_edits_task_action_text_add">Эбэргэ</string>
   <string name="suggested_edits_task_action_text_translate">Тылбаастаа</string>
   <string name="suggested_edits_image_captions">Ойуу туһунан</string>
+  <string name="suggested_edits_quality_good_text">Үчүгэй</string>
+  <string name="suggested_edits_quality_okay_text">Сөп</string>
+  <string name="suggested_edits_quality_poor_text">Мөлтөх</string>
+  <string name="suggested_edits_quality_bad_text">Куһаҕан</string>
+  <string name="suggested_edits_last_edited">Тиһэх көннөнүү</string>
+  <string name="suggested_edits_last_edited_never">Хаһан да гыныма</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
   <string name="description_edit_revert_intro">Туһалааҕы оҥоро сатаабыккын эрээри, тугу эрэ сыыспыккын. Көннөрүүгүн төннөрбүт төрүөт маннык буолуон сөп:</string>
   <string name="description_edit_revert_reason1">көннөрүүҥ &lt;a href=\"%1$s\"&gt;тутаах тулаанныртан&lt;/a&gt; биирдэстэригэр сөп түбэспэтэх.</string>
@@ -703,6 +712,8 @@
   <string name="events_count_text">%1$s түбэлтэ буолбут, бу кэм иһигэр: %2$s—%3$d</string>
   <string name="this_year">Быйыл</string>
   <string name="back_to_top">Үөһэ төннүү</string>
+  <string name="on_this_day_dialog_next_month">Аныгыскы ый</string>
+  <string name="on_this_day_dialog_previous_month">Иннинээҕи ый</string>
   <plurals name="diff_years">
     <item quantity="one">Былырыын</item>
     <item quantity="other">%d сыллааҕыта</item>
@@ -735,6 +746,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Сөп</string>
   <string name="reverted_edit_dialog_ok_button_text">Сөп</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Салҕаама</string>
+  <string name="content_description_for_page_indicator">%2$d хаамыыттан %1$d хаамыы</string>
   <string name="wikitext_bold">Модьу</string>
   <string name="wikitext_italic">Иҥнэри</string>
   <string name="wikitext_link">Сигэ</string>
@@ -745,8 +757,11 @@
   <string name="wikitext_preview_link">Сигэни көрүү</string>
   <string name="main_drawer_open">Арый</string>
   <string name="main_drawer_close">Сап</string>
+  <string name="main_drawer_content_description">Сүрүн талбаны арый</string>
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
+  <string name="main_tooltip_text">%s, Бикипиэдьийэни ким баҕарар уларытыан сөбүн билэр этиҥ дуо?</string>
+  <string name="main_tooltip_action_button">Саҕалыырга</string>
   <string name="custom_date_picker_dialog_ok_button_text">Сөп</string>
   <string name="text_input_dialog_ok_button_text">Сөп</string>
   <string name="text_input_dialog_cancel_button_text">Салҕаама</string>

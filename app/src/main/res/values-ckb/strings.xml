@@ -267,7 +267,7 @@
   <string name="view_link_preview_error_button_dismiss">لێگەڕان</string>
   <string name="error_page_does_not_exist">ئەم پەڕەیە بوونی نییە</string>
   <string name="view_wiki_error_message_offline">ئینتەرنێت نییە</string>
-    <string name="crash_report_activity_title">ھەڵەی بەرنامە</string>
+  <string name="crash_report_activity_title">ھەڵەی بەرنامە</string>
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
   <string name="crash_report_relaunch">دەستپێکردنەوە</string>
   <string name="crash_report_quit">داخستن</string>

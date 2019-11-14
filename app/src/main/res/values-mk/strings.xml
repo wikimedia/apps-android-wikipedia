@@ -332,7 +332,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
-    <string name="crash_report_activity_title">Грешка во прилогот</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Според системскиот изглед</string>
+  <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>
@@ -691,17 +692,17 @@
   <string name="suggested_edits_task_action_text_add">Додај</string>
   <string name="suggested_edits_task_action_text_translate">Преведи</string>
   <string name="suggested_edits_image_captions">Описи на слики</string>
-  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија</string>
+  <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво %s&lt;/b&gt;. Дали сте знаеле дека секој може да ја уредува Википедија? Подолу ќе најдете интересни начини да помогнете во нејзиното подобрување. Пријатно уредување!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Описите му кажуваат на читателот за што се работи и даваат контекст на сликата</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Описите на насловите даваат претстава за темата статијата на прв поглед</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Вкупно ваши придонеси со „Предложени уредувања“</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Колку дена едноподруго сте учествувале со „Предложени уредувања“</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Според тоа колку пати се отповикани вашите уредувања. Отповикани уредувања: %d</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Предложените уредувања се во прекин до %1$s.&lt;/b&gt; За жал, %2$s, некои од вашите скорешни уредувања се отповикани.\n\n Дознајте како да си ги подобрите уредувачките вештини на Википедија од страниците подолу.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Предложените уредувања се оневозможени.&lt;/b&gt; За жал, %s, имате премногу отповикани скорешни уредувања.\n\n Дознајте што ова значи од страниците подолу.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Изгледа дека не вашата IP-адреса (или адресен опсег) ѝ е забрането да уредува на Википедија. Посетете ја страницата подолу за да дознаете што ова значи.</string>
+  <string name="suggested_edits_image_captions_task_detail">Описите му кажуваат на читателот за што се работи и даваат контекст на сликата.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Описите на насловите даваат претстава за темата статијата на прв поглед.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси со „Предложени уредувања“.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале со „Предложени уредувања“.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања. Отповикани уредувања: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Предложените уредувања се во прекин до %1$s.&lt;/b&gt; За жал, %2$s, некои од вашите скорешни уредувања се отповикани.\n\n Дознајте како да си ги подобрите уредувачките вештини на Википедија од страницата подолу.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Предложените уредувања се оневозможени.&lt;/b&gt; За жал, %s, имате премногу отповикани скорешни уредувања.\n\n Дознајте што ова значи од страницата подолу.</string>
+  <string name="suggested_edits_ip_blocked_message">На IP-адресата што ја кроистите ѝ е забрането да уредува на Википедија. Дознајте повеќе за ова на страницата подолу.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
   <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>

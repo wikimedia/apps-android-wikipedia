@@ -201,7 +201,7 @@
   <string name="view_link_preview_error_button_dismiss">Skrij</string>
   <string name="error_page_does_not_exist">Ta stran ne obstaja</string>
   <string name="reference_title">Sklic %s</string>
-    <string name="crash_report_quit">Izhod</string>
+  <string name="crash_report_quit">Izhod</string>
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Svetlo</string>

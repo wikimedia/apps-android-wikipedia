@@ -309,7 +309,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Asibrek n tugna (deg usentel ubrik)</string>
   <string name="preference_title_prefer_offline_content">Bɣiɣ agbur n war tuqqna</string>
   <string name="preference_summary_prefer_offline_content">Sekles axiṛ isefka s usali n imagraden yellan s war tuqqna wala asali n lqem aneggaru n umagrad.</string>
-    <string name="crash_report_activity_title">Tuccḍa n usnas</string>
+  <string name="crash_report_activity_title">Tuccḍa n usnas</string>
   <string name="crash_report_relaunch_or_quit">Tebɣiḍ ad talseḍ asenker neɣ ad teffɣeḍ?</string>
   <string name="crash_report_relaunch">Ales tanekra</string>
   <string name="crash_report_quit">Ffeɣ</string>

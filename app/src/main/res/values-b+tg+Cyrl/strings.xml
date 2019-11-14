@@ -147,7 +147,7 @@
   <string name="close_all_tabs_confirm_no">На</string>
   <string name="button_continue_to_article">Мутолиаи мақола</string>
   <string name="nav_item_donate">Дастгирии Википедия</string>
-    <string name="article_header_edit_hint">Вироиш...</string>
+  <string name="article_header_edit_hint">Вироиш...</string>
   <string name="article_header_edit_description">Иловаи тавзеҳоти мақола</string>
   <string name="color_theme_select">Мавзӯъ</string>
   <string name="color_theme_light">Рӯшан</string>

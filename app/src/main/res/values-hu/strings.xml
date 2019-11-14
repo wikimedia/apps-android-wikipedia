@@ -342,7 +342,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
-    <string name="crash_report_activity_title">Alkalmazáshiba</string>
+  <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
   <string name="crash_report_quit">Kilépés</string>

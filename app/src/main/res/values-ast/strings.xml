@@ -325,7 +325,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Amortecimientu d\'imaxes (na tema escura)</string>
   <string name="preference_title_prefer_offline_content">Preferir conteníu ensin conexón</string>
   <string name="preference_summary_prefer_offline_content">Aforrar l\'usu de datos cargando artículos que tean disponibles ensin conexón, en llugar de cargar siempres la última versión d\'un artículu.</string>
-    <string name="crash_report_activity_title">Error de l\'aplicación:</string>
+  <string name="crash_report_activity_title">Error de l\'aplicación:</string>
   <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.\n\n¿Quies volver a arrancar o colar?</string>
   <string name="crash_report_relaunch">Volver a arrancar</string>
   <string name="crash_report_quit">Colar</string>

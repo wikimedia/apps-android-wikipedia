@@ -263,7 +263,7 @@
   <string name="error_voice_search_not_available">ขออภัย การรับรองเสียงไม่พร้อมให้บริการ</string>
   <string name="location_service_disabled">บริการที่ตั้งถูกปิดใช้งาน</string>
   <string name="enable_location_service">เปิดใช้งาน</string>
-    <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
+  <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_quit">ออก</string>
   <string name="article_menu_bar_bookmark">เพิ่มบทความนี้ลงไปยังรายการอ่าน</string>
   <string name="article_menu_bar_share">แบ่งปันลิงก์บทความ</string>

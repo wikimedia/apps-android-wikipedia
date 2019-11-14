@@ -194,7 +194,7 @@
   <string name="error_page_does_not_exist">דער בלאט עקזיסטירט נישט</string>
   <string name="view_wiki_error_message_offline">מין קען נישט פארבינדן מיט דער אינטערנעץ</string>
   <string name="reference_title">רעפֿערענץ %s</string>
-    <string name="crash_report_activity_title">אפליקאציע פֿעלער</string>
+  <string name="crash_report_activity_title">אפליקאציע פֿעלער</string>
   <string name="crash_report_relaunch">אנהייבן פונדאסניי</string>
   <string name="crash_report_quit">פֿארלאזן</string>
   <string name="article_header_edit_hint">רעדאַקטירן...</string>

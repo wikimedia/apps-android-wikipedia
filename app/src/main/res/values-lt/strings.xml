@@ -220,7 +220,7 @@
   <string name="error_page_does_not_exist">Šis puslapis neegzistuoja</string>
   <string name="view_wiki_error_message_offline">Nepavyko prisijungti prie interneto</string>
   <string name="view_wiki_error_message_timeout">Nepavyko prisijungti prie Vikipedijos. Patikrinkite savo interneto ryšį arba bandykite dar kartą.</string>
-    <string name="crash_report_activity_title">Aplikacijos klaida</string>
+  <string name="crash_report_activity_title">Aplikacijos klaida</string>
   <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.\n\nNorėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>
   <string name="crash_report_quit">Išeiti</string>

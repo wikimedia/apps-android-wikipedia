@@ -323,7 +323,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">চিত্রের উজ্জ্বলতা হ্রাস (কালো থিমে)</string>
   <string name="preference_title_prefer_offline_content">অফলাইন সামগ্রীর পছন্দ</string>
   <string name="preference_summary_prefer_offline_content">সর্বদা নিবন্ধের সর্বশেষ সংস্করণ লোড করার পরিবর্তে অফলাইনে উপলব্ধ নিবন্ধগুলি লোড করে ডেটা খরচ বাঁচান</string>
-    <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
+  <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>

@@ -323,7 +323,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ယွၼ်ႇလႅင်းၶႅပ်းႁၢင်ႈ (တီႈၼႂ်းယူင်ႉႁၢင်ႈလပ်းသိင်ႇ)</string>
   <string name="preference_title_prefer_offline_content">တိူဝ်းပၼ်ႁႅင်း လမ်းၼႂ်းဢွပ်ႉၾ်လၢႆး</string>
   <string name="preference_summary_prefer_offline_content">ပေႃးၸႂ်ႉ ဢွပ်ႉၾ်လၢႆး ဢၼ်ၸၢင်ႈၸႂ့်လႆႈၼၼ်ႉ မၼ်းတေတိူဝ်းယွၼ်ႇလႆႈ လွင်ႈၸႂ်ႉတိုဝ်း တေႇတႃႇ လိူဝ်သေ ပိုတ်ႇဝႃးသျိၼ်းပွင်ႈၵႂၢမ်း ဢၼ်ဢွၵ်ႇလိုၼ်းလင်သုတ်းၼၼ်ႉ</string>
-    <string name="crash_report_activity_title">လွင်ႈၽိတ်းပိူင်ႈ ဢႅပ်ႉၽရီႇၶေးသျိၼ်း</string>
+  <string name="crash_report_activity_title">လွင်ႈၽိတ်းပိူင်ႈ ဢႅပ်ႉၽရီႇၶေးသျိၼ်း</string>
   <string name="crash_report_relaunch_or_quit">ႁဝ်းၶႃႈ ၵဵင်ၸႂ်ယူႇ၊ ဢႅပ်ႉဝီႇၶီႇမီႇတီႇယႃႇ လႆႈမီး လွင်ႈၽိတ်းပိူင်ႈလႄႈ ထုၵ်ႇၵိုတ်းၵႂႃႇ ၸိူင်ႉၼႆႉ။\nၸဝ်ႈၵဝ်ႇတေၶႂ်ႈတႄႇၶိုၼ်းၼႄႇ ဢမ်ႇၼၼ် တေဢိုတ်းပႅတ်ႈ?</string>
   <string name="crash_report_relaunch">တႄႇၶိုၼ်း</string>
   <string name="crash_report_quit">ဢိုတ်း</string>

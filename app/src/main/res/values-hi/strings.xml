@@ -291,7 +291,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
   <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
-    <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
+  <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>

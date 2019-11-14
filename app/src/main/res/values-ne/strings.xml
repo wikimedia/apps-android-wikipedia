@@ -274,7 +274,7 @@
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
   <string name="reference_title">सन्दर्भ %s</string>
-    <string name="crash_report_activity_title">अनुप्रयोगसम्बन्धी त्रुटि</string>
+  <string name="crash_report_activity_title">अनुप्रयोगसम्बन्धी त्रुटि</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
   <string name="article_menu_bar_bookmark">यो लेखलार्इ कुनै अध्ययन सूचीमा थप्नुहोस्</string>

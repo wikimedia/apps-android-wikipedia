@@ -199,7 +199,7 @@
   <string name="reference_title">حوالے%s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">مدھم تصویر (تاریک پوشاک وچ)</string>
   <string name="preference_title_prefer_offline_content">آف لائن مواد کوں ترجیح ݙیوو</string>
-    <string name="crash_report_relaunch">ول شروع کرو</string>
+  <string name="crash_report_relaunch">ول شروع کرو</string>
   <string name="crash_report_quit">نکلو</string>
   <string name="article_header_edit_hint">لکھو۔۔۔</string>
   <string name="color_theme_select">مرکزی خیال</string>

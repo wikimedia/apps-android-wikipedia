@@ -312,7 +312,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Maolú íomhánna (sa téama Dorcha)</string>
   <string name="preference_title_prefer_offline_content">Úsáid ábhar as líne más féidir</string>
   <string name="preference_summary_prefer_offline_content">Coigil úsáid sonraí trí bhealach ailt atá ar fáil as líne a lódáil seachas an leagan is deireanaí den alt a lódáil gach uair</string>
-    <string name="crash_report_activity_title">Earráid aipe</string>
+  <string name="crash_report_activity_title">Earráid aipe</string>
   <string name="crash_report_relaunch_or_quit">Tá brón orainn, tharla earráid agus críochnaíodh aip na Vicipéide.\n\nAr mhaith leat atosú nó scor?</string>
   <string name="crash_report_relaunch">Atosaigh</string>
   <string name="crash_report_quit">Scoir</string>

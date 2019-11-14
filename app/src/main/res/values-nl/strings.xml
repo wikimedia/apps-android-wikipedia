@@ -353,7 +353,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Afbeeldingen dimmen (in donker thema)</string>
   <string name="preference_title_prefer_offline_content">Offline-inhoud de voorkeur geven</string>
   <string name="preference_summary_prefer_offline_content">Bespaar mobiele gegevens door pagina\'s die offline beschikbaar zijn te laden in plaatst van steeds de laatste versie op te halen</string>
-    <string name="crash_report_activity_title">Programmafout</string>
+  <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
   <string name="crash_report_quit">Afsluiten</string>

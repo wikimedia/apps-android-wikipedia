@@ -222,7 +222,7 @@
   <string name="error_page_does_not_exist">ეს გვერდი არ არსებობს.</string>
   <string name="view_wiki_error_message_offline">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="reference_title">სქოლიო %s</string>
-    <string name="crash_report_activity_title">აპლიკაციის შეცდომა</string>
+  <string name="crash_report_activity_title">აპლიკაციის შეცდომა</string>
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>
   <string name="crash_report_quit">გამოსვლა</string>

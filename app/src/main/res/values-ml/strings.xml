@@ -278,7 +278,7 @@
   <string name="view_wiki_error_message_offline">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="reference_title">അവലംബം %s</string>
   <string name="preference_title_prefer_offline_content">ഓഫ്‍ലൈൻ ഉള്ളടക്കം പരിഗണിക്കുക</string>
-    <string name="crash_report_activity_title">ആപ്ലിക്കേഷൻ പിഴവ്</string>
+  <string name="crash_report_activity_title">ആപ്ലിക്കേഷൻ പിഴവ്</string>
   <string name="crash_report_relaunch_or_quit">ഞങ്ങളോട് ക്ഷമിക്കൂ, വിക്കിപീഡിയ ആപ്പ് ഒരു പിഴവ് അഭിമുഖീകരിച്ചതിനാൽ നിർത്തേണ്ടി വന്നു.\n\nപുതിയതായി തുടങ്ങാൻ താങ്കൾ ആഗ്രഹിക്കുന്നുണ്ടോ, അതോ നിർത്തുകയാണോ?</string>
   <string name="crash_report_relaunch">വീണ്ടും തുടങ്ങുക</string>
   <string name="crash_report_quit">അടയ്ക്കുക</string>

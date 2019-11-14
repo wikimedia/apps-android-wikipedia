@@ -345,7 +345,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
   <string name="preference_title_prefer_offline_content">Надавати перевагу автономному контенту</string>
   <string name="preference_summary_prefer_offline_content">Збережіть трафік, завантажуючи статті, доступні в режимі офлайн радше чим завжди завантажувати останню версію статті</string>
-    <string name="crash_report_activity_title">Помилка програми</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Підлаштовано під вигляд системи</string>
+  <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>

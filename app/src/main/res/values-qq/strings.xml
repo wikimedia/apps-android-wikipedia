@@ -353,7 +353,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
-    <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
+  <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
   <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.\n{{Identical|Quit}}</string>
@@ -840,5 +841,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
 </resources>
