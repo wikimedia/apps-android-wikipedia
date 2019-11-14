@@ -202,7 +202,7 @@
   <string name="multi_select_items_selected">%d weçineyê</string>
   <string name="error_message_generic">Yew xeta biye</string>
   <string name="view_link_preview_error_button_dismiss">Red ke</string>
-    <string name="crash_report_activity_title">Xetay dezgehi</string>
+  <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
   <string name="article_header_edit_hint">Bıvurne...</string>
   <string name="color_theme_select">Thema</string>

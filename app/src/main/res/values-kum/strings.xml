@@ -159,7 +159,7 @@
   <string name="multi_select_items_selected">%d сайлангъан</string>
   <string name="error_message_generic">Хата болду</string>
   <string name="view_link_preview_error_button_dismiss">Япмакъ</string>
-    <string name="crash_report_relaunch">Такрар ишлетмек</string>
+  <string name="crash_report_relaunch">Такрар ишлетмек</string>
   <string name="crash_report_quit">Чыкъмакъ</string>
   <string name="article_header_edit_hint">Тюзлемек…</string>
   <string name="article_header_edit_description" fuzzy="true">Тасвирин тюзлемек</string>

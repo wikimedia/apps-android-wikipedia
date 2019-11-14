@@ -270,7 +270,7 @@
   <string name="reference_title">Referenca %s</string>
   <string name="preference_title_prefer_offline_content">Radšo offline-wobsah wzać</string>
   <string name="preference_summary_prefer_offline_content">Lutuj wužiwanje datow přez pokazowanje offline přistupnych zapiskow město stajneho sćehnjenja najnowšeje wersije.</string>
-    <string name="crash_report_activity_title">Zmylk aplikacije</string>
+  <string name="crash_report_activity_title">Zmylk aplikacije</string>
   <string name="crash_report_relaunch_or_quit">Bohužel je zmylk w app wustupił.\n\nChceš app znowa wočinić abo skónčić?</string>
   <string name="crash_report_relaunch">Znowa wočinić</string>
   <string name="crash_report_quit">Skónčić</string>

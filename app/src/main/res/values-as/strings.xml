@@ -311,7 +311,7 @@
   <string name="error_page_does_not_exist">এই নামৰ কোনো পৃষ্ঠা নাই</string>
   <string name="view_wiki_error_message_offline">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই</string>
   <string name="reference_title">তথ্যসূত্ৰ %s</string>
-    <string name="crash_report_activity_title">এপ্লিকেচন ক্ৰুতি</string>
+  <string name="crash_report_activity_title">এপ্লিকেচন ক্ৰুতি</string>
   <string name="crash_report_relaunch_or_quit">আপুনি পুণৰাম্ভ অথবা ত্যাগ কৰিব বিচাৰিছে নেকি?</string>
   <string name="crash_report_relaunch">পুনৰাম্ভ কৰক</string>
   <string name="crash_report_quit">ত্যাগ কৰক</string>
