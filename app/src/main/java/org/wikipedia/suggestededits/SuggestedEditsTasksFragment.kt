@@ -319,6 +319,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             pageViewStatsView.visibility = GONE
             onboardingImageView.visibility = VISIBLE
             textViewForMessage.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
+            textViewForMessage.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
         } else {
             contributionsStatsView.visibility = VISIBLE
             editQualityStatsView.visibility = VISIBLE
@@ -328,6 +329,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             contributionsStatsView.setTitle(SuggestedEditsUserStats.totalEdits.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, SuggestedEditsUserStats.totalEdits))
             textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
+            textViewForMessage.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
