@@ -88,7 +88,4 @@
   <string name="error_voice_search_not_available">Na vjen keq, njohja e zërit nuk është në dispozicion.</string>
   <string name="location_service_disabled">Shërbimet e vendndodhjes janë të çaktivizuara.</string>
   <string name="enable_location_service">Aktivizo</string>
-  <string name="crash_report_dialog_dont_send_button">Kapërce</string>
-  <string name="crash_report_dialog_always_send_button">Gjithmonë dërgo</string>
-  <string name="crash_report_dialog_send_button">Dërgo</string>
 </resources>

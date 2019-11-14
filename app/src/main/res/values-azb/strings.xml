@@ -117,10 +117,7 @@
   <string name="button_close_tab">تبی باغلا</string>
   <string name="error_unknown">بیلینمه‌ين بیر خطا باش وئردی.</string>
   <string name="button_continue_to_article">مقاله‌نی اوْخو</string>
-  <string name="crash_report_dialog_dont_send_button">آتلا</string>
-  <string name="crash_report_dialog_always_send_button">همیشه گؤندر</string>
-  <string name="crash_report_dialog_send_button">گؤندر</string>
-  <string name="crash_report_activity_title">برنامه خطاسی</string>
+    <string name="crash_report_activity_title">برنامه خطاسی</string>
   <string name="crash_report_relaunch">یئنیدن باشلا</string>
   <string name="crash_report_quit">چیخیش</string>
   <string name="color_theme_select">تِم</string>
