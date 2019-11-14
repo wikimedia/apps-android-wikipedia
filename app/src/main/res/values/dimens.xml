@@ -116,6 +116,7 @@
     <dimen name="suggested_edits_icon_title_text_size">18sp</dimen>
     <dimen name="suggested_edits_title_margin_start">14dp</dimen>
     <dimen name="suggested_edits_message_textview_text_size">14sp</dimen>
+    <dimen name="suggested_edits_top_illustration_height">92dp</dimen>
 
     <!-- Bottom navigation values, they override the NavTab item width to make the entire NavTab be in full width -->
     <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
