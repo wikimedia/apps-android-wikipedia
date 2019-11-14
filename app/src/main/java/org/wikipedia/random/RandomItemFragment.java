@@ -130,7 +130,7 @@ public class RandomItemFragment extends Fragment {
         if (summary == null) {
             return;
         }
-        articleTitleView.setText(summary.getNormalizedTitle());
+        articleTitleView.setText(summary.getDisplayTitle());
         articleSubtitleView.setText(null); //summary.getDescription());
         extractView.setText(StringUtil.fromHtml(summary.getExtractHtml()));
         ViewTreeObserver observer = extractView.getViewTreeObserver();
