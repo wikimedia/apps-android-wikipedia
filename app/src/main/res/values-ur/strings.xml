@@ -278,7 +278,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">مدھم تصویر (تاریک پوشاک میں)</string>
   <string name="preference_title_prefer_offline_content">آف لائن مواد کو ترجیح دیں</string>
   <string name="preference_summary_prefer_offline_content">کسی مضمون کے تازہ ترین نسخے کو ہمیشہ لوڈ کرنے کی بجائے آف لائن دستیاب مضامین کو لوڈ کرکے ڈیٹا استعمال کو بچائیں</string>
-    <string name="crash_report_activity_title">اپلیکیشن کی خطا</string>
+  <string name="crash_report_activity_title">اپلیکیشن کی خطا</string>
   <string name="crash_report_relaunch_or_quit">ہم معذرت خواہ ہیں کہ ویکی پیڈیا ایپ ایک خطا سے گزرکر مسدود ہوئی ہے۔ \n\nکیا آپ پھر سے شروع کرنا چاہیں گے یا ترک کریں گے؟</string>
   <string name="crash_report_relaunch">پھر سے شروع کریں</string>
   <string name="crash_report_quit">ترک کریں</string>

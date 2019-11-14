@@ -191,7 +191,7 @@
   <string name="error_voice_search_not_available">O planhèm, la reconeissença vocala es pas disponibla.</string>
   <string name="location_service_disabled">Los servicis de localizacion son desactivats.</string>
   <string name="enable_location_service">Activar</string>
-    <string name="crash_report_activity_title">Error de l\'aplicacion</string>
+  <string name="crash_report_activity_title">Error de l\'aplicacion</string>
   <string name="crash_report_relaunch">Reaviar</string>
   <string name="crash_report_quit">Quitar</string>
   <string name="article_menu_bar_bookmark">Apondre aqueste article a una lista de lectura</string>

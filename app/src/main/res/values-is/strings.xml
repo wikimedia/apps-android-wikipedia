@@ -325,7 +325,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Dekking mynda (í dökku þema)</string>
   <string name="preference_title_prefer_offline_content">Kjósa helst efni án nettengingar</string>
   <string name="preference_summary_prefer_offline_content">Sparaðu gagnamagn með því að hlaða inn greinum sem tiltækar eru án nettengingar fremur en að hlaða alltaf inn nýjustu útgáfu greina</string>
-    <string name="crash_report_activity_title">Villa í forriti</string>
+  <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
   <string name="crash_report_quit">Hætta</string>

@@ -288,7 +288,7 @@
   <string name="view_wiki_error_message_offline">Kann net mam Internet verbannen</string>
   <string name="reference_title">Referenz %s</string>
   <string name="preference_title_prefer_offline_content">Preferenz fir Offline-Inhalt</string>
-    <string name="crash_report_activity_title">Feeler vum Programm</string>
+  <string name="crash_report_activity_title">Feeler vum Programm</string>
   <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
   <string name="crash_report_quit">Erausgoen</string>

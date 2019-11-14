@@ -355,6 +355,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
   <string name="preference_summary_prefer_offline_content">حفظ استخدام البيانات بتحميل المقالات المتاحة في وضع عدم الاتصال بدلا من تحميل أحدث إصدار من مقالة دائما</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">تطابق موضوع النظام</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>

@@ -362,7 +362,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
   <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
-    <string name="crash_report_activity_title">Erreur de l’application</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Correspondre au thème du système</string>
+  <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
   <string name="crash_report_quit">Quitter</string>

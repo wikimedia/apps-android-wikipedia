@@ -308,7 +308,7 @@
   <string name="error_voice_search_not_available">Din păcate, recunoașterea vocală nu este disponibilă.</string>
   <string name="enable_location_service">Activează</string>
   <string name="location_permissions_enable_action">Pornește.</string>
-    <string name="crash_report_activity_title">Eroare aplicație</string>
+  <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
   <string name="crash_report_quit">Închide</string>

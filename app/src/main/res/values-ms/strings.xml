@@ -320,7 +320,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pemalapan imej (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Lebih suka kandungan luar talian</string>
   <string name="preference_summary_prefer_offline_content">Menjimatkan penggunaan data dengan memuatkan rencana yang tersedia di luar talian dan bukannya memuatkan versi terkini rencana</string>
-    <string name="crash_report_activity_title">Ralat aplikasi</string>
+  <string name="crash_report_activity_title">Ralat aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
   <string name="crash_report_quit">Keluar</string>

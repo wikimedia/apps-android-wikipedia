@@ -343,7 +343,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Stmavenie obrázkov (v tmavej téme)</string>
   <string name="preference_title_prefer_offline_content">Preferovať offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetriť využitie dát tým, že aplikácia načíta články, ktoré sú k dispozícii offline a nebude načítavať najnovšiu verziu článku.</string>
-    <string name="crash_report_activity_title">Chyba aplikácie</string>
+  <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_relaunch">Začať odznova</string>
   <string name="crash_report_quit">Ukončiť</string>

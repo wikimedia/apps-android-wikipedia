@@ -331,7 +331,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Bilddimmung (im dunklen Farbschema)</string>
   <string name="preference_title_prefer_offline_content">Offline-Inhalt bevorzugen</string>
   <string name="preference_summary_prefer_offline_content">Datennutzung durch das Laden von offline verfügbaren Artikeln einsparen und nicht immer die aktuelle Artikelversion laden.</string>
-    <string name="crash_report_activity_title">Anwendungsfehler</string>
+  <string name="crash_report_activity_title">Anwendungsfehler</string>
   <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.\n\nMöchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_relaunch">Neu starten</string>
   <string name="crash_report_quit">Beenden</string>

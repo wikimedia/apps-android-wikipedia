@@ -348,7 +348,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
   <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
   <string name="preference_summary_prefer_offline_content">Säästä datan käyttöä lataamalla offline-tilassa käytettävissä olevat artikkelit mieluummin kuin aina ladata viimeisin versio artikkelista</string>
-    <string name="crash_report_activity_title">Sovellusvirhe</string>
+  <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
   <string name="crash_report_quit">Poistu</string>
