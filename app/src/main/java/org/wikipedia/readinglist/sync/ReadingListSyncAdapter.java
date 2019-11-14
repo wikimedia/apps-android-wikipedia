@@ -87,7 +87,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         Set<String> ids = new HashSet<>();
         for (ReadingListPage page : pages) {
             if (page.remoteId() > 0) {
-                ids.add(Long.toString(list.remoteId()) + ":" + Long.toString(page.remoteId()));
+                ids.add(list.remoteId() + ":" + page.remoteId());
             }
         }
         if (!ids.isEmpty()) {
