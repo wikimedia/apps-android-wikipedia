@@ -98,7 +98,7 @@ public class LinkPreviewContents {
         }
         // fill in the rest of the string
         if (i + 1 < text.length()) {
-            outStr.append(text.substring(i + 1, text.length()));
+            outStr.append(text.substring(i + 1));
         }
         // if we had an imbalance of parentheses, then return the original string,
         // instead of the transformed one.
