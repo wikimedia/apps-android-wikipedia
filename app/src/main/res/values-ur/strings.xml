@@ -278,11 +278,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">مدھم تصویر (تاریک پوشاک میں)</string>
   <string name="preference_title_prefer_offline_content">آف لائن مواد کو ترجیح دیں</string>
   <string name="preference_summary_prefer_offline_content">کسی مضمون کے تازہ ترین نسخے کو ہمیشہ لوڈ کرنے کی بجائے آف لائن دستیاب مضامین کو لوڈ کرکے ڈیٹا استعمال کو بچائیں</string>
-  <string name="crash_report_dialog_title">معذرت، اطلاقیہ پچھلی مرتبہ تعطل کا شکار ہوگیا تھا۔</string>
-  <string name="crash_report_dialog_text">کیا آپ ہاکی ایپ کو نقص کی اطلاع بھیجنا چاہتے ہیں تاکہ ویکیمیڈیا اس خرابی کی وجہ تلاش کرکے اسے فی الفور درست کر سکے؟</string>
-  <string name="crash_report_dialog_dont_send_button">چھوڑیں</string>
-  <string name="crash_report_dialog_always_send_button">ہمیشہ بھیجیں</string>
-  <string name="crash_report_dialog_send_button">بھیجیں</string>
   <string name="crash_report_activity_title">اپلیکیشن کی خطا</string>
   <string name="crash_report_relaunch_or_quit">ہم معذرت خواہ ہیں کہ ویکی پیڈیا ایپ ایک خطا سے گزرکر مسدود ہوئی ہے۔ \n\nکیا آپ پھر سے شروع کرنا چاہیں گے یا ترک کریں گے؟</string>
   <string name="crash_report_relaunch">پھر سے شروع کریں</string>

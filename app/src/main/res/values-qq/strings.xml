@@ -353,11 +353,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
-  <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
-  <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
-  <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.\n{{Identical|Skip}}</string>
-  <string name="crash_report_dialog_always_send_button">In the dialog that pops up when the app crashes, text for button that prevents the pop up from being shown again and always sends a crash report.</string>
-  <string name="crash_report_dialog_send_button">In the dialog that pops up when the app crashes, text for button that sends a crash report once.\n{{Identical|Send}}</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>

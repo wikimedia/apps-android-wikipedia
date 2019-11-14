@@ -156,7 +156,6 @@
   <string name="format_error_server_message">Хәбәр: «%s»</string>
   <string name="enable_location_service">Кабызу</string>
   <string name="location_permissions_enable_action">Кабызу</string>
-  <string name="crash_report_dialog_send_button">Җибәрү</string>
   <string name="crash_report_quit">Чыгу</string>
   <string name="article_header_edit_hint">Үзгәртергә…</string>
   <string name="color_theme_select">Күренеш</string>

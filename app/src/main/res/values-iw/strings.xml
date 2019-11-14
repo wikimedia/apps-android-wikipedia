@@ -344,11 +344,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-  <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקודמת</string>
-  <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
-  <string name="crash_report_dialog_dont_send_button">לדלג</string>
-  <string name="crash_report_dialog_always_send_button">לשלוח תמיד</string>
-  <string name="crash_report_dialog_send_button">לשלוח</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
@@ -708,7 +704,29 @@
   <string name="suggested_edits_task_action_text_add">הוספה</string>
   <string name="suggested_edits_task_action_text_translate">תרגום</string>
   <string name="suggested_edits_image_captions">כיתוב התמונה</string>
-  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לויקיפדיה</string>
+  <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
+  <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
+  <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
+  <string name="suggested_edits_pageviews_label_text">צפיות בדף</string>
+  <string name="suggested_edits_quality_label_text">איכות עריכה</string>
+  <string name="suggested_edits_quality_perfect_text">מושלמת</string>
+  <string name="suggested_edits_quality_excellent_text">מעולה</string>
+  <string name="suggested_edits_quality_very_good_text">טובה מאוד</string>
+  <string name="suggested_edits_quality_good_text">טובה</string>
+  <string name="suggested_edits_quality_okay_text">בסדר</string>
+  <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
+  <string name="suggested_edits_quality_poor_text">ירודה</string>
+  <string name="suggested_edits_quality_bad_text">גרועה</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">תרומה</item>
+    <item quantity="other">תרומות</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">יום אחד</item>
+    <item quantity="two">יומיים</item>
+    <item quantity="other">%d ימים</item>
+  </plurals>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
@@ -749,6 +767,9 @@
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
   <string name="this_year">בשנה הזאת</string>
   <string name="back_to_top">חזרה למעלה</string>
+  <string name="on_this_day_dialog_next_month">החודש הבא</string>
+  <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
+  <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
   <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
     <item quantity="other">שנתיים %d</item>

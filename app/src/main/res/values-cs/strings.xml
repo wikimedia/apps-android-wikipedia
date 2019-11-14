@@ -347,11 +347,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ztmavení obrázků (v Tmavém a Černém motivu)</string>
   <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetří využití dat tím, že aplikace načte články pro offline čtení, místo načtení aktuální verze článku.</string>
-  <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla (přestala pracovat)</string>
-  <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o chybě do HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
-  <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
-  <string name="crash_report_dialog_always_send_button">Vždy posílat</string>
-  <string name="crash_report_dialog_send_button">Odeslat</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
   <string name="crash_report_relaunch">Otevřít znovu</string>

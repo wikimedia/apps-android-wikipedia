@@ -360,11 +360,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Görüntü karartma (Koyu tema için)</string>
   <string name="preference_title_prefer_offline_content">Çevrimdışı içeriği tercih et</string>
   <string name="preference_summary_prefer_offline_content">Her zaman bir maddenin son sürümünü yüklemek yerine çevrimdışı kullanılabilir maddeleri yükleyerek veri kullanımından tasarruf edin</string>
-  <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
-  <string name="crash_report_dialog_text">HockeyApp\'a (çökmeyi incelememizi ve sebep olan hatayı düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) bir hata raporu göndermek ister misiniz?</string>
-  <string name="crash_report_dialog_dont_send_button">Atla</string>
-  <string name="crash_report_dialog_always_send_button">Her zaman gönder</string>
-  <string name="crash_report_dialog_send_button">Gönder</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem temasını eşleştir</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>
