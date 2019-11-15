@@ -427,7 +427,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
-                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getTopMarginForContent()));
+                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
                 onPageLoadComplete();
             }
         });
