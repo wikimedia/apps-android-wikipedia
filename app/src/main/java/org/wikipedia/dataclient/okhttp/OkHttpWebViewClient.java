@@ -45,6 +45,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             return null;
         }
 
+        WebResourceResponse response;
         try {
             Response rsp = request(request);
             if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
@@ -52,17 +53,19 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 return super.shouldInterceptRequest(view, request);
             } else {
                 // noinspection ConstantConditions
-                return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
-                        rsp.body().contentType().charset(Charset.defaultCharset()).name(),
-                        rsp.code(),
-                        StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
-                        toMap(addResponseHeaders(rsp.headers())),
-                        getInputStream(rsp));
+                response =  new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
+                            rsp.body().contentType().charset(Charset.defaultCharset()).name(),
+                            rsp.code(),
+                            StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
+                            toMap(addResponseHeaders(rsp.headers())),
+                            getInputStream(rsp));
             }
         } catch (Exception e) {
+            // TODO: we can send actual error message by handling the exception message.
+            response = new WebResourceResponse(null, null, 404, "Unknown error", null, null);
             L.e(e);
         }
-        return null;
+        return response;
     }
 
     @Override

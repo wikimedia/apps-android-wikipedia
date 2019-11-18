@@ -430,6 +430,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
                 onPageLoadComplete();
             }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                onPageLoadError(new Throwable());
+            }
         });
     }
 
@@ -807,6 +812,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!errorState) {
             setupToC(model, pageFragmentLoadState.isFirstPage());
             editHandler.setPage(model.getPage());
+            webView.setVisibility(View.VISIBLE);
         }
 
         checkAndShowBookmarkOnboarding();
