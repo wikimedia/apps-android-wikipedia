@@ -155,7 +155,7 @@
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">क्र्याससम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
-  <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
   <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">यो लिङ्क प्रदर्शन गर्न सकिएन</string>

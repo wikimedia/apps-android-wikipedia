@@ -179,7 +179,7 @@
   <string name="preference_title_eventlogging_opt_in">Шаљи извештаје о употреби</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволите Викимедији да прикупља информације о томе како користите апликацију у циљу њеног побољшања</string>
   <string name="preference_title_auto_upload_crash_reports">Шаљи извештаје о отказивањима</string>
-  <string name="preference_summary_auto_upload_crash_reports">Дозволите апликацији да аутоматски шаље извештаје о отказивањима независној услузи HockeyApp како бисмо испитали ваш случај и исправили грешку брже и лакше.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Дозволите апликацији да аутоматски шаље извештаје о отказивањима независној услузи HockeyApp како бисмо испитали ваш случај и исправили грешку брже и лакше.</string>
   <string name="editing_error_spamblacklist">Откривени су линкови до блокираних домена (%s). Уклоните их па покушајте поново.</string>
   <string name="history_search_list_hint">Историја претраге</string>
   <string name="error_can_not_process_link">Није могуће приказати овај линк</string>

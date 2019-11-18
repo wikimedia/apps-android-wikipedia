@@ -169,7 +169,7 @@
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
   <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar forritið svo hægt sé að gera það betra</string>
   <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
-  <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Leyfa forritinu að senda tilkynningar um hrun til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
   <string name="history_search_list_hint">Leitarferill</string>
   <string name="error_can_not_process_link">Gat ekki birt þennan tengil</string>
