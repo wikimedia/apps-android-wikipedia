@@ -107,7 +107,7 @@
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
   <string name="preference_summary_eventlogging_opt_in">Leisti Vikimedijai rinkti informaciją apie programėlės naudojimą, taip ją tobulinant</string>
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
-  <string name="preference_summary_auto_upload_crash_reports">Leisti programėlei siųsti trikčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Leisti programėlei siųsti trikčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
   <string name="history_search_list_hint">Paieškos istorija</string>
   <string name="error_can_not_process_link">Neįmanoma parodyti šios nuorodos</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>

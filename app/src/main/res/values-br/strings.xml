@@ -166,7 +166,7 @@
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
   <string name="preference_title_auto_upload_crash_reports">Kas danevelloù implij</string>
-  <string name="preference_summary_auto_upload_crash_reports">Reiñ tro d\'an arload da gas danevelloù implij da HockeyApp - ur pourchaser servijoù tredeour - en un doare emgefreek, abalamour ma c\'hallimp kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Reiñ tro d\'an arload da gas danevelloù implij da HockeyApp - ur pourchaser servijoù tredeour - en un doare emgefreek, abalamour ma c\'hallimp kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
   <string name="history_search_list_hint">Klask er roll-istor</string>
   <string name="error_can_not_process_link">N\'eus ket bet gallet diskwel al liamm-mañ</string>
