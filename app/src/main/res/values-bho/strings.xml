@@ -169,7 +169,7 @@
   <string name="preference_title_eventlogging_opt_in">इस्तेमाल के रपट भेजीं</string>
   <string name="preference_summary_eventlogging_opt_in">आप एह एप के कइसे इस्तेमाल करीं ले एकरे बारे में जानकारी एकट्ठा करे खातिर विकिमीडिया के अनुमती देईं जवना से एप के अउरी बेहतर बनावल जा सके</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रपट भेजीं</string>
-  <string name="preference_summary_auto_upload_crash_reports">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
   <string name="editing_error_spamblacklist">ब्लॉक डोमेन (%s) से जुड़ल कड़ी मिलल बा। इनहन के हटाईं आ दोबारा कोसिस करीं।</string>
   <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">ई कड़ी ना देखावल जा सकल</string>

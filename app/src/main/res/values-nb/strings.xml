@@ -176,7 +176,7 @@
   <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om krasj</string>
-  <string name="preference_summary_auto_upload_crash_reports">Tillat at appen automatisk sender krasjrapporter til tredjepartstjenesten HockeyApp, slik at vi kan gjennomgå disse og fikse feil raskere.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Tillat at appen automatisk sender krasjrapporter til tredjepartstjenesten HockeyApp, slik at vi kan gjennomgå disse og fikse feil raskere.</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
   <string name="history_search_list_hint">Søkehistorikk</string>
   <string name="error_can_not_process_link">Kunne ikke vise denne lenken</string>

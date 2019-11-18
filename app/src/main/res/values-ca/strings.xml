@@ -185,7 +185,7 @@
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permet que l’aplicació enviï informes de fallades de forma automàtica a HockeyApp —un proveïdor de serveis extern—, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permet que l’aplicació enviï informes de fallades de forma automàtica a HockeyApp —un proveïdor de serveis extern—, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis blocats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
   <string name="history_search_list_hint">Cerca a l\'historial</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>

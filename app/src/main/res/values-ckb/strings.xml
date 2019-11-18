@@ -143,7 +143,7 @@
   <string name="preference_title_eventlogging_opt_in">ناردنی ڕاپۆرتەکانی بەکارھێنان</string>
   <string name="preference_summary_eventlogging_opt_in">ڕێگە بە بە ویکیمیدیا بدە بۆ کۆکردنەوەی زانیاری لەبارەی چۆنیەتی بەکارھێنانی ئاپەکە لەلایەن تۆوە، بە مەبەستی باشترکردنی ئاپەکە</string>
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
-  <string name="preference_summary_auto_upload_crash_reports">ڕێگە بە ئاپەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ لایەنێژی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی ئاپەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ڕێگە بە ئاپەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ لایەنێژی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی ئاپەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
   <string name="history_search_list_hint">گەڕان لە مێژوو</string>
   <string name="error_can_not_process_link">ناتوانرێت ئەم بەسترە نیشان بدرێت</string>

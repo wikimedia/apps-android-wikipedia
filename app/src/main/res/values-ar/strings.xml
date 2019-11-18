@@ -194,7 +194,7 @@
   <string name="preference_title_eventlogging_opt_in">إرسال تقارير الاستخدام</string>
   <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>
   <string name="preference_title_auto_upload_crash_reports">إرسال تقارير الأعطال</string>
-  <string name="preference_summary_auto_upload_crash_reports">إسمح للتطبيق بإرسال تقارير الأعطال تلقائيا إلى HockeyApp / مزود خدمة من طرف ثالث،  حتى نتمكن من مراجعة العطل الخاص بك وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
+  <string name="preference_summary_auto_upload_crash_reports">اسمح للتطبيق بإرسال تقارير الأعطال إلى مزود خدمة تابع لجهة خارجية تلقائيا حتى نتمكن من مراجعة الأعطال وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
   <string name="editing_error_spamblacklist">تم اكتشاف وصلات لنطاقات ممنوعة (%s). الرجاء إزالة هذه النطاقات والمحاولة مرة أخرى.</string>
   <string name="history_search_list_hint">البحث في التاريخ</string>
   <string name="error_can_not_process_link">تعذّر عرض هذا الرابط</string>
@@ -725,7 +725,7 @@
   <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك، التعديلات التي تم إرجاعها:%d.</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\n  تعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\n  تعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_ip_blocked_message">تم منع عنوان الآيبي الذي تستخدمه من تحرير ويكيبيديا، تعرف على المزيد حول عمليات المنع عن طريق زيارة الرابط أدناه.</string>
+  <string name="suggested_edits_ip_blocked_message">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
