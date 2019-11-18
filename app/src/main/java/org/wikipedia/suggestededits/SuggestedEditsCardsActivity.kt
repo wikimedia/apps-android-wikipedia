@@ -5,16 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AlertDialog
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.DialogTitleWithImage
 
 class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
 
@@ -31,6 +28,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
+        ResourceUtil.setMenuItemTint(this, menu.findItem(R.id.menu_help), R.attr.colorAccent)
         return true
     }
 
@@ -38,10 +36,6 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         return when (item.itemId) {
             R.id.menu_help -> {
                 FeedbackUtil.showAndroidAppEditingFAQ(baseContext)
-                true
-            }
-            R.id.menu_my_contributions -> {
-                startActivity(SuggestedEditsContributionsActivity.newIntent(this))
                 true
             }
             else -> super.onOptionsItemSelected(item)

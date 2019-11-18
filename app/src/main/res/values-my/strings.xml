@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Dbrant
 * Dr Lotus Black
+* July Amyutay
 * Khunnaingko
 * Lionslayer
 * NayiMuu
@@ -106,6 +107,7 @@
   <string name="login_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_password_hint">စကားဝှက်</string>
   <string name="account_creation_password_hint">စကားဝှက်</string>
+  <string name="login_2fa_hint">၂ ဆင့်အတည်ပြု လျှို့ဝှက်နံပါတ်</string>
   <string name="onboarding_card_login">အကောင့်ဝင်ရန်</string>
   <string name="page_editing_login">အကောင့်ဝင်ရန်</string>
   <string name="reading_lists_sync_login">အကောင့်ဝင်ရန်</string>
@@ -329,11 +331,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ပုံရိပ် မှေးမှိန်ခြင်း (အမှောင်သွင်ပြင်ထဲတွင်)</string>
   <string name="preference_title_prefer_offline_content">အော့ဖ်လိုင်း အကြောင်းအရာကို ပိုမိုလိုလားသည်</string>
   <string name="preference_summary_prefer_offline_content">ဆောင်းပါးတစ်ခု၏ နောက်ဆုံးဗားရှင်းထက် အော့ဖ်လိုင်းရရှိနိုင်မှုကို ခေါ်ယူသုံးစွဲခြင်းဖြင့် ဒေတာချွေတာရန်</string>
-  <string name="crash_report_dialog_title">စိတ်မကောင်းပါ။ နောက်ဆုံးအကြိမ်က app သည် crash ဖြစ်ခဲ့သည်။</string>
-  <string name="crash_report_dialog_text">တတိယ ဝန်ဆောင်မှုလုပ်ငန်းဖြစ်သော HockeyApp သို့ app မှ ပျက်မှု အစီရင်ခံချက်အား ပေးပို့လိုပါသလား? ထိုသို့ပြုလုပ်ခြင်းဖြင့် ဝီကီမီဒီယာမှ သင့်အစီရင်ခံချက်အား ကြည့်ရှုကာ ပြင်ဆင်ပေးနိုင်ပါလိမ့်မည်။</string>
-  <string name="crash_report_dialog_dont_send_button">ကျော်ရန်</string>
-  <string name="crash_report_dialog_always_send_button">အမြဲတမ်းပို့ရန်</string>
-  <string name="crash_report_dialog_send_button">ပို့</string>
   <string name="crash_report_activity_title">အပလီကေးရှင်း အမှား</string>
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>
@@ -589,9 +586,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="feed_accessibility_card_load_more_button">ပိုမိုခေါ်ယူရန်</string>
   <string name="description_edit_text_hint">ဆောင်းပါးဖော်ပြချက်</string>
-  <string name="description_edit_article_description_label_per_language">ဆောင်းပါး (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ဆောင်းပါး (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ဆောင်းပါး ဖော်ပြချက် (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ရုပ်ပုံ ဖော်ပြချက် (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ရုပ်ပုံ ပုံစာများ (%s)</string>
   <string name="description_edit_save">လွှင့်တင်ရန်</string>
   <string name="description_edit_read">ဖတ်ရန်</string>
@@ -641,8 +637,6 @@
   <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_task_add_description_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
-  <string name="suggested_edits_task_translation_title">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
-  <string name="suggested_edits_task_translation_description">ဆောင်းပါးဘာသာစကားများအနှံ့ ဖော်ပြချက်များကို ဘာသာပြန်ဆိုပါ</string>
   <string name="suggested_edits_task_image_caption_title">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_image_caption_description">ရုပ်ပုံများသို့ လိုအပ်နေသောပုံစာများ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_task_translate_caption_title">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
@@ -661,6 +655,7 @@
     <item quantity="other">%d ပံ့ပိုးမှုများ</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ရုပ်ပုံဖော်ပြချက် (%s)</string>
@@ -671,8 +666,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">အချက်အလက် ပို၍</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ဝီကီပီးဒီးယား ကွန်မွန်းစ်ရှိ ဖိုင်စာမျက်နှာ</string>
   <string name="suggested_edits_article_cta_snackbar_action">ကြည့်ရန်</string>
-  <string name="suggested_edits_feed_card_add_image_caption">ပုံစာ ပေါင်းထည့်ရန်</string>
-  <string name="suggested_edits_feed_card_add_description_button">ဆောင်းပါးဖော်ပြချက် ထည့်ပေါင်းရန်</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="suggested_edits_snackbar_survey_action_text">စစ်တမ်း လုပ်ရန်</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>

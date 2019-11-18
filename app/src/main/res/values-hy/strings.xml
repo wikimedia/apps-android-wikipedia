@@ -147,10 +147,7 @@
   <string name="close_all_tabs_confirm_yes">Այո</string>
   <string name="close_all_tabs_confirm_no">Ոչ</string>
   <string name="nav_item_donate">Օգնե՜նք Վիքիպեդիային</string>
-  <string name="crash_report_dialog_dont_send_button">Բաց թողնել</string>
-  <string name="crash_report_dialog_always_send_button">Միշտ ուղարկել</string>
-  <string name="crash_report_dialog_send_button">Ուղարկել</string>
-  <string name="crash_report_quit">Ելք</string>
+    <string name="crash_report_quit">Ելք</string>
   <string name="article_header_edit_hint">Խմբագրել...</string>
   <string name="color_theme_dark">Մուք</string>
   <string name="color_theme_black">Սև</string>

@@ -57,8 +57,6 @@ public class LangLinksActivity extends BaseActivity {
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
 
-    private static final String GOTHIC_LANGUAGE_CODE = "got";
-
     private List<PageTitle> languageEntries;
     private PageTitle title;
 
@@ -251,10 +249,7 @@ public class LangLinksActivity extends BaseActivity {
             PageTitle link = it.next();
             String languageCode = link.getWikiSite().languageCode();
 
-            if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
-                // Remove Gothic since it causes Android to segfault.
-                it.remove();
-            } else if ("be-x-old".equals(languageCode)) {
+            if ("be-x-old".equals(languageCode)) {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
                 it.remove();

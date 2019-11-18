@@ -200,11 +200,8 @@
   <string name="button_continue_to_disambiguation">Pelanê tay pêya bımocne</string>
   <string name="enable_location_service">Aktif ke</string>
   <string name="multi_select_items_selected">%d weçineyê</string>
-  <string name="error_message_generic">Yew xeta bı</string>
+  <string name="error_message_generic">Yew xeta biye</string>
   <string name="view_link_preview_error_button_dismiss">Red ke</string>
-  <string name="crash_report_dialog_dont_send_button">Ravêre</string>
-  <string name="crash_report_dialog_always_send_button">Tım bırış</string>
-  <string name="crash_report_dialog_send_button">Bırış</string>
   <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
   <string name="article_header_edit_hint">Bıvurne...</string>
@@ -264,6 +261,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="description_edit_text_hint" fuzzy="true">Şınasnayış sernamey</string>
+  <string name="description_edit_article_description_label">Meqale</string>
   <string name="description_edit_save">Bıweşane</string>
   <string name="description_edit_read">Bıwane</string>
   <string name="description_edit_add_description" fuzzy="true">Şınasnayışê sernamey cı kerê</string>
@@ -280,6 +278,15 @@
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
   <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
+  <string name="suggested_edits_task_action_text_add">Cı ke</string>
+  <string name="suggested_edits_task_action_text_translate">Açarne</string>
+  <string name="suggested_edits_quality_good_text">Rınd</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d roce</item>
+    <item quantity="other">%d roci</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Vurnayışo peyên</string>
+  <string name="suggested_edits_last_edited_never">Qet</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="onboarding_skip">Ravêre</string>
   <string name="onboarding_continue">Dewam ke</string>
@@ -288,6 +295,8 @@
   <string name="onboarding_welcome_title_v2">Ensiklopediya xosere\n… 300 ra zêde zıwanan de</string>
   <string name="app_shortcuts_random">Raştameye</string>
   <string name="app_shortcuts_search">Cı geyre</string>
+  <string name="on_this_day_dialog_next_month">Aşma bahdoyêne</string>
+  <string name="on_this_day_dialog_previous_month">Aşma verêne</string>
   <string name="remove_language_dialog_cancel_button_text">Bıtexelne</string>
   <string name="remove_language_dialog_ok_button_text">TEMAM</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">TEMAM</string>

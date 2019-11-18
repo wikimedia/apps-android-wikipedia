@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Eleassar
 * Franga2000
 * HairyFotr
@@ -200,8 +201,6 @@
   <string name="view_link_preview_error_button_dismiss">Skrij</string>
   <string name="error_page_does_not_exist">Ta stran ne obstaja</string>
   <string name="reference_title">Sklic %s</string>
-  <string name="crash_report_dialog_dont_send_button">Preskoči</string>
-  <string name="crash_report_dialog_send_button">Pošlji</string>
   <string name="crash_report_quit">Izhod</string>
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="color_theme_select">Tema</string>
@@ -284,7 +283,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Prekliči</string>
   <string name="feed_accessibility_card_load_more_button">Naloži več</string>
   <string name="description_edit_text_hint">Opis članka</string>
-  <string name="description_edit_article_description_label_per_language">Članek (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Članek (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Preberi</string>

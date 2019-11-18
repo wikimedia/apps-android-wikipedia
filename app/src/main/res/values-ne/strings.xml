@@ -107,7 +107,7 @@
   <string name="reset_password_hint">नयाँ पासवर्ड</string>
   <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र लग इन गर्नुहोस्</string>
   <string name="preference_title_logout">निर्गमन</string>
-  <string name="toast_logout_complete">लग आउट गरियो</string>
+  <string name="toast_logout_complete">निर्गमन गरियो</string>
   <string name="logout_dialog_cancel_button_text">रद्द</string>
   <string name="logged_out_in_background_title">निर्गमन भयो।</string>
   <string name="logged_out_in_background_login">प्रवेग</string>
@@ -274,11 +274,6 @@
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
   <string name="reference_title">सन्दर्भ %s</string>
-  <string name="crash_report_dialog_title">माफ गर्नुहोस्, अनुप्रयोग पछिल्लो पटक क्र्यास भयो</string>
-  <string name="crash_report_dialog_text">तपाईं विकिमिडियालाई आफ्नो क्र्यासको समीक्षा गर्ने तथा सो क्र्यास गराउने समस्याको समाधान गर्न सक्षम बनाउने प्रयोजनका लागि उक्त क्र्यासको प्रतिवेदन HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलार्इ पठाउन चाहनुहुन्छ?</string>
-  <string name="crash_report_dialog_dont_send_button">छोड्नुहोस्</string>
-  <string name="crash_report_dialog_always_send_button">सधैँ पठाउनुहोस्</string>
-  <string name="crash_report_dialog_send_button">पठाउनुहोस्</string>
   <string name="crash_report_activity_title">अनुप्रयोगसम्बन्धी त्रुटि</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
@@ -404,7 +399,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
   <string name="suggested_edits_add_descriptions" fuzzy="true">शिर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>

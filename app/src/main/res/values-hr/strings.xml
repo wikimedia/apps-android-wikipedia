@@ -302,11 +302,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjivanje slika (u tamnoj temi)</string>
   <string name="preference_title_prefer_offline_content">Preferiraj izvanmrežni sadržaj</string>
   <string name="preference_summary_prefer_offline_content">Uštedite mobilne podatke tako da se učitava dostupan izvanmrežni sadržaj umjesto učitavanja najnovije inačice članka</string>
-  <string name="crash_report_dialog_title">Žao nam je, aplikacija se zadnji put srušila</string>
-  <string name="crash_report_dialog_text">Želite li poslati izvješće o pogrešci u HockeyApp / usluzi treće strane, kako bi Wikimedija mogla dobiti informacije o pogrešci i ispraviti ju?</string>
-  <string name="crash_report_dialog_dont_send_button">Preskoči</string>
-  <string name="crash_report_dialog_always_send_button">Uvijek šalji</string>
-  <string name="crash_report_dialog_send_button">Pošalji</string>
   <string name="crash_report_activity_title">Pogreška aplikacije</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.\n\nŽalite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
@@ -485,9 +480,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Odustani</string>
   <string name="feed_accessibility_card_load_more_button">Učitaj više</string>
   <string name="description_edit_text_hint">Opis članka</string>
-  <string name="description_edit_article_description_label_per_language">Članak (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Članak (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Opis slike (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Natpis slike (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Čitaj</string>
@@ -534,6 +528,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencija</string>
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
@@ -543,11 +538,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj opis slike (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodaj opis slike</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj opis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Dodaj opis</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Dodaj opis (%s)</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>
   <string name="size_gb">%.2f GB</string>

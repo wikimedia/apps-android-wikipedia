@@ -33,7 +33,7 @@
             android:key="@string/preference_key_restbase_uri_format"
             android:title="@string/preference_key_restbase_uri_format"
             android:dialogMessage="Prod: %1$s://%2$s/api/rest_v1/
-            \nLabs: http://appservice.wmflabs.org/%2$s/v1/
+            \nLabs: https://mobileapps.wmflabs.org/%2$s/v1/
             \nDev: http://host:6927/%2$s/v1/
             \n%1$s &#10139; protocol (https if omitted)
             \n%2$s &#10139; WP host" />
@@ -66,12 +66,6 @@
             style="@style/IntPreference"
             android:key="@string/preference_key_session_timeout"
             android:title="@string/preferences_developer_session_timeout_title" />
-
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/EditTextAutoSummarizePreference"
-            android:key="@string/preference_key_remote_log"
-            android:title="@string/preferences_developer_remote_log_title"
-            android:dialogMessage="@string/preferences_developer_remote_log_summary" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
@@ -265,12 +259,41 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
         <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_suggested_edits_survey"
+            android:title="@string/preference_key_show_suggested_edits_survey" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_suggested_edits_tooltip"
+            android:title="@string/preference_key_show_suggested_edits_tooltip" />
+
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_show_edit_tasks_onboarding"
             android:title="@string/preference_key_show_edit_tasks_onboarding" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_suggested_edits_pause_date"
+            android:title="@string/preference_key_suggested_edits_pause_date" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_pause_reverts"
+            android:title="@string/preference_key_suggested_edits_pause_reverts" />
+
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_suggested_edits_multilingual_teaser_task"
-            android:title="@string/preference_key_show_suggested_edits_multilingual_teaser_task" />
+            android:key="@string/preference_key_suggested_edits_override_counts"
+            android:title="@string/preference_key_suggested_edits_override_counts"
+            android:summary="Use the following two fields to override suggested edit counts:"/>
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_override_edits"
+            android:title="@string/preference_key_suggested_edits_override_edits" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_override_reverts"
+            android:title="@string/preference_key_suggested_edits_override_reverts" />
 
     </PreferenceCategory>
 

@@ -293,6 +293,7 @@
   <string name="gallery_save_success">Plik pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
+  <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
@@ -356,11 +357,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
   <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
-  <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
-  <string name="crash_report_dialog_text">Czy chcesz wysłać raport awarii do HockeyApp / dostawcy zewnętrznej usługi, aby Wikimedia mogła sprawdzić awarię i naprawić problem, który ją spowodował?</string>
-  <string name="crash_report_dialog_dont_send_button">Pomiń</string>
-  <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
-  <string name="crash_report_dialog_send_button">Wyślij</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
@@ -620,9 +616,12 @@
   <string name="feed_accessibility_card_text">Dotarłeś do dolnej części kanału.</string>
   <string name="feed_accessibility_card_load_more_button">Załaduj więcej</string>
   <string name="description_edit_text_hint">Opis artykułu</string>
-  <string name="description_edit_article_description_label_per_language">Artykuł (%s)</string>
+  <string name="description_edit_article_description_label">Artykuł</string>
+  <string name="description_edit_translate_article_description_label_per_language">Opis artykułu (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis artykułu (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Opis obrazu (%s)</string>
+  <string name="description_edit_add_caption_label">Opis obrazu</string>
+  <string name="description_edit_add_caption_hint">Podpis obrazu</string>
+  <string name="description_edit_translate_caption_label_per_language">Podpisy obrazka (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Podpisy obrazka (%s)</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_read">Czytaj</string>
@@ -675,8 +674,6 @@
   <string name="suggested_edits_tasks_activity_title">Sugerowane edycje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
   <string name="suggested_edits_task_add_description_description">Wkład w artykuły bez opisów</string>
-  <string name="suggested_edits_task_translation_title">Przetłumacz opisy artykułów</string>
-  <string name="suggested_edits_task_translation_description">Przetłumacz opisy na języki artykułów.</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj podpisy obrazu</string>
   <string name="suggested_edits_task_image_caption_description">Dodaj brakujące krótkie podpisy do grafik</string>
   <string name="suggested_edits_task_translate_caption_title">Przetłumacz podpisy do obrazu</string>
@@ -697,6 +694,7 @@
     <item quantity="other">%d wkładów</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Sugerowane edycje</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
   <string name="suggested_edits_tutorial_message">Witamy w nowym domu do szybkiej edycji w aplikacji Wikipedia. Twój wkład jest bardzo mile widziany. Miłej edycji!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
@@ -708,13 +706,20 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Więcej informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj podpis obrazu (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodaj podpis obrazu</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj podpis obrazu (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis obrazu</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis obrazu (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Jak oceniasz swoje doświadczenie związane z edytowaniem? Poświęć chwilę aby wypełnić tę ankietę na temat edytowania w aplikacji.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Wypełnij ankietę</string>
+  <string name="suggested_edits_task_action_text_add">Dodaj</string>
+  <string name="suggested_edits_task_action_text_translate">Tłumacz</string>
+  <string name="suggested_edits_encouragement_message">%s, dziękujemy za twoje edycje. Poniżej możesz znaleźć więcej sposobów aby rozwijać Wikipedię.</string>
+  <string name="suggested_edits_image_captions_task_detail">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
+  <string name="suggested_edits_ip_blocked_message">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>
@@ -753,6 +758,9 @@
   <string name="events_count_text">%1$s zdarzeń z %2$s–%3$d</string>
   <string name="this_year">W tym roku</string>
   <string name="back_to_top">Powrót do góry</string>
+  <string name="on_this_day_dialog_next_month">Następny miesiąc</string>
+  <string name="on_this_day_dialog_previous_month">Poprzedni miesiąc</string>
+  <string name="on_this_day_open_date_picker">Wybierz datę</string>
   <plurals name="diff_years">
     <item quantity="one">w zeszłym roku</item>
     <item quantity="other">%d lat temu</item>
@@ -800,6 +808,7 @@
   <string name="main_drawer_content_description">Otwórz główną szufladę nawigacji</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
+  <string name="main_tooltip_action_button">Rozpocznij</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anuluj</string>

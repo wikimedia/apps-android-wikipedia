@@ -313,10 +313,6 @@
   <string name="reference_title">Παραπομπή %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Αμυδρότητα εικόνων (στο Σκοτεινό θέμα)</string>
   <string name="preference_title_prefer_offline_content">Προτίμηση περιεχόμενου εκτός σύνδεσης</string>
-  <string name="crash_report_dialog_title">Λυπούμαστε, η εφαρμογή κράσαρε την τελευταία φορά</string>
-  <string name="crash_report_dialog_dont_send_button">Παράβλεψη</string>
-  <string name="crash_report_dialog_always_send_button">Αποστολή πάντα</string>
-  <string name="crash_report_dialog_send_button">Αποστολή</string>
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
@@ -423,7 +419,7 @@
     <item quantity="one">Αυτό το λήμμα δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα δεν θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Τελευταίος συγχρονισμός</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Τελευταίος συγχρονισμός</string>
   <string name="reading_list_menu_last_sync">Τελευταίος συγχρονισμός: %s</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Patriccck
 -->
 <resources>
@@ -325,11 +326,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjenje slika (u tamnoj temi)</string>
   <string name="preference_title_prefer_offline_content">Prioritet ima oflajn-sadržaj</string>
   <string name="preference_summary_prefer_offline_content">Uštedite na saobraćaju prikazivanjem oflajn-verzije članka umesto stalnog preuzimanja najnovije verzije.</string>
-  <string name="crash_report_dialog_title">Aplikacija je otkazala prošli put</string>
-  <string name="crash_report_dialog_text">Želite li da pošaljete izveštaj o otkazivanju nezavisnoj usluzi HockeyApp kako bi Vikimedija ispitala vaš slučaj i ispravila grešku?</string>
-  <string name="crash_report_dialog_dont_send_button">Preskoči</string>
-  <string name="crash_report_dialog_always_send_button">Uvek šalji</string>
-  <string name="crash_report_dialog_send_button">Pošalji</string>
   <string name="crash_report_activity_title">Greška u aplikaciji</string>
   <string name="crash_report_relaunch_or_quit">Aplikacija Vikipedija je naišla na grešku i obustavljena je.\n\nŽelite li ponovo da je pokrenete ili da izađete?</string>
   <string name="crash_report_relaunch">Pokreni ponovo</string>
@@ -589,9 +585,8 @@
   <string name="feed_accessibility_card_text">Došli ste do kraja zida.</string>
   <string name="feed_accessibility_card_load_more_button">Učitaj još</string>
   <string name="description_edit_text_hint">Opis članka</string>
-  <string name="description_edit_article_description_label_per_language">Članak (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Članak (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Opis slike (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Opis slike (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Čitaj</string>
@@ -642,8 +637,6 @@
   <string name="suggested_edits_tasks_activity_title">Predložene izmene</string>
   <string name="suggested_edits_task_add_description_title">Dodavanje opisa članaka</string>
   <string name="suggested_edits_task_add_description_description">Doprinosi člancima bez opisa</string>
-  <string name="suggested_edits_task_translation_title">Prevedite opise članaka</string>
-  <string name="suggested_edits_task_translation_description">Prevedite opise po jezicima članaka.</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj natpise slika</string>
   <string name="suggested_edits_task_translate_caption_title">Prevođenje natpisa slika</string>
   <string name="suggested_edits_task_translate_caption_description">Prevedite natpise na druge jezike</string>
@@ -661,6 +654,7 @@
     <item quantity="other">%d doprinosa</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Predložene izmene</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Počnimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
@@ -671,11 +665,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica slike na Vikimedijinoj ostavi</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj natpis slike (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodaj natpis slike</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj natpis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodaj natpis</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj natpis slike (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Dodaj natpis</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Dodaj natpis slike (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Kakvo je vaše iskustvo u uređivanju? Molimo Vas da izdvojite momenat da popunite anketu o uređivanju putem aplikacije.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Popuni anketu</string>
   <string name="description_edit_revert_subtitle">Hvala vam što uređujete Vikipediju.</string>

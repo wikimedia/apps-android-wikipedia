@@ -338,11 +338,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затамњење слика (у тамној теми)</string>
   <string name="preference_title_prefer_offline_content">Приоритет има офлајн-садржај</string>
   <string name="preference_summary_prefer_offline_content">Уштедите на саобраћају приказивањем офлајн-верзије чланка уместо сталног преузимања најновије верзије.</string>
-  <string name="crash_report_dialog_title">Апликација је отказала прошли пут</string>
-  <string name="crash_report_dialog_text">Желите ли да пошаљете извештај о отказивању независној услузи HockeyApp како би Викимедија испитала ваш случај и исправила грешку?</string>
-  <string name="crash_report_dialog_dont_send_button">Прескочи</string>
-  <string name="crash_report_dialog_always_send_button">Увек шаљи</string>
-  <string name="crash_report_dialog_send_button">Пошаљи</string>
   <string name="crash_report_activity_title">Грешка у апликацији</string>
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>
   <string name="crash_report_relaunch">Покрени поново</string>
@@ -602,9 +597,8 @@
   <string name="feed_accessibility_card_text">Дошли сте до краја фида.</string>
   <string name="feed_accessibility_card_load_more_button">Учитај још</string>
   <string name="description_edit_text_hint">Опис чланка</string>
-  <string name="description_edit_article_description_label_per_language">Чланак (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Чланак (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Опис чланка (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Опис слике (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Опис слике (%s)</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_read">Читај</string>
@@ -655,8 +649,6 @@
   <string name="suggested_edits_tasks_activity_title">Предложене измене</string>
   <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
   <string name="suggested_edits_task_add_description_description">Доприноси чланцима без описа</string>
-  <string name="suggested_edits_task_translation_title">Преведите описе чланака</string>
-  <string name="suggested_edits_task_translation_description">Преведите описе по језицима чланака.</string>
   <string name="suggested_edits_task_image_caption_title">Додај натписе слика</string>
   <string name="suggested_edits_task_translate_caption_title">Превођење натписа слика</string>
   <string name="suggested_edits_task_translate_caption_description">Преведите натписе на друге језике</string>
@@ -674,6 +666,7 @@
     <item quantity="other">%d доприноса</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Предложене измене</string>
+  <string name="suggested_edits_feed_card_add_description_button">Додај опис чланка</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис чланка (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
@@ -684,11 +677,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Више информација</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница слике на Викимедијиној остави</string>
-  <string name="suggested_edits_article_cta_image_caption">Додај натпис слике (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Додај натпис слике</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Додај натпис слике (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Прикажи</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Додај натпис</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Додај натпис (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Додај опис чланка</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Додај натпис</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Додај натпис (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Какво је ваше искуство у уређивању? Издвојите тренутак да бисте попуните анкету о уређивању путем апликације.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Попуни анкету</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>

@@ -275,7 +275,6 @@
   <string name="error_page_does_not_exist">Ica pagino ne existas</string>
   <string name="view_wiki_error_message_offline">Ne povas konektar a la interreto</string>
   <string name="reference_title">Refero %s</string>
-  <string name="crash_report_dialog_send_button">Sendar</string>
   <string name="crash_report_relaunch">Rikomencar</string>
   <string name="crash_report_quit">Ekirar</string>
   <string name="article_menu_bar_bookmark">Adjuntez ica artiklo a lektebla listo</string>
@@ -344,6 +343,7 @@
   <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
+  <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
@@ -352,9 +352,8 @@
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Plusa informi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagino dil arkivo che Wikimedia Commons</string>
   <string name="suggested_edits_article_cta_snackbar_action">Videz</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Adjuntez expliko</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Adjuntez expliko (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Adjuntez expliko</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Adjuntez expliko (%s)</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
   <string name="this_year">Cayare</string>

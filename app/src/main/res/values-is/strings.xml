@@ -325,11 +325,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Dekking mynda (í dökku þema)</string>
   <string name="preference_title_prefer_offline_content">Kjósa helst efni án nettengingar</string>
   <string name="preference_summary_prefer_offline_content">Sparaðu gagnamagn með því að hlaða inn greinum sem tiltækar eru án nettengingar fremur en að hlaða alltaf inn nýjustu útgáfu greina</string>
-  <string name="crash_report_dialog_title">Því miður, appið hrundi síðast</string>
-  <string name="crash_report_dialog_text">Viltu senda tilkynningu um hrunið til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis?</string>
-  <string name="crash_report_dialog_dont_send_button">Sleppa</string>
-  <string name="crash_report_dialog_always_send_button">Alltaf senda</string>
-  <string name="crash_report_dialog_send_button">Senda</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
@@ -628,8 +623,6 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Verkefni fyrir ritstýringu</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Bæta við lýsingum</string>
   <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Þýða lýsingar</string>
-  <string name="suggested_edits_task_translation_description">Þýða lýsingar yfir á önnur tungumál.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Setja myndatexta</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Bæta texta við myndir</string>
   <string name="suggested_edits_task_translate_caption_title">Þýða myndatexta</string>

@@ -323,11 +323,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ယွၼ်ႇလႅင်းၶႅပ်းႁၢင်ႈ (တီႈၼႂ်းယူင်ႉႁၢင်ႈလပ်းသိင်ႇ)</string>
   <string name="preference_title_prefer_offline_content">တိူဝ်းပၼ်ႁႅင်း လမ်းၼႂ်းဢွပ်ႉၾ်လၢႆး</string>
   <string name="preference_summary_prefer_offline_content">ပေႃးၸႂ်ႉ ဢွပ်ႉၾ်လၢႆး ဢၼ်ၸၢင်ႈၸႂ့်လႆႈၼၼ်ႉ မၼ်းတေတိူဝ်းယွၼ်ႇလႆႈ လွင်ႈၸႂ်ႉတိုဝ်း တေႇတႃႇ လိူဝ်သေ ပိုတ်ႇဝႃးသျိၼ်းပွင်ႈၵႂၢမ်း ဢၼ်ဢွၵ်ႇလိုၼ်းလင်သုတ်းၼၼ်ႉ</string>
-  <string name="crash_report_dialog_title">ၵဵင်ၸႂ်ယူႇ၊ မိူဝ်ႈပွၵ်ႈလိုၼ်းသုတ်းၼၼ်ႉ ဢႅပ်ႉလႆႈ လႆႈၵွႆဝႆႉ</string>
-  <string name="crash_report_dialog_text">ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၶႂ်ႈသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈလူႉလႅဝ်ၸူး ဢႅပ်ႉႁွၵ်ႉၶီ/ ၽူႈၵမ်ႉထႅမ် ထီႉသၢမ် တႃႇႁႂ်ႈ ဝီႇၶီႇမီႇတီႇယႃႇ ၸၢင်ႈၶိုၼ်းတူၺ်း လွင်ႈလူႉလႅဝ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးပၼ် လွင်ႈယူပ်ႈယွမ်း ဢၼ်ပဵၼ်ၵႂႃႇၼၼ်ႉႁိုဝ်?</string>
-  <string name="crash_report_dialog_dont_send_button">ၶၢမ်ႈ</string>
-  <string name="crash_report_dialog_always_send_button">သူင်ႇတႃႇသေႇ</string>
-  <string name="crash_report_dialog_send_button">သူင်ႇ</string>
   <string name="crash_report_activity_title">လွင်ႈၽိတ်းပိူင်ႈ ဢႅပ်ႉၽရီႇၶေးသျိၼ်း</string>
   <string name="crash_report_relaunch_or_quit">ႁဝ်းၶႃႈ ၵဵင်ၸႂ်ယူႇ၊ ဢႅပ်ႉဝီႇၶီႇမီႇတီႇယႃႇ လႆႈမီး လွင်ႈၽိတ်းပိူင်ႈလႄႈ ထုၵ်ႇၵိုတ်းၵႂႃႇ ၸိူင်ႉၼႆႉ။\nၸဝ်ႈၵဝ်ႇတေၶႂ်ႈတႄႇၶိုၼ်းၼႄႇ ဢမ်ႇၼၼ် တေဢိုတ်းပႅတ်ႈ?</string>
   <string name="crash_report_relaunch">တႄႇၶိုၼ်း</string>
@@ -542,7 +537,7 @@
   <string name="most_read_list_card_title">သၢႆတၢင်း</string>
   <string name="view_static_card_icon_content_description">ႁၢင်ႈႁိင်ႈ ၶႅပ်း</string>
   <string name="view_card_news_title">တီႈၼႂ်းၶၢဝ်ႇ</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="other">%d ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">မိူဝ်ႈၼႆႉ</string>
@@ -626,8 +621,6 @@
   <string name="suggested_edits_tasks_activity_title">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="suggested_edits_task_add_description_title">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_task_add_description_description">ဢမ်ႇပႃးၶေႃႈသပ်းလႅင်းသေ ၶဝ်ႈႁူမ်ႈတင်း ပွင်ႈၵႂၢမ်း</string>
-  <string name="suggested_edits_task_translation_title">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း</string>
-  <string name="suggested_edits_task_translation_description">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း တီႈ ၽႃႇသႃႇပွင်ႈၵႂၢမ်း လၢႆဢၼ်</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">သႂ်ႇႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၸူး ၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_task_translate_caption_title">ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>

@@ -311,10 +311,6 @@
   <string name="view_wiki_error_message_offline">இணைய இணைப்பு இல்லை.</string>
   <string name="reference_title">மேற்கோள்கள் %s</string>
   <string name="preference_title_prefer_offline_content">அணை நிலை உள்ளடக்கங்களுக்கு முன்னுரிமை அளி</string>
-  <string name="crash_report_dialog_title">மன்னிக்கவும், செயலி கடந்தமுறை செயலிழந்தது</string>
-  <string name="crash_report_dialog_dont_send_button">தவிர்</string>
-  <string name="crash_report_dialog_always_send_button">எப்பவும் அனுப்பு</string>
-  <string name="crash_report_dialog_send_button">அனுப்புக</string>
   <string name="crash_report_activity_title">செயலி பிழை</string>
   <string name="crash_report_relaunch">மீண்டும் தொடங்கவும்</string>
   <string name="crash_report_quit">முடித்துக்கொள்</string>
@@ -491,6 +487,8 @@
   <string name="suggested_edits_task_add_description_title" fuzzy="true">விளக்கங்களைச் சேர்க்கவும்</string>
   <string name="suggested_edits_task_multilingual_positive">மொழிகளைச் சேர்க்கவும்</string>
   <string name="suggested_edits_tasks_onboarding_get_started">தொடங்கவும்</string>
+  <string name="suggested_edits_last_edited">கடைசியாகத் தொகுக்கப்பட்டது</string>
+  <string name="suggested_edits_last_edited_never">எப்போதுமில்லை</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>
   <string name="onboarding_skip">தவிர்</string>
   <string name="onboarding_continue">தொடரவும்</string>
@@ -514,6 +512,7 @@
   <string name="more_events_text">இந்நாளில் மேலும்</string>
   <string name="this_year">இந்த வருடம்</string>
   <string name="back_to_top">மீண்டும் மேலே</string>
+  <string name="on_this_day_dialog_next_month">அடுத்த மாதம்</string>
   <plurals name="diff_years">
     <item quantity="one">கடந்த வருடம்</item>
     <item quantity="other">%d வருடங்களுக்கு முன்</item>

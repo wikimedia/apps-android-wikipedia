@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arifin.wijaya
 * NoiX180
 -->
@@ -311,11 +312,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pangremenging gambar (ing cakrik Peteng)</string>
   <string name="preference_title_prefer_offline_content">Luwih seneng isèn-isèn \'\'offline\'\'</string>
   <string name="preference_summary_prefer_offline_content">Simpen panganggoning \'\'data\'\' sarana ngamot artikel sing wis cumepak kanthi \'\'offline\'\' katimbang ngamot artikel mawa vèrsi sing anyar dhéwé.</string>
-  <string name="crash_report_dialog_title">Ngapunten, aplikasi mandeg dhéwé</string>
-  <string name="crash_report_dialog_text">Apa kowé gelem ngirim palapuran masalah marang HockeyApp / kang nyawisaké layanan péhak katelu supaya Wikimédia bisa naliti masalahmu lan ndandani ama kang njalari masalah iku?</string>
-  <string name="crash_report_dialog_dont_send_button">Lumpati</string>
-  <string name="crash_report_dialog_always_send_button">Tansah ngirim</string>
-  <string name="crash_report_dialog_send_button">Kirim</string>
   <string name="crash_report_activity_title">Cacad aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Awak dhéwé nyuwun pangapura, aplikasi Wikipédia ngalami masalah mula dipatèni.\n\nApa kowé gelem mbalèni utawa metu waé?</string>
   <string name="crash_report_relaunch">Balèni kawit pisanan</string>
@@ -562,9 +558,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Wurung</string>
   <string name="feed_accessibility_card_load_more_button">Mot liyané</string>
   <string name="description_edit_text_hint">Wedharaning artikel</string>
-  <string name="description_edit_article_description_label_per_language">Artikel (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikel (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Wedharaning artikel (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Wedharaning gambar (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Kateranganing gambar (%s)</string>
   <string name="description_edit_save">Babar</string>
   <string name="description_edit_read">Waca</string>
@@ -610,8 +605,6 @@
   <string name="suggested_edits_my_contributions">Pasumbangku</string>
   <string name="suggested_edits_no_description">Barkas iki ora duwé wedharan</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Pertal wedharan</string>
-  <string name="suggested_edits_task_translation_description">Pertal wedharan ing akèh basa.</string>
   <string name="suggested_edits_task_translate_caption_title">Pertal katerangan gambar</string>
   <string name="suggested_edits_task_translate_caption_description">Pertal katerangan menyang basa liya</string>
   <string name="suggested_edits_task_multilingual_negative">Ora kanggoku</string>
@@ -626,6 +619,7 @@
     <item quantity="other">%d pasumbang</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Besutan kang kaprayogakaké</string>
+  <string name="suggested_edits_feed_card_add_description_button">Wuwuh wedharaning artikel</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Wuwuh wedharaning artikel (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Miwiti</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kateranganing gambar (%s)</string>
@@ -636,11 +630,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Lisènsi</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Info Candhaké</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kaca barkas ing Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Wuwuh kateranganing gambar (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Wuwuh kateranganing gambar</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Wuwuh kateranganing gambar (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Deleng</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Wuwuh katerangan</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Wuwuh katerangan (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Wuwuh wedharaning artikel</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Wuwuh katerangan</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Wuwuh katerangan (%s)</string>
   <string name="description_edit_revert_subtitle">Matur nuwun wis mbesut Wikipédia!</string>
   <string name="description_edit_revert_intro">Awak dhéwé sumurup panjenengan wis njajal sakatogé, nanging salah siji pamriksa sedhih. Alesané bokmanawa besutané panjenengan dibalèkaké ya iku:</string>
   <string name="description_edit_revert_reason1">pasumbangmu ora minangkani salah siji &lt;a href=\"%1$s\"&gt;panuntun iki&lt;/a&gt;.</string>

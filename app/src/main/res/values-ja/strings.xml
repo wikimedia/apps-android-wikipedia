@@ -42,6 +42,7 @@
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
   <string name="nav_item_history">履歴</string>
+  <string name="nav_item_suggested_edits">提案された編集</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
   <string name="card_offline_error_retry">再試行</string>
@@ -289,6 +290,7 @@
   <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込む許可は画像の保存に必要になります。</string>
+  <string name="gallery_add_image_caption_button">画像キャプションを追加</string>
   <string name="gallery_add_image_caption_in_language_button">画像キャプションを追加 (%s)</string>
   <string name="err_cannot_save_file">ファイルを保存できません</string>
   <string name="snippet_share_intro">「%1$s」の記事を @Wikipedia で読む: %2$s</string>
@@ -351,11 +353,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
-  <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
-  <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか?　これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
-  <string name="crash_report_dialog_dont_send_button">スキップ</string>
-  <string name="crash_report_dialog_always_send_button">常に送信</string>
-  <string name="crash_report_dialog_send_button">送信</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -615,9 +612,12 @@
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
   <string name="feed_accessibility_card_load_more_button">さらに読む</string>
   <string name="description_edit_text_hint">記事の説明</string>
-  <string name="description_edit_article_description_label_per_language">記事 (%s)</string>
+  <string name="description_edit_article_description_label">記事</string>
+  <string name="description_edit_translate_article_description_label_per_language">記事の説明 (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">記事の説明 (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">画像の説明 (%s)</string>
+  <string name="description_edit_add_caption_label">画像の説明</string>
+  <string name="description_edit_add_caption_hint">画像キャプション</string>
+  <string name="description_edit_translate_caption_label_per_language">画像キャプション (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">画像の説明 (%s)</string>
   <string name="description_edit_save">公開</string>
   <string name="description_edit_read">閲覧</string>
@@ -669,8 +669,6 @@
   <string name="suggested_edits_tasks_activity_title">編集提案</string>
   <string name="suggested_edits_task_add_description_title">記事の説明を追加</string>
   <string name="suggested_edits_task_add_description_description">説明が未記入の記事に着手する</string>
-  <string name="suggested_edits_task_translation_title">記事の説明を翻訳</string>
-  <string name="suggested_edits_task_translation_description">説明文を他の言語に翻訳する。</string>
   <string name="suggested_edits_task_image_caption_title">画像キャプションを追加</string>
   <string name="suggested_edits_task_image_caption_description">画像にキャプションを追加する</string>
   <string name="suggested_edits_task_translate_caption_title">画像キャプションの編集</string>
@@ -691,6 +689,7 @@
     <item quantity="other">%d 件の貢献</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">編集提案</string>
+  <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
   <string name="suggested_edits_tutorial_message">ようこそ、ここはウィキペディアアプリ内で、編集を手早く実行するための新しいホーム画面です。皆さんの編集は大歓迎です。ではお楽しみください！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
@@ -702,13 +701,17 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
   <string name="suggested_edits_image_preview_dialog_more_info">詳細情報</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
-  <string name="suggested_edits_article_cta_image_caption">画像キャプションを追加 (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">画像キャプションを追加</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
-  <string name="suggested_edits_feed_card_add_image_caption">キャプションを追加</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">キャプションを追加 (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
+  <string name="suggested_edits_feed_card_add_image_caption">画像キャプションを追加</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか？ アプリを使った編集について、アンケートに回答をお願いします。</string>
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
+  <string name="suggested_edits_task_action_text_add">追加</string>
+  <string name="suggested_edits_task_action_text_translate">翻訳</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;提案した編集は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎます。\n\n 以下のリンクでどういう意味か理解しましょう。</string>
+  <string name="suggested_edits_pageviews_label_text">ページビュー</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
@@ -747,6 +750,8 @@
   <string name="events_count_text">%2$sから%3$dまでに起こった%1$s件の出来事</string>
   <string name="this_year">今年</string>
   <string name="back_to_top">トップへ</string>
+  <string name="on_this_day_dialog_next_month">次の月</string>
+  <string name="on_this_day_dialog_previous_month">前の月</string>
   <plurals name="diff_years">
     <item quantity="one">昨年</item>
     <item quantity="other">%d年前</item>
@@ -793,6 +798,7 @@
   <string name="main_drawer_close">閉じる</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
+  <string name="main_tooltip_action_button">始める</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">キャンセル</string>

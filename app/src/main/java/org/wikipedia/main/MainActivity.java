@@ -35,6 +35,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -68,7 +69,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        WikipediaApp.getInstance().checkCrashes(this);
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
         AppShortcuts.setShortcuts(this);
@@ -125,12 +125,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        getFragment().requestUpdateToolbarElevation();
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
-        if (WikipediaApp.getInstance().getTabCount() < 1) {
+        if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
             tabsItem.setVisible(false);
         } else {
             tabsItem.setVisible(true);
-            TabCountsView tabCountsView = new TabCountsView(this);
+            TabCountsView tabCountsView = new TabCountsView(this, null);
             tabCountsView.setOnClickListener(v -> {
                 if (WikipediaApp.getInstance().getTabCount() == 1) {
                     startActivity(PageActivity.newIntent(MainActivity.this));
@@ -139,6 +140,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                 }
             });
             tabCountsView.updateTabCount();
+            tabCountsView.setContentDescription(getString(R.string.menu_page_show_tabs));
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
             FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
@@ -166,6 +168,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
+
+            if (tab.equals(NavTab.SUGGESTED_EDITS)) {
+                getFragment().hideNavTabOverlayLayout();
+                Prefs.setShouldShowSuggestedEditsTooltip(false);
+            }
+
             hamburgerAndWordmarkLayout.setVisibility(GONE);
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
@@ -270,13 +278,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                         .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
-                            getFragment().tabLayout.setTabViews();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
                             if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
                                 ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
                             }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            getFragment().resetNavTabLayouts();
                         }).show();
             } else {
                 getFragment().onLoginRequested();
@@ -292,7 +300,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         }
 
         @Override public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
+            getFragment().startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
             closeMainDrawer();
         }
 

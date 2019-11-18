@@ -332,11 +332,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mørklegging av bilder (i den mørke drakten)</string>
   <string name="preference_title_prefer_offline_content">Foretrekk offline-innhold</string>
   <string name="preference_summary_prefer_offline_content">Reduser dataforbruket ved å vise artikler som er tilgjengelige offline i stedet for å alltid laste den siste versjonen av en artikkel</string>
-  <string name="crash_report_dialog_title">Beklager, appen krasjet forrige gang</string>
-  <string name="crash_report_dialog_text">Vil du sende en krasjrapport til tredjepartstjenesten HockeyApp slik at Wikimedia kan gjennomgå den og fikse feilen som førte til krasjet?</string>
-  <string name="crash_report_dialog_dont_send_button">Hopp over</string>
-  <string name="crash_report_dialog_always_send_button">Send alltid</string>
-  <string name="crash_report_dialog_send_button">Send</string>
   <string name="crash_report_activity_title">Applikasjonsfeil</string>
   <string name="crash_report_relaunch_or_quit">Wikipedia-appen avsluttet på grunn av en feil.\n\nVil du prøve å starte den på nytt eller avslutte?</string>
   <string name="crash_report_relaunch">Start på nytt</string>
@@ -618,8 +613,6 @@
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Redigeringsoppgaver i appen</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Legg til tittelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Oversett beskrivelser</string>
-  <string name="suggested_edits_task_translation_description">Oversett beskrivelser mellom artikkelspråk</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Bildetekster</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Legg til bildetekster til bilder</string>
   <string name="suggested_edits_task_translate_caption_title">Oversett bildebeskrivelser</string>

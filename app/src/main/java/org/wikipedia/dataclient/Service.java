@@ -130,21 +130,25 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
-    @NonNull Call<JsonElement> getLoginToken();
+    @NonNull Observable<JsonElement> getLoginToken();
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    @NonNull Call<LoginClient.LoginResponse> postLogIn(@Field("username") String user, @Field("password") String pass,
-                                                       @Field("logintoken") String token, @Field("loginreturnurl") String url);
+    @NonNull Observable<LoginClient.LoginResponse> postLogIn(@Field("username") String user,
+                                                             @Field("password") String pass,
+                                                             @Field("logintoken") String token,
+                                                             @Field("loginreturnurl") String url);
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
-    @NonNull Call<LoginClient.LoginResponse> postLogIn(@Field("username") String user, @Field("password") String pass,
-                                                       @Field("retype") String retypedPass, @Field("OATHToken") String twoFactorCode,
-                                                       @Field("logintoken") String token,
-                                                       @Field("logincontinue") boolean loginContinue);
+    @NonNull Observable<LoginClient.LoginResponse> postLogIn(@Field("username") String user,
+                                                             @Field("password") String pass,
+                                                             @Field("retype") String retypedPass,
+                                                             @Field("OATHToken") String twoFactorCode,
+                                                             @Field("logintoken") String token,
+                                                             @Field("logincontinue") boolean loginContinue);
 
     @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
@@ -206,7 +210,13 @@ public interface Service {
                                        @Nullable @Field("captchaid") String captchaId,
                                        @Nullable @Field("captchaword") String captchaWord);
 
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs")
+    @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username);
+
+    @GET(MW_API_PREFIX + "action=query&prop=pageviews")
+    @NonNull Observable<MwQueryResponse> getPageViewsForTitles(@NonNull @Query("titles") String titles);
+
+    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo")
     @NonNull Observable<MwQueryResponse> getEditorTaskCounts();
 
     @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=missingdescriptions&gwetslimit=3")
