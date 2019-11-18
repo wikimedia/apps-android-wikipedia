@@ -193,7 +193,7 @@
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
-  <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的に第三者の HockeyApp に対してクラッシュレポートを送信することを許可します。これによって、クラッシュを確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">アプリがクラッシュした際に、自動的に第三者の HockeyApp に対してクラッシュレポートを送信することを許可します。これによって、クラッシュを確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索履歴</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした</string>

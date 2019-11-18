@@ -175,7 +175,7 @@
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
   <string name="preference_title_auto_upload_crash_reports">Absturzberichte senden</string>
-  <string name="preference_summary_auto_upload_crash_reports">Der App erlauben, automatisch Absturzberichte an HockeyApp/einen ausgelagerten Dienstleistungsanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Der App erlauben, automatisch Absturzberichte an HockeyApp/einen ausgelagerten Dienstleistungsanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
   <string name="history_search_list_hint">Verlauf durchsuchen</string>
   <string name="error_can_not_process_link">Dieser Link konnte nicht angezeigt werden</string>

@@ -146,7 +146,7 @@
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
   <string name="preference_title_auto_upload_crash_reports">Gửi báo cáo sự cố</string>
-  <string name="preference_summary_auto_upload_crash_reports">Cho phép ứng dụng tự động gửi báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để chúng tôi có thể xem xét sự cố và sửa lỗi nhanh và dễ dàng hơn.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Cho phép ứng dụng tự động gửi báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để chúng tôi có thể xem xét sự cố và sửa lỗi nhanh và dễ dàng hơn.</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
   <string name="history_search_list_hint">Lịch sử tìm kiếm</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>

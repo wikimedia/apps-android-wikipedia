@@ -96,7 +96,7 @@
   <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
   <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>
   <string name="preference_title_auto_upload_crash_reports">Өҙөклөк тураһында отчет ебәрергә</string>
-  <string name="preference_summary_auto_upload_crash_reports">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был хаталарҙы тиҙ һәм еңел төҙәтергә ярҙам итә.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был хаталарҙы тиҙ һәм еңел төҙәтергә ярҙам итә.</string>
   <string name="editing_error_spamblacklist">Бикләнгән домендарға (%s) һылтанмалар барлығы асыҡланды. Уларҙы юҡ итегеҙ һәм яңынан эшләп ҡарағыҙ.</string>
   <string name="history_search_list_hint">Эҙләү тарихы</string>
   <string name="error_can_not_process_link">Был һылтанманы күрһәтеп булманы</string>
