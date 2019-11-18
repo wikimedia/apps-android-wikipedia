@@ -165,7 +165,7 @@
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
   <string name="preference_title_auto_upload_crash_reports">Hantar laporan keruntuhan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
   <string name="history_search_list_hint">Cari dalam sejarah</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>

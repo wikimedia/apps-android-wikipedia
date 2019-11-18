@@ -173,7 +173,7 @@
   <string name="preference_title_eventlogging_opt_in">Στείλτε εκθέσεις χρήσης</string>
   <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
-  <string name="preference_summary_auto_upload_crash_reports">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος στο HockeyApp / μια υπηρεσία τρίτου μέρους αυτόματα ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος στο HockeyApp / μια υπηρεσία τρίτου μέρους αυτόματα ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους (%s). Παρακαλούμε αφαιρέστε τους και προσπαθήστε ξανά.</string>
   <string name="history_search_list_hint">Ιστορικό αναζήτησης</string>
   <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
