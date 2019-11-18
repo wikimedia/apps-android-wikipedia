@@ -375,11 +375,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
-  <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
-  <string name="crash_report_dialog_text">Вы хотите отправить отчёт об аварии приложения внешнему сервису HockeyApp, чтобы проблема, вызвавшая аварию, была рассмотрена в Викимедиа и была исправлена быстрее?</string>
-  <string name="crash_report_dialog_dont_send_button">Пропустить</string>
-  <string name="crash_report_dialog_always_send_button">Всегда отправлять</string>
-  <string name="crash_report_dialog_send_button">Отправить</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>

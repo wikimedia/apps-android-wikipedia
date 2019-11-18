@@ -426,10 +426,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
-
+                webView.setVisibility(View.VISIBLE);
                 bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
-
                 onPageLoadComplete();
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                onPageLoadError(new Throwable());
             }
         });
     }
@@ -619,6 +623,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                          boolean pushBackStack, int stagedScrollY, boolean isRefresh) {
+        webView.setVisibility(View.GONE);
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle();
 
@@ -807,6 +812,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!errorState) {
             setupToC(model, pageFragmentLoadState.isFirstPage());
             editHandler.setPage(model.getPage());
+            webView.setVisibility(View.VISIBLE);
         }
 
         checkAndShowBookmarkOnboarding();

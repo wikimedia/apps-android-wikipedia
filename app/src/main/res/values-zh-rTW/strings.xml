@@ -35,7 +35,7 @@
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="search_hint_search_my_lists_and_articles">搜尋我的清單與條目</string>
   <string name="nav_item_history">歷史</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">建議編輯</string>
+  <string name="nav_item_suggested_edits">建議編輯</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
   <string name="card_offline_error_retry">重試</string>
@@ -347,11 +347,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
-  <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
-  <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體能夠檢視您的錯誤，並修正造成問題的程式臭蟲？</string>
-  <string name="crash_report_dialog_dont_send_button">略過</string>
-  <string name="crash_report_dialog_always_send_button">總是傳送</string>
-  <string name="crash_report_dialog_send_button">傳送</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">符合系統主題</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
@@ -711,17 +707,17 @@
   <string name="suggested_edits_task_action_text_add">新增</string>
   <string name="suggested_edits_task_action_text_translate">翻譯</string>
   <string name="suggested_edits_image_captions">圖片說明</string>
-  <string name="suggested_edits_encouragement_message" fuzzy="true">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
+  <string name="suggested_edits_encouragement_message">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：您知道維基百科是每個人都可編輯的嗎？您可以在下方找到協助改善維基百科的有趣方式，來快樂地編輯吧！</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">標題描述能概括條目，幫助讀者清楚了解主題。</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">您的建議編輯總數</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您採用建議編輯來做貢獻的連續不中斷天數</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">基於您的編輯裡有多少次被回退。回退編輯數：%d</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;建議編輯被暫停至 %1$s。&lt;/b&gt;很抱歉，%2$s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解如何增進您的維基百科編輯技能。</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;建議編輯已停用。&lt;/b&gt;很抱歉，%s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解此情況代表的含意。</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">這看起來像是您的 IP 位址（或是 IP 位址的範圍）目前被禁止編輯維基百科，請參訪以下連結來了解更多這代表的含義。</string>
+  <string name="suggested_edits_image_captions_task_detail">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
+  <string name="suggested_edits_add_descriptions_task_detail">標題描述能概括條目，幫助讀者清楚了解主題。</string>
+  <string name="suggested_edits_contributions_stat_tooltip">您的建議編輯總數。</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">您採用建議編輯來做貢獻的連續不中斷天數。</string>
+  <string name="suggested_edits_page_views_stat_tooltip">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數。</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">基於您的編輯裡有多少次被回退。回退編輯數：%d。</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;建議編輯被暫停至 %1$s。&lt;/b&gt;很抱歉，%2$s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解如何增進您的維基百科編輯技能。</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;建議編輯已停用。&lt;/b&gt;很抱歉，%s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解此情況代表的含意。</string>
+  <string name="suggested_edits_ip_blocked_message">您現在使用的 IP 被封鎖而無法編輯維基百科，請參訪以下連結來了解更多關於封鎖的資訊。</string>
   <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
   <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>
   <string name="suggested_edits_edit_streak_label_text">連續編輯紀錄</string>

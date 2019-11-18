@@ -192,11 +192,6 @@
   <string name="preference_summary_show_link_previews">Һылтанмаға баҫып, мәҡәләне алдан тиҙ ҡарауҙы күрһәтергә</string>
   <string name="nav_item_donate">Википедияға ярҙам итергә</string>
   <string name="error_voice_search_not_available">Ҡыҙғанысҡа ҡаршы, телмәрҙе таныу мөмкин түгел.</string>
-  <string name="crash_report_dialog_title">Үкенескә ҡаршы, үткән юлы ҡушымта \"төшкән\"</string>
-  <string name="crash_report_dialog_text">Викимедия авария тураһында мәғлүмәт бирһен һәм уны булдырған хатаны төҙәтһен өсөн Һеҙ HockeyApp ят сервис-провайдерға хата тураһында отчет ебәрергә теләйһегеҙ?</string>
-  <string name="crash_report_dialog_dont_send_button">Үткәреп ебәрергә</string>
-  <string name="crash_report_dialog_always_send_button">Һәр саҡ ебәрергә</string>
-  <string name="crash_report_dialog_send_button">Ебәрергә</string>
   <string name="crash_report_activity_title">Ҡушымта хатаһы</string>
   <string name="crash_report_relaunch_or_quit">Һеҙ яңынан башларға йәки сығырға теләйһегеҙме?</string>
   <string name="crash_report_relaunch">Яңынан ебәреү</string>

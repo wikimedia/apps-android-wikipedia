@@ -312,11 +312,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Maolú íomhánna (sa téama Dorcha)</string>
   <string name="preference_title_prefer_offline_content">Úsáid ábhar as líne más féidir</string>
   <string name="preference_summary_prefer_offline_content">Coigil úsáid sonraí trí bhealach ailt atá ar fáil as líne a lódáil seachas an leagan is deireanaí den alt a lódáil gach uair</string>
-  <string name="crash_report_dialog_title">Tá brón orainn, thuairteáil an aip an uair dheireanach</string>
-  <string name="crash_report_dialog_text">Ar mhaith leat tuairisc thuairte a sheoladh go HockeyApp / soláthraí seirbhíse tríú páirtí ionas go mbeadh Wikimedia in ann do thuairt a athbhreithniú agus réitiú a chur ar an bhfabht ba cúis leis?</string>
-  <string name="crash_report_dialog_dont_send_button">Scipeáil</string>
-  <string name="crash_report_dialog_always_send_button">Seol gach uair</string>
-  <string name="crash_report_dialog_send_button">Seol</string>
   <string name="crash_report_activity_title">Earráid aipe</string>
   <string name="crash_report_relaunch_or_quit">Tá brón orainn, tharla earráid agus críochnaíodh aip na Vicipéide.\n\nAr mhaith leat atosú nó scor?</string>
   <string name="crash_report_relaunch">Atosaigh</string>

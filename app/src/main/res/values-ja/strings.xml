@@ -353,11 +353,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
-  <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
-  <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか?　これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
-  <string name="crash_report_dialog_dont_send_button">スキップ</string>
-  <string name="crash_report_dialog_always_send_button">常に送信</string>
-  <string name="crash_report_dialog_send_button">送信</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>

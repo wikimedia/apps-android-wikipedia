@@ -187,8 +187,6 @@
   <string name="nav_item_donate">Piştgiriyê bide Wîkîpediyayê</string>
   <string name="enable_location_service">Çalak bike</string>
   <string name="location_permissions_enable_action">Veke</string>
-  <string name="crash_report_dialog_dont_send_button">Derbaske</string>
-  <string name="crash_report_dialog_send_button">Bişîne</string>
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
   <string name="crash_report_relaunch">Cardin dest pê bike</string>
   <string name="crash_report_quit">Derkeve</string>

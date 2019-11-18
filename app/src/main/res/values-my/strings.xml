@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Dbrant
 * Dr Lotus Black
+* July Amyutay
 * Khunnaingko
 * Lionslayer
 * NayiMuu
@@ -106,6 +107,7 @@
   <string name="login_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_password_hint">စကားဝှက်</string>
   <string name="account_creation_password_hint">စကားဝှက်</string>
+  <string name="login_2fa_hint">၂ ဆင့်အတည်ပြု လျှို့ဝှက်နံပါတ်</string>
   <string name="onboarding_card_login">အကောင့်ဝင်ရန်</string>
   <string name="page_editing_login">အကောင့်ဝင်ရန်</string>
   <string name="reading_lists_sync_login">အကောင့်ဝင်ရန်</string>
@@ -329,11 +331,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ပုံရိပ် မှေးမှိန်ခြင်း (အမှောင်သွင်ပြင်ထဲတွင်)</string>
   <string name="preference_title_prefer_offline_content">အော့ဖ်လိုင်း အကြောင်းအရာကို ပိုမိုလိုလားသည်</string>
   <string name="preference_summary_prefer_offline_content">ဆောင်းပါးတစ်ခု၏ နောက်ဆုံးဗားရှင်းထက် အော့ဖ်လိုင်းရရှိနိုင်မှုကို ခေါ်ယူသုံးစွဲခြင်းဖြင့် ဒေတာချွေတာရန်</string>
-  <string name="crash_report_dialog_title">စိတ်မကောင်းပါ။ နောက်ဆုံးအကြိမ်က app သည် crash ဖြစ်ခဲ့သည်။</string>
-  <string name="crash_report_dialog_text">တတိယ ဝန်ဆောင်မှုလုပ်ငန်းဖြစ်သော HockeyApp သို့ app မှ ပျက်မှု အစီရင်ခံချက်အား ပေးပို့လိုပါသလား? ထိုသို့ပြုလုပ်ခြင်းဖြင့် ဝီကီမီဒီယာမှ သင့်အစီရင်ခံချက်အား ကြည့်ရှုကာ ပြင်ဆင်ပေးနိုင်ပါလိမ့်မည်။</string>
-  <string name="crash_report_dialog_dont_send_button">ကျော်ရန်</string>
-  <string name="crash_report_dialog_always_send_button">အမြဲတမ်းပို့ရန်</string>
-  <string name="crash_report_dialog_send_button">ပို့</string>
   <string name="crash_report_activity_title">အပလီကေးရှင်း အမှား</string>
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>

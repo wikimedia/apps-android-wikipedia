@@ -215,6 +215,5 @@
   <string name="close_all_tabs_confirm_yes">Yo</string>
   <string name="close_all_tabs_confirm_no">Ndak</string>
   <string name="button_close_tab">Tutuik tab</string>
-  <string name="crash_report_dialog_send_button">Kirim</string>
   <string name="crash_report_quit">Kalua</string>
 </resources>
