@@ -202,7 +202,7 @@
   <string name="preference_title_eventlogging_opt_in">Invia rapporti sull\'utilizzo</string>
   <string name="preference_summary_eventlogging_opt_in">Consenti a Wikimedia di raccogliere informazioni su come usi l\'applicazione per renderla migliore</string>
   <string name="preference_title_auto_upload_crash_reports">Invia segnalazioni di errori</string>
-  <string name="preference_summary_auto_upload_crash_reports">Consente all\'applicazione di inviare automaticamente segnalazioni su errori a HockeyApp / un fornitore terzo di servizi, in modo da poter rivedere il tuo errore e correggere i bug più velocemente e più facilmente.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Consente all\'applicazione di inviare automaticamente segnalazioni su errori a un fornitore terzo di servizi, in modo da poter rivedere il tuo errore e correggere i bug più velocemente e più facilmente.</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
   <string name="history_search_list_hint">Cerca nella cronologia</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>

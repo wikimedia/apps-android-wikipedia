@@ -185,7 +185,7 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
   <string name="history_search_list_hint">Cari riwayat</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>

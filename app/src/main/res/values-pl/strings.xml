@@ -196,7 +196,7 @@
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
   <string name="preference_title_auto_upload_crash_reports">Wysyłaj raporty o awariach</string>
-  <string name="preference_summary_auto_upload_crash_reports">Pozwól automatycznie wysyłać raporty o błędach do platformy HockeyApp / zewnętrznego usługodawcy, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Pozwól automatycznie wysyłać raporty o błędach do platformy HockeyApp / zewnętrznego usługodawcy, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
   <string name="history_search_list_hint">Historia wyszukiwania</string>
   <string name="error_can_not_process_link">Nie można wyświetlić linku</string>
@@ -719,7 +719,7 @@
   <string name="suggested_edits_image_captions_task_detail">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
-  <string name="suggested_edits_ip_blocked_message">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>

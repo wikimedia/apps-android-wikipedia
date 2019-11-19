@@ -182,7 +182,7 @@
   <string name="preference_title_eventlogging_opt_in">\nSkicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
-  <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till tredjepartstjänsten HockeyApp så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Låter appen automatiskt skicka kraschrapporter till tredjepartstjänsten HockeyApp så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
   <string name="history_search_list_hint">Sök historik</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
@@ -713,7 +713,7 @@
   <string name="suggested_edits_edit_quality_stat_tooltip">Baserat på hur många gånger ett av dina bidrag har återställts. Återställda redigeringar: %d.</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;Förslag på redigeringar pausas t.o.m. %1$s.&lt;/b&gt; Förlåt, %2$s. Några av dina senaste bidrag har återställts.\n\n Läs om hur du kan förbättra dina redigeringskunskaper på Wikipedia med länken nedan.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Förslag på redigeringar har inaktiverats.&lt;/b&gt; Förlåt, %s. Alltför många av dina senaste bidrag har återställts.\n\n Läs om vad detta innebär med länken nedan.</string>
-  <string name="suggested_edits_ip_blocked_message">IP-adressen du använder är blockerad från att redigera på Wikipedia. Läs mer om blockeringar via länken nedan.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">IP-adressen du använder är blockerad från att redigera på Wikipedia. Läs mer om blockeringar via länken nedan.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips och tricks för att redigera</string>
   <string name="suggested_edits_help_page_link_text">Hjälpsida för förslag på redigeringar</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringar i rad</string>
