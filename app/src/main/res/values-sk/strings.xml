@@ -182,7 +182,7 @@
   <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimedii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
-  <string name="preference_summary_auto_upload_crash_reports">Povoliť aplikácii automaticky odosielať správu o zlyhaní HockeyApp. HockeyApp je tretia strana (poskytovateľ služieb). Pomôže nám to rýchlejšie preskúmať zlyhanie a opraviť chyby.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Povoliť aplikácii automaticky odosielať správu o zlyhaní HockeyApp. HockeyApp je tretia strana (poskytovateľ služieb). Pomôže nám to rýchlejšie preskúmať zlyhanie a opraviť chyby.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
   <string name="history_search_list_hint">História vyhľadávania</string>
   <string name="error_can_not_process_link">Nie je možné zobraziť tento odkaz</string>
