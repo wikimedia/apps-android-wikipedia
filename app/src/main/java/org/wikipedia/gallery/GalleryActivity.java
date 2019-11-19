@@ -588,7 +588,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      */
     public void layOutGalleryDescription() {
         GalleryItemFragment item = getCurrentItem();
-        if (item == null || item.getImageTitle() == null) {
+        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null) {
             infoContainer.setVisibility(View.GONE);
             return;
         }
