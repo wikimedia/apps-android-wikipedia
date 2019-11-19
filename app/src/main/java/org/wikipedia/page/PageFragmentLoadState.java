@@ -241,6 +241,7 @@ public class PageFragmentLoadState {
                 .getSummary(null, model.getTitle().getConvertedText())
                 .flatMap(response -> {
                     revision = response.getRevision();
+                    // TODO: this code syncs to https://github.com/wikimedia/apps-android-wikipedia/pull/623/files#diff-82eb00916e612213c5823e6603a7006d
                     return Observable.just(response.getDisplayTitle());
                 })
                 .onErrorReturnItem(model.getTitle().getDisplayText()); // prevent "redirected" or variant issue
