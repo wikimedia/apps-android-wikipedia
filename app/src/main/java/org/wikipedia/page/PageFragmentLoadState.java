@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.util.Pair;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -14,7 +15,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -237,26 +237,32 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        Observable<PageSummary> pageSummaryObservable = ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummary(model.getCurEntry().getReferrer(), model.getTitle().getConvertedText());
+        Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(model.getTitle().getWikiSite())
+                .getSummary(null, model.getTitle().getConvertedText())
+                .flatMap(response -> {
+                    revision = response.getRevision();
+                    return Observable.just(response.getDisplayTitle());
+                })
+                .onErrorReturnItem(model.getTitle().getDisplayText()); // prevent "redirected" or variant issue
+
+
         Observable<Response<PageLead>> pageLeadObservable = new PageClient().lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                 model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth());
 
         disposables.add(Observable
-                .zip(pageSummaryObservable, pageLeadObservable, (summaryRsp, leadRsp) -> {
-                    revision = summaryRsp.getRevision();
-                    return leadRsp;
-                })
+                .zip(pageSummaryDisplayTextObservable, pageLeadObservable, Pair::new)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(rsp -> {
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(pair  -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = rsp.body();
+                    PageLead lead = pair.second.body();
                     pageLoadLeadSectionComplete(lead);
 
                     bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
 
-                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
-                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                        showPageOfflineMessage(rsp.raw().header("date", ""));
+                    if ((pair.second.raw().cacheResponse() != null && pair.second.raw().networkResponse() == null)
+                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.second.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                        showPageOfflineMessage(pair.second.raw().header("date", ""));
                     }
                 }, t -> {
                     L.e("PageLead error: ", t);
