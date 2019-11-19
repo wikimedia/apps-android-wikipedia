@@ -188,7 +188,7 @@
   <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
   <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
   <string name="preference_title_auto_upload_crash_reports">Lähetä kaatumisilmoituksia</string>
-  <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia HockeyAppille tai kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia HockeyAppille tai kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
   <string name="history_search_list_hint">Hae historiasta</string>
   <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>

@@ -175,7 +175,7 @@
   <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
   <string name="preference_title_auto_upload_crash_reports">Trimite rapoarte de erori</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permiteți aplicației să trimită automat rapoarte de erori către HockeyApp / un furnizor de servicii terț, astfel încât noi să putem verifica erorile dumnevoastră, reparându-le mai rapid și mai ușor.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permiteți aplicației să trimită automat rapoarte de erori către HockeyApp / un furnizor de servicii terț, astfel încât noi să putem verifica erorile dumnevoastră, reparându-le mai rapid și mai ușor.</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
   <string name="history_search_list_hint">Căutare în istoric</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>

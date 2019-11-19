@@ -161,7 +161,7 @@
   <string name="preference_title_eventlogging_opt_in">Slanje izvješća o korištenju</string>
   <string name="preference_summary_eventlogging_opt_in">Dopusti Wikimediji da sakuplja anonimne informacije o vašoj aktivnosti kako bi poboljšala aplikaciju</string>
   <string name="preference_title_auto_upload_crash_reports">Slanje izvješća o padu programa</string>
-  <string name="preference_summary_auto_upload_crash_reports">Dopusti automatsko slanje izvješća o pogreškama u HockeyApp / servis treće strane, kako bismo mogli vidjeti informacije o pogrešci? To će omogućiti brže i lakše ispravljanje pogreške.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Dopusti automatsko slanje izvješća o pogreškama u HockeyApp / servis treće strane, kako bismo mogli vidjeti informacije o pogrešci? To će omogućiti brže i lakše ispravljanje pogreške.</string>
   <string name="editing_error_spamblacklist">Pronađeni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
   <string name="history_search_list_hint">Pretraživanje povijesti</string>
   <string name="error_can_not_process_link">Nije moguće prikazati ovu poveznicu</string>

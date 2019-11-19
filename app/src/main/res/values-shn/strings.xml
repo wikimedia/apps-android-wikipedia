@@ -168,7 +168,7 @@
   <string name="preference_title_eventlogging_opt_in">တၢင်ႇ ၶေႃႈလၢတ်ႈ လွင်ႈၸႂ်ႉတိုဝ်း</string>
   <string name="preference_summary_eventlogging_opt_in">ပၼ်သုၼ်ႇ ဝီႇၶီႇၽီးတီးယႃး တွၼ်ႈတႃႇ ၵဵပ်းႁွမ်ၶေႃႈမုၼ်း လွင်ႈဝႃႈ ၸဝ်ႈၵဝ်ႇ ႁဵတ်းႁိုဝ်ၸႂ်ႉ ဢႅပ်ႉ၊ ပဵၼ်တွၼ်ႈတႃႇႁဵတ်းႁႂ်ႈ ဢႅပ်ႉ တိူဝ်းၶႅမ်ႉမႃးလီ</string>
   <string name="preference_title_auto_upload_crash_reports">သူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ်</string>
-  <string name="preference_summary_auto_upload_crash_reports">ပၼ်ႇသုၼ်ႇဢႅမ်ႉ တႃႇသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ် ၸူး ဢႅပ်ႉႁွၵ်ႉၶီး ဢမ်ႇၼၼ် ၽူႈၵမ်ႉထႅမ်ၵေႃႉသၢမ် ၵႂႃႇ ႁင်းမၼ်းလႄႈ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၶိုၼ်း​တူၺ်း လွင်ႈၶွင်ႉၶမ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးၶိုၼ်း လွင်ႈယူပ်ႈယွမ်းလႆႈ ငၢႆႈငၢႆႈဝႆးဝႆးယူႇ။</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ပၼ်ႇသုၼ်ႇဢႅမ်ႉ တႃႇသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ် ၸူး ဢႅပ်ႉႁွၵ်ႉၶီး ဢမ်ႇၼၼ် ၽူႈၵမ်ႉထႅမ်ၵေႃႉသၢမ် ၵႂႃႇ ႁင်းမၼ်းလႄႈ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၶိုၼ်း​တူၺ်း လွင်ႈၶွင်ႉၶမ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးၶိုၼ်း လွင်ႈယူပ်ႈယွမ်းလႆႈ ငၢႆႈငၢႆႈဝႆးဝႆးယူႇ။</string>
   <string name="editing_error_spamblacklist">တုမ်ႉႁၼ်ၺႃး %s ႁဵင်းၵွင်ႉ ဢၼ်ထုၵ်ႇႁႄႉတတ်းဝႆႉ။ ၶႅၼ်းတေႃႈ ထွၼ်ပႅတ်ႈ ၶဝ်ၸိူဝ်းၼၼ်ႉသေ ၶိုၼ်းႁဵတ်းတူၺ်းထႅင်ႈၶႃႈလႄႈ။</string>
   <string name="history_search_list_hint">ၶူၼ်ႉႁႃ ပိုၼ်းလင်</string>
   <string name="error_can_not_process_link">ဢမ်ႇၸၢင်ႈဢွၵ်ႇၼႄ ႁဵင်းၵွင်ႉဢၼ်ၼႆႉ</string>
