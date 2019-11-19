@@ -343,14 +343,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
-    @OnClick(R.id.license_container) void onClick(View v) {
+    @OnClick(R.id.gallery_license_container) void onClick(View v) {
         if (licenseIcon.getContentDescription() == null) {
             return;
         }
         FeedbackUtil.showMessageAsPlainText((Activity) licenseIcon.getContext(), licenseIcon.getContentDescription());
     }
 
-    @OnLongClick(R.id.license_container) boolean onLongClick(View v) {
+    @OnLongClick(R.id.gallery_license_container) boolean onLongClick(View v) {
         String licenseUrl = (String) licenseIcon.getTag();
         if (!TextUtils.isEmpty(licenseUrl)) {
             handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
