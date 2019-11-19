@@ -649,11 +649,6 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         }
 
         @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
-        }
-
-        @Override
         protected Context getParentContext() {
             return NotificationActivity.this;
         }
