@@ -38,6 +38,7 @@ public class CommunicationBridge {
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
+    private String loadCompletionCallback = "() => { setTimeout(() => { marshaller.onReceiveMessage('{\"action\": \"setup\"}'); }, 1) }";
 
     public interface JSEventListener {
         void onMessage(String messageType, JSONObject messagePayload);
@@ -65,9 +66,8 @@ public class CommunicationBridge {
         isDOMReady = false;
         pendingJSMessages.clear();
         webView.loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
-        execute(JavaScriptActionHandler.setHandler());
+        evaluate(JavaScriptActionHandler.setHandler(), value -> execute("pagelib.c1.Page.setup(" + JavaScriptActionHandler.setUp() + ", " + loadCompletionCallback + ");"));
     }
-
     public void cleanup() {
         eventListeners.clear();
         if (incomingMessageHandler != null) {
