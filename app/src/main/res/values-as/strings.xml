@@ -63,9 +63,6 @@
   <string name="on_this_day_page_share">শ্বেয়াৰ কৰক</string>
   <string name="reading_list_page_share">শ্বেয়াৰ কৰক</string>
   <string name="menu_text_select_edit_here">ইয়াত সম্পাদনা কৰক</string>
-  <string name="nav_item_nearby">কাষৰীয়া</string>
-  <string name="nearby_zoom_to_location">মানচিত্ৰত এটা অৱস্থান ডাঙৰকৈ চাওক</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;অ\'পেনস্ত্ৰীটমেপ&lt;/a&gt; অৱদানকাৰীসকল</string>
   <string name="last_updated_text">%s তাৰিখে সৰ্বশেষ আপডে\'ট</string>
   <string name="talk_page_link_text">আলোচনা পৃষ্ঠা চাওক</string>
   <string name="edit_history_link_text">সম্পাদনা ইতিহাস চাওক</string>
@@ -173,7 +170,7 @@
   <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
-  <string name="preference_summary_auto_upload_crash_reports">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
   <string name="history_search_list_hint">ইতিহাস সন্ধান কৰক</string>
   <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>
@@ -314,10 +311,6 @@
   <string name="error_page_does_not_exist">এই নামৰ কোনো পৃষ্ঠা নাই</string>
   <string name="view_wiki_error_message_offline">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই</string>
   <string name="reference_title">তথ্যসূত্ৰ %s</string>
-  <string name="crash_report_dialog_title">দুঃখিত, যোৱাবাৰত এপ্লিকেচন বিধ্বস্ক হৈছিল</string>
-  <string name="crash_report_dialog_dont_send_button">এৰি যাওক</string>
-  <string name="crash_report_dialog_always_send_button">সদায়ে পঠিয়াওক</string>
-  <string name="crash_report_dialog_send_button">পঠিয়াওক</string>
   <string name="crash_report_activity_title">এপ্লিকেচন ক্ৰুতি</string>
   <string name="crash_report_relaunch_or_quit">আপুনি পুণৰাম্ভ অথবা ত্যাগ কৰিব বিচাৰিছে নেকি?</string>
   <string name="crash_report_relaunch">পুনৰাম্ভ কৰক</string>
@@ -405,8 +398,6 @@
   <string name="notifications_activity_title_archived">জাননীসমূহ (সংৰক্ষিত)</string>
   <string name="notifications_search">জাননীসমূহ সন্ধান কৰক</string>
   <string name="notifications_poll_enable_negative">এতিয়া নহয়</string>
-  <string name="preference_title_notification_welcome">স্বাগতম</string>
-  <string name="preference_summary_notification_welcome">এটা একাউণ্ট সৃষ্টি কৰা হ\'ল</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
@@ -452,6 +443,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">অনুজ্ঞাপত্ৰ</string>
   <string name="suggested_edits_image_caption_summary_title_date">তাৰিখ</string>
   <string name="suggested_edits_feed_card_title">পৰামৰ্শকৃত সম্পাদনা</string>
+  <string name="suggested_edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">আৰম্ভ কৰক</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ছবিৰ শিৰোনাম (%s)</string>
@@ -462,11 +454,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">অনুজ্ঞাপত্ৰ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">অধিক তথ্য</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ৱিকিমিডিয়া কমন্সৰ নথি পৃষ্ঠা</string>
-  <string name="suggested_edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">চাওক</string>
-  <string name="suggested_edits_feed_card_add_image_caption">শিৰোনাম যোগ কৰক</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">শিৰোনাম যোগ কৰক (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক (%s)</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>
   <string name="description_edit_revert_reason1">আপোনাৰ অৱদানে &lt;a href=\"%1$s\"&gt;নীতিসমূহ&lt;/a&gt; অনুসৰণ কৰা নাই।</string>

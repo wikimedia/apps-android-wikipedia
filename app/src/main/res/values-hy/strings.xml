@@ -56,8 +56,6 @@
   <string name="on_this_day_page_share">Կիսվել</string>
   <string name="reading_list_page_share">Կիսվել</string>
   <string name="menu_text_select_edit_here">Խմբագրել այստեղից</string>
-  <string name="nav_item_nearby">Մոտակայքում</string>
-  <string name="nearby_zoom_to_location">Վայրը մեծացնել քարտեզի վրա</string>
   <string name="last_updated_text">Վերջին անգամ խմբագրվել է %s</string>
   <string name="talk_page_link_text" fuzzy="true">Քննարկում</string>
   <string name="edit_history_link_text" fuzzy="true">Խմբագրել պատմությունը</string>
@@ -149,10 +147,7 @@
   <string name="close_all_tabs_confirm_yes">Այո</string>
   <string name="close_all_tabs_confirm_no">Ոչ</string>
   <string name="nav_item_donate">Օգնե՜նք Վիքիպեդիային</string>
-  <string name="crash_report_dialog_dont_send_button">Բաց թողնել</string>
-  <string name="crash_report_dialog_always_send_button">Միշտ ուղարկել</string>
-  <string name="crash_report_dialog_send_button">Ուղարկել</string>
-  <string name="crash_report_quit">Ելք</string>
+    <string name="crash_report_quit">Ելք</string>
   <string name="article_header_edit_hint">Խմբագրել...</string>
   <string name="color_theme_dark">Մուք</string>
   <string name="color_theme_black">Սև</string>
@@ -170,7 +165,6 @@
   <string name="notification_syncing_resume_button">Շարունակել</string>
   <string name="notification_syncing_cancel_button">Չեղարկել</string>
   <string name="notifications_poll_enable_negative">Հիմա չէ</string>
-  <string name="preference_title_notification_welcome">Բարի գալուստ</string>
   <string name="preference_title_notification_milestone">Փուլ</string>
   <string name="preference_title_notification_thanks">Շնորհակալություն</string>
   <string name="preference_title_notification_revert">Հետ շրջել</string>
@@ -194,8 +188,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Սկսել խմբագրել</string>
   <string name="suggested_edits_add_descriptions" fuzzy="true">Ավելացնել նկարագրություններ</string>
   <string name="suggested_edits_my_contributions">Իմ ներդրումներ</string>
-  <string name="suggested_edits_unlock_dialog_yes">Այո, եկեք գնանք</string>
-  <string name="suggested_edits_unlock_notification_button">Այո, եկեք գնանք</string>
   <string name="onboarding_skip">Բաց թողնել</string>
   <string name="onboarding_continue">Շարունակել</string>
   <string name="app_shortcuts_continue_reading">Շարունակել կարդալ</string>

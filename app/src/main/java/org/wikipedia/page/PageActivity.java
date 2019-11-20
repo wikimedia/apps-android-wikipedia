@@ -17,7 +17,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -83,7 +82,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -91,9 +92,9 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
         LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
         WiktionaryDialog.Callback {
-
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
+    public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
     public static final String ACTION_LOAD_FROM_EXISTING_TAB = "org.wikipedia.load_from_existing_tab";
     public static final String ACTION_CREATE_NEW_TAB = "org.wikipedia.create_new_tab";
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
@@ -140,7 +141,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        app.checkCrashes(this);
         AnimationUtil.setSharedElementTransitions(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
@@ -199,7 +199,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
-
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
         openSearchActivity(TOOLBAR, null);
@@ -236,7 +235,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        tabsButton.updateTabCount();
+        if (!isDestroyed()) {
+            tabsButton.updateTabCount();
+        }
         return false;
     }
 
@@ -247,7 +248,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (app.haveMainActivity()) {
                     onBackPressed();
                 } else {
-                    goToMainTab(NavTab.EXPLORE.code());
+                    goToMainTab(NavTab.EXPLORE);
                 }
                 return true;
             default:
@@ -261,11 +262,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return true;
     }
 
-    private void goToMainTab(int navTabCode) {
+    private void goToMainTab(@NonNull NavTab tab) {
         startActivity(MainActivity.newIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, navTabCode));
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, tab.code()));
         finish();
     }
 
@@ -298,7 +299,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static Intent newIntentForCurrentTab(@NonNull Context context,
                                                 @NonNull HistoryEntry entry,
                                                 @NonNull PageTitle title) {
-        return new Intent(ACTION_LOAD_IN_CURRENT_TAB)
+        return newIntentForCurrentTab(context, entry, title, true);
+    }
+
+    public static Intent newIntentForCurrentTab(@NonNull Context context,
+                                                @NonNull HistoryEntry entry,
+                                                @NonNull PageTitle title,
+                                                boolean squashBackstack) {
+        return new Intent(squashBackstack ? ACTION_LOAD_IN_CURRENT_TAB_SQUASH : ACTION_LOAD_IN_CURRENT_TAB)
                 .setClass(context, PageActivity.class)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(EXTRA_PAGETITLE, title);
@@ -338,19 +346,24 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 return;
             }
             loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND);
-        } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
-                || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
+        } else if ((ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
+                || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())
+                || ACTION_LOAD_IN_CURRENT_TAB_SQUASH.equals(intent.getAction()))
+                && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())) {
                 loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND);
             } else if (ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
+                loadPage(title, historyEntry, TabPosition.CURRENT_TAB);
+            } else if (ACTION_LOAD_IN_CURRENT_TAB_SQUASH.equals(intent.getAction())) {
                 loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH);
             }
             if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER));
             }
-        } else if (ACTION_LOAD_FROM_EXISTING_TAB.equals(intent.getAction())) {
+        } else if (ACTION_LOAD_FROM_EXISTING_TAB.equals(intent.getAction())
+                && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
@@ -623,7 +636,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         @Override
         public void feedClick() {
-            goToMainTab(NavTab.EXPLORE.code());
+            goToMainTab(NavTab.EXPLORE);
         }
 
         @Override
@@ -631,17 +644,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
                 Prefs.setOverflowReadingListsOptionClickCount(Prefs.getOverflowReadingListsOptionClickCount() + 1);
             }
-            goToMainTab(NavTab.READING_LISTS.code());
+            goToMainTab(NavTab.READING_LISTS);
         }
 
         @Override
         public void historyClick() {
-            goToMainTab(NavTab.HISTORY.code());
-        }
-
-        @Override
-        public void nearbyClick() {
-            goToMainTab(NavTab.NEARBY.code());
+            goToMainTab(NavTab.HISTORY);
         }
     }
 
@@ -671,7 +679,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (settingsActivityRequested(requestCode)) {
             handleSettingsActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
-            handleLangLinkOrPageResult(data);
+            toolbarContainerView.post(() -> handleIntent(data));
         } else if (galleryImageCaptionAdded(requestCode, resultCode)) {
             pageFragment.refreshPage();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
@@ -690,16 +698,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
-            FeedbackUtil.makeSnackbar(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+            FeedbackUtil.makeSnackbar(this, data.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) == SUGGESTED_EDITS_ADD_CAPTION
+                    ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
-
-    private void handleLangLinkOrPageResult(final Intent data) {
-        toolbarContainerView.post(() -> handleIntent(data));
     }
 
     @Override
@@ -799,10 +804,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
         Intent intent = SearchActivity.newIntent(this, source, query);
         startActivity(intent);
-    }
-
-    @NonNull public ViewGroup getTabLayout() {
-        return pageFragment.getTabLayout();
     }
 
     private class EventBusConsumer implements Consumer<Object> {

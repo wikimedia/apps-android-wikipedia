@@ -56,9 +56,6 @@
   <string name="menu_text_select_define">परिभाषित गर्नुहोस्</string>
   <string name="menu_text_select_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादन गर्नुहोस्</string>
-  <string name="nav_item_nearby">नजिकै</string>
-  <string name="nearby_zoom_to_location">नक्सामा कुनै स्थानमा जुम गर्नुहोस्</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; योगदानकर्ताहरू</string>
   <string name="last_updated_text">अन्तिम पटक %s मा अद्यावधिक गरिएको</string>
   <string name="talk_page_link_text">वार्तालाप पृष्ठ हेर्नुहोस्</string>
   <string name="edit_history_link_text">सम्पादन इतिहास हेर्नुहोस्</string>
@@ -110,7 +107,7 @@
   <string name="reset_password_hint">नयाँ पासवर्ड</string>
   <string name="reset_password_button">सङ्ग्रह गर्नुहोस् र लग इन गर्नुहोस्</string>
   <string name="preference_title_logout">निर्गमन</string>
-  <string name="toast_logout_complete">लग आउट गरियो</string>
+  <string name="toast_logout_complete">निर्गमन गरियो</string>
   <string name="logout_dialog_cancel_button_text">रद्द</string>
   <string name="logged_out_in_background_title">निर्गमन भयो।</string>
   <string name="logged_out_in_background_login">प्रवेग</string>
@@ -158,7 +155,7 @@
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">क्र्याससम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
-  <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
   <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">यो लिङ्क प्रदर्शन गर्न सकिएन</string>
@@ -277,11 +274,6 @@
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
   <string name="reference_title">सन्दर्भ %s</string>
-  <string name="crash_report_dialog_title">माफ गर्नुहोस्, अनुप्रयोग पछिल्लो पटक क्र्यास भयो</string>
-  <string name="crash_report_dialog_text">तपाईं विकिमिडियालाई आफ्नो क्र्यासको समीक्षा गर्ने तथा सो क्र्यास गराउने समस्याको समाधान गर्न सक्षम बनाउने प्रयोजनका लागि उक्त क्र्यासको प्रतिवेदन HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलार्इ पठाउन चाहनुहुन्छ?</string>
-  <string name="crash_report_dialog_dont_send_button">छोड्नुहोस्</string>
-  <string name="crash_report_dialog_always_send_button">सधैँ पठाउनुहोस्</string>
-  <string name="crash_report_dialog_send_button">पठाउनुहोस्</string>
   <string name="crash_report_activity_title">अनुप्रयोगसम्बन्धी त्रुटि</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
@@ -342,7 +334,7 @@
   <string name="reading_lists_confirm_remote_delete_no">होइन</string>
   <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेटाउन चाहनुहुन्छ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द गर्नुहोस्</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश (लग इन) गर्नुहोस्</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश गर्नुहोस्</string>
   <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिङ्हरू</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
@@ -364,7 +356,6 @@
   <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="preference_title_notification_poll">पोल जानकारीहरू</string>
-  <string name="preference_title_notification_welcome">स्वागतम्</string>
   <string name="preference_title_notification_thanks">धन्यवाद</string>
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
@@ -408,7 +399,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
   <string name="suggested_edits_add_descriptions" fuzzy="true">शिर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">शीर्षक विवरण अनुवाद गर्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>

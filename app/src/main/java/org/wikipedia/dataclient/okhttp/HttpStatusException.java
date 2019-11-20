@@ -45,7 +45,7 @@ public class HttpStatusException extends IOException {
 
     @Override
     public String getMessage() {
-        String str = "Code: " + Integer.toString(code) + ", URL: " + url;
+        String str = "Code: " + code + ", URL: " + url;
         if (serviceError != null) {
             str += ", title: " + serviceError.getTitle() + ", detail: " + serviceError.getDetails();
         }

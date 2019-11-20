@@ -10,8 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.StringUtil
 
-class DescriptionEditLicenseView  @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : LinearLayout(context, attrs, defStyle) {
+class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     init {
         inflate(context, R.layout.view_description_edit_license, this)

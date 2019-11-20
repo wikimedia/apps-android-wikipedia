@@ -398,7 +398,7 @@ public class BottomContentView extends LinearLayoutOverWebView
             PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
             itemView.setCallback(this);
-            itemView.setTitle(pageTitle.getDisplayText());
+            itemView.setTitle(StringUtil.fromHtml(result.getDisplayTitle()));
             itemView.setDescription(StringUtils.capitalize(pageTitle.getDescription()));
             itemView.setImageUrl(pageTitle.getThumbUrl());
             return itemView;

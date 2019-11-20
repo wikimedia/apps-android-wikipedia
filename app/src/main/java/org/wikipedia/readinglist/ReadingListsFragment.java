@@ -132,7 +132,7 @@ public class ReadingListsFragment extends Fragment implements
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
-        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
+        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, true, false));
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -165,6 +165,15 @@ public class ReadingListsFragment extends Fragment implements
     public void onResume() {
         super.onResume();
         updateLists();
+        maybeShowOnboarding();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (actionMode != null) {
+            actionMode.finish();
+        }
     }
 
     @Override
@@ -273,20 +282,6 @@ public class ReadingListsFragment extends Fragment implements
         }
     }
 
-    @Override
-    public void setUserVisibleHint(boolean visible) {
-        super.setUserVisibleHint(visible);
-        if (!isAdded()) {
-            return;
-        }
-        if (visible) {
-            updateLists();
-            maybeShowOnboarding();
-        } else if (actionMode != null) {
-            actionMode.finish();
-        }
-    }
-
     private void enableLayoutTransition(boolean enable) {
         if (enable) {
             contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
@@ -359,7 +354,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void maybeShowListLimitMessage() {
-        if (getUserVisibleHint() && displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+        if (displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
             String message = getString(R.string.reading_lists_limit_message);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
         }
@@ -683,11 +678,6 @@ public class ReadingListsFragment extends Fragment implements
         @Override
         protected String getSearchHintString() {
             return requireContext().getResources().getString(R.string.search_hint_search_my_lists_and_articles);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
         }
 
         @Override

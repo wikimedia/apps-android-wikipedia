@@ -19,7 +19,7 @@
         android:gravity="center"
         android:text="@string/view_offline_card_text" />
 
-    <TextView
+    <Button
         android:id="@+id/view_card_offline_button_retry"
         style="@style/App.Button.White"
         android:layout_margin="8dp"

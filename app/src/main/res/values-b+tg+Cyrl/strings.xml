@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Ibrahim
 * TajikMaterialist
 * ToJack
@@ -56,8 +57,6 @@
   <string name="on_this_day_page_share">Паҳнкунӣ</string>
   <string name="reading_list_page_share">Паҳнкунӣ</string>
   <string name="menu_text_select_edit_here">Вироиши инҷо</string>
-  <string name="nav_item_nearby">Наздикӣ</string>
-  <string name="nearby_zoom_to_location">Наздиккунӣ ба як маконе дар харита</string>
   <string name="last_updated_text">Охирин рӯзи барӯзшавӣ %s</string>
   <string name="content_license_html">Муҳтаво таҳти &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ва ё ғайр дастрас аст</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Бо захира намудан, Шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
@@ -105,6 +104,7 @@
   <string name="logged_out_in_background_login">Вуруд</string>
   <string name="logged_out_in_background_cancel">Тамом кардан</string>
   <string name="history_empty_message" fuzzy="true">Шояд шумо ҳамаи онҳоро тоза карда бошед. Даъфаи дигар вақте ба саҳифае меравед шумо ба он саҳифа бори дигар аз инҷо рафта метавонед.</string>
+  <string name="search_empty_message_multilingual_upgrade">Дар дигар забонҳои Википедиа хондан</string>
   <string name="create_account_username_hint">Номи корбар</string>
   <string name="create_account_activity_title">Эҷоди ҳисоб</string>
   <string name="create_account_email_hint">Email (Ихтиёрӣ)</string>
@@ -116,13 +116,17 @@
   <string name="preferences_general_heading">Умумӣ</string>
   <string name="wikipedia_app_faq">Саволҳои Ҳмаёни Википедиа</string>
   <string name="create_account_account_created_toast">Ҳисоб эҷод шуд!</string>
+  <string name="preferences_privacy_settings_heading">Ҳарими хусусӣ</string>
+  <string name="history_search_list_hint">Ҷустан дар таърих</string>
+  <string name="page_protected_can_not_edit_title">Ин саҳифаи ҳизф шудааст</string>
   <string name="settings_item_preferences">Танзимот</string>
   <string name="settings_activity_title">Танзимот</string>
   <string name="about_description">Дар бораи афзунаи Википедия</string>
   <string name="terms_of_use_description">Шартҳои истифода</string>
   <string name="about_libraries_heading" fuzzy="true">китобхонаҳои истифодашуда</string>
-  <string name="about_translators_heading" fuzzy="true">тарҷумонҳо</string>
+  <string name="about_translators_heading">Тарҷумонҳо</string>
   <string name="about_translators_translatewiki">Ин афзуна тавассути тарҷумонҳо ихтиёриҳо дар &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; тарҷума шудааст.</string>
+  <string name="about_app_license_heading">Иҷозатнома</string>
   <string name="about_wmf">Маҳсули кори &lt;a href=\"https://wikimediafoundation.org/\"&gt;Бунёди Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">Дар бораи</string>
   <string name="edit_next">Баъдӣ</string>
@@ -143,8 +147,6 @@
   <string name="close_all_tabs_confirm_no">На</string>
   <string name="button_continue_to_article">Мутолиаи мақола</string>
   <string name="nav_item_donate">Дастгирии Википедия</string>
-  <string name="crash_report_dialog_dont_send_button">Рафтан</string>
-  <string name="crash_report_dialog_send_button">Фиристодан</string>
   <string name="article_header_edit_hint">Вироиш...</string>
   <string name="article_header_edit_description">Иловаи тавзеҳоти мақола</string>
   <string name="color_theme_select">Мавзӯъ</string>
@@ -176,7 +178,7 @@
   <string name="view_static_card_save_button_label">Захира</string>
   <string name="view_featured_article_footer_saved_button_label">Захира</string>
   <string name="description_edit_text_hint">Тавзеҳоти иақола</string>
-  <string name="description_edit_article_description_label_per_language">Мақолаҳо (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Мақолаҳо (%s)</string>
   <string name="description_edit_save">Нашр</string>
   <string name="description_edit_read">Хондан</string>
   <string name="description_edit_edit_description">Иловаи тавзеҳоти мауола</string>
@@ -191,7 +193,6 @@
   <string name="suggested_edits_edit_caption_button">Вироиши тавзеҳот</string>
   <string name="suggested_edits_my_contributions">Ҳиссагузориҳои ман</string>
   <string name="suggested_edits_menu_info">Маълумот</string>
-  <string name="suggested_edits_task_translation_title">Тарҷумаи тавзеҳоти мақола</string>
   <string name="suggested_edits_task_multilingual_positive">Иловаи забонҳо</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Артист</string>
   <string name="suggested_edits_image_caption_summary_title_author">Муаллиф</string>
@@ -206,6 +207,9 @@
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Тавзеҳоти акс (%s)</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Маълумоти бештар</string>
   <string name="suggested_edits_article_cta_snackbar_action">Дидан</string>
+  <string name="suggested_edits_encouragement_message">%s, шуморо барои вироишатон ташаккур кард. Шумо метавонед роҳҳои зиёде барои саҳм ба Википедиа ёбед.</string>
+  <string name="suggested_edits_last_edited">Охирин вироиш</string>
+  <string name="suggested_edits_last_edited_never">Ҳеҷгоҳ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Вироиши забонҳо</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Не,раҳмат</string>
   <string name="remove_language_dialog_cancel_button_text">Тамом кардан</string>

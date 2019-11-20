@@ -63,7 +63,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
 
     @Override
     public void onFindNextLongClicked() {
-        // TODO: implement this, the current applyFindTextSyntax will cause a crash.
+        textView.findFirstOrLast(false);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class FindInEditorActionProvider extends FindInPageActionProvider
 
     @Override
     public void onFindPrevLongClicked() {
-        // TODO: implement this, the current applyFindTextSyntax will cause a crash.
+        textView.findFirstOrLast(true);
     }
 
     @Override

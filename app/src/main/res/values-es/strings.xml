@@ -4,6 +4,7 @@
 * Amaia
 * Anarhistička Maca
 * Athena in Wonderland
+* Canaan9801
 * Codynguyen1116
 * Csbotero
 * David.novella
@@ -26,6 +27,7 @@
 * Ktranz
 * Luisangelrg
 * Macofe
+* Madamebiblio
 * MarcoAurelio
 * Mouse21
 * Mynor Archila
@@ -53,6 +55,7 @@
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits">Ediciones sugeridas</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -95,9 +98,6 @@
   <string name="on_this_day_page_share">Compartir</string>
   <string name="reading_list_page_share">Compartir</string>
   <string name="menu_text_select_edit_here">\nEditar aquí</string>
-  <string name="nav_item_nearby">Cercanos</string>
-  <string name="nearby_zoom_to_location">Ampliar una ubicación en el mapa</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Colaboradores de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última actualización: %s</string>
   <string name="talk_page_link_text">Ver página de discusión</string>
   <string name="edit_history_link_text">Ver historial de ediciones</string>
@@ -206,7 +206,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a HockeyApp, un proveedor de servicios externo, para que podamos revisar tu fallo y corregir el error con mayor rapidez y facilidad.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a HockeyApp, un proveedor de servicios externo, para que podamos revisar tu fallo y corregir el error con mayor rapidez y facilidad.</string>
   <string name="editing_error_spamblacklist">Se detectaron enlaces a dominios bloqueados (%s). Elimínalos y vuelve a intentarlo.</string>
   <string name="history_search_list_hint">Buscar en el historial</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
@@ -314,6 +314,7 @@
   <string name="captcha_image">Código captcha</string>
   <string name="gallery_fair_use_license">Uso legítimo</string>
   <string name="gallery_uploader_unknown">Cargador desconocido</string>
+  <string name="gallery_not_available_offline_snackbar">La vista de galería no está disponible sin conexión.</string>
   <string name="menu_new_tab">Pestaña nueva</string>
   <string name="menu_close_all_tabs">Cerrar todas las pestañas</string>
   <string name="close_all_tabs_confirm">¿Confirmas que quieres cerrar todas las pestañas?</string>
@@ -359,15 +360,12 @@
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta página no existe</string>
   <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
+  <string name="view_wiki_error_message_timeout">No se puede conectar con Wikipedia. Comprueba la conexión de red o inténtalo de nuevo más tarde</string>
   <string name="reference_title">Referencia %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imágenes (en el tema oscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contenido sin conexión</string>
   <string name="preference_summary_prefer_offline_content">Ahorrar el uso de datos mediante la carga de artículos que estén disponibles sin conexión, en lugar de cargar siempre la última versión del artículo.</string>
-  <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
-  <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
-  <string name="crash_report_dialog_dont_send_button">Omitir</string>
-  <string name="crash_report_dialog_always_send_button">Enviar siempre</string>
-  <string name="crash_report_dialog_send_button">Enviar</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Coincidir con tema del sistema</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
@@ -557,14 +555,18 @@
   <string name="preference_title_notification_poll">Verificar notificaciones</string>
   <string name="preference_summary_notification_poll">Habilitar a la aplicación para usar datos para las nuevas notificaciones en segundo plano</string>
   <string name="preference_category_notification_types">Tipos de notificaciones en aplicación</string>
-  <string name="preference_title_notification_welcome">Bienvenido</string>
-  <string name="preference_summary_notification_welcome">Una cuenta es creada</string>
+  <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Mensajes del sistema</string>
   <string name="preference_title_notification_milestone">Hito</string>
   <string name="preference_summary_notification_milestone">Has alcanzado el máximo de ediciones</string>
   <string name="preference_title_notification_thanks">Gracias</string>
   <string name="preference_summary_notification_thanks">Alguien agradeció tu edición</string>
   <string name="preference_title_notification_revert">Revertir</string>
   <string name="preference_summary_notification_revert">Una de tus contribuciones fue revertida</string>
+  <string name="preference_title_notification_login_fail">Acceso a la cuenta</string>
+  <string name="preference_title_notification_mention">Mención</string>
+  <string name="preference_title_notification_user_talk">Página de discusión</string>
+  <string name="preference_summary_notification_user_talk">Mensajes en páginas de discusión</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia.</string>
@@ -618,10 +620,11 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Aceptar</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
+  <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
+  <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
-  <string name="description_edit_article_description_label_per_language">Artículo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artículo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripción de artículo (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">Descripción de imagen (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Leyenda de imagen (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Leer</string>
@@ -665,25 +668,11 @@
   <string name="suggested_edits_review_image_caption">Revisar leyenda de imagen</string>
   <string name="suggested_edits_my_contributions">Mis contribuciones</string>
   <string name="suggested_edits_no_description">Este archivo no tiene una descripción</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Se desbloqueó la tarea de \"Edición de descripciones\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">¡Gracias por todas tus contribuciones! Ya que eres un editor fantástico, hemos compilado una lista de los artículos a los que les faltan descripciones. ¿Nos ayudarías a mejorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Desbloqueaste la tarea de traducción de descripciones de artículo</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">¡Felicitaciones por realizar muchas contribuciones, estamos impresionados!  Estás utilizando la aplicación en múltiples idiomas, así que  hemos compilado una lista de los artículos que necesitan traducciones de descripción. ¿Podrías  continuar ayudándonos a mejorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_dialog_no">Quizás más tarde</string>
-  <string name="suggested_edits_unlock_dialog_yes">Sí, vamos</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Desbloqueaste la adición de descripciones de artículo</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Se desbloqueó \"La Traducción de descripciones de artículos\"</string>
-  <string name="suggested_edits_unlock_notification_text">Edición sugerida</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">¡Gracias por todas tus contribuciones! Ya que eres un editor fantástico, hemos compilado una lista de los artículos a los que les faltan descripciones. ¿Nos ayudarías a mejorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">¡Felicitaciones por realizar muchas contribuciones, estamos impresionados!  Estás utilizando la aplicación en múltiples idiomas, así que  hemos compilado una lista de los artículos que necesitan traducciones de descripción. ¿Podrías  continuar ayudándonos a mejorar Wikipedia?</string>
-  <string name="suggested_edits_unlock_notification_button">Sí, vamos</string>
   <string name="suggested_edits_license_notice">Al cambiar la descripción, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
   <string name="suggested_edits_tasks_activity_title">Ediciones sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Añade descripciones de artículos</string>
   <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
-  <string name="suggested_edits_task_translation_title">Traducir descripciones de artículos</string>
-  <string name="suggested_edits_task_translation_description">Traducir descripciones de titulo a otros idiomas.</string>
   <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>
   <string name="suggested_edits_task_image_caption_description">Añadir títulos faltados a imágenes</string>
   <string name="suggested_edits_task_translate_caption_title">Traduce la leyenda de la imagen</string>
@@ -704,6 +693,7 @@
     <item quantity="other">%d contribuciones desde la aplicación</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Ediciones sugeridas</string>
+  <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Añadir descripción de imagen (%s)</string>
   <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
@@ -714,11 +704,31 @@
   <string name="suggested_edits_image_preview_dialog_source">Fuente/fotógrafo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Más información</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página del archivo en Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Añadir leyenda de imagen (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Añadir leyenda de imagen</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda de imagen</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Añadir leyenda de imagen (%s)</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
+  <string name="suggested_edits_task_action_text_translate">Traducir</string>
+  <string name="suggested_edits_pageviews_label_text">Visitas de página</string>
+  <string name="suggested_edits_quality_label_text">Calidad de ediciones</string>
+  <string name="suggested_edits_quality_perfect_text">Perfecta</string>
+  <string name="suggested_edits_quality_excellent_text">Excelente</string>
+  <string name="suggested_edits_quality_very_good_text">Muy buena</string>
+  <string name="suggested_edits_quality_good_text">Buena</string>
+  <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
+  <string name="suggested_edits_quality_poor_text">Deficiente</string>
+  <string name="suggested_edits_quality_bad_text">Mala</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Contribución</item>
+    <item quantity="other">Contribuciones</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d día</item>
+    <item quantity="other">%d días</item>
+  </plurals>
+  <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -757,6 +767,9 @@
   <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
   <string name="back_to_top">Volver al principio</string>
+  <string name="on_this_day_dialog_next_month">Mes siguiente</string>
+  <string name="on_this_day_dialog_previous_month">Mes anterior</string>
+  <string name="on_this_day_open_date_picker">Abrir selector de fecha</string>
   <plurals name="diff_years">
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>

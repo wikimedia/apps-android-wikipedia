@@ -9,8 +9,8 @@ import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -71,10 +71,10 @@ public class CreateAccountActivity extends BaseActivity {
     @BindView(R.id.create_account_password_input) TextInputLayout passwordInput;
     @BindView(R.id.create_account_password_repeat) TextInputLayout passwordRepeatInput;
     @BindView(R.id.create_account_email) TextInputLayout emailInput;
-    @BindView(R.id.create_account_submit_button) TextView createAccountButton;
+    @BindView(R.id.create_account_submit_button) Button createAccountButton;
     @BindView(R.id.view_create_account_error) WikiErrorView errorView;
     @BindView(R.id.captcha_text) TextInputLayout captchaText;
-    @BindView(R.id.captcha_submit_button) TextView createAccountButtonCaptcha;
+    @BindView(R.id.captcha_submit_button) Button createAccountButtonCaptcha;
     @BindView(R.id.view_progress_bar) ProgressBar progressBar;
 
     private CaptchaHandler captchaHandler;
@@ -353,7 +353,6 @@ public class CreateAccountActivity extends BaseActivity {
     private void showError(@NonNull Throwable caught) {
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
-        L.logRemoteErrorIfProd(caught);
     }
 
     private class UserNameTextWatcher implements TextWatcher {
@@ -385,7 +384,7 @@ public class CreateAccountActivity extends BaseActivity {
         }
 
         public void run() {
-            disposables.add(ServiceFactory.get(wiki).getUserInfo(userName)
+            disposables.add(ServiceFactory.get(wiki).getUserList(userName)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {

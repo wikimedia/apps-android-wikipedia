@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,8 +32,8 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
 
     @BindView(R.id.view_announcement_header_image) FaceAndColorDetectImageView headerImageView;
     @BindView(R.id.view_announcement_text) TextView textView;
-    @BindView(R.id.view_announcement_action_positive) TextView actionViewPositive;
-    @BindView(R.id.view_announcement_action_negative) TextView actionViewNegative;
+    @BindView(R.id.view_announcement_action_positive) Button actionViewPositive;
+    @BindView(R.id.view_announcement_action_negative) Button actionViewNegative;
     @BindView(R.id.view_announcement_footer_text) TextView footerTextView;
     @BindView(R.id.view_announcement_footer_border) View footerBorderView;
 
@@ -84,6 +85,13 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         } else {
             footerTextView.setVisibility(GONE);
             footerBorderView.setVisibility(GONE);
+        }
+
+        if (card.hasBorder()) {
+            setStrokeColor(getResources().getColor(R.color.red50));
+            setStrokeWidth(10);
+        } else {
+            setStrokeWidth(0);
         }
     }
 

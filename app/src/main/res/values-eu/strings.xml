@@ -61,9 +61,6 @@
   <string name="on_this_day_page_share">Partekatu</string>
   <string name="reading_list_page_share">Partekatu</string>
   <string name="menu_text_select_edit_here">Editatu hementxe</string>
-  <string name="nav_item_nearby">Gertukoak</string>
-  <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;eko lankideak</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
   <string name="talk_page_link_text">Eztabaida orria ikusi</string>
   <string name="edit_history_link_text">Aldaketen historia ikusi</string>
@@ -169,7 +166,7 @@
   <string name="preference_title_eventlogging_opt_in">Erabilera txostenak bidali</string>
   <string name="preference_summary_eventlogging_opt_in">Baimendu Wikimediari zure aplikazioaren erabileraren inguruko informazioa jasotzen, aplikazioa hobetzeko.</string>
   <string name="preference_title_auto_upload_crash_reports">Bidali akatsen txostenak</string>
-  <string name="preference_summary_auto_upload_crash_reports">Baimendu aplikazioa kraskadurari buruzko txostenak HockeyApp / hirugarrenen zerbitzu-hornitzaile bati automatikoki bidaltzea, zure kraskadura berrikusteko eta akatsak azkarrago eta errazago konpondu ahal izateko.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Baimendu aplikazioa kraskadurari buruzko txostenak HockeyApp / hirugarrenen zerbitzu-hornitzaile bati automatikoki bidaltzea, zure kraskadura berrikusteko eta akatsak azkarrago eta errazago konpondu ahal izateko.</string>
   <string name="editing_error_spamblacklist">Blokeatutako domeinuen (%s) linkak detektatu dira. Mesedez, ezaba itzazu eta berriz saiatu zaitez.</string>
   <string name="history_search_list_hint">Bilatu historia</string>
   <string name="error_can_not_process_link">Ezin izan da esteka erakutsi</string>
@@ -267,8 +264,8 @@
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia: %2$s -(e)n</string>
   <string name="expand_refs">Ukitu hedatzeko</string>
-  <string name="share_snippet_button">Irudi bezala partekatu</string>
-  <string name="share_normal_button">Testu bezala partekatu</string>
+  <string name="share_snippet_button">Iruditzat partekatu</string>
+  <string name="share_normal_button">Testutzat partekatu</string>
   <string name="snippet_share_preview_image_desc">Aurrikuspen irudia</string>
   <string name="cc_logo">Creative Commons lizentzia</string>
   <string name="captcha_image">Captcha irudia</string>
@@ -314,11 +311,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Irudia lausotu (gai ilunetan)</string>
   <string name="preference_title_prefer_offline_content">Konexiorik gabeko edukia hobestu</string>
   <string name="preference_summary_prefer_offline_content">Aurreztu itzazu datuak, lineaz kanpo erabilgarri dauden artikuluak kargatuz, artikulu baten azken bertsioa kargatzearen ordez</string>
-  <string name="crash_report_dialog_title">Barkatu, aplikazioa eten egin da</string>
-  <string name="crash_report_dialog_text">Kraskadurari buruzko txostena HockeyApp / hirugarrenen zerbitzu-hornitzaileari bidali nahi diozu Wikimedia-ek zure kraskadura berrikusi eta konpondu duen akatsa zuzentzeko?</string>
-  <string name="crash_report_dialog_dont_send_button">Utzi</string>
-  <string name="crash_report_dialog_always_send_button">Beti bidali</string>
-  <string name="crash_report_dialog_send_button">Bidali</string>
   <string name="crash_report_activity_title">Aplikazioaren akatsa</string>
   <string name="crash_report_relaunch_or_quit">Sentitzen dugu, Wikipedia aplikazioak errorea jasan du eta eten egin da.\n\nBerriro hasi ala irten nahiko zenuke?</string>
   <string name="crash_report_relaunch">Berriro ere hasi</string>
@@ -497,8 +489,6 @@
   <string name="notifications_empty_message">Jakinarazpenen artean harrapatuta zaude!</string>
   <string name="notifications_view_archived_button_text">Ikusi artxibatutako jakinarazpenak</string>
   <string name="notification_preferences_title">Jakinarazpen lehentasunak</string>
-  <string name="preference_title_notification_welcome">Ongi etorri</string>
-  <string name="preference_summary_notification_welcome">Kontu bat sortu da</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
   <string name="preference_title_notification_revert">Lehengoratu</string>

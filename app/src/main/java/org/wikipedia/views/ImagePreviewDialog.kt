@@ -58,7 +58,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         super.onViewCreated(view, savedInstanceState)
         progressBar!!.visibility = VISIBLE
         toolbarView.setOnClickListener { dismiss() }
-        titleText!!.text = StringUtil.removeHTMLTags(suggestedEditsSummary.displayTitle!!)
+        titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(suggestedEditsSummary.displayTitle!!))
         loadImage(suggestedEditsSummary.getPreferredSizeThumbnailUrl())
         loadImageInfoIfNeeded()
     }
@@ -84,7 +84,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageExtMetadata(suggestedEditsSummary.title)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally { setImageDetails() }
+                    .doAfterTerminate { setImageDetails() }
                     .subscribe({ response ->
                         val page = response.query()!!.pages()!![0]
                         if (page.imageInfo() != null) {

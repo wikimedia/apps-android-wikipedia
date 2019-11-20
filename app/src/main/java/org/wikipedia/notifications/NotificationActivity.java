@@ -27,6 +27,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.NotificationFunnel;
+import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
@@ -99,6 +100,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         ButterKnife.bind(this);
 
         errorView.setRetryClickListener((v) -> beginUpdateList());
+        errorView.setBackClickListener((v) -> onBackPressed());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DrawableItemDecoration(this, R.attr.list_separator_drawable));
@@ -195,7 +197,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             return;
         }
 
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getUnreadNotificationWikis()
+        disposables.add(ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getUnreadNotificationWikis()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -212,7 +214,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     private void getOrContinueNotifications() {
         progressBarView.setVisibility(View.VISIBLE);
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getAllNotifications("*", displayArchived ? "read" : "!read", currentContinueStr)
+        disposables.add(ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getAllNotifications("*", displayArchived ? "read" : "!read", currentContinueStr)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -268,9 +270,13 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         for (Notification n : notificationList) {
 
             // TODO: remove this condition when the time is right.
-            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
+            if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                    || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
+                    || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                    || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                    || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                    || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
                     || Prefs.showAllNotifications()) {
 
                 if (!TextUtils.isEmpty(currentSearchQuery) && n.getContents() != null
@@ -450,29 +456,31 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             this.container = container;
             Notification n = container.notification;
 
-            String description = n.type();
-            int iconResId = R.drawable.ic_wikipedia_w;
-            int iconBackColor = R.color.base0;
+            String description = n.category();
+            int iconResId = R.drawable.ic_speech_bubbles;
+            int iconBackColor = R.color.accent50;
 
-            switch (n.type()) {
-                case Notification.TYPE_EDIT_USER_TALK:
-                    iconResId = R.drawable.ic_chat_white_24dp;
-                    break;
-                case Notification.TYPE_REVERTED:
-                    iconResId = R.drawable.ic_rotate_left_white_24dp;
-                    iconBackColor = R.color.red50;
-                    break;
-                case Notification.TYPE_EDIT_THANK:
-                    iconResId = R.drawable.ic_usertalk_constructive;
-                    iconBackColor = R.color.green50;
-                    break;
-                case Notification.TYPE_EDIT_MILESTONE:
-                    iconResId = R.drawable.ic_mode_edit_white_24dp;
-                    iconBackColor = R.color.accent50;
-                    break;
-                default:
-                    break;
+            String s = n.category();
+            if (Notification.CATEGORY_EDIT_USER_TALK.equals(s)) {
+                iconResId = R.drawable.ic_edit_user_talk;
+                iconBackColor = R.color.accent50;
+            } else if (Notification.CATEGORY_REVERTED.equals(s)) {
+                iconResId = R.drawable.ic_revert;
+                iconBackColor = R.color.base20;
+            } else if (Notification.CATEGORY_EDIT_THANK.equals(s)) {
+                iconResId = R.drawable.ic_user_talk;
+                iconBackColor = R.color.green50;
+            } else if (Notification.CATEGORY_THANK_YOU_EDIT.equals(s)) {
+                iconResId = R.drawable.ic_edit_progressive;
+                iconBackColor = R.color.accent50;
+            } else if (s.startsWith(Notification.CATEGORY_MENTION)) {
+                iconResId = R.drawable.ic_mention;
+                iconBackColor = R.color.accent50;
+            } else if (Notification.CATEGORY_LOGIN_FAIL.equals(s)) {
+                iconResId = R.drawable.ic_user_avatar;
+                iconBackColor = R.color.base0;
             }
+
             imageView.setImageResource(iconResId);
             DrawableCompat.setTint(imageBackgroundView.getDrawable(),
                     ContextCompat.getColor(NotificationActivity.this, iconBackColor));
@@ -638,11 +646,6 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         @Override
         protected String getSearchHintString() {
             return getString(R.string.notifications_search);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
         }
 
         @Override

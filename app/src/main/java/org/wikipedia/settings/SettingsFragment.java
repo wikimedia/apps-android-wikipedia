@@ -28,11 +28,6 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState != null) {
-            requireActivity().finish();
-            startActivity(requireActivity().getIntent());
-        }
-
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         // TODO: Kick off a sync of reading lists, which will call back to us whether lists
@@ -108,7 +103,7 @@ public class SettingsFragment extends PreferenceLoaderFragment {
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ReadingListsMergeLocalDialogEvent) {
                 setReadingListSyncPref(true);
             } else if (event instanceof ReadingListsEnabledStatusEvent) {

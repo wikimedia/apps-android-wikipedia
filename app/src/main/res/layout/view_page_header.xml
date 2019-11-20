@@ -55,7 +55,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:textAllCaps="true"
                 android:textColor="@color/base100"
-                tools:text="ADD CAPTION" />
+                android:letterSpacing="0.1" />
         </LinearLayout>
 
     </FrameLayout>

@@ -157,11 +157,6 @@ public class LanguagesListActivity extends BaseActivity {
         }
 
         @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return false;
-        }
-
-        @Override
         protected Context getParentContext() {
             return LanguagesListActivity.this;
         }
@@ -339,7 +334,7 @@ public class LanguagesListActivity extends BaseActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(SiteMatrix::getSites)
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     progressBar.setVisibility(View.INVISIBLE);
                     adapter.notifyDataSetChanged();
                 })

@@ -18,7 +18,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
@@ -87,8 +86,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         });
     }
 
-
-
     @SuppressLint("CheckResult")
     private void getFeaturedArticleInformation(final Callback cb) {
         WikipediaApp app = WikipediaApp.getInstance();
@@ -105,26 +102,27 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                         return Observable.just(response.tfa());
                     } else {
                         // TODO: this logic can be removed if the feed API can return the featured article for all languages.
-                        return getApiService(mainPageTitle)
-                                .lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(),
-                                        DimenUtil.calculateLeadImageWidth());
+                        return PageClientFactory.create(mainPageTitle.getWikiSite(), mainPageTitle.namespace())
+                                .lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth());
                     }
                 })
                 .subscribeOn(Schedulers.io())
-                .subscribe(response -> {
-                    CharSequence widgetText = mainPageTitle.getText();
-                    PageTitle pageTitle = mainPageTitle;
+                .flatMap(response -> {
                     if (response instanceof retrofit2.Response) {
                         PageLead lead = (PageLead) ((retrofit2.Response) response).body();
                         L.d("Downloaded page " + mainPageTitle.getDisplayText());
-                        widgetText = findFeaturedArticleTitle(lead.getLeadSectionContent());
-                    } else if (response instanceof RbPageSummary) {
-                        widgetText = StringUtil.fromHtml(((RbPageSummary) response).getDisplayTitle());
-                        pageTitle = ((RbPageSummary) response).getPageTitle(app.getWikiSite());
+                        return ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getSummary(null, findFeaturedArticleTitle(lead.getLeadSectionContent()));
                     }
-
+                    return Observable.just(response);
+                })
+                .subscribe(response -> {
+                    CharSequence widgetText = StringUtil.fromHtml(((RbPageSummary) response).getDisplayTitle());
+                    PageTitle pageTitle = ((RbPageSummary) response).getPageTitle(app.getWikiSite());
                     cb.onFeaturedArticleReceived(pageTitle, widgetText);
-                }, L::e);
+                }, throwable -> {
+                    cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.getDisplayText());
+                    L.e(throwable);
+                });
     }
 
     private String findFeaturedArticleTitle(String pageLeadContent) {
@@ -148,10 +146,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
             }
         }
         return titleText;
-    }
-
-    private PageClient getApiService(PageTitle title) {
-        return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
 
     private interface Callback {

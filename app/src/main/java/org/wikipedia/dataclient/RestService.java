@@ -122,7 +122,7 @@ public interface RestService {
 
     @Headers(ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
     @GET("feed/announcements")
-    @NonNull Call<AnnouncementList> getAnnouncements();
+    @NonNull Observable<AnnouncementList> getAnnouncements();
 
     @Headers(ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
     @GET("feed/featured/{year}/{month}/{day}")

@@ -30,8 +30,6 @@
   <string name="menu_text_select_define">परिभाष्यताम्</string>
   <string name="menu_text_select_share">वितरतु</string>
   <string name="menu_text_select_edit_here">अत्र सम्पाद्यताम्</string>
-  <string name="nav_item_nearby">निकटे</string>
-  <string name="nearby_zoom_to_location">भूपटे स्थानं दृष्टुं सर्पकं क्रियताम्</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
   <string name="talk_page_link_text" fuzzy="true">सम्भाषणम्</string>
   <string name="content_license_html" fuzzy="true">अन्तर्विषयः &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धः अस्ति, अन्यथा लिखतु</string>
@@ -182,12 +180,7 @@
   <string name="preference_title_show_link_previews">परिसन्धेः प्राग्दृश्यानि दर्श्यन्ताम्</string>
   <string name="preference_summary_show_link_previews">यदा परिसन्धौ नुद्यते, तदा लेखानां त्वरितप्राग्दृश्यं दर्श्यताम् ।</string>
   <string name="nav_item_donate">विकिपीडिया समर्थ्यताम्</string>
-  <string name="crash_report_dialog_title">क्षम्यताम्, अन्तिमसमये अनुप्रयोगः ध्वस्तः अभवत्</string>
-  <string name="crash_report_dialog_text">किं भवान्/भवती अनुप्रयोगस्य ध्वंसवृत्तान्तं HockeyApp इत्यत्र उत तृतीयपक्षप्रदात्रे प्रेषयितुम् इच्छति, येन वयं समीक्षां कृत्वा भवतः/भवत्याः ध्वंसमत्कुणं सारल्येन समीकर्तुं शक्नुम ?</string>
-  <string name="crash_report_dialog_dont_send_button">प्लवनम्</string>
-  <string name="crash_report_dialog_always_send_button">सर्वदा प्रेष्यताम्</string>
-  <string name="crash_report_dialog_send_button">प्रेषयतु</string>
-  <string name="crash_report_activity_title">आवेदने दोषः</string>
+    <string name="crash_report_activity_title">आवेदने दोषः</string>
   <string name="crash_report_relaunch_or_quit">भवान्/भवती आरब्धुम् उत त्यक्तुम् इच्छति ?</string>
   <string name="crash_report_relaunch">प्रारभ्यताम्</string>
   <string name="crash_report_quit">त्यजतु</string>

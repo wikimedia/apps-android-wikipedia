@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.LinearLayoutOverWebView;
 import org.wikipedia.views.ObservableWebView;
@@ -62,10 +61,8 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         setVisibility(View.GONE);
     }
 
-    public void show(boolean imageEnabled) {
+    public void show() {
         setVisibility(View.VISIBLE);
-        DimenUtil.setViewHeight(this, imageEnabled ? leadImageHeightForDevice()
-                : getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp));
     }
 
     @NonNull public View getImageView() {
@@ -89,11 +86,9 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     public void loadImage(@Nullable String url) {
         if (TextUtils.isEmpty(url)) {
-            image.setVisibility(GONE);
-            gradientViewTop.setVisibility(GONE);
+            hide();
         } else {
-            image.setVisibility(VISIBLE);
-            gradientViewTop.setVisibility(VISIBLE);
+            show();
             image.loadImage(Uri.parse(url));
         }
     }

@@ -57,8 +57,6 @@ public class LangLinksActivity extends BaseActivity {
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
 
-    private static final String GOTHIC_LANGUAGE_CODE = "got";
-
     private List<PageTitle> languageEntries;
     private PageTitle title;
 
@@ -95,6 +93,7 @@ public class LangLinksActivity extends BaseActivity {
 
         fetchLangLinks();
 
+        langLinksError.setBackClickListener((v) -> onBackPressed());
         langLinksError.setRetryClickListener((v) -> {
             ViewAnimations.crossFade(langLinksError, langLinksProgress);
             fetchLangLinks();
@@ -172,11 +171,6 @@ public class LangLinksActivity extends BaseActivity {
         }
 
         @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return false;
-        }
-
-        @Override
         protected Context getParentContext() {
             return LangLinksActivity.this;
         }
@@ -212,7 +206,7 @@ public class LangLinksActivity extends BaseActivity {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .map(SiteMatrix::getSites)
-                    .doFinally(() -> {
+                    .doAfterTerminate(() -> {
                         langLinksProgress.setVisibility(View.INVISIBLE);
                         adapter.notifyDataSetChanged();
                     })
@@ -226,7 +220,7 @@ public class LangLinksActivity extends BaseActivity {
 
     private void fetchLangLinks() {
         if (languageEntries == null) {
-            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getPrefixedText())
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getConvertedText())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
@@ -250,10 +244,7 @@ public class LangLinksActivity extends BaseActivity {
             PageTitle link = it.next();
             String languageCode = link.getWikiSite().languageCode();
 
-            if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
-                // Remove Gothic since it causes Android to segfault.
-                it.remove();
-            } else if ("be-x-old".equals(languageCode)) {
+            if ("be-x-old".equals(languageCode)) {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
                 it.remove();
@@ -265,7 +256,7 @@ public class LangLinksActivity extends BaseActivity {
                 for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                         AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
 
-                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
+                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getConvertedText(),
                             WikiSite.forLanguageCode(dialect)));
                 }
             }
@@ -299,8 +290,9 @@ public class LangLinksActivity extends BaseActivity {
 
             for (String languageCode : chineseLanguageCodes) {
                 if (!title.getWikiSite().languageCode().contains(languageCode)) {
-                    languageEntries.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getPrefixedText(),
-                            WikiSite.forLanguageCode(languageCode)));
+                    PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
+                    pageTitle.setConvertedText(title.getConvertedText());
+                    languageEntries.add(pageTitle);
                 }
             }
         }
@@ -458,7 +450,7 @@ public class LangLinksActivity extends BaseActivity {
             PageTitle langLink = languageEntries.get(pos);
             app.language().addMruLanguageCode(langLink.getWikiSite().languageCode());
             HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
-            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
+            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink, false);
             setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
             hideSoftKeyboard(LangLinksActivity.this);
             finish();
