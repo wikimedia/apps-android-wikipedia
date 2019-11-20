@@ -83,7 +83,7 @@ public class EditPreviewFragment extends Fragment {
                 parentActivity.showProgressBar(false);
                 parentActivity.supportInvalidateOptionsMenu();
                 //Save the html received from the the wikitext to mobile-html transform, to use in the savedInstanceState
-                webview.evaluateJavascript(
+                view.evaluateJavascript(
                         "(function() { return (document.documentElement.outerHTML); })();",
                         html -> {
                             previewHTML = html;
