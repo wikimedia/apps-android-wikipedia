@@ -214,7 +214,7 @@
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
-  <string name="preference_summary_auto_upload_crash_reports">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису HockeyApp, чтобы проблема, вызвавшая аварию, была рассмотрена в Викимедиа и была исправлена быстрее.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису HockeyApp, чтобы проблема, вызвавшая аварию, была рассмотрена в Викимедиа и была исправлена быстрее.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
   <string name="history_search_list_hint">История поиска</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>

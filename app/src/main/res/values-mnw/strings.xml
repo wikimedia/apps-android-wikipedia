@@ -144,7 +144,7 @@
   <string name="preference_title_eventlogging_opt_in">ပလံင် ညးမသုင်စောဲ လိက်ဒုင်စဳရေင်</string>
   <string name="preference_summary_eventlogging_opt_in">ကဵုအခေါင် ကုဝဳကဳပဳဒဳယာ သွက်ဂွံပကောံတင်ဂၞင် ပရူဗီုလဵုမၞး မသုင်စောဲ app သွက်ဂွံပခိုဟ်ပတိုန် app</string>
   <string name="preference_title_auto_upload_crash_reports">ပလံင် လိက်စဳရေင် ကိစ္စဟွံစှ်ေကဵုသၞောဝ်</string>
-  <string name="preference_summary_auto_upload_crash_reports">ကဵုအခေါင် ကု app သွက်ဂွံပလံင် လိက်ဒုင်စဳရေင် ကုHockeyApp / a third-party service provider အဝ်တဝ်မတေတ် တုဲမ္ဂး ပိုယ်ဂွံ သ္ၚေဝ်ဂၠေပ် အရာမလီုလာ် တုဲ ဂွံပလေဝ် ပခိုဟ်ပတိုန်၊၊</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ကဵုအခေါင် ကု app သွက်ဂွံပလံင် လိက်ဒုင်စဳရေင် ကုHockeyApp / a third-party service provider အဝ်တဝ်မတေတ် တုဲမ္ဂး ပိုယ်ဂွံ သ္ၚေဝ်ဂၠေပ် အရာမလီုလာ် တုဲ ဂွံပလေဝ် ပခိုဟ်ပတိုန်၊၊</string>
   <string name="editing_error_spamblacklist">လေန် %s ဝေပ်သာ်ဂှ် ဒှ်ဝေပ်သာ် မစဵုဒၞာလဝ်ရောင်ဂှ် မဂွံတီကေတ်၊၊ ဟိုတ်ဂှ်ရ ပဂုန်တုဲ ပတိတ်ထောအ် လေန်ဂှ်တုဲ ကလေင် ကၠောန်ပၠန်၊၊</string>
   <string name="history_search_list_hint">ဂၠာဲ ပ္ဍဲ အရာမဗှ်လဝ်တုဲ</string>
   <string name="error_can_not_process_link">လေန်ဏအ်ဂှ် ဗမံက်ထ္ၜး ဟွံဂွံ</string>

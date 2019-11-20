@@ -39,6 +39,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
 
     @NonNull public abstract PageViewModel getModel();
 
+    @SuppressWarnings("checkstyle:magicnumber")
     @Override public WebResourceResponse shouldInterceptRequest(WebView view,
                                                                 WebResourceRequest request) {
         if (!SUPPORTED_SCHEMES.contains(request.getUrl().getScheme())) {

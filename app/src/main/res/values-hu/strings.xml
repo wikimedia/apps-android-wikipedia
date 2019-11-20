@@ -182,7 +182,7 @@
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
-  <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
   <string name="history_search_list_hint">Keresés az előzményekben</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
