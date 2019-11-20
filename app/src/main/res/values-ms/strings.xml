@@ -165,7 +165,7 @@
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
   <string name="preference_title_auto_upload_crash_reports">Hantar laporan keruntuhan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
   <string name="history_search_list_hint">Cari dalam sejarah</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
@@ -320,11 +320,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pemalapan imej (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Lebih suka kandungan luar talian</string>
   <string name="preference_summary_prefer_offline_content">Menjimatkan penggunaan data dengan memuatkan rencana yang tersedia di luar talian dan bukannya memuatkan versi terkini rencana</string>
-  <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
-  <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
-  <string name="crash_report_dialog_dont_send_button">Langkau</string>
-  <string name="crash_report_dialog_always_send_button">Sentiasa hantar</string>
-  <string name="crash_report_dialog_send_button">Hantar</string>
   <string name="crash_report_activity_title">Ralat aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>

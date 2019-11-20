@@ -140,7 +140,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        app.checkCrashes(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 

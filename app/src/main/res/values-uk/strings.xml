@@ -184,7 +184,7 @@
   <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як ви використовуєте додаток, щоб зробити його кращим</string>
   <string name="preference_title_auto_upload_crash_reports">Надсилати звіти про аварійне завершення роботи</string>
-  <string name="preference_summary_auto_upload_crash_reports">Дозволити додатку відправляти автоматичні звіти про збої до HockeyApp / сторонньому сервіс-провайдеру, щоб ми могли розглянути ваш збій і виправити помилки швидше і легше.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Дозволити додатку відправляти автоматичні звіти про збої до HockeyApp / сторонньому сервіс-провайдеру, щоб ми могли розглянути ваш збій і виправити помилки швидше і легше.</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
   <string name="history_search_list_hint">Історія пошуку</string>
   <string name="error_can_not_process_link">Не вдалося відобразити це посилання</string>
@@ -345,11 +345,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
   <string name="preference_title_prefer_offline_content">Надавати перевагу автономному контенту</string>
   <string name="preference_summary_prefer_offline_content">Збережіть трафік, завантажуючи статті, доступні в режимі офлайн радше чим завжди завантажувати останню версію статті</string>
-  <string name="crash_report_dialog_title">Перепрошуємо, минулого разу додаток «впав»</string>
-  <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
-  <string name="crash_report_dialog_dont_send_button">Пропустити</string>
-  <string name="crash_report_dialog_always_send_button">Завжди надсилати</string>
-  <string name="crash_report_dialog_send_button">Надіслати</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Підлаштовано під вигляд системи</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
@@ -545,8 +541,8 @@
   <string name="preference_summary_notification_milestone">Досягнуто певної кількості редагувань</string>
   <string name="preference_title_notification_thanks">Дякуємо</string>
   <string name="preference_summary_notification_thanks">Хтось подякував вам за редагування</string>
-  <string name="preference_title_notification_revert">Відкіт</string>
-  <string name="preference_summary_notification_revert">Одне з ваших редагувань було відкочене</string>
+  <string name="preference_title_notification_revert">Скасування</string>
+  <string name="preference_summary_notification_revert">Одне з ваших редагувань було скасоване</string>
   <string name="preference_title_notification_login_fail">Вхід у систему</string>
   <string name="preference_summary_notification_login_fail">Ваша активність входів до системи</string>
   <string name="preference_title_notification_mention">Вас згадано</string>
@@ -711,20 +707,42 @@
   <string name="suggested_edits_task_action_text_add">Додати</string>
   <string name="suggested_edits_task_action_text_translate">Перекласти</string>
   <string name="suggested_edits_image_captions">Підписи зображень</string>
-  <string name="suggested_edits_image_captions_task_detail">Підписи зображень допомогають читачам зрозуміти значення та контекст зображень</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок зі списку \"Пропонованих\"</string>
+  <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо %s&lt;/b&gt;! Чи знаєте ви, що будь-хто може редагувати Вікіпедію? Нижче ви знайдете цікаві способи її покращення. Приємного редагування!</string>
+  <string name="suggested_edits_image_captions_task_detail">Підписи зображень допомагають читачам зрозуміти значення та контекст зображень.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Описи статей допомагають читачам зрозуміти предмет статті з першого погляду, підсумовуючи вміст статті.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок зі списку \"Пропонованих\".</string>
   <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
-  <string name="suggested_edits_ip_blocked_message">Схоже що IP-адреса якою ви користуєтесь (або диапазон IP-адрес), зараз заблокована для редагування у Вікіпедії. Докладніше про що це означає ви може дізнатись з посилання нижче.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші правки було скасовано. Кількість таких правок: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь як покращити якість ваших редагувань у Вікіпедії за допомогою посилання нижче.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає за посилання нижче.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">IP-адреса якою ви користуєтесь заблокована для редагування у Вікіпедії. Що це означає ви може дізнатись з посилання нижче.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
+  <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
   <string name="suggested_edits_pageviews_label_text">Переглядів сторінок</string>
+  <string name="suggested_edits_quality_label_text">Якість редагувань</string>
+  <string name="suggested_edits_quality_perfect_text">Ідеально</string>
+  <string name="suggested_edits_quality_excellent_text">Відмінно</string>
+  <string name="suggested_edits_quality_very_good_text">Дуже добре</string>
+  <string name="suggested_edits_quality_good_text">Добре</string>
+  <string name="suggested_edits_quality_okay_text">Гаразд</string>
+  <string name="suggested_edits_quality_sufficient_text">Достатньо</string>
+  <string name="suggested_edits_quality_poor_text">Не дуже</string>
+  <string name="suggested_edits_quality_bad_text">Погано</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Редагування</item>
+    <item quantity="other">Редагування</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d день</item>
     <item quantity="few">%d дні</item>
     <item quantity="many">%d днів</item>
     <item quantity="other">%d днів</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Останнє редагування</string>
+  <string name="suggested_edits_last_edited_never">Ніколи</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
@@ -763,6 +781,9 @@
   <string name="events_count_text">%1$s подій за %2$s–%3$d</string>
   <string name="this_year">Цього року</string>
   <string name="back_to_top">Повернутись угору</string>
+  <string name="on_this_day_dialog_next_month">Наступний місяць</string>
+  <string name="on_this_day_dialog_previous_month">Попередній місяць</string>
+  <string name="on_this_day_open_date_picker">Вибір дати</string>
   <plurals name="diff_years">
     <item quantity="one">Минулий рік</item>
     <item quantity="other">%d роки тому</item>

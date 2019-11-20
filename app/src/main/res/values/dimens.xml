@@ -1,9 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="toolbar_default_elevation">4dp</dimen>
+
+    <dimen name="bottom_nav_label_text_size">10sp</dimen>
 
     <dimen name="popup_menu_drop_down_horizontal_offset">8dp</dimen>
     <dimen name="popup_menu_drop_down_vertical_offset">-8dp</dimen>
@@ -43,7 +45,7 @@
     <dimen name="bottomSheetMaxWidth">480dp</dimen>
     <!-- Default height with which bottom sheets peek out from the bottom -->
     <dimen name="bottomSheetPeekHeight">320dp</dimen>
-    <dimen name="themeChooserSheetPeekHeight">360dp</dimen>
+    <dimen name="themeChooserSheetPeekHeight">420dp</dimen>
     <dimen name="readingListSheetPeekHeight">360dp</dimen>
     <dimen name="imagePreviewSheetPeekHeight">280dp</dimen>
     <!-- Default size of images in Link Preview thumbnail gallery -->
@@ -112,9 +114,11 @@
     <dimen name="suggested_edits_icon_size">32dp</dimen>
     <dimen name="suggested_edits_icon_background_size">26dp</dimen>
     <dimen name="suggested_edits_icon_title_text_size">18sp</dimen>
-    <dimen name="suggested_edits_icon_description_text_size">14sp</dimen>
     <dimen name="suggested_edits_title_margin_start">14dp</dimen>
     <dimen name="suggested_edits_message_textview_text_size">14sp</dimen>
-    <dimen name="suggested_edits_top_tooltip_margin">32dp</dimen>
+    <dimen name="suggested_edits_top_illustration_height">92dp</dimen>
 
+    <!-- Bottom navigation values, they override the NavTab item width to make the entire NavTab be in full width -->
+    <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
+    <dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>
 </resources>

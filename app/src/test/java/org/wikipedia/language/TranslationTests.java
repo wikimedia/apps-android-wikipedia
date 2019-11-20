@@ -205,6 +205,9 @@ public class TranslationTests {
             for (Element subElement : pluralElements) {
                 String subName = subElement.attr("quantity");
                 String subValue = subElement.text();
+                if (subName.equals("one")) {
+                    continue;
+                }
 
                 List<Integer> countList = new ArrayList<>();
                 for (String param : params) {

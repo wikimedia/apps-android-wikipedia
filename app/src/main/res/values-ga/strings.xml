@@ -166,7 +166,7 @@
   <string name="preference_title_eventlogging_opt_in">Seol tuairiscí úsáide</string>
   <string name="preference_summary_eventlogging_opt_in">Ceadaigh do Wikimedia eolas a bhailiú ar conas mar a úsáideann tú an aip chun an aip a fheabhsú</string>
   <string name="preference_title_auto_upload_crash_reports">Seol tuairiscí ar tuairteanna</string>
-  <string name="preference_summary_auto_upload_crash_reports">Ceadaigh don aip tuairiscí ar thuairteanna a sheoladh go huathoibríoch chuig HockeyApp / soláthraí seirbhíse tríú páirtí chun go bhféadfaimid do thuairt a athbhreithniú agus an fabht a réitiú níos tapúla agus níos éasca.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Ceadaigh don aip tuairiscí ar thuairteanna a sheoladh go huathoibríoch chuig HockeyApp / soláthraí seirbhíse tríú páirtí chun go bhféadfaimid do thuairt a athbhreithniú agus an fabht a réitiú níos tapúla agus níos éasca.</string>
   <string name="history_search_list_hint">Stair chuardaigh</string>
   <string name="error_can_not_process_link">Níorbh fhéidir an nasc seo a thaispeáint</string>
   <string name="page_protected_autoconfirmed">Tá an leathanach seo leath-chosanta.</string>
@@ -312,11 +312,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Maolú íomhánna (sa téama Dorcha)</string>
   <string name="preference_title_prefer_offline_content">Úsáid ábhar as líne más féidir</string>
   <string name="preference_summary_prefer_offline_content">Coigil úsáid sonraí trí bhealach ailt atá ar fáil as líne a lódáil seachas an leagan is deireanaí den alt a lódáil gach uair</string>
-  <string name="crash_report_dialog_title">Tá brón orainn, thuairteáil an aip an uair dheireanach</string>
-  <string name="crash_report_dialog_text">Ar mhaith leat tuairisc thuairte a sheoladh go HockeyApp / soláthraí seirbhíse tríú páirtí ionas go mbeadh Wikimedia in ann do thuairt a athbhreithniú agus réitiú a chur ar an bhfabht ba cúis leis?</string>
-  <string name="crash_report_dialog_dont_send_button">Scipeáil</string>
-  <string name="crash_report_dialog_always_send_button">Seol gach uair</string>
-  <string name="crash_report_dialog_send_button">Seol</string>
   <string name="crash_report_activity_title">Earráid aipe</string>
   <string name="crash_report_relaunch_or_quit">Tá brón orainn, tharla earráid agus críochnaíodh aip na Vicipéide.\n\nAr mhaith leat atosú nó scor?</string>
   <string name="crash_report_relaunch">Atosaigh</string>

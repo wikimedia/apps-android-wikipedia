@@ -17,6 +17,7 @@
   <string name="search_hint_search_history">Am Historique sichen</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="nav_item_history">Versiounen</string>
+  <string name="nav_item_suggested_edits">Proposéiert Ännerungen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
@@ -153,7 +154,7 @@
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
-  <string name="preference_summary_auto_upload_crash_reports">Erlaabt der App automatesch Rapporten iwwer Crashe un HockeyApp / engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Erlaabt der App automatesch Rapporten iwwer Crashe un HockeyApp / engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se w.e.g. ewech a probéiert nach eng Kéier.</string>
   <string name="history_search_list_hint">Am Historique sichen</string>
   <string name="error_can_not_process_link">Dëse Link konnt net gewise ginn</string>
@@ -287,11 +288,6 @@
   <string name="view_wiki_error_message_offline">Kann net mam Internet verbannen</string>
   <string name="reference_title">Referenz %s</string>
   <string name="preference_title_prefer_offline_content">Preferenz fir Offline-Inhalt</string>
-  <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
-  <string name="crash_report_dialog_text">Wëllt Dir e Rapport iwwer de Crash un HockeyApp / en onofhängege Service-Provider schécke fir datt Wikimedia Äre Crash nokucke kann an de Feeler verbessere kann, den en ausgeléist huet?</string>
-  <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>
-  <string name="crash_report_dialog_always_send_button">Ëmmer schécken</string>
-  <string name="crash_report_dialog_send_button">Schécken</string>
   <string name="crash_report_activity_title">Feeler vum Programm</string>
   <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
@@ -545,6 +541,9 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Méi Informatiounen</string>
   <string name="suggested_edits_article_cta_snackbar_action">Weisen</string>
   <string name="suggested_edits_snackbar_survey_action_text">Bei der Ëmfro matmaachen</string>
+  <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_last_edited">Lescht Ännerung</string>
+  <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -572,6 +571,8 @@
   <string name="events_count_text">%1$s Evenementer vum %2$s bis %3$d</string>
   <string name="this_year">Dëst Joer</string>
   <string name="back_to_top">Zréck no uewen</string>
+  <string name="on_this_day_dialog_next_month">Nächste Mount</string>
+  <string name="on_this_day_dialog_previous_month">Virege Mount</string>
   <plurals name="diff_years">
     <item quantity="one">Lescht Joer</item>
     <item quantity="other">Viru(n) %d Joer</item>

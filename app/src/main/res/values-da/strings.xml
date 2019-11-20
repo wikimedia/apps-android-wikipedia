@@ -179,7 +179,7 @@
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
-  <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til HockeyApp / en tredjeparts-serviceudbyder automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Tillad appen at sende rapporter om nedbrud til HockeyApp / en tredjeparts-serviceudbyder automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
   <string name="history_search_list_hint">Søg i historik</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
@@ -333,11 +333,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Billedmørklægning (i mørkt tema)</string>
   <string name="preference_title_prefer_offline_content">Fortræk lokalt indhold</string>
   <string name="preference_summary_prefer_offline_content">Spar på dataforbruget ved at indlæse artikler, som er tilgængeligt lokalt frem for altid at indlæse den seneste version af en artikel</string>
-  <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
-  <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
-  <string name="crash_report_dialog_dont_send_button">Spring over</string>
-  <string name="crash_report_dialog_always_send_button">Send altid</string>
-  <string name="crash_report_dialog_send_button">Send</string>
   <string name="crash_report_activity_title">Applikationsfejl</string>
   <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.\n\nVil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
@@ -633,6 +628,8 @@
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
   <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_last_edited">Sidst redigeret</string>
+  <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>

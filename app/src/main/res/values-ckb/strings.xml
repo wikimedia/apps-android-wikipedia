@@ -143,7 +143,7 @@
   <string name="preference_title_eventlogging_opt_in">ناردنی ڕاپۆرتەکانی بەکارھێنان</string>
   <string name="preference_summary_eventlogging_opt_in">ڕێگە بە بە ویکیمیدیا بدە بۆ کۆکردنەوەی زانیاری لەبارەی چۆنیەتی بەکارھێنانی ئاپەکە لەلایەن تۆوە، بە مەبەستی باشترکردنی ئاپەکە</string>
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
-  <string name="preference_summary_auto_upload_crash_reports">ڕێگە بە ئاپەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ لایەنێژی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی ئاپەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ڕێگە بە ئاپەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ لایەنێژی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی ئاپەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
   <string name="history_search_list_hint">گەڕان لە مێژوو</string>
   <string name="error_can_not_process_link">ناتوانرێت ئەم بەسترە نیشان بدرێت</string>
@@ -267,11 +267,6 @@
   <string name="view_link_preview_error_button_dismiss">لێگەڕان</string>
   <string name="error_page_does_not_exist">ئەم پەڕەیە بوونی نییە</string>
   <string name="view_wiki_error_message_offline">ئینتەرنێت نییە</string>
-  <string name="crash_report_dialog_title">ببوورە، ئاپ لە جاری پێشوو تێکشکا</string>
-  <string name="crash_report_dialog_text">ئایا ئارەزوو دەکەیت سکاڵای تێکشکانی ئاپەکە بنێریت بۆ ھۆکی ئاپ / لایەنێکی سێیەم، بۆ ئەوەی ویکیپیدیا بتوانێت کێشەکە بدۆزێتەوە و چارەسەری بکات بۆ ئەوەی ئەمە لە داھاتوودا ڕوونەدات؟</string>
-  <string name="crash_report_dialog_dont_send_button">پەڕاندن</string>
-  <string name="crash_report_dialog_always_send_button">نێردرا</string>
-  <string name="crash_report_dialog_send_button">ناردن</string>
   <string name="crash_report_activity_title">ھەڵەی بەرنامە</string>
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
   <string name="crash_report_relaunch">دەستپێکردنەوە</string>
@@ -294,7 +289,7 @@
   <string name="reading_list_added_view_button">پێڕستی بینین</string>
   <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 وتار، %1$.2f MiB</string>
   <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d وتار، %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی بەبێ ئینتەرنێت. %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی بەبێ ئینتەرنێت. %2$.2f MiB</string>
   <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d لە %2$d وتار بەردەستە بەبێ ئینتەرنێت، %3$.2f MiB</string>
   <string name="reading_list_sort">ڕیزکردن</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>

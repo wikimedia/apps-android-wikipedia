@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.text.method.LinkMovementMethod;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,7 @@ public final class FeedbackUtil {
     public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(10);
     private static final int SNACKBAR_MAX_LINES = 10;
     private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
-        showToolbarButtonToast(v);
+        showToastOverView(v, v.getContentDescription(), LENGTH_DEFAULT);
         return true;
     };
 
@@ -133,12 +134,17 @@ public final class FeedbackUtil {
         return snackbar;
     }
 
-    private static void showToolbarButtonToast(View view) {
-        Toast toast = Toast.makeText(view.getContext(), view.getContentDescription(), Toast.LENGTH_SHORT);
+    public static Toast showToastOverView(View view, CharSequence text, int duration) {
+        Toast toast = Toast.makeText(view.getContext(), text, duration);
+        View v = LayoutInflater.from(view.getContext()).inflate(R.layout.abc_tooltip, null);
+        TextView message = v.findViewById(R.id.message);
+        message.setText(text);
+        toast.setView(v);
         int[] location = new int[2];
         view.getLocationOnScreen(location);
         toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);
         toast.show();
+        return toast;
     }
 
     private static View findBestView(Activity activity) {

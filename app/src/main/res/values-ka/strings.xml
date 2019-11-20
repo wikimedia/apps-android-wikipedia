@@ -222,11 +222,6 @@
   <string name="error_page_does_not_exist">ეს გვერდი არ არსებობს.</string>
   <string name="view_wiki_error_message_offline">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="reference_title">სქოლიო %s</string>
-  <string name="crash_report_dialog_title">უკაცრავად, უკანასკნელად აპლიკაციამ არ უმუშავა</string>
-  <string name="crash_report_dialog_text">გსურთ პრობლემის ანგარიშის სერვის-პროვაიდერ HockeyApp-სთვის გაგზავნა? ვიკიმედია შეეცდება განიხილოს თქვენი ანგარიში და გამოასწოროს ის.</string>
-  <string name="crash_report_dialog_dont_send_button">გამოტოვება</string>
-  <string name="crash_report_dialog_always_send_button">ყოველთვის გაგზავნა</string>
-  <string name="crash_report_dialog_send_button">გაგზავნა</string>
   <string name="crash_report_activity_title">აპლიკაციის შეცდომა</string>
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>

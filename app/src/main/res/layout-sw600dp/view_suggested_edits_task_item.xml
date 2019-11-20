@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="24dp"
         android:src="@drawable/shape_circle"
-        android:tint="?attr/multi_select_background_color"
+        android:tint="?attr/color_group_53"
         android:contentDescription="@null"/>
 
     <ImageView
@@ -25,6 +25,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:tint="?attr/themed_icon_color"
+        android:alpha="0.7"
         tools:src="@drawable/ic_article_description"
         android:contentDescription="@null"/>
 
@@ -60,20 +61,20 @@
     <LinearLayout
         android:id="@+id/addContainer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:padding="4dp"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintTop_toBottomOf="@id/taskDescription"
         app:layout_constraintStart_toEndOf="@id/taskIconCircle"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="?attr/selectableItemBackground">
+        android:background="?attr/selectableItemBackgroundBorderless">
 
         <ImageView
             android:id="@+id/add_image"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@null"
             android:src="@drawable/ic_add_gray_white_24dp"
             android:tint="?attr/colorAccent" />
@@ -94,17 +95,18 @@
     <LinearLayout
         android:id="@+id/translateContainer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:padding="4dp"
         android:layout_marginStart="16dp"
         app:layout_constraintTop_toTopOf="@id/addContainer"
         app:layout_constraintStart_toEndOf="@id/addContainer"
-        android:background="?attr/selectableItemBackground">
+        android:background="?attr/selectableItemBackgroundBorderless">
 
         <ImageView
             android:id="@+id/suggestedEditsTranslateImage"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@null"
             android:src="@drawable/ic_translate_white_24dp"
             android:tint="?attr/colorAccent" />

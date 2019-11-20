@@ -189,9 +189,6 @@
   <string name="button_continue_to_article">Hamaky ny lahatsoratra</string>
   <string name="button_add_to_reading_list">Ampiana amin\'ny lisi-pamakiana</string>
   <string name="page_offline_notice_cannot_load_while_offline">Tsy afaka alaina ilay lahatsoratra rehefa tsy misy fifandraisana.</string>
-  <string name="crash_report_dialog_dont_send_button">Dinganina</string>
-  <string name="crash_report_dialog_always_send_button">Alefa foana</string>
-  <string name="crash_report_dialog_send_button">Alefa</string>
   <string name="crash_report_activity_title">Hadisoam-pampiharana</string>
   <string name="crash_report_relaunch">Averina indray</string>
   <string name="crash_report_quit">Hiala</string>

@@ -63,7 +63,7 @@
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits">Предложение отредактировать</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Предложение отредактировать</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="card_offline_error_retry">Повторить</string>
@@ -214,7 +214,7 @@
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
-  <string name="preference_summary_auto_upload_crash_reports">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису HockeyApp, чтобы проблема, вызвавшая аварию, была рассмотрена в Викимедиа и была исправлена быстрее.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису HockeyApp, чтобы проблема, вызвавшая аварию, была рассмотрена в Викимедиа и была исправлена быстрее.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
   <string name="history_search_list_hint">История поиска</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
@@ -375,11 +375,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
-  <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
-  <string name="crash_report_dialog_text">Вы хотите отправить отчёт об аварии приложения внешнему сервису HockeyApp, чтобы проблема, вызвавшая аварию, была рассмотрена в Викимедиа и была исправлена быстрее?</string>
-  <string name="crash_report_dialog_dont_send_button">Пропустить</string>
-  <string name="crash_report_dialog_always_send_button">Всегда отправлять</string>
-  <string name="crash_report_dialog_send_button">Отправить</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
@@ -743,6 +738,8 @@
   <string name="suggested_edits_task_action_text_add">Добавить</string>
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
   <string name="suggested_edits_image_captions">Описания изображений</string>
+  <string name="suggested_edits_quality_bad_text">Плохо</string>
+  <string name="suggested_edits_last_edited_never">Никогда</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>

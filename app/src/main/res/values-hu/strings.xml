@@ -182,7 +182,7 @@
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
-  <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
   <string name="history_search_list_hint">Keresés az előzményekben</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
@@ -342,11 +342,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
-  <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
-  <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
-  <string name="crash_report_dialog_dont_send_button">Kihagy</string>
-  <string name="crash_report_dialog_always_send_button">Küldés mindig</string>
-  <string name="crash_report_dialog_send_button">Küldés</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -702,7 +697,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Kérdőív kitöltése</string>
   <string name="suggested_edits_task_action_text_add">Hozzáadás</string>
   <string name="suggested_edits_task_action_text_translate">Fordítás</string>
-  <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, köszönet a szerkesztéseidért! Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához</string>
   <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>
   <string name="suggested_edits_quality_label_text">Szerkesztési minőség</string>
   <string name="suggested_edits_quality_perfect_text">Tökéletes</string>

@@ -13,13 +13,16 @@ import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
 
 internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_image_title_description, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        circularProgressBar.setCurrentProgress(80.0)
+        isClickable = true
+        isFocusable = true
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
     }
 
     fun setTitle(titleText: String) {
@@ -42,13 +45,13 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         val circleProgress: Double
 
         when(severity) {
-            0 -> { iconRes = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_perfect_text; circleProgress = 100.0 }
-            1 -> { iconRes = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_excellent_text; circleProgress = 85.0 }
-            2 -> { iconRes = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_very_good_text; circleProgress = 75.0 }
-            3 -> { iconRes = R.drawable.ic_check_black_24dp; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_good_text; circleProgress = 55.0 }
-            4 -> { iconRes = R.drawable.ic_check_black_24dp; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_okay_text; circleProgress = 40.0 }
-            5 -> { iconRes = R.drawable.ic_check_black_24dp; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_sufficient_text; circleProgress = 30.0 }
-            else -> { iconRes = R.drawable.ic_error_black_24dp; iconTint = R.color.red50; backgroundTint = R.color.red90; textRes = R.string.suggested_edits_quality_poor_text; circleProgress = 20.0 }
+            0 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_perfect_text; circleProgress = 100.0 }
+            1 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_excellent_text; circleProgress = 85.0 }
+            2 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_very_good_text; circleProgress = 75.0 }
+            3 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_good_text; circleProgress = 55.0 }
+            4 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_okay_text; circleProgress = 40.0 }
+            5 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_sufficient_text; circleProgress = 30.0 }
+            else -> { iconRes = R.drawable.ic_exclamation_borderless; iconTint = R.color.red50; backgroundTint = R.color.red90; textRes = R.string.suggested_edits_quality_poor_text; circleProgress = 20.0 }
         }
 
         circularProgressBar.setCurrentProgress(circleProgress)
@@ -65,8 +68,8 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, iconTint)))
 
         val params = image.layoutParams
-        params.width = DimenUtil.roundedDpToPx(16f)
-        params.height = DimenUtil.roundedDpToPx(16f)
+        params.width = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.suggested_edits_icon_size) * 3 / 4)
+        params.height = params.width
         image.layoutParams = params
         image.requestLayout()
     }

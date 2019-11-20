@@ -196,7 +196,7 @@
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
   <string name="preference_title_auto_upload_crash_reports">ارسال گزارش خطا در نرم‌افزار</string>
-  <string name="preference_summary_auto_upload_crash_reports">اجازه‌دادن به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم، برای رفع کردن سریع‌تر آنها.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">اجازه‌دادن به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم، برای رفع کردن سریع‌تر آنها.</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
   <string name="history_search_list_hint">تاریخچهٔ جستجو</string>
   <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
@@ -354,11 +354,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">گم نورکردن تصویر (در حالت تیره)</string>
   <string name="preference_title_prefer_offline_content">محتوای آفلاین را ترجیح بده</string>
   <string name="preference_summary_prefer_offline_content">با نشان دادن محتوای آفلاین به جای گرفتن آخرین نسخه می‌توانید در مصرف داده صرفه‌جویی کنید</string>
-  <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
-  <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
-  <string name="crash_report_dialog_dont_send_button">رها کردن</string>
-  <string name="crash_report_dialog_always_send_button">همیشه ارسال کن</string>
-  <string name="crash_report_dialog_send_button">ارسال</string>
   <string name="crash_report_activity_title">خطای برنامه</string>
   <string name="crash_report_relaunch_or_quit">با عرض پوزش نرم‌افزار با خطا خارج شد آیا قصد استفادهٔ مجدد دارید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>

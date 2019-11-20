@@ -87,12 +87,6 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/EditTextAutoSummarizePreference"
-            android:key="@string/preference_key_remote_log"
-            android:title="@string/preferences_developer_remote_log_title"
-            android:dialogMessage="@string/preferences_developer_remote_log_summary" />
-
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/EditTextAutoSummarizePreference"
             android:key="@string/preference_key_app_channel"
             android:title="@string/preference_key_app_channel" />
 
@@ -294,9 +288,30 @@
             android:key="@string/preference_key_show_edit_tasks_onboarding"
             android:title="@string/preference_key_show_edit_tasks_onboarding" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_suggested_edits_pause_date"
+            android:title="@string/preference_key_suggested_edits_pause_date" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_pause_reverts"
+            android:title="@string/preference_key_suggested_edits_pause_reverts" />
+
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_suggested_edits_multilingual_teaser_task"
-            android:title="@string/preference_key_show_suggested_edits_multilingual_teaser_task" />
+            android:key="@string/preference_key_suggested_edits_override_counts"
+            android:title="@string/preference_key_suggested_edits_override_counts"
+            android:summary="Use the following two fields to override suggested edit counts:"/>
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_override_edits"
+            android:title="@string/preference_key_suggested_edits_override_edits" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_override_reverts"
+            android:title="@string/preference_key_suggested_edits_override_reverts" />
 
     </PreferenceCategory>
 

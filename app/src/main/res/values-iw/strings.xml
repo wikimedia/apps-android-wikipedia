@@ -15,6 +15,7 @@
 * Strayblues
 * YaronSh
 * בנימין
+* דגש חזק
 * המקיסט
 -->
 <resources>
@@ -182,7 +183,7 @@
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר אותה</string>
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
-  <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">לאפשר ליישום לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
   <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
   <string name="error_can_not_process_link">לא היה אפשר להציג את הקישור הזה</string>
@@ -343,11 +344,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-  <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקודמת</string>
-  <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
-  <string name="crash_report_dialog_dont_send_button">לדלג</string>
-  <string name="crash_report_dialog_always_send_button">לשלוח תמיד</string>
-  <string name="crash_report_dialog_send_button">לשלוח</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
@@ -364,7 +361,7 @@
   <string name="color_theme_sepia">ספיה</string>
   <string name="color_theme_test_title">טקסט לדוגמה</string>
   <string name="color_theme_test_text">יש לגרור את המחלק כדי לשנות את גודל הטקסט שמוצג בעת קריאת הערכים. כדי להגדיר את גודל הטקסט בשאר היישום, יש לשנות את גודל הטקסט בהגדרות המערכת של המכשיר.</string>
-  <string name="preference_title_app_theme">ערכת הנושא של האפליקציה</string>
+  <string name="preference_title_app_theme">ערכת הנושא של היישום</string>
   <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של היישום</string>
   <string name="text_size_increase">הגדלת הטקסט</string>
   <string name="text_size_decrease">הקטנת הטקסט</string>
@@ -704,6 +701,34 @@
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
+  <string name="suggested_edits_task_action_text_add">הוספה</string>
+  <string name="suggested_edits_task_action_text_translate">תרגום</string>
+  <string name="suggested_edits_image_captions">כיתוב התמונה</string>
+  <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
+  <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
+  <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
+  <string name="suggested_edits_pageviews_label_text">צפיות בדף</string>
+  <string name="suggested_edits_quality_label_text">איכות עריכה</string>
+  <string name="suggested_edits_quality_perfect_text">מושלמת</string>
+  <string name="suggested_edits_quality_excellent_text">מעולה</string>
+  <string name="suggested_edits_quality_very_good_text">טובה מאוד</string>
+  <string name="suggested_edits_quality_good_text">טובה</string>
+  <string name="suggested_edits_quality_okay_text">בסדר</string>
+  <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
+  <string name="suggested_edits_quality_poor_text">ירודה</string>
+  <string name="suggested_edits_quality_bad_text">גרועה</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">תרומה</item>
+    <item quantity="other">תרומות</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">יום אחד</item>
+    <item quantity="two">יומיים</item>
+    <item quantity="other">%d ימים</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">עריכה אחרונה</string>
+  <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -742,6 +767,9 @@
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
   <string name="this_year">בשנה הזאת</string>
   <string name="back_to_top">חזרה למעלה</string>
+  <string name="on_this_day_dialog_next_month">החודש הבא</string>
+  <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
+  <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
   <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
     <item quantity="other">שנתיים %d</item>

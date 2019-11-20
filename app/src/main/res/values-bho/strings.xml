@@ -18,7 +18,7 @@
   <string name="search_hint_search_languages">भाषा खोजल जाय</string>
   <string name="search_hint_search_my_lists_and_articles">हमार लिस्ट आ लेख में खोजीं</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="nav_item_suggested_edits">सुझावित संपादन</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">सुझावित संपादन</string>
   <string name="error_network_error">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
   <string name="page_error_retry">दुबारा कोसिस करीं</string>
   <string name="card_offline_error_retry">दुबारा कोसिस करीं</string>
@@ -169,7 +169,7 @@
   <string name="preference_title_eventlogging_opt_in">इस्तेमाल के रपट भेजीं</string>
   <string name="preference_summary_eventlogging_opt_in">आप एह एप के कइसे इस्तेमाल करीं ले एकरे बारे में जानकारी एकट्ठा करे खातिर विकिमीडिया के अनुमती देईं जवना से एप के अउरी बेहतर बनावल जा सके</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रपट भेजीं</string>
-  <string name="preference_summary_auto_upload_crash_reports">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
   <string name="editing_error_spamblacklist">ब्लॉक डोमेन (%s) से जुड़ल कड़ी मिलल बा। इनहन के हटाईं आ दोबारा कोसिस करीं।</string>
   <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">ई कड़ी ना देखावल जा सकल</string>
@@ -300,9 +300,6 @@
   <string name="view_link_preview_error_button_dismiss">रद्द करीं</string>
   <string name="error_page_does_not_exist">ई पन्ना मौजूद नइखे।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
-  <string name="crash_report_dialog_dont_send_button">छोड़ीं</string>
-  <string name="crash_report_dialog_always_send_button">हमेशा भेजीं</string>
-  <string name="crash_report_dialog_send_button">भेजल जाय</string>
   <string name="crash_report_activity_title">एप्लीकेशन खराबी</string>
   <string name="crash_report_quit">छोड़ के हटीं</string>
   <string name="article_menu_bar_bookmark">एह लेख के पढ़ाई सूची में जोड़ीं</string>

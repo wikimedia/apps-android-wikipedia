@@ -4,7 +4,6 @@ import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Menu
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
@@ -37,11 +36,12 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
                 for (i in 0..menuView.childCount) {
                     val menuItemView = menuView.getChildAt(i)
                     if (menuItemView != null) {
-                        val labelView = menuItemView.findViewById<TextView>(R.id.largeLabel)
-                        labelView.setSingleLine(false)
-                        labelView.maxLines = 2
-                        labelView.ellipsize = TextUtils.TruncateAt.END
-                        labelView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                        val largeLabel = menuItemView.findViewById<TextView>(R.id.largeLabel)
+                        largeLabel.ellipsize = TextUtils.TruncateAt.END
+                        largeLabel.setPadding(0, paddingTop, 0, paddingBottom)
+                        val smallLabel = menuItemView.findViewById<TextView>(R.id.smallLabel)
+                        smallLabel.ellipsize = TextUtils.TruncateAt.END
+                        smallLabel.setPadding(0, paddingTop, 0, paddingBottom)
                     }
                 }
             }

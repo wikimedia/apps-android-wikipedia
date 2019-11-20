@@ -15,7 +15,6 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
     init {
         View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
         linkContainer1.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(linkContainer1.tag as Int))) }
-        linkContainer2.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(linkContainer2.tag as Int))) }
     }
 
     fun setPaused(message: String) {
@@ -32,8 +31,6 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
 
     fun setIPBlocked() {
         image.visibility = GONE
-        linkContainer2.visibility = GONE
-        linksDivider.visibility = GONE
         messageTextView.text = StringUtil.fromHtml(context.getString(R.string.suggested_edits_ip_blocked_message))
 
         linkText1.text = context.getString(R.string.suggested_edits_help_page_link_text)
@@ -42,12 +39,7 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
 
     private fun setDefaultState() {
         image.visibility = View.VISIBLE
-        linkContainer2.visibility = VISIBLE
-        linksDivider.visibility = VISIBLE
-
-        linkText1.text = context.getString(R.string.suggested_edits_editing_tips_link_text)
+        linkText1.text = context.getString(R.string.suggested_edits_help_page_link_text)
         linkContainer1.tag = R.string.android_app_edit_help_url
-        linkText2.text = context.getString(R.string.suggested_edits_help_page_link_text)
-        linkContainer2.tag = R.string.android_app_edit_help_url
     }
 }

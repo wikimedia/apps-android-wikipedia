@@ -206,7 +206,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a HockeyApp, un proveedor de servicios externo, para que podamos revisar tu fallo y corregir el error con mayor rapidez y facilidad.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a HockeyApp, un proveedor de servicios externo, para que podamos revisar tu fallo y corregir el error con mayor rapidez y facilidad.</string>
   <string name="editing_error_spamblacklist">Se detectaron enlaces a dominios bloqueados (%s). Elimínalos y vuelve a intentarlo.</string>
   <string name="history_search_list_hint">Buscar en el historial</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
@@ -365,11 +365,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imágenes (en el tema oscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contenido sin conexión</string>
   <string name="preference_summary_prefer_offline_content">Ahorrar el uso de datos mediante la carga de artículos que estén disponibles sin conexión, en lugar de cargar siempre la última versión del artículo.</string>
-  <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
-  <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
-  <string name="crash_report_dialog_dont_send_button">Omitir</string>
-  <string name="crash_report_dialog_always_send_button">Enviar siempre</string>
-  <string name="crash_report_dialog_send_button">Enviar</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Coincidir con tema del sistema</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
@@ -732,6 +728,7 @@
     <item quantity="one">%d día</item>
     <item quantity="other">%d días</item>
   </plurals>
+  <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -770,9 +767,9 @@
   <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
   <string name="back_to_top">Volver al principio</string>
-  <string name="on_this_day_dialog_next_month">El próximo mes</string>
-  <string name="on_this_day_dialog_previous_month">El mes prévio</string>
-  <string name="on_this_day_open_date_picker">Selector de fechas abiertas</string>
+  <string name="on_this_day_dialog_next_month">Mes siguiente</string>
+  <string name="on_this_day_dialog_previous_month">Mes anterior</string>
+  <string name="on_this_day_open_date_picker">Abrir selector de fecha</string>
   <plurals name="diff_years">
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>

@@ -168,7 +168,7 @@
   <string name="preference_title_eventlogging_opt_in">တၢင်ႇ ၶေႃႈလၢတ်ႈ လွင်ႈၸႂ်ႉတိုဝ်း</string>
   <string name="preference_summary_eventlogging_opt_in">ပၼ်သုၼ်ႇ ဝီႇၶီႇၽီးတီးယႃး တွၼ်ႈတႃႇ ၵဵပ်းႁွမ်ၶေႃႈမုၼ်း လွင်ႈဝႃႈ ၸဝ်ႈၵဝ်ႇ ႁဵတ်းႁိုဝ်ၸႂ်ႉ ဢႅပ်ႉ၊ ပဵၼ်တွၼ်ႈတႃႇႁဵတ်းႁႂ်ႈ ဢႅပ်ႉ တိူဝ်းၶႅမ်ႉမႃးလီ</string>
   <string name="preference_title_auto_upload_crash_reports">သူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ်</string>
-  <string name="preference_summary_auto_upload_crash_reports">ပၼ်ႇသုၼ်ႇဢႅမ်ႉ တႃႇသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ် ၸူး ဢႅပ်ႉႁွၵ်ႉၶီး ဢမ်ႇၼၼ် ၽူႈၵမ်ႉထႅမ်ၵေႃႉသၢမ် ၵႂႃႇ ႁင်းမၼ်းလႄႈ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၶိုၼ်း​တူၺ်း လွင်ႈၶွင်ႉၶမ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးၶိုၼ်း လွင်ႈယူပ်ႈယွမ်းလႆႈ ငၢႆႈငၢႆႈဝႆးဝႆးယူႇ။</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ပၼ်ႇသုၼ်ႇဢႅမ်ႉ တႃႇသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ် ၸူး ဢႅပ်ႉႁွၵ်ႉၶီး ဢမ်ႇၼၼ် ၽူႈၵမ်ႉထႅမ်ၵေႃႉသၢမ် ၵႂႃႇ ႁင်းမၼ်းလႄႈ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၶိုၼ်း​တူၺ်း လွင်ႈၶွင်ႉၶမ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးၶိုၼ်း လွင်ႈယူပ်ႈယွမ်းလႆႈ ငၢႆႈငၢႆႈဝႆးဝႆးယူႇ။</string>
   <string name="editing_error_spamblacklist">တုမ်ႉႁၼ်ၺႃး %s ႁဵင်းၵွင်ႉ ဢၼ်ထုၵ်ႇႁႄႉတတ်းဝႆႉ။ ၶႅၼ်းတေႃႈ ထွၼ်ပႅတ်ႈ ၶဝ်ၸိူဝ်းၼၼ်ႉသေ ၶိုၼ်းႁဵတ်းတူၺ်းထႅင်ႈၶႃႈလႄႈ။</string>
   <string name="history_search_list_hint">ၶူၼ်ႉႁႃ ပိုၼ်းလင်</string>
   <string name="error_can_not_process_link">ဢမ်ႇၸၢင်ႈဢွၵ်ႇၼႄ ႁဵင်းၵွင်ႉဢၼ်ၼႆႉ</string>
@@ -323,11 +323,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ယွၼ်ႇလႅင်းၶႅပ်းႁၢင်ႈ (တီႈၼႂ်းယူင်ႉႁၢင်ႈလပ်းသိင်ႇ)</string>
   <string name="preference_title_prefer_offline_content">တိူဝ်းပၼ်ႁႅင်း လမ်းၼႂ်းဢွပ်ႉၾ်လၢႆး</string>
   <string name="preference_summary_prefer_offline_content">ပေႃးၸႂ်ႉ ဢွပ်ႉၾ်လၢႆး ဢၼ်ၸၢင်ႈၸႂ့်လႆႈၼၼ်ႉ မၼ်းတေတိူဝ်းယွၼ်ႇလႆႈ လွင်ႈၸႂ်ႉတိုဝ်း တေႇတႃႇ လိူဝ်သေ ပိုတ်ႇဝႃးသျိၼ်းပွင်ႈၵႂၢမ်း ဢၼ်ဢွၵ်ႇလိုၼ်းလင်သုတ်းၼၼ်ႉ</string>
-  <string name="crash_report_dialog_title">ၵဵင်ၸႂ်ယူႇ၊ မိူဝ်ႈပွၵ်ႈလိုၼ်းသုတ်းၼၼ်ႉ ဢႅပ်ႉလႆႈ လႆႈၵွႆဝႆႉ</string>
-  <string name="crash_report_dialog_text">ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၶႂ်ႈသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈလူႉလႅဝ်ၸူး ဢႅပ်ႉႁွၵ်ႉၶီ/ ၽူႈၵမ်ႉထႅမ် ထီႉသၢမ် တႃႇႁႂ်ႈ ဝီႇၶီႇမီႇတီႇယႃႇ ၸၢင်ႈၶိုၼ်းတူၺ်း လွင်ႈလူႉလႅဝ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးပၼ် လွင်ႈယူပ်ႈယွမ်း ဢၼ်ပဵၼ်ၵႂႃႇၼၼ်ႉႁိုဝ်?</string>
-  <string name="crash_report_dialog_dont_send_button">ၶၢမ်ႈ</string>
-  <string name="crash_report_dialog_always_send_button">သူင်ႇတႃႇသေႇ</string>
-  <string name="crash_report_dialog_send_button">သူင်ႇ</string>
   <string name="crash_report_activity_title">လွင်ႈၽိတ်းပိူင်ႈ ဢႅပ်ႉၽရီႇၶေးသျိၼ်း</string>
   <string name="crash_report_relaunch_or_quit">ႁဝ်းၶႃႈ ၵဵင်ၸႂ်ယူႇ၊ ဢႅပ်ႉဝီႇၶီႇမီႇတီႇယႃႇ လႆႈမီး လွင်ႈၽိတ်းပိူင်ႈလႄႈ ထုၵ်ႇၵိုတ်းၵႂႃႇ ၸိူင်ႉၼႆႉ။\nၸဝ်ႈၵဝ်ႇတေၶႂ်ႈတႄႇၶိုၼ်းၼႄႇ ဢမ်ႇၼၼ် တေဢိုတ်းပႅတ်ႈ?</string>
   <string name="crash_report_relaunch">တႄႇၶိုၼ်း</string>
@@ -542,7 +537,7 @@
   <string name="most_read_list_card_title">သၢႆတၢင်း</string>
   <string name="view_static_card_icon_content_description">ႁၢင်ႈႁိင်ႈ ၶႅပ်း</string>
   <string name="view_card_news_title">တီႈၼႂ်းၶၢဝ်ႇ</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="other">%d ၼိုင်ႈ=မိူဝ်ႈဝႃး</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">မိူဝ်ႈၼႆႉ</string>

@@ -178,7 +178,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permitir á aplicación enviar automaticamente informes de fallos a HockeyApp / un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permitir á aplicación enviar automaticamente informes de fallos a HockeyApp / un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
   <string name="history_search_list_hint">Historial de procuras</string>
   <string name="error_can_not_process_link">Non foi posible amosar esta ligazón</string>
@@ -339,11 +339,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imaxe (no tema obscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contido sen conexión</string>
   <string name="preference_summary_prefer_offline_content">Aforrar o uso de datos mediante a carga de artigos que estean dispoñibles sen conexión, en lugar de cargar sempre a última versión do artigo.</string>
-  <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
-  <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
-  <string name="crash_report_dialog_dont_send_button">Omitir</string>
-  <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
-  <string name="crash_report_dialog_send_button">Enviar</string>
   <string name="crash_report_activity_title">Erro da aplicación</string>
   <string name="crash_report_relaunch_or_quit">Sentímolo, a aplicación de Wikipedia tivo un erro e pechouse.\n\nGustaríalle volver a comezar ou saír?</string>
   <string name="crash_report_relaunch">Comezar de novo</string>
@@ -696,10 +691,15 @@
   <string name="suggested_edits_article_cta_image_caption">Engadir lenda de imaxe</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Engadir lenda</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Engadir lenda (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Engadir lenda de imaxe</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Engadir lenda de imaxe (%s)</string>
   <string name="suggested_edits_snackbar_survey_text">Como foi a súa experiencia editando? Por favor, adique un momento a cubrir a enquisa de edición na aplicación.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Comezar a enquisa</string>
+  <string name="suggested_edits_task_action_text_add">Engadir</string>
+  <string name="suggested_edits_task_action_text_translate">Traducir</string>
+  <string name="suggested_edits_image_captions">Lendas de imaxes</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, grazas polas súas edicións, Abaixo pode atopar máis formas de contribuír á Wikipedia</string>
+  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Ola %s&lt;/b&gt;, sabe que calquera persoa pode editar a Wikipedia? Atope abaixo algunhas formas divertidas de axudar a mellorar a Wikipedia. Divírtase editandoǃ</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

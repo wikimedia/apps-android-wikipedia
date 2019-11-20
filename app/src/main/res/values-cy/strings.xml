@@ -230,9 +230,6 @@
   <string name="enable_location_service">Rhoi ar waith</string>
   <string name="error_webview_updating">Ceisiwch eto nes ymlaen.</string>
   <string name="multi_select_items_selected">Dewisiwyd %d</string>
-  <string name="crash_report_dialog_dont_send_button">Ymlaen i\'r nesaf</string>
-  <string name="crash_report_dialog_always_send_button">Danfon pob tro</string>
-  <string name="crash_report_dialog_send_button">Danfon</string>
   <string name="crash_report_activity_title">Gwall</string>
   <string name="crash_report_relaunch_or_quit">Cafwyd nam. Ymddiheurwn am hyn.\n\nCychwyn eto neu roi\'r gorau iddi?</string>
   <string name="crash_report_relaunch">Cychwyn eto</string>

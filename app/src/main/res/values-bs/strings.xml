@@ -119,7 +119,7 @@
   <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
   <string name="preference_summary_eventlogging_opt_in">Dozvolite Wikimediji da prikupi informacije o tom kako koristite aplikaciju da bismo je poboljšali</string>
   <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
-  <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izvještaje o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Dozvolite aplikaciji da automatski šalje izvještaje o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
   <string name="editing_error_spamblacklist">Otkriven link ka blokiranim domenama (%s). Uklonite ih i pokušajte ponovo.</string>
   <string name="history_search_list_hint">Pretraži historiju</string>
   <string name="error_can_not_process_link">Ne mogu prikazati link</string>
@@ -247,11 +247,6 @@
   <string name="view_wiki_error_message_offline">Ne mogu se povezati na internet</string>
   <string name="reference_title">Referenca %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjenje slike (u tamnoj temi)</string>
-  <string name="crash_report_dialog_title">Izvinjavamo se, aplikacija se srušila prethodni put</string>
-  <string name="crash_report_dialog_text">Želite li poslati izvještaj o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga tako da ga Wikimedia može pregledati i popraviti programsku grešku koja ju je izazvala?</string>
-  <string name="crash_report_dialog_dont_send_button">Preskoči</string>
-  <string name="crash_report_dialog_always_send_button">Uvijek pošalji</string>
-  <string name="crash_report_dialog_send_button">Pošalji</string>
   <string name="crash_report_activity_title">Greška u aplikaciji</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je. Došlo je do greške u aplikaciji Wikipedia i prekinula je s radom.\n\nŽelite li je ponovo pokrenuti ili je zatvoriti?</string>
   <string name="crash_report_relaunch">Ponovo pokreni</string>

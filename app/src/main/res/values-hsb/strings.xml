@@ -270,11 +270,6 @@
   <string name="reference_title">Referenca %s</string>
   <string name="preference_title_prefer_offline_content">Radšo offline-wobsah wzać</string>
   <string name="preference_summary_prefer_offline_content">Lutuj wužiwanje datow přez pokazowanje offline přistupnych zapiskow město stajneho sćehnjenja najnowšeje wersije.</string>
-  <string name="crash_report_dialog_title">Bohužel je app zašły raz spadnyła</string>
-  <string name="crash_report_dialog_text">Chceš rozprawu wo spadnjenju pósłać na HockeyApp/třećeho posłužbarja, zo móhła je Wikimedija přepruwować a zmylk reparować?</string>
-  <string name="crash_report_dialog_dont_send_button">Přeskočić</string>
-  <string name="crash_report_dialog_always_send_button">Přeco pósłać</string>
-  <string name="crash_report_dialog_send_button">Pósłać</string>
   <string name="crash_report_activity_title">Zmylk aplikacije</string>
   <string name="crash_report_relaunch_or_quit">Bohužel je zmylk w app wustupił.\n\nChceš app znowa wočinić abo skónčić?</string>
   <string name="crash_report_relaunch">Znowa wočinić</string>
