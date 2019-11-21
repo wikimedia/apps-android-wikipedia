@@ -385,7 +385,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void setBottomNavVisible(boolean visible) {
-        navTabContainer.animate().translationY(visible ? 0 : navTabContainer.getHeight()).start();
+        navTabContainer.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     public void onGoOffline() {
