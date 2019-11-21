@@ -3,6 +3,7 @@ package org.wikipedia.page
 import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
+import android.widget.ScrollView
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementCard
@@ -18,10 +19,13 @@ import org.wikipedia.util.UriUtil
 
 class AnnouncementDialog internal constructor(context: Context, val announcement: Announcement) : AlertDialog(context), AnnouncementCardView.Callback {
     init {
-        val rootView = AnnouncementCardView(context)
-        rootView.setCard(AnnouncementCard(announcement))
-        rootView.setCallback(this)
-        setView(rootView)
+        val scrollView = ScrollView(context)
+        val cardView = AnnouncementCardView(context)
+        cardView.setCard(AnnouncementCard(announcement))
+        cardView.setCallback(this)
+        scrollView.addView(cardView)
+        scrollView.isVerticalScrollBarEnabled = true
+        setView(scrollView)
     }
 
     override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {

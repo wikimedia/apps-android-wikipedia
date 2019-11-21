@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/view_announcement_header_image"
@@ -31,7 +33,9 @@
         android:layout_gravity="end"
         android:layout_marginBottom="12dp"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        android:clipChildren="false">
 
         <Button
             android:id="@+id/view_announcement_action_negative"
