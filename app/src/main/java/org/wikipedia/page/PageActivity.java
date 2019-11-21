@@ -713,6 +713,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             unbinder.unbind();
         }
         disposables.clear();
+        Prefs.setHasVisitedArticlePage(true);
         super.onDestroy();
     }
 
