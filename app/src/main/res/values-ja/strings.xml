@@ -193,7 +193,7 @@
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">アプリがクラッシュした際に、自動的に第三者の HockeyApp に対してクラッシュレポートを送信することを許可します。これによって、クラッシュを確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
+  <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的にサードパーティーのサービスプロバイダーに対してクラッシュレポートを送信することを許可します。これによって、クラッシュ内容を確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索履歴</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした</string>
@@ -349,10 +349,12 @@
   <string name="view_link_preview_error_button_dismiss">閉じる</string>
   <string name="error_page_does_not_exist">このページは存在しません</string>
   <string name="view_wiki_error_message_offline">インターネットに接続できません</string>
+  <string name="view_wiki_error_message_timeout">ウィキペディアに接続できません。ネットワーク接続を確認するか、後ほどもう一度お試しください。</string>
   <string name="reference_title">%s 参照</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -710,8 +712,14 @@
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="suggested_edits_task_action_text_add">追加</string>
   <string name="suggested_edits_task_action_text_translate">翻訳</string>
+  <string name="suggested_edits_image_captions">画像の説明</string>
+  <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアに貢献できるいろんなやり方を以下でご紹介します。</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアは誰でも編集できることをご存知ですか？　ウィキペディアをより良くする楽しみ方を以下でご紹介します。良い編集を！</string>
+  <string name="suggested_edits_image_captions_task_detail">画像の説明では、読者が意味と文脈を理解する手助けとなるよう、画像について説明しています。</string>
+  <string name="suggested_edits_add_descriptions_task_detail">記事の説明は、読者が一目でその主題を理解するのに役立つように要約してあります。</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;提案した編集は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎます。\n\n 以下のリンクでどういう意味か理解しましょう。</string>
   <string name="suggested_edits_pageviews_label_text">ページビュー</string>
+  <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
