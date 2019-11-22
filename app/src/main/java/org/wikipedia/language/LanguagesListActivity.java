@@ -25,7 +25,6 @@ import org.wikipedia.analytics.AppLanguageSearchingFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.history.SearchActionModeCallback;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewUtil;
@@ -70,8 +69,6 @@ public class LanguagesListActivity extends BaseActivity {
         setContentView(R.layout.activity_languages_list);
         ButterKnife.bind(this);
         app = WikipediaApp.getInstance();
-
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         emptyView.setEmptyText(R.string.langlinks_no_match);
         emptyView.setVisibility(View.GONE);

@@ -30,7 +30,7 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
 
         // Don't let changed theme affects the status bar color and navigation bar color
         DeviceUtil.resetSystemUiVisibility(this);
-        setStatusBarColor(android.R.color.black);
+        setStatusBarColor(0);
         getWindow().setNavigationBarColor(0);
     }
 

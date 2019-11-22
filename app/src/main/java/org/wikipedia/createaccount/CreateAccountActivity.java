@@ -29,7 +29,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
@@ -90,8 +89,6 @@ public class CreateAccountActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
-
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingContainer.setVisibility(View.GONE);

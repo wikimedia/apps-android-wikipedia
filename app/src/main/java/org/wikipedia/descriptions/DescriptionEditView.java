@@ -198,9 +198,9 @@ public class DescriptionEditView extends LinearLayout {
             saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
             cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
             headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_title_color));
-            ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_status_bar_color));
-            ((DescriptionEditActivity) activity).updateNavigationBarColor(enabled ? ContextCompat.getColor(activity, android.R.color.black) : ResourceUtil.getThemedAttributeId(getContext(), R.attr.paper_color));
+            ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? ContextCompat.getColor(activity, android.R.color.black) : ResourceUtil.getThemedColor(getContext(), R.attr.main_status_bar_color));
             DeviceUtil.updateStatusBarTheme(activity, null, enabled);
+            ((DescriptionEditActivity) activity).updateNavigationBarColor(enabled ? ContextCompat.getColor(activity, android.R.color.black) : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         }
     }
 

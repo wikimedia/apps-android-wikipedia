@@ -19,7 +19,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource))
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.suggestions_background_color))
+        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.suggestions_background_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.suggestions_background_color))
     }
 

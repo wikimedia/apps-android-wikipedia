@@ -532,6 +532,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
                     actionMode == null && (appBarLayout.getTotalScrollRange() + verticalOffset) > appBarLayout.getTotalScrollRange() / 2);
 
+            ((ReadingListActivity) requireActivity()).updateNavigationBarColor();
             // prevent swiping when collapsing the view
             swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }

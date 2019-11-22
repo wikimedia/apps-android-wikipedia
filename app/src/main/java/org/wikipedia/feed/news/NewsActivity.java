@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.util.AnimationUtil;
+import org.wikipedia.util.ResourceUtil;
 
 public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
     protected static final String EXTRA_NEWS_ITEM = "item";
@@ -37,5 +38,9 @@ public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
     public NewsFragment createFragment() {
         return NewsFragment.newInstance(GsonUnmarshaller.unmarshal(NewsItem.class, getIntent().getStringExtra(EXTRA_NEWS_ITEM)),
                 GsonUnmarshaller.unmarshal(WikiSite.class, getIntent().getStringExtra(EXTRA_WIKI)));
+    }
+
+    public void updateNavigationBarColor() {
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
     }
 }

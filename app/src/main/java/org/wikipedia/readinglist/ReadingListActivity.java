@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.util.ResourceUtil;
 
 public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragment> {
     protected static final String EXTRA_READING_LIST_ID = "readingListId";
@@ -20,8 +21,6 @@ public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragm
         super.onCreate(savedInstanceState);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
-        // TODO: translucent status will affect the navigation bar color?
-        getWindow().setNavigationBarColor(0);
     }
 
     public static Intent newIntent(@NonNull Context context, @NonNull ReadingList list) {
@@ -32,5 +31,9 @@ public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragm
     @Override
     public ReadingListFragment createFragment() {
         return ReadingListFragment.newInstance(getIntent().getLongExtra(EXTRA_READING_LIST_ID, 0));
+    }
+
+    public void updateNavigationBarColor() {
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
     }
 }

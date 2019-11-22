@@ -2,15 +2,12 @@ package org.wikipedia.feed.onthisday;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
 import org.wikipedia.Constants.InvokeSource;
-import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
@@ -23,12 +20,6 @@ public class OnThisDayActivity extends SingleFragmentActivity<OnThisDayFragment>
                 .putExtra(AGE, age)
                 .putExtra(WIKISITE, wikiSite)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 
     @Override

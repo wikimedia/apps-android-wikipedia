@@ -92,13 +92,6 @@ public final class DeviceUtil {
         }
     }
 
-    public static void setNavigationBarColor(@NonNull Activity activity, int color) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            activity.getWindow().setNavigationBarColor(color);
-            activity.getWindow().getDecorView().setSystemUiVisibility(WikipediaApp.getInstance().getCurrentTheme().isDark() ? 0 : View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        }
-    }
-
     public static void resetSystemUiVisibility(@NonNull Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             activity.getWindow().getDecorView().setSystemUiVisibility(0);

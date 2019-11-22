@@ -2,13 +2,10 @@ package org.wikipedia.settings;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
-import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
-import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 
@@ -17,12 +14,6 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
 
     public static Intent newIntent(@NonNull Context ctx) {
         return new Intent(ctx, SettingsActivity.class);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 
     @Override
