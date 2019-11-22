@@ -11,9 +11,6 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.UriUtil;
 
@@ -43,35 +40,12 @@ public class PageLead implements PageLeadProperties {
     @SuppressWarnings("unused") @Nullable private Protection protection;
     @SuppressWarnings("unused") @Nullable private List<Section> sections;
 
-    public Page toPage(PageTitle title) {
-        return new Page(adjustPageTitle(title),
-                getSections(),
-                toPageProperties());
-    }
-
-    private PageTitle adjustPageTitle(PageTitle title) {
-        if (redirected != null) {
-            // Handle redirects properly.
-            title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
-        } else if (normalizedtitle != null) {
-            // We care about the normalized title only if we were not redirected
-            title = new PageTitle(normalizedtitle, title.getWikiSite(), title.getThumbUrl());
-        }
-        title.setDescription(description);
-        return title;
-    }
-
     public String getLeadSectionContent() {
         if (sections != null) {
             return sections.get(0).getContent();
         } else {
             return "";
         }
-    }
-
-    /** Converter */
-    private PageProperties toPageProperties() {
-        return new PageProperties(this);
     }
 
     @Override

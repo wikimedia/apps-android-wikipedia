@@ -8,15 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.dataclient.page.PageLeadProperties;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.log.L;
-
-import java.text.ParseException;
 import java.util.Date;
-
-import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.util.DateUtil.iso8601DateParse;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.
@@ -49,10 +41,10 @@ public class PageProperties implements Parcelable {
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
-    public PageProperties(PageLeadProperties core) {
-        pageId = core.getId();
+   /* public PageProperties(PageSummary core) {
+        pageId = core.getPageId();
         namespace = core.getNamespace();
-        revisionId = core.getRevision();
+       // revisionId = core.getRevision();
         displayTitleText = defaultString(core.getDisplayTitle());
         titlePronunciationUrl = core.getTitlePronunciationUrl();
         geo = core.getGeo();
@@ -79,7 +71,7 @@ public class PageProperties implements Parcelable {
         isDisambiguationPage = core.isDisambiguation();
         wikiBaseItem = core.getWikiBaseItem();
         descriptionSource = core.getDescriptionSource();
-    }
+    }*/
 
     /**
      * Constructor to be used when building a Page from a compilation. Initializes the title and

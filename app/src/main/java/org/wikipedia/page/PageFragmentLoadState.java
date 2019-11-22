@@ -9,16 +9,13 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
-import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
@@ -26,13 +23,10 @@ import org.wikipedia.views.ObservableWebView;
 
 import java.text.ParseException;
 
-import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
@@ -228,21 +222,22 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient()
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
+        ///Make a call to PageSummary
+        //update page with protection and sections
+
+        disposables.add(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(rsp -> {
-                    app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = rsp.body();
-                    pageLoadLeadSectionComplete(lead);
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(pageSummary -> {
+                    //app.getSessionFunnel().leadSectionFetchEnd();
+                    //PageLead lead = rsp.body();
+                    pageLoadLeadSectionComplete(pageSummary);
 
                     bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
 
-                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                    /*if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
                             || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                         showPageOfflineMessage(rsp.raw().header("date", ""));
-                    }
+                    }*/
                 }, t -> {
                     L.e("PageLead error: ", t);
                     commonSectionFetchOnCatch(t);
@@ -272,12 +267,12 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageLead pageLead) {
+    private void pageLoadLeadSectionComplete(PageSummary pageSummary) {
         if (!fragment.isAdded()) {
             return;
         }
 
-        Page page = pageLead.toPage(model.getTitle());
+        Page page = pageSummary.toPage(model.getTitle(), null);
         bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.getPageProperties().canEdit()));
 
         model.setPage(page);
@@ -300,11 +295,11 @@ public class PageFragmentLoadState {
         model.getCurEntry().setReferrer(curEntry.getReferrer());
 
         // Save the thumbnail URL to the DB
-        PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
-        Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
+        //PageImage pageImage = new PageImage(model.getTitle(), pageSummary.getThumbUrl());
+        //Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
-        model.getTitle().setThumbUrl(pageImage.getImageName());
-        model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
+        //model.getTitle().setThumbUrl(pageImage.getImageName());
+        //model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
     }
 
     /**

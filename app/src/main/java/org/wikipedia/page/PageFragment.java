@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -791,7 +792,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onPageLoadComplete() {
-        refreshView.setEnabled(true);
+        webView.evaluateJavascript(JavaScriptActionHandler.getPageProtection(), value -> Log.e("####", "PROTECTED" + value));
+                refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
         initPageScrollFunnel();

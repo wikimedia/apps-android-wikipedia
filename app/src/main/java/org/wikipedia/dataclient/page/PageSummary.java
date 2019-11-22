@@ -10,7 +10,12 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.Section;
+
+import java.util.List;
 
 /**
  * Represents a summary of a page, useful for page previews.
@@ -34,6 +39,29 @@ public class PageSummary {
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @SuppressWarnings("unused") @Nullable private String lang;
     @SuppressWarnings("unused") private int pageid;
+
+    public Page toPage(PageTitle title, @NonNull List<Section> sections) {
+        return new Page(adjustPageTitle(title),
+                sections,
+                toPageProperties());
+    }
+
+    private PageTitle adjustPageTitle(PageTitle title) {
+        /*if (redirected != null) {
+            // Handle redirects properly.
+            title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
+        } else if (normalizedtitle != null) {
+            // We care about the normalized title only if we were not redirected*/
+        title = new PageTitle(normalizedtitle, title.getWikiSite(), title.getThumbUrl());
+        //}
+        title.setDescription(description);
+        return title;
+    }
+
+    /** Converter */
+    private PageProperties toPageProperties() {
+        return new PageProperties(this);
+    }
 
     @NonNull
     public String getTitle() {
