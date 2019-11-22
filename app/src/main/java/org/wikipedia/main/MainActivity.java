@@ -39,6 +39,7 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
@@ -83,6 +84,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             startActivityForResult(InitialOnboardingActivity.newIntent(this), ACTIVITY_REQUEST_INITIAL_ONBOARDING);
         }
 
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.nav_tab_background_color));
         setSupportActionBar(getToolbar());
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("");

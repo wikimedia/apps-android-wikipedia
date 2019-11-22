@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -198,6 +199,7 @@ public class DescriptionEditView extends LinearLayout {
             cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
             headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_title_color));
             ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_status_bar_color));
+            ((DescriptionEditActivity) activity).updateNavigationBarColor(enabled ? ContextCompat.getColor(activity, android.R.color.black) : ResourceUtil.getThemedAttributeId(getContext(), R.attr.paper_color));
             DeviceUtil.updateStatusBarTheme(activity, null, enabled);
         }
     }

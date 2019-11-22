@@ -48,6 +48,7 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -100,6 +101,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(networkStateReceiver, filter);
 
         DeviceUtil.setLightSystemUiVisibility(this);
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
 
         maybeShowLoggedOutInBackgroundDialog();
     }
@@ -181,6 +183,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, color));
         }
+    }
+
+    protected void setNavigationBarColor(int color) {
+        DeviceUtil.setNavigationBarColor(this, color);
     }
 
     protected void setTheme() {

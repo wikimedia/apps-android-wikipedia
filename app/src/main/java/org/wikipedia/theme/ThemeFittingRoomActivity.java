@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+import org.wikipedia.util.DeviceUtil;
 
 public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittingRoomFragment>
         implements ThemeChooserDialog.Callback {
@@ -26,6 +27,11 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
             themeChooserDialog = new ThemeChooserDialog();
             bottomSheetPresenter.show(getSupportFragmentManager(), themeChooserDialog);
         }
+
+        // Don't let changed theme affects the status bar color and navigation bar color
+        DeviceUtil.resetSystemUiVisibility(this);
+        setStatusBarColor(android.R.color.black);
+        getWindow().setNavigationBarColor(0);
     }
 
     @Override

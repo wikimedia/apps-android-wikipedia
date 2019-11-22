@@ -20,6 +20,8 @@ public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragm
         super.onCreate(savedInstanceState);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
+        // TODO: translucent status will affect the navigation bar color?
+        getWindow().setNavigationBarColor(0);
     }
 
     public static Intent newIntent(@NonNull Context context, @NonNull ReadingList list) {

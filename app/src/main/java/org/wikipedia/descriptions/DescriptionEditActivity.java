@@ -2,6 +2,7 @@ package org.wikipedia.descriptions;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.ImagePreviewDialog;
 
@@ -58,6 +60,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
                 .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary))
                 .putExtra(EXTRA_INVOKE_SOURCE, invokeSource);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        updateNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 
     @Override
@@ -111,6 +119,10 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     public void updateStatusBarColor(int color) {
         setStatusBarColor(color);
+    }
+
+    public void updateNavigationBarColor(int color) {
+        setNavigationBarColor(color);
     }
 
     private void copyLink(@NonNull String url) {
