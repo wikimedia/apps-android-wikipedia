@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
-import org.wikipedia.util.DeviceUtil;
 
 public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittingRoomFragment>
         implements ThemeChooserDialog.Callback {
@@ -29,9 +29,8 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
         }
 
         // Don't let changed theme affects the status bar color and navigation bar color
-        DeviceUtil.resetSystemUiVisibility(this);
-        setStatusBarColor(0);
-        getWindow().setNavigationBarColor(0);
+        setStatusBarColor(ContextCompat.getColor(this, android.R.color.black));
+        setNavigationBarColor(ContextCompat.getColor(this, android.R.color.black));
     }
 
     @Override
