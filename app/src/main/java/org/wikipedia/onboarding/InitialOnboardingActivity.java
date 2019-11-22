@@ -18,6 +18,7 @@ public class InitialOnboardingActivity
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.paper_color));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 
     @NonNull public static Intent newIntent(@NonNull Context context) {
