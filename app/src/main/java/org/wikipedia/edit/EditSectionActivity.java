@@ -147,6 +147,7 @@ public class EditSectionActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
         ButterKnife.bind(this);
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
 
         if (!getIntent().getAction().equals(ACTION_EDIT_SECTION)) {
             throw new RuntimeException("Much wrong action. Such exception. Wow");

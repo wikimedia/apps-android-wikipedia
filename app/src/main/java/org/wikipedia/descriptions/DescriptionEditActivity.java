@@ -3,6 +3,7 @@ package org.wikipedia.descriptions;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -109,8 +110,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         ShareUtil.shareText(this, title);
     }
 
-    public void updateStatusBarColor(int color) {
+    public void updateStatusBarColor(@ColorInt int color) {
         setStatusBarColor(color);
+    }
+
+    public void updateNavigationBarColor(@ColorInt int color) {
+        setNavigationBarColor(color);
     }
 
     private void copyLink(@NonNull String url) {
