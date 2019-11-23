@@ -132,7 +132,8 @@ public class TabActivity extends BaseActivity {
 
         FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
 
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.colorBackground));
+        setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
         setSupportActionBar(tabToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
