@@ -7,9 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.Constants;
-import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
-import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
@@ -24,7 +22,6 @@ public class RandomActivity extends SingleFragmentActivity<RandomFragment> {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setElevation(0f);
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.main_toolbar_color));
     }
 
     @Override

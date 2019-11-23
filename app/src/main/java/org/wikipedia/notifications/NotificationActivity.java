@@ -99,8 +99,6 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         setContentView(R.layout.activity_notifications);
         ButterKnife.bind(this);
 
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
-
         errorView.setRetryClickListener((v) -> beginUpdateList());
         errorView.setBackClickListener((v) -> onBackPressed());
 
