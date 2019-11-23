@@ -18,7 +18,7 @@ import static org.wikipedia.Constants.InvokeSource.WIDGET;
 
 public class SearchActivity extends SingleFragmentActivity<SearchFragment> {
     static final String QUERY_EXTRA = "query";
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
