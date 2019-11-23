@@ -179,7 +179,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
-        setNavigationBarColor(ContextCompat.getColor(this, android.R.color.black));
 
         toolbarGradient.setBackground(GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
         infoGradient.setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
