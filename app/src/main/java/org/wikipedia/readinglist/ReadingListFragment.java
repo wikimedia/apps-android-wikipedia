@@ -854,11 +854,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
 
         @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
-        }
-
-        @Override
         protected Context getParentContext() {
             return requireContext();
         }

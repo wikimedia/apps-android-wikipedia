@@ -810,6 +810,39 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_tooltip, enabled);
     }
 
+    public static boolean hasVisitedArticlePage() {
+        return getBoolean(R.string.preference_key_visited_article_page, false);
+    }
+
+    public static void setHasVisitedArticlePage(boolean visited) {
+        setBoolean(R.string.preference_key_visited_article_page, visited);
+    }
+
+    @NonNull public static Set<String> getAnnouncementShownDialogs() {
+        Set<String> emptySet = new LinkedHashSet<>();
+        if (!hasAnnouncementShownDialogs()) {
+            return emptySet;
+        }
+        //noinspection unchecked
+        Set<String> announcement = GsonUnmarshaller.unmarshal(emptySet.getClass(),
+                getString(R.string.preference_key_announcement_shown_dialogs, null));
+        return announcement != null ? announcement : emptySet;
+    }
+
+    public static void setAnnouncementShownDialogs(@NonNull Set<String> newAnnouncementIds) {
+        Set<String> announcementIds = getAnnouncementShownDialogs();
+        announcementIds.addAll(newAnnouncementIds);
+        setString(R.string.preference_key_announcement_shown_dialogs, GsonMarshaller.marshal(announcementIds));
+    }
+
+    public static boolean hasAnnouncementShownDialogs() {
+        return contains(R.string.preference_key_announcement_shown_dialogs);
+    }
+
+    public static void resetAnnouncementShownDialogs() {
+        remove(R.string.preference_key_announcement_shown_dialogs);
+    }
+
     public static boolean shouldMatchSystemTheme() {
         return getBoolean(R.string.preference_key_match_system_theme, false);
     }

@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -20,7 +21,12 @@ object SuggestedEditsUserStats {
     var totalReverts: Int = 0
 
     fun getEditCountsObservable(): Observable<MwQueryResponse> {
-        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
+        return Observable.zip(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts, ServiceFactory.get(WikiSite(Service.COMMONS_URL)).editorTaskCounts,
+                BiFunction<MwQueryResponse, MwQueryResponse, MwQueryResponse> { wikidataResponse, commonsResponse ->
+                    // If the user is blocked on Commons, then boil up the Commons response, otherwise
+                    // pass back the Wikidata response, which will be checked for blocking anyway.
+                    if (commonsResponse.query()!!.userInfo()!!.isBlocked) commonsResponse else wikidataResponse
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
