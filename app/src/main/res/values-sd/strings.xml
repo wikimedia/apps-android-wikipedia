@@ -317,6 +317,7 @@
   <string name="reference_title">حوالو %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">(گھري نظاري ۾) عڪسن کي ڊم ڪندي</string>
   <string name="preference_title_prefer_offline_content">آفلائين مواد کي ترجيح ڏيو</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">سرشتي جي نظاري سان ملايو</string>
   <string name="crash_report_activity_title">ايپليڪيشن جي چُڪَ</string>
   <string name="crash_report_relaunch_or_quit">اسان معذرتخواھ آهيون، وڪيپيڊيا ايپ هڪ خرابي کي منھن ڏنو ۽ بند ٿي وئي.\n\nڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
   <string name="crash_report_relaunch">شروع ڪريو</string>
@@ -648,7 +649,7 @@
   <string name="suggested_edits_image_captions_task_detail">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_add_descriptions_task_detail">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي.</string>
   <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
   <string name="suggested_edits_editing_tips_link_text">سنوارڻ جا مشورا ۽ شرڪتون</string>
   <string name="suggested_edits_help_page_link_text">صلاح-ڏنل سنوارن جو مدد صفحو</string>

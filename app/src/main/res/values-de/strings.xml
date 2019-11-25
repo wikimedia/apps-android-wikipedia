@@ -7,6 +7,7 @@
 * Lucas Werkmeister
 * Metalhead64
 * Mirzali
+* Schmackes
 * Sebastian Wallroth
 * Tobi 406
 * Vogone
@@ -175,7 +176,7 @@
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
   <string name="preference_title_auto_upload_crash_reports">Absturzberichte senden</string>
-  <string name="preference_summary_auto_upload_crash_reports">Der App erlauben, automatisch Absturzberichte an HockeyApp/einen ausgelagerten Dienstleistungsanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Der App erlauben, automatisch Absturzberichte an HockeyApp/einen ausgelagerten Dienstleistungsanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
   <string name="history_search_list_hint">Verlauf durchsuchen</string>
   <string name="error_can_not_process_link">Dieser Link konnte nicht angezeigt werden</string>
@@ -635,6 +636,8 @@
   <string name="suggested_edits_feed_card_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>

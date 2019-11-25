@@ -175,7 +175,7 @@
   <string name="preference_title_eventlogging_opt_in">Изпращане на доклади за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Позволяване на Уикимедия да събира информация за това как използвате приложението, с цел подобряването му</string>
   <string name="preference_title_auto_upload_crash_reports">Изпращане на доклади за сривове</string>
-  <string name="preference_summary_auto_upload_crash_reports">Позволяване на приложението да изпраща доклади за сривове към HockeyApp / услуга на трети страни автоматично, така че да можем да прегледаме срива и да оправим бъга по-бързо и по-лесно.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Позволяване на приложението да изпраща доклади за сривове към услуга на трети страни автоматично, така че да можем да прегледаме срива и да оправим бъга по-бързо и по-лесно.</string>
   <string name="editing_error_spamblacklist">Открити са препратки до блокирани домейни (%s). Моля, премахнете ги и опитайте пак.</string>
   <string name="history_search_list_hint">Хронология на търсенето</string>
   <string name="error_can_not_process_link">Връзката не може да бъде показана</string>
@@ -680,7 +680,7 @@
   <string name="suggested_edits_image_captions">Описания на изображения</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението</string>
+  <string name="suggested_edits_image_captions_task_detail">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
   <string name="suggested_edits_pageviews_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>

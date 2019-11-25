@@ -171,11 +171,6 @@ public class LangLinksActivity extends BaseActivity {
         }
 
         @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return false;
-        }
-
-        @Override
         protected Context getParentContext() {
             return LangLinksActivity.this;
         }

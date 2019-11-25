@@ -146,7 +146,7 @@
   <string name="preference_title_eventlogging_opt_in">استعمال کی رپورٹ بھیجیں</string>
   <string name="preference_summary_eventlogging_opt_in">ویکیمیڈیا کو اجازت دیں کہ وہ آپ کے اس ایپ کے استعمال کی معلومات حاصل کرے تاکہ اس اطلاقیے کو مزید بہتر بنایا جا سکے۔</string>
   <string name="preference_title_auto_upload_crash_reports">نقائص کی اطلاع بھیجیں</string>
-  <string name="preference_summary_auto_upload_crash_reports">اس اطلاقیہ کو از خود ہاکی ایپ کی خدمت میں نقائص اور خامیوں کی اطلاع بھیجنے کی اجازت دیں تاکہ ہم جلد از جلد اور بآسانی ان خامیوں کو درست کر سکیں۔</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">اس اطلاقیہ کو از خود ہاکی ایپ کی خدمت میں نقائص اور خامیوں کی اطلاع بھیجنے کی اجازت دیں تاکہ ہم جلد از جلد اور بآسانی ان خامیوں کو درست کر سکیں۔</string>
   <string name="editing_error_spamblacklist">ممنوعہ برقی پتوں (%s) کو پرکھا گیا ہے۔ براہ کرم انہیں ہٹاکر پھر کوشش کریں۔</string>
   <string name="history_search_list_hint">تاریخ تلاش کریں۔</string>
   <string name="error_can_not_process_link">اس ربط کو دکھایا نہیں جاسکا۔</string>

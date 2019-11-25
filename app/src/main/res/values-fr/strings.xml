@@ -201,7 +201,7 @@
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer automatiquement les rapports d’incident à HockeyApp, un fournisseur de services tiers, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer automatiquement les rapports d’incident à un fournisseur de services tiers, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
   <string name="editing_error_spamblacklist">Détection de liens vers des domaines bloqués (%s) . Veuillez les supprimer et réessayer.</string>
   <string name="history_search_list_hint">Rechercher dans l’historique</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
@@ -727,12 +727,12 @@
   <string name="suggested_edits_image_captions_task_detail">Les légendes d’image décrivent une image pour aider les lecteurs à comprendre leur signification et leur contexte.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Les descriptions d’article résument un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions avec Modifications suggérées.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Pendant combien de jours sans arrêt vous avez contribué à utiliser Modifications suggérées.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Pendant combien de jours sans arrêt vous avez contribué à utiliser Modifications suggérées.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours avec Modifications suggérées.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basé sur combien de fois une de vos contributions a été annulée. Modifications révoquées : %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Modifications suggérées est en pause jusqu’au %1$s.&lt;/b&gt; Désolé %2$s, certaines de vos contributions récentes ont été annulées.\n\n Apprenez comment améliorer vos talents d’éditeur sur Wikipédia en suivant le lien ci-dessous.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Les modifications suggérées sont désactivées.&lt;/b&gt; Désolé %s, vous avez trop de contributions récentes annulées.\n\n Apprenez ce que cela signifie en suivant le lien ci-dessous.</string>
-  <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia. Apprenez en plus sur les blocages en suivant sur le lien ci-dessous.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Basé sur combien de fois une de vos contributions a été annulée. Modifications révoquées : %d.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Modifications suggérées est en pause jusqu’au %1$s.&lt;/b&gt; Désolé %2$s, certaines de vos contributions récentes ont été annulées.\n\n Apprenez comment améliorer vos talents d’éditeur sur Wikipédia en suivant le lien ci-dessous.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Les modifications suggérées sont désactivées.&lt;/b&gt; Désolé %s, vous avez trop de contributions récentes annulées.\n\n Apprenez ce que cela signifie en suivant le lien ci-dessous.</string>
+  <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia. Apprenez en plus sur ce que cela veut dire en suivant le lien ci-dessous.</string>
   <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
   <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>
   <string name="suggested_edits_edit_streak_label_text">Modifier la trace</string>

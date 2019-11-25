@@ -183,7 +183,7 @@
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר אותה</string>
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
-  <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
+  <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה לספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
   <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
   <string name="error_can_not_process_link">לא היה אפשר להציג את הקישור הזה</string>
@@ -706,8 +706,18 @@
   <string name="suggested_edits_image_captions">כיתוב התמונה</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
+  <string name="suggested_edits_image_captions_task_detail">כותרות התמונות מתארות תמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">תיאורי ערכים מסכמים את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">על סמל מספר הטעמים שהתרומות שלך שוחזרו (בוטלו על־ידי עורך אחר). תרומות ששוחזרו: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך שוחזרו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך שוחזרו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
+  <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
   <string name="suggested_edits_pageviews_label_text">צפיות בדף</string>
   <string name="suggested_edits_quality_label_text">איכות עריכה</string>
   <string name="suggested_edits_quality_perfect_text">מושלמת</string>

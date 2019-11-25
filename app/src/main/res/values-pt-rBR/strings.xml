@@ -197,7 +197,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permite que a Wikimedia recolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar relatórios de falhas</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permite que o aplicativo envie relatórios de falhas automaticamente ao HockeyApp / um provedor de serviços de terceiros para que possamos analisar a falha e corrigi-la de forma rápida e fácil.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permite que o aplicativo envie relatórios de falhas automaticamente ao provedor de serviços de terceiros para que possamos analisar a falha e corrigi-la de forma rápida e fácil.</string>
   <string name="editing_error_spamblacklist">Foram detectadas ligações para domínios bloqueadas (%s). Remova-as e tente novamente.</string>
   <string name="history_search_list_hint">Histórico de pesquisa</string>
   <string name="error_can_not_process_link">Não foi possível exibir esta ligação</string>
@@ -723,12 +723,12 @@
   <string name="suggested_edits_image_captions_task_detail">As legendas das imagens descrevem uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">As descrições dos artigos resumem um artigo para ajudar os leitores a entender rapidamente o assunto.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu usando as edições sugeridas.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu por meio das edições sugeridas. Se você não contribui há algum tempo, ele mostra sua última data de contribuição.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página dos itens nos quais você contribuiu nos últimos 30 dias com edições sugeridas.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida. Edições revertidas: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.\n\n Aprenda como melhorar suas habilidades de edição na Wikipédia com o link abaixo.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;As edições sugeridas estão desativadas.&lt;/b&gt; Desculpa %s, muitas das suas recentes contribuições foram revertidas.\n\n Saiba o que isso significa no link abaixo.</string>
-  <string name="suggested_edits_ip_blocked_message">O IP que você está usando está impedido de editar a Wikipédia. Saiba mais sobre bloqueio visitando o link abaixo.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.\n\nAprenda como melhorar suas habilidades de edição na Wikipédia com o link abaixo.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;As edições sugeridas estão desativadas.&lt;/b&gt; Desculpa %s, muitas das suas recentes contribuições foram revertidas.\n\nSaiba o que isso significa no link abaixo.</string>
+  <string name="suggested_edits_ip_blocked_message">Parece que seu endereço IP (ou intervalo de endereços IP) está atualmente bloqueado na edição da Wikipedia. Saiba mais sobre o que isso significa visitando o link abaixo.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>

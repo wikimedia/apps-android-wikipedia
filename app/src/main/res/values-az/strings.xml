@@ -168,7 +168,7 @@
   <string name="preference_title_eventlogging_opt_in">İstifadə hesabatlarını göndərin</string>
   <string name="preference_summary_eventlogging_opt_in">Vikimediaya tətbiqin daha yaxşı tətbiq edilməsi üçün necə istifadə etdiyinə dair məlumat toplamaq imkanı verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
-  <string name="preference_summary_auto_upload_crash_reports">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
   <string name="history_search_list_hint">Tarixçədə axtar</string>
   <string name="error_can_not_process_link">Bu linki göstərilə bilmədi</string>

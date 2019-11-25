@@ -565,11 +565,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
-        }
-
-        @Override
         protected Context getParentContext() {
             return requireContext();
         }

@@ -170,7 +170,7 @@
   <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
-  <string name="preference_summary_auto_upload_crash_reports">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
   <string name="history_search_list_hint">ইতিহাস সন্ধান কৰক</string>
   <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>

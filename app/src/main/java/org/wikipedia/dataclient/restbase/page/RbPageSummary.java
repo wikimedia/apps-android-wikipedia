@@ -40,6 +40,7 @@ public class RbPageSummary implements PageSummary {
         return title;
     }
 
+    // TODO: Make this return CharSequence, and automatically convert from HTML.
     @Override @NonNull
     public String getDisplayTitle() {
         return displaytitle;

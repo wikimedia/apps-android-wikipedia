@@ -6,7 +6,8 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
-import org.jetbrains.annotations.NotNull;
+import androidx.annotation.NonNull;
+
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
@@ -15,16 +16,16 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     private boolean haveMainActivity;
     private boolean anyActivityResumed;
 
-    public boolean haveMainActivity() {
+    boolean haveMainActivity() {
         return haveMainActivity;
     }
 
-    public boolean isAnyActivityResumed() {
+    boolean isAnyActivityResumed() {
         return anyActivityResumed;
     }
 
     @Override
-    public void onActivityCreated(@NotNull Activity activity, Bundle savedInstanceState) {
+    public void onActivityCreated(@NonNull Activity activity, Bundle savedInstanceState) {
         WikipediaApp app = WikipediaApp.getInstance();
         if (activity instanceof MainActivity) {
             haveMainActivity = true;
@@ -51,29 +52,29 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     }
 
     @Override
-    public void onActivityStarted(@NotNull Activity activity) {
+    public void onActivityStarted(@NonNull Activity activity) {
     }
 
     @Override
-    public void onActivityResumed(@NotNull Activity activity) {
+    public void onActivityResumed(@NonNull Activity activity) {
         anyActivityResumed = true;
     }
 
     @Override
-    public void onActivityPaused(@NotNull Activity activity) {
+    public void onActivityPaused(@NonNull Activity activity) {
         anyActivityResumed = false;
     }
 
     @Override
-    public void onActivityStopped(@NotNull Activity activity) {
+    public void onActivityStopped(@NonNull Activity activity) {
     }
 
     @Override
-    public void onActivitySaveInstanceState(@NotNull Activity activity, @NotNull Bundle outState) {
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
     }
 
     @Override
-    public void onActivityDestroyed(@NotNull Activity activity) {
+    public void onActivityDestroyed(@NonNull Activity activity) {
         if (activity instanceof MainActivity) {
             haveMainActivity = false;
         }
