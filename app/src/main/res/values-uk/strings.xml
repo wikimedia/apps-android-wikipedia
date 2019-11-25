@@ -712,11 +712,11 @@
   <string name="suggested_edits_image_captions_task_detail">Підписи зображень допомагають читачам зрозуміти значення та контекст зображень.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Описи статей допомагають читачам зрозуміти предмет статті з першого погляду, підсумовуючи вміст статті.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок зі списку \"Пропонованих\".</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Скільки днів поспіль ви робили внесок зі списку \"Пропонованих\".</string>
   <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші правки було скасовано. Кількість таких правок: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь як покращити якість ваших редагувань у Вікіпедії за допомогою посилання нижче.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає за посилання нижче.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Засновано на тому, скільки разів ваші правки було скасовано. Кількість таких правок: %d.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь як покращити якість ваших редагувань у Вікіпедії за допомогою посилання нижче.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає за посилання нижче.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">IP-адреса якою ви користуєтесь заблокована для редагування у Вікіпедії. Що це означає ви може дізнатись з посилання нижче.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>

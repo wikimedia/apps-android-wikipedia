@@ -717,7 +717,7 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアは誰でも編集できることをご存知ですか？　ウィキペディアをより良くする楽しみ方を以下でご紹介します。良い編集を！</string>
   <string name="suggested_edits_image_captions_task_detail">画像の説明では、読者が意味と文脈を理解する手助けとなるよう、画像について説明しています。</string>
   <string name="suggested_edits_add_descriptions_task_detail">記事の説明は、読者が一目でその主題を理解するのに役立つように要約してあります。</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;提案した編集は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎます。\n\n 以下のリンクでどういう意味か理解しましょう。</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;提案した編集は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎます。\n\n 以下のリンクでどういう意味か理解しましょう。</string>
   <string name="suggested_edits_pageviews_label_text">ページビュー</string>
   <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
