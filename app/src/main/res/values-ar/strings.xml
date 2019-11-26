@@ -720,11 +720,11 @@
   <string name="suggested_edits_image_captions_task_detail">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
   <string name="suggested_edits_add_descriptions_task_detail">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
   <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت باستخدام التعديلات المقترحة.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">كم يوم بدون انقطاع ساهمت باستخدام التعديلات المقترحة.</string>
   <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك، التعديلات التي تم إرجاعها:%d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\n  تعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\n  تعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك، التعديلات التي تم إرجاعها:%d.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\n  تعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\n  تعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
   <string name="suggested_edits_ip_blocked_message">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>

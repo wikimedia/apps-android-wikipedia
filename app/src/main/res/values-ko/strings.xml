@@ -7,6 +7,7 @@
 * Doyoon1995
 * Ellif
 * Garam
+* Gongsoonyee
 * Hwangjy9
 * Jerrykim306
 * Joolee0104
@@ -698,7 +699,7 @@
   <string name="suggested_edits_task_action_text_add">추가</string>
   <string name="suggested_edits_task_action_text_translate">번역</string>
   <string name="suggested_edits_image_captions">이미지 캡션</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">현재 사용 중인 IP의 위키백과 편집이 차단되었습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
+  <string name="suggested_edits_ip_blocked_message">현재 사용 중인 IP(또는 IP의 주소)가 위키피디아를 편집하는 것으로부터 차단 되어있습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
   <string name="suggested_edits_quality_label_text">편집 품질</string>
   <string name="suggested_edits_quality_perfect_text">완벽함</string>
   <string name="suggested_edits_quality_excellent_text">우수함</string>

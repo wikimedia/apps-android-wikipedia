@@ -41,7 +41,7 @@
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
-  <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.</string>
+  <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -669,7 +669,7 @@
   <string name="suggested_edits_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_image_caption_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add image captions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
-  <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.</string>
+  <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="suggested_edits_task_add_description_title">Article description task heading.</string>
   <string name="suggested_edits_task_add_description_description">Article description task explanation given to user.</string>
   <string name="suggested_edits_task_image_caption_title">Image caption tasks heading.</string>
@@ -691,7 +691,7 @@
     <item quantity="one">Text suggesting that one in-app contribution was made.</item>
     <item quantity="other">Text suggesting that two or more in-app contributions were made. %d is the number of contribution.</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.</string>
+  <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.\n\n{{Identical|Suggested edits}}</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
@@ -718,9 +718,9 @@
   <string name="suggested_edits_onboarding_message">Message text shown to users who havent yet used the suggested edits features, to encourage them to start editing.%s represents the user\'s name</string>
   <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Article descriptions detail text explaining the task of adding article descriptions.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Tool tip text explaining the contributions statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Tool tip text explaining the edit quality statistics to the user. %d represents the number of reverts.</string>
   <string name="suggested_edits_paused_message">Text explaining the reason for a short term disabling of editing previleges to the user. The %1$s symbol will be replaced by the date when editing will be unlocked again, and the %2$s symbol represents the user\'s name.</string>
   <string name="suggested_edits_disabled_message">Text explaining the reason for disabling of editing previleges to the user. %s represents the user\'s name.</string>
