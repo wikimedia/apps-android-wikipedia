@@ -74,6 +74,7 @@ public class PageSummary {
         return title;
     }
 
+    // TODO: Make this return CharSequence, and automatically convert from HTML.
     @NonNull
     public String getDisplayTitle() {
         return displaytitle;

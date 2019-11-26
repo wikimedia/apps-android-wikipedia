@@ -697,11 +697,11 @@
   <string name="suggested_edits_image_captions_task_detail">Описите му кажуваат на читателот за што се работи и даваат контекст на сликата.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Описите на насловите даваат претстава за темата статијата на прв поглед.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси со „Предложени уредувања“.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале со „Предложени уредувања“.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Колку дена едноподруго сте учествувале со „Предложени уредувања“.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања. Отповикани уредувања: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Предложените уредувања се во прекин до %1$s.&lt;/b&gt; За жал, %2$s, некои од вашите скорешни уредувања се отповикани.\n\n Дознајте како да си ги подобрите уредувачките вештини на Википедија од страницата подолу.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Предложените уредувања се оневозможени.&lt;/b&gt; За жал, %s, имате премногу отповикани скорешни уредувања.\n\n Дознајте што ова значи од страницата подолу.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Според тоа колку пати се отповикани вашите уредувања. Отповикани уредувања: %d.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Предложените уредувања се во прекин до %1$s.&lt;/b&gt; За жал, %2$s, некои од вашите скорешни уредувања се отповикани.\n\n Дознајте како да си ги подобрите уредувачките вештини на Википедија од страницата подолу.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Предложените уредувања се оневозможени.&lt;/b&gt; За жал, %s, имате премногу отповикани скорешни уредувања.\n\n Дознајте што ова значи од страницата подолу.</string>
   <string name="suggested_edits_ip_blocked_message">Се чини дека на на вашата IP-адреса (или адресен опсег) ѝ е забрането да уредува на Википедија. Дознајте повеќе за ова на долунаведената страница.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>

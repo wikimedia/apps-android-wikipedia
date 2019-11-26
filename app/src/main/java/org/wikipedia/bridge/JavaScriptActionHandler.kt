@@ -39,7 +39,7 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun getOffsets(): String {
-        return "pcs.c1.Page.getTableOfContents();"
+        return "pcs.c1.Sections.getOffsets(document.body);"
     }
 
     @JvmStatic

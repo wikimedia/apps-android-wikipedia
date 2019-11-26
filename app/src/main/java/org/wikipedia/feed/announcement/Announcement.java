@@ -22,8 +22,8 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 public class Announcement extends BaseModel {
     public static final String SURVEY = "survey";
     public static final String FUNDRAISING = "fundraising";
-    public static final String FUNDRAISING_PLACEMENT_FEED = "feed";
-    public static final String FUNDRAISING_PLACEMENT_ARTICLE = "article";
+    public static final String PLACEMENT_FEED = "feed";
+    public static final String PLACEMENT_ARTICLE = "article";
 
     @SuppressWarnings("NullableProblems") @Required @NonNull private String id;
     @SuppressWarnings("NullableProblems") @Required @NonNull private String type;
@@ -57,15 +57,18 @@ public class Announcement extends BaseModel {
         this.negativeText = negativeText;
     }
 
-    @NonNull String id() {
+    @NonNull
+    public String id() {
         return id;
     }
 
-    @NonNull String type() {
+    @NonNull
+    public String type() {
         return type;
     }
 
-    @Nullable Date startTime() {
+    @Nullable
+    public Date startTime() {
         try {
             return DateUtil.iso8601DateParse(startTime);
         } catch (ParseException e) {
@@ -141,8 +144,9 @@ public class Announcement extends BaseModel {
         return beta;
     }
 
-    @NonNull String placement() {
-        return defaultString(placement, FUNDRAISING_PLACEMENT_FEED);
+    @NonNull
+    public String placement() {
+        return defaultString(placement, PLACEMENT_FEED);
     }
 
     boolean hasBorder() {

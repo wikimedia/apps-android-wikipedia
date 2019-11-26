@@ -157,11 +157,6 @@ public class LanguagesListActivity extends BaseActivity {
         }
 
         @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return false;
-        }
-
-        @Override
         protected Context getParentContext() {
             return LanguagesListActivity.this;
         }
