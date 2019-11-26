@@ -14,36 +14,36 @@ import org.wikipedia.util.L10nUtil.formatDateRelative
 object JavaScriptActionHandler {
     @JvmStatic
     fun setHandler(): String {
-        return "pagelib.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})"
+        return "pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})"
     }
 
     @JvmStatic
     fun setTopMargin(top: Int): String {
-        return String.format("pagelib.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
+        return String.format("pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
     }
 
     @JvmStatic
     fun setScrollTop(top: Int): String {
-        return String.format("pagelib.c1.Page.setScrollTop(%d)", top)
+        return String.format("pcs.c1.Page.setScrollTop(%d)", top)
     }
 
     @JvmStatic
     fun getTextSelection(): String {
-        return "pagelib.c1.InteractionHandling.getSelectionInfo()"
+        return "pcs.c1.InteractionHandling.getSelectionInfo()"
     }
 
     @JvmStatic
     fun getOffsets(): String {
-        return "pagelib.c1.Sections.getOffsets(document.body);"
+        return "pcs.c1.Sections.getOffsets(document.body);"
     }
 
     @JvmStatic
     fun setUp(topMargin: Int): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        return String.format("pagelib.c1.Page.setup({" +
-                "platform: pagelib.c1.Platforms.ANDROID," +
+        return String.format("pcs.c1.Page.setup({" +
+                "platform: pcs.c1.Platforms.ANDROID," +
                 "clientVersion: '%s'," +
-                "theme: pagelib.c1.Themes.%s," +
+                "theme: pcs.c1.Themes.%s," +
                 "dimImages: %b," +
                 "margins: { top: '%dpx', right: '%dpx', bottom: '%dpx', left: '%dpx' }," +
                 "areTablesInitiallyExpanded: %b," +
@@ -57,7 +57,7 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun setUpEditButtons(isEditable: Boolean, isProtected: Boolean): String {
-        return String.format("pagelib.c1.Page.setEditButtons(%b, %b)", isEditable, isProtected)
+        return String.format("pcs.c1.Page.setEditButtons(%b, %b)", isEditable, isProtected)
     }
 
     @JvmStatic
@@ -77,16 +77,16 @@ object JavaScriptActionHandler {
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
 
-        return "pagelib.c1.Footer.add({" +
-                "platform: pagelib.c1.Platforms.ANDROID," +
+        return "pcs.c1.Footer.add({" +
+                "platform: pcs.c1.Platforms.ANDROID," +
                 "clientVersion: '" + BuildConfig.VERSION_NAME + "'," +
                 "title: '${model.page?.displayTitle}'," +
                 "menuItems: [" +
-                (if (showLanguagesLink) "pagelib.c1.Footer.MenuItemType.languages, " else "") +
-                (if (showEditHistoryLink) "pagelib.c1.Footer.MenuItemType.lastEdited, " else "") +
-                (if (showTalkLink) "pagelib.c1.Footer.MenuItemType.talkPage, " else "") +
-                (if (showMapLink) "pagelib.c1.Footer.MenuItemType.coordinate, " else "") +
-                "pagelib.c1.Footer.MenuItemType.referenceList " +
+                (if (showLanguagesLink) "pcs.c1.Footer.MenuItemType.languages, " else "") +
+                (if (showEditHistoryLink) "pcs.c1.Footer.MenuItemType.lastEdited, " else "") +
+                (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
+                (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
+                "pcs.c1.Footer.MenuItemType.referenceList " +
                 "], l10n: {" +
                 "        'readMoreHeading': '${context.getString(R.string.read_more_section)}'," +
                 "        'menuDisambiguationTitle': '${context.getString(R.string.page_similar_titles)}'," +
