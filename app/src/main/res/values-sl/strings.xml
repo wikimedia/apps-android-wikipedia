@@ -87,7 +87,7 @@
   <string name="search_no_results_found">Ni rezultatov</string>
   <string name="search_reading_list_no_results">Ni rezultatov v \"%s\"</string>
   <string name="search_reading_lists_no_results">Nič nisem našel v seznamu za branje</string>
-  <string name="search_history_no_results">Nič nisem našel v zgodovini</string>
+  <string name="search_history_no_results">V zgodovini ni bilo mogoče najti ničesar</string>
   <string name="edit_section_captcha_hint">Ponovite zgornje besede</string>
   <string name="title_captcha">Vnesite CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tapnite CAPTCHA za ponovno nalaganje</string>

@@ -109,7 +109,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun showEditStreakStatsViewTooltip() {
         hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(editStreakStatsView, getString(R.string.suggested_edits_edit_streak_stat_tooltip), Toast.LENGTH_LONG)
+        currentTooltip = FeedbackUtil.showToastOverView(editStreakStatsView, getString(R.string.suggested_edits_edit_streak_stat_tooltip), FeedbackUtil.LENGTH_LONG)
     }
 
     private fun showPageViewStatsViewTooltip() {
@@ -119,7 +119,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun showEditQualityStatsViewTooltip() {
         hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts), Toast.LENGTH_LONG)
+        currentTooltip = FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts), FeedbackUtil.LENGTH_LONG)
     }
 
     override fun onPause() {

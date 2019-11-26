@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
@@ -36,6 +37,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
     @BindView(R.id.view_announcement_action_negative) Button actionViewNegative;
     @BindView(R.id.view_announcement_footer_text) TextView footerTextView;
     @BindView(R.id.view_announcement_footer_border) View footerBorderView;
+    @Nullable private Callback callback;
 
     public AnnouncementCardView(@NonNull Context context) {
         super(context);
@@ -88,8 +90,9 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         }
 
         if (card.hasBorder()) {
-            setStrokeColor(getResources().getColor(R.color.red50));
+            setStrokeColor(getResources().getColor(R.color.red30));
             setStrokeWidth(10);
+            setRadius(0);
         } else {
             setStrokeWidth(0);
         }
@@ -97,16 +100,28 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
 
     @OnClick(R.id.view_announcement_action_positive)
     void onPositiveActionClick() {
-        if (getCallback() != null && getCard() != null) {
-            getCallback().onAnnouncementPositiveAction(getCard(), getCard().actionUri());
+        if (getCard() != null) {
+            if (getCallback() != null) {
+                getCallback().onAnnouncementPositiveAction(getCard(), getCard().actionUri());
+            } else if (callback != null) {
+                callback.onAnnouncementPositiveAction(getCard(), getCard().actionUri());
+            }
         }
     }
 
     @OnClick(R.id.view_announcement_action_negative)
     void onNegativeActionClick() {
-        if (getCallback() != null && getCard() != null) {
-            getCallback().onAnnouncementNegativeAction(getCard());
+        if (getCard() != null) {
+            if (getCallback() != null) {
+                getCallback().onAnnouncementNegativeAction(getCard());
+            } else if (callback != null) {
+                callback.onAnnouncementNegativeAction(getCard());
+            }
         }
+    }
+
+    public void setCallback(@NonNull Callback callback) {
+        this.callback = callback;
     }
 
     protected void setNegativeActionVisible(boolean visible) {
