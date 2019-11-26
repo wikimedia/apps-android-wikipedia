@@ -18,7 +18,7 @@ public class PageClient {
     //       may be some abandoned demo patches that already have this functionality. It should be
     //       part of the Gson augmentation package and eventually cut into a separate lib. Repeat
     //       everywhere a Response.body() == null check occurs that throws
-    @NonNull public Observable<? extends PageSummary> summary(@NonNull WikiSite wiki, @NonNull String title, @Nullable String referrerUrl) {
+    @NonNull public Observable<Response<? extends PageSummary>> summary(@NonNull WikiSite wiki, @NonNull String title, @Nullable String referrerUrl) {
         return ServiceFactory.getRest(wiki).getSummary(referrerUrl, title);
     }
 

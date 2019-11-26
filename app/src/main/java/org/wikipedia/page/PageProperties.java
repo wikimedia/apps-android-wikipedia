@@ -8,7 +8,14 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.util.log.L;
+
+import java.text.ParseException;
 import java.util.Date;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.util.DateUtil.iso8601DateParse;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.
@@ -41,22 +48,22 @@ public class PageProperties implements Parcelable {
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
-   /* public PageProperties(PageSummary core) {
-        pageId = core.getPageId();
-        namespace = core.getNamespace();
-       // revisionId = core.getRevision();
-        displayTitleText = defaultString(core.getDisplayTitle());
-        titlePronunciationUrl = core.getTitlePronunciationUrl();
-        geo = core.getGeo();
-        editProtectionStatus = core.getFirstAllowedEditorRole();
-        languageCount = core.getLanguageCount();
+    public PageProperties(PageSummary pageSummary) {
+        pageId = pageSummary.getPageId();
+        namespace = pageSummary.getNamespace();
+       // revisionId = pageSummary.getRevision();
+        displayTitleText = defaultString(pageSummary.getDisplayTitle());
+        //titlePronunciationUrl = pageSummary.getTitlePronunciationUrl();
+        geo = pageSummary.getCoordinates();
+        //editProtectionStatus = pageSummary.getFirstAllowedEditorRole();
+        //languageCount = pageSummary.getLanguageCount();
 
         // todo: don't hardcode this here
-        leadImageUrl = core.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
+        //leadImageUrl = pageSummary.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
 
-        leadImageName = core.getLeadImageFileName();
+        //leadImageName = pageSummary.getLeadImageFileName();
         lastModified = new Date();
-        String lastModifiedText = core.getLastModified();
+        String lastModifiedText = pageSummary.getTimeStamp();
         if (lastModifiedText != null) {
             try {
                 lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
@@ -65,13 +72,13 @@ public class PageProperties implements Parcelable {
             }
         }
         // assume formatversion=2 is used so we get real booleans from the API
-        canEdit = core.isEditable();
+        //canEdit = pageSummary.isEditable();
 
-        isMainPage = core.isMainPage();
-        isDisambiguationPage = core.isDisambiguation();
-        wikiBaseItem = core.getWikiBaseItem();
-        descriptionSource = core.getDescriptionSource();
-    }*/
+        isMainPage = pageSummary.getType().equals(PageSummary.TYPE_MAIN_PAGE);
+        isDisambiguationPage = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
+        wikiBaseItem = pageSummary.getWikiBaseItem();
+        //descriptionSource = pageSummary.getDescriptionSource();
+    }
 
     /**
      * Constructor to be used when building a Page from a compilation. Initializes the title and
@@ -196,7 +203,7 @@ public class PageProperties implements Parcelable {
         parcel.writeString(descriptionSource);
     }
 
-    private PageProperties(Parcel in) {
+    public PageProperties(Parcel in) {
         pageId = in.readInt();
         namespace = Namespace.of(in.readInt());
         revisionId = in.readLong();

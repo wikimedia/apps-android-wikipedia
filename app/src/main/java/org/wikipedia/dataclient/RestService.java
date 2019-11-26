@@ -49,6 +49,7 @@ public interface RestService {
      * Gets a page summary for a given title -- for link previews
      *
      * @param title the page title to be used including prefix
+     * @return
      */
     @Headers({
             "x-analytics: preview=1",
@@ -56,7 +57,7 @@ public interface RestService {
     })
     @GET("page/summary/{title}")
     @NonNull
-    Observable<PageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
+    Observable<Response<? extends PageSummary>> getSummary(@Nullable @Header("Referer") String referrerUrl,
                                        @NonNull @Path("title") String title);
 
     /**

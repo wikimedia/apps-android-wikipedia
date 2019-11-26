@@ -1,14 +1,17 @@
 package org.wikipedia.dataclient.page;
 
+import android.location.Location;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.annotations.Required;
+import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
@@ -39,6 +42,9 @@ public class PageSummary {
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @SuppressWarnings("unused") @Nullable private String lang;
     @SuppressWarnings("unused") private int pageid;
+    @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;
+    @Nullable private String timestamp;
+    @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
 
     public Page toPage(PageTitle title, @NonNull List<Section> sections) {
         return new Page(adjustPageTitle(title),
@@ -47,13 +53,13 @@ public class PageSummary {
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
-        /*if (redirected != null) {
+        if (redirected != null) {
             // Handle redirects properly.
             title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
         } else if (normalizedtitle != null) {
             // We care about the normalized title only if we were not redirected*/
         title = new PageTitle(normalizedtitle, title.getWikiSite(), title.getThumbUrl());
-        //}
+        }
         title.setDescription(description);
         return title;
     }
@@ -153,5 +159,20 @@ public class PageSummary {
 
     @Override public String toString() {
         return getTitle();
+    }
+
+    @Nullable
+    public Location getCoordinates() {
+        return coordinates;
+    }
+
+    @Nullable
+    public String getTimeStamp() {
+        return timestamp;
+    }
+
+    @Nullable
+    public String getWikiBaseItem() {
+        return wikiBaseItem;
     }
 }
