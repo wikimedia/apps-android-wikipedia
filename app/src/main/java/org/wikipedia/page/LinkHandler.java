@@ -95,13 +95,6 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             titleString = convertedText;
         }
 
-        if (readMoreLink) {
-            WikiSite site = new WikiSite(uri);
-            PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            onReadMoreLinkClicked(title);
-            return;
-        }
-
         L.d("Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
                 && (uri.getPath().startsWith("/wiki/") || uri.getPath().startsWith("/zh-"))) {
@@ -114,7 +107,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             PageTitle title = TextUtils.isEmpty(titleString)
                     ? site.titleForInternalLink(uri.getPath())
                     : PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            onInternalLinkClicked(title);
+            if (readMoreLink) {
+                onReadMoreLinkClicked(title);
+            } else {
+                onInternalLinkClicked(title);
+            }
         } else if (!TextUtils.isEmpty(titleString) && UriUtil.isValidOfflinePageLink(uri)) {
             WikiSite site = new WikiSite(uri);
             PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
