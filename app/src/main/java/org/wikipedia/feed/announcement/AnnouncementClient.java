@@ -31,7 +31,7 @@ import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_FEED;
 
 public class AnnouncementClient implements FeedClient {
     private static final String PLATFORM_CODE = "AndroidApp";
-    private static final String PLATFORM_CODE_NEW = "AndroidAppV2";
+    private static final String PLATFORM_CODE_NEW = "AndroidAppV3";
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
