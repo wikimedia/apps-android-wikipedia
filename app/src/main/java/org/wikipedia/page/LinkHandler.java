@@ -37,6 +37,8 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     public abstract void onInternalLinkClicked(@NonNull PageTitle title);
 
+    public abstract void onReadMoreLinkClicked(@NonNull PageTitle title);
+
     public abstract WikiSite getWikiSite();
 
     // message from JS bridge:
@@ -63,9 +65,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
 
         // special: returned by page-library when clicking Read More items in the footer.
-        int eventLoggingParamIndex = href.indexOf("?event_logging_label");
+        boolean readMoreLink = false;
+        int eventLoggingParamIndex = href.indexOf("?event-logging-label");
         if (eventLoggingParamIndex > 0) {
             href = href.substring(0, eventLoggingParamIndex);
+            readMoreLink = true;
         }
 
         Uri uri = Uri.parse(href);
@@ -91,6 +95,12 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             titleString = convertedText;
         }
 
+        if (readMoreLink) {
+            WikiSite site = new WikiSite(uri);
+            PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
+            onReadMoreLinkClicked(title);
+            return;
+        }
 
         L.d("Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
