@@ -10,29 +10,30 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
+import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
 import java.text.ParseException;
+import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
@@ -228,24 +229,24 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient()
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
+        disposables.add(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(rsp -> {
-                    app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = rsp.body();
-                    pageLoadLeadSectionComplete(lead);
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(summary -> {
+                    //app.getSessionFunnel().leadSectionFetchEnd();
+                    pageLoadLeadSectionComplete(summary, null);
 
                     bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
 
-                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                    /*if ((summary.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
                             || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                         showPageOfflineMessage(rsp.raw().header("date", ""));
-                    }
-                }, t -> {
-                    L.e("PageLead error: ", t);
-                    commonSectionFetchOnCatch(t);
+                    }*/
+
+
+                }, throwable -> {
+                    L.e("PageLead error: ", throwable);
+                    commonSectionFetchOnCatch(throwable);
                 }));
 
         // And finally, start blasting the HTML into the WebView.
@@ -272,12 +273,33 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageLead pageLead) {
+    private void pageLoadLeadSectionComplete(PageSummary pageSummary, List<Section> sections) {
         if (!fragment.isAdded()) {
             return;
         }
+        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite()).getMediaList(model.getTitle().getConvertedText())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(mediaList -> {
 
-        Page page = pageLead.toPage(model.getTitle());
+                    List<MediaListItem> items = mediaList.getItems("image");
+
+                    String leadImageUrl = "https:" + items.get(0).getImageUrlFor(DimenUtil.calculateLeadImageWidth());
+
+                    String leadImageName = items.get(0).getTitle().replace("File:", "").trim();
+                    String titlePronunciationUrl = "";
+                    List<MediaListItem> audioItems = mediaList.getItems("audio");
+                    for (MediaListItem item : audioItems) {
+                        if (item.getAudioType().equals("pronunciation")) {
+                            titlePronunciationUrl = null;
+                        }
+                    }
+                    Page page = pageSummary.toPage(model.getTitle(), sections, leadImageName, leadImageUrl, titlePronunciationUrl);
+                    updateWithPage(pageSummary, page);
+                }));
+    }
+
+    private void updateWithPage(PageSummary pageSummary, Page page) {
         bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.getPageProperties().canEdit()));
 
         model.setPage(page);
@@ -300,7 +322,7 @@ public class PageFragmentLoadState {
         model.getCurEntry().setReferrer(curEntry.getReferrer());
 
         // Save the thumbnail URL to the DB
-        PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
+        PageImage pageImage = new PageImage(model.getTitle(), pageSummary.getThumbnailUrl());
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
         model.getTitle().setThumbUrl(pageImage.getImageName());

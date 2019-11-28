@@ -8,7 +8,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.page.PageLeadProperties;
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
@@ -27,28 +30,57 @@ public class PageProperties implements Parcelable {
     private final long revisionId;
     private final Date lastModified;
     private final String displayTitleText;
-    private final String editProtectionStatus;
+    private String editProtectionStatus;
     private final int languageCount;
     private final boolean isMainPage;
     private final boolean isDisambiguationPage;
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
-    @Nullable private final String leadImageUrl;
-    @Nullable private final String leadImageName;
-    @Nullable private final String titlePronunciationUrl;
+    @Nullable private String leadImageUrl;
+    @Nullable private String leadImageName;
+    @Nullable private String titlePronunciationUrl;
     @Nullable private final Location geo;
     @Nullable private final String wikiBaseItem;
     @Nullable private final String descriptionSource;
+    @Nullable private Protection protection;
 
     /**
      * True if the user who first requested this page can edit this page
      * FIXME: This is not a true page property, since it depends on current user.
      */
-    private final boolean canEdit;
+    private boolean canEdit;
 
     /**
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
+    public PageProperties(PageSummary pageSummary, String leadImageName, String leandImageUrl, String titlePronunciationUrl) {
+        pageId = pageSummary.getPageId();
+        namespace = pageSummary.getNamespace();
+        revisionId = pageSummary.getRevision();
+        displayTitleText = defaultString(pageSummary.getDisplayTitle());
+        geo = pageSummary.getGeo();
+        languageCount = 1;
+        lastModified = new Date();
+        this.leadImageName = leadImageName;
+        this.leadImageUrl = leandImageUrl;
+        this.titlePronunciationUrl = titlePronunciationUrl;
+        String lastModifiedText = pageSummary.getTimestamp();
+        if (lastModifiedText != null) {
+            try {
+                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
+            } catch (ParseException e) {
+                L.d("Failed to parse date: " + lastModifiedText);
+            }
+        }
+        // assume formatversion=2 is used so we get real booleans from the API
+
+        isMainPage = pageSummary.getType().equals(PageSummary.TYPE_MAIN_PAGE);
+        isDisambiguationPage = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
+        wikiBaseItem = pageSummary.getWikiBaseItem();
+        descriptionSource = "central";
+    }
+
+
     public PageProperties(PageLeadProperties core) {
         pageId = core.getId();
         namespace = core.getNamespace();
@@ -80,7 +112,6 @@ public class PageProperties implements Parcelable {
         wikiBaseItem = core.getWikiBaseItem();
         descriptionSource = core.getDescriptionSource();
     }
-
     /**
      * Constructor to be used when building a Page from a compilation. Initializes the title and
      * namespace fields, and explicitly disables editing. All other fields initialized to defaults.
@@ -182,6 +213,16 @@ public class PageProperties implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
+    }
+
+    public void setProtection(@Nullable Protection protection) {
+        this.protection = protection;
+        this.editProtectionStatus = protection != null ? protection.getFirstAllowedEditorRole() : null;
+        this.canEdit = (editProtectionStatus == null) || isLoggedInUserAllowedToEdit();
+    }
+
+    private boolean isLoggedInUserAllowedToEdit() {
+        return protection != null && AccountUtil.isMemberOf(protection.getEditRoles());
     }
 
     @Override

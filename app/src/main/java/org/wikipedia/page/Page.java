@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Page {
     @NonNull private final PageTitle title;
-    @NonNull private final List<Section> sections;
+    @NonNull private  List<Section> sections;
     @NonNull private final PageProperties pageProperties;
 
     /** Regular constructor */
@@ -27,6 +27,10 @@ public class Page {
 
     @NonNull public List<Section> getSections() {
         return sections;
+    }
+
+    @NonNull public void setSections(List<Section> sections) {
+        this.sections = sections;
     }
 
     public String getDisplayTitle() {

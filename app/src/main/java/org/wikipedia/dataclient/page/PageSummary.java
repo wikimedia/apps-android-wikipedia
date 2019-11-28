@@ -1,16 +1,24 @@
 package org.wikipedia.dataclient.page;
 
+import android.location.Location;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.annotations.Required;
+import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.Section;
+
+import java.util.List;
 
 /**
  * Represents a summary of a page, useful for page previews.
@@ -34,6 +42,33 @@ public class PageSummary {
     @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @SuppressWarnings("unused") @Nullable private String lang;
     @SuppressWarnings("unused") private int pageid;
+    @SuppressWarnings("unused") @Nullable private String redirected;
+    @SuppressWarnings("unused") private long revision;
+    @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;
+    @SuppressWarnings("unused") @Nullable private String timestamp;
+    @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
+
+    public Page toPage(PageTitle title, List<Section> sections, String leadImageName, String leadImageUrl, String titlePronunciationUrl) {
+        return new Page(adjustPageTitle(title),
+                sections,
+                toPageProperties(leadImageName, leadImageUrl, titlePronunciationUrl));
+    }
+
+    private PageTitle adjustPageTitle(PageTitle title) {
+        if (redirected != null) {
+            // Handle redirects properly.
+            title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
+        } else if (normalizedtitle != null) {
+            // We care about the normalized title only if we were not redirected
+            title = new PageTitle(normalizedtitle, title.getWikiSite(), title.getThumbUrl());
+        }
+        title.setDescription(description);
+        return title;
+    }
+
+    private PageProperties toPageProperties(String leadImageName, String leadImageUrl, String titlePronunciationUrl) {
+        return new PageProperties(this, leadImageName, leadImageUrl, titlePronunciationUrl);
+    }
 
     @NonNull
     public String getTitle() {
@@ -126,5 +161,24 @@ public class PageSummary {
 
     @Override public String toString() {
         return getTitle();
+    }
+
+    public long getRevision() {
+        return revision;
+    }
+
+    @Nullable
+    public Location getGeo() {
+        return coordinates;
+    }
+
+    @Nullable
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    @Nullable
+    public String getWikiBaseItem() {
+        return wikiBaseItem;
     }
 }

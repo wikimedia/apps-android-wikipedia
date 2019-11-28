@@ -38,6 +38,16 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun getSections(): String {
+        return "pcs.c1.Page.getTableOfContents()"
+    }
+
+    @JvmStatic
+    fun getProtection(): String {
+        return "pcs.c1.Page.getProtection()"
+    }
+
+    @JvmStatic
     fun setUp(topMargin: Int): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         return String.format("pcs.c1.Page.setup({" +

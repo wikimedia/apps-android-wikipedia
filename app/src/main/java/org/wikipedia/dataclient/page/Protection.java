@@ -4,20 +4,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /** Protection settings for a page */
 public class Protection {
-    @SuppressWarnings("MismatchedReadAndWriteOfArray") @NonNull private Set<String> edit = Collections.emptySet();
+    @Nullable private String edit;
+    @Nullable private String move;
 
-    // TODO should send them all, but callers need to be updated, too, (future patch)
     @Nullable
     public String getFirstAllowedEditorRole() {
-        return edit.isEmpty() ? null : edit.iterator().next();
+        return edit == null || edit.isEmpty() ? "" : edit;
     }
 
     @NonNull
     public Set<String> getEditRoles() {
-        return Collections.unmodifiableSet(edit);
+        Set<String> roleSet = new HashSet<>();
+        roleSet.add(edit);
+        return edit != null ? Collections.unmodifiableSet(roleSet) : Collections.emptySet();
     }
 }

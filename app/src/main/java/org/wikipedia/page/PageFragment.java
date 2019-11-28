@@ -54,6 +54,7 @@ import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
@@ -61,6 +62,7 @@ import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
+import org.wikipedia.json.GsonUtil;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.media.AvPlayer;
@@ -93,6 +95,7 @@ import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -174,6 +177,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private References references;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
+    @Nullable private List<Section> sections;
 
     private WikipediaApp app;
 
@@ -427,11 +431,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 if (!isAdded()) {
                     return;
                 }
-                pageFragmentLoadState.onPageFinished();
-                updateProgressBar(false, true, 0);
-                webView.setVisibility(View.VISIBLE);
-                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
-                onPageLoadComplete();
+                updateSections();
+                setPageProtection();
             }
 
             @Override
@@ -439,6 +440,30 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 onPageLoadError(new Throwable());
             }
         });
+    }
+
+    private void setPageProtection() {
+        bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
+            Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
+            model.getPage().getPageProperties().setProtection(protection);
+        });
+    }
+
+    private void updateSections() {
+        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+            sections = Arrays.asList(secArray);
+            model.getPage().setSections(sections);
+            rest();
+        });
+    }
+
+    private void rest() {
+        pageFragmentLoadState.onPageFinished();
+        updateProgressBar(false, true, 0);
+        webView.setVisibility(View.VISIBLE);
+        bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
+        onPageLoadComplete();
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
