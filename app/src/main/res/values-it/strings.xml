@@ -714,11 +714,11 @@
   <string name="suggested_edits_image_captions_task_detail">Le didascalie delle immagini descrivono un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Le descrizioni delle voci riassumono una voce per aiutare i lettori a comprendere l\'argomento a colpo d\'occhio.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Il numero totale di contributi con modifiche suggerite.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Quanti giorni senza interruzione hai contribuito utilizzando le modifiche suggerite.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
-  <string name="suggested_edits_pageviews_label_text">Visualizzazioni della pagina</string>
+  <string name="suggested_edits_pageviews_label_text">Pagine visualizzate</string>
   <string name="suggested_edits_quality_label_text">Qualità di modifica</string>
   <string name="suggested_edits_quality_perfect_text">Perfetto</string>
   <string name="suggested_edits_quality_excellent_text">Eccellente</string>
