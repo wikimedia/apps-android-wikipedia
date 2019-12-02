@@ -11,6 +11,7 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -86,6 +87,7 @@ import static org.wikipedia.Constants.InvokeSource.VOICE;
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
+    @BindView(R.id.fragment_main_nav_tab_container) FrameLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     private Unbinder unbinder;
@@ -383,7 +385,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void setBottomNavVisible(boolean visible) {
-        tabLayout.setVisibility(visible ? View.VISIBLE : View.GONE);
+        navTabContainer.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     public void onGoOffline() {
@@ -458,7 +460,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (AccountUtil.isLoggedIn()) {
             if (Prefs.shouldShowSuggestedEditsTooltip()) {
                 tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), Snackbar.LENGTH_LONG);
+                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
                 suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
                 suggestedEditsNavTabSnackbar.show();
             }

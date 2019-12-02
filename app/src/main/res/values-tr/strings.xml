@@ -725,11 +725,11 @@
   <string name="suggested_edits_image_captions_task_detail">Resim yazıları, okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tarif eder.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Makale açıklamaları, okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir makaleyi özetler.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Önerilen düzenlemeleri kullanarak ara vermeden kaç gün katkıda bulundunuz.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Önerilen düzenlemeleri kullanarak ara vermeden kaç gün katkıda bulundunuz.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içerisinde katkıda bulunduğunuz öğelerin sayfa görüntüleme sayısı Önerilen düzenlemelerle.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Katkılarınızdan kaç tanesinin geri alındığına bağlı olarak. Geri alınan düzenlemeler: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Önerilen düzenlemeler %1$s kadar duraklatılıyor.&lt;/b&gt; Maalesef %2$s, son katkılarınızdan bazıları geri alındı.\n\nAşağıdaki bağlantıdan Vikipedi\'deki düzenleme becerilerinizi nasıl geliştireceğinizi öğrenin.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Önerilen düzenlemeler devre dışı.&lt;/b&gt; Maalesef %s, son katkılarınızdan çok azı geri alındı.\n\n Bunun ne anlama geldiğini aşağıdaki bağlantıdan öğrenin.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Katkılarınızdan kaç tanesinin geri alındığına bağlı olarak. Geri alınan düzenlemeler: %d.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Önerilen düzenlemeler %1$s kadar duraklatılıyor.&lt;/b&gt; Maalesef %2$s, son katkılarınızdan bazıları geri alındı.\n\nAşağıdaki bağlantıdan Vikipedi\'deki düzenleme becerilerinizi nasıl geliştireceğinizi öğrenin.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Önerilen düzenlemeler devre dışı.&lt;/b&gt; Maalesef %s, son katkılarınızdan çok azı geri alındı.\n\n Bunun ne anlama geldiğini aşağıdaki bağlantıdan öğrenin.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Kullanmakta olduğunuz IP\'nin Vikipedi\'yi düzenlemesi engellenmiştir. Aşağıdaki bağlantıyı ziyaret ederek engel hakkında daha fazla bilgi edinin.</string>
   <string name="suggested_edits_editing_tips_link_text">İpuçlarını ve püf noktalarını düzenleme</string>
   <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>

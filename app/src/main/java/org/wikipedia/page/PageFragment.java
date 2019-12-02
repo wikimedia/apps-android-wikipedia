@@ -57,6 +57,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
+import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
@@ -106,6 +107,8 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
+import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
+import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
@@ -813,6 +816,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         checkAndShowBookmarkOnboarding();
+        maybeShowAnnouncement();
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -1291,4 +1295,25 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         leadImagesHandler.openImageInGallery(language);
     }
 
+    private void maybeShowAnnouncement() {
+        if (Prefs.hasVisitedArticlePage()) {
+            disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getAnnouncements()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(list -> {
+                        String country = GeoUtil.getGeoIPCountry();
+                        Date now = new Date();
+                        for (Announcement announcement : list.items()) {
+                            if (shouldShow(announcement, country, now)
+                                    && announcement.placement().equals(PLACEMENT_ARTICLE)
+                                    && !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
+                                AnnouncementDialog dialog = new AnnouncementDialog(requireActivity(), announcement);
+                                dialog.setCancelable(false);
+                                dialog.show();
+                                break;
+                            }
+                        }
+                    }, L::d));
+        }
+    }
 }
