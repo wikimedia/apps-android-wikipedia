@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
+import android.util.Pair;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
+import org.wikipedia.gallery.MediaList;
 import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
@@ -229,25 +231,25 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null)
+
+        disposables.add(Observable.zip(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null),
+                ServiceFactory.getRest(model.getTitle().getWikiSite()).getMediaList(model.getTitle().getConvertedText()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(summary -> {
-                    //app.getSessionFunnel().leadSectionFetchEnd();
-                    pageLoadLeadSectionComplete(summary, null);
+                .subscribe(pair -> {
+                            pageLoadLeadSectionComplete(pair.first, pair.second);
+                            bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
+                            //app.getSessionFunnel().leadSectionFetchEnd();
 
-                    bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
-
-                    /*if ((summary.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
-                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                        showPageOfflineMessage(rsp.raw().header("date", ""));
-                    }*/
-
-
-                }, throwable -> {
-                    L.e("PageLead error: ", throwable);
-                    commonSectionFetchOnCatch(throwable);
-                }));
+                            /*if ((summary.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                                showPageOfflineMessage(rsp.raw().header("date", ""));
+                            }*/
+                        },
+                        throwable -> {
+                            L.e("PageLead error: ", throwable);
+                            commonSectionFetchOnCatch(throwable);
+                        }));
 
         // And finally, start blasting the HTML into the WebView.
         bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
@@ -273,30 +275,24 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageSummary pageSummary, List<Section> sections) {
+    private void pageLoadLeadSectionComplete(PageSummary pageSummary, MediaList mediaList) {
         if (!fragment.isAdded()) {
             return;
         }
-        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite()).getMediaList(model.getTitle().getConvertedText())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(mediaList -> {
+        List<MediaListItem> items = mediaList.getItems("image");
 
-                    List<MediaListItem> items = mediaList.getItems("image");
+        String leadImageUrl = "https:" + items.get(0).getImageUrlFor(DimenUtil.calculateLeadImageWidth());
 
-                    String leadImageUrl = "https:" + items.get(0).getImageUrlFor(DimenUtil.calculateLeadImageWidth());
-
-                    String leadImageName = items.get(0).getTitle().replace("File:", "").trim();
-                    String titlePronunciationUrl = "";
-                    List<MediaListItem> audioItems = mediaList.getItems("audio");
-                    for (MediaListItem item : audioItems) {
-                        if (item.getAudioType().equals("pronunciation")) {
-                            titlePronunciationUrl = null;
-                        }
-                    }
-                    Page page = pageSummary.toPage(model.getTitle(), sections, leadImageName, leadImageUrl, titlePronunciationUrl);
-                    updateWithPage(pageSummary, page);
-                }));
+        String leadImageName = items.get(0).getTitle().replace("File:", "").trim();
+        String titlePronunciationUrl = "";
+        List<MediaListItem> audioItems = mediaList.getItems("audio");
+        for (MediaListItem item : audioItems) {
+            if (item.getAudioType().equals("pronunciation")) {
+                titlePronunciationUrl = null;
+            }
+        }
+        Page page = pageSummary.toPage(model.getTitle(), null, leadImageName, leadImageUrl, titlePronunciationUrl);
+        updateWithPage(pageSummary, page);
     }
 
     private void updateWithPage(PageSummary pageSummary, Page page) {
