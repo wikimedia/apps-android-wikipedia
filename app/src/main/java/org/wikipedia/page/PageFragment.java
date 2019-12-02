@@ -431,6 +431,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 if (!isAdded()) {
                     return;
                 }
+                pageFragmentLoadState.onPageFinished();
+                updateProgressBar(false, true, 0);
+                webView.setVisibility(View.VISIBLE);
+                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
                 updateSections();
                 setPageProtection();
             }
@@ -446,6 +450,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
             Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
             model.getPage().getPageProperties().setProtection(protection);
+            bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+
         });
     }
 
@@ -454,16 +460,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
             sections = Arrays.asList(secArray);
             model.getPage().setSections(sections);
-            rest();
+            onPageLoadComplete();
         });
-    }
-
-    private void rest() {
-        pageFragmentLoadState.onPageFinished();
-        updateProgressBar(false, true, 0);
-        webView.setVisibility(View.VISIBLE);
-        bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
-        onPageLoadComplete();
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
@@ -819,6 +817,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onPageLoadComplete() {
+        editHandler.setPage(model.getPage());
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();

@@ -218,7 +218,7 @@ public class PageProperties implements Parcelable {
     public void setProtection(@Nullable Protection protection) {
         this.protection = protection;
         this.editProtectionStatus = protection != null ? protection.getFirstAllowedEditorRole() : null;
-        this.canEdit = (editProtectionStatus == null) || isLoggedInUserAllowedToEdit();
+        this.canEdit = (TextUtils.isEmpty(editProtectionStatus) || isLoggedInUserAllowedToEdit());
     }
 
     private boolean isLoggedInUserAllowedToEdit() {

@@ -237,7 +237,7 @@ public class PageFragmentLoadState {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
-                            pageLoadLeadSectionComplete(pair.first, pair.second);
+                            createPageObjectWith(pair.first, pair.second);
                             bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
                             //app.getSessionFunnel().leadSectionFetchEnd();
 
@@ -275,7 +275,7 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageSummary pageSummary, MediaList mediaList) {
+    private void createPageObjectWith(PageSummary pageSummary, MediaList mediaList) {
         if (!fragment.isAdded()) {
             return;
         }
@@ -291,17 +291,13 @@ public class PageFragmentLoadState {
                 titlePronunciationUrl = null;
             }
         }
-        Page page = pageSummary.toPage(model.getTitle(), null, leadImageName, leadImageUrl, titlePronunciationUrl);
+        Page page = pageSummary.toPage(model.getTitle(), leadImageName, leadImageUrl, titlePronunciationUrl);
         updateWithPage(pageSummary, page);
     }
 
     private void updateWithPage(PageSummary pageSummary, Page page) {
-        bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.getPageProperties().canEdit()));
-
         model.setPage(page);
         model.setTitle(page.getTitle());
-
-        editHandler.setPage(model.getPage());
 
         if (page.getTitle().getDescription() == null) {
             app.getSessionFunnel().noDescription();

@@ -16,9 +16,6 @@ import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.Section;
-
-import java.util.List;
 
 /**
  * Represents a summary of a page, useful for page previews.
@@ -48,9 +45,8 @@ public class PageSummary {
     @SuppressWarnings("unused") @Nullable private String timestamp;
     @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
 
-    public Page toPage(PageTitle title, List<Section> sections, String leadImageName, String leadImageUrl, String titlePronunciationUrl) {
+    public Page toPage(PageTitle title, String leadImageName, String leadImageUrl, String titlePronunciationUrl) {
         return new Page(adjustPageTitle(title),
-                sections,
                 toPageProperties(leadImageName, leadImageUrl, titlePronunciationUrl));
     }
 

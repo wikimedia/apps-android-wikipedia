@@ -21,6 +21,11 @@ public class Page {
         this.pageProperties = pageProperties;
     }
 
+    public Page(@NonNull PageTitle title, @NonNull PageProperties pageProperties) {
+        this.title = title;
+        this.pageProperties = pageProperties;
+    }
+
     @NonNull public PageTitle getTitle() {
         return title;
     }
