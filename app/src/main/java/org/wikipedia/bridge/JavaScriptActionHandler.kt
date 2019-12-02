@@ -52,7 +52,7 @@ object JavaScriptActionHandler {
                 "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
                 (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
                 350 + 16, 16, 48, 16,
-                !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
+                Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 
     @JvmStatic
@@ -78,33 +78,36 @@ object JavaScriptActionHandler {
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
 
         return "pcs.c1.Footer.add({" +
-                "platform: pcs.c1.Platforms.ANDROID," +
-                "clientVersion: '" + BuildConfig.VERSION_NAME + "'," +
-                "title: '${model.page?.displayTitle}'," +
-                "menuItems: [" +
-                (if (showLanguagesLink) "pcs.c1.Footer.MenuItemType.languages, " else "") +
-                (if (showEditHistoryLink) "pcs.c1.Footer.MenuItemType.lastEdited, " else "") +
-                (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
-                (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
-                "pcs.c1.Footer.MenuItemType.referenceList " +
-                "], l10n: {" +
-                "        'readMoreHeading': '${context.getString(R.string.read_more_section)}'," +
-                "        'menuDisambiguationTitle': '${context.getString(R.string.page_similar_titles)}'," +
-                "        'menuLanguagesTitle': '${context.getString(R.string.language_count_link_text, languageCount)}'," +
-                "        'menuHeading': '${context.getString(R.string.about_article_section)}'," +
-                "        'menuLastEditedSubtitle': '${context.getString(R.string.edit_history_link_text)}'," +
-                "        'menuLastEditedTitle': '${context.getString(R.string.last_updated_text, lastModifiedDate)}'," +
-                "        'licenseString': '${context.getString(R.string.content_license_html)}'," +
-                "        'menuTalkPageTitle': '${context.getString(R.string.talk_page_link_text)}'," +
-                "        'viewInBrowserString': '${context.getString(R.string.page_view_in_browser)}'," +
-                "        'licenseSubstitutionString': 'CC BY-SA 3.0'," +
-                "        'menuCoordinateTitle': '${context.getString(R.string.map_view_link_text)}'," +
-                "        'menuReferenceListTitle': '${context.getString(R.string.reference_list_title)}'" +
-                "     }," +
-                "readMore: { " +
-                "    itemCount: 3," +
-                "    baseURL: '${model.title?.wikiSite?.url() + RestService.REST_API_PREFIX}'" +
-                "}" +
+                "   platform: pcs.c1.Platforms.ANDROID," +
+                "   clientVersion: '" + BuildConfig.VERSION_NAME + "'," +
+                "   title: '${model.page?.displayTitle}'," +
+                "   menu: {" +
+                "       items: [" +
+                                (if (showLanguagesLink) "pcs.c1.Footer.MenuItemType.languages, " else "") +
+                                (if (showEditHistoryLink) "pcs.c1.Footer.MenuItemType.lastEdited, " else "") +
+                                (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
+                                (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
+                "               pcs.c1.Footer.MenuItemType.referenceList " +
+                "              ]" +
+                "   }," +
+                "   l10n: {" +
+                "           'readMoreHeading': '${context.getString(R.string.read_more_section)}'," +
+                "           'menuDisambiguationTitle': '${context.getString(R.string.page_similar_titles)}'," +
+                "           'menuLanguagesTitle': '${context.getString(R.string.language_count_link_text, languageCount)}'," +
+                "           'menuHeading': '${context.getString(R.string.about_article_section)}'," +
+                "           'menuLastEditedSubtitle': '${context.getString(R.string.edit_history_link_text)}'," +
+                "           'menuLastEditedTitle': '${context.getString(R.string.last_updated_text, lastModifiedDate)}'," +
+                "           'licenseString': '${context.getString(R.string.content_license_html)}'," +
+                "           'menuTalkPageTitle': '${context.getString(R.string.talk_page_link_text)}'," +
+                "           'viewInBrowserString': '${context.getString(R.string.page_view_in_browser)}'," +
+                "           'licenseSubstitutionString': 'CC BY-SA 3.0'," +
+                "           'menuCoordinateTitle': '${context.getString(R.string.map_view_link_text)}'," +
+                "           'menuReferenceListTitle': '${context.getString(R.string.reference_list_title)}'" +
+                "       }," +
+                "   readMore: { " +
+                "       itemCount: 3," +
+                "       baseURL: '${model.title?.wikiSite?.url() + RestService.REST_API_PREFIX}'" +
+                "   }" +
                 "})"
     }
 }
