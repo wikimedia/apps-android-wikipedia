@@ -38,7 +38,7 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setUp(topMargin: Int): String {
+    fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         return String.format("pcs.c1.Page.setup({" +
                 "platform: pcs.c1.Platforms.ANDROID," +
@@ -51,7 +51,7 @@ object JavaScriptActionHandler {
                 "loadImages: %b" +
                 "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
                 (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
-                topMargin + 16, 16, 48, 16,
+                360 + 16, 16, 48, 16,
                 Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 

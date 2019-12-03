@@ -144,5 +144,10 @@ public class CommunicationBridge {
                 throw new RuntimeException(e);
             }
         }
+
+        @JavascriptInterface
+        public synchronized String getSetupSettings() {
+            return JavaScriptActionHandler.setUp();
+        }
     }
 }
