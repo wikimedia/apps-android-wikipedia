@@ -25,7 +25,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -85,7 +85,7 @@ public class BottomContentView extends LinearLayoutOverWebView
 
     private SuggestedPagesFunnel funnel;
     private ReadMoreAdapter readMoreAdapter = new ReadMoreAdapter();
-    private List<RbPageSummary> readMoreItems;
+    private List<PageSummary> readMoreItems;
     private CommunicationBridge bridge;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -352,7 +352,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         @Override
         public PageTitle getTitleForListPosition(int position) {
             lastPosition = position;
-            return ((RbPageSummary) readMoreList.getAdapter().getItem(position)).getPageTitle(page.getTitle().getWikiSite());
+            return ((PageSummary) readMoreList.getAdapter().getItem(position)).getPageTitle(page.getTitle().getWikiSite());
         }
 
         @Override
@@ -368,10 +368,10 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
     }
 
-    private final class ReadMoreAdapter extends BaseAdapter implements PageItemView.Callback<RbPageSummary> {
-        private List<RbPageSummary> results;
+    private final class ReadMoreAdapter extends BaseAdapter implements PageItemView.Callback<PageSummary> {
+        private List<PageSummary> results;
 
-        public void setResults(List<RbPageSummary> results) {
+        public void setResults(List<PageSummary> results) {
             this.results = results;
             notifyDataSetChanged();
         }
@@ -382,7 +382,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
 
         @Override
-        public RbPageSummary getItem(int position) {
+        public PageSummary getItem(int position) {
             return results.get(position);
         }
 
@@ -393,8 +393,8 @@ public class BottomContentView extends LinearLayoutOverWebView
 
         @Override
         public View getView(int position, View convView, ViewGroup parent) {
-            PageItemView<RbPageSummary> itemView = new PageItemView<>(getContext());
-            RbPageSummary result = getItem(position);
+            PageItemView<PageSummary> itemView = new PageItemView<>(getContext());
+            PageSummary result = getItem(position);
             PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
             itemView.setCallback(this);
@@ -404,24 +404,24 @@ public class BottomContentView extends LinearLayoutOverWebView
             return itemView;
         }
 
-        @Override public void onClick(@Nullable RbPageSummary item) {
+        @Override public void onClick(@Nullable PageSummary item) {
             PageTitle title = item.getPageTitle(page.getTitle().getWikiSite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             parentFragment.loadPage(title, historyEntry);
             funnel.logSuggestionClicked(page.getTitle(), readMoreItems, results.indexOf(item));
         }
 
-        @Override public boolean onLongClick(@Nullable RbPageSummary item) {
+        @Override public boolean onLongClick(@Nullable PageSummary item) {
             return false;
         }
 
-        @Override public void onThumbClick(@Nullable RbPageSummary item) {
+        @Override public void onThumbClick(@Nullable PageSummary item) {
         }
 
-        @Override public void onActionClick(@Nullable RbPageSummary item, @NonNull View view) {
+        @Override public void onActionClick(@Nullable PageSummary item, @NonNull View view) {
         }
 
-        @Override public void onSecondaryActionClick(@Nullable RbPageSummary item, @NonNull View view) {
+        @Override public void onSecondaryActionClick(@Nullable PageSummary item, @NonNull View view) {
         }
 
         @Override

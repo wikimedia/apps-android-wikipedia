@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -41,7 +41,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
 
     private WikiSite wiki;
     private Activity activity;
-    private RbPageSummary selectedPage;
+    private PageSummary selectedPage;
     private final boolean isSingleCard;
 
     OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull CardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
@@ -53,7 +53,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         this.activity = activity;
     }
 
-    public void setFields(@NonNull RbPageSummary page) {
+    public void setFields(@NonNull PageSummary page) {
         selectedPage = page;
         pageItemDescTextView.setText(StringUtils.capitalize(page.getDescription()));
         pageItemDescTextView.setVisibility(TextUtils.isEmpty(page.getDescription()) ? View.GONE : View.VISIBLE);

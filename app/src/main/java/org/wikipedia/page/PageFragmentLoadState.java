@@ -18,9 +18,9 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.edit.EditHandler;
@@ -53,7 +53,6 @@ import okhttp3.CacheControl;
 import okhttp3.Protocol;
 import okhttp3.Request;
 
-import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
 
 /**
@@ -308,9 +307,10 @@ public class PageFragmentLoadState {
     private void pageLoadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
+        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite())
+                .getLeadSection(model.getCacheControl() == null ? null : model.getCacheControl().toString(),
+                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, model.getCurEntry().getReferrer(),
+                        model.getTitle().getConvertedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(rsp -> {
@@ -330,10 +330,10 @@ public class PageFragmentLoadState {
     private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
-        Request remainingRequest = PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .sectionsUrl(model.getTitle().getWikiSite(), model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
+        Request remainingRequest = ServiceFactory.getRest(model.getTitle().getWikiSite())
+                .getRemainingSectionsUrl(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getTitle().getConvertedText());
+                        model.getTitle().getConvertedText()).request();
 
         sendLeadSectionPayload(page, remainingRequest.url().toString());
 
@@ -372,7 +372,7 @@ public class PageFragmentLoadState {
                 .put("siteBaseUrl", model.getTitle().getWikiSite().url())
                 .put("isMainPage", page.isMainPage())
                 .put("isFilePage", page.isFilePage())
-                .put("fromRestBase", page.isFromRestBase())
+                .put("fromRestBase", true)
                 .put("apiLevel", Build.VERSION.SDK_INT)
                 .put("showImages", Prefs.isImageDownloadEnabled())
                 .put("collapseTables", Prefs.isCollapseTablesEnabled())

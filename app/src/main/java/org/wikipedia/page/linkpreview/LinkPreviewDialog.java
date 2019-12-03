@@ -28,7 +28,6 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.gallery.MediaList;
@@ -215,8 +214,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     private void loadContent() {
-        disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), historyEntry.getReferrer())
+        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(historyEntry.getReferrer(), pageTitle.getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(summary -> {

@@ -190,7 +190,7 @@ public class ShareHandler {
     }
 
     private boolean shouldEnableWiktionaryDialog() {
-        return Prefs.useRestBase() && isWiktionaryDialogEnabledForArticleLanguage();
+        return isWiktionaryDialogEnabledForArticleLanguage();
     }
 
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {

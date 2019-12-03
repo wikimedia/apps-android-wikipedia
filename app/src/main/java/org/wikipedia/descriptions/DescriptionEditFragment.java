@@ -29,7 +29,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -232,8 +231,7 @@ public class DescriptionEditFragment extends Fragment {
     private void loadPageSummaryIfNeeded(Bundle savedInstanceState) {
         editView.showProgressBar(true);
         if (invokeSource == PAGE_ACTIVITY && TextUtils.isEmpty(sourceSummary.getExtractHtml())) {
-            disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                    .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getPrefixedText())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate(() -> setUpEditView(savedInstanceState))

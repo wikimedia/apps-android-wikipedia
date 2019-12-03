@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.annotations.Required;
 
 import java.text.Normalizer;
@@ -85,7 +85,7 @@ public class SyncedReadingLists {
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String created;
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String updated;
-        @SuppressWarnings("unused") @Nullable private RbPageSummary summary;
+        @SuppressWarnings("unused") @Nullable private PageSummary summary;
         @SuppressWarnings("unused") private boolean deleted;
 
         public RemoteReadingListEntry() { }
@@ -115,7 +115,7 @@ public class SyncedReadingLists {
             return updated;
         }
 
-        @Nullable public RbPageSummary summary() {
+        @Nullable public PageSummary summary() {
             return summary;
         }
 

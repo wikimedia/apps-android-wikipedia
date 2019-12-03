@@ -10,12 +10,11 @@ import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.events.PageDownloadEvent;
@@ -29,7 +28,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -277,18 +275,15 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull private Observable<retrofit2.Response<PageLead>> reqPageLead(@Nullable CacheControl cacheControl,
                                                                           @Nullable String saveOfflineHeader,
                                                                           @NonNull PageTitle pageTitle) {
-        PageClient client = newPageClient(pageTitle);
-        String title = pageTitle.getPrefixedText();
-        int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        return client.lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getLeadSection(cacheControl == null ? null : cacheControl.toString(),
+                saveOfflineHeader, null, pageTitle.getPrefixedText());
     }
 
     @NonNull private Observable<retrofit2.Response<PageRemaining>> reqPageSections(@Nullable CacheControl cacheControl,
                                                          @Nullable String saveOfflineHeader,
                                                          @NonNull PageTitle pageTitle) {
-        PageClient client = newPageClient(pageTitle);
-        String title = pageTitle.getPrefixedText();
-        return client.sections(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, title);
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getRemainingSections(cacheControl == null ? null : cacheControl.toString(),
+                saveOfflineHeader, pageTitle.getPrefixedText());
     }
 
     private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Set<String> urls) throws IOException, InterruptedException {
@@ -361,9 +356,5 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long responseSize(@NonNull retrofit2.Response rsp) {
         return OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.raw().request());
-    }
-
-    @NonNull private PageClient newPageClient(@NonNull PageTitle title) {
-        return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
 }
