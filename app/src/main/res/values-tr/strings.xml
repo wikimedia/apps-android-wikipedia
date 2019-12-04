@@ -199,7 +199,7 @@
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın uygulamayı daha iyi hale getirmek için uygulamayı nasıl kullandığınız hakkında bilgi toplamasına izin verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökme raporlarını gönder</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Çökme raporlarının HockeyApp\'a (otomatik olarak çökmeleri incelememizi, hataları daha hızlı ve kolayca düzeltmemizi sağlayan bir üçüncü parti servis sağlayıcısı) gönderilmesi için uygulamaya izin verin.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Uygulamanın kilitlenme raporlarını otomatik olarak üçüncü taraf bir servis sağlayıcıya göndermesine izin verin.</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
   <string name="history_search_list_hint">Arama geçmişi</string>
   <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
@@ -725,12 +725,12 @@
   <string name="suggested_edits_image_captions_task_detail">Resim yazıları, okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tarif eder.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Makale açıklamaları, okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir makaleyi özetler.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Önerilen düzenlemeleri kullanarak ara vermeden kaç gün katkıda bulundunuz.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Önerilen düzenlemelerle ara vermeden kaç gün katkıda bulundunuz. Bir süredir katkıda bulunmadıysanız, son katkı tarihinizi gösterir.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içerisinde katkıda bulunduğunuz öğelerin sayfa görüntüleme sayısı Önerilen düzenlemelerle.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Katkılarınızdan kaç tanesinin geri alındığına bağlı olarak. Geri alınan düzenlemeler: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Önerilen düzenlemeler %1$s kadar duraklatılıyor.&lt;/b&gt; Maalesef %2$s, son katkılarınızdan bazıları geri alındı.\n\nAşağıdaki bağlantıdan Vikipedi\'deki düzenleme becerilerinizi nasıl geliştireceğinizi öğrenin.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Önerilen düzenlemeler devre dışı.&lt;/b&gt; Maalesef %s, son katkılarınızdan çok azı geri alındı.\n\n Bunun ne anlama geldiğini aşağıdaki bağlantıdan öğrenin.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Kullanmakta olduğunuz IP\'nin Vikipedi\'yi düzenlemesi engellenmiştir. Aşağıdaki bağlantıyı ziyaret ederek engel hakkında daha fazla bilgi edinin.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Katkılarınızdan birinin kaç kez geri alındığına bağlı olarak (başka bir düzenleyici tarafından geri alındı). Geri alınan düzenlemeler: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt; Önerilen düzenlemeler %1$s kadar duraklatıldı.&lt;/b&gt; Maalesef %2$s, en son katkılarınızdan bazıları geri alındı.\n\nVikipedi\'de düzenleme becerilerinizi nasıl geliştireceğinizi aşağıdaki bağlantıdan öğrenin.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Önerilen düzenlemeler devre dışı bırakıldı.&lt;/b&gt; Maalesef %s, yakın zamanda yaptığınız katkıların çoğu geri alındı.\n\nBunun ne anlama geldiğini aşağıdaki link ile öğrenin.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adresinizin (veya IP adreslerinin aralığının) şu anda Vikipedi\'yi düzenlemesi engellenmiş gibi görünüyor. Bunun ne anlama geldiği hakkında daha fazla bilgi için aşağıdaki bağlantıyı ziyaret edin.</string>
   <string name="suggested_edits_editing_tips_link_text">İpuçlarını ve püf noktalarını düzenleme</string>
   <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>
   <string name="suggested_edits_edit_streak_label_text">Çizgiyi düzenle</string>
