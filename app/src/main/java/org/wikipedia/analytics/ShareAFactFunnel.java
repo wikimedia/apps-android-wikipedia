@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
 public class ShareAFactFunnel extends Funnel {
@@ -32,7 +31,7 @@ public class ShareAFactFunnel extends Funnel {
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         preprocessData(eventData, "tutorial_feature_enabled", true);
-        preprocessData(eventData, "tutorial_shown", calculateTutorialsShown());
+        preprocessData(eventData, "tutorial_shown", 0);
         return super.preprocessData(eventData);
     }
 
@@ -80,9 +79,5 @@ public class ShareAFactFunnel extends Funnel {
     public enum ShareMode {
         image,
         text
-    }
-
-    private int calculateTutorialsShown() {
-        return !Prefs.isShareTutorialEnabled() ? 1 : 0;
     }
 }

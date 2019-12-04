@@ -299,8 +299,7 @@
   <string name="all_tab_items_closed">Tódalas lapelas pechadas.</string>
   <string name="tool_tip_bookmark_icon_title">Engadir á lista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Prema na icona de marcadores para gardar o artigo nunha lista de lectura.</string>
-  <string name="tool_tip_share">Despois de resaltar unha información interesante, probe a compartila nas súas redes favoritas!</string>
-  <string name="page_view_in_browser">Ver a páxina no navegador</string>
+    <string name="page_view_in_browser">Ver a páxina no navegador</string>
   <string name="tool_tip_toc_title">Acceso rápido ó índice</string>
   <string name="tool_tip_toc_text">Agora pode deslizar cara á esquerda para abrir o índice, e tamén premer e arrastrar o botón de desprazamento para saltar rapidamente a diferentes seccións dun artigo.</string>
   <string name="tool_tip_lang_button">Agora pode explorar e consultar Wikipedia nas súas distintas linguas dentro da aplicación.\n\n\nPrema a icona para engadir máis linguas.</string>
