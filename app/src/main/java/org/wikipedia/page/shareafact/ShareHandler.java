@@ -17,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -158,11 +157,6 @@ public class ShareHandler {
         Menu menu = mode.getMenu();
         MenuItem shareItem = menu.findItem(R.id.menu_text_select_share);
 
-        if (Prefs.isShareTutorialEnabled()) {
-            postShowShareToolTip(shareItem);
-            Prefs.setShareTutorialEnabled(false);
-        }
-
         // Provide our own listeners for the copy, define, and share buttons.
         shareItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_SHARE));
         MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
@@ -196,16 +190,6 @@ public class ShareHandler {
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
                 .contains(fragment.getTitle().getWikiSite().languageCode());
-    }
-
-    private void postShowShareToolTip(final MenuItem shareItem) {
-        fragment.getView().post(() -> {
-            View shareItemView = ActivityUtil.getMenuItemView(fragment.requireActivity(), shareItem);
-            if (shareItemView != null) {
-                FeedbackUtil.showTapTargetView(fragment.requireActivity(), shareItemView,
-                        R.string.share, R.string.tool_tip_share, null);
-            }
-        });
     }
 
     private void leaveActionMode() {

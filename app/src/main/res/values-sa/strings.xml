@@ -169,8 +169,7 @@
   <string name="gallery_uploader_unknown">अज्ञातः उपारोहकः</string>
   <string name="menu_new_tab">नवीनं प्लवनम्</string>
   <string name="button_close_tab">प्लवनं पिदधातु</string>
-  <string name="tool_tip_share">उद्वर्णोत्तरं कमपि रोचकतथ्यं स्वेष्टजालकृतिषु वितरयितुं प्रयत्यताम् !</string>
-  <string name="page_view_in_browser">गवेषके पृष्ठं दृश्यताम्</string>
+    <string name="page_view_in_browser">गवेषके पृष्ठं दृश्यताम्</string>
   <string name="error_response_malformed">वितरकात् प्राप्तं प्रत्युत्तरं योग्यतया प्रारूपितं नास्ति ।</string>
   <string name="error_unknown">कश्चन अज्ञातः दोषः जातः ।</string>
   <string name="format_error_server_message">सन्देशः : \"%s\"</string>

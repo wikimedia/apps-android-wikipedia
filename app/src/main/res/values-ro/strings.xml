@@ -291,8 +291,7 @@
   <string name="all_tab_items_closed">Toate ferestrele închise.</string>
   <string name="tool_tip_bookmark_icon_title">Adaugă la lista de lecturi</string>
   <string name="tool_tip_bookmark_icon_text">Apăsați pe iconița de bookmark pentru a salva o listă de articole de citit.</string>
-  <string name="tool_tip_share">După selectarea unei informații interesante, încercați s-o distribuiți pe rețelele de socializare preferate!</string>
-  <string name="page_view_in_browser">Vezi pagina cu navigatorul</string>
+    <string name="page_view_in_browser">Vezi pagina cu navigatorul</string>
   <string name="error_response_malformed">Răspunsul de la server nu a fost formatat corect.</string>
   <string name="error_unknown">A apărut o eroare necunoscută.</string>
   <string name="format_error_server_message">Mesaj: „%s”</string>
