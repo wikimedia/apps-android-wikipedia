@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <org.wikipedia.views.WrapContentViewPager
-        android:id="@+id/reference_pager"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <View
-        android:id="@+id/indicator_divider"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color" />
+        <org.wikipedia.views.WrapContentViewPager
+            android:id="@+id/reference_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <com.rd.PageIndicatorView
-        android:id="@+id/pageIndicatorView"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="24dp"
-        app:piv_radius="4dp"
-        app:piv_rtl_mode="auto"
-        app:piv_selectedColor="?attr/material_theme_primary_color"
-        app:piv_unselectedColor="?attr/material_theme_border_color"
-        app:piv_viewPager="@id/reference_pager" />
+        <View
+            android:id="@+id/indicator_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color" />
 
-</LinearLayout>
+        <com.rd.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="24dp"
+            app:piv_radius="4dp"
+            app:piv_rtl_mode="auto"
+            app:piv_selectedColor="?attr/material_theme_primary_color"
+            app:piv_unselectedColor="?attr/material_theme_border_color"
+            app:piv_viewPager="@id/reference_pager" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
