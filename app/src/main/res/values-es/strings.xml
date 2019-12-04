@@ -326,8 +326,7 @@
   <string name="all_tab_items_closed">Se cerraron todas las pestañas.</string>
   <string name="tool_tip_bookmark_icon_title">Añadir a una lista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Toca el icono de marcadores para guardar el artículo en una lista de lectura.</string>
-  <string name="tool_tip_share">Después de resaltar un hecho interesante, prueba compartirlo en tus redes favoritas.</string>
-  <string name="page_view_in_browser">Ver página en el navegador</string>
+    <string name="page_view_in_browser">Ver página en el navegador</string>
   <string name="tool_tip_toc_title">Acceso rápido a la tabla de contenidos</string>
   <string name="tool_tip_toc_text">Ahora puede deslizar hacia la izquierda para abrir la tabla de contenido, y también tocar y arrastrar el botón de desplazamiento para saltar rápidamente a diferentes secciones de un artículo.</string>
   <string name="tool_tip_lang_button">Ahora puedes explorar y consultar Wikipedia en sus distintos idiomas dentro de la aplicación.\n\n\nToca el icono para añadir más idiomas.</string>

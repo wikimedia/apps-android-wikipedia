@@ -274,8 +274,7 @@
   <string name="tab_item_closed">Članak %s zatvoren.</string>
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na popis za čitanje</string>
-  <string name="tool_tip_share">Nakon označavanja zanimljivog dijela, podijelite ga na omiljenim mrežama.</string>
-  <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
+    <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
   <string name="tool_tip_toc_title">Brzi pristup tablici sadržaja</string>
   <string name="error_response_malformed">Odgovor poslužitelja nije bio ispravno formatiran.</string>
   <string name="error_unknown">Dogodila se nepoznata pogrješka.</string>
