@@ -31,7 +31,7 @@ import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
  */
 public class ReferenceDialog extends BottomSheetDialog {
     @BindView(R.id.reference_pager) WrapContentViewPager referencesViewPager;
-    @BindView(R.id.pageIndicatorView) PageIndicatorView pageIndicatorView;
+    @BindView(R.id.page_indicator_view) PageIndicatorView pageIndicatorView;
     @BindView(R.id.indicator_divider) View pageIndicatorDivider;
     private LinkHandler referenceLinkHandler;
 
