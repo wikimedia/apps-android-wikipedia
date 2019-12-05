@@ -206,7 +206,7 @@ public class RandomFragment extends Fragment {
         return null;
     }
 
-    private class RandomItemAdapter extends FragmentPagerAdapter{
+    private class RandomItemAdapter extends FragmentPagerAdapter {
 
         RandomItemAdapter(AppCompatActivity activity) {
             super(activity.getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
