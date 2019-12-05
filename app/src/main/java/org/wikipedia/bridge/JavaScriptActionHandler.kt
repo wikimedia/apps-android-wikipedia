@@ -40,16 +40,16 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        return String.format("pcs.c1.Page.setup({" +
-                "platform: pcs.c1.Platforms.ANDROID," +
-                "clientVersion: '%s'," +
-                "theme: pcs.c1.Themes.%s," +
-                "dimImages: %b," +
-                "margins: { top: '%dpx', right: '%dpx', bottom: '%dpx', left: '%dpx' }," +
-                "areTablesInitiallyExpanded: %b," +
-                "textSizeAdjustmentPercentage: '100%%'," +
-                "loadImages: %b" +
-                "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
+        return String.format("{" +
+                "\"platform\": \"pcs.c1.Platforms.ANDROID\"," +
+                "\"clientVersion\": \"%s\"," +
+                "\"theme\": \"%s\"," +
+                "\"dimImages\": \"%b\"," +
+                "\"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
+                "\"areTablesInitiallyExpanded\": \"%b\"," +
+                "\"textSizeAdjustmentPercentage\": \"100%%\"," +
+                "\"loadImages\": \"%b\"" +
+                "}", BuildConfig.VERSION_NAME, app.currentTheme.funnelName,
                 (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
                 360 + 16, 16, 48, 16,
                 Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())

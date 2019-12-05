@@ -50,7 +50,7 @@ public class CommunicationBridge {
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
         webView.setWebChromeClient(new CommunicatingChrome());
-        webView.addJavascriptInterface(new BridgeMarshaller(), "marshaller");
+        webView.addJavascriptInterface(new BridgeMarshaller(), "pcsClient");
         eventListeners = new HashMap<>();
     }
 
