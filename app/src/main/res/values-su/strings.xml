@@ -273,7 +273,7 @@
   <string name="button_close_tab">Tutup tab</string>
   <string name="tab_item_closed">%s ditutup.</string>
   <string name="tool_tip_bookmark_icon_title">Tambah ka daptar bacaan</string>
-    <string name="page_view_in_browser">Tempo kaca na panyungsi</string>
+  <string name="page_view_in_browser">Tempo kaca na panyungsi</string>
   <string name="error_response_malformed">Respon ti sérver teu diformat kalawan bener.</string>
   <string name="error_unknown">Aya éror anu teu kanyahoan.</string>
   <string name="format_error_server_message">Talatah: \'\'%s\'\'</string>

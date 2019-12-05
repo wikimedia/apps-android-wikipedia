@@ -195,7 +195,7 @@
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="menu_close_all_tabs">అన్ని ట్యాబులను మూసివేయి</string>
   <string name="button_close_tab">ట్యాబును మూసివేయి</string>
-    <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
+  <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
   <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
