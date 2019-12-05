@@ -179,14 +179,14 @@ public class RandomFragment extends Fragment {
     }
 
     @SuppressWarnings("magicnumber")
-    public void updateSaveShareButton() {
+    private void updateSaveShareButton() {
         RandomItemFragment f = getTopChild();
         boolean enable = f != null && f.isLoadComplete();
         saveButton.setClickable(enable);
         saveButton.setAlpha(enable ? 1f : 0.5f);
     }
 
-    public void onChildLoaded() {
+    void onChildLoaded() {
         updateSaveShareButton();
     }
 
@@ -196,7 +196,7 @@ public class RandomFragment extends Fragment {
     }
 
     @Nullable private RandomItemFragment getTopChild() {
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = requireFragmentManager();
         for (Fragment f : fm.getFragments()) {
             if (f instanceof RandomItemFragment
                     && ((RandomItemFragment) f).getPagerPosition() == randomPager.getCurrentItem()) {
@@ -209,7 +209,7 @@ public class RandomFragment extends Fragment {
     private class RandomItemAdapter extends FragmentPagerAdapter{
 
         RandomItemAdapter(AppCompatActivity activity) {
-            super(activity.getSupportFragmentManager());
+            super(activity.getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
         @Override
@@ -218,6 +218,7 @@ public class RandomFragment extends Fragment {
         }
 
         @Override
+        @NonNull
         public Fragment getItem(int position) {
             RandomItemFragment f = RandomItemFragment.newInstance();
             f.setPagerPosition(position);
