@@ -12,7 +12,8 @@
         <org.wikipedia.views.WrapContentViewPager
             android:id="@+id/reference_pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true" />
 
         <View
             android:id="@+id/indicator_divider"
