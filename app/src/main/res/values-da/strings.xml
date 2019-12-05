@@ -294,8 +294,7 @@
   <string name="all_tab_items_closed">Alle faner lukket.</string>
   <string name="tool_tip_bookmark_icon_title">Tilføj til læseliste</string>
   <string name="tool_tip_bookmark_icon_text">Tryk på bogmærkeikonet for at gemme artiklen i en læseliste.</string>
-  <string name="tool_tip_share">Efter du har markeret et interessant faktum, prøv at dele det på dine foretrukne netværk.</string>
-  <string name="page_view_in_browser">Få vist siden i browseren</string>
+    <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="tool_tip_toc_title">Hurtig adgang til indholdsfortegnelse</string>
   <string name="tool_tip_toc_text">Du kan nu swipe til venstre for at åbne indholdsfortegnelsen, og også trykke og trække på denne rulleknap for at hurtigt hoppe til forskellige afsnit i artiklen.</string>
   <string name="tool_tip_lang_button">Du kan nu søge og læse i flere Wikipedia-sprog i appen.</string>

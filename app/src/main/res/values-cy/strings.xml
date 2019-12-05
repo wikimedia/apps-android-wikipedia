@@ -213,8 +213,7 @@
   <string name="menu_close_all_tabs">Ceuwch y tabiau</string>
   <string name="close_all_tabs_confirm">Ydych chi\'n siwr eich bod am gau\'r holl dabiau?</string>
   <string name="button_close_tab">Cau\'r tab</string>
-  <string name="tool_tip_share">Wedi i chi ei amlygu (\'\'highlight\'\'), beth am ei rannu?</string>
-  <string name="page_view_in_browser">Gweld y ddalen mewn porwr</string>
+    <string name="page_view_in_browser">Gweld y ddalen mewn porwr</string>
   <string name="error_response_malformed">Ymateb annilys gan y gweinydd.</string>
   <string name="error_unknown">Cafwyd gwall am ryw reswm.</string>
   <string name="format_error_server_message">Neges: \"%s\"</string>
