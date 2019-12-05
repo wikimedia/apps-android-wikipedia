@@ -323,8 +323,7 @@
   <string name="all_tab_items_closed">Tutte le schede chiuse</string>
   <string name="tool_tip_bookmark_icon_title">Aggiungi all\'elenco di lettura</string>
   <string name="tool_tip_bookmark_icon_text">Tocca l\'icona del segnalibro per salvare la voce in un elenco di lettura.</string>
-  <string name="tool_tip_share">Dopo aver evidenziato un dato interessante, prova a condividerlo sul tuo network preferito!</string>
-  <string name="page_view_in_browser">Visualizza la pagina nel browser</string>
+    <string name="page_view_in_browser">Visualizza la pagina nel browser</string>
   <string name="tool_tip_toc_title">Accesso rapido all\'indice</string>
   <string name="tool_tip_toc_text">Ora puoi scorrere verso sinistra per aprire il sommario e anche toccare e trascinare questo pulsante di scorrimento per passare rapidamente a sezioni diverse di una voce.</string>
   <string name="tool_tip_lang_button">Ora puoi cercare e leggere in più lingue di Wikipedia nell\'applicazione.\n\n\nTocca l\'icona per aggiungere più lingue.</string>
@@ -714,11 +713,11 @@
   <string name="suggested_edits_image_captions_task_detail">Le didascalie delle immagini descrivono un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Le descrizioni delle voci riassumono una voce per aiutare i lettori a comprendere l\'argomento a colpo d\'occhio.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Il numero totale di contributi con modifiche suggerite.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Quanti giorni senza interruzione hai contribuito utilizzando le modifiche suggerite.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
-  <string name="suggested_edits_pageviews_label_text">Visualizzazioni della pagina</string>
+  <string name="suggested_edits_pageviews_label_text">Pagine visualizzate</string>
   <string name="suggested_edits_quality_label_text">Qualità di modifica</string>
   <string name="suggested_edits_quality_perfect_text">Perfetto</string>
   <string name="suggested_edits_quality_excellent_text">Eccellente</string>

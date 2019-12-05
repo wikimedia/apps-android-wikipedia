@@ -178,8 +178,7 @@
   <string name="gallery_uploader_unknown">Күсерелгән файл билдәһеҙ</string>
   <string name="menu_new_tab">Яңы ҡушымта</string>
   <string name="button_close_tab">Ҡушымтаны ябыу</string>
-  <string name="tool_tip_share">Ҡыҙыҡлы фактты билдәләгәндән һуң, уның менән яратҡан социаль селтәрҙәрегеҙҙә уртаҡлашығыҙ</string>
-  <string name="page_view_in_browser">Браузерҙа битте ҡарау</string>
+    <string name="page_view_in_browser">Браузерҙа битте ҡарау</string>
   <string name="error_response_malformed">Серверҙың яуабы корректһыҙ форматланған</string>
   <string name="error_unknown">Билдәһеҙ хата барлыҡҡа килде.</string>
   <string name="format_error_server_message">Хәбәр: «%s» .</string>

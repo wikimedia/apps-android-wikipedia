@@ -293,8 +293,7 @@
   <string name="all_tab_items_closed">Alle faner lukket.</string>
   <string name="tool_tip_bookmark_icon_title">Legg til i leseliste</string>
   <string name="tool_tip_bookmark_icon_text">Trykk på bokmerkeikonet for å lagre artikkelen i en leseliste.</string>
-  <string name="tool_tip_share">Når du har markert in interessant faktaopplysning, prøv gjerne å dele den på et av dine favorittnettverk.</string>
-  <string name="page_view_in_browser">Vis side i nettleser</string>
+    <string name="page_view_in_browser">Vis side i nettleser</string>
   <string name="tool_tip_toc_title">Hurtigtilgang til innholdsfortegnelsen</string>
   <string name="tool_tip_toc_text">Du kan nå dra fra høyre for å åpne innholdsfortegnelsen, og også trykke og dra rulleknappen for å raskt hoppe til ulike deler av en artikkel.</string>
   <string name="tool_tip_lang_button">Det er nå mulig å søke og lese på flere Wikipedia-språk i appen.</string>
