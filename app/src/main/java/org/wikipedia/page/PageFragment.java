@@ -923,12 +923,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 handleInternalLink(title);
             }
 
-            @Override public void onReadMoreLinkClicked(@NonNull PageTitle title) {
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                loadPage(title, historyEntry);
-                // TODO: add SuggestedPagesFunnel, and the funnel might need to be modified.
-            }
-
             @Override public WikiSite getWikiSite() {
                 return model.getTitle().getWikiSite();
             }

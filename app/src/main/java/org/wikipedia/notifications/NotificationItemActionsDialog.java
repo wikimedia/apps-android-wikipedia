@@ -180,10 +180,6 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             }
         }
 
-        @Override public void onReadMoreLinkClicked(@NonNull PageTitle title) {
-            // ignore
-        }
-
         @Override
         public WikiSite getWikiSite() {
             return wikiSite;
