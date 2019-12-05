@@ -239,7 +239,7 @@
   <string name="close_all_tabs_confirm_yes">بەڵێ</string>
   <string name="close_all_tabs_confirm_no">نەخێر</string>
   <string name="button_close_tab">داخستنی تاب</string>
-    <string name="page_view_in_browser">لە وێبگەڕدا بیبینە</string>
+  <string name="page_view_in_browser">لە وێبگەڕدا بیبینە</string>
   <string name="error_response_malformed">وڵام لە سێرڤرەکەوە بە دروستی قاڵببەندی نەکراوە.</string>
   <string name="error_unknown">ھەڵەیەکی نەناسراو ڕووی داوە.</string>
   <string name="format_error_server_message">پەیام: \"%s\"</string>

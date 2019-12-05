@@ -178,7 +178,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permitir á aplicación enviar automaticamente informes de fallos a HockeyApp / un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permitir á aplicación enviar automaticamente informes de fallos a un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
   <string name="history_search_list_hint">Historial de procuras</string>
   <string name="error_can_not_process_link">Non foi posible amosar esta ligazón</string>
@@ -299,7 +299,7 @@
   <string name="all_tab_items_closed">Tódalas lapelas pechadas.</string>
   <string name="tool_tip_bookmark_icon_title">Engadir á lista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Prema na icona de marcadores para gardar o artigo nunha lista de lectura.</string>
-    <string name="page_view_in_browser">Ver a páxina no navegador</string>
+  <string name="page_view_in_browser">Ver a páxina no navegador</string>
   <string name="tool_tip_toc_title">Acceso rápido ó índice</string>
   <string name="tool_tip_toc_text">Agora pode deslizar cara á esquerda para abrir o índice, e tamén premer e arrastrar o botón de desprazamento para saltar rapidamente a diferentes seccións dun artigo.</string>
   <string name="tool_tip_lang_button">Agora pode explorar e consultar Wikipedia nas súas distintas linguas dentro da aplicación.\n\n\nPrema a icona para engadir máis linguas.</string>
@@ -338,6 +338,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imaxe (no tema obscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contido sen conexión</string>
   <string name="preference_summary_prefer_offline_content">Aforrar o uso de datos mediante a carga de artigos que estean dispoñibles sen conexión, en lugar de cargar sempre a última versión do artigo.</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Coincidir co tema do sistema</string>
   <string name="crash_report_activity_title">Erro da aplicación</string>
   <string name="crash_report_relaunch_or_quit">Sentímolo, a aplicación de Wikipedia tivo un erro e pechouse.\n\nGustaríalle volver a comezar ou saír?</string>
   <string name="crash_report_relaunch">Comezar de novo</string>

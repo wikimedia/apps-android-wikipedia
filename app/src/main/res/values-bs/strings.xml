@@ -217,7 +217,7 @@
   <string name="close_all_tabs_confirm_yes">Da</string>
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Zatvori karticu</string>
-    <string name="page_view_in_browser">Prikaži stranicu u pregledniku</string>
+  <string name="page_view_in_browser">Prikaži stranicu u pregledniku</string>
   <string name="error_response_malformed">Serverov odgovor nije ispravno formatiran.</string>
   <string name="error_unknown">Došlo je do nepoznate greške.</string>
   <string name="format_error_server_message">Poruka: \"%s\"</string>
