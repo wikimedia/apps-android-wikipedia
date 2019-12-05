@@ -7,6 +7,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.L10nUtil.formatDateRelative
@@ -51,7 +52,7 @@ object JavaScriptActionHandler {
                 "\"loadImages\": \"%b\"" +
                 "}", BuildConfig.VERSION_NAME, app.currentTheme.funnelName,
                 (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
-                360 + 16, 16, 48, 16,
+                LeadImagesHandler.getPreSettingsPaddingTop() + 16, 16, 48, 16,
                 Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 

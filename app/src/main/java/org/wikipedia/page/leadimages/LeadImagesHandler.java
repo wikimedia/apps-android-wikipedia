@@ -106,6 +106,9 @@ public class LeadImagesHandler {
                 : Math.round(parentFragment.requireActivity().getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / DimenUtil.getDensityScalar());
     }
 
+    public static int getPreSettingsPaddingTop() {
+        return Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar());
+    }
 
     /**
      * Determines and sets displayHeightDp for the lead images layout.
