@@ -205,7 +205,7 @@
   <string name="gallery_uploader_unknown">Загрузіў невядомы</string>
   <string name="menu_new_tab">Новая ўкладка</string>
   <string name="button_close_tab">Закрыць укладку</string>
-    <string name="page_view_in_browser">Праглядзець старонку ў браўзэры</string>
+  <string name="page_view_in_browser">Праглядзець старонку ў браўзэры</string>
   <string name="error_response_malformed">Адказ з сэрвэра ня быў карэктна адфарматаваны.</string>
   <string name="error_unknown">Узьнікла невядомая памылка.</string>
   <string name="format_error_server_message">Паведамленьне: «%s»</string>

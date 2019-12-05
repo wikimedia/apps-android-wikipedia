@@ -193,7 +193,7 @@
   <string name="close_all_tabs_confirm_yes">Taip</string>
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Uždaryti skirtuką</string>
-    <string name="page_view_in_browser">Peržiūra naršyklėje</string>
+  <string name="page_view_in_browser">Peržiūra naršyklėje</string>
   <string name="error_response_malformed">Atsakas iš serverio nebuvo suformatuotas teisingai.</string>
   <string name="error_unknown">Įvyko nežinoma klaida.</string>
   <string name="format_error_server_message">Pranešimas: \"%s\"</string>

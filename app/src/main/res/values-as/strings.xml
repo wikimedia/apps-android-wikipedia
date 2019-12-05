@@ -284,7 +284,7 @@
   <string name="all_tab_items_closed">সকলো টেব্‌ বন্ধ কৰা হ\'ল</string>
   <string name="tool_tip_bookmark_icon_title">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="tool_tip_bookmark_icon_text">বুক্‌মাৰ্ক চিহ্নটো চুই কোনো প্ৰবন্ধ এক পাঠ্য তালিকাত যোগ দিয়ক</string>
-    <string name="page_view_in_browser">পৃষ্ঠাটো ব্ৰাউজাৰত চাওক</string>
+  <string name="page_view_in_browser">পৃষ্ঠাটো ব্ৰাউজাৰত চাওক</string>
   <string name="error_unknown">এটা অজ্ঞাত ত্ৰুটি হৈছে।</string>
   <string name="format_error_server_message">বাৰ্তা: \"%s\"</string>
   <string name="address_copied">ঠিকনাটো ক্লিপ্‌ব\'ৰ্ডলৈ প্ৰতিলিপি কৰা হৈছে।</string>

@@ -246,7 +246,7 @@
   <string name="close_all_tabs_confirm_yes">ہاں</string>
   <string name="close_all_tabs_confirm_no">نہیں</string>
   <string name="button_close_tab">ٹیب بند کریں</string>
-    <string name="page_view_in_browser">صفحہ کو براؤزر میں دیکھیں</string>
+  <string name="page_view_in_browser">صفحہ کو براؤزر میں دیکھیں</string>
   <string name="error_response_malformed">سرور کے جواب کی سکلبندی ٹھیک سے نہیں کی گئی ہے۔</string>
   <string name="error_unknown">ایک نامعلوم نقص واقع ہوا ہے ۔</string>
   <string name="format_error_server_message">پیغام:\"%s\"</string>
