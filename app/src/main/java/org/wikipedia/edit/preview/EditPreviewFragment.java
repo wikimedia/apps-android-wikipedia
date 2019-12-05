@@ -70,7 +70,7 @@ public class EditPreviewFragment extends Fragment {
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
-        bridge = new CommunicationBridge(webview, requireActivity());
+        bridge = new CommunicationBridge(webview);
         webview.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
@@ -107,7 +107,8 @@ public class EditPreviewFragment extends Fragment {
         Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
-        if (!oldLocale.getLanguage().equals(newLocale.getLanguage()) && !newLocale.getLanguage().equals("test")) {
+        boolean hasSameLocale = oldLocale.getLanguage().equals(newLocale.getLanguage());
+        if (!hasSameLocale && !newLocale.getLanguage().equals("test")) {
             L10nUtil.setDesiredLocale(config, newLocale);
             tempResources = new Resources(assets, metrics, config);
         }
@@ -148,7 +149,7 @@ public class EditPreviewFragment extends Fragment {
         Reset AssetManager to its original state, by creating a new Resources object
         with the original Locale (from above)
          */
-        if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
+        if (!hasSameLocale) {
             config.setLocale(oldLocale);
             new Resources(assets, metrics, config);
         }
@@ -276,23 +277,23 @@ public class EditPreviewFragment extends Fragment {
      * they will be separated by commas.
      */
     public String getSummary() {
-        String summaryStr = "";
+        StringBuilder summaryStr = new StringBuilder();
         for (EditSummaryTag tag : summaryTags) {
             if (!tag.getSelected()) {
                 continue;
             }
             if (summaryStr.length() > 0) {
-                summaryStr += ", ";
+                summaryStr.append(", ");
             }
-            summaryStr += tag;
+            summaryStr.append(tag);
         }
         if (otherTag.getSelected()) {
             if (summaryStr.length() > 0) {
-                summaryStr += ", ";
+                summaryStr.append(", ");
             }
-            summaryStr += otherTag;
+            summaryStr.append(otherTag);
         }
-        return summaryStr;
+        return summaryStr.toString();
     }
 
     @Override

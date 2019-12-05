@@ -292,7 +292,7 @@
   <string name="all_tab_items_closed">Кыбытыктар сабылыннылар.</string>
   <string name="tool_tip_bookmark_icon_title">Ааҕыы испииһэгэр киллэр</string>
   <string name="tool_tip_bookmark_icon_text">Кыбытык-бэлиэ ойуутун баттаан ыстатыйаны ааҕыы испииһэгэр киллэр.</string>
-    <string name="page_view_in_browser">Сирэйи браузерга көрүү</string>
+  <string name="page_view_in_browser">Сирэйи браузерга көрүү</string>
   <string name="tool_tip_toc_title">Ис хоһоонун түргэнник көрүү</string>
   <string name="tool_tip_toc_text">Хаҥас диэки тарыйдаххына, иһинээҕитэ көстүө, эбэтэр эргитэр тэрили туттан, ыстатыйа салааларыгар түргэнник тиийиэххин сөп.</string>
   <string name="tool_tip_lang_button">Хас да тылынан ааҕар уонна көрдүүр сатанар буолла</string>

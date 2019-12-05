@@ -323,7 +323,7 @@
   <string name="all_tab_items_closed">Tous les onglets sont fermés.</string>
   <string name="tool_tip_bookmark_icon_title">Ajouter à la liste de lecture</string>
   <string name="tool_tip_bookmark_icon_text">Cliquez sur l’icône du signet pour enregistrer l’article dans une liste de lecture.</string>
-    <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
+  <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_title">Tableau d’accès rapide aux contenus</string>
   <string name="tool_tip_toc_text">Vous pouvez maintenant glisser à gauche pour ouvrir le tableau des contenus et cliquer-glisser ce bouton de défilement pour sauter rapidement aux différentes sections d’un article.</string>
   <string name="tool_tip_lang_button">Vous pouvez maintenant chercher et lire Wikipédia en différentes langues dans l’application.\n\n\nCliquez sur l’icône pour ajouter plus de langues.</string>

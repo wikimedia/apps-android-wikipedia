@@ -304,7 +304,7 @@
   <string name="all_tab_items_closed">כל הלשוניות סגורות.</string>
   <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
   <string name="tool_tip_bookmark_icon_text">נא ללחוץ על כפתור הסימנייה כדי לשמור את הערך  לרשימת הקריאה.</string>
-    <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
+  <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_title">גישה מהירה לתוכן העניינים</string>
   <string name="tool_tip_toc_text">עכשיו אפשר להחליק ימינה כדי לפתוח את תוכן העניינים, וגם ללחוץ ולגרור על כפתור הגלילה כדי לדלג מהר לחלקים השונים של הערך.</string>
   <string name="tool_tip_lang_button">עכשיו אפשר לחפש ולקרוא ערכים בוויקיפדיה בשפות מרובות באמצעות היישום.\n\n\nיש ללחוץ על הצלמית כדי להוסיף שפות נוספות.</string>

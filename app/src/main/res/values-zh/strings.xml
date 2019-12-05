@@ -322,7 +322,7 @@
   <string name="all_tab_items_closed">所有标签均已关闭。</string>
   <string name="tool_tip_bookmark_icon_title">保存至阅读列表</string>
   <string name="tool_tip_bookmark_icon_text">点击“阅读列表”图标以将该文章保存至阅读列表。</string>
-    <string name="page_view_in_browser">在浏览器中查看页面</string>
+  <string name="page_view_in_browser">在浏览器中查看页面</string>
   <string name="tool_tip_toc_title">目录快速存取</string>
   <string name="tool_tip_toc_text">现在可以向左滑动以打开内容表，还可以单击并拖动这个滚动按钮以快速跳转到条目的不同部分。</string>
   <string name="tool_tip_lang_button">您现在可以在应用中搜索并阅读多个维基百科语言版本。\n\n点按图标以添加更多语言。</string>

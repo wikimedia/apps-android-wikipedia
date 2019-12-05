@@ -296,7 +296,7 @@
   <string name="all_tab_items_closed">Ĉiuj langetoj estis fermitaj.</string>
   <string name="tool_tip_bookmark_icon_title">Aldoni al legolisto</string>
   <string name="tool_tip_bookmark_icon_text">Frapetu la ikonon de la legosigno por konservi la artikolon en legoliston.</string>
-    <string name="page_view_in_browser">Montri paĝon per retumilo</string>
+  <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="tool_tip_toc_title">Enhavtabelo rapida aliro</string>
   <string name="tool_tip_toc_text">Nun vi povas ŝovumi maldekstren por malfermi la enhavotabelon, kaj frapeti-treni la ruluma butonon por rapide salti al paragrafoj de artikolo.</string>
   <string name="tool_tip_lang_button">Vi povas nun serĉi kaj legi je pluraj Vikipediaj lingvoj en la aplikaĵo.\n\n\nFrapetu la ikonon por aldoni pliajn lingvojn.</string>

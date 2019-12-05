@@ -315,7 +315,7 @@
   <string name="all_tab_items_closed">جميع علامات التبويب مغلقة.</string>
   <string name="tool_tip_bookmark_icon_title">الإضافة إلى قائمة القراءة</string>
   <string name="tool_tip_bookmark_icon_text">اضغط على أيقونة الإشارة المرجعية لحفظ المقالة في قائمة قراءة.</string>
-    <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
+  <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
   <string name="tool_tip_toc_title">الوصول السريع لجدول المحتويات</string>
   <string name="tool_tip_toc_text">يمكنك الآن التحرك لليسار لفتح جدول المحتويات، وأيضا النقر والجر على زر الدحرجة هذا للقفز سريعا إلى أقسام مختلفة من مقالة.</string>
   <string name="tool_tip_lang_button">يمكنك الآن البحث وقراءة لغات ويكيبيديا المتعددة في التطبيق.\n\nاضغط على الأيقونة لإضافة المزيد من اللغات.</string>
