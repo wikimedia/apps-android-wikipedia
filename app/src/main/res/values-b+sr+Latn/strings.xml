@@ -289,7 +289,6 @@
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na listu za čitanje</string>
   <string name="tool_tip_bookmark_icon_text">Dodirnite ikonicu obeleživača da biste sačuvali članak u listu za čitanje.</string>
-  <string name="tool_tip_share">Nakon što označite zanimljivu činjenicu, delite je na svojim omiljenim mrežama.</string>
   <string name="page_view_in_browser">Prikaži stranicu u pregledaču</string>
   <string name="tool_tip_toc_title">Sadržaj brzog pristupa</string>
   <string name="tool_tip_toc_text">Sada možete prevlačiti ulevo da biste otvorili sadržaj, a zatim dodirnuti i prevući dugme ovog pomerača da biste brzo prešli na druge odeljke članka.</string>

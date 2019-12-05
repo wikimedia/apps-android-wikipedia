@@ -307,7 +307,6 @@
   <string name="all_tab_items_closed">모든 탭이 닫혔습니다.</string>
   <string name="tool_tip_bookmark_icon_title">읽기 목록에 추가</string>
   <string name="tool_tip_bookmark_icon_text">읽기 목록에 글을 저장하려면 북마크 아이콘을 탭하십시오.</string>
-  <string name="tool_tip_share">흥미로운 사실 하나를 강조한 다음, 즐겨쓰는 SNS에 공유해 보세요!</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
   <string name="tool_tip_toc_title">목차 빠른 접근</string>
   <string name="tool_tip_toc_text">지금 왼쪽으로 스와이프하면 목차를 열 수 있으며 스크롤러 버튼에 탭하여 드래그하면 글의 다른 문단으로 빠르게 이동할 수도 있습니다.</string>

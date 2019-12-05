@@ -313,7 +313,6 @@
   <string name="all_tab_items_closed">Message shown when all tabs are closed.</string>
   <string name="tool_tip_bookmark_icon_title">Title for tool-tip that introduces the user to the bookmark icon for saving the article to reading lists.</string>
   <string name="tool_tip_bookmark_icon_text">Very short advice on how the user can click the bookmark icon to save the article to reading lists.</string>
-  <string name="tool_tip_share">Very short advice on sharing highlighted text on social networks.</string>
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
   <string name="tool_tip_toc_title">Title for tool-tip that introduces the user to Table of Contents slider.</string>
   <string name="tool_tip_toc_text">Very short advice on how to use Table of Contents slider.\n\n\'\'\'In right to left languages, replace \"left\" with \"right\".\'\'\'</string>

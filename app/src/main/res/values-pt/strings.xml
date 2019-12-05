@@ -307,7 +307,6 @@
   <string name="all_tab_items_closed">Separadores todos fechados.</string>
   <string name="tool_tip_bookmark_icon_title">Adicionar à lista de leitura</string>
   <string name="tool_tip_bookmark_icon_text">Prima o ícone do marcador para guardar o artigo numa lista de leitura.</string>
-  <string name="tool_tip_share">Após destacar um facto interessante, tente partilhá-lo nas suas redes favoritas!</string>
   <string name="page_view_in_browser">Abrir página no navegador</string>
   <string name="tool_tip_toc_title">Acesso rápido ao índice</string>
   <string name="tool_tip_toc_text">Agora pode passar o dedo para a esquerda para abrir o índice e também premir e arrastar este botão de deslizamento para saltar rapidamente para diferentes secções de um artigo.</string>
