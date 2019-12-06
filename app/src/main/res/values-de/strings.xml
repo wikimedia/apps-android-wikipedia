@@ -7,6 +7,7 @@
 * Lucas Werkmeister
 * Metalhead64
 * Mirzali
+* Schmackes
 * Sebastian Wallroth
 * Tobi 406
 * Vogone
@@ -292,7 +293,6 @@
   <string name="all_tab_items_closed">Alle Registerkarten geschlossen.</string>
   <string name="tool_tip_bookmark_icon_title">Zu Leseliste hinzufügen</string>
   <string name="tool_tip_bookmark_icon_text">Tippe auf das Lesezeichen-Symbol, um den Artikel in eine Leseliste zu speichern.</string>
-  <string name="tool_tip_share">Versuche, eine interessante Tatsache nach dem Hervorheben auf deinen Lieblingsnetzwerken zu teilen!</string>
   <string name="page_view_in_browser">Seite im Browser ansehen</string>
   <string name="tool_tip_toc_title">Inhaltsverzeichnis-Schnellzugriff</string>
   <string name="tool_tip_toc_text">Du kannst jetzt nach links wischen, um das Inhaltsverzeichnis zu öffnen und auch auf diese Blätter-Schaltfläche tippen und ziehen, um schnell zwischen den unterschiedlichen Abschnitten eines Artikels zu springen.</string>
@@ -635,6 +635,8 @@
   <string name="suggested_edits_feed_card_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>

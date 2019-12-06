@@ -280,7 +280,6 @@
   <string name="all_tab_items_closed">سڀ ٽيب بند</string>
   <string name="tool_tip_bookmark_icon_title">پڙھڻ جي فھرست ۾ وجھو</string>
   <string name="tool_tip_bookmark_icon_text">مضمون کي ڪنھن پڙھڻ جي فھرست ۾ وجھڻ لاءِ ڪتاب-نشاني جي نشان کي ڇھو.</string>
-  <string name="tool_tip_share">ڪا دلچسپ ڳالھ نمايان ڪرڻ کانپوءِ، ان کي پنھنجي پسنديده نيٽورڪس تي ونڊي ڏسو!</string>
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
   <string name="tool_tip_toc_title">عنوان جي فھرست تڪڙي رسائي</string>
   <string name="tool_tip_lang_button">ھاڻي توھان ايپ ۾ وڪيپيڊيا جي گھڻين ئي ٻولين ۾ ڳولي ۽ پڙھي سگھو ٿا.\n\n\nوڌيڪ ٻوليون وجھڻ لاءِ آئڪن تي ڇھو.</string>
@@ -649,7 +648,7 @@
   <string name="suggested_edits_image_captions_task_detail">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_add_descriptions_task_detail">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي.</string>
   <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
   <string name="suggested_edits_editing_tips_link_text">سنوارڻ جا مشورا ۽ شرڪتون</string>
   <string name="suggested_edits_help_page_link_text">صلاح-ڏنل سنوارن جو مدد صفحو</string>

@@ -16,6 +16,7 @@
 * Masti
 * Matik7
 * Matma Rex
+* Nharateh
 * Py64
 * Rail
 * Railfail536
@@ -196,7 +197,7 @@
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
   <string name="preference_title_auto_upload_crash_reports">Wysyłaj raporty o awariach</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Pozwól automatycznie wysyłać raporty o błędach do platformy HockeyApp / zewnętrznego usługodawcy, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Pozwól automatycznie wysyłać raporty o błędach do platformy HockeyApp / zewnętrznego usługodawcy, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
   <string name="history_search_list_hint">Historia wyszukiwania</string>
   <string name="error_can_not_process_link">Nie można wyświetlić linku</string>
@@ -317,7 +318,6 @@
   <string name="all_tab_items_closed">Zamknięto wszystkie karty.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj do listy czytanych</string>
   <string name="tool_tip_bookmark_icon_text">Stuknij ikonę zakładki, aby zapisać artykuł na liście czytanych.</string>
-  <string name="tool_tip_share">Po zaznaczeniu interesującego faktu, spróbuj podzielić się nim w swoich ulubionych sieciach społecznościowych!</string>
   <string name="page_view_in_browser">Otwórz stronę w przeglądarce</string>
   <string name="tool_tip_toc_title">Spis treści szybkiego dostępu</string>
   <string name="tool_tip_toc_text">Możesz teraz przesunąć palcem w lewo, aby otworzyć spis treści, a także dotknąć i przeciągnąć ten przycisk przewijania, aby szybko przejść do różnych sekcji artykułu.</string>
@@ -357,6 +357,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
   <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Dopasuj do motywu systemowego</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
@@ -718,7 +719,7 @@
   <string name="suggested_edits_encouragement_message">%s, dziękujemy za twoje edycje. Poniżej możesz znaleźć więcej sposobów aby rozwijać Wikipedię.</string>
   <string name="suggested_edits_image_captions_task_detail">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>

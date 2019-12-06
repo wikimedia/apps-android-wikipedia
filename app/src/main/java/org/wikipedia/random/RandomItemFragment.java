@@ -55,15 +55,15 @@ public class RandomItemFragment extends Fragment {
         return new RandomItemFragment();
     }
 
-    public void setPagerPosition(int position) {
+    void setPagerPosition(int position) {
         pagerPosition = position;
     }
 
-    public int getPagerPosition() {
+    int getPagerPosition() {
         return pagerPosition;
     }
 
-    public boolean isLoadComplete() {
+    boolean isLoadComplete() {
         return summary != null;
     }
 
@@ -123,14 +123,14 @@ public class RandomItemFragment extends Fragment {
         }
     }
 
-    public void updateContents() {
+    private void updateContents() {
         errorView.setVisibility(View.GONE);
         containerView.setVisibility(summary == null ? View.GONE : View.VISIBLE);
         progressBar.setVisibility(summary == null ? View.VISIBLE : View.GONE);
         if (summary == null) {
             return;
         }
-        articleTitleView.setText(summary.getDisplayTitle());
+        articleTitleView.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
         articleSubtitleView.setText(null); //summary.getDescription());
         extractView.setText(StringUtil.fromHtml(summary.getExtractHtml()));
         ViewTreeObserver observer = extractView.getViewTreeObserver();

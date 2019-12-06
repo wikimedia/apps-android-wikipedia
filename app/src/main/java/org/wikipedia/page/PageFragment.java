@@ -50,6 +50,7 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -57,6 +58,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
+import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
@@ -106,6 +108,8 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
+import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
+import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
@@ -118,7 +122,7 @@ import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class PageFragment extends Fragment implements BackPressedHandler {
+public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener {
     public interface Callback {
         void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog);
         void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog);
@@ -347,7 +351,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
         webView.setBackgroundColor(getThemedColor(requireActivity(), R.attr.paper_color));
 
-        bridge = new CommunicationBridge(webView, requireActivity());
+        bridge = new CommunicationBridge(this);
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
@@ -431,7 +435,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
-                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
                 onPageLoadComplete();
             }
 
@@ -627,7 +630,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                          boolean pushBackStack, int stagedScrollY, boolean isRefresh) {
-        webView.setVisibility(View.GONE);
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle();
 
@@ -795,6 +797,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onPageLoadComplete() {
+        if (!leadImagesHandler.isLeadImageEnabled()) {
+            bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
+        }
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
@@ -820,6 +825,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         checkAndShowBookmarkOnboarding();
+        maybeShowAnnouncement();
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -1298,4 +1304,25 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         leadImagesHandler.openImageInGallery(language);
     }
 
+    private void maybeShowAnnouncement() {
+        if (Prefs.hasVisitedArticlePage()) {
+            disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getAnnouncements()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(list -> {
+                        String country = GeoUtil.getGeoIPCountry();
+                        Date now = new Date();
+                        for (Announcement announcement : list.items()) {
+                            if (shouldShow(announcement, country, now)
+                                    && announcement.placement().equals(PLACEMENT_ARTICLE)
+                                    && !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
+                                AnnouncementDialog dialog = new AnnouncementDialog(requireActivity(), announcement);
+                                dialog.setCancelable(false);
+                                dialog.show();
+                                break;
+                            }
+                        }
+                    }, L::d));
+        }
+    }
 }

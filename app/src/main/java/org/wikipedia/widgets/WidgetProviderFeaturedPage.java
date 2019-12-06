@@ -86,8 +86,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         });
     }
 
-
-
     @SuppressLint("CheckResult")
     private void getFeaturedArticleInformation(final Callback cb) {
         WikipediaApp app = WikipediaApp.getInstance();
@@ -109,20 +107,22 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                     }
                 })
                 .subscribeOn(Schedulers.io())
-                .subscribe(response -> {
-                    CharSequence widgetText = mainPageTitle.getText();
-                    PageTitle pageTitle = mainPageTitle;
+                .flatMap(response -> {
                     if (response instanceof retrofit2.Response) {
                         PageLead lead = (PageLead) ((retrofit2.Response) response).body();
                         L.d("Downloaded page " + mainPageTitle.getDisplayText());
-                        widgetText = findFeaturedArticleTitle(lead.getLeadSectionContent());
-                    } else if (response instanceof PageSummary) {
-                        widgetText = StringUtil.fromHtml(((PageSummary) response).getDisplayTitle());
-                        pageTitle = ((PageSummary) response).getPageTitle(app.getWikiSite());
+                        return ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getSummary(null, findFeaturedArticleTitle(lead.getLeadSectionContent()));
                     }
-
+                    return Observable.just(response);
+                })
+                .subscribe(response -> {
+                    CharSequence widgetText = StringUtil.fromHtml(((PageSummary) response).getDisplayTitle());
+                    PageTitle pageTitle = ((PageSummary) response).getPageTitle(app.getWikiSite());
                     cb.onFeaturedArticleReceived(pageTitle, widgetText);
-                }, L::e);
+                }, throwable -> {
+                    cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.getDisplayText());
+                    L.e(throwable);
+                });
     }
 
     private String findFeaturedArticleTitle(String pageLeadContent) {

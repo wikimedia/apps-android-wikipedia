@@ -318,7 +318,6 @@
   <string name="all_tab_items_closed">Todas as guias fechadas.</string>
   <string name="tool_tip_bookmark_icon_title">Adicionar à lista de leitura</string>
   <string name="tool_tip_bookmark_icon_text">Toque no ícone do marcador para salvar o artigo em uma lista de leitura.</string>
-  <string name="tool_tip_share">Após destacar um fato interessante, tente compartilhá-lo nas suas redes favoritas!</string>
   <string name="page_view_in_browser">Ver página no navegador</string>
   <string name="tool_tip_toc_title">Acesso rápido ao índice</string>
   <string name="tool_tip_toc_text">Agora você pode deslizar para a esquerda para abrir o índice e também tocar e arrastar neste botão de rolagem para saltar rapidamente para diferentes seções de um artigo.</string>
@@ -723,11 +722,11 @@
   <string name="suggested_edits_image_captions_task_detail">As legendas das imagens descrevem uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">As descrições dos artigos resumem um artigo para ajudar os leitores a entender rapidamente o assunto.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu usando as edições sugeridas.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu por meio das edições sugeridas. Se você não contribui há algum tempo, ele mostra sua última data de contribuição.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página dos itens nos quais você contribuiu nos últimos 30 dias com edições sugeridas.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida. Edições revertidas: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.\n\n Aprenda como melhorar suas habilidades de edição na Wikipédia com o link abaixo.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;As edições sugeridas estão desativadas.&lt;/b&gt; Desculpa %s, muitas das suas recentes contribuições foram revertidas.\n\n Saiba o que isso significa no link abaixo.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.\n\nAprenda como melhorar suas habilidades de edição na Wikipédia com o link abaixo.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;As edições sugeridas estão desativadas.&lt;/b&gt; Desculpa %s, muitas das suas recentes contribuições foram revertidas.\n\nSaiba o que isso significa no link abaixo.</string>
   <string name="suggested_edits_ip_blocked_message">Parece que seu endereço IP (ou intervalo de endereços IP) está atualmente bloqueado na edição da Wikipedia. Saiba mais sobre o que isso significa visitando o link abaixo.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
