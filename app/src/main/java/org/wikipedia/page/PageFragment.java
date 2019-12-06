@@ -883,7 +883,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {
-        tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), isFirstPage);
+        tocHandler.setupToC(model.getTitle(), model.getPage().getPageProperties().getPageId(), isFirstPage);
         tocHandler.setEnabled(true);
     }
 

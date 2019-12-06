@@ -29,7 +29,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -62,6 +61,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
 
     private static final int MAX_LEVELS = 3;
+    private static final int TOP_SECTION_ID = 0;
     private static final int ABOUT_SECTION_ID = -1;
 
     private final SwipeableListView tocList;
@@ -130,19 +130,18 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     @SuppressLint("RtlHardcoded")
-    void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
-        adapter.setPage(page);
-        rtl = L10nUtil.isLangRTL(wiki.languageCode());
-        showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;
+    void setupToC(@NonNull PageTitle pageTitle, int pageId, boolean firstPage) {
+        adapter.setPageTitle(pageTitle);
+        rtl = L10nUtil.isLangRTL(pageTitle.getWikiSite().languageCode());
+        showOnboading = Prefs.isTocTutorialEnabled() && !pageTitle.isMainPage() && !firstPage;
         tocList.setRtl(rtl);
-        setConditionalLayoutDirection(tocContainer, wiki.languageCode());
+        setConditionalLayoutDirection(tocContainer, pageTitle.getWikiSite().languageCode());
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
         params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
         tocContainer.setLayoutParams(params);
 
         log();
-        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
-                page.getPageProperties().getPageId(), adapter.getCount());
+        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), pageTitle.getWikiSite(), pageId, adapter.getCount());
     }
 
     void log() {
@@ -233,23 +232,38 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections = new ArrayList<>();
         private final SparseIntArray sectionYOffsets = new SparseIntArray();
-        private String pageTitle;
         private int highlightedSection;
 
-        void setPage(@NonNull Page page) {
+        void setPageTitle(@NonNull PageTitle pageTitle) {
             sections.clear();
             sectionYOffsets.clear();
-            pageTitle = page.getDisplayTitle();
-            for (Section s : page.getSections()) {
-                if (s.getLevel() < MAX_LEVELS) {
-                    sections.add(s);
+            bridge.evaluate(JavaScriptActionHandler.getTableOfContent(), value -> {
+                try {
+                    // add article title
+                    sections.add(new Section(TOP_SECTION_ID, 0, pageTitle.getDisplayText(), "", ""));
+
+                    JSONArray tocSections = new JSONArray(value);
+                    // TODO: maybe we can rewrite Section.java with a proper fromJson() method
+                    for (int i = 0; i < tocSections.length(); i++) {
+                        JSONObject section = tocSections.getJSONObject(i);
+                        if (section.getInt("level") < MAX_LEVELS) {
+                            sections.add(new Section(section.getInt("id"),
+                                    section.getInt("level"),
+                                    section.getString("title"),
+                                    section.getString("anchor"),
+                                    ""));
+                        }
+                    }
+
+                    // add a fake section at the end to represent the "about this article" contents at the bottom:
+                    sections.add(new Section(ABOUT_SECTION_ID, 0,
+                            getStringForArticleLanguage(pageTitle, R.string.about_article_section), "", ""));
+                    highlightedSection = 0;
+                    notifyDataSetChanged();
+                } catch (JSONException e) {
+                    // ignore
                 }
-            }
-            // add a fake section at the end to represent the "about this article" contents at the bottom:
-            sections.add(new Section(ABOUT_SECTION_ID, 0,
-                    getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), "", ""));
-            highlightedSection = 0;
-            notifyDataSetChanged();
+            });
         }
 
         void setHighlightedSection(int id) {
@@ -289,7 +303,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             TextView sectionHeading = convertView.findViewById(R.id.page_toc_item_text);
             View sectionBullet = convertView.findViewById(R.id.page_toc_item_bullet);
 
-            sectionHeading.setText(StringUtil.fromHtml(section.isLead() ? pageTitle : section.getHeading()));
+            sectionHeading.setText(StringUtil.fromHtml(section.getHeading()));
             float textSize = TOC_SUBSECTION_TEXT_SIZE;
             if (section.isLead()) {
                 textSize = TOC_LEAD_TEXT_SIZE;

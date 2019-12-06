@@ -36,6 +36,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun getTableOfContent(): String {
+        return "pcs.c1.Page.getTableOfContents()"
+    }
+
+    @JvmStatic
     fun getOffsets(): String {
         return "pcs.c1.Sections.getOffsets(document.body);"
     }
