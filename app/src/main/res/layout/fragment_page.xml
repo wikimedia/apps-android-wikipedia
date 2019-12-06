@@ -2,8 +2,7 @@
 <org.wikipedia.views.SwipeRefreshLayoutWithScroll xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color">
+    android:layout_height="match_parent">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/page_contents_container"

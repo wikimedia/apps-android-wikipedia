@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Agusbou2015
 * Amaia
 * Anarhistička Maca
 * Athena in Wonderland
@@ -206,7 +207,7 @@
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a HockeyApp, un proveedor de servicios externo, para que podamos revisar tu fallo y corregir el error con mayor rapidez y facilidad.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a un proveedor de servicios externo para que podamos revisarlos y corregirlos con mayor rapidez y facilidad.</string>
   <string name="editing_error_spamblacklist">Se detectaron enlaces a dominios bloqueados (%s). Elimínalos y vuelve a intentarlo.</string>
   <string name="history_search_list_hint">Buscar en el historial</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
@@ -325,7 +326,6 @@
   <string name="all_tab_items_closed">Se cerraron todas las pestañas.</string>
   <string name="tool_tip_bookmark_icon_title">Añadir a una lista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Toca el icono de marcadores para guardar el artículo en una lista de lectura.</string>
-  <string name="tool_tip_share">Después de resaltar un hecho interesante, prueba compartirlo en tus redes favoritas.</string>
   <string name="page_view_in_browser">Ver página en el navegador</string>
   <string name="tool_tip_toc_title">Acceso rápido a la tabla de contenidos</string>
   <string name="tool_tip_toc_text">Ahora puede deslizar hacia la izquierda para abrir la tabla de contenido, y también tocar y arrastrar el botón de desplazamiento para saltar rápidamente a diferentes secciones de un artículo.</string>
@@ -623,7 +623,7 @@
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
-  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artículo (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language">Descripción del artículo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripción de artículo (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Leyenda de imagen (%s)</string>
   <string name="description_edit_save">Publicar</string>

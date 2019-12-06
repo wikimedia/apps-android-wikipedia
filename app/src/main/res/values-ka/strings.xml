@@ -198,7 +198,6 @@
   <string name="close_all_tabs_confirm_yes">დიახ</string>
   <string name="close_all_tabs_confirm_no">არა</string>
   <string name="button_close_tab">ჩანართის დახურვა</string>
-  <string name="tool_tip_share">საიტერესო ფაქტის აღმოჩენის შემდეგ, გააზიარეთ ის ფავორიტთა ქსელში!</string>
   <string name="page_view_in_browser">გვერდის ბრაუზერში ხილვა</string>
   <string name="error_response_malformed">სერვერისგან პასუხი არასწორად დაფორმატდა.</string>
   <string name="error_unknown">აღმოჩენილია უცნობი შეცდომა.</string>

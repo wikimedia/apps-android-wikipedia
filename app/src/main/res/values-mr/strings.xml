@@ -222,7 +222,6 @@
   <string name="close_all_tabs_confirm_yes">होय</string>
   <string name="close_all_tabs_confirm_no">नाही</string>
   <string name="button_close_tab">कळ बंद करा</string>
-  <string name="tool_tip_share">एखादे आवडते तथ्य प्रकाशझोतात आणल्यावर, त्यास आपल्या आवडत्या नेटवर्कवर सहभाग करण्याच्या प्रयत्न करा.</string>
   <string name="page_view_in_browser">न्याहाळकात पान बघा</string>
   <string name="error_response_malformed">विदागारापासून प्राप्त झालेला प्रतिसाद योग्यरितीने प्रारुपित झाला नाही.</string>
   <string name="error_unknown">एक अज्ञात चूक समोर आली.</string>

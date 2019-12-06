@@ -293,7 +293,6 @@
   <string name="button_close_tab">tab ပိတ်ရန်</string>
   <string name="tab_item_closed">%s ပိတ်သိမ်းပြီး။</string>
   <string name="tool_tip_bookmark_icon_title">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
-  <string name="tool_tip_share">စိတ်ဝင်စားသည့် အချက်အား ဟိုက်လိုက်လုပ်ပြီးပါက သင်နှစ်သက်ရာ ကွန်ယက်တွင် မျှဝေလိုက်ပါ!</string>
   <string name="page_view_in_browser">စာမျက်နှာအား ဘရောက်ဇာတွင် ကြည့်ရန်</string>
   <string name="tool_tip_toc_title">မြန်မြန်ရရှိနိုင်သော မာတိကာစာမျက်နှာ</string>
   <string name="tool_tip_lang_button">အခုဆိုလျင် သင်သည် ဤဆော့ဝဲလ်ရှိ များစွာသော ဝီကီပီးဒီးယား ဘာသာစကားများထဲတွင် ရှာဖွေ၊ ဖတ်ရှုနိုင်ပါသည်။</string>
