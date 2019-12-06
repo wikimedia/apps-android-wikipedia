@@ -293,7 +293,6 @@
   <string name="tab_item_closed">%s затворена.</string>
   <string name="all_tab_items_closed">Всички табове са затворени.</string>
   <string name="tool_tip_bookmark_icon_title">Добавяне към списък за четене</string>
-  <string name="tool_tip_share">След като маркирате интересен факт, пробвайте да го споделите в любимите си мрежи!</string>
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
   <string name="tool_tip_toc_title">Бърз достъп до съдържанието</string>
   <string name="tool_tip_lang_button">Сега можете да търсите и четете Уикипедия на различни езици в приложението.\n\n\nДокоснете иконката, за да добавите още езици.</string>

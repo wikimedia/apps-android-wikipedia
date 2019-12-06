@@ -137,8 +137,7 @@
   <string name="gallery_uploader_unknown">Atartu hngalh a si lo</string>
   <string name="menu_new_tab">Adang in hung</string>
   <string name="button_close_tab">Khar ding</string>
-    <string name="tool_tip_share">Na thim khawh asicun, na duhnak paoh ah hrawmh!</string>
-  <string name="page_view_in_browser">Cahmai browser ah zoh ding</string>
+    <string name="page_view_in_browser">Cahmai browser ah zoh ding</string>
   <string name="error_response_malformed">Server bialehnak cu thate in a thleng lo.</string>
   <string name="error_unknown">Palhnak pakhat khat a um.</string>
   <string name="format_error_server_message">Cakuat: \"%s\"</string>
