@@ -68,7 +68,6 @@ public class CommunicationBridge {
         isDOMReady = false;
         pendingJSMessages.clear();
         communicationBridgeListener.getWebView().loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
-        execute(JavaScriptActionHandler.setHandler());
     }
 
     public void cleanup() {
