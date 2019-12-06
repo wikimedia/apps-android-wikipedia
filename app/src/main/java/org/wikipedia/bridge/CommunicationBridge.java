@@ -32,8 +32,8 @@ import java.util.Map;
  *
  */
 public class CommunicationBridge {
-    private final WebView webView;
     private final Map<String, List<JSEventListener>> eventListeners;
+    private final CommunicationBridgeListener communicationBridgeListener;
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
@@ -42,29 +42,32 @@ public class CommunicationBridge {
         void onMessage(String messageType, JSONObject messagePayload);
     }
 
+    public interface CommunicationBridgeListener {
+        WebView getWebView();
+    }
+
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
-    public CommunicationBridge(final WebView webView) {
-        this.webView = webView;
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
-        webView.setWebChromeClient(new CommunicatingChrome());
-        webView.addJavascriptInterface(new CommunicatingChrome(), "pcsClient");
-        webView.addJavascriptInterface(new BridgeMarshaller(), "marshaller");
+    public CommunicationBridge(CommunicationBridgeListener communicationBridgeListener) {
+        this.communicationBridgeListener = communicationBridgeListener;
+        this.communicationBridgeListener.getWebView().getSettings().setJavaScriptEnabled(true);
+        this.communicationBridgeListener.getWebView().getSettings().setAllowUniversalAccessFromFileURLs(true);
+        this.communicationBridgeListener.getWebView().getSettings().setMediaPlaybackRequiresUserGesture(false);
+        this.communicationBridgeListener.getWebView().setWebChromeClient(new CommunicatingChrome());
+        this.communicationBridgeListener.getWebView().addJavascriptInterface(new PcsClientJavascriptInterface(), "pcsClient");
         eventListeners = new HashMap<>();
     }
 
     public void onPageFinished() {
         isDOMReady = true;
         for (String jsString : pendingJSMessages) {
-            webView.loadUrl(jsString);
+            communicationBridgeListener.getWebView().loadUrl(jsString);
         }
     }
 
     public void resetHtml(@NonNull String wikiUrl, String title) {
         isDOMReady = false;
         pendingJSMessages.clear();
-        webView.loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
+        communicationBridgeListener.getWebView().loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
         execute(JavaScriptActionHandler.setHandler());
     }
 
@@ -91,12 +94,12 @@ public class CommunicationBridge {
         if (!isDOMReady) {
             pendingJSMessages.add(jsString);
         } else {
-            webView.loadUrl(jsString);
+            communicationBridgeListener.getWebView().loadUrl(jsString);
         }
     }
 
     public void evaluate(@NonNull String js, ValueCallback<String> callback) {
-        webView.evaluateJavascript(js, callback);
+        communicationBridgeListener.getWebView().evaluateJavascript(js, callback);
     }
 
     private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;
@@ -123,14 +126,9 @@ public class CommunicationBridge {
             L.d(consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
             return true;
         }
-
-        @JavascriptInterface
-        public synchronized String getSetupSettings() {
-            return JavaScriptActionHandler.setUp();
-        }
     }
 
-    private class BridgeMarshaller {
+    private class PcsClientJavascriptInterface {
         /**
          * Called from Javascript to send a message packet to the Java layer. The message must be
          * formatted in JSON, and URL-encoded.
@@ -148,6 +146,11 @@ public class CommunicationBridge {
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
+        }
+
+        @JavascriptInterface
+        public synchronized String getSetupSettings() {
+            return JavaScriptActionHandler.setUp();
         }
     }
 }
