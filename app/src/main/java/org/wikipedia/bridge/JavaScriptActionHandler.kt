@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.L10nUtil.formatDateRelative
 
@@ -35,6 +36,11 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun getOffsets(): String {
         return "pcs.c1.Sections.getOffsets(document.body);"
+    }
+
+    @JvmStatic
+    fun scrollToFooter(context: Context): String {
+        return "window.scrollTo(0, document.getElementById('pcs-footer-container-menu').offsetTop - ${DimenUtil.getNavigationBarHeight(context)});"
     }
 
     @JvmStatic
