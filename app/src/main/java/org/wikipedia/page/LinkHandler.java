@@ -63,7 +63,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
 
         // special: returned by page-library when clicking Read More items in the footer.
-        int eventLoggingParamIndex = href.indexOf("?event_logging_label");
+        int eventLoggingParamIndex = href.indexOf("?event-logging-label");
         if (eventLoggingParamIndex > 0) {
             href = href.substring(0, eventLoggingParamIndex);
         }
@@ -90,7 +90,6 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         if (!convertedText.equals(titleString)) {
             titleString = convertedText;
         }
-
 
         L.d("Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())

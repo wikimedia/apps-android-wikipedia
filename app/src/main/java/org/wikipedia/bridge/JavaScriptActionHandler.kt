@@ -8,13 +8,16 @@ import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.DimenUtil.getDensityScalar
+import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.L10nUtil.formatDateRelative
 
 object JavaScriptActionHandler {
     @JvmStatic
     fun setHandler(): String {
-        return "pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { marshaller.onReceiveMessage(JSON.stringify(interaction))})"
+        return "pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { pcsClient.onReceiveMessage(JSON.stringify(interaction))})"
     }
 
     @JvmStatic
@@ -38,21 +41,25 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setUp(topMargin: Int): String {
+    fun scrollToFooter(context: Context): String {
+        return "window.scrollTo(0, document.getElementById('pcs-footer-container-menu').offsetTop - ${DimenUtil.getNavigationBarHeight(context)});"
+    }
+
+    @JvmStatic
+    fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        return String.format("pcs.c1.Page.setup({" +
-                "platform: pcs.c1.Platforms.ANDROID," +
-                "clientVersion: '%s'," +
-                "theme: pcs.c1.Themes.%s," +
-                "dimImages: %b," +
-                "margins: { top: '%dpx', right: '%dpx', bottom: '%dpx', left: '%dpx' }," +
-                "areTablesInitiallyExpanded: %b," +
-                "textSizeAdjustmentPercentage: '100%%'," +
-                "loadImages: %b" +
-                "})", BuildConfig.VERSION_NAME, app.currentTheme.funnelName.toUpperCase(),
+        return String.format("{" +
+                "\"platform\": \"pcs.c1.Platforms.ANDROID\"," +
+                "\"clientVersion\": \"%s\"," +
+                "\"theme\": \"%s\"," +
+                "\"dimImages\": %b," +
+                "\"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
+                "\"areTablesInitiallyExpanded\": %b," +
+                "\"textSizeAdjustmentPercentage\": \"100%%\"," +
+                "\"loadImages\": %b}" , BuildConfig.VERSION_NAME, app.currentTheme.funnelName,
                 (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
-                topMargin + 16, 16, 48, 16,
-                Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
+                Math.round(leadImageHeightForDevice() / getDensityScalar()) + 16, 16, 48, 16,
+                !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
     }
 
     @JvmStatic
@@ -80,7 +87,7 @@ object JavaScriptActionHandler {
         return "pcs.c1.Footer.add({" +
                 "   platform: pcs.c1.Platforms.ANDROID," +
                 "   clientVersion: '" + BuildConfig.VERSION_NAME + "'," +
-                "   title: '${model.page?.displayTitle}'," +
+                "   title: '${model.page?.convertedTitle}'," +
                 "   menu: {" +
                 "       items: [" +
                                 (if (showLanguagesLink) "pcs.c1.Footer.MenuItemType.languages, " else "") +

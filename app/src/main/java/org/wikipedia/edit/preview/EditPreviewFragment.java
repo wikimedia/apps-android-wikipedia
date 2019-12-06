@@ -21,6 +21,8 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
@@ -46,7 +48,7 @@ import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
-public class EditPreviewFragment extends Fragment {
+public class EditPreviewFragment extends Fragment implements CommunicationBridgeListener {
     private ObservableWebView webview;
     private ScrollView previewContainer;
     private EditSectionActivity parentActivity;
@@ -71,9 +73,8 @@ public class EditPreviewFragment extends Fragment {
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
-        bridge = new CommunicationBridge(webview);
+        bridge = new CommunicationBridge(this);
         webview.getSettings().setJavaScriptEnabled(true);
-
         webview.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
@@ -346,5 +347,10 @@ public class EditPreviewFragment extends Fragment {
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
         }
+    }
+
+    @Override
+    public WebView getWebView() {
+        return webview;
     }
 }

@@ -101,11 +101,10 @@ public class LeadImagesHandler {
     }
 
 
-    public int getPaddingTop() {
+    public int getTopMargin() {
         return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar())
                 : Math.round(parentFragment.requireActivity().getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / DimenUtil.getDensityScalar());
     }
-
 
     /**
      * Determines and sets displayHeightDp for the lead images layout.
