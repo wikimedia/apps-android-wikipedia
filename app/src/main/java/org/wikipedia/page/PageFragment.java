@@ -50,6 +50,7 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -121,7 +122,7 @@ import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class PageFragment extends Fragment implements BackPressedHandler {
+public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener {
     public interface Callback {
         void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog);
         void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog);
@@ -346,7 +347,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
         webView.setBackgroundColor(getThemedColor(requireActivity(), R.attr.paper_color));
 
-        bridge = new CommunicationBridge(webView);
+        bridge = new CommunicationBridge(this);
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
@@ -430,7 +431,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
-                bridge.execute(JavaScriptActionHandler.setUp(leadImagesHandler.getPaddingTop()));
                 onPageLoadComplete();
             }
 
@@ -794,6 +794,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onPageLoadComplete() {
+        if (!leadImagesHandler.isLeadImageEnabled()) {
+            bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
+        }
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
