@@ -80,7 +80,7 @@ object JavaScriptActionHandler {
         return "pcs.c1.Footer.add({" +
                 "   platform: pcs.c1.Platforms.ANDROID," +
                 "   clientVersion: '" + BuildConfig.VERSION_NAME + "'," +
-                "   title: '${model.page?.displayTitle}'," +
+                "   title: '${model.page?.convertedTitle}'," +
                 "   menu: {" +
                 "       items: [" +
                                 (if (showLanguagesLink) "pcs.c1.Footer.MenuItemType.languages, " else "") +
