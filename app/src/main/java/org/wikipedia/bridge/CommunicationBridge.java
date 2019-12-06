@@ -49,7 +49,8 @@ public class CommunicationBridge {
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
         webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
         webView.setWebChromeClient(new CommunicatingChrome());
-        webView.addJavascriptInterface(new BridgeMarshaller(), "pcsClient");
+        webView.addJavascriptInterface(new CommunicatingChrome(), "pcsClient");
+        webView.addJavascriptInterface(new BridgeMarshaller(), "marshaller");
         eventListeners = new HashMap<>();
     }
 
@@ -122,6 +123,11 @@ public class CommunicationBridge {
             L.d(consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
             return true;
         }
+
+        @JavascriptInterface
+        public synchronized String getSetupSettings() {
+            return JavaScriptActionHandler.setUp();
+        }
     }
 
     private class BridgeMarshaller {
@@ -142,11 +148,6 @@ public class CommunicationBridge {
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-        }
-
-        @JavascriptInterface
-        public synchronized String getSetupSettings() {
-            return JavaScriptActionHandler.setUp();
         }
     }
 }
