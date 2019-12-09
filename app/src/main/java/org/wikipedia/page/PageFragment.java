@@ -31,11 +31,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -931,7 +930,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         };
         bridge.addListener("link_clicked", linkHandler);
 
-        bridge.addListener("reference_clicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("reference_clicked", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
                 L.d("Detached from activity, so stopping reference click.");
                 return;
@@ -942,13 +941,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(references ->  {
                         this.references = references;
-                        int selectedIndex = messagePayload.getInt("selectedIndex");
-                        JSONArray referencesGroup = messagePayload.getJSONArray("referencesGroup");
+                        int selectedIndex = messagePayload.get("selectedIndex").getAsInt();
+                        JsonArray referencesGroup = messagePayload.getAsJsonArray("referencesGroup");
                         List<References.Reference> adjacentReferencesList = new ArrayList<>();
-                        for (int i = 0; i < referencesGroup.length(); i++) {
-                            JSONObject reference = (JSONObject) referencesGroup.get(i);
-                            String getReferenceText = StringUtils.defaultString(reference.optString("text"));
-                            String getReferenceId = UriUtil.getFragment(StringUtils.defaultString(reference.optString("href")));
+                        for (int i = 0; i < referencesGroup.size(); i++) {
+                            JsonObject reference = referencesGroup.get(i).getAsJsonObject();
+                            String getReferenceText = StringUtils.defaultString(reference.has("text") ? reference.get("text").getAsString() : null);
+                            String getReferenceId = UriUtil.getFragment(StringUtils.defaultString(reference.has("href") ? reference.get("href").getAsString() : null));
                             References.Reference getReference = references.getReferencesMap().get(getReferenceId);
                             if (getReference != null) {
                                 getReference.setText(getReferenceText);
@@ -961,42 +960,34 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         }
                     }, L::d));
         });
-        bridge.addListener("image_clicked", (String messageType, JSONObject messagePayload) -> {
-            try {
-                String href = decodeURL(messagePayload.getString("href"));
-                if (href.startsWith("./File:")) {
-                    if (app.isOnline()) {
-                        String filename = UriUtil.removeInternalLinkPrefix(href);
-                        WikiSite wiki = model.getTitle().getWikiSite();
-                        requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                                model.getTitleOriginal(), filename, wiki, GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                                ACTIVITY_REQUEST_GALLERY);
-                    } else {
-                        Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
-                        snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
-                        snackbar.show();
-                    }
+        bridge.addListener("image_clicked", (String messageType, JsonObject messagePayload) -> {
+            String href = decodeURL(messagePayload.get("href").getAsString());
+            if (href.startsWith("./File:")) {
+                if (app.isOnline()) {
+                    String filename = UriUtil.removeInternalLinkPrefix(href);
+                    WikiSite wiki = model.getTitle().getWikiSite();
+                    requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                            model.getTitleOriginal(), filename, wiki, GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                            ACTIVITY_REQUEST_GALLERY);
                 } else {
-                    linkHandler.onUrlClick(href, messagePayload.optString("title"), "");
+                    Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+                    snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
+                    snackbar.show();
                 }
-            } catch (JSONException e) {
-                L.logRemoteErrorIfProd(e);
+            } else {
+                linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
             }
         });
-        bridge.addListener("media_clicked", (String messageType, JSONObject messagePayload) -> {
-            try {
-                String href = decodeURL(messagePayload.getString("href"));
-                String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
-                WikiSite wiki = model.getTitle().getWikiSite();
-                requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                        model.getTitleOriginal(), filename, wiki,
-                        GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                        ACTIVITY_REQUEST_GALLERY);
-            } catch (JSONException e) {
-                L.logRemoteErrorIfProd(e);
-            }
+        bridge.addListener("media_clicked", (String messageType, JsonObject messagePayload) -> {
+            String href = decodeURL(messagePayload.get("href").getAsString());
+            String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
+            WikiSite wiki = model.getTitle().getWikiSite();
+            requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                    model.getTitleOriginal(), filename, wiki,
+                    GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                    ACTIVITY_REQUEST_GALLERY);
         });
-        bridge.addListener("pronunciation_clicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("pronunciation_clicked", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
                 avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
                 avPlayer.init();
@@ -1012,8 +1003,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 avPlayer.stop();
             }
         });
-        bridge.addListener("footer_item_selected", (String messageType, JSONObject messagePayload) -> {
-            String itemType = messagePayload.optString("itemType");
+        bridge.addListener("footer_item_selected", (String messageType, JsonObject messagePayload) -> {
+            String itemType = messagePayload.get("itemType").getAsString();
             if ("talkPage".equals(itemType) && model.getTitle() != null) {
                 PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
                 visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getMobileUri()));
@@ -1030,11 +1021,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 // TODO: show full list of references.
             }
         });
-        bridge.addListener("read_more_titles_retrieved", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("read_more_titles_retrieved", (String messageType, JsonObject messagePayload) -> {
             // TODO: do something with this.
             L.v(messagePayload.toString());
         });
-        bridge.addListener("view_in_browser", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("view_in_browser", (String messageType, JsonObject messagePayload) -> {
             if (model.getTitle() != null) {
                 visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getMobileUri()));
             }
