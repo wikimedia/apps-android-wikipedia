@@ -639,6 +639,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">ڏسو</string>
   <string name="suggested_edits_feed_card_add_image_caption">عڪس جو عنوان وجھو</string>
   <string name="suggested_edits_feed_card_translate_image_caption">عڪس جو عنوان وجھو (%s)</string>
+  <string name="suggested_edits_snackbar_survey_text">توھان جو سنوارڻ جو تجربو ڪيئن رھيو؟ مھرباني ڪري ھڪ گھڙي ڪڍي ايپ-۾ سنوارڻ بابت سروي ڀريو.</string>
   <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
   <string name="suggested_edits_task_action_text_add">وجھو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
@@ -707,6 +708,7 @@
   <string name="back_to_top">مٿي واپس</string>
   <string name="on_this_day_dialog_next_month">اڳيون مھينو</string>
   <string name="on_this_day_dialog_previous_month">پويون مھينو</string>
+  <string name="on_this_day_open_date_picker">تاريخ کڻندڙ کوليو</string>
   <plurals name="diff_years">
     <item quantity="one">گذريل سال</item>
     <item quantity="other">%d سال اڳ</item>
