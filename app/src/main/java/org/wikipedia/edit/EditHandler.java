@@ -9,7 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -73,12 +74,12 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     }
 
     @Override
-    public void onMessage(String messageType, JSONObject messagePayload) {
+    public void onMessage(String messageType, JsonObject messagePayload) {
         if (!fragment.isAdded()) {
             return;
         }
         if (messageType.equals("edit_section")) {
-            int sectionId = messagePayload.optInt("sectionId");
+            int sectionId = messagePayload.get("sectionId").getAsInt();
             if (sectionId == 0 && DescriptionEditUtil.isEditAllowed(currentPage)) {
                 View tempView = new View(fragment.requireContext());
                 tempView.setX(fragment.getWebView().getTouchStartX());
