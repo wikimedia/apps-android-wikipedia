@@ -233,20 +233,21 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient().lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
+        disposables.add(new PageClient()
+                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response  -> {
+                .subscribe(rsp  -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = response.body();
+                    PageLead lead = rsp.body();
                     pageLoadLeadSectionComplete(lead);
 
                     bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
 
-                    if ((response.raw().cacheResponse() != null && response.raw().networkResponse() == null)
-                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(response.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                        showPageOfflineMessage(response.raw().header("date", ""));
+                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
+                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                        showPageOfflineMessage(rsp.raw().header("date", ""));
                     }
                 }, t -> {
                     L.e("PageLead error: ", t);
