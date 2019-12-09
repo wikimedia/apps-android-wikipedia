@@ -17,18 +17,8 @@ import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
     @JvmStatic
-    fun setHandler(): String {
-        return "pcs.c1.InteractionHandling.setInteractionHandler((interaction) => { pcsClient.onReceiveMessage(JSON.stringify(interaction))})"
-    }
-
-    @JvmStatic
     fun setTopMargin(top: Int): String {
         return String.format("pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
-    }
-
-    @JvmStatic
-    fun setScrollTop(top: Int): String {
-        return "pcs.c1.Page.setScrollTop($top)"
     }
 
     @JvmStatic
