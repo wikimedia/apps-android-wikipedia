@@ -22,11 +22,6 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setScrollTop(top: Int): String {
-        return "pcs.c1.Page.setScrollTop($top)"
-    }
-
-    @JvmStatic
     fun getTextSelection(): String {
         return "pcs.c1.InteractionHandling.getSelectionInfo()"
     }
