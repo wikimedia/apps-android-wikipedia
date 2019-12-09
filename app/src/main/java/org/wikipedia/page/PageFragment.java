@@ -172,6 +172,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
     private References references;
+    private String revision;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
 
@@ -819,6 +820,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setVisibility(View.VISIBLE);
         }
 
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+            L.d("Page revision: " + revision);
+            this.revision = revision.replace("\"", "");
+        });
+
         checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
     }
@@ -1204,7 +1210,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public String getRevision() {
-        return pageFragmentLoadState.getRevision();
+        return revision;
     }
 
     private void trimTabCount() {

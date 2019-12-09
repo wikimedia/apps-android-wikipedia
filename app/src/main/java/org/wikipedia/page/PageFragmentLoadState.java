@@ -68,7 +68,6 @@ public class PageFragmentLoadState {
     private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
     private EditHandler editHandler;
-    private String revision;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @SuppressWarnings("checkstyle:parameternumber")
@@ -183,10 +182,6 @@ public class PageFragmentLoadState {
 
     public boolean isFirstPage() {
         return currentTab.getBackStack().size() <= 1 && !webView.canGoBack();
-    }
-
-    public String getRevision() {
-        return revision;
     }
 
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
@@ -311,11 +306,6 @@ public class PageFragmentLoadState {
 
         model.getTitle().setThumbUrl(pageImage.getImageName());
         model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
-
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            L.d("Page revision: " + revision);
-            this.revision = revision;
-        });
     }
 
     /**
