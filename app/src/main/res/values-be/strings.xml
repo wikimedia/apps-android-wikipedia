@@ -205,7 +205,6 @@
   <string name="close_all_tabs_confirm_yes">Так</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Зачыніць ўкладку</string>
-  <string name="tool_tip_share">Пасля вылучэння цікавага факту, паспрабуйце падзяліцца ім у вашых любімых соц. сетках!</string>
   <string name="page_view_in_browser">Прагляд старонкі ў браўзэры</string>
   <string name="error_response_malformed">Адказ сервера быў некарэктна адфарматаваны.</string>
   <string name="error_unknown">Адбылася невядомая памылка.</string>

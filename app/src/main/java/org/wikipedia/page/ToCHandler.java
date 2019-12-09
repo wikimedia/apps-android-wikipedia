@@ -165,7 +165,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             return;
         }
         if (section.getId() == ABOUT_SECTION_ID) {
-            webView.setScrollY(webView.getContentHeight());
+            bridge.execute(JavaScriptActionHandler.scrollToFooter(webView.getContext()));
         } else {
             final int topScrollExtra = 64;
             int offset = DimenUtil.roundedDpToPx(adapter.getYOffset(section.getId()) - topScrollExtra);

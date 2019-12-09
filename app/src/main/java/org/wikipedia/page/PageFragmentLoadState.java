@@ -179,7 +179,7 @@ public class PageFragmentLoadState {
 
     public void onConfigurationChanged() {
         leadImagesHandler.loadLeadImage();
-        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getPaddingTop()));
+        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 

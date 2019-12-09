@@ -94,7 +94,7 @@
   <string name="langlinks_no_match">未找到語言</string>
   <string name="langlinks_activity_title">其他語言</string>
   <string name="langlinks_your_wikipedia_languages">您的維基百科語言</string>
-  <string name="menu_save_changes">發佈修改</string>
+  <string name="menu_save_changes">發布變更</string>
   <string name="edit_saved_successfully">已發佈編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
@@ -308,7 +308,6 @@
   <string name="all_tab_items_closed">所有分頁已關閉</string>
   <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
   <string name="tool_tip_bookmark_icon_text">輕觸書籤圖標來儲存條目至閱讀清單裡。</string>
-  <string name="tool_tip_share">在突顯一段有趣的實情後，嘗試在您最愛的網路中分享！</string>
   <string name="page_view_in_browser">以瀏覽器檢視頁面</string>
   <string name="tool_tip_toc_title">內容快速存取表格</string>
   <string name="tool_tip_toc_text">您現在可以往左滑動來開啟內容表格，並可以輕觸拖拉到此滾動按鈕來快速跳至條目的不同段落。</string>
@@ -713,11 +712,11 @@
   <string name="suggested_edits_image_captions_task_detail">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
   <string name="suggested_edits_add_descriptions_task_detail">標題描述能概括條目，幫助讀者清楚了解主題。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您的建議編輯總數。</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您採用建議編輯來做貢獻的連續不中斷天數。</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">您透過建議編輯做出貢獻的連續天數。如果您已有一段時間未貢獻，則顯示最後貢獻日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數。</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">基於您的編輯裡有多少次被回退。回退編輯數：%d。</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;建議編輯被暫停至 %1$s。&lt;/b&gt;很抱歉，%2$s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解如何增進您的維基百科編輯技能。</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;建議編輯已停用。&lt;/b&gt;很抱歉，%s，您最近有太多編輯被回退。\n\n 請透過下方連結來了解此情況代表的含意。</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">基於您的編輯裡有多少次被回退（被其他編輯者撤銷）。回退編輯數：%d。</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;建議編輯被暫停至 %1$s。&lt;/b&gt;很抱歉，%2$s，您最近有太多編輯被回退。\n\n請透過下方連結來了解如何增進您的維基百科編輯技能。</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;建議編輯已停用。&lt;/b&gt;很抱歉，%s，您最近有太多編輯被回退。\n\n請透過下方連結來了解此情況代表的含意。</string>
   <string name="suggested_edits_ip_blocked_message">您現在使用的 IP 被封鎖而無法編輯維基百科，請參訪以下連結來了解更多關於封鎖的資訊。</string>
   <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
   <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>

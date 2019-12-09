@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.UriUtil;
@@ -41,16 +41,10 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     // message from JS bridge:
     @Override
-    public void onMessage(String messageType, JSONObject messagePayload) {
-        try {
-            String href = decodeURL(messagePayload.getString("href"));
-            onUrlClick(href, messagePayload.optString("title"), messagePayload.optString("text"));
-        } catch (IllegalArgumentException e) {
-            // The URL is malformed and URL decoder can't understand it. Just do nothing.
-            L.d("A malformed URL was tapped.");
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+    public void onMessage(String messageType, JsonObject messagePayload) {
+        String href = decodeURL(messagePayload.get("href").getAsString());
+        onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null,
+                messagePayload.has("text") ? messagePayload.get("text").getAsString() : "");
     }
 
     @Override
@@ -63,7 +57,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
 
         // special: returned by page-library when clicking Read More items in the footer.
-        int eventLoggingParamIndex = href.indexOf("?event_logging_label");
+        int eventLoggingParamIndex = href.indexOf("?event-logging-label");
         if (eventLoggingParamIndex > 0) {
             href = href.substring(0, eventLoggingParamIndex);
         }
@@ -90,7 +84,6 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         if (!convertedText.equals(titleString)) {
             titleString = convertedText;
         }
-
 
         L.d("Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())

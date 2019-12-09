@@ -94,6 +94,8 @@
   <string name="delete_selected_items">Dzēst izvēlētos vienumus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPĒDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Lietotājvārds</string>
+  <string name="login_join_wikipedia">Pievienojies Vikipēdijai</string>
+  <string name="login_forgot_password">Aizmirsi savu paroli?</string>
   <string name="create_account_activity_title">Izveidot kontu</string>
   <string name="dialog_create_account_checking_progress">Pārbauda</string>
   <string name="create_account_email_hint">E-pasts (nav obligāti)</string>
@@ -113,6 +115,7 @@
   <string name="wikipedia_app_faq">Vikipēdijas lietotnes BUJ</string>
   <string name="send_feedback">Sūtīt atsauksmes par lietotni</string>
   <string name="create_account_account_created_toast">Konts izveidots!</string>
+  <string name="preferences_heading_syncing">Sinhronizē</string>
   <string name="preferences_heading_data_usage">Datu lietojums</string>
   <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
   <string name="preference_title_eventlogging_opt_in">Sūtīt lietojuma ziņojumus</string>
@@ -179,6 +182,7 @@
   <string name="button_close_tab">Aizvērt cilni</string>
   <string name="all_tab_items_closed">Visas cilnes aizvērtas.</string>
   <string name="tool_tip_bookmark_icon_title">Pievienot lasīšanas sarakstam</string>
+  <string name="page_view_in_browser">Skatīt lapu pārlūkā</string>
   <string name="error_unknown">Nezināma kļūda.</string>
   <string name="format_error_server_message">Ziņojums: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
