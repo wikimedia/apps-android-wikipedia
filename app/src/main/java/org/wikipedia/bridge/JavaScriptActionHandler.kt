@@ -13,6 +13,7 @@ import org.wikipedia.util.DimenUtil.getDensityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.L10nUtil.formatDateRelative
+import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
     @JvmStatic
@@ -27,7 +28,7 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun setScrollTop(top: Int): String {
-        return String.format("pcs.c1.Page.setScrollTop(%d)", top)
+        return "pcs.c1.Page.setScrollTop($top)"
     }
 
     @JvmStatic
@@ -54,22 +55,20 @@ object JavaScriptActionHandler {
     fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         return String.format("{" +
-                "\"platform\": \"pcs.c1.Platforms.ANDROID\"," +
-                "\"clientVersion\": \"%s\"," +
-                "\"theme\": \"%s\"," +
-                "\"dimImages\": %b," +
-                "\"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
-                "\"areTablesInitiallyExpanded\": %b," +
-                "\"textSizeAdjustmentPercentage\": \"100%%\"," +
-                "\"loadImages\": %b}" , BuildConfig.VERSION_NAME, app.currentTheme.funnelName,
-                (app.currentTheme.isDark && Prefs.shouldDimDarkModeImages()),
-                Math.round(leadImageHeightForDevice() / getDensityScalar()) + 16, 16, 48, 16,
-                !Prefs.isCollapseTablesEnabled(), Prefs.isImageDownloadEnabled())
+                "   \"platform\": \"pcs.c1.Platforms.ANDROID\"," +
+                "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
+                "   \"theme\": \"${app.currentTheme.funnelName}\"," +
+                "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())}," +
+                "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
+                "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled()}," +
+                "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
+                "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}" +
+                "}", (leadImageHeightForDevice() / getDensityScalar()).roundToInt() + 16, 16, 48, 16)
     }
 
     @JvmStatic
     fun setUpEditButtons(isEditable: Boolean, isProtected: Boolean): String {
-        return String.format("pcs.c1.Page.setEditButtons(%b, %b)", isEditable, isProtected)
+        return "pcs.c1.Page.setEditButtons($isEditable, $isProtected)"
     }
 
     @JvmStatic
@@ -91,7 +90,7 @@ object JavaScriptActionHandler {
 
         return "pcs.c1.Footer.add({" +
                 "   platform: pcs.c1.Platforms.ANDROID," +
-                "   clientVersion: '" + BuildConfig.VERSION_NAME + "'," +
+                "   clientVersion: '${BuildConfig.VERSION_NAME}'," +
                 "   title: '${model.page?.convertedTitle}'," +
                 "   menu: {" +
                 "       items: [" +
