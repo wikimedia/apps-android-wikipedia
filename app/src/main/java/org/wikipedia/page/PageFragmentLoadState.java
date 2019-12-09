@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
@@ -33,7 +31,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
@@ -60,7 +57,6 @@ public class PageFragmentLoadState {
 
     private int sectionTargetFromIntent;
     private String sectionTargetFromTitle;
-    private String revision;
 
     private ErrorCallback networkErrorCallback;
 
@@ -72,6 +68,7 @@ public class PageFragmentLoadState {
     private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
     private EditHandler editHandler;
+    private String revision;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @SuppressWarnings("checkstyle:parameternumber")
@@ -113,11 +110,6 @@ public class PageFragmentLoadState {
     public void onPageFinished() {
         bridge.onPageFinished();
         loading = false;
-    }
-
-    @NonNull
-    public String getRevision() {
-        return revision;
     }
 
     public void loadFromBackStack() {
@@ -193,6 +185,10 @@ public class PageFragmentLoadState {
         return currentTab.getBackStack().size() <= 1 && !webView.canGoBack();
     }
 
+    public String getRevision() {
+        return revision;
+    }
+
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
         if (!fragment.isAdded()) {
             return;
@@ -237,33 +233,20 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(model.getTitle().getWikiSite())
-                .getSummary(null, model.getTitle().getConvertedText())
-                .flatMap(response -> {
-                    revision = response.getRevision();
-                    // TODO: this code syncs to https://github.com/wikimedia/apps-android-wikipedia/pull/623/files#diff-82eb00916e612213c5823e6603a7006d
-                    return Observable.just(response.getDisplayTitle());
-                })
-                .onErrorReturnItem(model.getTitle().getDisplayText()); // prevent "redirected" or variant issue
-
-
-        Observable<Response<PageLead>> pageLeadObservable = new PageClient().lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth());
-
-        disposables.add(Observable
-                .zip(pageSummaryDisplayTextObservable, pageLeadObservable, Pair::new)
+        disposables.add(new PageClient().lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(pair  -> {
+                .subscribe(response  -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = pair.second.body();
+                    PageLead lead = response.body();
                     pageLoadLeadSectionComplete(lead);
 
                     bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
 
-                    if ((pair.second.raw().cacheResponse() != null && pair.second.raw().networkResponse() == null)
-                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.second.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                        showPageOfflineMessage(pair.second.raw().header("date", ""));
+                    if ((response.raw().cacheResponse() != null && response.raw().networkResponse() == null)
+                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(response.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                        showPageOfflineMessage(response.raw().header("date", ""));
                     }
                 }, t -> {
                     L.e("PageLead error: ", t);
@@ -327,6 +310,11 @@ public class PageFragmentLoadState {
 
         model.getTitle().setThumbUrl(pageImage.getImageName());
         model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
+
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+            L.d("Page revision: " + revision);
+            this.revision = revision;
+        });
     }
 
     /**

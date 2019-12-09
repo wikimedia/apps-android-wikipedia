@@ -251,10 +251,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return model.getTitleOriginal();
     }
 
-    @NonNull public String getRevision() {
-        return pageFragmentLoadState.getRevision();
-    }
-
     @NonNull public ShareHandler getShareHandler() {
         return shareHandler;
     }
@@ -1205,6 +1201,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
         langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
         requireActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
+    }
+
+    public String getRevision() {
+        return pageFragmentLoadState.getRevision();
     }
 
     private void trimTabCount() {
