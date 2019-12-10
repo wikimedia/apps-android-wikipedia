@@ -324,7 +324,9 @@ public class SavedPageSyncService extends JobIntentService {
             String body = rsp.body().string();
             List<String> componentsUrls = new PageComponentsUrlParser().parse(body);
             for (String url : componentsUrls) {
-                downloadSize += reqSaveUrl(cacheControl, saveOfflineHeader, pageTitle.getWikiSite(), url);
+                if (!TextUtils.isEmpty(url)) {
+                    downloadSize += reqSaveUrl(cacheControl, saveOfflineHeader, pageTitle.getWikiSite(), url);
+                }
             }
         }
 
