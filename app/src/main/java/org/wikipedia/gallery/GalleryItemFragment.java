@@ -69,17 +69,16 @@ public class GalleryItemFragment extends Fragment {
     private MediaController mediaController;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
-    @Nullable private GalleryActivity parentActivity;
     @Nullable private PageTitle pageTitle;
     @Nullable private MediaListItem mediaListItem;
 
     @Nullable private PageTitle imageTitle;
-    @Nullable public PageTitle getImageTitle() {
+    @Nullable PageTitle getImageTitle() {
         return imageTitle;
     }
 
     @Nullable private ImageInfo mediaInfo;
-    @Nullable public ImageInfo getMediaInfo() {
+    @Nullable ImageInfo getMediaInfo() {
         return mediaInfo;
     }
 
@@ -112,7 +111,7 @@ public class GalleryItemFragment extends Fragment {
 
         imageView.setOnClickListener(v -> {
             if (isAdded()) {
-                parentActivity.toggleControls();
+                ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
 
@@ -123,8 +122,6 @@ public class GalleryItemFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        parentActivity = (GalleryActivity) getActivity();
-
         loadMedia();
     }
 
@@ -151,7 +148,7 @@ public class GalleryItemFragment extends Fragment {
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
         if (!isAdded()) {
             return;
@@ -167,8 +164,8 @@ public class GalleryItemFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_gallery_visit_page:
-                if (mediaInfo != null) {
-                    parentActivity.finishWithPageResult(imageTitle);
+                if (mediaInfo != null && imageTitle != null) {
+                    ((GalleryActivity) requireActivity()).finishWithPageResult(imageTitle);
                 }
                 return true;
             case R.id.menu_gallery_save:
@@ -189,7 +186,7 @@ public class GalleryItemFragment extends Fragment {
      * @param fragmentPosition This fragment's position in the ViewPager.
      * @param pagerPosition    The pager's current position that is displayed to the user.
      */
-    public void onUpdatePosition(int fragmentPosition, int pagerPosition) {
+    void onUpdatePosition(int fragmentPosition, int pagerPosition) {
         if (!isAdded()) {
             return;
         }
@@ -212,7 +209,7 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void handleImageSaveRequest() {
-        if (!(hasWriteExternalStoragePermission(this.getActivity()))) {
+        if (!(hasWriteExternalStoragePermission(requireActivity()))) {
             requestWriteExternalStoragePermission();
         } else {
             saveImage();
@@ -228,14 +225,17 @@ public class GalleryItemFragment extends Fragment {
      * Load the actual media associated with our gallery item into the UI.
      */
     private void loadMedia() {
+        if (pageTitle == null || mediaListItem == null) {
+            return;
+        }
         updateProgressBar(true);
         disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMediaInfo(mediaListItem.getTitle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
                     updateProgressBar(false);
-                    parentActivity.supportInvalidateOptionsMenu();
-                    parentActivity.layOutGalleryDescription();
+                    requireActivity().invalidateOptionsMenu();
+                    ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 })
                 .subscribe(response -> {
                     mediaInfo = response.query().firstPage().videoInfo();
@@ -261,7 +261,7 @@ public class GalleryItemFragment extends Fragment {
             loading = true;
             L.d("Loading video from url: " + mediaInfo.getBestDerivative().getSrc());
             videoView.setVisibility(View.VISIBLE);
-            mediaController = new MediaController(parentActivity);
+            mediaController = new MediaController(requireActivity());
             if (!DeviceUtil.isNavigationBarShowing()) {
                 mediaController.setPadding(0, 0, 0, (int) DimenUtil.dpToPx(DimenUtil.getNavigationBarHeight(requireContext())));
             }
@@ -270,7 +270,7 @@ public class GalleryItemFragment extends Fragment {
             videoView.setOnPreparedListener((mp) -> {
                 updateProgressBar(false);
                 // ...update the parent activity, which will trigger us to start playing!
-                parentActivity.layOutGalleryDescription();
+                ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 // hide the video thumbnail, since we're about to start playback
                 videoThumbnail.setVisibility(View.GONE);
                 videoPlayButton.setVisibility(View.GONE);
@@ -296,7 +296,7 @@ public class GalleryItemFragment extends Fragment {
         videoContainer.setVisibility(View.VISIBLE);
         videoPlayButton.setVisibility(View.VISIBLE);
         videoView.setVisibility(View.GONE);
-        if (TextUtils.isEmpty(mediaInfo.getThumbUrl())) {
+        if (mediaInfo == null || TextUtils.isEmpty(mediaInfo.getThumbUrl())) {
             videoThumbnail.setVisibility(View.GONE);
         } else {
             // show the video thumbnail while the video loads...
@@ -343,7 +343,7 @@ public class GalleryItemFragment extends Fragment {
                     public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
                         imageView.setDrawBackground(true);
                         updateProgressBar(false);
-                        parentActivity.supportInvalidateOptionsMenu();
+                        requireActivity().invalidateOptionsMenu();
                     }
 
                     @Override
@@ -367,7 +367,7 @@ public class GalleryItemFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                if (callback() != null) {
+                if (callback() != null && getShareSubject() != null && imageTitle != null) {
                     callback().onShare(GalleryItemFragment.this, bitmap, getShareSubject(), imageTitle);
                 }
             }
@@ -378,18 +378,16 @@ public class GalleryItemFragment extends Fragment {
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
-                if (PermissionUtil.isPermitted(grantResults)) {
-                    saveImage();
-                } else {
-                    L.e("Write permission was denied by user");
-                    FeedbackUtil.showMessage(getActivity(),
-                            R.string.gallery_save_image_write_permission_rationale);
-                }
-                break;
-            default:
-                throw new RuntimeException("unexpected permission request code " + requestCode);
+        if (requestCode == Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION) {
+            if (PermissionUtil.isPermitted(grantResults)) {
+                saveImage();
+            } else {
+                L.e("Write permission was denied by user");
+                FeedbackUtil.showMessage(getActivity(),
+                        R.string.gallery_save_image_write_permission_rationale);
+            }
+        } else {
+            throw new RuntimeException("unexpected permission request code " + requestCode);
         }
     }
 

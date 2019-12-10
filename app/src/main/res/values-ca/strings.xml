@@ -185,7 +185,7 @@
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permet que l’aplicació enviï informes de fallades de forma automàtica a HockeyApp —un proveïdor de serveis extern—, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permet que l’aplicació enviï informes de fallades de forma automàtica a un proveïdor de serveis extern, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis blocats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
   <string name="history_search_list_hint">Cerca a l\'historial</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
@@ -305,7 +305,6 @@
   <string name="all_tab_items_closed">S\'han tancat totes les pestanyes.</string>
   <string name="tool_tip_bookmark_icon_title">Afegeix a la llista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Fes un toc a la icona d\'adreces d\'interès per desar l\'article a la llista de lectura.</string>
-  <string name="tool_tip_share">Després de destacar un fet interessant, proveu de compartir-lo a les vostres xarxes preferides!</string>
   <string name="page_view_in_browser">Visualitza la pàgina en el navegador</string>
   <string name="tool_tip_toc_title">Accés ràpid a la taula de continguts</string>
   <string name="tool_tip_toc_text">Ara podeu lliscar a l\'esquerra per obrir la taula de continguts, i també tocar i arrossegar al botó de desplaçament per saltar ràpidament a les diferents seccions d\'un article.</string>
@@ -705,17 +704,20 @@
   <string name="suggested_edits_task_action_text_add">Afegeix</string>
   <string name="suggested_edits_task_action_text_translate">Tradueix</string>
   <string name="suggested_edits_image_captions">Llegendes d\'imatges</string>
-  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia</string>
+  <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Les descripcions d\'article resumeixen un article per tal d\'ajudar els lectors a entendre el tema a primera vista</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">El vostre nombre total de contribucions des de les edicions suggerides</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Quants dies seguits heu contribuït des de les edicions suggerides</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies des de les edicions suggerides</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Basta en quantes vegades s\'han revertit les vostres contribucions. Edicions revertides: %d</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Sembla que la vostra adreça IP (o rang d\'adreces IP) està blocada per a editar a la Viquipèdia. Obtingueu més informació del que vol dir visitant l\'enllaç a continuació.</string>
+  <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Les descripcions d\'article resumeixen un article per tal d\'ajudar els lectors a entendre el tema a primera vista.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions des de les edicions suggerides.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits heu contribuït des de les edicions suggerides. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies des de les edicions suggerides.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basta en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Les edicions suggerides s\'han posat en pausa fins al %1$s.&lt;/b&gt; Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.\n\nApreneu com millorar les vostres habilitats a la Viquipèdia amb l\'enllaç de sota.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;S\'han inhabilitat les edicions suggerides.&lt;/b&gt; Ho sentim %s, s\'han revertit massa contribucions recents.</string>
+  <string name="suggested_edits_ip_blocked_message">Sembla que la vostra adreça IP (o rang d\'adreces IP) està blocada per a editar a la Viquipèdia. Obtingueu més informació del que vol dir visitant l\'enllaç a continuació.</string>
   <string name="suggested_edits_editing_tips_link_text">Consells i trucs d\'edició</string>
   <string name="suggested_edits_help_page_link_text">Pàgina d\'ajuda de les edicions suggerides</string>
+  <string name="suggested_edits_edit_streak_label_text">Modifica la marca</string>
   <string name="suggested_edits_pageviews_label_text">Pàgines vistes</string>
   <string name="suggested_edits_quality_label_text">Qualitat d\'edició</string>
   <string name="suggested_edits_quality_perfect_text">Perfecte</string>

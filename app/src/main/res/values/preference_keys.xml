@@ -11,7 +11,6 @@
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
     <string name="preference_key_language_app">languageApp</string>
-    <string name="preference_key_share_tutorial_enabled">shareTutorialEnabled</string>
     <string name="preference_key_reading_list_tutorial_enabled">readingListTutorialEnabled</string>
     <string name="preference_key_toc_tutorial_enabled">tocTutorialEnabled</string>
     <string name="preference_key_multilingual_search_tutorial_enabled">multilingualSearchTutorialEnabled</string>
@@ -19,6 +18,7 @@
     <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
     <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
     <string name="preference_key_announcement_version_code">announcementVersionCode</string>
+    <string name="preference_key_announcement_shown_dialogs">announcementShownDialogs</string>
     <string name="preference_key_use_restbase">useRestbase</string>
     <string name="preference_key_use_restbase_manual">useRestbase_setManually</string>
     <string name="preference_key_restbase_ticket">restbaseTicket</string>
@@ -107,6 +107,7 @@
     <string name="preference_key_suggested_edits_survey_clicked">suggestedEditsSurveyClicked</string>
     <string name="preference_key_show_suggested_edits_survey">showSuggestedEditsSurvey</string>
     <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
+    <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
     <string name="preference_key_match_system_theme">matchSystemTheme</string>
     <string name="preference_key_suggested_edits_pause_date">suggestedEditsPauseDate</string>
     <string name="preference_key_suggested_edits_pause_reverts">suggestedEditsPauseReverts</string>
