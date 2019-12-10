@@ -37,7 +37,6 @@ public class PageProperties implements Parcelable {
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
     @Nullable private String leadImageUrl;
     @Nullable private String leadImageName;
-    @Nullable private String titlePronunciationUrl;
     @Nullable private final Location geo;
     @Nullable private final String wikiBaseItem;
     @Nullable private final String descriptionSource;
@@ -53,7 +52,7 @@ public class PageProperties implements Parcelable {
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
-    public PageProperties(PageSummary pageSummary, String leadImageName, String leandImageUrl, String titlePronunciationUrl) {
+    public PageProperties(PageSummary pageSummary, String leadImageName, String leandImageUrl) {
         pageId = pageSummary.getPageId();
         namespace = pageSummary.getNamespace();
         revisionId = pageSummary.getRevision();
@@ -63,7 +62,6 @@ public class PageProperties implements Parcelable {
         lastModified = new Date();
         this.leadImageName = leadImageName;
         this.leadImageUrl = leandImageUrl;
-        this.titlePronunciationUrl = titlePronunciationUrl;
         String lastModifiedText = pageSummary.getTimestamp();
         if (lastModifiedText != null) {
             try {
@@ -86,7 +84,6 @@ public class PageProperties implements Parcelable {
         namespace = core.getNamespace();
         revisionId = core.getRevision();
         displayTitleText = defaultString(core.getDisplayTitle());
-        titlePronunciationUrl = core.getTitlePronunciationUrl();
         geo = core.getGeo();
         editProtectionStatus = core.getFirstAllowedEditorRole();
         languageCount = core.getLanguageCount();
@@ -122,7 +119,6 @@ public class PageProperties implements Parcelable {
         namespace = title.namespace();
         revisionId = 0;
         displayTitleText = title.getDisplayText();
-        titlePronunciationUrl = null;
         geo = null;
         editProtectionStatus = "";
         languageCount = 1;
@@ -154,11 +150,6 @@ public class PageProperties implements Parcelable {
 
     public String getDisplayTitle() {
         return displayTitleText;
-    }
-
-    @Nullable
-    public String getTitlePronunciationUrl() {
-        return titlePronunciationUrl;
     }
 
     @Nullable
@@ -232,7 +223,6 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(revisionId);
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
-        parcel.writeString(titlePronunciationUrl);
         parcel.writeString(GeoMarshaller.marshal(geo));
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(languageCount);
@@ -251,7 +241,6 @@ public class PageProperties implements Parcelable {
         revisionId = in.readLong();
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
-        titlePronunciationUrl = in.readString();
         geo = GeoUnmarshaller.unmarshal(in.readString());
         editProtectionStatus = in.readString();
         languageCount = in.readInt();
@@ -293,7 +282,6 @@ public class PageProperties implements Parcelable {
                 && revisionId == that.revisionId
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
-                && TextUtils.equals(titlePronunciationUrl, that.titlePronunciationUrl)
                 && (geo == that.geo || geo != null && geo.equals(that.geo))
                 && languageCount == that.languageCount
                 && canEdit == that.canEdit
@@ -309,7 +297,6 @@ public class PageProperties implements Parcelable {
     public int hashCode() {
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
-        result = 31 * result + (titlePronunciationUrl != null ? titlePronunciationUrl.hashCode() : 0);
         result = 31 * result + (geo != null ? geo.hashCode() : 0);
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
         result = 31 * result + languageCount;

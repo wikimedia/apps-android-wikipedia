@@ -1021,7 +1021,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
             if (!avPlayer.isPlaying()) {
                 updateProgressBar(true, true, 0);
-                avPlayer.play(getPage().getTitlePronunciationUrl(), avCallback, avCallback);
+                avPlayer.play(messagePayload.get("data-pronunciation-url").getAsString(), avCallback, avCallback);
             } else {
                 updateProgressBar(false, true, 0);
                 avPlayer.stop();

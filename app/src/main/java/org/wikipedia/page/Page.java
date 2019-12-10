@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -43,10 +42,6 @@ public class Page {
 
     public String getDisplayTitle() {
         return pageProperties.getDisplayTitle();
-    }
-
-    @Nullable public String getTitlePronunciationUrl() {
-        return getPageProperties().getTitlePronunciationUrl();
     }
 
     @NonNull public PageProperties getPageProperties() {

@@ -284,14 +284,7 @@ public class PageFragmentLoadState {
         String leadImageUrl = "https:" + items.get(0).getImageUrlFor(DimenUtil.calculateLeadImageWidth());
 
         String leadImageName = items.get(0).getTitle().replace("File:", "").trim();
-        String titlePronunciationUrl = "";
-        List<MediaListItem> audioItems = mediaList.getItems("audio");
-        for (MediaListItem item : audioItems) {
-            if (item.getAudioType().equals("pronunciation")) {
-                titlePronunciationUrl = null;
-            }
-        }
-        Page page = pageSummary.toPage(model.getTitle(), leadImageName, leadImageUrl, titlePronunciationUrl);
+        Page page = pageSummary.toPage(model.getTitle(), leadImageName, leadImageUrl);
         updateWithPage(pageSummary, page);
     }
 

@@ -45,9 +45,9 @@ public class PageSummary {
     @SuppressWarnings("unused") @Nullable private String timestamp;
     @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
 
-    public Page toPage(PageTitle title, String leadImageName, String leadImageUrl, String titlePronunciationUrl) {
+    public Page toPage(PageTitle title, String leadImageName, String leadImageUrl) {
         return new Page(adjustPageTitle(title),
-                toPageProperties(leadImageName, leadImageUrl, titlePronunciationUrl));
+                toPageProperties(leadImageName, leadImageUrl));
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
@@ -62,8 +62,8 @@ public class PageSummary {
         return title;
     }
 
-    private PageProperties toPageProperties(String leadImageName, String leadImageUrl, String titlePronunciationUrl) {
-        return new PageProperties(this, leadImageName, leadImageUrl, titlePronunciationUrl);
+    private PageProperties toPageProperties(String leadImageName, String leadImageUrl) {
+        return new PageProperties(this, leadImageName, leadImageUrl);
     }
 
     @NonNull
