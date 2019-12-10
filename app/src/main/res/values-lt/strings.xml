@@ -107,7 +107,7 @@
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
   <string name="preference_summary_eventlogging_opt_in">Leisti Vikimedijai rinkti informaciją apie programėlės naudojimą, taip ją tobulinant</string>
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
-  <string name="preference_summary_auto_upload_crash_reports">Leisti programėlei siųsti trikčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Leisti programėlei siųsti trikčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
   <string name="history_search_list_hint">Paieškos istorija</string>
   <string name="error_can_not_process_link">Neįmanoma parodyti šios nuorodos</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
@@ -193,7 +193,6 @@
   <string name="close_all_tabs_confirm_yes">Taip</string>
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Uždaryti skirtuką</string>
-  <string name="tool_tip_share">Pažymėję įdomų faktą, pabandykite juo pasidalinti savo socialiniuose tinkluose!</string>
   <string name="page_view_in_browser">Peržiūra naršyklėje</string>
   <string name="error_response_malformed">Atsakas iš serverio nebuvo suformatuotas teisingai.</string>
   <string name="error_unknown">Įvyko nežinoma klaida.</string>
@@ -220,10 +219,6 @@
   <string name="error_page_does_not_exist">Šis puslapis neegzistuoja</string>
   <string name="view_wiki_error_message_offline">Nepavyko prisijungti prie interneto</string>
   <string name="view_wiki_error_message_timeout">Nepavyko prisijungti prie Vikipedijos. Patikrinkite savo interneto ryšį arba bandykite dar kartą.</string>
-  <string name="crash_report_dialog_title">Atleiskite, programėlė praeitą kartą užlūžo</string>
-  <string name="crash_report_dialog_dont_send_button">Praleisti</string>
-  <string name="crash_report_dialog_always_send_button">Siųsti visada</string>
-  <string name="crash_report_dialog_send_button">Siųsti</string>
   <string name="crash_report_activity_title">Aplikacijos klaida</string>
   <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.\n\nNorėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>

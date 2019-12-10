@@ -222,7 +222,6 @@
   <string name="close_all_tabs_confirm_yes">होय</string>
   <string name="close_all_tabs_confirm_no">नाही</string>
   <string name="button_close_tab">कळ बंद करा</string>
-  <string name="tool_tip_share">एखादे आवडते तथ्य प्रकाशझोतात आणल्यावर, त्यास आपल्या आवडत्या नेटवर्कवर सहभाग करण्याच्या प्रयत्न करा.</string>
   <string name="page_view_in_browser">न्याहाळकात पान बघा</string>
   <string name="error_response_malformed">विदागारापासून प्राप्त झालेला प्रतिसाद योग्यरितीने प्रारुपित झाला नाही.</string>
   <string name="error_unknown">एक अज्ञात चूक समोर आली.</string>
@@ -254,10 +253,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">चित्र फ़िकट करा (गडद थिम)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन मजकूर निवडा</string>
   <string name="preference_summary_prefer_offline_content">लेख ऑफलाइन साठवून ठेवा जेणेकरून त्याच लेखांना परत नव्याने उतरवून घेताला लागणारा डेटा वाचेल आणि आपला डेटाचा वापर कमी होईल.</string>
-  <string name="crash_report_dialog_title">माफ करा, मागील वेळी अॅप्स कोसळले होते</string>
-  <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
-  <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>
-  <string name="crash_report_dialog_send_button">पाठवा</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटी</string>
   <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॅपमध्ये दोष निर्माण झाला आहे म्हणून ते बंद केले गेले.\n\nआपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
   <string name="crash_report_relaunch">पुन्हा सुरु करा</string>

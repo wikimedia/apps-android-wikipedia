@@ -1,7 +1,6 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -12,10 +11,13 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.RestService;
+import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -33,39 +35,42 @@ import java.util.Map;
  *
  */
 public class CommunicationBridge {
-    private final WebView webView;
     private final Map<String, List<JSEventListener>> eventListeners;
+    private final CommunicationBridgeListener communicationBridgeListener;
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
 
     public interface JSEventListener {
-        void onMessage(String messageType, JSONObject messagePayload);
+        void onMessage(String messageType, JsonObject messagePayload);
+    }
+
+    public interface CommunicationBridgeListener {
+        WebView getWebView();
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
-    public CommunicationBridge(final WebView webView, Context activityContext) {
-        this.webView = webView;
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
-        webView.setWebChromeClient(new CommunicatingChrome());
-        webView.addJavascriptInterface(new BridgeMarshaller(), "marshaller");
+    public CommunicationBridge(CommunicationBridgeListener communicationBridgeListener) {
+        this.communicationBridgeListener = communicationBridgeListener;
+        this.communicationBridgeListener.getWebView().getSettings().setJavaScriptEnabled(true);
+        this.communicationBridgeListener.getWebView().getSettings().setAllowUniversalAccessFromFileURLs(true);
+        this.communicationBridgeListener.getWebView().getSettings().setMediaPlaybackRequiresUserGesture(false);
+        this.communicationBridgeListener.getWebView().setWebChromeClient(new CommunicatingChrome());
+        this.communicationBridgeListener.getWebView().addJavascriptInterface(new PcsClientJavascriptInterface(), "pcsClient");
         eventListeners = new HashMap<>();
     }
 
     public void onPageFinished() {
         isDOMReady = true;
         for (String jsString : pendingJSMessages) {
-            webView.loadUrl(jsString);
+            communicationBridgeListener.getWebView().loadUrl(jsString);
         }
     }
 
     public void resetHtml(@NonNull String wikiUrl, String title) {
         isDOMReady = false;
         pendingJSMessages.clear();
-        webView.loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
-        execute(JavaScriptActionHandler.setHandler());
+        communicationBridgeListener.getWebView().loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title));
     }
 
     public void cleanup() {
@@ -91,27 +96,26 @@ public class CommunicationBridge {
         if (!isDOMReady) {
             pendingJSMessages.add(jsString);
         } else {
-            webView.loadUrl(jsString);
+            communicationBridgeListener.getWebView().loadUrl(jsString);
         }
     }
 
     public void evaluate(@NonNull String js, ValueCallback<String> callback) {
-        webView.evaluateJavascript(js, callback);
+        communicationBridgeListener.getWebView().evaluateJavascript(js, callback);
     }
 
     private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;
     private Handler incomingMessageHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            JSONObject messagePack = (JSONObject) msg.obj;
-            String type = messagePack.optString("action");
-            if (!eventListeners.containsKey(type)) {
-                L.e("No such message type registered: " + type);
+            BridgeMessage message = (BridgeMessage) msg.obj;
+            if (!eventListeners.containsKey(message.getAction())) {
+                L.e("No such message type registered: " + message.getAction());
                 return false;
             }
-            List<JSEventListener> listeners = eventListeners.get(type);
+            List<JSEventListener> listeners = eventListeners.get(message.getAction());
             for (JSEventListener listener : listeners) {
-                listener.onMessage(type, messagePack.optJSONObject("data"));
+                listener.onMessage(message.getAction(), message.getData());
             }
             return false;
         }
@@ -125,7 +129,7 @@ public class CommunicationBridge {
         }
     }
 
-    private class BridgeMarshaller {
+    private class PcsClientJavascriptInterface {
         /**
          * Called from Javascript to send a message packet to the Java layer. The message must be
          * formatted in JSON, and URL-encoded.
@@ -134,15 +138,29 @@ public class CommunicationBridge {
          */
         @JavascriptInterface
         public synchronized void onReceiveMessage(String message) {
-            try {
-                if (incomingMessageHandler != null) {
-                    JSONObject messagePack = new JSONObject(message);
-                    Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
-                    incomingMessageHandler.sendMessage(msg);
-                }
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
+            if (incomingMessageHandler != null) {
+                Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS,
+                        GsonUtil.getDefaultGson().fromJson(message, BridgeMessage.class));
+                incomingMessageHandler.sendMessage(msg);
             }
+        }
+
+        @JavascriptInterface
+        public synchronized String getSetupSettings() {
+            return JavaScriptActionHandler.setUp();
+        }
+    }
+
+    private class BridgeMessage {
+        @Nullable private String action;
+        @Nullable private JsonObject data;
+
+        @NonNull public String getAction() {
+            return StringUtils.defaultString(action);
+        }
+
+        @Nullable public JsonObject getData() {
+            return data;
         }
     }
 }

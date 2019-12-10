@@ -167,7 +167,7 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan panggunoan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuak mangumpua informasi tantang baa Sanak manggunokan aplikasi untuak mambuek aplikasi nan labiah rancak</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karusakan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuak mangirimkan laporan karusakan ka HockeyApp / panyadio layanan pihak katigo sacaro otomatis sainggo kami dapek maninjau karusakan Sanak jo mameloki kasalahan labiah capek sarato labiah mudah.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkan aplikasi untuak mangirimkan laporan karusakan ka HockeyApp / panyadio layanan pihak katigo sacaro otomatis sainggo kami dapek maninjau karusakan Sanak jo mameloki kasalahan labiah capek sarato labiah mudah.</string>
   <string name="editing_error_spamblacklist">Pautan ka domain nan disakek (%s) tadeteksi. Arok maapuihnyo dan cubo baliak.</string>
   <string name="history_search_list_hint">Cari riwayaik</string>
   <string name="error_can_not_process_link">Indak dapek manampakan pautan ko</string>
@@ -215,6 +215,5 @@
   <string name="close_all_tabs_confirm_yes">Yo</string>
   <string name="close_all_tabs_confirm_no">Ndak</string>
   <string name="button_close_tab">Tutuik tab</string>
-  <string name="crash_report_dialog_send_button">Kirim</string>
   <string name="crash_report_quit">Kalua</string>
 </resources>

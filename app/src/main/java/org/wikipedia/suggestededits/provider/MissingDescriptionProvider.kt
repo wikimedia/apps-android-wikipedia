@@ -46,7 +46,7 @@ object MissingDescriptionProvider {
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
                             for (page in pages) {
-                                articlesWithMissingDescriptionCache.push(page.title)
+                                articlesWithMissingDescriptionCache.push(page.title())
                             }
                             if (!articlesWithMissingDescriptionCache.empty()) {
                                 title = articlesWithMissingDescriptionCache.pop()
@@ -133,7 +133,7 @@ object MissingDescriptionProvider {
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
                             for (page in pages) {
-                                imagesWithMissingCaptionsCache.push(page.title)
+                                imagesWithMissingCaptionsCache.push(page.title())
                             }
                             var item: String? = null
                             if (!imagesWithMissingCaptionsCache.empty()) {
@@ -174,7 +174,7 @@ object MissingDescriptionProvider {
                                 if (!page.captions.containsKey(sourceLang) || page.captions.containsKey(targetLang)) {
                                     continue
                                 }
-                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang]!!, page.title))
+                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang]!!, page.title()))
                             }
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()

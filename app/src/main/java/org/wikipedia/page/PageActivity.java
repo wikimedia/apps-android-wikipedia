@@ -141,7 +141,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        app.checkCrashes(this);
         AnimationUtil.setSharedElementTransitions(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
@@ -714,6 +713,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             unbinder.unbind();
         }
         disposables.clear();
+        Prefs.setHasVisitedArticlePage(true);
         super.onDestroy();
     }
 

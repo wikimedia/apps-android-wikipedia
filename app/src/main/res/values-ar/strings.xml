@@ -194,7 +194,7 @@
   <string name="preference_title_eventlogging_opt_in">إرسال تقارير الاستخدام</string>
   <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>
   <string name="preference_title_auto_upload_crash_reports">إرسال تقارير الأعطال</string>
-  <string name="preference_summary_auto_upload_crash_reports">إسمح للتطبيق بإرسال تقارير الأعطال تلقائيا إلى HockeyApp / مزود خدمة من طرف ثالث،  حتى نتمكن من مراجعة العطل الخاص بك وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
+  <string name="preference_summary_auto_upload_crash_reports">اسمح للتطبيق بإرسال تقارير الأعطال إلى مزود خدمة تابع لجهة خارجية تلقائيا حتى نتمكن من مراجعة الأعطال وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
   <string name="editing_error_spamblacklist">تم اكتشاف وصلات لنطاقات ممنوعة (%s). الرجاء إزالة هذه النطاقات والمحاولة مرة أخرى.</string>
   <string name="history_search_list_hint">البحث في التاريخ</string>
   <string name="error_can_not_process_link">تعذّر عرض هذا الرابط</string>
@@ -315,7 +315,6 @@
   <string name="all_tab_items_closed">جميع علامات التبويب مغلقة.</string>
   <string name="tool_tip_bookmark_icon_title">الإضافة إلى قائمة القراءة</string>
   <string name="tool_tip_bookmark_icon_text">اضغط على أيقونة الإشارة المرجعية لحفظ المقالة في قائمة قراءة.</string>
-  <string name="tool_tip_share">بعد تحديد حقيقة مثيرة للاهتمام، حاول مشاركتها على شبكات التواصل المفضلة لديك!</string>
   <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
   <string name="tool_tip_toc_title">الوصول السريع لجدول المحتويات</string>
   <string name="tool_tip_toc_text">يمكنك الآن التحرك لليسار لفتح جدول المحتويات، وأيضا النقر والجر على زر الدحرجة هذا للقفز سريعا إلى أقسام مختلفة من مقالة.</string>
@@ -355,11 +354,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
   <string name="preference_summary_prefer_offline_content">حفظ استخدام البيانات بتحميل المقالات المتاحة في وضع عدم الاتصال بدلا من تحميل أحدث إصدار من مقالة دائما</string>
-  <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
-  <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعة العطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
-  <string name="crash_report_dialog_dont_send_button">تجاوز</string>
-  <string name="crash_report_dialog_always_send_button">أرسل دائما</string>
-  <string name="crash_report_dialog_send_button">أرسل</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">تطابق موضوع النظام</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
@@ -724,12 +719,12 @@
   <string name="suggested_edits_image_captions_task_detail">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
   <string name="suggested_edits_add_descriptions_task_detail">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
   <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت باستخدام التعديلات المقترحة.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
   <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك، التعديلات التي تم إرجاعها:%d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\n  تعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\n  تعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_ip_blocked_message">تم منع عنوان الآيبي الذي تستخدمه من تحرير ويكيبيديا، تعرف على المزيد حول عمليات المنع عن طريق زيارة الرابط أدناه.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها:%d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
+  <string name="suggested_edits_ip_blocked_message">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>

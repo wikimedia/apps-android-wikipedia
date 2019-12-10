@@ -178,7 +178,7 @@
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานความผิดพลาด</string>
-  <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอพลิเคชั่นส่งรายงานความผิดพลาดไปยัง HockeyApp และผู้ให้บริการโดยอัตโนมัติ เพื่อให้เราทราบถึงปัญหาและแก้ไขข้อผิดพลาดได้เร็วขึ้น</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">อนุญาตให้แอพลิเคชั่นส่งรายงานความผิดพลาดไปยัง HockeyApp และผู้ให้บริการโดยอัตโนมัติ เพื่อให้เราทราบถึงปัญหาและแก้ไขข้อผิดพลาดได้เร็วขึ้น</string>
   <string name="editing_error_spamblacklist">คุณได้เพิ่มโดเมนเว็บไซต์ต้องห้ามในรายชื่อต้องห้ามของเรา (%s) กรุณาลบมันและลองอีกครั้ง</string>
   <string name="history_search_list_hint">ประวัติการค้นหา</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
@@ -263,9 +263,6 @@
   <string name="error_voice_search_not_available">ขออภัย การรับรองเสียงไม่พร้อมให้บริการ</string>
   <string name="location_service_disabled">บริการที่ตั้งถูกปิดใช้งาน</string>
   <string name="enable_location_service">เปิดใช้งาน</string>
-  <string name="crash_report_dialog_dont_send_button">ข้าม</string>
-  <string name="crash_report_dialog_always_send_button">ส่งเสมอ</string>
-  <string name="crash_report_dialog_send_button">ส่ง</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_quit">ออก</string>
   <string name="article_menu_bar_bookmark">เพิ่มบทความนี้ลงไปยังรายการอ่าน</string>

@@ -183,7 +183,7 @@
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר אותה</string>
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
-  <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
+  <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה לספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
   <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
   <string name="error_can_not_process_link">לא היה אפשר להציג את הקישור הזה</string>
@@ -304,7 +304,6 @@
   <string name="all_tab_items_closed">כל הלשוניות סגורות.</string>
   <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
   <string name="tool_tip_bookmark_icon_text">נא ללחוץ על כפתור הסימנייה כדי לשמור את הערך  לרשימת הקריאה.</string>
-  <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_title">גישה מהירה לתוכן העניינים</string>
   <string name="tool_tip_toc_text">עכשיו אפשר להחליק ימינה כדי לפתוח את תוכן העניינים, וגם ללחוץ ולגרור על כפתור הגלילה כדי לדלג מהר לחלקים השונים של הערך.</string>
@@ -344,11 +343,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-  <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקודמת</string>
-  <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
-  <string name="crash_report_dialog_dont_send_button">לדלג</string>
-  <string name="crash_report_dialog_always_send_button">לשלוח תמיד</string>
-  <string name="crash_report_dialog_send_button">לשלוח</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
@@ -708,7 +703,39 @@
   <string name="suggested_edits_task_action_text_add">הוספה</string>
   <string name="suggested_edits_task_action_text_translate">תרגום</string>
   <string name="suggested_edits_image_captions">כיתוב התמונה</string>
-  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לויקיפדיה</string>
+  <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
+  <string name="suggested_edits_image_captions_task_detail">כותרות התמונות מתארות תמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">תיאורי ערכים מסכמים את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">על סמל מספר הטעמים שהתרומות שלך שוחזרו (בוטלו על־ידי עורך אחר). תרומות ששוחזרו: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך שוחזרו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך שוחזרו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
+  <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
+  <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
+  <string name="suggested_edits_pageviews_label_text">צפיות בדף</string>
+  <string name="suggested_edits_quality_label_text">איכות עריכה</string>
+  <string name="suggested_edits_quality_perfect_text">מושלמת</string>
+  <string name="suggested_edits_quality_excellent_text">מעולה</string>
+  <string name="suggested_edits_quality_very_good_text">טובה מאוד</string>
+  <string name="suggested_edits_quality_good_text">טובה</string>
+  <string name="suggested_edits_quality_okay_text">בסדר</string>
+  <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
+  <string name="suggested_edits_quality_poor_text">ירודה</string>
+  <string name="suggested_edits_quality_bad_text">גרועה</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">תרומה</item>
+    <item quantity="other">תרומות</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">יום אחד</item>
+    <item quantity="two">יומיים</item>
+    <item quantity="other">%d ימים</item>
+  </plurals>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
@@ -749,6 +776,9 @@
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
   <string name="this_year">בשנה הזאת</string>
   <string name="back_to_top">חזרה למעלה</string>
+  <string name="on_this_day_dialog_next_month">החודש הבא</string>
+  <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
+  <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
   <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
     <item quantity="other">שנתיים %d</item>

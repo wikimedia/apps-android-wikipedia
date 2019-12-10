@@ -28,6 +28,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
+        ResourceUtil.setMenuItemTint(this, menu.findItem(R.id.menu_help), R.attr.colorAccent)
         return true
     }
 

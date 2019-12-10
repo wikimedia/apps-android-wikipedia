@@ -11,7 +11,6 @@ import androidx.preference.TwoStatePreference;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -21,7 +20,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,13 +83,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preferences_developer_crash_key))
                 .setOnPreferenceClickListener(preference -> {
                     throw new TestException("User tested crash functionality.");
-                });
-
-        findPreference(R.string.preference_key_remote_log)
-                .setOnPreferenceChangeListener((preference, newValue) -> {
-                    L.logRemoteError(new RemoteLogException(newValue.toString()));
-                    WikipediaApp.getInstance().checkCrashes(getActivity());
-                    return true;
                 });
 
         findPreference(R.string.preference_key_add_articles)
@@ -158,7 +149,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(summary.getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(summary.getExtract()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(summary.getNormalizedTitle(), WikipediaApp.getInstance().getWikiSite());
+                                                PageTitle title = new PageTitle(summary.getApiTitle(), WikipediaApp.getInstance().getWikiSite());
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)
@@ -180,7 +171,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(pair.getSecond().getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(pair.getSecond().getDescription()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(pair.getSecond().getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
+                                                PageTitle title = new PageTitle(pair.getSecond().getApiTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)
@@ -189,6 +180,14 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setMessage(throwable.getMessage())
                                             .setPositiveButton(R.string.ok, null)
                                             .show());
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key)).setSummary(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.getAnnouncementShownDialogs().size()));
+        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key))
+                .setOnPreferenceClickListener(preference -> {
+                    Prefs.resetAnnouncementShownDialogs();
+                    loadPreferences();
                     return true;
                 });
     }

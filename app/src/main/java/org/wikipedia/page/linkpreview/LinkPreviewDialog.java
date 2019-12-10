@@ -44,6 +44,7 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -220,15 +221,9 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribe(summary -> {
                     funnel.setPageId(summary.getPageId());
                     pageTitle.setThumbUrl(summary.getThumbnailUrl());
-                    // TODO: Remove this logic once Parsoid starts supporting language variants.
-                    if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
-                        titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                    } else {
-                        titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-                    }
+                    pageTitle.setConvertedText(summary.getApiTitle());
 
-                    // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setConvertedText(summary.getConvertedTitle());
+                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);
@@ -249,19 +244,21 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                                 titleList.add(item.getTitle());
                             }
                         }
-                        return ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(StringUtils.join(titleList, '|'));
+                        return titleList.isEmpty() ? Observable.empty() : ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(StringUtils.join(titleList, '|'));
                     })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
-                        List<MwQueryPage> pageList = new ArrayList<>();
-                        for (MwQueryPage page : response.query().pages()) {
-                            if (page.imageInfo() != null) {
-                                pageList.add(page);
+                        if (response != null) {
+                            List<MwQueryPage> pageList = new ArrayList<>();
+                            for (MwQueryPage page : response.query().pages()) {
+                                if (page.imageInfo() != null) {
+                                    pageList.add(page);
+                                }
                             }
+                            thumbnailGallery.setGalleryList(pageList);
+                            thumbnailGallery.setGalleryViewListener(galleryViewListener);
                         }
-                        thumbnailGallery.setGalleryList(pageList);
-                        thumbnailGallery.setGalleryViewListener(galleryViewListener);
                     }, caught -> {
                         // ignore errors
                         L.w("Failed to fetch gallery collection.", caught);

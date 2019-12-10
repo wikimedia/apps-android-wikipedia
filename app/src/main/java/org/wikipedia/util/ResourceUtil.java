@@ -2,6 +2,7 @@ package org.wikipedia.util;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -23,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.MenuItemCompat;
 
 public final class ResourceUtil {
     // See Resources.getIdentifier().
@@ -100,12 +102,8 @@ public final class ResourceUtil {
                 .build();
     }
 
-    public static void setMenuItemTint(@NonNull MenuItem item, @ColorInt int color) {
-        Drawable icon = item.getIcon();
-        Drawable wrapped = DrawableCompat.wrap(icon);
-        icon.mutate();
-        DrawableCompat.setTint(wrapped, color);
-        item.setIcon(wrapped);
+    public static void setMenuItemTint(@NonNull Context context, @NonNull MenuItem item, @AttrRes int colorAttr) {
+        MenuItemCompat.setIconTintList(item, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, colorAttr)));
     }
 
     private static void checkId(@IdRes int id) {

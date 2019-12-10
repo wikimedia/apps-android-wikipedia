@@ -17,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
@@ -30,7 +29,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
@@ -51,7 +49,6 @@ import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
  * Let user choose between sharing as text or as image.
  */
 public class ShareHandler {
-    private static final String PAYLOAD_PURPOSE_KEY = "purpose";
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_PURPOSE_EDIT_HERE = "edit_here";
@@ -136,11 +133,6 @@ public class ShareHandler {
         Menu menu = mode.getMenu();
         MenuItem shareItem = menu.findItem(R.id.menu_text_select_share);
 
-        if (Prefs.isShareTutorialEnabled()) {
-            postShowShareToolTip(shareItem);
-            Prefs.setShareTutorialEnabled(false);
-        }
-
         // Provide our own listeners for the copy, define, and share buttons.
         shareItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_SHARE));
         MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
@@ -174,16 +166,6 @@ public class ShareHandler {
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
                 .contains(fragment.getTitle().getWikiSite().languageCode());
-    }
-
-    private void postShowShareToolTip(final MenuItem shareItem) {
-        fragment.getView().post(() -> {
-            View shareItemView = ActivityUtil.getMenuItemView(fragment.requireActivity(), shareItem);
-            if (shareItemView != null) {
-                FeedbackUtil.showTapTargetView(fragment.requireActivity(), shareItemView,
-                        R.string.share, R.string.tool_tip_share, null);
-            }
-        });
     }
 
     private void leaveActionMode() {

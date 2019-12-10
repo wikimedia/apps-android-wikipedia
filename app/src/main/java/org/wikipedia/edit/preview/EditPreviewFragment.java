@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
@@ -46,7 +48,7 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
-public class EditPreviewFragment extends Fragment {
+public class EditPreviewFragment extends Fragment implements CommunicationBridgeListener {
     private ObservableWebView webview;
     private ScrollView previewContainer;
     private EditSectionActivity parentActivity;
@@ -70,7 +72,7 @@ public class EditPreviewFragment extends Fragment {
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
-        bridge = new CommunicationBridge(webview, requireActivity());
+        bridge = new CommunicationBridge(this);
         webview.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
@@ -107,7 +109,8 @@ public class EditPreviewFragment extends Fragment {
         Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
-        if (!oldLocale.getLanguage().equals(newLocale.getLanguage()) && !newLocale.getLanguage().equals("test")) {
+        boolean hasSameLocale = oldLocale.getLanguage().equals(newLocale.getLanguage());
+        if (!hasSameLocale && !newLocale.getLanguage().equals("test")) {
             L10nUtil.setDesiredLocale(config, newLocale);
             tempResources = new Resources(assets, metrics, config);
         }
@@ -148,7 +151,7 @@ public class EditPreviewFragment extends Fragment {
         Reset AssetManager to its original state, by creating a new Resources object
         with the original Locale (from above)
          */
-        if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
+        if (!hasSameLocale) {
             config.setLocale(oldLocale);
             new Resources(assets, metrics, config);
         }
@@ -272,23 +275,23 @@ public class EditPreviewFragment extends Fragment {
      * they will be separated by commas.
      */
     public String getSummary() {
-        String summaryStr = "";
+        StringBuilder summaryStr = new StringBuilder();
         for (EditSummaryTag tag : summaryTags) {
             if (!tag.getSelected()) {
                 continue;
             }
             if (summaryStr.length() > 0) {
-                summaryStr += ", ";
+                summaryStr.append(", ");
             }
-            summaryStr += tag;
+            summaryStr.append(tag);
         }
         if (otherTag.getSelected()) {
             if (summaryStr.length() > 0) {
-                summaryStr += ", ";
+                summaryStr.append(", ");
             }
-            summaryStr += otherTag;
+            summaryStr.append(otherTag);
         }
-        return summaryStr;
+        return summaryStr.toString();
     }
 
     @Override
@@ -334,5 +337,10 @@ public class EditPreviewFragment extends Fragment {
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
         }
+    }
+
+    @Override
+    public WebView getWebView() {
+        return webview;
     }
 }

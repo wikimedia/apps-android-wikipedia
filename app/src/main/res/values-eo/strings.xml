@@ -178,7 +178,7 @@
   <string name="preference_title_eventlogging_opt_in">Sendi raportojn pri uzado</string>
   <string name="preference_summary_eventlogging_opt_in">Permesi al Vikipedio kolekti informon pri kiel vi uzas la aplikaĵon por helpi ĝin plibonigi</string>
   <string name="preference_title_auto_upload_crash_reports">Sendi prikraŝajn raportojn</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
   <string name="history_search_list_hint">Serĉi historion</string>
   <string name="error_can_not_process_link">Ne eblas montri ĉi tiun ligilon</string>
@@ -296,7 +296,6 @@
   <string name="all_tab_items_closed">Ĉiuj langetoj estis fermitaj.</string>
   <string name="tool_tip_bookmark_icon_title">Aldoni al legolisto</string>
   <string name="tool_tip_bookmark_icon_text">Frapetu la ikonon de la legosigno por konservi la artikolon en legoliston.</string>
-  <string name="tool_tip_share">Post emfazado de interesa fakto, provu diskonigi ĝin per viaj preferataj retoj!</string>
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="tool_tip_toc_title">Enhavtabelo rapida aliro</string>
   <string name="tool_tip_toc_text">Nun vi povas ŝovumi maldekstren por malfermi la enhavotabelon, kaj frapeti-treni la ruluma butonon por rapide salti al paragrafoj de artikolo.</string>
@@ -335,11 +334,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Malheligo de bildoj (en Malhela etoso)</string>
   <string name="preference_title_prefer_offline_content">Preferi eksterretan enhavon</string>
   <string name="preference_summary_prefer_offline_content">Konservi datenan uzadon per ŝarĝado de artikoloj haveblaj senkonekte, anstataŭ de la plej aktualaj versioj</string>
-  <string name="crash_report_dialog_title">Pardonon, la aplikaĵo kraŝis pasintfoje</string>
-  <string name="crash_report_dialog_text">Ĉu volas sendi raporton pri fiasko al HockeyApp / triapartia servoprovizanto, tiel ke Vikimedio povas ekzameni vian fiaskon kaj ripari la cimon kaŭzinta ĝin?</string>
-  <string name="crash_report_dialog_dont_send_button">Preterpasi</string>
-  <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
-  <string name="crash_report_dialog_send_button">Sendi</string>
   <string name="crash_report_activity_title">Aplikaĵa eraro</string>
   <string name="crash_report_relaunch_or_quit">Domaĝe, eraro okazis kaj la aplikaĵo Vikipedio fiaskis.\n\nĈu restarti aŭ ĉesi?</string>
   <string name="crash_report_relaunch">Rekomenci</string>

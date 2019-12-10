@@ -195,15 +195,12 @@
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="menu_close_all_tabs">అన్ని ట్యాబులను మూసివేయి</string>
   <string name="button_close_tab">ట్యాబును మూసివేయి</string>
-  <string name="tool_tip_share">ఆసక్తికరమైన విషయాన్నీ హైలైట్ చేసిన తర్వాత మీకు ఇష్టమైన నెట్వర్క్లలకి పంచుకోండి.</string>
   <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
   <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
   <string name="button_get_directions">నిర్దేశాలను పొందండి</string>
   <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
-  <string name="crash_report_dialog_dont_send_button">దాటవేయి</string>
-  <string name="crash_report_dialog_send_button">పంపించు</string>
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
   <string name="color_theme_dark">చీకటి</string>

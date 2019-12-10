@@ -304,10 +304,6 @@
   <string name="view_wiki_error_message_offline">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
   <string name="reference_title">ߦߟߌߡߊߛߙߋ %s</string>
   <string name="preference_title_prefer_offline_content">ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߫ ߞߣߐߘߐ ߟߎ߬ ߞߊ߬ߣߌ߲߬ߒ߬ߕߋ߬ߦߊ</string>
-  <string name="crash_report_dialog_title">ߤߊߞߍ߬ߕߏ߫߸ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߓߘߊ߫ ߜߊߛߊ߲߫ ߛߋ߲߬ߧߊ߫ ߕߊ߬ߡߌ߲߬ߣߍ߲</string>
-  <string name="crash_report_dialog_dont_send_button">ߌ ߕߐ߬ߡߐ߲߬</string>
-  <string name="crash_report_dialog_always_send_button">ߊ߬ ߗߋ߫ ߝߣߊ߫</string>
-  <string name="crash_report_dialog_send_button">ߗߋߟߌ</string>
   <string name="crash_report_activity_title">ߞߍߟߌ ߝߎ߬ߕߎ߲߬ߕߌ</string>
   <string name="crash_report_relaunch">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߕߎ߲߯</string>
   <string name="crash_report_quit">ߓߐ߫</string>

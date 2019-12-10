@@ -8,34 +8,46 @@
 <resources>
   <string name="app_name_prod">ဝဳကဳပဳဒဳယာ</string>
   <string name="app_name_beta">ဝဳကဳပဳဒဳယာ ဗေတ</string>
-  <string name="app_name_alpha">ဝဳကဳပဳဒဳယာ အလဖ</string>
+  <string name="app_name_alpha">ဝဳကဳပဳဒဳယာ အလ်ဖ</string>
   <string name="wikimedia">ဝဳကဳမဳဒဳယာ</string>
   <string name="nav_item_back">ကလေင်</string>
   <string name="page_tabs_back">ကလေင်</string>
   <string name="nav_item_forward">ဂတ</string>
   <string name="search_hint">ဂၠာဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
+  <string name="search_hint_voice_search">စုတ်ရမ္သာင်ဂၠာဲ</string>
   <string name="search_hint_search_history">ဂၠာဲ ပ္ဍဲ ဒၞာဲမဗှ်လဝ်တုဲ</string>
   <string name="search_hint_search_languages">ဂၠာဲ သွက် အရေဝ်ဘာသာ မွဲ</string>
+  <string name="search_hint_search_my_lists_and_articles">ဂၠာဲ စရင်အဲ ကေုာံ လိက်ပရေင်ဂမၠိုင်</string>
   <string name="nav_item_history">အရာမဗှ်လဝ်တုဲ</string>
+  <string name="nav_item_suggested_edits">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
   <string name="error_network_error">ဆက် ကဵု အေန်တာနေတ် ဟွံဂွံ</string>
   <string name="page_error_retry">ကလေင်ကၠောန်</string>
-  <string name="page_error_back_to_main">ဂတး ကလေင်</string>
+  <string name="card_offline_error_retry">ကလေင်ကၠောန်</string>
+  <string name="storage_access_error_retry">ကလေင်ကၠောန်</string>
+  <string name="article_load_error_retry">ကလေင်ကၠောန်</string>
+  <string name="offline_load_error_retry">ကလေင်ကၠောန်</string>
+  <string name="page_error_back_to_main">ကလေင် ဂတး</string>
+  <string name="error_back">ကလေင် ဂတး</string>
   <string name="menu_clear_all_history">ဖအး အရာမဗှ်လဝ်တုဲ</string>
   <string name="history_item_deleted">%s ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
   <string name="history_items_deleted">%d လိက်ပရေင်ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
   <string name="history_item_delete_undo">ဟွံပ</string>
+  <string name="notification_archive_undo">ဟွံပ</string>
   <string name="app_settings">App ဒၞာဲမဖျေဟ်ဒၞာဲဂမၠိုင်</string>
   <string name="dialog_title_clear_history">ဖအး စရင်လိက် မၞးမဗှ်လဝ်</string>
   <string name="dialog_message_clear_history">ဣဏအ်ဂှ် ဒှ်အရာ မဖအးဇိုတ်ထောအ် အရာမၞး မဗှ်လဝ်တုဲဂမၠိုင်၊ တုဲပၠန် မုက်လိက် မပံက်လဝ် လၟုဟ်တအ်ဂှ်လေဝ် ကၟာတ်အာ သီုဖအိုတ်ရောင်၊၊ မၞး ချိုတ်ပၠိုတ် ဟာ？</string>
   <string name="dialog_message_clear_history_yes">ယွံ</string>
   <string name="dialog_message_clear_history_no">ဟအှ်ေ</string>
   <string name="share_via">ပါ်ပရအ် နကဵု</string>
+  <string name="image_share_via">ပါ်ပရအ် နကဵု</string>
   <string name="search_redirect_from">ကလေင်ထ္ၜး နူကဵု %s</string>
   <string name="menu_page_show_tabs">ထ္ၜး မုက်တေပ်</string>
   <string name="menu_page_other_languages">သၠာဲ အရေဝ်ဘာသာ</string>
   <string name="menu_page_find_in_page">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
+  <string name="edit_section_find_in_page">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
   <string name="menu_page_font_and_theme">ဝှန် ကေုာံ ပရူပရာ</string>
   <string name="menu_page_add_to_list">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
+  <string name="feed_card_add_to_list">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="menu_page_share">ပါ်ပရအ် လေန် မုက်လိက်ဏအ်</string>
   <string name="menu_page_open_a_new_tab">ပံက် ပ္ဍဲ မုက်တေပ်တၟိ</string>
   <string name="menu_page_reading_lists">စရင် လိက်ဗွဟ်ဂမၠိုင်</string>
@@ -46,6 +58,9 @@
   <string name="menu_text_select_copy">စၠောအ်ကပ်ပဳ</string>
   <string name="menu_text_select_define">ပသောင်အဓိပ္ပါယ်</string>
   <string name="menu_text_select_share">ပါ်ပရအ်</string>
+  <string name="share">ပါ်ပရအ်</string>
+  <string name="on_this_day_page_share">ပါ်ပရအ်</string>
+  <string name="reading_list_page_share">ပါ်ပရအ်</string>
   <string name="menu_text_select_edit_here">ပလေဝ် ဒၞာဲဏအ်</string>
   <string name="last_updated_text">ကလေင်ပလေဝ်လဝ်တၟိ လက္ကရဴအိုတ် ပ္ဍဲ %s</string>
   <string name="talk_page_link_text">ဗဵု မုက်လိက် ဓရီုကျာ</string>
@@ -83,8 +98,13 @@
   <string name="nav_item_login">လုပ်လံက်အေန် ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="login_username_hint">ယၟုမသုင်စောဲ</string>
   <string name="login_password_hint">မလိက်ပၞုက်</string>
+  <string name="account_creation_password_hint">မအက္ခရ်ဓလုက်</string>
   <string name="login_2fa_hint">Two-Factor Authentication Code</string>
   <string name="login_2fa_other_workflow_error_msg">Two-factor authentication အာတ်မိက်ဒၟံင်! ပဂုန်တုဲ ကလေင်အာ ဇရေင် မုက်လိက်ဒၞာဲအဓိက the main activity တုဲ လုပ်လံက်အေန် နကဵု  2FA token မၞး၊ တုဲမ္ဂး ကလေင်ကၠောန်ပၠန်၊၊</string>
+  <string name="onboarding_card_login">လုပ်လံက်အေန်</string>
+  <string name="page_editing_login">လုပ်လံက်အေန်</string>
+  <string name="reading_lists_sync_login">လုပ်လံက်အေန်</string>
+  <string name="create_account_login">လုပ်လံက်အေန်</string>
   <string name="menu_login">လုပ်လံက်အေန်</string>
   <string name="login_activity_title">လုပ်လံက်အေန် ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="login_in_progress_dialog_message">လုပ်လံက်အေန်ဒၟံင် ...</string>
@@ -95,7 +115,13 @@
   <string name="reset_password_button">ဂိုင်သိပ် တုဲမ္ဂး လုပ်လံက်အေန်</string>
   <string name="preference_title_logout">တိတ်</string>
   <string name="toast_logout_complete">တိတ်တုဲ</string>
-  <string name="history_empty_title">လိက်ပရေင်ဂှ် မၞိဟ်မဗဵုဗှ်လဝ် ဟွံမဲဏီ</string>
+  <string name="logout_prompt">ဣဏအ်ဂှ် ဒှ်အရာမၞးမတိတ်ထောအ် နူကဵု ဒၞာဲမၞးမလုပ်လံက်အေန်လဝ်ဂှ်ရ။ မၞးဆက် အာဂတဂှ်ဟာ။</string>
+  <string name="logout_dialog_cancel_button_text">တးပဲါ</string>
+  <string name="logged_out_in_background_title">တိတ်တုဲ</string>
+  <string name="logged_out_in_background_dialog">မၞး တိတ်အာ နူကဵု ဝဳကဳပဳဒဳယာရ။ မၞးမိက်ဂွံ ကလေင် လုပ်လံက်အေန်ပၠန်ဟာ။</string>
+  <string name="logged_out_in_background_login">လုပ်လံက်အေန်</string>
+  <string name="logged_out_in_background_cancel">တးပဲါ</string>
+  <string name="history_empty_title">ပ္ဍဲဒၞာဲဏအ် လိက်ပရေင် မထ္ၜးလဝ် ဟွံမဲဏီ။</string>
   <string name="history_empty_message">ကလေင်ကျောဝ် မုမၞးမဗှ်လဝ် ပ္ဍဲဒၞာဲဏအ်၊၊</string>
   <string name="history_offline_articles_toast">လိက်ပရေင်လ္ၚဵု ပ္ဍဲစရင်မဗဵုလဝ်ဂှ် ကာလမၞုံမ္ၚးလာင်မ္ဂး ဟွံဂွံဆဵု ဒှ်မာန်ရ၊၊</string>
   <string name="search_empty_message">ဂၠာဲ တုဲတှ်ေ ဗှ် ပြကိုဟ်ဗိသ္တာ သက္ကုၚုဟ်မး နကဵု အရေဝ်ဘာသာမၞး</string>
@@ -144,7 +170,7 @@
   <string name="preference_title_eventlogging_opt_in">ပလံင် ညးမသုင်စောဲ လိက်ဒုင်စဳရေင်</string>
   <string name="preference_summary_eventlogging_opt_in">ကဵုအခေါင် ကုဝဳကဳပဳဒဳယာ သွက်ဂွံပကောံတင်ဂၞင် ပရူဗီုလဵုမၞး မသုင်စောဲ app သွက်ဂွံပခိုဟ်ပတိုန် app</string>
   <string name="preference_title_auto_upload_crash_reports">ပလံင် လိက်စဳရေင် ကိစ္စဟွံစှ်ေကဵုသၞောဝ်</string>
-  <string name="preference_summary_auto_upload_crash_reports">ကဵုအခေါင် ကု app သွက်ဂွံပလံင် လိက်ဒုင်စဳရေင် ကုHockeyApp / a third-party service provider အဝ်တဝ်မတေတ် တုဲမ္ဂး ပိုယ်ဂွံ သ္ၚေဝ်ဂၠေပ် အရာမလီုလာ် တုဲ ဂွံပလေဝ် ပခိုဟ်ပတိုန်၊၊</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ကဵုအခေါင် ကု app သွက်ဂွံပလံင် လိက်ဒုင်စဳရေင် ကုHockeyApp / a third-party service provider အဝ်တဝ်မတေတ် တုဲမ္ဂး ပိုယ်ဂွံ သ္ၚေဝ်ဂၠေပ် အရာမလီုလာ် တုဲ ဂွံပလေဝ် ပခိုဟ်ပတိုန်၊၊</string>
   <string name="editing_error_spamblacklist">လေန် %s ဝေပ်သာ်ဂှ် ဒှ်ဝေပ်သာ် မစဵုဒၞာလဝ်ရောင်ဂှ် မဂွံတီကေတ်၊၊ ဟိုတ်ဂှ်ရ ပဂုန်တုဲ ပတိတ်ထောအ် လေန်ဂှ်တုဲ ကလေင် ကၠောန်ပၠန်၊၊</string>
   <string name="history_search_list_hint">ဂၠာဲ ပ္ဍဲ အရာမဗှ်လဝ်တုဲ</string>
   <string name="error_can_not_process_link">လေန်ဏအ်ဂှ် ဗမံက်ထ္ၜး ဟွံဂွံ</string>
@@ -165,6 +191,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">တိုက်ဗွဟ်လိက် မသုင်စောဲလဝ်</string>
   <string name="about_contributors_heading">ညးမချူလိက်ဂမၠိုၚ်</string>
   <string name="about_translators_heading">ညးတြာဲဘာသာဂမၠိုင်</string>
@@ -183,6 +210,10 @@
   <string name="edit_next">ဂတ</string>
   <string name="edit_done">တြးပတိတ်</string>
   <string name="edit_preview">နမူနာ</string>
+  <string name="edit_undo">ဟွံပ</string>
+  <string name="edit_redo">ကလေင်ပ</string>
+  <string name="edit_zoom_in">ဇြောမ် လုပ်</string>
+  <string name="edit_zoom_out">ဇြောမ် တိတ်</string>
   <string name="edit_summary_tag_typo">ပလေဝ်ပလေတ် ဗီုပြင်</string>
   <string name="edit_summary_tag_grammar">ပလေဝ်ပလေတ် သဒ္ဒါ</string>
   <string name="edit_summary_tag_links">စုတ် လေန်</string>
@@ -221,7 +252,7 @@
   <string name="preference_summary_show_images">ပတိုန်ပၠောပ် ဗီုရုပ် ပ္ဍဲမုက်လိက်ဏအ် ဂွံမာန် ဂွံဟွံမာန်၊၊ ယဝ်ရအေန်တာနေတ်မ္ဂး အသိင်အောန် (ဟွံ) ဒါတာမၞး ဟွံမွဲ ကွေဟ်ဟ်မ္ဂး လ္ပစကာ ပ္ဍဲဒၞာဲဏအ်ညိ၊၊</string>
   <string name="preference_title_download_only_over_wifi">တံင်လုပ်ကေတ် နကဵု Wi-Fi မွဲဟေင်</string>
   <string name="dialog_title_download_only_over_wifi">ဗမံက်ထ္ၜး တံင်လုပ် downloand မသုင်စောဲ မဝ်ဗိုင် ဒါတာ？</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">မၞး ပံက်လဝ် ＂တံင်လုပ်ကေတ် နကဵု Wi-Fi မွဲဟေင်＂ပ္ဍဲ ဒၞာဲမဖျေဟ်ဒၞာဲ၊၊ မၞးမိက်ဂွံ ကဵုအခေါင် သုင်စောဲ မဝ်ဗိုင်ဒါတာမၞး သွက်တံင်လုပ် ဏအ် ဟေင်ဟာ？</string>
+  <string name="dialog_text_download_only_over_wifi">မၞး ပံက်လဝ် ဆ＂တံင်လုပ်ကေတ် နကဵု Wi-Fi မွဲဟေင်＂ပ္ဍဲ ဒၞာဲမဖျေဟ်ဒၞာဲ၊၊ မၞးမိက်ဂွံ ကဵုအခေါင် သုင်စောဲ မဝ်ဗိုင်ဒေတာမၞး သွက်တံင်လုပ်ဏအ်ဟာ？</string>
   <string name="dialog_title_download_only_over_wifi_allow">ကဵုအခေါင်</string>
   <string name="read_more_section">ဆက် ဗှ်</string>
   <string name="about_article_section">ပရူ လိက်ပရေင် ဏအ်</string>
@@ -234,6 +265,8 @@
   <string name="gallery_save_success">ဝှာင်ဂှ် ဂိုင်သိပ်ဂွံ ဗွဲမအံင်ဇၞး၊၊</string>
   <string name="gallery_error_video_failed">ပံက် ဗဳဒဳယောဏအ် ဟွံဂွံ၊၊</string>
   <string name="gallery_save_image_write_permission_rationale">အခေါင်အရာ သွက်ဂွံ ချူ ပ္ဍဲ ဒၞာဲမဂိုင်ဒိပ် မၞးဂှ် အာတ်မိက်ဒၟံင် သွက်ဂွံ ဂိုင်သိပ် ဗီုရုပ်တအ်၊၊</string>
+  <string name="gallery_add_image_caption_button">စုတ် ပရူပရာ ဗီုရုပ်</string>
+  <string name="gallery_add_image_caption_in_language_button">စုတ် ပရူပရာ ဗီုရုပ် %s</string>
   <string name="err_cannot_save_file">ဂိုင်သိပ် ဝှာင် ဟွံဂွံ</string>
   <string name="snippet_share_intro">\"%1$s\" ပ္ဍဲ @Wikipedia: %2$s</string>
   <string name="expand_refs">မုက်တေပ် သွက်ဂွံ ဇၞော်ပတိုန်</string>
@@ -244,6 +277,8 @@
   <string name="captcha_image">ဗီုရုပ် Captcha</string>
   <string name="gallery_fair_use_license">သုင်စောဲ ဗဗွဲဓဝ်</string>
   <string name="gallery_uploader_unknown">မၞိဟ်မပတိုန်ပၠောပ် ဟွံတီ</string>
+  <string name="gallery_not_available_offline_snackbar">ဗီုရုပ်ဂမၠိုင်ဂှ် ပ္ဍဲမ္ၚးလာင်မ္ဂး ဗဵုဟွံဂွံ။</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">ပလီု</string>
   <string name="menu_new_tab">မုက်တေပ် တၟိ</string>
   <string name="menu_close_all_tabs">ကၟာတ် မုက်တေပ် သီုဖအိုတ်</string>
   <string name="close_all_tabs_confirm">မၞး မိက်ဂွံ ကၟာတ် မုက်တေပ် သီုဖအိုတ် ကွေဟ်ဟ်ရဟာ？</string>
@@ -251,10 +286,11 @@
   <string name="close_all_tabs_confirm_no">ဟအှ်ေ</string>
   <string name="button_close_tab">ကၟာတ် မုက်တေပ်</string>
   <string name="tab_item_closed">%s ကၟာတ်လဝ်.</string>
+  <string name="all_tab_items_closed">မုက်တေပ်ဂမၠိုင်ကၟာတ်လဝ်ရ။</string>
   <string name="tool_tip_bookmark_icon_title">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="tool_tip_bookmark_icon_text">ဍဵု ပ္ဍဲ အာဲကန် စၟတ်လိက် သွက်ဂွံ ဂိုင်ဒေပ် လိက်ပရေင် ပ္ဍဲစရင်လိက်ဗွဟ်၊၊</string>
-  <string name="tool_tip_share">ကြဴနူ ဟာ်လာ်မရုဲစှ် ဒၞာဲဇကု စိုတ်မလုပ်စဂှ်တုဲ ဖန်ပါ်ပရအ် ဍေဟ် ပ္ဍဲဒၞာဲ နေတ်ဝံက် မၞးမဒးဂၞပ်ဂမၠိုင်၊၊</string>
   <string name="page_view_in_browser">ဗဵု မုက်လိက် ပ္ဍဲ browser</string>
+  <string name="tool_tip_toc_title">မုက်လိက် မာတိကာ မကလိဂွံ ဗွဲမပြဟ်ဂမၠိုင်</string>
   <string name="tool_tip_lang_button">လၟုဟ်မ္ဂး မၞး ဂၠာဲ ဗှ်ကေတ် နကဵု ဘာသာ ဝဳကဳပဳဒဳယာ စုင်လေင် ပ္ဍဲ app ဏအ်ရ၊၊\n\n\nစွံကောန်လဴ လတူ အာင်ကန် သွက်ဂွံ စုတ် ဘာသာတၞဟ်တအ်၊၊</string>
   <string name="error_response_malformed">ပရေင်မကလေင်ထ္ၜး နူကဵုသာပါဂှ် ကၠောန်ကဵု ဟွံဒး၊၊</string>
   <string name="error_unknown">အရာမဗၠေတ် မဟွံတီမွဲ ကတဵုဒှ်ကၠုင်၊၊</string>
@@ -286,15 +322,12 @@
   <string name="view_link_preview_error_button_dismiss">ပလီု</string>
   <string name="error_page_does_not_exist">မုက်လိက်ဏအ် ဟွံပြာကတ်</string>
   <string name="view_wiki_error_message_offline">ဆက် ကဵု အေန်တာနေတ် ဟွံဂွံ</string>
+  <string name="view_wiki_error_message_timeout">ဆက်ကဵု ဝဳကဳပဳဒဳယာ ဟွံဂွံ။ စၟဳစၟတ်ရံင် ပရေင်ဆက်စၠောအ်လာင် မၞးညိ၊ ဟွံသေင်မ္ဂး ကၠောန်စမ်ရံင် ပၠန်။</string>
   <string name="reference_title">စၞောန် %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">ဗီုရုပ် ဂၠုကၠုဒၟံင်</string>
   <string name="preference_title_prefer_offline_content">ဒးစိုတ် မ္ၚးလာင်</string>
   <string name="preference_summary_prefer_offline_content">တံင်လုပ်ကေတ် လိက်ပရေင် မဗှ်ဂွံ ပ္ဍဲအခိင်မၞုံ မ္ၚးလာင်မ္ဂး ဒါတာ အိုတ်သက်သာ နူ မဗှ်လိက်ပရေင် မပတိုန်ဒၟံင်တၟိတၟိ တွဵုဂှ်ရ၊၊</string>
-  <string name="crash_report_dialog_title">သၠးအခေါင် app လီုအာ နူဗတံဏအ်၊၊</string>
-  <string name="crash_report_dialog_text">မၞး မိက်ဂွံ ပလံင် လိက်ဒုင်စဳရေင် ပရူမလီုဂှ် ကု HockeyApp / a third-party service provider ဟာ？ ပလံင်မ္ဂး ဝဳကဳမဳဒဳယာ ကလေင်ကျောဝ်တုဲ ပလေဝ်ပခိုဟ်ပတိုန်ဂွံရ၊၊</string>
-  <string name="crash_report_dialog_dont_send_button">သလာ်</string>
-  <string name="crash_report_dialog_always_send_button">ပလံင် လၟိုန်</string>
-  <string name="crash_report_dialog_send_button">ပလံင်</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">ပရူပရာ သၞောတ်ဂှ် ကိတ်ညဳ</string>
   <string name="crash_report_activity_title">ပရေင်အာတ်မိက် ဗၠေတ်</string>
   <string name="crash_report_relaunch_or_quit">မၞး မိက်ဂွံ ကလေင်စဟာ ဟွံသေင်တှ်ေ တိတ်ဟာ？</string>
   <string name="crash_report_relaunch">ကလေင်စ</string>
@@ -302,7 +335,7 @@
   <string name="article_menu_bar_bookmark">စုတ် လိက်ပရေင်ဏအ် ပ္ဍဲ စရင်လိက်သွက်ဂွံဗှ်</string>
   <string name="article_menu_bar_share">ပါ်ပရအ် လေန် လိက်ပရေင်ဏအ်</string>
   <string name="article_header_edit_hint">ဒါန်ပလေဝ်</string>
-  <string name="article_header_edit_description" fuzzy="true">ပလေဝ်ဒါန် က္ဍိုပ်လိက်</string>
+  <string name="article_header_edit_description">ပလေဝ်ဒါန် ပရူပရာ လိက်ပရေင်</string>
   <string name="article_header_edit_lead_section">ပလေဝ်ဒါန် ဒၞာဲမဆက်မိတ်</string>
   <string name="color_theme_select">ပရူပရာ</string>
   <string name="color_theme_light">တၟး</string>
@@ -346,6 +379,7 @@
   <string name="reading_list_description_hint">ပရူ (ပၟိက်စိုတ်)</string>
   <string name="reading_list_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>
   <string name="reading_list_items_deleted">%d လိက်ပရေင် ပတိတ်ထောအ် နူစရင်</string>
+  <string name="reading_lists_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>
   <string name="reading_list_item_delete_undo">ဟွံပ</string>
   <string name="reading_list_deleted">%s ဇိုတ်ထောအ်</string>
   <string name="saved_list_empty_title">မုက်လိက် ဟွံဂွံ ဂိုင်သိပ် ဏီ</string>
@@ -362,6 +396,7 @@
   <string name="reading_list_add_to_other_list">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ် တၞဟ်</string>
   <string name="reading_list_remove_from_list">ပတိတ်ထောအ် နူ %s</string>
   <string name="reading_list_remove_from_lists">ပတိတ်ထောအ် နူ စရင် လိက်ဗွဟ်ဂမၠိုင်</string>
+  <string name="reading_list_select_item">ရုဲစှ်</string>
   <string name="reading_list_confirm_remove_article_from_offline">ပတိတ်ထောအ် နူ မ္ၚးလာင်</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">လိက်ပရေင်ဂှ် မံက်ဂတဝ်ဒၟံင် ပ္ဍဲ စရင် နာနာ</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ဂှ် ဆက်ဗှ် ပ္ဍဲအခိင် မ္ၚးလာင် ဟွံဂွံရ၊၊</string>
@@ -421,6 +456,13 @@
   </plurals>
   <string name="reading_list_toast_last_sync">ပချဳဓရာင် စရင်လိက်သွက်ဂွံဗှ် အံင်ဇၞးခိုဟ်ဟ်</string>
   <string name="reading_list_menu_last_sync">ပံၚ်လကြဴအိုတ်: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">တးပဲါ</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">တးပဲါ</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">တးပဲါ</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">တးပဲါ</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">မဒးဂၞပ်စိုတ်</string>
   <string name="notification_reverted_title">မၞိဟ်တမ် ပလေဝ်ဒါန်</string>
   <string name="notification_channel_description">လၟေင်ကမၠောန် တံင်လုပ်</string>
@@ -474,10 +516,20 @@
   <string name="preference_title_notification_poll">စုတ်မာဲ တင်မကဵုသမ္တီဂမၠိုင်</string>
   <string name="preference_summary_notification_poll">ကဵုအခေါင် အာပ် သွက်ဂွံ စကာ ဒါတာ သွက်ဂွံစဳစောတ် တင်မကဵုသမ္တီတၟိဂမၠိုင် ပ္ဍဲလက္ကရဴ၊၊</string>
   <string name="preference_category_notification_types">ဂကူ တင်မကဵုသမ္တီ အေန်-အာပ်</string>
+  <string name="preference_title_notification_system">သၞောတ်</string>
+  <string name="preference_summary_notification_system">လိက်မေတ်သုက် နူ သၞောတ်</string>
   <string name="preference_title_notification_milestone">တၟအ်တိုင်စၟတ်သမ္တီ</string>
   <string name="preference_summary_notification_milestone">အပံင်လၟိဟ် မပလေဝ်ဒါန် ဗွဲမချိုတ်ပၠိုတ်ဂှ် စိုပ်အာတရဴရ၊၊</string>
   <string name="preference_title_notification_thanks">တင်ဂုန်ရ</string>
   <string name="preference_summary_notification_thanks">ဟိုတ်နူ မၞးမပလေဝ်ဒါန်လဝ်တုဲ ညးမွဲမွဲ ဟီုဂလာန် တင်ဂုန် ကုမၞး၊၊</string>
+  <string name="preference_title_notification_revert">ကလေင်ပြံင်</string>
+  <string name="preference_summary_notification_revert">အရာမၞးမကၠောန်လဝ်မွဲဂှ် ဒးဒုင် ကလေင်နူစ။</string>
+  <string name="preference_title_notification_login_fail">လုပ်လံက်အေန်</string>
+  <string name="preference_summary_notification_login_fail">ပရေင်ချဳဓရာင် လုပ်လံက်အေန်မၞးဂမၠိုင်</string>
+  <string name="preference_title_notification_mention">လဟီုစၞောန်</string>
+  <string name="preference_summary_notification_mention">မၞိဟ်မွဲမွဲ ဟီုစၞောန် ယၟုမ္ဂး ပ္ဍဲ မုက်လိက်မွဲ</string>
+  <string name="preference_title_notification_user_talk">မုက်လိက် ဓရီု</string>
+  <string name="preference_summary_notification_user_talk">လိက်မေတ်သုက် နူကဵု မုက်လိက် ဓရီု</string>
   <string name="view_because_you_read_card_title">ဟိုတ်နူ မၞး ဗှ်</string>
   <string name="view_random_card_title">ဂဇျောမ်</string>
   <string name="view_random_card_subtitle">ပံက် လိက်ပရေင် ဂဇျောမ် သွက်ဂွံဗှ် ပ္ဍဲ ဝဳကဳပဳဒဳယာ၊၊</string>
@@ -504,9 +556,11 @@
   <string name="view_continue_reading_card_subtitle_today">တ္ၚဲဏအ်</string>
   <string name="view_continue_reading_card_subtitle_read_date">ဗှ် %s</string>
   <string name="view_announcement_card_negative_action">ဟအှ်ေ တင်ဂုန်ရ</string>
+  <string name="onboarding_negative_action">ဟအှ်ေ တင်ဂုန်ရ၊၊</string>
   <string name="view_offline_card_text">လိက်ဂှ် လုပ်ပၠောပ် ဟွံဂွံ ပ္ဍဲအခိင် မ္ၚးလာင်</string>
   <string name="view_featured_article_card_title">လိက်ပရေင် မုက်ဂတ</string>
   <string name="view_featured_article_footer_save_button_label">ဂိုင်သိပ်</string>
+  <string name="view_static_card_save_button_label">ဂိုင်သိပ်</string>
   <string name="view_featured_article_footer_saved_button_label">ဂိုင်သိပ်တုဲ</string>
   <string name="feed_configure_activity_title">ပဖံက်သေဝ်</string>
   <string name="feed_configure_menu_reset">ကလေင်ပ္တန် ဗဗဵု မလီုလာ်</string>
@@ -521,32 +575,59 @@
   <string name="feed_item_type_featured_image">ဗီုရုပ်မုက်ဂတ နူ ဝဳကဳပဳဒဳယာ ကောမ္မန် လၟေင်တ္ၚဲ</string>
   <string name="feed_item_type_main_page">မုက်လိက် ဂတ ဝဳကဳပဳဒဳယာ နကဵု ပရူမုက်ဂတ လၟေင်တ္ၚဲ</string>
   <string name="feed_item_type_randomizer">ပချဳ လိက်ပရေင် ဂဇျောမ် သွက်ဂွံ ဗှ်</string>
+  <string name="feed_item_type_suggested_edits">မကဵုကသပ် သွက်ဂွံ စုတ် ပရူပရာ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="feed_empty_message">ပ္ဍဲ Explore feed ဂှ် မုဟွံမွဲ</string>
   <string name="feed_configure_onboarding_action">ဖံက်သေဝ်</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">တးပဲါ</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;ပဖံက်သေဝ် ပ္ဍဲ Explore feed မၞး&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;လၟုဟ် မၞးရုဲစှ်ကေတ် အရာလဵု မၞး မိက်ဂွံ ကဵုထ္ၜး ပ္ဍဲ feed မၞး၊ ကေုာံ သီုကဵု ပအဓိက အရာမၞးမဒးဂၞပ်စိုတ် ပ္ဍဲမာတိကာ၊၊</string>
-  <string name="description_edit_text_hint" fuzzy="true">က္ဍိုပ်လိက် ပရူပရာ</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">တးပဲါ</string>
+  <string name="feed_accessibility_card_text">လိက်စၞောန်သၟဝ်တအ်ဂှ် မၞးဗှ်တုဲရ။</string>
+  <string name="feed_accessibility_card_load_more_button">ဆက် တံင်ဂြဲကေတ်</string>
+  <string name="description_edit_text_hint">ပရူပရာ လိက်ပရေင်</string>
+  <string name="description_edit_article_description_label">လိက်ပရေင်</string>
+  <string name="description_edit_translate_article_description_label_per_language">ပရူပရာ လိက်ပရေင် (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">ပရူပရာ လိက်ပရေင် (%s)</string>
+  <string name="description_edit_add_caption_label">ပရူပရာ ဗီုရုပ်</string>
+  <string name="description_edit_add_caption_hint">ပရူပရာ ဗီု</string>
+  <string name="description_edit_translate_caption_label_per_language">ပရူပရာ ဗီု (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">ပရူပရာ ဗီု (%s)</string>
   <string name="description_edit_save">တြးပတိတ်</string>
-  <string name="description_edit_add_description" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="description_edit_edit_description" fuzzy="true">ပလေဝ်ဒါန် ပရူပရာ</string>
+  <string name="description_edit_read">ဗှ်</string>
+  <string name="description_edit_add_description">စုတ် ပရူပရာ လိက်ပရေင်</string>
+  <string name="description_edit_translate_description">ကၠာဲ ပရူပရာ လိက်ပရေင်</string>
+  <string name="description_edit_edit_description">ပလေဝ် ပရူပရာ လိက်ပရေင်</string>
+  <string name="description_edit_add_image_caption">စုတ် ပရူပရာ ဗီုရုပ်</string>
+  <string name="description_edit_edit_image_caption">ပလေဝ် ပရူပရာ ဗီုရုပ်</string>
+  <string name="description_edit_translate_image_caption">ကၠာဲ ပရူပရာ ဗီုရုပ်</string>
   <string name="description_edit_cancel_hint">တးပဲါ</string>
-  <string name="description_edit_help_title" fuzzy="true">ရီု - က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="description_edit_help_about_wikidata">ပရူ ဝဳကဳဒါတာ</string>
-  <string name="description_edit_help_wikidata_guide">စၞောန်ထ္ၜးဂၠံင် ဝဳကဳဒါတာ သွက်ဂွံ ချူ ပရူပရာဂမၠိုင်</string>
-  <string name="description_edit_anon_limit" fuzzy="true">တင်ဂုန်ရ ဟိုတ်နူ မၞးစိုတ်လုပ်စ ပ္ဍဲအရာ မပလေဝ်ဒါန် ပရူပရာ! တၞဟ်နဂွံ ပလေဝ်ဒါန် ဂွံတုဲ ပဂုန်တုဲ လုပ်လံက်အေန် ပ္ဍဲ အကံက် ဝဳကဳပဳဒဳယာ မၞးညိ၊၊</string>
-  <string name="description_edit_license_notice" fuzzy="true">နကဵု မသၠာဲ က္ဍိုပ်လိက် ပရူပရာဂှ်၊ အဲတုပ်စိုတ် ကု&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; သွက်ဂွံ တြးပတိတ် နကဵု လာင်ဇြေန် &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;</string>
-  <string name="description_edit_success_saved" fuzzy="true">ပရူပရာဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး</string>
+  <string name="description_edit_help_title">တင်ဂၞင် - ပရူပရာ လိက်ပရေင်</string>
+  <string name="description_edit_help_about_wikidata">ပရူ ဝဳကဳဒေတာ</string>
+  <string name="description_edit_help_wikidata_guide">စၞောန်ထ္ၜးဂၠံင် ဝဳကဳဒေတာ သွက်ဂွံ ချူ ပရူပရာဂမၠိုင်</string>
+  <string name="description_edit_anon_limit">တင်ဂုန်ရ ဟိုတ်နူ မၞးစိုတ်လုပ်စ ပ္ဍဲအရာ မပလေဝ်ဒါန် ပရူပရာ! တၞဟ်နဂွံ ပလေဝ်ဒါန် ဂွံတုဲ ပဂုန်တုဲ လုပ်လံက်အေန် ပ္ဍဲ အကံက် ဝဳကဳပဳဒဳယာ မၞးညိ၊၊</string>
+  <string name="description_edit_license_notice">နကဵု မသၠာဲ က္ဍိုပ်လိက် ပရူပရာဂှ်၊ အဲတုပ်စိုတ် ကု&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; သွက်ဂွံ တြးပတိတ် နကဵု လာင်ဇြေန် &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;</string>
+  <string name="description_edit_helper_text_lowercase_warning">ဗွဲမဂၠိုင် စနကဵု နကဵုမလိက်ဍောတ်တ်</string>
+  <string name="description_edit_success_saved">ပရူပရာဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး</string>
+  <string name="description_edit_success_saved_snackbar">ပရူပရာဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">ပရူပရာဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">ပရူပရာ ဗီုရုပ်ဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ပရူပရာ ဗီုရုပ်ဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး (%s)</string>
   <string name="description_edit_success_encouragement">မၞး လၟုဟ်ရ ဖန်ပခိုဟ်ပတိုန် ဝဳကဳပဳဒဳယာ သွက် ဇၟာပ်ညးအဲ</string>
   <string name="description_edit_success_done">တုဲဒှ်</string>
   <string name="description_edit_success_did_you_know">မၞး တီ ဟာ？</string>
   <string name="description_edit_success_article_edit_hint">မၞး ပလေဝ်ဒါန် လိက်ပရေင် ပ္ဍဲကဵု app ဏအ် ကီုရ၊၊ စမ်ရံင် နကဵုဝါကျဍောတ်တ် နကဵု မဍဵု ပ္ဍဲ^1 အာင်ကန်ဏအ်၊၊</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">က္ဍိုပ်လိက် ပရူပရာဂမၠိုင်</string>
+  <string name="description_edit_tutorial_title_descriptions">ပရူပရာ လိက်ပရေင်ဂမၠိုင်</string>
   <string name="description_edit_tutorial_title_descriptions_summary">ဖဍန်ချူ လိက်ပရေင် မွဲ သွက်ဂွံ ရီု မၞိဟ်ဗွဟ်လိက်တအ် ဂွံတီကၠိုဟ် ပရူပရာ ပ္ဍဲ ဒၞာဲမွဲဓရေပ်မတ်</string>
   <string name="description_edit_tutorial_keep_it_short">ချူ ဂၠေအ်အ်</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">ခိုဟ်အိုတ် မွဲပၞောန် နွံစ မလိက် အကြာ ၂ မ ကဵု ၁၂ မ</string>
   <string name="description_edit_tutorial_button_label_start_editing">စ ပလေဝ်ဒါန်</string>
   <string name="description_edit_tutorial_promise">နကဵု မစဟီု၊ အဲဒုင်ဝှဲ ဒဒှ်ရ အဲဟွံပလီု (ဝါ) ဟွံသုင်စောဲ လပါ်ပရေအ် လိက်ဏအ်ရ၊၊</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>
-  <string name="suggested_edits_review_description" fuzzy="true">ပလေဝ်ဒါန် က္ဍိုပ်လိက် မဗမံက်ထ္ၜး</string>
+  <string name="suggested_edits_add_descriptions">စုတ် ပရူပရာ လိက်ပရေင်</string>
+  <string name="suggested_edits_translate_descriptions">ကၠာဲ ပရေင်ပရာ လိက်ပရေင်ဂမၠိုင်</string>
+  <string name="suggested_edits_add_image_captions">စုတ် ပရူပရာ ဗီုရုပ်ဂမၠိုင်</string>
+  <string name="suggested_edits_translate_image_captions">ကၠာဲ ပရူပရာ ဗီုရုပ်ဂမၠိုင်</string>
+  <string name="suggested_edits_review_description">ကလေင်ရံင် ပရူပရာ လိက်ပရေင်</string>
   <string name="suggested_edits_add_description_button">ထပ် မဗၟံက်ထ္ၜး</string>
   <string name="suggested_edits_my_contributions">အရာ အဲ မကၠောန်လဝ်ဂမၠိုင်</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">စုတ် က္ဍိုပ်လိက် ပရူပရာ</string>

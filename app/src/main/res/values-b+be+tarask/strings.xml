@@ -125,7 +125,7 @@
   <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы пра карыстаньне</string>
   <string name="preference_summary_eventlogging_opt_in">Дазволіць Вікімэдыя зьбіраць інфармацыю пра тое як Вы выкарыстоўваеце дастасаваньне каб яго палепшыць</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
-  <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў HockeyApp / пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў HockeyApp / пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
   <string name="history_search_list_hint">Гісторыя пошуку</string>
   <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
@@ -205,7 +205,6 @@
   <string name="gallery_uploader_unknown">Загрузіў невядомы</string>
   <string name="menu_new_tab">Новая ўкладка</string>
   <string name="button_close_tab">Закрыць укладку</string>
-  <string name="tool_tip_share">Пасья выдзяленьня цікавага факту, паспрабуйце падзяліцца ім ў Вашых улюблёных сацыяльных сетках!</string>
   <string name="page_view_in_browser">Праглядзець старонку ў браўзэры</string>
   <string name="error_response_malformed">Адказ з сэрвэра ня быў карэктна адфарматаваны.</string>
   <string name="error_unknown">Узьнікла невядомая памылка.</string>
@@ -218,11 +217,6 @@
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі выгляд артыкулаў пры доўгім націсканьні на спасылку.</string>
   <string name="nav_item_donate">Падтрымаць Вікіпэдыю</string>
-  <string name="crash_report_dialog_title">Выбачайце, праграма спынілася мінулым разам</string>
-  <string name="crash_report_dialog_text">Вы хацелі б адаслаць справаздачу пра крах у HockeyApp / да староньняга правайдару паслуг, каб Вікімэдыя магла праглядзець Вашую інфармацыю і выправіць памылку, якая выклікала крах?</string>
-  <string name="crash_report_dialog_dont_send_button">Прапусьціць</string>
-  <string name="crash_report_dialog_always_send_button">Заўсёды дасылаць</string>
-  <string name="crash_report_dialog_send_button">Даслаць</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>

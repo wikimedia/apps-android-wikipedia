@@ -37,7 +37,7 @@ public class LinkPreviewContents {
     }
 
     LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
-        title = new PageTitle(pageSummary.getTitle(), wiki);
+        title = new PageTitle(pageSummary.getApiTitle(), wiki);
         disambiguation = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
         String extractStr;
         if (pageSummary instanceof PageSummary) {
@@ -97,7 +97,7 @@ public class LinkPreviewContents {
         }
         // fill in the rest of the string
         if (i + 1 < text.length()) {
-            outStr.append(text.substring(i + 1, text.length()));
+            outStr.append(text.substring(i + 1));
         }
         // if we had an imbalance of parentheses, then return the original string,
         // instead of the transformed one.

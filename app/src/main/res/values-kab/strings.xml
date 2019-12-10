@@ -161,7 +161,7 @@
   <string name="preference_title_eventlogging_opt_in">Azen ineqqisen n useqdec</string>
   <string name="preference_summary_eventlogging_opt_in">Eǧǧ Wikimedia ad yelqeḍ talɣut ɣef wamek tseqdaceḍ asnas akken ad t-terreḍ igarrez ugar.</string>
   <string name="preference_title_auto_upload_crash_reports">Azen ineqqisen n uɣelluy</string>
-  <string name="preference_summary_auto_upload_crash_reports">Sireg asnas ad yazen ineqqisen n wuguren ar HockeyApp, asaǧǧaw n imeẓla-nniḍen, s wudem awurman, akken ad nizmir ad nesleḍ sakin ad nseɣti ugur s zreb, s wudem fessusen.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Sireg asnas ad yazen ineqqisen n wuguren ar HockeyApp, asaǧǧaw n imeẓla-nniḍen, s wudem awurman, akken ad nizmir ad nesleḍ sakin ad nseɣti ugur s zreb, s wudem fessusen.</string>
   <string name="editing_error_spamblacklist">Tuṭṭfa n iseɣwan ar tɣula iweḥlen (%s). Ma ulac aɣilif, kkes-iten sakin ɛreḍ tikelt-nniḍen.</string>
   <string name="history_search_list_hint">Nadi amazray</string>
   <string name="error_can_not_process_link">Ur izmir ara ad d-yesken aseɣwen-agi</string>
@@ -274,7 +274,6 @@
   <string name="tab_item_closed">%s imdel.</string>
   <string name="all_tab_items_closed">Iccaren akk medlen.</string>
   <string name="tool_tip_bookmark_icon_title">Rnu ɣer wumuɣ n tɣuri</string>
-  <string name="tool_tip_share">Seld asebruṛeq n tɣawsa yelhan, ɛreḍ beṭṭu-is deg iẓeḍwa-ik inurifen!</string>
   <string name="page_view_in_browser">Sken deg iminig-ik</string>
   <string name="tool_tip_lang_button">Senned ɣef tegnit iwakken ad ternuḍ ugar n tutlayin.</string>
   <string name="error_response_malformed">Tiririt n uqeddac ur temsil ara akken iwata.</string>
@@ -309,11 +308,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Asibrek n tugna (deg usentel ubrik)</string>
   <string name="preference_title_prefer_offline_content">Bɣiɣ agbur n war tuqqna</string>
   <string name="preference_summary_prefer_offline_content">Sekles axiṛ isefka s usali n imagraden yellan s war tuqqna wala asali n lqem aneggaru n umagrad.</string>
-  <string name="crash_report_dialog_title">Suref-aɣ, asnas yeɣli tagara-agi</string>
-  <string name="crash_report_dialog_text">Tebɣiḍ ad tazneḍ aneqqis n uɣelluy ar HockeyApp  - asaǧǧaw n umeẓalu wis kraḍ - akken Wikimedia ad tizmir ad tesleḍ ugur-ik sakin ad tseɣti abug i t-id-yesseglan?</string>
-  <string name="crash_report_dialog_dont_send_button">Zgel</string>
-  <string name="crash_report_dialog_always_send_button">Azen yal tikelt</string>
-  <string name="crash_report_dialog_send_button">Azen</string>
   <string name="crash_report_activity_title">Tuccḍa n usnas</string>
   <string name="crash_report_relaunch_or_quit">Tebɣiḍ ad talseḍ asenker neɣ ad teffɣeḍ?</string>
   <string name="crash_report_relaunch">Ales tanekra</string>

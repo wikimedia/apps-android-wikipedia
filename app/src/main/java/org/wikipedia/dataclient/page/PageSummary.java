@@ -7,47 +7,41 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 
 /**
  * Represents a summary of a page, useful for page previews.
  */
+@SuppressWarnings("unused")
 public class PageSummary {
     public static final String TYPE_STANDARD = "standard";
     public static final String TYPE_DISAMBIGUATION = "disambiguation";
     public static final String TYPE_MAIN_PAGE = "mainpage";
     public static final String TYPE_NO_EXTRACT = "no-extract";
 
-    @SuppressWarnings("unused") @Nullable private String type;
-    @SuppressWarnings("unused,NullableProblems") @Required
-    @NonNull private String title;
-    @SuppressWarnings("unused") @Nullable private String normalizedtitle;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
-    @SuppressWarnings("unused") @Nullable private NamespaceContainer namespace;
-    @SuppressWarnings("unused") @Nullable private String extract;
-    @SuppressWarnings("unused") @Nullable @SerializedName("extract_html") private String extractHtml;
-    @SuppressWarnings("unused") @Nullable private String description;
-    @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
-    @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
-    @SuppressWarnings("unused") @Nullable private String lang;
-    @SuppressWarnings("unused") private int pageid;
+    @Nullable private String type;
+    @Nullable private Titles titles;
+    @Nullable private NamespaceContainer namespace;
+    @Nullable private String extract;
+    @Nullable @SerializedName("extract_html") private String extractHtml;
+    @Nullable private String description;
+    @Nullable private Thumbnail thumbnail;
+    @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
+    @Nullable private String lang;
+    private int pageid;
 
     @NonNull
-    public String getTitle() {
-        return title;
+    public String getApiTitle() {
+        return StringUtils.defaultString(titles != null ? titles.canonical : null);
     }
 
+    // TODO: Make this return CharSequence, and automatically convert from HTML.
     @NonNull
     public String getDisplayTitle() {
-        return displaytitle;
-    }
-
-    @NonNull
-    public String getConvertedTitle() {
-        return title;
+        return StringUtils.defaultString(titles != null ? titles.display : null);
     }
 
     @NonNull
@@ -80,11 +74,6 @@ public class PageSummary {
         return description;
     }
 
-    @NonNull
-    public String getNormalizedTitle() {
-        return normalizedtitle == null ? title : normalizedtitle;
-    }
-
     @Nullable
     public String getOriginalImageUrl() {
         return originalImage == null ? null : originalImage.getUrl();
@@ -92,20 +81,18 @@ public class PageSummary {
 
     @NonNull
     public PageTitle getPageTitle(@NonNull WikiSite wiki) {
-        return new PageTitle(getTitle(), wiki, getThumbnailUrl(), getDescription());
+        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription());
     }
 
     public int getPageId() {
         return pageid;
     }
 
+    @NonNull
     public String getLang() {
-        return lang;
+        return StringUtils.defaultString(lang);
     }
 
-    /**
-     * For the thumbnail URL of the page
-     */
     private static class Thumbnail {
         @SuppressWarnings("unused") private String source;
 
@@ -123,7 +110,12 @@ public class PageSummary {
         }
     }
 
-    @Override public String toString() {
-        return getTitle();
+    private static class Titles {
+        @Nullable private String canonical;
+        @Nullable private String display;
+    }
+
+    @Override @NonNull public String toString() {
+        return getDisplayTitle();
     }
 }

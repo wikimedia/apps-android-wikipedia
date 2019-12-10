@@ -184,7 +184,7 @@
   <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як ви використовуєте додаток, щоб зробити його кращим</string>
   <string name="preference_title_auto_upload_crash_reports">Надсилати звіти про аварійне завершення роботи</string>
-  <string name="preference_summary_auto_upload_crash_reports">Дозволити додатку відправляти автоматичні звіти про збої до HockeyApp / сторонньому сервіс-провайдеру, щоб ми могли розглянути ваш збій і виправити помилки швидше і легше.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Дозволити додатку відправляти автоматичні звіти про збої сторонньому сервіс-провайдеру, щоб ми могли розглянути ваш збій і виправити помилки швидше і легше.</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
   <string name="history_search_list_hint">Історія пошуку</string>
   <string name="error_can_not_process_link">Не вдалося відобразити це посилання</string>
@@ -305,7 +305,6 @@
   <string name="all_tab_items_closed">Усі вкладки закрито.</string>
   <string name="tool_tip_bookmark_icon_title">Додати до читального списку</string>
   <string name="tool_tip_bookmark_icon_text">Торкніться іконки для закладок, щоб зберегти статтю до читального списку.</string>
-  <string name="tool_tip_share">Після виділення цікавого факту, спробуйте поділитися ним у Ваших улюблених мережах!</string>
   <string name="page_view_in_browser">Переглянути сторінку в браузері</string>
   <string name="tool_tip_toc_title">Швидкий доступ до змісту</string>
   <string name="tool_tip_toc_text">Тепер ви можете прогорнути екран ліворуч, аби відкрити зміст, а також схопити та прокрутити повзунок, щоб швидко переміститися до різних розділів статті.</string>
@@ -345,11 +344,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
   <string name="preference_title_prefer_offline_content">Надавати перевагу автономному контенту</string>
   <string name="preference_summary_prefer_offline_content">Збережіть трафік, завантажуючи статті, доступні в режимі офлайн радше чим завжди завантажувати останню версію статті</string>
-  <string name="crash_report_dialog_title">Перепрошуємо, минулого разу додаток «впав»</string>
-  <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
-  <string name="crash_report_dialog_dont_send_button">Пропустити</string>
-  <string name="crash_report_dialog_always_send_button">Завжди надсилати</string>
-  <string name="crash_report_dialog_send_button">Надіслати</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Підлаштовано під вигляд системи</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
@@ -716,12 +711,12 @@
   <string name="suggested_edits_image_captions_task_detail">Підписи зображень допомагають читачам зрозуміти значення та контекст зображень.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Описи статей допомагають читачам зрозуміти предмет статті з першого погляду, підсумовуючи вміст статті.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок зі списку \"Пропонованих\".</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок через список пропонованих редагувань. Якщо ви довго не робили внесок, то показується дата останнього внеску.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші правки було скасовано. Кількість таких правок: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь як покращити якість ваших редагувань у Вікіпедії за допомогою посилання нижче.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає за посилання нижче.</string>
-  <string name="suggested_edits_ip_blocked_message">IP-адреса якою ви користуєтесь заблокована для редагування у Вікіпедії. Що це означає ви може дізнатись з посилання нижче.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші редагування було скасовано (іншим редактором). Кількість таких редагувань: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь, як покращити якість ваших редагувань у Вікіпедії, за посиланням нижче.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає, за посиланням нижче.</string>
+  <string name="suggested_edits_ip_blocked_message">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії. Що це означає, ви може дізнатися з посилання нижче.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
   <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>

@@ -176,7 +176,7 @@ public class PageFragmentLoadState {
 
     public void onConfigurationChanged() {
         leadImagesHandler.loadLeadImage();
-        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getPaddingTop()));
+        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 
@@ -249,7 +249,7 @@ public class PageFragmentLoadState {
                 }));
 
         // And finally, start blasting the HTML into the WebView.
-        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
+        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getConvertedText());
     }
 
     private void updateThumbnail(String thumbUrl) {

@@ -173,7 +173,7 @@
   <string name="preference_title_eventlogging_opt_in">Στείλτε εκθέσεις χρήσης</string>
   <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
-  <string name="preference_summary_auto_upload_crash_reports">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος στο HockeyApp / μια υπηρεσία τρίτου μέρους αυτόματα ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος στο HockeyApp / μια υπηρεσία τρίτου μέρους αυτόματα ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους (%s). Παρακαλούμε αφαιρέστε τους και προσπαθήστε ξανά.</string>
   <string name="history_search_list_hint">Ιστορικό αναζήτησης</string>
   <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
@@ -282,7 +282,6 @@
   <string name="button_close_tab">Κλείσιμο καρτέλας</string>
   <string name="tab_item_closed">%s κλειστό.</string>
   <string name="tool_tip_bookmark_icon_title">Προσθήκη στη λίστα ανάγνωσης</string>
-  <string name="tool_tip_share">Μετά την επισήμανση ενός ενδιαφέροντος γεγονός, προσπαθήστε να την μοιραστείτε στα αγαπημένα σας δίκτυα!</string>
   <string name="page_view_in_browser">Προβολή σελίδας στον περιηγητή</string>
   <string name="error_response_malformed">Η απάντηση από το διακομιστή δεν ήταν κατάλληλα διαμορφωμένη.</string>
   <string name="error_unknown">Προέκυψε ένα άγνωστο σφάλμα.</string>
@@ -313,10 +312,6 @@
   <string name="reference_title">Παραπομπή %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Αμυδρότητα εικόνων (στο Σκοτεινό θέμα)</string>
   <string name="preference_title_prefer_offline_content">Προτίμηση περιεχόμενου εκτός σύνδεσης</string>
-  <string name="crash_report_dialog_title">Λυπούμαστε, η εφαρμογή κράσαρε την τελευταία φορά</string>
-  <string name="crash_report_dialog_dont_send_button">Παράβλεψη</string>
-  <string name="crash_report_dialog_always_send_button">Αποστολή πάντα</string>
-  <string name="crash_report_dialog_send_button">Αποστολή</string>
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
