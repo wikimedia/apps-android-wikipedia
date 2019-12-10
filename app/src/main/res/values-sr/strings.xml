@@ -708,7 +708,7 @@
   <string name="suggested_edits_quality_excellent_text">Одлично</string>
   <string name="suggested_edits_quality_very_good_text">Врло добро</string>
   <string name="suggested_edits_quality_good_text">Добро</string>
-  <string name="suggested_edits_quality_okay_text">Океј</string>
+  <string name="suggested_edits_quality_okay_text">Пристојно</string>
   <string name="suggested_edits_quality_sufficient_text">Довољно</string>
   <string name="suggested_edits_quality_poor_text">Слабо</string>
   <string name="suggested_edits_quality_bad_text">Лоше</string>
@@ -720,7 +720,7 @@
     <item quantity="one">%d дан</item>
     <item quantity="other">%d дани</item>
   </plurals>
-  <string name="suggested_edits_last_edited">Последње уређивање</string>
+  <string name="suggested_edits_last_edited">Последњи пут уређено</string>
   <string name="suggested_edits_last_edited_never">Никад</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>

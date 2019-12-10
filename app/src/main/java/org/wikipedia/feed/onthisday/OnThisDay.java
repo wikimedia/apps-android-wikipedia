@@ -3,7 +3,6 @@ package org.wikipedia.feed.onthisday;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.util.StringUtil;
@@ -52,7 +51,7 @@ public class OnThisDay {
         public CharSequence text() {
             List<String> pageTitles = new ArrayList<>();
             for (PageSummary page : pages) {
-                pageTitles.add((StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle()))).toString());
+                pageTitles.add((StringUtil.fromHtml(page.getDisplayTitle())).toString());
             }
             return StringUtil.boldenSubstrings(text, pageTitles);
         }

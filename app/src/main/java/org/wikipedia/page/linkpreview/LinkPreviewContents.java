@@ -37,7 +37,7 @@ public class LinkPreviewContents {
     }
 
     LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
-        title = new PageTitle(pageSummary.getTitle(), wiki);
+        title = new PageTitle(pageSummary.getApiTitle(), wiki);
         disambiguation = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
         String extractStr;
         if (pageSummary instanceof PageSummary) {
