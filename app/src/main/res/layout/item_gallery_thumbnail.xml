@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gallery_thumbnail_image"
     style="@style/SimpleDraweeViewPlaceholder"
     android:layout_width="@dimen/linkPreviewImageSize"
