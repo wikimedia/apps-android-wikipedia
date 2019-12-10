@@ -58,7 +58,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         pageItemDescTextView.setText(StringUtils.capitalize(page.getDescription()));
         pageItemDescTextView.setVisibility(TextUtils.isEmpty(page.getDescription()) ? View.GONE : View.VISIBLE);
         pageItemTitleTextView.setMaxLines(TextUtils.isEmpty(page.getDescription()) ? 2 : 1);
-        pageItemTitleTextView.setText(StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle())));
+        pageItemTitleTextView.setText(StringUtil.fromHtml(page.getDisplayTitle()));
         setImage(page.getThumbnailUrl());
     }
 
@@ -77,7 +77,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     @OnClick(R.id.parent) void onBaseViewClicked() {
-        PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
+        PageTitle pageTitle = new PageTitle(selectedPage.getApiTitle(), wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
@@ -85,7 +85,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
-        PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
+        PageTitle pageTitle = new PageTitle(selectedPage.getApiTitle(), wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 

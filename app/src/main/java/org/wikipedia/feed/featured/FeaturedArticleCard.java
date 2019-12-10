@@ -40,7 +40,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @NonNull
     String articleTitle() {
-        return page.getNormalizedTitle();
+        return page.getDisplayTitle();
     }
 
     @Nullable
@@ -78,6 +78,6 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @Override
     protected int dismissHashCode() {
-        return page.getTitle().hashCode();
+        return page.getApiTitle().hashCode();
     }
 }
