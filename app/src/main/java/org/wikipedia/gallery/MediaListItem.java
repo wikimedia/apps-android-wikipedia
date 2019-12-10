@@ -55,14 +55,14 @@ public class MediaListItem implements Serializable {
         @Nullable private String src;
         @Nullable private String scale;
 
-        @Nullable
+        @NonNull
         public String getSrc() {
-            return src;
+            return StringUtils.defaultString(src);
         }
 
-        @Nullable
+        @NonNull
         public String getScale() {
-            return scale;
+            return StringUtils.defaultString(scale);
         }
     }
 }
