@@ -203,6 +203,10 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
                     showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
                 }
 
+                @Override public void onSVGLinkClicked(@NonNull String href) {
+                    // ignore
+                }
+
                 /**
                  * Shows the user a dialogue asking them if they really meant to leave the edit
                  * workflow, and warning them that their changes have not yet been saved.
