@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class MediaListItem implements Serializable {
@@ -16,6 +18,7 @@ public class MediaListItem implements Serializable {
     @Nullable private String type;
     @Nullable private TextInfo caption;
     private boolean showInGallery;
+    @Nullable @SerializedName("srcset") private List<ImageSrcSet> srcSets;
 
     public MediaListItem() {
     }
@@ -41,5 +44,25 @@ public class MediaListItem implements Serializable {
     @NonNull
     public String getTitle() {
         return StringUtils.defaultString(title);
+    }
+
+    @NonNull
+    public List<ImageSrcSet> getSrcSets() {
+        return srcSets != null ? srcSets : Collections.emptyList();
+    }
+
+    public class ImageSrcSet implements Serializable {
+        @Nullable private String src;
+        @Nullable private String scale;
+
+        @NonNull
+        public String getSrc() {
+            return StringUtils.defaultString(src);
+        }
+
+        @NonNull
+        public String getScale() {
+            return StringUtils.defaultString(scale);
+        }
     }
 }

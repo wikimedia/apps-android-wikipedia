@@ -19,6 +19,7 @@ import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.gallery.MediaList;
+import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
@@ -140,6 +141,7 @@ public class SavedPageSyncService extends JobIntentService {
     @SuppressLint("CheckResult")
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+        // TODO: remove page lead
         Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
                 reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
                 reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, mediaListRsp, referencesRsp) -> {
@@ -149,6 +151,11 @@ public class SavedPageSyncService extends JobIntentService {
                         imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
                         if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
                             imageUrls.add(pageTitle.getThumbUrl());
+                        }
+                    }
+                    for (MediaListItem item : mediaListRsp.body().getItems("image")) {
+                        if (!item.getSrcSets().isEmpty()) {
+                            imageUrls.add(item.getSrcSets().get(0).getSrc());
                         }
                     }
                     return imageUrls;
@@ -235,6 +242,7 @@ public class SavedPageSyncService extends JobIntentService {
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
 
+        // TODO: remove page lead
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<MediaList>> mediaListCall = reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
@@ -263,6 +271,13 @@ public class SavedPageSyncService extends JobIntentService {
                 persistPageThumbnail(pageTitle, page.thumbUrl());
                 imageUrls.add(page.thumbUrl());
             }
+
+            for (MediaListItem item : mediaListRsp.body().getItems("image")) {
+                if (!item.getSrcSets().isEmpty()) {
+                    imageUrls.add(item.getSrcSets().get(0).getSrc());
+                }
+            }
+
             page.description(leadRsp.body().getDescription());
 
             if (Prefs.isImageDownloadEnabled()) {
