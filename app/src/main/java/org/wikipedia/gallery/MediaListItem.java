@@ -56,26 +56,19 @@ public class MediaListItem implements Serializable {
     @NonNull
     public String getImageUrl(int preferredSize) {
         Pattern pattern = Pattern.compile("/(\\d+)px-");
-
-        String imageUrl = getSrcSets().get(getSrcSets().size() - 1).getSrc();
-        int previousSize = 0;
+        String imageUrl = getSrcSets().get(0).getSrc();
+        int lastSizeDistance = Integer.MAX_VALUE;
         for (ImageSrcSet srcSet : getSrcSets()) {
             Matcher matcher = pattern.matcher(srcSet.getSrc());
             if (matcher.find() && matcher.group(1) != null) {
-                int currentSize = Integer.parseInt(matcher.group(1));
-
-                if (currentSize == preferredSize) {
+                int currentSizeDistance = Math.abs(Integer.parseInt(matcher.group(1)) - preferredSize);
+                if (currentSizeDistance < lastSizeDistance) {
                     imageUrl = srcSet.getSrc();
-                    break;
-                } else if (preferredSize < currentSize && preferredSize > previousSize) {
-                    imageUrl = srcSet.getSrc();
-                    break;
+                    lastSizeDistance = currentSizeDistance;
                 }
-                previousSize = currentSize;
             }
         }
-
-        return StringUtils.defaultString(imageUrl);
+        return imageUrl;
     }
 
     public class ImageSrcSet implements Serializable {
