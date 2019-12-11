@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @SuppressWarnings("unused")
 public class MediaListItem implements Serializable {
@@ -51,6 +53,31 @@ public class MediaListItem implements Serializable {
         return srcSets != null ? srcSets : Collections.emptyList();
     }
 
+    @NonNull
+    public String getImageUrl(int preferredSize) {
+        Pattern pattern = Pattern.compile("/(\\d+)px-");
+
+        String imageUrl = getSrcSets().get(getSrcSets().size() - 1).getSrc();
+        int previousSize = 0;
+        for (ImageSrcSet srcSet : getSrcSets()) {
+            Matcher matcher = pattern.matcher(srcSet.getSrc());
+            if (matcher.find() && matcher.group(1) != null) {
+                int currentSize = Integer.parseInt(matcher.group(1));
+
+                if (currentSize == preferredSize) {
+                    imageUrl = srcSet.getSrc();
+                    break;
+                } else if (preferredSize < currentSize && preferredSize > previousSize) {
+                    imageUrl = srcSet.getSrc();
+                    break;
+                }
+                previousSize = currentSize;
+            }
+        }
+
+        return StringUtils.defaultString(imageUrl);
+    }
+
     public class ImageSrcSet implements Serializable {
         @Nullable private String src;
         @Nullable private String scale;
@@ -58,11 +85,6 @@ public class MediaListItem implements Serializable {
         @NonNull
         public String getSrc() {
             return StringUtils.defaultString(src);
-        }
-
-        @NonNull
-        public String getScale() {
-            return StringUtils.defaultString(scale);
         }
     }
 }
