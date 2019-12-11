@@ -22,7 +22,7 @@ public class MostReadItemCard extends Card {
     }
 
     @NonNull @Override public String title() {
-        return page.getNormalizedTitle();
+        return page.getDisplayTitle();
     }
 
     @Nullable @Override public String subtitle() {
@@ -39,7 +39,7 @@ public class MostReadItemCard extends Card {
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(page.getTitle(), wiki);
+        PageTitle title = new PageTitle(page.getApiTitle(), wiki);
         if (page.getThumbnailUrl() != null) {
             title.setThumbUrl(page.getThumbnailUrl());
         }

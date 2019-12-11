@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.GeoTypeAdapter;
@@ -20,6 +21,7 @@ import org.wikipedia.page.PageTitle;
 /**
  * Represents a summary of a page, useful for page previews.
  */
+@SuppressWarnings("unused")
 public class PageSummary {
     public static final String TYPE_STANDARD = "standard";
     public static final String TYPE_DISAMBIGUATION = "disambiguation";
@@ -66,20 +68,16 @@ public class PageSummary {
         return new PageProperties(this, leadImageName, leadImageUrl);
     }
 
+
     @NonNull
-    public String getTitle() {
-        return title;
+    public String getApiTitle() {
+        return StringUtils.defaultString(titles != null ? titles.canonical : null);
     }
 
     // TODO: Make this return CharSequence, and automatically convert from HTML.
     @NonNull
     public String getDisplayTitle() {
-        return displaytitle;
-    }
-
-    @NonNull
-    public String getConvertedTitle() {
-        return title;
+        return StringUtils.defaultString(titles != null ? titles.display : null);
     }
 
     @NonNull
@@ -112,11 +110,6 @@ public class PageSummary {
         return description;
     }
 
-    @NonNull
-    public String getNormalizedTitle() {
-        return normalizedtitle == null ? title : normalizedtitle;
-    }
-
     @Nullable
     public String getOriginalImageUrl() {
         return originalImage == null ? null : originalImage.getUrl();
@@ -124,20 +117,18 @@ public class PageSummary {
 
     @NonNull
     public PageTitle getPageTitle(@NonNull WikiSite wiki) {
-        return new PageTitle(getTitle(), wiki, getThumbnailUrl(), getDescription());
+        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription());
     }
 
     public int getPageId() {
         return pageid;
     }
 
+    @NonNull
     public String getLang() {
-        return lang;
+        return StringUtils.defaultString(lang);
     }
 
-    /**
-     * For the thumbnail URL of the page
-     */
     private static class Thumbnail {
         @SuppressWarnings("unused") private String source;
 
@@ -155,8 +146,13 @@ public class PageSummary {
         }
     }
 
-    @Override public String toString() {
-        return getTitle();
+    private static class Titles {
+        @Nullable private String canonical;
+        @Nullable private String display;
+    }
+
+    @Override @NonNull public String toString() {
+        return getDisplayTitle();
     }
 
     public long getRevision() {
