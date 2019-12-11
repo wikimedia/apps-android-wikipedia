@@ -88,9 +88,8 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
 
         L.d("Link clicked was " + uri.toString());
-        if (uri.getPath().endsWith(".svg")) {
-            onSVGLinkClicked(href);
-        } else if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
+
+        if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
                 && (uri.getPath().startsWith("/wiki/") || uri.getPath().startsWith("/zh-"))) {
             WikiSite site = new WikiSite(uri);
             if (site.subdomain().equals(getWikiSite().subdomain())
@@ -101,7 +100,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             PageTitle title = TextUtils.isEmpty(titleString)
                     ? site.titleForInternalLink(uri.getPath())
                     : PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            onInternalLinkClicked(title);
+            if (title.isFilePage() && title.getConvertedText().endsWith(".svg")) {
+                onSVGLinkClicked(href);
+            } else {
+                onInternalLinkClicked(title);
+            }
         } else if (!TextUtils.isEmpty(titleString) && UriUtil.isValidOfflinePageLink(uri)) {
             WikiSite site = new WikiSite(uri);
             PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
