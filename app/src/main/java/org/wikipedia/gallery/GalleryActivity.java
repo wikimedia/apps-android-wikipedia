@@ -76,11 +76,12 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
+import static org.wikipedia.Constants.InvokeSource.GALLERY_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
@@ -303,7 +304,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this, data.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) == SUGGESTED_EDITS_ADD_CAPTION
+            FeedbackUtil.showMessage(this, data.getSerializableExtra(INTENT_EXTRA_ACTION) == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)));
             layOutGalleryDescription();
@@ -326,7 +327,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 title.getDisplayText(), title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString(), null),
                 item.getMediaInfo().getThumbUrl(), null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, SUGGESTED_EDITS_ADD_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, ADD_CAPTION, GALLERY_ACTIVITY),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -357,7 +358,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 null, null, null, null);
 
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,
-                (sourceSummary.getLang().equals(targetSummary.getLang())) ? SUGGESTED_EDITS_ADD_CAPTION : SUGGESTED_EDITS_TRANSLATE_CAPTION),
+                (sourceSummary.getLang().equals(targetSummary.getLang())) ? ADD_CAPTION : TRANSLATE_CAPTION, GALLERY_ACTIVITY),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
