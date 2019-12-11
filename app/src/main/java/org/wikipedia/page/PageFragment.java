@@ -966,7 +966,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("image_clicked", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
-            L.d("image_clicked ?? " + href);
             if (href.startsWith("./File:")) {
                 if (app.isOnline()) {
                     startGalleryActivity(UriUtil.removeInternalLinkPrefix(href));
