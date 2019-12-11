@@ -236,7 +236,7 @@ public class DescriptionEditFragment extends Fragment {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate(() -> setUpEditView(savedInstanceState))
-                    .subscribe(summary -> sourceSummary.setExtractHtml(summary.getExtractHtml()), L::e));
+                    .subscribe(summaryResponse -> sourceSummary.setExtractHtml(summaryResponse.body().getExtractHtml()), L::e));
         } else {
             setUpEditView(savedInstanceState);
         }

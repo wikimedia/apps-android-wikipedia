@@ -29,6 +29,7 @@ public class PageSummary {
     public static final String TYPE_NO_EXTRACT = "no-extract";
 
     @SuppressWarnings("unused") @Nullable private String type;
+    @Nullable private Titles titles;
     @SuppressWarnings("unused,NullableProblems") @Required
     @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private String normalizedtitle;
@@ -45,7 +46,6 @@ public class PageSummary {
     @SuppressWarnings("unused") private long revision;
     @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;
     @SuppressWarnings("unused") @Nullable private String timestamp;
-    @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
 
     public Page toPage(PageTitle title, String leadImageName, String leadImageUrl) {
         return new Page(adjustPageTitle(title),
@@ -169,8 +169,5 @@ public class PageSummary {
         return timestamp;
     }
 
-    @Nullable
-    public String getWikiBaseItem() {
-        return wikiBaseItem;
-    }
+
 }

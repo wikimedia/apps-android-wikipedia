@@ -218,13 +218,13 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         disposables.add(new PageClient().summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), historyEntry.getReferrer())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(summary -> {
-                    funnel.setPageId(summary.getPageId());
-                    pageTitle.setThumbUrl(summary.getThumbnailUrl());
-                    pageTitle.setConvertedText(summary.getApiTitle());
+                .subscribe(summaryResponse -> {
+                    funnel.setPageId(summaryResponse.body().getPageId());
+                    pageTitle.setThumbUrl(summaryResponse.body().getThumbnailUrl());
+                    pageTitle.setConvertedText(summaryResponse.body().getApiTitle());
 
-                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                    showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
+                    titleText.setText(StringUtil.fromHtml(summaryResponse.body().getDisplayTitle()));
+                    showPreview(new LinkPreviewContents(summaryResponse.body(), pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);
                     titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));

@@ -56,8 +56,8 @@ public interface RestService {
     })
     @GET("page/summary/{title}")
     @NonNull
-    Observable<PageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
-                                       @NonNull @Path("title") String title);
+    Observable<Response<PageSummary>> getSummary(@Nullable @Header("Referer") String referrerUrl,
+                                                 @NonNull @Path("title") String title);
 
     /**
      * Gets the lead section and initial metadata of a given title.

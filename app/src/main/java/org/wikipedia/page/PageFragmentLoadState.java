@@ -237,7 +237,7 @@ public class PageFragmentLoadState {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
-                            createPageObjectWith(pair.first, pair.second);
+                            createPageObjectWith(pair.first.body(), pair.second);
                             bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
                             //app.getSessionFunnel().leadSectionFetchEnd();
 

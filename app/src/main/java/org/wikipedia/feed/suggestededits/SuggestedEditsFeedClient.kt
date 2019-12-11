@@ -71,9 +71,10 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
         disposables.add(MissingDescriptionProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pageSummary ->
+                !!.subscribeOn(Schedulers.io())
+                !!.observeOn(AndroidSchedulers.mainThread())
+                !!.subscribe({ response ->
+                    val pageSummary = response.body()!!
                     sourceSummary = SuggestedEditsSummary(
                             pageSummary.apiTitle,
                             langFromCode,
@@ -93,7 +94,7 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
                         callback.updateCardContent(card)
                     }
 
-                }, { if (callback == null) cb!!.success(emptyList()) }))
+                }, { if (callback == null) cb!!.success(emptyList()) })!!)
     }
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
