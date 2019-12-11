@@ -88,7 +88,6 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
 
         L.d("Link clicked was " + uri.toString());
-
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
                 && (uri.getPath().startsWith("/wiki/") || uri.getPath().startsWith("/zh-"))) {
             WikiSite site = new WikiSite(uri);
