@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.okhttp;
 
+import android.os.Build;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
@@ -8,6 +9,8 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RbSwitch;
 
 import java.io.File;
+
+import javax.net.ssl.SSLContext;
 
 import okhttp3.Cache;
 import okhttp3.CacheDelegate;
@@ -31,7 +34,7 @@ public final class OkHttpConnectionFactory {
 
     @NonNull
     private static OkHttpClient createClient() {
-        return new OkHttpClient.Builder()
+        OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .cookieJar(SharedPreferenceCookieManager.getInstance())
                 .cache(NET_CACHE)
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
@@ -41,8 +44,18 @@ public final class OkHttpConnectionFactory {
                 .addInterceptor(new CommonHeaderRequestInterceptor())
                 .addInterceptor(new DefaultMaxStaleRequestInterceptor())
                 .addInterceptor(new OfflineCacheInterceptor(SAVE_CACHE))
-                .addInterceptor(new TestStubInterceptor())
-                .build();
+                .addInterceptor(new TestStubInterceptor());
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            try {
+                SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+                sslContext.init(null, null, null);
+                builder.sslSocketFactory(new Tls12SocketFactory(sslContext.getSocketFactory()));
+            } catch (Exception e) {
+                //
+            }
+        }
+        return builder.build();
     }
 
     private OkHttpConnectionFactory() {
