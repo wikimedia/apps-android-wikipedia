@@ -23,9 +23,6 @@
              edit text cursor, text selection markers -->
         <item name="colorAccent">@color/accent75</item>
 
-        <!-- Error text in TextInputLayout -->
-        <item name="textColorError">@color/red75</item>
-
         <!-- Overrides of base Android styles with color sub-definitions -->
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
         <item name="dialogTheme">@style/DialogDark</item>

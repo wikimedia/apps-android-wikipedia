@@ -38,8 +38,7 @@ def computeVersionName(label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
     // Keep version in sync with /project.properties
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
@@ -54,8 +53,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 15
-        targetSdkVersion 27
-        versionCode 161
+        targetSdkVersion 28
+        versionCode 162
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -192,9 +191,9 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '3.10.0'
-    String supportVersion = '27.1.1'
-    String retrofitVersion = '2.4.0'
+    String okHttpVersion = '3.12.1'
+    String supportVersion = '28.0.0'
+    String retrofitVersion = '2.5.0'
     String espressoVersion = '3.0.1'
     String butterKnifeVersion = '8.8.1'
     String frescoVersion = '1.9.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
