@@ -56,7 +56,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 276
+        versionCode 277
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -231,8 +231,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-    implementation "io.reactivex.rxjava2:rxjava:2.2.10"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.3"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.12.0'
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:7.0.1"
