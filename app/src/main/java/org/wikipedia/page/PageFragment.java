@@ -792,9 +792,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void onPageLoadComplete() {
-        if (!leadImagesHandler.isLeadImageEnabled()) {
-            bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
-        }
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();

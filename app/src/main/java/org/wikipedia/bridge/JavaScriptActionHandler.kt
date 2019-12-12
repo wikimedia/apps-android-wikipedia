@@ -4,6 +4,7 @@ import android.content.Context
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageViewModel
@@ -45,10 +46,12 @@ object JavaScriptActionHandler {
                 "   \"theme\": \"${app.currentTheme.funnelName}\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
+                "   \"leadImageHeight\": \"%dpx\"," +
                 "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled()}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
-                "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}" +
-                "}", (leadImageHeightForDevice() / getDensityScalar()).roundToInt() + 16, 16, 48, 16)
+                "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}," +
+                "   \"userGroups\": \"${AccountUtil.getGroups()}\"" +
+                "}", 16, 16, 48, 16, (leadImageHeightForDevice() / getDensityScalar()).roundToInt())
     }
 
     @JvmStatic
