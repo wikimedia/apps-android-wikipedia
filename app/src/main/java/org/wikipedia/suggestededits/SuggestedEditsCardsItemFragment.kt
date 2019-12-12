@@ -234,7 +234,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         if (!addedContribution.isNullOrEmpty()) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = addedContribution
-            viewArticleExtract.maxLines = viewArticleExtract.maxLines - 1
             this.addedContribution = addedContribution
         }
     }
