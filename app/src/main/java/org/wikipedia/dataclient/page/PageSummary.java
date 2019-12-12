@@ -28,20 +28,20 @@ public class PageSummary {
     public static final String TYPE_MAIN_PAGE = "mainpage";
     public static final String TYPE_NO_EXTRACT = "no-extract";
 
-    @SuppressWarnings("unused") @Nullable private String type;
+    @Nullable private String type;
     @Nullable private Titles titles;
     @SuppressWarnings("unused,NullableProblems") @Required
     @NonNull private String title;
+    @Nullable private NamespaceContainer namespace;
+    @Nullable private String extract;
+    @Nullable @SerializedName("extract_html") private String extractHtml;
+    @Nullable private String description;
+    @Nullable private Thumbnail thumbnail;
+    @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
+    @Nullable private String lang;
+    private int pageid;
     @SuppressWarnings("unused") @Nullable private String normalizedtitle;
     @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
-    @SuppressWarnings("unused") @Nullable private NamespaceContainer namespace;
-    @SuppressWarnings("unused") @Nullable private String extract;
-    @SuppressWarnings("unused") @Nullable @SerializedName("extract_html") private String extractHtml;
-    @SuppressWarnings("unused") @Nullable private String description;
-    @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
-    @SuppressWarnings("unused") @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
-    @SuppressWarnings("unused") @Nullable private String lang;
-    @SuppressWarnings("unused") private int pageid;
     @SuppressWarnings("unused") @Nullable private String redirected;
     @SuppressWarnings("unused") private long revision;
     @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;

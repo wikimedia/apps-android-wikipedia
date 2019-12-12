@@ -12,6 +12,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditHandler;
@@ -239,12 +240,12 @@ public class PageFragmentLoadState {
                 .subscribe(pair -> {
                             createPageObjectWith(pair.first.body(), pair.second);
                             bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
-                            //app.getSessionFunnel().leadSectionFetchEnd();
+                            app.getSessionFunnel().leadSectionFetchEnd();
 
-                            /*if ((summary.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
-                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                                showPageOfflineMessage(rsp.raw().header("date", ""));
-                            }*/
+                            if ((pair.first.raw().cacheResponse() != null && pair.first.raw().networkResponse() == null)
+                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.first.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                                showPageOfflineMessage(pair.first.raw().header("date", ""));
+                            }
                         },
                         throwable -> {
                             L.e("PageLead error: ", throwable);
@@ -281,7 +282,7 @@ public class PageFragmentLoadState {
         }
         List<MediaListItem> items = mediaList.getItems("image");
 
-        String leadImageUrl = "https:" + items.get(0).getImageUrlFor(DimenUtil.calculateLeadImageWidth());
+        String leadImageUrl = "https:" + items.get(0).getImageUrl(DimenUtil.calculateLeadImageWidth());
 
         String leadImageName = items.get(0).getTitle().replace("File:", "").trim();
         Page page = pageSummary.toPage(model.getTitle(), leadImageName, leadImageUrl);
