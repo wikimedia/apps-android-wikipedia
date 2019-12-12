@@ -155,7 +155,7 @@ public class SavedPageSyncService extends JobIntentService {
                     }
                     for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                         if (!item.getSrcSets().isEmpty()) {
-                            imageUrls.add(item.getSrcSets().get(0).getSrc());
+                            imageUrls.add(item.getImageUrl(DimenUtil.calculateLeadImageWidth()));
                         }
                     }
                     return imageUrls;
@@ -242,7 +242,7 @@ public class SavedPageSyncService extends JobIntentService {
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
 
-        // TODO: remove page lead
+        // TODO: remove page lead and maybe load page summary since it needs description for page
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<MediaList>> mediaListCall = reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
@@ -274,7 +274,7 @@ public class SavedPageSyncService extends JobIntentService {
 
             for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                 if (!item.getSrcSets().isEmpty()) {
-                    imageUrls.add(item.getSrcSets().get(0).getSrc());
+                    imageUrls.add(item.getImageUrl(DimenUtil.calculateLeadImageWidth()));
                 }
             }
 
