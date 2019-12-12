@@ -13,11 +13,11 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
-import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
@@ -80,8 +80,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     private fun getArticleWithMissingDescription() {
-        when (parent().source) {
-            SUGGESTED_EDITS_TRANSLATE_DESC -> {
+        when (parent().action) {
+            TRANSLATE_DESCRIPTION -> {
                 disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -116,7 +116,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         }, { this.setErrorState(it) })!!)
             }
 
-            SUGGESTED_EDITS_ADD_CAPTION -> {
+            ADD_CAPTION -> {
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -155,7 +155,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         }, { this.setErrorState(it) })!!)
             }
 
-            SUGGESTED_EDITS_TRANSLATE_CAPTION -> {
+            TRANSLATE_CAPTION -> {
                 var fileCaption: String? = null
                 disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
@@ -255,7 +255,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             return
         }
 
-        if (parent().source == SUGGESTED_EDITS_ADD_DESC || parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        if (parent().action == ADD_DESCRIPTION || parent().action == TRANSLATE_DESCRIPTION) {
             updateDescriptionContents()
         } else {
             updateCaptionContents()
@@ -265,7 +265,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     private fun updateDescriptionContents() {
         viewArticleTitle.text = StringUtil.fromHtml(sourceSummary!!.displayTitle)
 
-        if (parent().source == SUGGESTED_EDITS_TRANSLATE_DESC) {
+        if (parent().action == TRANSLATE_DESCRIPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
             viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
         }

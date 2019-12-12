@@ -52,6 +52,7 @@
   <string name="page_tabs_back">Atrás</string>
   <string name="nav_item_forward">Adelante</string>
   <string name="search_hint">Buscar en Wikipedia</string>
+  <string name="search_hint_voice_search">Búsqueda por voz</string>
   <string name="search_hint_search_history">Buscar en el historial</string>
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
@@ -304,6 +305,7 @@
   <string name="gallery_save_success">Archivo guardado correctamente.</string>
   <string name="gallery_error_video_failed">No se pudo reproducir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Para guardar imágenes se necesita el permiso para escribir en el almacenamiento. Inténtalo de nuevo y otorga el permiso solicitado.</string>
+  <string name="gallery_add_image_caption_button">Añadir leyenda a la imagen</string>
   <string name="gallery_add_image_caption_in_language_button">Añadir leyenda de imagen (%s)</string>
   <string name="err_cannot_save_file">No se puede guardar el archivo</string>
   <string name="snippet_share_intro">«%1$s» en @Wikipedia: %2$s</string>
@@ -316,6 +318,7 @@
   <string name="gallery_fair_use_license">Uso legítimo</string>
   <string name="gallery_uploader_unknown">Cargador desconocido</string>
   <string name="gallery_not_available_offline_snackbar">La vista de galería no está disponible sin conexión.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Descartar</string>
   <string name="menu_new_tab">Pestaña nueva</string>
   <string name="menu_close_all_tabs">Cerrar todas las pestañas</string>
   <string name="close_all_tabs_confirm">¿Confirmas que quieres cerrar todas las pestañas?</string>
@@ -564,7 +567,9 @@
   <string name="preference_title_notification_revert">Revertir</string>
   <string name="preference_summary_notification_revert">Una de tus contribuciones fue revertida</string>
   <string name="preference_title_notification_login_fail">Acceso a la cuenta</string>
+  <string name="preference_summary_notification_login_fail">Tu registro en actividades</string>
   <string name="preference_title_notification_mention">Mención</string>
+  <string name="preference_summary_notification_mention">Alguien te mencionó en una página</string>
   <string name="preference_title_notification_user_talk">Página de discusión</string>
   <string name="preference_summary_notification_user_talk">Mensajes en páginas de discusión</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
@@ -623,8 +628,11 @@
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
+  <string name="description_edit_article_description_label">Artículo</string>
   <string name="description_edit_translate_article_description_label_per_language">Descripción del artículo (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Descripción de artículo (%s)</string>
+  <string name="description_edit_add_caption_label">Descripción de la imagen</string>
+  <string name="description_edit_add_caption_hint">Leyenda de la imagen</string>
   <string name="description_edit_translate_caption_hint_per_language">Leyenda de imagen (%s)</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_read">Leer</string>
