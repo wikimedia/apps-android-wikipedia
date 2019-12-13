@@ -53,12 +53,8 @@ public class PageSummary {
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
-        if (redirected != null) {
-            // Handle redirects properly.
-            title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
-        } else if (normalizedtitle != null) {
-            // We care about the normalized title only if we were not redirected
-            title = new PageTitle(normalizedtitle, title.getWikiSite(), title.getThumbUrl());
+        if (titles != null && titles.canonical != null) {
+            title = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
         }
         title.setDescription(description);
         return title;
