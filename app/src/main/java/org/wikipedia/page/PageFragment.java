@@ -448,9 +448,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void setPageProtection() {
         bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
             Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
-            model.getPage().getPageProperties().setProtection(protection);
-            bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
-
+            if (model.getPage() != null) {
+                model.getPage().getPageProperties().setProtection(protection);
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+            }
         });
     }
 
@@ -458,8 +459,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
             Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
             sections = Arrays.asList(secArray);
-            model.getPage().setSections(sections);
-            onPageLoadComplete();
+            if (model.getPage() != null) {
+                model.getPage().setSections(sections);
+                onPageLoadComplete();
+            }
         });
     }
 
@@ -1019,7 +1022,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (avCallback == null) {
                 avCallback = new AvCallback();
             }
-            if (!avPlayer.isPlaying()) {
+            if (!avPlayer.isPlaying() && !(messagePayload.get("data-pronunciation-url") == null)) {
                 updateProgressBar(true, true, 0);
                 avPlayer.play(messagePayload.get("data-pronunciation-url").getAsString(), avCallback, avCallback);
             } else {
