@@ -96,6 +96,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     private Snackbar suggestedEditsNavTabSnackbar;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private boolean navTabAutoSelect;
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -124,7 +125,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
         viewPager.setOffscreenPageLimit(2);
         tabLayout.setOnNavigationItemSelectedListener(item -> {
-            if (getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
+            if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
             viewPager.setCurrentItem(item.getOrder());
@@ -151,7 +152,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        navTabAutoSelect = true;
         resetNavTabLayouts();
+        navTabAutoSelect = false;
     }
 
     @Override public void onDestroyView() {
