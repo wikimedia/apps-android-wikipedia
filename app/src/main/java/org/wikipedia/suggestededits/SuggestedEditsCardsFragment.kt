@@ -19,9 +19,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
-import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
-import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.Constants.InvokeSource.*
+import org.wikipedia.Constants.*
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.RandomizerFunnel
@@ -30,7 +29,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
@@ -46,12 +44,12 @@ class SuggestedEditsCardsFragment : Fragment() {
     private var resettingViewPager: Boolean = false
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
-    var source: InvokeSource = SUGGESTED_EDITS_ADD_DESC
+    var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
 
     private val topTitle: PageTitle?
         get() {
             val f = topChild
-            return if (source == SUGGESTED_EDITS_ADD_DESC || source == SUGGESTED_EDITS_ADD_CAPTION) {
+            return if (action == ADD_DESCRIPTION || action == ADD_CAPTION) {
                 f?.sourceSummary?.pageTitle?.description = f?.addedContribution
                 f?.sourceSummary?.pageTitle
             } else {
@@ -73,10 +71,10 @@ class SuggestedEditsCardsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        source = arguments?.getSerializable(EXTRA_SOURCE) as InvokeSource
+        action = arguments?.getSerializable(INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
 
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get().impression(source)
+        SuggestedEditsFunnel.get().impression(action)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -125,10 +123,10 @@ class SuggestedEditsCardsFragment : Fragment() {
         val isAddedContributionEmpty = topChild?.addedContribution.isNullOrEmpty()
         if (!isAddedContributionEmpty) topChild?.showAddedContributionView(topChild?.addedContribution)
         addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-        if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION) {
+        if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
             addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
         } else if (addContributionText != null) {
-            if (source == SUGGESTED_EDITS_ADD_CAPTION) {
+            if (action == ADD_CAPTION) {
                 addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
             } else {
                 addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
@@ -161,10 +159,10 @@ class SuggestedEditsCardsFragment : Fragment() {
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
             FeedbackUtil.showMessage(this,
-                    when (source) {
-                        SUGGESTED_EDITS_ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        SUGGESTED_EDITS_TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
-                        SUGGESTED_EDITS_TRANSLATE_DESC -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
+                    when (action) {
+                        ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -188,8 +186,8 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     fun onSelectPage() {
         if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild!!.sourceSummary, topChild!!.targetSummary, source),
-                    ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild!!.sourceSummary, topChild!!.targetSummary,
+                    action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
   
@@ -238,7 +236,7 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     private fun setInitialUiState() {
         wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION)) VISIBLE else GONE
+                && (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)) VISIBLE else GONE
     }
 
     private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {
@@ -328,7 +326,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                 }
             }
 
-            SuggestedEditsFunnel.get().impression(source)
+            SuggestedEditsFunnel.get().impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position
@@ -338,10 +336,10 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(source: InvokeSource): SuggestedEditsCardsFragment {
+        fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
             val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
             val args = Bundle()
-            args.putSerializable(EXTRA_SOURCE, source)
+            args.putSerializable(INTENT_EXTRA_ACTION, action)
             addTitleDescriptionsFragment.arguments = args
             return addTitleDescriptionsFragment
         }

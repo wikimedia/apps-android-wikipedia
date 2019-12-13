@@ -7,23 +7,17 @@ import com.google.gson.annotations.SerializedName;
 import org.json.JSONObject;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.wikipedia.Constants.InvokeSource.FEED;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
-import static org.wikipedia.Constants.InvokeSource.NOTIFICATION;
-import static org.wikipedia.Constants.InvokeSource.ONBOARDING_DIALOG;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 
 public final class SuggestedEditsFunnel extends TimedFunnel {
     private static SuggestedEditsFunnel INSTANCE;
@@ -61,10 +55,10 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public static SuggestedEditsFunnel get() {
-        if (INSTANCE != null && INSTANCE.invokeSource != NAV_MENU) {
+        if (INSTANCE != null && INSTANCE.invokeSource != SUGGESTED_EDITS) {
             return INSTANCE;
         }
-        return get(NAV_MENU);
+        return get(SUGGESTED_EDITS);
     }
 
     public static void reset() {
@@ -75,28 +69,28 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         preprocessData(eventData, "session_token", parentSessionToken);
     }
 
-    public void impression(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
+    public void impression(Action action) {
+        if (action == ADD_DESCRIPTION) {
             statsCollection.addDescriptionStats.impressions++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (action == TRANSLATE_DESCRIPTION) {
             statsCollection.translateDescriptionStats.impressions++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        } else if (action == ADD_CAPTION) {
             statsCollection.addCaptionStats.impressions++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.impressions++;
         }
     }
 
 
-    public void click(String title, InvokeSource source) {
+    public void click(String title, Action action) {
         SuggestedEditStats stats;
-        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
+        if (action == ADD_DESCRIPTION) {
             stats = statsCollection.addDescriptionStats;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (action == TRANSLATE_DESCRIPTION) {
             stats = statsCollection.translateDescriptionStats;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        } else if (action == ADD_CAPTION) {
             stats = statsCollection.addCaptionStats;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        } else if (action == TRANSLATE_CAPTION) {
             stats = statsCollection.translateCaptionStats;
         } else {
             return;
@@ -112,38 +106,38 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         }
     }
 
-    public void cancel(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
+    public void cancel(Action action) {
+        if (action == ADD_DESCRIPTION) {
             statsCollection.addDescriptionStats.cancels++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (action == TRANSLATE_DESCRIPTION) {
             statsCollection.translateDescriptionStats.cancels++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        } else if (action == ADD_CAPTION) {
             statsCollection.addCaptionStats.cancels++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.cancels++;
         }
     }
 
-    public void success(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
+    public void success(Action action) {
+        if (action == ADD_DESCRIPTION) {
             statsCollection.addDescriptionStats.successes++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (action == TRANSLATE_DESCRIPTION) {
             statsCollection.translateDescriptionStats.successes++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        } else if (action == ADD_CAPTION) {
             statsCollection.addCaptionStats.successes++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.successes++;
         }
     }
 
-    public void failure(InvokeSource source) {
-        if (source == SUGGESTED_EDITS_ADD_DESC || source == FEED_CARD_SUGGESTED_EDITS_ADD_DESC) {
+    public void failure(Action action) {
+        if (action == ADD_DESCRIPTION) {
             statsCollection.addDescriptionStats.failures++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        } else if (action == TRANSLATE_DESCRIPTION) {
             statsCollection.translateDescriptionStats.failures++;
-        } else if (source == SUGGESTED_EDITS_ADD_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        } else if (action == ADD_CAPTION) {
             statsCollection.addCaptionStats.failures++;
-        } else if (source == SUGGESTED_EDITS_TRANSLATE_CAPTION || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.failures++;
         }
     }
@@ -161,10 +155,7 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
                 "edit_tasks", GsonUtil.getDefaultGson().toJson(statsCollection),
                 "help_opened", helpOpenedCount,
                 "scorecard_opened", contributionsOpenedCount,
-                "source", (invokeSource == ONBOARDING_DIALOG ? "dialog"
-                        : invokeSource == NOTIFICATION ? "notification"
-                        : invokeSource == FEED ? "feed"
-                        : "menu")
+                "source", (invokeSource.getName())
         );
     }
 
