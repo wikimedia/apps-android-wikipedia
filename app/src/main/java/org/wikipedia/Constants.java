@@ -44,6 +44,7 @@ public final class Constants {
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel";
     public static final String INTENT_EXTRA_GO_TO_MAIN_TAB = "goToMainTab";
     public static final String INTENT_EXTRA_INVOKE_SOURCE = "invokeSource";
+    public static final String INTENT_EXTRA_ACTION = "intentAction";
 
     public static final int MAX_SUGGESTION_RESULTS = 3;
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
@@ -59,40 +60,44 @@ public final class Constants {
     public static final int MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2;
 
     public enum InvokeSource {
-        CONTEXT_MENU,
-        LINK_PREVIEW_MENU,
-        PAGE_OVERFLOW_MENU,
-        NAV_MENU,
-        MAIN_ACTIVITY,
-        PAGE_ACTIVITY,
-        NEWS_ACTIVITY,
-        READING_LIST_ACTIVITY,
-        MOST_READ_ACTIVITY,
-        RANDOM_ACTIVITY,
-        ON_THIS_DAY_ACTIVITY,
-        READ_MORE_BOOKMARK_BUTTON,
-        BOOKMARK_BUTTON,
-        SUGGESTED_EDITS_ADD_DESC,
-        SUGGESTED_EDITS_TRANSLATE_DESC,
-        SUGGESTED_EDITS_ADD_CAPTION,
-        SUGGESTED_EDITS_TRANSLATE_CAPTION,
-        FEED_CARD_SUGGESTED_EDITS_ADD_DESC,
-        FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC,
-        FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION,
-        FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION,
-        SUGGESTED_EDITS_ONBOARDING,
-        ONBOARDING_DIALOG,
-        FEED,
-        NOTIFICATION,
-        APP_SHORTCUTS,
-        TOOLBAR,
-        WIDGET,
-        INTENT_SHARE,
-        INTENT_PROCESS_TEXT,
-        FEED_BAR,
-        VOICE,
-        ON_THIS_DAY_CARD_BODY,
-        ON_THIS_DAY_CARD_FOOTER
+        CONTEXT_MENU("contextMenu"),
+        LINK_PREVIEW_MENU("linkPreviewMenu"),
+        PAGE_OVERFLOW_MENU("pageOverflowMenu"),
+        NAV_MENU("navMenu"),
+        MAIN_ACTIVITY("main"),
+        PAGE_ACTIVITY("page"),
+        NEWS_ACTIVITY("news"),
+        READING_LIST_ACTIVITY("readingList"),
+        MOST_READ_ACTIVITY("mostRead"),
+        RANDOM_ACTIVITY("random"),
+        ON_THIS_DAY_ACTIVITY("onThisDay"),
+        GALLERY_ACTIVITY("gallery"),
+        READ_MORE_BOOKMARK_BUTTON("readMoreBookmark"),
+        BOOKMARK_BUTTON("bookmark"),
+        SUGGESTED_EDITS("suggestedEdits"),
+        ONBOARDING_DIALOG("onboarding"),
+        FEED("feed"),
+        NOTIFICATION("notification"),
+        APP_SHORTCUTS("appShortcuts"),
+        TOOLBAR("toolbar"),
+        WIDGET("widget"),
+        INTENT_SHARE("intentShare"),
+        INTENT_PROCESS_TEXT("intentProcessText"),
+        FEED_BAR("feedBar"),
+        VOICE("voice"),
+        ON_THIS_DAY_CARD_BODY("onThisDayCard"),
+        ON_THIS_DAY_CARD_FOOTER("onThisDayCardFooter"),
+        LEAD_IMAGE("leadImage");
+
+        private String name;
+
+        InvokeSource(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 
     private Constants() { }
