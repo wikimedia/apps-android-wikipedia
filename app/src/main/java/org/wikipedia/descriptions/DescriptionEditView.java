@@ -23,6 +23,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DeviceUtil;
@@ -37,16 +38,10 @@ import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
-import static org.wikipedia.Constants.InvokeSource;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_DESC;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_DESC;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
@@ -71,7 +66,7 @@ public class DescriptionEditView extends LinearLayout {
     private Activity activity;
     private PageTitle pageTitle;
     private SuggestedEditsSummary suggestedEditsSummary;
-    private InvokeSource invokeSource;
+    private Action action;
     private boolean isTranslationEdit;
 
     public interface Callback {
@@ -116,21 +111,14 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setHelperText() {
-        if (invokeSource == PAGE_ACTIVITY
-                || invokeSource == SUGGESTED_EDITS_ADD_DESC
-                || invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC
-                || invokeSource == FEED_CARD_SUGGESTED_EDITS_ADD_DESC
-                || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        if (action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION) {
             pageDescriptionLayout.setHelperText(getContext().getString(R.string.description_edit_helper_text_lowercase_warning));
         }
     }
 
     private int getHeaderTextRes(boolean inReview) {
         if (inReview) {
-            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION
-                    || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION
-                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
-                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+            if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
                 return R.string.suggested_edits_review_image_caption;
             } else {
                 return R.string.suggested_edits_review_description;
@@ -138,20 +126,17 @@ public class DescriptionEditView extends LinearLayout {
         }
 
         if (TextUtils.isEmpty(originalDescription)) {
-            if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+            if (action == TRANSLATE_DESCRIPTION) {
                 return R.string.description_edit_translate_description;
-            } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+            } else if (action == ADD_CAPTION) {
                 return R.string.description_edit_add_image_caption;
-            } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+            } else if (action == TRANSLATE_CAPTION) {
                 return R.string.description_edit_translate_image_caption;
             } else {
                 return R.string.description_edit_add_description;
             }
         } else {
-            if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION
-                    || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION
-                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
-                    || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+            if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
                 return R.string.description_edit_edit_image_caption;
             } else {
                 return R.string.description_edit_edit_description;
@@ -160,13 +145,13 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private CharSequence getLabelText(@NonNull String lang) {
-        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        if (action == TRANSLATE_DESCRIPTION) {
             return getContext().getString(R.string.description_edit_translate_article_description_label_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        } else if (action == TRANSLATE_CAPTION) {
             return getContext().getString(R.string.description_edit_translate_caption_label_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        } else if (action == ADD_CAPTION) {
             return getContext().getString(R.string.description_edit_add_caption_label);
         } else {
             return getContext().getString(R.string.description_edit_article_description_label);
@@ -174,13 +159,13 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private CharSequence getHintText(@NonNull String lang) {
-        if (invokeSource == SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) {
+        if (action == TRANSLATE_DESCRIPTION) {
             return getContext().getString(R.string.description_edit_translate_article_description_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) {
+        } else if (action == TRANSLATE_CAPTION) {
             return getContext().getString(R.string.description_edit_translate_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        } else if (action == ADD_CAPTION) {
             return getContext().getString(R.string.description_edit_add_caption_hint);
         } else {
             return getContext().getString(R.string.description_edit_text_hint);
@@ -192,7 +177,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setDarkReviewScreen(boolean enabled) {
-        if (invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION) {
+        if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
             int whiteRes = getResources().getColor(android.R.color.white);
             toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color));
             saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
@@ -211,14 +196,13 @@ public class DescriptionEditView extends LinearLayout {
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageSummaryLabel.setText(getLabelText(sourceSummary.getLang()));
-        pageSummaryText.setText(StringUtil.strip(StringUtils.capitalize(StringUtil.removeHTMLTags(isTranslationEdit || invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION
+        pageSummaryText.setText(StringUtil.strip(StringUtils.capitalize(StringUtil.removeHTMLTags(isTranslationEdit || action == ADD_CAPTION
                 ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
-        if (pageSummaryText.getText().toString().isEmpty()
-                || ((invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION))
+        if (pageSummaryText.getText().toString().isEmpty() || (action == ADD_CAPTION)
                 && !TextUtils.isEmpty(sourceSummary.getPageTitle().getDescription())) {
             pageSummaryContainer.setVisibility(GONE);
         }
-        setConditionalLayoutDirection(pageSummaryContainer, (isTranslationEdit) ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
+        setConditionalLayoutDirection(pageSummaryContainer, isTranslationEdit ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
         setUpBottomBar();
     }
 
@@ -238,7 +222,7 @@ public class DescriptionEditView extends LinearLayout {
 
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), invokeSource == SUGGESTED_EDITS_ADD_CAPTION || invokeSource == SUGGESTED_EDITS_TRANSLATE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
+            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), action == ADD_CAPTION || action == TRANSLATE_CAPTION);
             pageReviewContainer.show();
             bottomBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
@@ -355,8 +339,8 @@ public class DescriptionEditView extends LinearLayout {
         progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
-    public void setInvokeSource(InvokeSource source) {
-        invokeSource = source;
-        isTranslationEdit = (source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || source == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || source == SUGGESTED_EDITS_TRANSLATE_DESC || source == SUGGESTED_EDITS_TRANSLATE_CAPTION);
+    public void setAction(Action action) {
+        this.action = action;
+        isTranslationEdit = (action == TRANSLATE_CAPTION || action == TRANSLATE_DESCRIPTION);
     }
 }

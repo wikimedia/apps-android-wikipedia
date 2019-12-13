@@ -712,9 +712,12 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits heu contribuït des de les edicions suggerides. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies des de les edicions suggerides.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basta en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Les edicions suggerides s\'han posat en pausa fins al %1$s.&lt;/b&gt; Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.\n\nApreneu com millorar les vostres habilitats a la Viquipèdia amb l\'enllaç de sota.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;S\'han inhabilitat les edicions suggerides.&lt;/b&gt; Ho sentim %s, s\'han revertit massa contribucions recents.</string>
   <string name="suggested_edits_ip_blocked_message">Sembla que la vostra adreça IP (o rang d\'adreces IP) està blocada per a editar a la Viquipèdia. Obtingueu més informació del que vol dir visitant l\'enllaç a continuació.</string>
   <string name="suggested_edits_editing_tips_link_text">Consells i trucs d\'edició</string>
   <string name="suggested_edits_help_page_link_text">Pàgina d\'ajuda de les edicions suggerides</string>
+  <string name="suggested_edits_edit_streak_label_text">Modifica la marca</string>
   <string name="suggested_edits_pageviews_label_text">Pàgines vistes</string>
   <string name="suggested_edits_quality_label_text">Qualitat d\'edició</string>
   <string name="suggested_edits_quality_perfect_text">Perfecte</string>

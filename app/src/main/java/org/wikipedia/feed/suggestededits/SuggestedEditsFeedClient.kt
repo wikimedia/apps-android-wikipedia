@@ -4,11 +4,11 @@ import android.content.Context
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
@@ -20,7 +20,7 @@ import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.StringUtil
 import java.util.*
 
-class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource) : FeedClient {
+class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Action) : FeedClient {
     interface Callback {
         fun updateCardContent(card: SuggestedEditsCard)
     }
@@ -56,14 +56,14 @@ class SuggestedEditsFeedClient(private var invokeSource: Constants.InvokeSource)
     }
 
     private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, invokeSource, sourceSummary, targetSummary, age)
+        return SuggestedEditsCard(wiki, action, sourceSummary, targetSummary, age)
     }
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
-        when (invokeSource) {
-            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC -> getArticleToTranslateDescription(cb, callback)
-            FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION -> getImageToAddCaption(cb, callback)
-            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> getImageToTranslateCaption(cb, callback)
+        when (action) {
+            TRANSLATE_DESCRIPTION -> getArticleToTranslateDescription(cb, callback)
+            ADD_CAPTION -> getImageToAddCaption(cb, callback)
+            TRANSLATE_CAPTION -> getImageToTranslateCaption(cb, callback)
             else -> getArticleToAddDescription(cb, callback)
         }
     }

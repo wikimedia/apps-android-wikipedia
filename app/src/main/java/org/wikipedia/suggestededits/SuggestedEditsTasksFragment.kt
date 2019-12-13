@@ -16,7 +16,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
-import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -24,6 +23,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -32,9 +32,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
@@ -394,9 +391,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                 return
             }
             if (task == addDescriptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) SUGGESTED_EDITS_TRANSLATE_DESC else SUGGESTED_EDITS_ADD_DESC))
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) SUGGESTED_EDITS_TRANSLATE_CAPTION else SUGGESTED_EDITS_ADD_CAPTION))
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
             }
         }
     }
