@@ -1,1 +1,6 @@
-- Okuma listelerinde önemli gelişmeler UI - Çoklu okuma listesi makaleleri artık bir defada seçilebilir - Bireysel okuma listesi makaleleri artık / çevrimdışı olarak değiştirilebilir. - Görüntüler artık çevrimdışı kullanılabilirlik için önbelleğe alınmış - Rastgele besleme kartı artık çevrimdışıyken kullanıcının okuma listelerinden rastgele bir makale çekiyor - Diğer birçok hata düzeltmeleri ve kullanıcı arayüzü güncellemeleri
+- Okuma listeleri kullanıcı arayüzlerinde önemli iyileştirmeler
+- Çoklu okuma listesi makaleleri artık bir defada seçilebilir
+- Bireysel okuma listesi makaleleri artık çevrimiçi/dışı olarak değiştirilebilir.
+- Görüntüler artık çevrimdışı kullanılabilirlik için önbelleğe alınıyor
+- Rastgele akış kartı artık çevrimdışıyken kullanıcının okuma listelerinden rastgele bir makale çekiyor
+- Diğer birçok hata düzeltmeleri ve kullanıcı arayüzü güncellemeleri
