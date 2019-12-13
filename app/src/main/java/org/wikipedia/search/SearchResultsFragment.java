@@ -508,7 +508,7 @@ public class SearchResultsFragment extends Fragment {
 
             searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
             ViewUtil.loadImageUrlInto(searchResultItemImage,
-                    result.getPageTitle().getThumbUrl());
+                    result.getPageTitle().getThumbUrl(), true);
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!

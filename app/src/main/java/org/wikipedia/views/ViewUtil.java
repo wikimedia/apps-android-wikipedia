@@ -17,16 +17,32 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionMode;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 
 import java.util.Locale;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
+    private static RequestOptions roundedCornersOptions = new RequestOptions().transform(new RoundedCorners(DimenUtil.roundedDpToPx(2)));
+
+    public static void loadImageUrlInto(@NonNull ImageView drawee, @Nullable String url, boolean roundedCorners) {
+        Glide.with(drawee)
+                .load(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
+                // TODO: the rounded-corners transform is applied *before* the "centerCrop" transform specified in XML.
+                // we should move the centerCrop transform out of XML and into here.
+                .apply(roundedCornersOptions)
+                .into(drawee);
+    }
+
     public static void loadImageUrlInto(@NonNull ImageView drawee, @Nullable String url) {
-        Glide.with(drawee).load(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null).into(drawee);
+        Glide.with(drawee)
+                .load(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
+                .into(drawee);
     }
 
     public static void setCloseButtonInActionMode(@NonNull Context context, @NonNull android.view.ActionMode actionMode) {
