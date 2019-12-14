@@ -15,7 +15,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.gallery.MediaList;
 import org.wikipedia.gallery.MediaListItem;
@@ -31,6 +30,7 @@ import org.wikipedia.views.ObservableWebView;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -39,9 +39,10 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
- * First it loads the lead section (sections=0).
- * Then it loads the remaining sections (sections=1-).
+ * Our  page load strategy, which uses responses from the following to construct the page:
+ * page/summary end-point.
+ * page/media-list end-point.
+ * Data received from the javaScript interface
  * <p/>
  * This class tracks:
  * - the states the page loading goes through,
@@ -71,7 +72,6 @@ public class PageFragmentLoadState {
     private ObservableWebView webView;
     private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
-    private EditHandler editHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @SuppressWarnings("checkstyle:parameternumber")
@@ -169,10 +169,6 @@ public class PageFragmentLoadState {
         return currentTab.getBackStack().isEmpty();
     }
 
-    public void setEditHandler(EditHandler editHandler) {
-        this.editHandler = editHandler;
-    }
-
     public void backFromEditing(Intent data) {
         //Retrieve section ID from intent, and find correct section, so where know where to scroll to
         sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
@@ -238,27 +234,21 @@ public class PageFragmentLoadState {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
-                            createPageObjectWith(pair.first.body(), pair.second);
+                            createPage(pair.first.body(), pair.second);
                             bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
-                            app.getSessionFunnel().leadSectionFetchEnd();
 
                             if ((pair.first.raw().cacheResponse() != null && pair.first.raw().networkResponse() == null)
                                     || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.first.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                                showPageOfflineMessage(pair.first.raw().header("date", ""));
+                                showPageOfflineMessage(Objects.requireNonNull(pair.first.raw().header("date", "")));
                             }
                         },
                         throwable -> {
-                            L.e("PageLead error: ", throwable);
+                            L.e("Page details network response error: ", throwable);
                             commonSectionFetchOnCatch(throwable);
                         }));
 
         // And finally, start blasting the HTML into the WebView.
         bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getConvertedText());
-    }
-
-    private void updateThumbnail(String thumbUrl) {
-        model.getTitle().setThumbUrl(thumbUrl);
-        model.getTitleOriginal().setThumbUrl(thumbUrl);
     }
 
     private void showPageOfflineMessage(@NonNull String dateHeader) {
@@ -276,7 +266,7 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPageObjectWith(PageSummary pageSummary, MediaList mediaList) {
+    private void createPage(PageSummary pageSummary, MediaList mediaList) {
         if (!fragment.isAdded()) {
             return;
         }
@@ -286,10 +276,6 @@ public class PageFragmentLoadState {
 
         String leadImageName = items.get(0).getTitle().replace("File:", "").trim();
         Page page = pageSummary.toPage(model.getTitle(), leadImageName, leadImageUrl);
-        updateWithPage(pageSummary, page);
-    }
-
-    private void updateWithPage(PageSummary pageSummary, Page page) {
         model.setPage(page);
         model.setTitle(page.getTitle());
 

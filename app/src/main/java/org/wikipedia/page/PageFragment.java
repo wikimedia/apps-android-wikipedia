@@ -366,7 +366,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
 
         editHandler = new EditHandler(this, bridge);
-        pageFragmentLoadState.setEditHandler(editHandler);
 
         tocHandler = new ToCHandler(this, requireActivity().getWindow().getDecorView().findViewById(R.id.toc_container),
                 requireActivity().getWindow().getDecorView().findViewById(R.id.page_scroller_button), bridge);

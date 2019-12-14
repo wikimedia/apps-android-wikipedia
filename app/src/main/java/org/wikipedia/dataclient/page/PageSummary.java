@@ -40,7 +40,6 @@ public class PageSummary {
     @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @Nullable private String lang;
     private int pageid;
-    @SuppressWarnings("unused") @Nullable private String normalizedtitle;
     @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
     @SuppressWarnings("unused") @Nullable private String redirected;
     @SuppressWarnings("unused") private long revision;
@@ -164,6 +163,4 @@ public class PageSummary {
     public String getTimestamp() {
         return timestamp;
     }
-
-
 }
