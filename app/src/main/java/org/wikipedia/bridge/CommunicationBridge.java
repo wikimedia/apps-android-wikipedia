@@ -107,7 +107,7 @@ public class CommunicationBridge {
     private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;
     private Handler incomingMessageHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
         @Override
-        public boolean handleMessage(Message msg) {
+        public boolean handleMessage(@NonNull Message msg) {
             BridgeMessage message = (BridgeMessage) msg.obj;
             if (!eventListeners.containsKey(message.getAction())) {
                 L.e("No such message type registered: " + message.getAction());
@@ -151,6 +151,7 @@ public class CommunicationBridge {
         }
     }
 
+    @SuppressWarnings("unused")
     private class BridgeMessage {
         @Nullable private String action;
         @Nullable private JsonObject data;
