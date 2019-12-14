@@ -22,7 +22,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
