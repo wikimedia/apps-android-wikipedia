@@ -921,6 +921,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 handleInternalLink(title);
             }
 
+            @Override public void onSVGLinkClicked(@NonNull String href) {
+                startGalleryActivity(href);
+            }
+
             @Override public WikiSite getWikiSite() {
                 return model.getTitle().getWikiSite();
             }
@@ -960,17 +964,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("image_clicked", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
             if (href.startsWith("./File:")) {
-                if (app.isOnline()) {
-                    String filename = UriUtil.removeInternalLinkPrefix(href);
-                    WikiSite wiki = model.getTitle().getWikiSite();
-                    requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                            model.getTitleOriginal(), filename, wiki, GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                            ACTIVITY_REQUEST_GALLERY);
-                } else {
-                    Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
-                    snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
-                    snackbar.show();
-                }
+                startGalleryActivity(href);
             } else {
                 linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
             }
@@ -1056,6 +1050,18 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     null, null, null, null);
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+        }
+    }
+
+    private void startGalleryActivity(@NonNull String href) {
+        if (app.isOnline()) {
+            requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                    model.getTitleOriginal(), UriUtil.removeInternalLinkPrefix(href), model.getTitle().getWikiSite(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                    ACTIVITY_REQUEST_GALLERY);
+        } else {
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+            snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
+            snackbar.show();
         }
     }
 
