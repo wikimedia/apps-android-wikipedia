@@ -45,6 +45,7 @@ public class PageSummary {
     @SuppressWarnings("unused") private long revision;
     @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;
     @SuppressWarnings("unused") @Nullable private String timestamp;
+    @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
     public Page toPage(PageTitle title, String leadImageName, String leadImageUrl) {
         return new Page(adjustPageTitle(title),
@@ -162,5 +163,10 @@ public class PageSummary {
     @Nullable
     public String getTimestamp() {
         return timestamp;
+    }
+
+    @Nullable
+    public String getWikiBaseItem() {
+        return wikiBaseItem;
     }
 }

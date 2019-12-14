@@ -74,7 +74,7 @@ public class PageProperties implements Parcelable {
 
         isMainPage = pageSummary.getType().equals(PageSummary.TYPE_MAIN_PAGE);
         isDisambiguationPage = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
-        wikiBaseItem = null;
+        wikiBaseItem = pageSummary.getWikiBaseItem();
         descriptionSource = "central";
     }
 
