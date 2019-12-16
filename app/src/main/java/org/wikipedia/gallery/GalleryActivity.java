@@ -767,7 +767,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 return null;
             }
             // instantiate a new fragment if it doesn't exist
-            if (fragmentArray.get(position) == null && !list.isEmpty()) {
+            if (fragmentArray.get(position) == null) {
                 fragmentArray.put(position, GalleryItemFragment
                         .newInstance(pageTitle, list.get(position)));
             }
