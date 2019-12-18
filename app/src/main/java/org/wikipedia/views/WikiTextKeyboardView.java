@@ -117,11 +117,11 @@ public class WikiTextKeyboardView extends FrameLayout {
         }
         @Nullable String title = null;
         CharSequence selection = editText.getInputConnection().getSelectedText(0);
-        String before;
-        String after;
         if (selection != null && selection.length() > 0 && !selection.toString().contains("[[")) {
             title = trimPunctuation(selection.toString());
         } else {
+            String before;
+            String after;
             if (selection != null && selection.length() > 1) {
                 String selectionStr = selection.toString();
                 before = selectionStr.substring(0, selectionStr.length() / 2);
