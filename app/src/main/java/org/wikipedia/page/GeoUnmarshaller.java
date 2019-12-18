@@ -27,7 +27,7 @@ public final class GeoUnmarshaller {
         return unmarshal(jsonObj);
     }
 
-    @Nullable
+    @NonNull
     public static Location unmarshal(@NonNull JSONObject jsonObj) {
         Location ret = new Location((String) null);
         ret.setLatitude(jsonObj.optDouble(LATITUDE));
