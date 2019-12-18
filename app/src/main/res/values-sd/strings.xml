@@ -280,7 +280,6 @@
   <string name="all_tab_items_closed">سڀ ٽيب بند</string>
   <string name="tool_tip_bookmark_icon_title">پڙھڻ جي فھرست ۾ وجھو</string>
   <string name="tool_tip_bookmark_icon_text">مضمون کي ڪنھن پڙھڻ جي فھرست ۾ وجھڻ لاءِ ڪتاب-نشاني جي نشان کي ڇھو.</string>
-  <string name="tool_tip_share">ڪا دلچسپ ڳالھ نمايان ڪرڻ کانپوءِ، ان کي پنھنجي پسنديده نيٽورڪس تي ونڊي ڏسو!</string>
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
   <string name="tool_tip_toc_title">عنوان جي فھرست تڪڙي رسائي</string>
   <string name="tool_tip_lang_button">ھاڻي توھان ايپ ۾ وڪيپيڊيا جي گھڻين ئي ٻولين ۾ ڳولي ۽ پڙھي سگھو ٿا.\n\n\nوڌيڪ ٻوليون وجھڻ لاءِ آئڪن تي ڇھو.</string>
@@ -640,6 +639,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">ڏسو</string>
   <string name="suggested_edits_feed_card_add_image_caption">عڪس جو عنوان وجھو</string>
   <string name="suggested_edits_feed_card_translate_image_caption">عڪس جو عنوان وجھو (%s)</string>
+  <string name="suggested_edits_snackbar_survey_text">توھان جو سنوارڻ جو تجربو ڪيئن رھيو؟ مھرباني ڪري ھڪ گھڙي ڪڍي ايپ-۾ سنوارڻ بابت سروي ڀريو.</string>
   <string name="suggested_edits_snackbar_survey_action_text">سروي ڏيو</string>
   <string name="suggested_edits_task_action_text_add">وجھو</string>
   <string name="suggested_edits_task_action_text_translate">ترجمايو</string>
@@ -649,7 +649,7 @@
   <string name="suggested_edits_image_captions_task_detail">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_add_descriptions_task_detail">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي. جيڪڏھن توھان ڪجھ وقت ڀاڱيداري ناھي ڪئي، تہ اھو توھان جي آخري ڀاڱيداريءَ جي تاريخ ڏيکاري ٿو.</string>
   <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
   <string name="suggested_edits_editing_tips_link_text">سنوارڻ جا مشورا ۽ شرڪتون</string>
   <string name="suggested_edits_help_page_link_text">صلاح-ڏنل سنوارن جو مدد صفحو</string>
@@ -708,6 +708,7 @@
   <string name="back_to_top">مٿي واپس</string>
   <string name="on_this_day_dialog_next_month">اڳيون مھينو</string>
   <string name="on_this_day_dialog_previous_month">پويون مھينو</string>
+  <string name="on_this_day_open_date_picker">تاريخ کڻندڙ کوليو</string>
   <plurals name="diff_years">
     <item quantity="one">گذريل سال</item>
     <item quantity="other">%d سال اڳ</item>

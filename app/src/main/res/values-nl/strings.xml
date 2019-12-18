@@ -193,7 +193,7 @@
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="preference_title_auto_upload_crash_reports">Crashrapporten verzenden</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Sta de app toe om automatisch crashrapporteren naar HockeyApp, een dienstverlener, te sturen zodat we de omstandigheden van uw crash kunnen analyseren en fouten sneller kunnen herstellen.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Sta de app toe om automatisch crashrapporteren naar een dienstverlener te sturen zodat we de omstandigheden van uw crash kunnen analyseren en fouten sneller kunnen herstellen.</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
   <string name="history_search_list_hint">In geschiedenis zoeken</string>
   <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
@@ -314,7 +314,6 @@
   <string name="all_tab_items_closed">Alle tabbladen gesloten.</string>
   <string name="tool_tip_bookmark_icon_title">Aan leeslijst toevoegen</string>
   <string name="tool_tip_bookmark_icon_text">Klik op het bladwijzerpictogram om het artikel op te slaan in een leeslijst.</string>
-  <string name="tool_tip_share">Na het selecteren van een interessant feit, kunt u het delen op uw favoriete netwerken!</string>
   <string name="page_view_in_browser">Pagina in de browser weergeven</string>
   <string name="tool_tip_toc_title">Snel toegang tot de inhoudsopgave</string>
   <string name="tool_tip_toc_text">U kunt nu naar links vegen om de inhoudsopgave te openen, en klikken en slepen op deze schuifknop om snel naar verschillende secties van een artikel te gaan.</string>
@@ -349,6 +348,7 @@
   <string name="view_link_preview_error_button_dismiss">Afwijzen</string>
   <string name="error_page_does_not_exist">Deze pagina bestaat niet</string>
   <string name="view_wiki_error_message_offline">Er kan geen verbinding gemaakt worden met het internet</string>
+  <string name="view_wiki_error_message_timeout">Kan geen verbinding maken met Wikipedia. Controleer uw netwerkverbinding, of probeer het later opnieuw.</string>
   <string name="reference_title">Referentie %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Afbeeldingen dimmen (in donker thema)</string>
   <string name="preference_title_prefer_offline_content">Offline-inhoud de voorkeur geven</string>
@@ -614,6 +614,7 @@
   <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikelbeschrijving (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeschrijving (%s)</string>
+  <string name="description_edit_add_caption_label">Afbeeldingsbeschrijving</string>
   <string name="description_edit_add_caption_hint">Afbeeldingsbijschrift</string>
   <string name="description_edit_translate_caption_label_per_language">Afbeeldingsbijschrift (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Afbeeldingsbijschriften (%s)</string>
@@ -809,6 +810,7 @@
   <string name="main_drawer_close">Sluiten</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
+  <string name="main_tooltip_action_button">Aan de slag</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuleren</string>

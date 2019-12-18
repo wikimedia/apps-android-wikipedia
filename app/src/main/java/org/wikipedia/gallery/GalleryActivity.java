@@ -76,11 +76,12 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
+import static org.wikipedia.Constants.InvokeSource.GALLERY_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
@@ -127,7 +128,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private WikiSite sourceWiki;
 
     private boolean controlsShowing = true;
-    @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
+    private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
 
     @Nullable private GalleryFunnel funnel;
 
@@ -204,7 +205,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);
         galleryPager.setAdapter(galleryAdapter);
-        pageChangeListener = new GalleryPageChangeListener();
         galleryPager.addOnPageChangeListener(pageChangeListener);
 
         funnel = new GalleryFunnel(app, getIntent().getParcelableExtra(EXTRA_WIKI),
@@ -271,15 +271,23 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     @Override
     public void onDownload(@NonNull GalleryItemFragment item) {
-        funnel.logGallerySave(pageTitle, item.getImageTitle().getDisplayText());
-        downloadReceiver.download(this, item.getImageTitle(), item.getMediaInfo());
-        FeedbackUtil.showMessage(this, R.string.gallery_save_progress);
+        if (funnel != null && item.getImageTitle() != null) {
+            funnel.logGallerySave(pageTitle, item.getImageTitle().getDisplayText());
+        }
+        if (item.getImageTitle() != null && item.getMediaInfo() != null) {
+            downloadReceiver.download(this, item.getImageTitle(), item.getMediaInfo());
+            FeedbackUtil.showMessage(this, R.string.gallery_save_progress);
+        } else {
+            FeedbackUtil.showMessage(this, R.string.err_cannot_save_file);
+        }
     }
 
     @Override
     public void onShare(@NonNull GalleryItemFragment item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title) {
-        funnel.logGalleryShare(pageTitle, item.getImageTitle().getDisplayText());
-        if (bitmap != null) {
+        if (funnel != null && item.getImageTitle() != null) {
+            funnel.logGalleryShare(pageTitle, item.getImageTitle().getDisplayText());
+        }
+        if (bitmap != null && item.getMediaInfo() != null) {
             ShareUtil.shareImage(this, bitmap, new File(ImageUrlUtil.getUrlForPreferredSize(item.getMediaInfo().getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)).getName(),
                     subject, title.getCanonicalUri());
         } else {
@@ -296,7 +304,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this, data.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) == SUGGESTED_EDITS_ADD_CAPTION
+            FeedbackUtil.showMessage(this, data.getSerializableExtra(INTENT_EXTRA_ACTION) == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)));
             layOutGalleryDescription();
@@ -306,6 +314,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
         GalleryItemFragment item = getCurrentItem();
+        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
+            return;
+        }
+
         PageTitle title = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
         String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
         title.setDescription(currentCaption);
@@ -314,7 +326,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 title.getDisplayText(), title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString(), null),
                 item.getMediaInfo().getThumbUrl(), null, null, null, null);
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, SUGGESTED_EDITS_ADD_CAPTION),
+        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, ADD_CAPTION, GALLERY_ACTIVITY),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -322,7 +334,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (app.language().getAppLanguageCodes().size() < 2) {
             return;
         }
+
         GalleryItemFragment item = getCurrentItem();
+        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
+            return;
+        }
+
         PageTitle sourceTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
         PageTitle targetTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1))));
         String currentCaption = item.getMediaInfo().getCaptions().get(app.getAppOrSystemLanguageCode());
@@ -339,7 +356,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 null, null, null, null);
 
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,
-                (sourceSummary.getLang().equals(targetSummary.getLang())) ? SUGGESTED_EDITS_ADD_CAPTION : SUGGESTED_EDITS_TRANSLATE_CAPTION),
+                (sourceSummary.getLang().equals(targetSummary.getLang())) ? ADD_CAPTION : TRANSLATE_CAPTION, GALLERY_ACTIVITY),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
@@ -370,11 +387,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         public void onPageSelected(int position) {
             // the pager has settled on a new position
             layOutGalleryDescription();
-            if (currentPosition != -1 && getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
+            GalleryItemFragment item = getCurrentItem();
+            if (currentPosition != -1 && item != null && item.getImageTitle() != null && funnel != null) {
                 if (position < currentPosition) {
-                    funnel.logGallerySwipeLeft(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
+                    funnel.logGallerySwipeLeft(pageTitle, item.getImageTitle().getDisplayText());
                 } else if (position > currentPosition) {
-                    funnel.logGallerySwipeRight(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
+                    funnel.logGallerySwipeRight(pageTitle, item.getImageTitle().getDisplayText());
                 }
             }
             currentPosition = position;
@@ -388,7 +406,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("controlsShowing", controlsShowing);
         outState.putInt("pagerIndex", galleryPager.getCurrentItem());
@@ -403,8 +421,9 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onBackPressed() {
         // log the "gallery close" event only upon explicit closing of the activity
         // (back button, or home-as-up button in the toolbar)
-        if (getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
-            funnel.logGalleryClose(pageTitle, getCurrentItem().getImageTitle().getDisplayText());
+        GalleryItemFragment item = getCurrentItem();
+        if (item != null && item.getImageTitle() != null && funnel != null) {
+            funnel.logGalleryClose(pageTitle, item.getImageTitle().getDisplayText());
         }
         super.onBackPressed();
     }
@@ -576,10 +595,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         galleryPager.setPageTransformer(false, new GalleryPagerTransformer());
     }
 
+    @Nullable
     private GalleryItemFragment getCurrentItem() {
         if (galleryAdapter.getItem(galleryPager.getCurrentItem()) == null) {
             return null;
         }
+
         return ((GalleryItemFragment) galleryAdapter.getItem(galleryPager.getCurrentItem()));
     }
 
@@ -588,7 +609,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      */
     public void layOutGalleryDescription() {
         GalleryItemFragment item = getCurrentItem();
-        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null) {
+        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
             infoContainer.setVisibility(View.GONE);
             return;
         }
@@ -598,20 +619,20 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(this::updateGalleryDescription)
-                .subscribe(captions -> getCurrentItem().getMediaInfo().setCaptions(captions),
+                .subscribe(captions -> item.getMediaInfo().setCaptions(captions),
                         L::e);
     }
 
     public void updateGalleryDescription() {
         updateProgressBar(false);
+
         GalleryItemFragment item = getCurrentItem();
-        if (item == null) {
+        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
             infoContainer.setVisibility(View.GONE);
             return;
         }
-        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
-        CharSequence descriptionStr;
+        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
@@ -640,7 +661,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-
+        CharSequence descriptionStr;
         if (item.getMediaInfo().getCaptions().containsKey(sourceWiki.languageCode())) {
             descriptionStr = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
         } else {
@@ -696,7 +717,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         private SparseArray<GalleryItemFragment> fragmentArray;
 
         GalleryItemAdapter(AppCompatActivity activity) {
-            super(activity.getSupportFragmentManager());
+            super(activity.getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             fragmentArray = new SparseArray<>();
         }
 
@@ -740,6 +761,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
 
         @Override
+        @Nullable // don't remove this, it needs to be @Nullable.
         public Fragment getItem(int position) {
             if (list.size() <= position || position < 0) {
                 return null;

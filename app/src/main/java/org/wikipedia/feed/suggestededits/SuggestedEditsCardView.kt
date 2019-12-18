@@ -1,15 +1,14 @@
 package org.wikipedia.feed.suggestededits
 
-
 import android.content.Context
 import android.net.Uri
 import android.view.View
 import io.reactivex.annotations.NonNull
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
-import org.wikipedia.Constants.InvokeSource.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.StringUtil
@@ -29,7 +28,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     fun isTranslation(): Boolean {
-        return card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION
+        return card!!.action == TRANSLATE_DESCRIPTION || card!!.action == TRANSLATE_CAPTION
     }
 
     override fun setCard(@NonNull card: SuggestedEditsCard) {
@@ -54,17 +53,17 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         viewArticleSubtitle.visibility = View.GONE
-        when (card!!.invokeSource) {
-            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC -> showTranslateDescriptionUI()
-            FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION -> showAddImageCaptionUI()
-            FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION -> showTranslateImageCaptionUI()
+        when (card!!.action) {
+            TRANSLATE_DESCRIPTION -> showTranslateDescriptionUI()
+            ADD_CAPTION -> showAddImageCaptionUI()
+            TRANSLATE_CAPTION -> showTranslateImageCaptionUI()
             else -> showAddDescriptionUI()
         }
     }
 
     private fun showAddDescriptionUI() {
         viewArticleTitle.text = StringUtil.fromHtml(card!!.sourceSummary!!.displayTitle!!)
-        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_description_button)
+        callToActionText.text = if (card!!.action == TRANSLATE_DESCRIPTION) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_description_button)
         showImageOrExtract()
     }
 
@@ -81,7 +80,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         divider.visibility = View.GONE
         viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
         viewArticleTitle.text = StringUtil.removeNamespace(card!!.sourceSummary!!.displayTitle!!)
-        callToActionText.text = if (card!!.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
+        callToActionText.text = if (card!!.action == TRANSLATE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
     }
 
     private fun showTranslateImageCaptionUI() {
@@ -110,13 +109,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         headerView!!.setTitle(card.title())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(R.color.base30)
-                .setLangCode(if (card.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION || card.invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC) card.wikiSite().languageCode() else "")
+                .setLangCode(if (card.action == TRANSLATE_CAPTION || card.action == TRANSLATE_DESCRIPTION) card.wikiSite().languageCode() else "")
                 .setCard(card)
                 .setCallback(callback)
     }
 
     fun refreshCardContent() {
-        SuggestedEditsFeedClient(card!!.invokeSource).fetchSuggestedEditForType(null, this)
+        SuggestedEditsFeedClient(card!!.action).fetchSuggestedEditForType(null, this)
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {

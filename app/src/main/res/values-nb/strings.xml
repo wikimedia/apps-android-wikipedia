@@ -16,6 +16,7 @@
 * Pmt
 * SuperPotato
 * Tarjeimo
+* VukAnd12
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -293,7 +294,6 @@
   <string name="all_tab_items_closed">Alle faner lukket.</string>
   <string name="tool_tip_bookmark_icon_title">Legg til i leseliste</string>
   <string name="tool_tip_bookmark_icon_text">Trykk på bokmerkeikonet for å lagre artikkelen i en leseliste.</string>
-  <string name="tool_tip_share">Når du har markert in interessant faktaopplysning, prøv gjerne å dele den på et av dine favorittnettverk.</string>
   <string name="page_view_in_browser">Vis side i nettleser</string>
   <string name="tool_tip_toc_title">Hurtigtilgang til innholdsfortegnelsen</string>
   <string name="tool_tip_toc_text">Du kan nå dra fra høyre for å åpne innholdsfortegnelsen, og også trykke og dra rulleknappen for å raskt hoppe til ulike deler av en artikkel.</string>
@@ -629,6 +629,9 @@
   </plurals>
   <string name="suggested_edits_tutorial_message">Velkommen til den nye startsiden for enkel redigering i Wikipedia-appen. Alle bidrag er høyt verdsatt. Lykke til med redigeringen!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_task_action_text_translate">Oversett</string>
+  <string name="suggested_edits_quality_very_good_text">Veldig bra</string>
+  <string name="suggested_edits_quality_good_text">Bra</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>

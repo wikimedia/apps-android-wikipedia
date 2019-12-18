@@ -307,7 +307,6 @@
   <string name="all_tab_items_closed">Všechny záložky zavřeny.</string>
   <string name="tool_tip_bookmark_icon_title">Přidat do seznamu k přečtení</string>
   <string name="tool_tip_bookmark_icon_text">Klepnutím na ikonu záložek uložíte článek do seznamu k přečtení.</string>
-  <string name="tool_tip_share">Po zvýraznění zajímavého faktu jej zkuste sdílet na své oblíbené síti!</string>
   <string name="page_view_in_browser">Zobrazit v prohlížeči</string>
   <string name="tool_tip_toc_title">Obsah rychlého přístupu</string>
   <string name="tool_tip_toc_text">Nyní můžete přejet prstem doleva a zobrazit obsah článku. Klepnutím a potáhnutím tímto tlačítkem můžete rychle přejít na různé části článku.</string>
@@ -718,7 +717,7 @@
   <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje datum vašeho posledního příspěvku.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">Na základě toho, kolikrát byly vaše příspěvky zrušeny. Vrácené editace: %d.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny jinými uživateli. Vrácené editace: %d.</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.\n\nNa níže uvedeném odkazu se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.\n\nPřečtěte si, co to znamená, pomocí odkazu níže.</string>
   <string name="suggested_edits_ip_blocked_message">IP adrese (nebo rozsahu IP adres), kterou používáte, je blokována editace Wikipedie. Další informace o tom, co to znamená, naleznete na níže uvedeném odkazu.</string>

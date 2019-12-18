@@ -5,12 +5,13 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 
 class SuggestedEditsCard(wiki: WikiSite,
-                         val invokeSource: InvokeSource,
+                         val action: Action,
                          val sourceSummary: SuggestedEditsSummary?,
                          val targetSummary: SuggestedEditsSummary?,
                          val age: Int) : WikiSiteCard(wiki) {
@@ -24,6 +25,6 @@ class SuggestedEditsCard(wiki: WikiSite,
     }
 
     fun logImpression() {
-        SuggestedEditsFunnel.get(InvokeSource.FEED).impression(invokeSource)
+        SuggestedEditsFunnel.get(InvokeSource.FEED).impression(action)
     }
 }

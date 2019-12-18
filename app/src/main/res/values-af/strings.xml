@@ -226,7 +226,6 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nee</string>
   <string name="button_close_tab">Maak oortjie toe</string>
-  <string name="tool_tip_share">Na u \'n interessante feit uitgelig het, probeer dit deel op u gunstelling netwerke!</string>
   <string name="page_view_in_browser">Bekyk blad in blaaier</string>
   <string name="error_response_malformed">Antwoord van die bediener was nie reg geformateer nie.</string>
   <string name="error_unknown">\'n Onbekende fout het voorgekom.</string>
