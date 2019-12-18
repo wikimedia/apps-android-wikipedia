@@ -7,9 +7,9 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
+import retrofit2.Response
 import java.util.*
 import java.util.concurrent.Semaphore
-import retrofit2.Response
 
 object MissingDescriptionProvider {
     private val mutex : Semaphore = Semaphore(1)
@@ -28,7 +28,7 @@ object MissingDescriptionProvider {
 
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
-    fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<Response<PageSummary>>? {
+    fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<Response<PageSummary>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedTitle = ""
             if (articlesWithMissingDescriptionCacheLang != wiki.languageCode()) {

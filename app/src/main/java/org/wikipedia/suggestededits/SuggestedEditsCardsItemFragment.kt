@@ -206,8 +206,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
             else -> {
                 disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))!!
-                        .subscribeOn(Schedulers.io())!!
-                        .observeOn(AndroidSchedulers.mainThread())!!
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummaryResponse ->
                             val pageSummary = pageSummaryResponse.body()!!
                             sourceSummary = SuggestedEditsSummary(
@@ -221,7 +221,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                     null, null, null
                             )
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, { this.setErrorState(it) }))
             }
         }
     }

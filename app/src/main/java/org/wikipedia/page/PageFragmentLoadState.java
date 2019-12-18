@@ -266,15 +266,18 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPage(PageSummary pageSummary, MediaList mediaList) {
+    private void createPage(@NonNull PageSummary pageSummary, @NonNull MediaList mediaList) {
+        String leadImageUrl = null, leadImageName = null;
+
         if (!fragment.isAdded()) {
             return;
         }
         List<MediaListItem> items = mediaList.getItems("image");
 
-        String leadImageUrl = "https:" + items.get(0).getImageUrl(DimenUtil.calculateLeadImageWidth());
-
-        String leadImageName = items.get(0).getTitle().replace("File:", "").trim();
+        if (items.get(0) != null) {
+            leadImageUrl = "https:" + items.get(0).getImageUrl(DimenUtil.calculateLeadImageWidth());
+            leadImageName = items.get(0).getTitle().replace("File:", "").trim();
+        }
         Page page = pageSummary.toPage(model.getTitle(), leadImageName, leadImageUrl);
         model.setPage(page);
         model.setTitle(page.getTitle());

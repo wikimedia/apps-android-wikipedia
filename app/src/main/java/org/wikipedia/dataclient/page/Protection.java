@@ -3,6 +3,8 @@ package org.wikipedia.dataclient.page;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,11 +12,10 @@ import java.util.Set;
 /** Protection settings for a page */
 public class Protection {
     @Nullable private String edit;
-    @Nullable private String move;
 
     @Nullable
     public String getFirstAllowedEditorRole() {
-        return edit == null || edit.isEmpty() ? "" : edit;
+        return StringUtils.defaultString(edit);
     }
 
     @NonNull
