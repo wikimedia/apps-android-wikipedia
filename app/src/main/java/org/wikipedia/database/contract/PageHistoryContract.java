@@ -39,12 +39,12 @@ public final class PageHistoryContract {
     public interface PageWithImage extends Page {
         String TABLES = (":tbl LEFT OUTER JOIN :pageImagesTbl "
                       + "ON (:tbl.site = :pageImagesTbl.site "
-                      + "AND :tbl.displayTitle = :pageImagesTbl.displayTitle "
+                      + "AND :tbl.apiTitle = :pageImagesTbl.apiTitle "
                       + "AND :tbl.lang = :pageImagesTbl.lang )")
                 .replaceAll(":tbl.site", SITE.qualifiedName())
                 .replaceAll(":pageImagesTbl.site", PageImageHistoryContract.Col.SITE.qualifiedName())
-                .replaceAll(":tbl.displayTitle", DISPLAY_TITLE.qualifiedName())
-                .replaceAll(":pageImagesTbl.displayTitle", PageImageHistoryContract.Col.DISPLAY_TITLE.qualifiedName())
+                .replaceAll(":tbl.apiTitle", API_TITLE.qualifiedName())
+                .replaceAll(":pageImagesTbl.apiTitle", PageImageHistoryContract.Col.API_TITLE.qualifiedName())
                 .replaceAll(":tbl.lang", LANG.qualifiedName())
                 .replaceAll(":pageImagesTbl.lang", PageImageHistoryContract.Col.LANG.qualifiedName())
                 .replaceAll(":tbl", PageHistoryContract.TABLE)
