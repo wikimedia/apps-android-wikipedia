@@ -45,7 +45,7 @@
   <string name="history_items_deleted">%d artiklar togs bort från historiken</string>
   <string name="history_item_delete_undo">Ångra</string>
   <string name="notification_archive_undo">Ångra</string>
-  <string name="app_settings">Appinställningar</string>
+  <string name="app_settings">Applikationsinställningar</string>
   <string name="dialog_title_clear_history">Rensa läsarhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
