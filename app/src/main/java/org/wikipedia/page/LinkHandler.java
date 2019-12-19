@@ -37,7 +37,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     public abstract void onInternalLinkClicked(@NonNull PageTitle title);
 
-    public abstract void onSVGLinkClicked(@NonNull String href);
+    public abstract void onMediaLinkClicked(@NonNull String href);
 
     public abstract WikiSite getWikiSite();
 
@@ -99,8 +99,9 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             PageTitle title = TextUtils.isEmpty(titleString)
                     ? site.titleForInternalLink(uri.getPath())
                     : PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            if (title.isFilePage() && title.getConvertedText().endsWith(".svg")) {
-                onSVGLinkClicked(href);
+            if (title.isFilePage() && (title.getConvertedText().endsWith(".svg")
+                    || title.getConvertedText().endsWith(".ogg"))) {
+                onMediaLinkClicked(href);
             } else {
                 onInternalLinkClicked(title);
             }

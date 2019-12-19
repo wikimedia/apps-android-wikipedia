@@ -921,7 +921,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 handleInternalLink(title);
             }
 
-            @Override public void onSVGLinkClicked(@NonNull String href) {
+            @Override public void onMediaLinkClicked(@NonNull String href) {
                 startGalleryActivity(href);
             }
 
