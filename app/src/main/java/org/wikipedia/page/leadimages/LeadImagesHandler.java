@@ -39,9 +39,10 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_ADD_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS_TRANSLATE_CAPTION;
+import static org.wikipedia.Constants.InvokeSource.LEAD_IMAGE;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
@@ -212,7 +213,7 @@ public class LeadImagesHandler {
                 if (callToActionIsTranslation ? (callToActionTargetSummary != null && callToActionSourceSummary != null) : callToActionSourceSummary != null) {
                     getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(),
                             callToActionIsTranslation ? callToActionTargetSummary.getPageTitle() : callToActionSourceSummary.getPageTitle(), null,
-                            callToActionSourceSummary, callToActionTargetSummary, callToActionIsTranslation ? SUGGESTED_EDITS_TRANSLATE_CAPTION : SUGGESTED_EDITS_ADD_CAPTION),
+                            callToActionSourceSummary, callToActionTargetSummary, callToActionIsTranslation ? TRANSLATE_CAPTION : ADD_CAPTION, LEAD_IMAGE),
                             ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT);
                 }
             }

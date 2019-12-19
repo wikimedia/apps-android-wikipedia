@@ -4,6 +4,7 @@ import android.content.Context
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageViewModel
@@ -44,16 +45,19 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
+        val topActionBarHeight = (app.getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
         return String.format("{" +
                 "   \"platform\": \"pcs.c1.Platforms.ANDROID\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
                 "   \"theme\": \"${app.currentTheme.funnelName}\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
+                "   \"leadImageHeight\": \"%dpx\"," +
                 "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled()}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
-                "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}" +
-                "}", (leadImageHeightForDevice() / getDensityScalar()).roundToInt() + 16, 16, 48, 16)
+                "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}," +
+                "   \"userGroups\": \"${AccountUtil.getGroups()}\"" +
+                "}", topActionBarHeight + 16, 16, 48, 16, (leadImageHeightForDevice() / getDensityScalar()).roundToInt() - topActionBarHeight)
     }
 
     @JvmStatic

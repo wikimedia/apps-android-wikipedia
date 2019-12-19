@@ -16,6 +16,7 @@
 * Pmt
 * SuperPotato
 * Tarjeimo
+* VukAnd12
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -628,6 +629,9 @@
   </plurals>
   <string name="suggested_edits_tutorial_message">Velkommen til den nye startsiden for enkel redigering i Wikipedia-appen. Alle bidrag er høyt verdsatt. Lykke til med redigeringen!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_task_action_text_translate">Oversett</string>
+  <string name="suggested_edits_quality_very_good_text">Veldig bra</string>
+  <string name="suggested_edits_quality_good_text">Bra</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>

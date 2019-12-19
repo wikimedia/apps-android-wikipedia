@@ -26,6 +26,8 @@ import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
+
 public abstract class OkHttpWebViewClient extends WebViewClient {
 
     /*
@@ -43,6 +45,10 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     @Override public WebResourceResponse shouldInterceptRequest(WebView view,
                                                                 WebResourceRequest request) {
         if (!SUPPORTED_SCHEMES.contains(request.getUrl().getScheme())) {
+            return null;
+        }
+
+        if (request.getUrl().toString().contains(PAGE_HTML_PREVIEW_ENDPOINT)) {
             return null;
         }
 

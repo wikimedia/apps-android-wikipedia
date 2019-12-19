@@ -5,10 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.Constants.InvokeSource.*
+import org.wikipedia.Constants.INTENT_EXTRA_ACTION
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -18,12 +19,12 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource))
+        supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action))
         setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.suggestions_background_color))
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
-        return newInstance(intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource)
+        return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -42,15 +43,15 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         }
     }
 
-    private fun getActionBarTitleRes(invokeSource: InvokeSource): Int {
-        return when(invokeSource) {
-            SUGGESTED_EDITS_TRANSLATE_DESC -> {
+    private fun getActionBarTitleRes(action: Action): Int {
+        return when(action) {
+            TRANSLATE_DESCRIPTION -> {
                 R.string.suggested_edits_translate_descriptions
             }
-            SUGGESTED_EDITS_ADD_CAPTION -> {
+            ADD_CAPTION -> {
                 R.string.suggested_edits_add_image_captions
             }
-            SUGGESTED_EDITS_TRANSLATE_CAPTION -> {
+            TRANSLATE_CAPTION -> {
                 R.string.suggested_edits_translate_image_captions
             }
             else -> R.string.suggested_edits_add_descriptions
@@ -58,11 +59,10 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
     }
 
     companion object {
-        const val EXTRA_SOURCE = "source"
         const val EXTRA_SOURCE_ADDED_CONTRIBUTION = "addedContribution"
 
-        fun newIntent(context: Context, source: InvokeSource): Intent {
-            return Intent(context, SuggestedEditsCardsActivity::class.java).putExtra(EXTRA_SOURCE, source)
+        fun newIntent(context: Context, action: Action): Intent {
+            return Intent(context, SuggestedEditsCardsActivity::class.java).putExtra(INTENT_EXTRA_ACTION, action)
         }
     }
 }

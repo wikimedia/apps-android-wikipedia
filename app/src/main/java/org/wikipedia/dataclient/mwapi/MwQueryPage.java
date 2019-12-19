@@ -40,6 +40,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private String convertedTo;
     @Nullable private Map<String, String> varianttitles;
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
+    @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
 
     @NonNull public String title() {
         return StringUtils.defaultString(title);
@@ -224,5 +225,11 @@ public class MwQueryPage extends BaseModel {
         public boolean hidden() {
             return hidden;
         }
+    }
+
+    public static class ImageLabel {
+        @SerializedName("wikidata_id") @Nullable String wikidataId;
+        @Nullable String state;
+        @Nullable String label;
     }
 }
