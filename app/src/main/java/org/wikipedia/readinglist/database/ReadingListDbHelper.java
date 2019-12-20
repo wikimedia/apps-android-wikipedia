@@ -438,10 +438,11 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + ReadingListPageContract.Col.TITLE.getName() + " = ? AND "
+                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
+                        + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
-                        Integer.toString(title.namespace().code()), title.getDisplayText(),
+                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getPrefixedText(),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
             if (cursor.moveToFirst()) {
@@ -470,10 +471,11 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + ReadingListPageContract.Col.TITLE.getName() + " = ? AND "
+                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
+                        + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
-                        Integer.toString(title.namespace().code()), title.getDisplayText(),
+                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getPrefixedText(),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
             while (cursor.moveToNext()) {
@@ -673,11 +675,12 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
                         + ReadingListPageContract.Col.NAMESPACE.getName() + " = ? AND "
-                        + ReadingListPageContract.Col.TITLE.getName() + " = ? AND "
+                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? OR "
+                        + ReadingListPageContract.Col.API_TITLE.getName() + " = ? ) AND "
                         + ReadingListPageContract.Col.LISTID.getName() + " = ? AND "
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
-                        Integer.toString(title.namespace().code()), title.getDisplayText(),
+                        Integer.toString(title.namespace().code()), title.getDisplayText(), title.getPrefixedText(),
                         Long.toString(list.id()),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
