@@ -1,5 +1,7 @@
 package org.wikipedia.readinglist.database;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -23,7 +25,8 @@ public class ReadingListPage implements Serializable {
     private long listId;
     @NonNull private final WikiSite wiki;
     @NonNull private final Namespace namespace;
-    @NonNull private final String title;
+    @NonNull private String displayTitle;
+    @NonNull private final String apiTitle;
     @Nullable private String description;
     @Nullable private String thumbUrl;
 
@@ -33,7 +36,7 @@ public class ReadingListPage implements Serializable {
     private boolean offline;
     private int status;
     private long sizeBytes;
-
+    private String lang;
     private long revId;
     private long remoteId;
 
@@ -42,17 +45,19 @@ public class ReadingListPage implements Serializable {
     @Nullable private transient String accentAndCaseInvariantTitle;
 
     public ReadingListPage(@NonNull WikiSite wiki, @NonNull Namespace namespace,
-                           @NonNull String title, long listId) {
+                           @NonNull String displayTitle, @NonNull String apiTitle, long listId) {
         this.wiki = wiki;
         this.namespace = namespace;
-        this.title = title;
+        this.displayTitle = displayTitle;
+        this.apiTitle = TextUtils.isEmpty(apiTitle) ? displayTitle : apiTitle;
         this.listId = listId;
     }
 
     public ReadingListPage(@NonNull PageTitle title) {
         this.wiki = title.getWikiSite();
         this.namespace = title.namespace();
-        this.title = title.getDisplayText();
+        this.displayTitle = title.getDisplayText();
+        this.apiTitle = title.getPrefixedText();
         this.thumbUrl = title.getThumbUrl();
         this.description = title.getDescription();
         listId = -1;
@@ -64,7 +69,7 @@ public class ReadingListPage implements Serializable {
     }
 
     public static PageTitle toPageTitle(@NonNull ReadingListPage page) {
-        return new PageTitle(page.title(), page.wiki(), page.thumbUrl(), page.description());
+        return new PageTitle(page.apiTitle(), page.wiki(), page.thumbUrl(), page.description(), page.title());
     }
 
     public long id() {
@@ -88,12 +93,19 @@ public class ReadingListPage implements Serializable {
         return namespace;
     }
     @NonNull public String title() {
-        return title;
+        return displayTitle;
+    }
+    public void title(String title) {
+        this.displayTitle = title;
+    }
+
+    @NonNull public String apiTitle() {
+        return apiTitle;
     }
 
     @NonNull public String accentAndCaseInvariantTitle() {
         if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase();
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).toLowerCase();
         }
         return accentAndCaseInvariantTitle;
     }
@@ -142,6 +154,13 @@ public class ReadingListPage implements Serializable {
     }
     public void revId(long revId) {
         this.revId = revId;
+    }
+
+    @NonNull public String lang() {
+        return lang;
+    }
+    public void lang(String lang) {
+        this.lang = lang;
     }
 
     public long remoteId() {
