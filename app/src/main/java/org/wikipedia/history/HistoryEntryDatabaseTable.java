@@ -39,7 +39,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
         contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
-        contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getPrefixedText());
+        contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getText());
         contentValues.put(Col.DISPLAY_TITLE.getName(), obj.getTitle().getDisplayText());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
@@ -79,7 +79,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
                 obj.getTitle().getWikiSite().authority(),
                 obj.getTitle().getWikiSite().languageCode(),
                 obj.getTitle().getNamespace(),
-                obj.getTitle().getDisplayText()
+                obj.getTitle().getText()
         };
     }
 
