@@ -1282,7 +1282,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     private Observable<References> getReferences() {
-        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getConvertedText()) : Observable.just(references);
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText()) : Observable.just(references);
     }
 
     void openImageInGallery(@NonNull String language) {

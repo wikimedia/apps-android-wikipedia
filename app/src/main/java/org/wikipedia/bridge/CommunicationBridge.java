@@ -74,7 +74,7 @@ public class CommunicationBridge {
         communicationBridgeListener.getWebView().loadUrl(wikiUrl
                 + RestService.REST_API_PREFIX
                 + RestService.PAGE_HTML_ENDPOINT
-                + UriUtil.encodeURL(pageTitle.getConvertedText()));
+                + UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
     public void cleanup() {
