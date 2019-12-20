@@ -32,13 +32,13 @@ public class UpdateHistoryTask implements Action {
 
     private int getPreviousTimeSpent(@NonNull DatabaseClient<HistoryEntry> client) {
         int timeSpent = 0;
-        String selection = ":siteCol == ? and :langCol == ? and :displayTitleCol == ?"
+        String selection = ":siteCol == ? and :langCol == ? and :apiTitleCol == ?"
                 .replaceAll(":siteCol", PageHistoryContract.Page.SITE.qualifiedName())
                 .replaceAll(":langCol", PageHistoryContract.Page.LANG.qualifiedName())
-                .replaceAll(":displayTitleCol", PageHistoryContract.Page.DISPLAY_TITLE.qualifiedName());
+                .replaceAll(":apiTitleCol", PageHistoryContract.Page.API_TITLE.qualifiedName());
         String[] selectionArgs = new String[]{entry.getTitle().getWikiSite().authority(),
                 entry.getTitle().getWikiSite().languageCode(),
-                entry.getTitle().getDisplayText()};
+                entry.getTitle().getText()};
         Cursor cursor = client.select(selection, selectionArgs, null);
         if (cursor.moveToFirst()) {
             timeSpent = PageHistoryContract.Col.TIME_SPENT.val(cursor);
