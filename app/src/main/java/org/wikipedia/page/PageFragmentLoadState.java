@@ -248,7 +248,7 @@ public class PageFragmentLoadState {
                         }));
 
         // And finally, start blasting the HTML into the WebView.
-        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getConvertedText());
+        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle().getPrefixedText());
     }
 
     private void showPageOfflineMessage(@NonNull String dateHeader) {
