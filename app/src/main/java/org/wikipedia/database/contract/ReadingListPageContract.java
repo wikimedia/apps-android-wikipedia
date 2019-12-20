@@ -31,7 +31,7 @@ public interface ReadingListPageContract {
         LongColumn SIZEBYTES = new LongColumn(TABLE, "sizeBytes", "integer");
         LongColumn REMOTEID = new LongColumn(TABLE, "remoteId", "integer not null");
 
-        String[] SELECTION = DbUtil.qualifiedNames(DISPLAY_TITLE);
+        String[] SELECTION = DbUtil.qualifiedNames(API_TITLE);
         String[] ALL = DbUtil.qualifiedNames(ID, LISTID, SITE, LANG, NAMESPACE, DISPLAY_TITLE, API_TITLE, MTIME, ATIME,
                 THUMBNAIL_URL, DESCRIPTION, REVID, OFFLINE, STATUS, SIZEBYTES, REMOTEID);
     }

@@ -20,7 +20,7 @@ public interface PageImageHistoryContract {
         StrColumn NAMESPACE = new StrColumn(TABLE, "namespace", "string");
         StrColumn IMAGE_NAME = new StrColumn(TABLE, "imageName", "string");
 
-        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, DISPLAY_TITLE);
+        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, API_TITLE);
     }
 
     interface Image extends Col {
