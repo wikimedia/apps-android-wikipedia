@@ -1000,12 +1000,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("media_clicked", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
-            String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
-            WikiSite wiki = model.getTitle().getWikiSite();
-            requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitleOriginal(), filename, wiki,
-                    GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                    ACTIVITY_REQUEST_GALLERY);
+            startGalleryActivity(href);
         });
         bridge.addListener("pronunciation_clicked", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
@@ -1085,8 +1080,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void startGalleryActivity(@NonNull String href) {
         if (app.isOnline()) {
             requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitleOriginal(), UriUtil.removeInternalLinkPrefix(href), model.getTitle().getWikiSite(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                    ACTIVITY_REQUEST_GALLERY);
+                    model.getTitleOriginal(), StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href)),
+                    model.getTitle().getWikiSite(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());

@@ -37,7 +37,7 @@
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Ehdotetut muokkaukset</string>
+  <string name="nav_item_suggested_edits">Ehdotetut muokkaukset</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="card_offline_error_retry">Yritä uudelleen</string>
@@ -188,7 +188,7 @@
   <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
   <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
   <string name="preference_title_auto_upload_crash_reports">Lähetä kaatumisilmoituksia</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia HockeyAppille tai kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
   <string name="history_search_list_hint">Hae historiasta</string>
   <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>
@@ -347,6 +347,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
   <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
   <string name="preference_summary_prefer_offline_content">Säästä datan käyttöä lataamalla offline-tilassa käytettävissä olevat artikkelit mieluummin kuin aina ladata viimeisin versio artikkelista</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Järjestelmäasetuksien mukainen</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
@@ -362,7 +363,7 @@
   <string name="color_theme_black">Musta</string>
   <string name="color_theme_sepia">Seepia</string>
   <string name="color_theme_test_title">Näyteteksti</string>
-  <string name="color_theme_test_text">Vedä liukusäädintä muuttaaksesi tekstin kokoa jota käytetään luettaessa artikkeleita. Asettaaksesi tekstin koon kokonaan muualle sovellukseen, muuta järjestelmäsi tekstin kokoa.</string>
+  <string name="color_theme_test_text">Muuta artikkelin tekstin kokoa vetämällä liukusäädintä. Sovelluksen käyttöliittymän tekstin kokoa muutetaan käyttöjärjestelmän asetuksista.</string>
   <string name="preference_title_app_theme">Sovelluksen teema</string>
   <string name="preference_summary_color_theme">Vaihda sovelluksen tummaan väriteemaan</string>
   <string name="text_size_increase">Pienennä tekstin kokoa</string>
@@ -696,6 +697,7 @@
   <string name="suggested_edits_task_action_text_add">Lisää</string>
   <string name="suggested_edits_task_action_text_translate">Käännä</string>
   <string name="suggested_edits_image_captions">Kuvatekstit</string>
+  <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_quality_very_good_text">Oikein hyvä</string>
   <string name="suggested_edits_quality_good_text">Hyvä</string>
   <string name="suggested_edits_quality_okay_text">Ok</string>
@@ -705,6 +707,8 @@
     <item quantity="one">%d päivä</item>
     <item quantity="other">%d päivää</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Muokattu viimeksi</string>
+  <string name="suggested_edits_last_edited_never">Ei koskaan</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
