@@ -11,7 +11,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -30,8 +29,6 @@ public class PageSummary {
 
     @Nullable private String type;
     @Nullable private Titles titles;
-    @SuppressWarnings("unused,NullableProblems") @Required
-    @NonNull private String title;
     @Nullable private NamespaceContainer namespace;
     @Nullable private String extract;
     @Nullable @SerializedName("extract_html") private String extractHtml;
@@ -40,11 +37,10 @@ public class PageSummary {
     @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @Nullable private String lang;
     private int pageid;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String displaytitle;
-    @SuppressWarnings("unused") @Nullable private String redirected;
-    @SuppressWarnings("unused") private long revision;
-    @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;
-    @SuppressWarnings("unused") @Nullable private String timestamp;
+
+    private long revision;
+    @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;
+    @Nullable private String timestamp;
     @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
     public Page toPage(PageTitle title, String leadImageName, String leadImageUrl) {
@@ -126,7 +122,7 @@ public class PageSummary {
     }
 
     private static class Thumbnail {
-        @SuppressWarnings("unused") private String source;
+        private String source;
 
         public String getUrl() {
             return source;
@@ -134,8 +130,8 @@ public class PageSummary {
     }
 
     private static class NamespaceContainer {
-        @SuppressWarnings("unused") private int id;
-        @SuppressWarnings("unused") @Nullable private String text;
+        private int id;
+        @Nullable private String text;
 
         public int id() {
             return id;

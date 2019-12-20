@@ -21,7 +21,9 @@ public class Protection {
     @NonNull
     public Set<String> getEditRoles() {
         Set<String> roleSet = new HashSet<>();
-        roleSet.add(edit);
-        return edit != null ? Collections.unmodifiableSet(roleSet) : Collections.emptySet();
+        if (edit != null) {
+            roleSet.add(edit);
+        }
+        return Collections.unmodifiableSet(roleSet);
     }
 }

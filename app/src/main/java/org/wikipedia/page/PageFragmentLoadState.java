@@ -235,8 +235,8 @@ public class PageFragmentLoadState {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
                             createPage(pair.first.body(), pair.second);
+                            //Logic to detect redirected page
                             bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
-
                             if ((pair.first.raw().cacheResponse() != null && pair.first.raw().networkResponse() == null)
                                     || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.first.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                                 showPageOfflineMessage(Objects.requireNonNull(pair.first.raw().header("date", "")));
