@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
-import android.util.Pair;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,25 +10,20 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.edit.EditSectionActivity;
-import org.wikipedia.gallery.MediaList;
-import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
 import java.text.ParseException;
-import java.util.List;
 import java.util.Objects;
 
 import io.reactivex.Completable;
@@ -229,17 +223,18 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
 
 
-        disposables.add(Observable.zip(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null),
-                ServiceFactory.getRest(model.getTitle().getWikiSite()).getMediaList(model.getTitle().getConvertedText()), Pair::new)
+        disposables.add(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(pair -> {
-                            createPage(pair.first.body(), pair.second);
-                            //Logic to detect redirected page
+                .subscribe(pageSummaryResponse -> {
+                            if (pageSummaryResponse.body() != null) {
+                                createPage(pageSummaryResponse.body());
+                            }
+
                             bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
-                            if ((pair.first.raw().cacheResponse() != null && pair.first.raw().networkResponse() == null)
-                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.first.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                                showPageOfflineMessage(Objects.requireNonNull(pair.first.raw().header("date", "")));
+                            if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
+                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                                showPageOfflineMessage(Objects.requireNonNull(pageSummaryResponse.raw().header("date", "")));
                             }
                         },
                         throwable -> {
@@ -266,19 +261,12 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPage(@NonNull PageSummary pageSummary, @NonNull MediaList mediaList) {
-        String leadImageUrl = null, leadImageName = null;
-
+    private void createPage(@NonNull PageSummary pageSummary) {
         if (!fragment.isAdded()) {
             return;
         }
-        List<MediaListItem> items = mediaList.getItems("image");
 
-        if (items.get(0) != null) {
-            leadImageUrl = "https:" + items.get(0).getImageUrl(DimenUtil.calculateLeadImageWidth());
-            leadImageName = items.get(0).getTitle().replace("File:", "").trim();
-        }
-        Page page = pageSummary.toPage(model.getTitle(), leadImageName, leadImageUrl);
+        Page page = pageSummary.toPage(model.getTitle());
         model.setPage(page);
         model.setTitle(page.getTitle());
 

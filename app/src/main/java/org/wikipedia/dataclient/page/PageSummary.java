@@ -43,9 +43,9 @@ public class PageSummary {
     @Nullable private String timestamp;
     @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
-    public Page toPage(PageTitle title, String leadImageName, String leadImageUrl) {
+    public Page toPage(PageTitle title) {
         return new Page(adjustPageTitle(title),
-                toPageProperties(leadImageName, leadImageUrl));
+                toPageProperties());
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
@@ -56,10 +56,9 @@ public class PageSummary {
         return title;
     }
 
-    private PageProperties toPageProperties(String leadImageName, String leadImageUrl) {
-        return new PageProperties(this, leadImageName, leadImageUrl);
+    private PageProperties toPageProperties() {
+        return new PageProperties(this);
     }
-
 
     @NonNull
     public String getApiTitle() {
@@ -164,5 +163,14 @@ public class PageSummary {
     @Nullable
     public String getWikiBaseItem() {
         return wikiBaseItem;
+    }
+
+    @Nullable
+    public String getLeadImageName() {
+        if (getOriginalImageUrl() == null) {
+            return null;
+        }
+        String[] originalImageSplitArray = getOriginalImageUrl().split("/");
+        return originalImageSplitArray[originalImageSplitArray.length - 1];
     }
 }

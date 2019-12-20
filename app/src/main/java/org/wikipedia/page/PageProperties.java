@@ -52,7 +52,7 @@ public class PageProperties implements Parcelable {
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
-    public PageProperties(@NonNull PageSummary pageSummary, @Nullable String leadImageName, @Nullable String leandImageUrl) {
+    public PageProperties(@NonNull PageSummary pageSummary) {
         pageId = pageSummary.getPageId();
         namespace = pageSummary.getNamespace();
         revisionId = pageSummary.getRevision();
@@ -60,8 +60,8 @@ public class PageProperties implements Parcelable {
         geo = pageSummary.getGeo();
         languageCount = 1;
         lastModified = new Date();
-        this.leadImageName = leadImageName;
-        this.leadImageUrl = leandImageUrl;
+        this.leadImageName = pageSummary.getLeadImageName();
+        this.leadImageUrl = pageSummary.getThumbnailUrl();
         String lastModifiedText = pageSummary.getTimestamp();
         if (lastModifiedText != null) {
             try {
