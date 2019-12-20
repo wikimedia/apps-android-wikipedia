@@ -171,7 +171,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
             if (tab.equals(NavTab.SUGGESTED_EDITS)) {
                 getFragment().hideNavTabOverlayLayout();
-                Prefs.setShouldShowSuggestedEditsTooltip(false);
             }
 
             hamburgerAndWordmarkLayout.setVisibility(GONE);
