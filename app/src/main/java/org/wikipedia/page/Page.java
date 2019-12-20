@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class Page {
     @NonNull private final PageTitle title;
-    @NonNull private List<Section> sections;
+    @NonNull private List<Section> sections = new ArrayList<>();
     @NonNull private final PageProperties pageProperties;
 
     /** Regular constructor */
