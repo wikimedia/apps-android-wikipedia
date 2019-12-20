@@ -19,6 +19,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.RestService;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -70,7 +71,10 @@ public class CommunicationBridge {
     public void resetHtml(@NonNull String wikiUrl, @NonNull PageTitle pageTitle) {
         isDOMReady = false;
         pendingJSMessages.clear();
-        communicationBridgeListener.getWebView().loadUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getConvertedText());
+        communicationBridgeListener.getWebView().loadUrl(wikiUrl
+                + RestService.REST_API_PREFIX
+                + RestService.PAGE_HTML_ENDPOINT
+                + UriUtil.encodeURL(pageTitle.getConvertedText()));
     }
 
     public void cleanup() {
