@@ -63,7 +63,7 @@
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Предложение отредактировать</string>
+  <string name="nav_item_suggested_edits">Предложенные правки</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="card_offline_error_retry">Повторить</string>
@@ -214,7 +214,7 @@
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису HockeyApp, чтобы проблема, вызвавшая аварию, была рассмотрена в Викимедиа и была исправлена быстрее.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису, чтобы мы могли проверить проблему, вызвавшую аварию, и исправить ошибку быстрее и проще.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
   <string name="history_search_list_hint">История поиска</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
@@ -738,6 +738,10 @@
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
   <string name="suggested_edits_image_captions">Описания изображений</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d день</item>
+    <item quantity="other">%d дня</item>
+  </plurals>
   <string name="suggested_edits_last_edited_never">Никогда</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
