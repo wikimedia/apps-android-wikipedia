@@ -29,10 +29,6 @@ public class Page {
         return sections;
     }
 
-    public String getConvertedTitle() {
-        return title.getConvertedText();
-    }
-
     public String getDisplayTitle() {
         return pageProperties.getDisplayTitle();
     }

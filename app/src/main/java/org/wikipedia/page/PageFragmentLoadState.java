@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.util.Pair;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
@@ -31,6 +33,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
@@ -228,21 +231,29 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient()
-                .lead(model.getTitle().getWikiSite(), model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getCurEntry().getReferrer(), model.getTitle().getConvertedText(), calculateLeadImageWidth())
+        Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(model.getTitle().getWikiSite())
+                .getSummary(null, model.getTitle().getPrefixedText())
+                .flatMap(response -> Observable.just(response.getDisplayTitle()))
+                .onErrorReturnItem(model.getTitle().getDisplayText()); // prevent "redirected" or variant issue
+
+        Observable<Response<PageLead>> pageLeadObservable = new PageClient().lead(model.getTitle().getWikiSite(),
+                model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth());
+
+        disposables.add(Observable
+                .zip(pageSummaryDisplayTextObservable, pageLeadObservable, Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(rsp  -> {
+                .subscribe(pair -> {
                     app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = rsp.body();
-                    pageLoadLeadSectionComplete(lead);
+                    PageLead lead = pair.second.body();
+                    pageLoadLeadSectionComplete(lead, pair.first);
 
                     bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
 
-                    if ((rsp.raw().cacheResponse() != null && rsp.raw().networkResponse() == null)
-                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(rsp.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                        showPageOfflineMessage(rsp.raw().header("date", ""));
+                    if ((pair.second.raw().cacheResponse() != null && pair.second.raw().networkResponse() == null)
+                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.second.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                        showPageOfflineMessage(pair.second.raw().header("date", ""));
                     }
                 }, t -> {
                     L.e("PageLead error: ", t);
@@ -273,7 +284,7 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageLead pageLead) {
+    private void pageLoadLeadSectionComplete(PageLead pageLead, @NonNull String displayText) {
         if (!fragment.isAdded()) {
             return;
         }
@@ -290,6 +301,8 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
+        model.getTitle().setDisplayText(displayText);
+
         leadImagesHandler.loadLeadImage();
 
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
@@ -299,6 +312,11 @@ public class PageFragmentLoadState {
         final HistoryEntry curEntry = model.getCurEntry();
         model.setCurEntry(new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
         model.getCurEntry().setReferrer(curEntry.getReferrer());
+
+        // Update our tab list to prevent ZH variants issue.
+        if (app.getTabList().get(app.getTabCount() - 1) != null) {
+            app.getTabList().get(app.getTabCount() - 1).setBackStackPositionTitle(model.getTitle());
+        }
 
         // Save the thumbnail URL to the DB
         PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());

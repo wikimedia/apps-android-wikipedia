@@ -95,14 +95,12 @@ public class PageImage implements Parcelable {
             titlesMap.put(title.getPrefixedText(), title);
         }
         Map<String, String> thumbnailSourcesMap = new ArrayMap<>();
-        Map<String, String> convertedTitleMap = new ArrayMap<>();
 
         // noinspection ConstantConditions
         for (MwQueryPage page : pages) {
             thumbnailSourcesMap.put(new PageTitle(null, page.title(), wiki).getPrefixedText(), page.thumbUrl());
             if (!TextUtils.isEmpty(page.convertedFrom())) {
                 PageTitle pageTitle = new PageTitle(null, page.convertedFrom(), wiki);
-                convertedTitleMap.put(pageTitle.getPrefixedText(), page.convertedTo());
                 thumbnailSourcesMap.put(pageTitle.getPrefixedText(), page.thumbUrl());
             }
             if (!TextUtils.isEmpty(page.redirectFrom())) {
@@ -113,7 +111,6 @@ public class PageImage implements Parcelable {
         for (String key : titlesMap.keySet()) {
             if (thumbnailSourcesMap.containsKey(key)) {
                 PageTitle title = titlesMap.get(key);
-                title.setConvertedText(convertedTitleMap.get(key));
                 pageImagesMap.put(title, new PageImage(title, thumbnailSourcesMap.get(key)));
             }
         }

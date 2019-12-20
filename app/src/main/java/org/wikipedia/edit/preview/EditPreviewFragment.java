@@ -209,7 +209,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(requireActivity());
         parentActivity.showProgressBar(true);
-        String url = model.getTitle().getWikiSite().uri() + PAGE_HTML_PREVIEW_ENDPOINT + title.getConvertedText();
+        String url = model.getTitle().getWikiSite().uri() + PAGE_HTML_PREVIEW_ENDPOINT + title.getPrefixedText();
         String postData;
         postData = "wikitext=" + UriUtil.encodeURL(wikiText);
         webview.postUrl(url, postData.getBytes());

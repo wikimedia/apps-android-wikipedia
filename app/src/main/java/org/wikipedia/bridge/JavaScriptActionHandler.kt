@@ -45,7 +45,7 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun setUp(): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        val topActionBarHeight = (app.getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
+        val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
         return String.format("{" +
                 "   \"platform\": \"pcs.c1.Platforms.ANDROID\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
@@ -85,7 +85,7 @@ object JavaScriptActionHandler {
         return "pcs.c1.Footer.add({" +
                 "   platform: pcs.c1.Platforms.ANDROID," +
                 "   clientVersion: '${BuildConfig.VERSION_NAME}'," +
-                "   title: '${model.page?.convertedTitle}'," +
+                "   title: '${model.title!!.prefixedText}'," +
                 "   menu: {" +
                 "       items: [" +
                                 (if (showLanguagesLink) "pcs.c1.Footer.MenuItemType.languages, " else "") +

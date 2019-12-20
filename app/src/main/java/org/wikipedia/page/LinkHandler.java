@@ -99,7 +99,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             PageTitle title = TextUtils.isEmpty(titleString)
                     ? site.titleForInternalLink(uri.getPath())
                     : PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            if (title.isFilePage() && title.getConvertedText().endsWith(".svg")) {
+            if (title.isFilePage() && title.getPrefixedText().endsWith(".svg")) {
                 onSVGLinkClicked(href);
             } else {
                 onInternalLinkClicked(title);
