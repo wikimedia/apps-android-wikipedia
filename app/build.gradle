@@ -30,6 +30,10 @@ android {
         targetCompatibility = JAVA_VERSION
     }
 
+    androidExtensions {
+        experimental = true
+    }
+    
     dexOptions {
         preDexLibraries = true
         jumboMode = true
