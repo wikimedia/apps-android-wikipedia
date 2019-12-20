@@ -248,6 +248,9 @@ public class PageFragmentLoadState {
                     app.getSessionFunnel().leadSectionFetchEnd();
                     PageLead lead = pair.second.body();
                     pageLoadLeadSectionComplete(lead, pair.first);
+
+                    bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
+
                     if ((pair.second.raw().cacheResponse() != null && pair.second.raw().networkResponse() == null)
                             || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.second.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                         showPageOfflineMessage(pair.second.raw().header("date", ""));
