@@ -81,7 +81,7 @@
   <string name="reading_list_page_share">Jaa</string>
   <string name="menu_text_select_edit_here">Muokkaa tästä</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
-  <string name="talk_page_link_text">Tarkastele keskustelusivua</string>
+  <string name="talk_page_link_text">Keskustelusivu</string>
   <string name="edit_history_link_text">Näytä muokkaushistoria</string>
   <string name="map_view_link_text">Tarkastele kartalla</string>
   <string name="other_languages_indication_text">Lue toisella kielellä</string>
@@ -162,7 +162,7 @@
   <string name="create_account_generic_error">Käyttäjätunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
   <string name="email_recommendation_dialog_title">Luo käyttäjätunnus ilman sähköpostiosoitetta?</string>
-  <string name="email_recommendation_dialog_message">Vaikkakin sähköpostiosoite on vapaaehtoinen, sen antamista &lt;b&gt;suositellaan erityisesti&lt;/b&gt;, sillä sähköpostiosoite tarvitaan tunnuksen palauttamiseksi mikäli ikinä hukkaat salasanasi.</string>
+  <string name="email_recommendation_dialog_message">Vaikka sähköpostiosoite on vapaaehtoinen, sen antaminen on &lt;b&gt;vahvasti suositeltavaa&lt;/b&gt;, sillä sitä tarvitaan unohtuneen salasanan palauttamiseksi.</string>
   <string name="email_recommendation_message">Suositellaan, sillä sähköpostiosoite tarvitaan tunnuksen palauttamiseksi.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Jatka ilman sähköpostiosoitetta</string>
   <string name="email_recommendation_dialog_create_with_email_action">Lisää sähköpostiosoite</string>

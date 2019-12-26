@@ -5,6 +5,7 @@
 * Bluemersen
 * Dbrant
 * Doyoon1995
+* Eduardo Addad de Oliveira
 * Ellif
 * Garam
 * Gongsoonyee
@@ -15,6 +16,7 @@
 * Kwj2772
 * Namoroka
 * Nuevo Paso
+* Revi
 * SeoJeongHo
 * Tursetic
 * Twotwo2019
@@ -38,6 +40,7 @@
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="search_hint_search_my_lists_and_articles">내 목록 및 문서 검색</string>
   <string name="nav_item_history">방문 기록</string>
+  <string name="nav_item_suggested_edits">편집 제안</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="card_offline_error_retry">다시 시도</string>
@@ -704,6 +707,7 @@
   <string name="suggested_edits_quality_excellent_text">우수함</string>
   <string name="suggested_edits_quality_very_good_text">매우 좋음</string>
   <string name="suggested_edits_quality_good_text">좋음</string>
+  <string name="suggested_edits_quality_okay_text">확인</string>
   <string name="suggested_edits_quality_sufficient_text">충분함</string>
   <string name="suggested_edits_quality_poor_text">낮음</string>
   <string name="suggested_edits_quality_bad_text">나쁨</string>
@@ -715,6 +719,7 @@
     <item quantity="one">%d일</item>
     <item quantity="other">%d일</item>
   </plurals>
+  <string name="suggested_edits_last_edited">최근 편집</string>
   <string name="suggested_edits_last_edited_never">편집 없음</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
