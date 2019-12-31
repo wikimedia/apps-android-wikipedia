@@ -196,7 +196,7 @@
   <string name="page_protected_can_not_edit">Desculpe, a sua conta não tem os privilégios necessários para editar esta página neste momento.</string>
   <string name="page_protected_can_not_edit_anon">Desculpe, esta página não pode ser editada anonimamente neste momento.</string>
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
-  <string name="settings_item_preferences">Definições</string>
+  <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre a aplicação Wikipédia</string>
   <string name="privacy_policy_description">Normas de privacidade</string>
@@ -267,7 +267,7 @@
   <string name="alpha_update_notification_text">Toque para descarregar</string>
   <string name="dialog_close_description">Fechar</string>
   <string name="preference_title_show_images">Mostrar imagens</string>
-  <string name="preference_summary_show_images">Ativar ou desativar o carregamento das imagens nas páginas. Desmarque esta opção se a sua ligação à Internet está lenta, ou se o seu plano de dados é limitado.</string>
+  <string name="preference_summary_show_images">Ativar ou desativar o carregamento das imagens nas páginas. Desmarque esta opção se a sua ligação à Internet está lenta ou se o seu plano de dados é limitado.</string>
   <string name="preference_title_download_only_over_wifi">Descarregar só por Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Confirma o descarregamento usando dados móveis?</string>
   <string name="dialog_text_download_only_over_wifi">Nas definições tem a opção \"Descarregar só por Wi-Fi\" ligada. Quer permitir a utilização do seu plano de dados móveis só para este descarregamento?</string>
@@ -439,7 +439,7 @@
   <string name="reading_list_turned_sync_off_dialog_title">A sincronização das listas de leitura está desligada</string>
   <string name="reading_list_turned_sync_off_dialog_text">A sincronização das listas de leitura está desativada para a sua conta, e os artigos guardados nos seus dispositivos ligados já não estão a ser salvaguardados. Ative a sincronização das listas de leitura nas Configurações.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Aceitar</string>
-  <string name="reading_list_turned_sync_off_dialog_settings">Definições</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Configurações</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Deseja ativar a sincronização das listas de leitura?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Os artigos guardados nas listas de leitura podem agora ser sincronizados para a sua conta da Wikipédia. &lt;a href=\"#faq\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Não mostrar novamente</string>
