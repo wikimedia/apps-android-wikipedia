@@ -117,12 +117,20 @@ public class WikiTextKeyboardView extends FrameLayout {
         }
         @Nullable String title = null;
         CharSequence selection = editText.getInputConnection().getSelectedText(0);
-        if (selection != null && selection.length() > 0) {
-            title = trimPunctuation(selection.toString()).replace("[[", "").replace("]]", "");
+        if (selection != null && selection.length() > 0 && !selection.toString().contains("[[")) {
+            title = trimPunctuation(selection.toString());
         } else {
-            final int peekLength = 64;
-            String before = editText.getInputConnection().getTextBeforeCursor(peekLength, 0).toString();
-            String after = editText.getInputConnection().getTextAfterCursor(peekLength, 0).toString();
+            String before;
+            String after;
+            if (selection != null && selection.length() > 1) {
+                String selectionStr = selection.toString();
+                before = selectionStr.substring(0, selectionStr.length() / 2);
+                after = selectionStr.substring(selectionStr.length() / 2);
+            } else {
+                final int peekLength = 64;
+                before = editText.getInputConnection().getTextBeforeCursor(peekLength, 0).toString();
+                after = editText.getInputConnection().getTextAfterCursor(peekLength, 0).toString();
+            }
             if (TextUtils.isEmpty(before) || TextUtils.isEmpty(after)) {
                 return;
             }

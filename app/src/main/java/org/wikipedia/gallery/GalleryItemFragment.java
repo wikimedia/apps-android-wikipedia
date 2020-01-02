@@ -1,7 +1,9 @@
 package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.Animatable;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -130,6 +132,7 @@ public class GalleryItemFragment extends Fragment {
 
         GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
                 .setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER)
+                .setPlaceholderImage(new ColorDrawable(Color.BLACK))
                 .build();
         imageView.setHierarchy(hierarchy);
         return rootView;
@@ -351,7 +354,9 @@ public class GalleryItemFragment extends Fragment {
                 .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
                     @Override
                     public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                        imageView.setDrawBackground(true);
+                        if (mediaInfo != null && !mediaInfo.getMimeType().contains("jpeg")) {
+                            imageView.setDrawBackground(true);
+                        }
                         updateProgressBar(false);
                         requireActivity().invalidateOptionsMenu();
                     }

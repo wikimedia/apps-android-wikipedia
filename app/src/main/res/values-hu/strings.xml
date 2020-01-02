@@ -319,7 +319,7 @@
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
-  <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod. mentve: %s</string>
+  <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod, mentve: %s</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
@@ -419,7 +419,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
   <string name="reading_lists_sync_reminder_text">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
@@ -724,7 +724,7 @@
   <string name="suggested_edits_quality_very_good_text">Nagyon jó</string>
   <string name="suggested_edits_quality_good_text">Jó</string>
   <string name="suggested_edits_quality_okay_text">Rendben</string>
-  <string name="suggested_edits_quality_sufficient_text">Megfelelő</string>
+  <string name="suggested_edits_quality_sufficient_text">Elégséges</string>
   <string name="suggested_edits_quality_poor_text">Gyenge</string>
   <string name="suggested_edits_quality_bad_text">Rossz</string>
   <plurals name="suggested_edits_contribution">
