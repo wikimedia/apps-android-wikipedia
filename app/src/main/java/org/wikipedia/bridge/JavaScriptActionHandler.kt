@@ -97,7 +97,7 @@ object JavaScriptActionHandler {
                 "           'menuHeading': '${context.getString(R.string.about_article_section)}'," +
                 "           'menuLastEditedSubtitle': '${context.getString(R.string.edit_history_link_text)}'," +
                 "           'menuLastEditedTitle': '${context.getString(R.string.last_updated_text, lastModifiedDate)}'," +
-                "           'licenseString': '${context.getString(R.string.content_license_html)}'," +
+                "           'licenseString': '${context.getString(R.string.content_license_html, context.getString(R.string.cc_by_sa_3_url))}'," +
                 "           'menuTalkPageTitle': '${context.getString(R.string.talk_page_link_text)}'," +
                 "           'viewInBrowserString': '${context.getString(R.string.page_view_in_browser)}'," +
                 "           'licenseSubstitutionString': 'CC BY-SA 3.0'," +
