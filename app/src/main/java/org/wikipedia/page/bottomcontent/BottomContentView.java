@@ -312,7 +312,7 @@ public class BottomContentView extends LinearLayoutOverWebView
         }
         final long timeMillis = System.currentTimeMillis();
 
-        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getConvertedText())
+        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.getPages(Constants.MAX_SUGGESTION_RESULTS * 2))
@@ -398,7 +398,7 @@ public class BottomContentView extends LinearLayoutOverWebView
             PageTitle pageTitle = result.getPageTitle(page.getTitle().getWikiSite());
             itemView.setItem(result);
             itemView.setCallback(this);
-            itemView.setTitle(StringUtil.fromHtml(result.getDisplayTitle()));
+            itemView.setTitle(result.getDisplayTitle());
             itemView.setDescription(StringUtils.capitalize(pageTitle.getDescription()));
             itemView.setImageUrl(pageTitle.getThumbUrl());
             return itemView;
