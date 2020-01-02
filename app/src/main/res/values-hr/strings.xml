@@ -25,6 +25,7 @@
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
   <string name="nav_item_history">Povijest</string>
+  <string name="nav_item_suggested_edits">Predložena uređivanja</string>
   <string name="error_network_error">Nije moguće spojiti se na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -35,6 +36,7 @@
   <string name="error_back">Idi natrag</string>
   <string name="menu_clear_all_history">Očisti povijest</string>
   <string name="history_item_deleted">Članak %s uklonjen iz povijesti</string>
+  <string name="history_items_deleted">Uklonjenih članaka iz povijesti: %d</string>
   <string name="history_item_delete_undo">Vrati</string>
   <string name="notification_archive_undo">Vrati</string>
   <string name="app_settings">Postavke aplikacije</string>
@@ -71,6 +73,7 @@
   <string name="edit_history_link_text">Pogledaj povijest izmjena</string>
   <string name="map_view_link_text">Pogledaj na karti</string>
   <string name="other_languages_indication_text">Čitaj na drugom jeziku</string>
+  <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
   <string name="content_license_html">Sadržaj je dostupan pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (osim ako nije drugačije navedeno)</string>
   <string name="edit_save_action_license_logged_in">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Uređivanja bit će pripisana IP adresi Vašeg uređaja. Ako ćete se &lt;a href=\"https://#login\"&gt;prijaviti&lt;/a&gt;, imat ćete veću privatnost.</string>
@@ -90,6 +93,8 @@
   <string name="dialog_message_leaving_edit_stay">Ostani</string>
   <string name="menu_show_toc">Sadržaj</string>
   <string name="search_no_results_found">Nema rezultata</string>
+  <string name="search_reading_list_no_results">Nisu pronađeni rezultati s popisa »%s«</string>
+  <string name="search_reading_lists_no_results">Nisu pronađeni rezultati na popisima za čitanje</string>
   <string name="search_history_no_results">Nisu pronađeni rezultati u povijesti</string>
   <string name="edit_section_captcha_message">Da biste se zaštitili od neželjenih poruka, molimo unesite riječi koje se pokazuju ispod</string>
   <string name="edit_section_captcha_hint">Ponovite riječi iznad</string>
