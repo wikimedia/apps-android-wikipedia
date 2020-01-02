@@ -31,7 +31,7 @@
   <string name="nav_item_forward">Avançar</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="search_hint_voice_search">Pesquisa com entrada por voz</string>
-  <string name="search_hint_search_history">Histórico de pesquisa</string>
+  <string name="search_hint_search_history">Histórico de pesquisas</string>
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar as minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>

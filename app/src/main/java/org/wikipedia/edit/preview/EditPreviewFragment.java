@@ -1,5 +1,6 @@
 package org.wikipedia.edit.preview;
 
+import android.annotation.SuppressLint;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -21,7 +22,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
-import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
@@ -33,7 +33,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.log.L;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
@@ -41,10 +41,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
@@ -67,15 +66,29 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
+    @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
         bridge = new CommunicationBridge(this);
+        webview.getSettings().setJavaScriptEnabled(true);
         webview.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
+            }
+
+            @Override public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                parentActivity.showProgressBar(false);
+                parentActivity.supportInvalidateOptionsMenu();
+                //Save the html received from the the wikitext to mobile-html transform, to use in the savedInstanceState
+                view.evaluateJavascript(
+                        "(function() { return (document.documentElement.outerHTML); })();",
+                        html -> {
+                            previewHTML = html;
+                        });
             }
         });
 
@@ -91,7 +104,6 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url());
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
@@ -170,9 +182,14 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
             boolean isActive = savedInstanceState.getBoolean("isActive");
             previewContainer.setVisibility(isActive ? View.VISIBLE : View.GONE);
             if (isActive) {
-                displayPreview(previewHTML);
+                displayPreviewHtml(previewHTML);
             }
         }
+    }
+
+    private void displayPreviewHtml(String previewHTML) {
+        webview.loadData(previewHTML, "text/html", "UTF-8");
+        setUpWebView();
     }
 
     public void setCustomSummary(String summary) {
@@ -182,7 +199,25 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
 
     private boolean isWebViewSetup = false;
 
-    private void displayPreview(final String html) {
+    /**
+     * Fetches preview html from the modified wikitext text, and shows (fades in) the Preview fragment,
+     * which includes edit summary tags. When the fade-in completes, the state of the
+     * actionbar button(s) is updated, and the preview is shown.
+     * @param title The PageTitle associated with the text being modified.
+     * @param wikiText The text of the section to be shown in the Preview.
+     */
+    public void showPreview(final PageTitle title, final String wikiText) {
+        hideSoftKeyboard(requireActivity());
+        parentActivity.showProgressBar(true);
+        String url = model.getTitle().getWikiSite().uri() + PAGE_HTML_PREVIEW_ENDPOINT + title.getPrefixedText();
+        String postData;
+        postData = "wikitext=" + UriUtil.encodeURL(wikiText);
+        webview.postUrl(url, postData.getBytes());
+
+        setUpWebView();
+    }
+
+    private void setUpWebView() {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
 
@@ -201,6 +236,10 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
                 @Override
                 public void onExternalLinkClicked(@NonNull final Uri uri) {
                     showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
+                }
+
+                @Override public void onSVGLinkClicked(@NonNull String href) {
+                    // ignore
                 }
 
                 /**
@@ -240,32 +279,6 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
 
         ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
         ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
-        //Todo: mobile-html: add bridge communication
-    }
-
-    /**
-     * Fetches a preview of the modified text, and shows (fades in) the Preview fragment,
-     * which includes edit summary tags. When the fade-in completes, the state of the
-     * actionbar button(s) is updated, and the preview is shown.
-     * @param title The PageTitle associated with the text being modified.
-     * @param wikiText The text of the section to be shown in the Preview.
-     */
-    public void showPreview(final PageTitle title, final String wikiText) {
-        hideSoftKeyboard(requireActivity());
-        parentActivity.showProgressBar(true);
-
-        disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> parentActivity.showProgressBar(false))
-                .subscribe(response -> {
-                    displayPreview(response.result());
-                    previewHTML = response.result();
-                    parentActivity.supportInvalidateOptionsMenu();
-                }, throwable -> {
-                    parentActivity.showError(throwable);
-                    L.e(throwable);
-                }));
     }
 
     /**

@@ -241,6 +241,10 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+        Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(pageTitle.getWikiSite())
+                .getSummary(null, pageTitle.getPrefixedText())
+                .flatMap(response -> Observable.just(response.getDisplayTitle()))
+                .onErrorReturnItem(pageTitle.getDisplayText()); // prevent "redirected" or variant issue
 
         // TODO: remove page lead and maybe load page summary since it needs description for page
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
@@ -249,7 +253,8 @@ public class SavedPageSyncService extends JobIntentService {
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(leadCall, mediaListCall, referencesCall, (leadRsp, mediaListRsp, referencesRsp) -> {
+        Observable.zip(pageSummaryDisplayTextObservable, leadCall, mediaListCall, referencesCall, (summaryDisplayText, leadRsp, mediaListRsp, referencesRsp) -> {
+            page.title(summaryDisplayText);
             long totalSize = 0;
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);
@@ -312,14 +317,14 @@ public class SavedPageSyncService extends JobIntentService {
                                                                    @NonNull String saveOfflineHeader,
                                                                    @NonNull PageTitle pageTitle) {
         // TODO: query the image urls and will be able to show the images for offline reading
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(cacheControl.toString(), saveOfflineHeader, pageTitle.getConvertedText());
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
     }
 
     @NonNull
     private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
                                                                                   @NonNull String saveOfflineHeader,
                                                                                   @NonNull PageTitle pageTitle) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(cacheControl.toString(), saveOfflineHeader, pageTitle.getConvertedText());
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
     }
 
     private long reqMobileHTML(@NonNull CacheControl cacheControl,
@@ -327,7 +332,7 @@ public class SavedPageSyncService extends JobIntentService {
                                @NonNull PageTitle pageTitle) throws IOException {
         long downloadSize = 0;
         Request request = makeUrlRequest(cacheControl, pageTitle.getWikiSite(),
-                pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getConvertedText())
+                pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getPrefixedText())
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, saveOfflineHeader)
                 .build();

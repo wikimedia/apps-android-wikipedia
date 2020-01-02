@@ -21,6 +21,10 @@ public class PageBackStackItem extends BaseModel {
         return title;
     }
 
+    public void setTitle(@NonNull PageTitle title) {
+        this.title = title;
+    }
+
     @NonNull
     public HistoryEntry getHistoryEntry() {
         return historyEntry;

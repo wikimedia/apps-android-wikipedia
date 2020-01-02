@@ -61,9 +61,7 @@ public abstract class ViewHideHandler
 
         int animMargin = 0;
         int scrollDelta = scrollY - oldScrollY;
-        if (!isHumanScroll) {
-            animMargin = 0;
-        } else if (gravity == Gravity.BOTTOM) {
+        if (gravity == Gravity.BOTTOM) {
             if (oldScrollY < scrollY) {
                 // Scroll down
                 animMargin = Math.min(hideableView.getHeight(),
