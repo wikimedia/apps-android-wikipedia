@@ -224,7 +224,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
                     // TODO: remove after the restbase endpoint supports ZH variants
                     pageTitle.setText(summaryResponse.body().getApiTitle());
-                    
+
                     titleText.setText(StringUtil.fromHtml(summaryResponse.body().getDisplayTitle()));
                     showPreview(new LinkPreviewContents(summaryResponse.body(), pageTitle.getWikiSite()));
                 }, caught -> {
