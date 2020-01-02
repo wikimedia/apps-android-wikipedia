@@ -222,7 +222,6 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-
         disposables.add(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -274,6 +273,8 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
+        model.getTitle().setDisplayText(page.getDisplayTitle());
+
         leadImagesHandler.loadLeadImage();
 
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
@@ -283,6 +284,11 @@ public class PageFragmentLoadState {
         final HistoryEntry curEntry = model.getCurEntry();
         model.setCurEntry(new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
         model.getCurEntry().setReferrer(curEntry.getReferrer());
+
+        // Update our tab list to prevent ZH variants issue.
+        if (app.getTabList().get(app.getTabCount() - 1) != null) {
+            app.getTabList().get(app.getTabCount() - 1).setBackStackPositionTitle(model.getTitle());
+        }
 
         // Save the thumbnail URL to the DB
         PageImage pageImage = new PageImage(model.getTitle(), pageSummary.getThumbnailUrl());

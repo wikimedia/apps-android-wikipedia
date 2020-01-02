@@ -37,9 +37,6 @@ public class Page {
     public void setSections(@NonNull List<Section> sections) {
         this.sections = sections;
     }
-    public String getConvertedTitle() {
-        return title.getConvertedText();
-    }
 
     public String getDisplayTitle() {
         return pageProperties.getDisplayTitle();

@@ -221,8 +221,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribe(summaryResponse -> {
                     funnel.setPageId(summaryResponse.body().getPageId());
                     pageTitle.setThumbUrl(summaryResponse.body().getThumbnailUrl());
-                    pageTitle.setConvertedText(summaryResponse.body().getApiTitle());
 
+                    // TODO: remove after the restbase endpoint supports ZH variants
+                    pageTitle.setText(summaryResponse.body().getApiTitle());
+                    
                     titleText.setText(StringUtil.fromHtml(summaryResponse.body().getDisplayTitle()));
                     showPreview(new LinkPreviewContents(summaryResponse.body(), pageTitle.getWikiSite()));
                 }, caught -> {
@@ -234,7 +236,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getPrefixedText())
                     .flatMap((Function<MediaList, ObservableSource<MwQueryResponse>>) mediaList -> {
                         final int maxImages = 10;
                         List<MediaListItem> items = mediaList.getItems("image", "video");

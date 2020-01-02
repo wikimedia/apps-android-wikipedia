@@ -10,6 +10,7 @@ import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
@@ -231,13 +232,18 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+        Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(pageTitle.getWikiSite())
+                .getSummary(null, pageTitle.getPrefixedText())
+                .flatMap(response -> Observable.just(response.getDisplayTitle()))
+                .onErrorReturnItem(pageTitle.getDisplayText()); // prevent "redirected" or variant issue
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<PageRemaining>> sectionsCall = reqPageSections(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(leadCall, sectionsCall, (leadRsp, sectionsRsp) -> {
+        Observable.zip(pageSummaryDisplayTextObservable, leadCall, sectionsCall, (summaryDisplayText, leadRsp, sectionsRsp) -> {
+            page.title(summaryDisplayText);
             long totalSize = 0;
             totalSize += responseSize(leadRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);

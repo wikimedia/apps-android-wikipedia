@@ -18,6 +18,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_NAMESPACE_ADDED = 6;
     private static final int DB_VER_LANG_ADDED = 10;
     private static final int DB_VER_TIME_SPENT_ADDED = 15;
+    private static final int DB_VER_DISPLAY_TITLE_ADDED = 19;
 
     public HistoryEntryDatabaseTable() {
         super(PageHistoryContract.TABLE, PageHistoryContract.Page.URI);
@@ -26,9 +27,10 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     @Override
     public HistoryEntry fromCursor(Cursor cursor) {
         WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
-        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), wiki);
+        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.API_TITLE.val(cursor), wiki);
         Date timestamp = Col.TIMESTAMP.val(cursor);
         int source = Col.SOURCE.val(cursor);
+        title.setDisplayText(Col.DISPLAY_TITLE.val(cursor));
         return new HistoryEntry(title, timestamp, source);
     }
 
@@ -37,7 +39,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
         contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
-        contentValues.put(Col.TITLE.getName(), obj.getTitle().getText());
+        contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getText());
+        contentValues.put(Col.DISPLAY_TITLE.getName(), obj.getTitle().getDisplayText());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
         contentValues.put(Col.SOURCE.getName(), obj.getSource());
@@ -50,13 +53,15 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case INITIAL_DB_VERSION:
-                return new Column<?>[] {Col.ID, Col.SITE, Col.TITLE, Col.TIMESTAMP, Col.SOURCE};
+                return new Column<?>[] {Col.ID, Col.SITE, Col.API_TITLE, Col.TIMESTAMP, Col.SOURCE};
             case DB_VER_NAMESPACE_ADDED:
                 return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
                 return new Column<?>[] {Col.LANG};
             case DB_VER_TIME_SPENT_ADDED:
                 return new Column<?>[] {Col.TIME_SPENT};
+            case DB_VER_DISPLAY_TITLE_ADDED:
+                return new Column<?>[] {Col.DISPLAY_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }
