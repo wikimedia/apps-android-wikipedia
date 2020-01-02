@@ -640,7 +640,7 @@
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
   <string name="description_edit_success_article_edit_hint">Puoi anche modificare le voci all\'interno di questa applicazione. Prova a correggere errori di battitura e frasi di piccole dimensioni facendo clic sull\'icona ^1 la prossima volta</string>
-  <string name="description_edit_tutorial_title_descriptions">Descrizioni della voce</string>
+  <string name="description_edit_tutorial_title_descriptions">Descrizioni delle voci</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Riassume una voce per aiutare i lettori a capire l\'argomento a colpo d\'occhio</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
@@ -711,9 +711,11 @@
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>
   <string name="suggested_edits_image_captions_task_detail">Le didascalie delle immagini descrivono un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Le descrizioni delle voci riassumono una voce per aiutare i lettori a comprendere l\'argomento a colpo d\'occhio.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Le descrizioni delle voci riassumono una voce per aiutare i lettori a comprenderne l\'argomento a colpo d\'occhio.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Il numero totale di contributi con modifiche suggerite.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate delle voci a cui hai contribuito negli ultimi 30 giorni con modifiche suggerite.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">In base a quante volte uno dei tuoi contributi è stato ripristinato (annullato da un altro editore). Modifiche ripristinate: %d.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>

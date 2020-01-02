@@ -31,6 +31,12 @@ public class Tab extends BaseModel {
         return backStackPosition;
     }
 
+    public void setBackStackPositionTitle(@NonNull PageTitle title) {
+        if (getBackStackPositionTitle() != null) {
+            backStack.get(getBackStackPosition()).setTitle(title);
+        }
+    }
+
     public boolean canGoBack() {
         return getBackStackPosition() > 0;
     }

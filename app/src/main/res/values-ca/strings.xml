@@ -247,7 +247,7 @@
   <string name="abusefilter_text_disallow">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial.&lt;br /&gt;&lt;br /&gt;La Viquipèdia és una enciclopèdia i només hi tenen cabuda els continguts neutrals i notoris.</string>
   <string name="text_size_select">Mida de lletra</string>
   <string name="page_similar_titles">Pàgines similars</string>
-  <string name="search_did_you_mean">Voleu dir \"%s\"?</string>
+  <string name="search_did_you_mean">Volíeu dir «%s»?</string>
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches">Esborra les cerques recents</string>
   <string name="clear_recent_searches_confirm">Segur que voleu esborrar l\'historial de cerca?</string>

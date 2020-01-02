@@ -7,10 +7,13 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
+  <string name="nav_item_back">Nazad</string>
+  <string name="page_tabs_back">Nazad</string>
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_search_history">Pretraži historiju</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
   <string name="nav_item_history">Historija</string>
+  <string name="nav_item_suggested_edits">Predložene izmjene</string>
   <string name="error_network_error">Ne mogu se povezati na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="page_error_back_to_main">Nazad</string>
