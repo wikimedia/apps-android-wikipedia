@@ -97,10 +97,10 @@ object JavaScriptActionHandler {
                 "           'menuHeading': '${context.getString(R.string.about_article_section)}'," +
                 "           'menuLastEditedSubtitle': '${context.getString(R.string.edit_history_link_text)}'," +
                 "           'menuLastEditedTitle': '${context.getString(R.string.last_updated_text, lastModifiedDate)}'," +
-                "           'licenseString': '${context.getString(R.string.content_license_html, context.getString(R.string.cc_by_sa_3_url))}'," +
+                "           'licenseString': '${context.getString(R.string.content_license_text)}'," +
                 "           'menuTalkPageTitle': '${context.getString(R.string.talk_page_link_text)}'," +
                 "           'viewInBrowserString': '${context.getString(R.string.page_view_in_browser)}'," +
-                "           'licenseSubstitutionString': 'CC BY-SA 3.0'," +
+                "           'licenseSubstitutionString': '${context.getString(R.string.content_license_cc_by_sa)}'," +
                 "           'menuCoordinateTitle': '${context.getString(R.string.map_view_link_text)}'," +
                 "           'menuReferenceListTitle': '${context.getString(R.string.reference_list_title)}'" +
                 "       }," +
