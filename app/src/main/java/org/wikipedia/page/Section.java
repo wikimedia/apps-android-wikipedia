@@ -19,7 +19,6 @@ public class Section {
 
     private int id;
     private int level = 1;
-    private String line;
     private String anchor;
     private String text;
     private String title;
@@ -40,7 +39,6 @@ public class Section {
             JSONObject data = new JSONObject();
             data.put("id", id);
             data.put("level", level);
-            data.put("line", line);
             data.put("anchor", anchor);
             data.put("text", text);
             return data;
@@ -57,7 +55,7 @@ public class Section {
     public Section(int id, int level, String heading, String anchor, String content) {
         this.id = id;
         this.level = level;
-        this.line = heading;
+        this.title = heading;
         this.anchor = anchor;
         this.text = content;
     }
@@ -90,7 +88,6 @@ public class Section {
         return "Section{"
                 + "id=" + id
                 + ", level=" + level
-                + ", line='" + line + '\''
                 + ", anchor='" + anchor + '\''
                 + ", text='" + text + '\''
                 + '}';

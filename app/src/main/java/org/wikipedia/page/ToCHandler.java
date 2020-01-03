@@ -62,6 +62,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
 
     private static final int MAX_LEVELS = 3;
+    private static final int TOP_SECTION_ID = 0;
     private static final int ABOUT_SECTION_ID = -1;
 
     private final SwipeableListView tocList;
@@ -240,6 +241,8 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             sections.clear();
             sectionYOffsets.clear();
             pageTitle = page.getDisplayTitle();
+            sections.add(new Section(TOP_SECTION_ID, 0, pageTitle, pageTitle, ""));
+
             for (Section s : page.getSections()) {
                 if (s.getLevel() < MAX_LEVELS) {
                     sections.add(s);
@@ -247,7 +250,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             }
             // add a fake section at the end to represent the "about this article" contents at the bottom:
             sections.add(new Section(ABOUT_SECTION_ID, 0,
-                    getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), "", ""));
+                    getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), ""));
             highlightedSection = 0;
             notifyDataSetChanged();
         }
@@ -289,7 +292,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             TextView sectionHeading = convertView.findViewById(R.id.page_toc_item_text);
             View sectionBullet = convertView.findViewById(R.id.page_toc_item_bullet);
 
-            sectionHeading.setText(StringUtil.fromHtml(section.isLead() ? pageTitle : section.getHeading()));
+            sectionHeading.setText(StringUtil.fromHtml(section.getHeading()));
             float textSize = TOC_SUBSECTION_TEXT_SIZE;
             if (section.isLead()) {
                 textSize = TOC_LEAD_TEXT_SIZE;

@@ -234,7 +234,7 @@ public class SavedPageSyncService extends JobIntentService {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(pageTitle.getWikiSite())
                 .getSummary(null, pageTitle.getPrefixedText())
-                .flatMap(response -> Observable.just(response.getDisplayTitle()))
+                .flatMap(response -> Observable.just(response.body().getDisplayTitle()))
                 .onErrorReturnItem(pageTitle.getDisplayText()); // prevent "redirected" or variant issue
 
         Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
