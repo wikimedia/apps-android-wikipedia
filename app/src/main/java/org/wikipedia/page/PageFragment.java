@@ -248,6 +248,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return webView;
     }
 
+    @Override
+    public PageTitle getPageTitle() {
+        return model.getTitle();
+    }
+
     public PageTitle getTitle() {
         return model.getTitle();
     }
