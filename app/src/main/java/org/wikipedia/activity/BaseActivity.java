@@ -14,8 +14,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.View;
 
-import androidx.annotation.ColorRes;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -48,6 +49,7 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -100,6 +102,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(networkStateReceiver, filter);
 
         DeviceUtil.setLightSystemUiVisibility(this);
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
     }
@@ -177,9 +180,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void setStatusBarColor(@ColorRes int color) {
+    protected void setStatusBarColor(@ColorInt int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, color));
+            getWindow().setStatusBarColor(color);
+        }
+    }
+
+    protected void setNavigationBarColor(@ColorInt int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            boolean isDarkThemeOrDarkBackground = WikipediaApp.getInstance().getCurrentTheme().isDark()
+                    || color == ContextCompat.getColor(this, android.R.color.black);
+            getWindow().setNavigationBarColor(color);
+            getWindow().getDecorView().setSystemUiVisibility(isDarkThemeOrDarkBackground ? 0 : View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | getWindow().getDecorView().getSystemUiVisibility());
         }
     }
 
