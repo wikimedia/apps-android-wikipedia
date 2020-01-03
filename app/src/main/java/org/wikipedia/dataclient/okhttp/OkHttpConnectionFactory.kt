@@ -24,7 +24,7 @@ object OkHttpConnectionFactory {
                 .cache(NET_CACHE)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
                 .addInterceptor(UnsuccessfulResponseInterceptor())
-                .addNetworkInterceptor(StripMustRevalidateResponseInterceptor())
+                .addNetworkInterceptor(CacheControlInterceptor())
                 .addInterceptor(CommonHeaderRequestInterceptor())
                 .addInterceptor(DefaultMaxStaleRequestInterceptor())
                 .addInterceptor(OfflineCacheInterceptor(SAVE_CACHE))
