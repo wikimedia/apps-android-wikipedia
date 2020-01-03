@@ -7,6 +7,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -38,12 +39,21 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setUp(): String {
+    fun setUp(title: PageTitle): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
+        val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
+                R.string.table_infobox, R.string.table_other, R.string.table_close))
+
         return String.format("{" +
                 "   \"platform\": \"pcs.c1.Platforms.ANDROID\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
+                "   \"l10n\": {" +
+                "       \"addTitleDescription\": \"${res[R.string.description_edit_add_description]}\"," +
+                "       \"tableInfobox\": \"${res[R.string.table_infobox]}\"," +
+                "       \"tableOther\": \"${res[R.string.table_other]}\"," +
+                "       \"tableClose\": \"${res[R.string.table_close]}\"" +
+                "   }," +
                 "   \"theme\": \"${app.currentTheme.funnelName}\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
@@ -65,7 +75,6 @@ object JavaScriptActionHandler {
         if (model.page == null) {
             return ""
         }
-
         val languageCount = L10nUtil.getUpdatedLanguageCountIfNeeded(model.page!!.title.wikiSite.languageCode(),
                 model.page!!.pageProperties.languageCount)
         val showLanguagesLink = languageCount > 0
@@ -73,6 +82,11 @@ object JavaScriptActionHandler {
         val lastModifiedDate = formatDateRelative(model.page!!.pageProperties.lastModified)
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
+        val res = L10nUtil.getStringsForArticleLanguage(model.title, intArrayOf(R.string.read_more_section,
+                R.string.page_similar_titles, R.string.language_count_link_text, R.string.about_article_section,
+                R.string.edit_history_link_text, R.string.last_updated_text, R.string.content_license_text,
+                R.string.talk_page_link_text, R.string.page_view_in_browser, R.string.content_license_cc_by_sa,
+                R.string.map_view_link_text, R.string.reference_list_title))
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
@@ -91,18 +105,18 @@ object JavaScriptActionHandler {
                 "              ]" +
                 "   }," +
                 "   l10n: {" +
-                "           'readMoreHeading': '${context.getString(R.string.read_more_section)}'," +
-                "           'menuDisambiguationTitle': '${context.getString(R.string.page_similar_titles)}'," +
-                "           'menuLanguagesTitle': '${context.getString(R.string.language_count_link_text, languageCount)}'," +
-                "           'menuHeading': '${context.getString(R.string.about_article_section)}'," +
-                "           'menuLastEditedSubtitle': '${context.getString(R.string.edit_history_link_text)}'," +
-                "           'menuLastEditedTitle': '${context.getString(R.string.last_updated_text, lastModifiedDate)}'," +
-                "           'licenseString': '${context.getString(R.string.content_license_text)}'," +
-                "           'menuTalkPageTitle': '${context.getString(R.string.talk_page_link_text)}'," +
-                "           'viewInBrowserString': '${context.getString(R.string.page_view_in_browser)}'," +
-                "           'licenseSubstitutionString': '${context.getString(R.string.content_license_cc_by_sa)}'," +
-                "           'menuCoordinateTitle': '${context.getString(R.string.map_view_link_text)}'," +
-                "           'menuReferenceListTitle': '${context.getString(R.string.reference_list_title)}'" +
+                "           'readMoreHeading': '${res[R.string.read_more_section]}'," +
+                "           'menuDisambiguationTitle': '${res[R.string.page_similar_titles]}'," +
+                "           'menuLanguagesTitle': '${String.format(res[R.string.language_count_link_text], languageCount)}'," +
+                "           'menuHeading': '${res[R.string.about_article_section]}'," +
+                "           'menuLastEditedSubtitle': '${res[R.string.edit_history_link_text]}'," +
+                "           'menuLastEditedTitle': '${String.format(res[R.string.last_updated_text], lastModifiedDate)}'," +
+                "           'licenseString': '${res[R.string.content_license_text]}'," +
+                "           'menuTalkPageTitle': '${res[R.string.talk_page_link_text]}'," +
+                "           'viewInBrowserString': '${res[R.string.page_view_in_browser]}'," +
+                "           'licenseSubstitutionString': '${res[R.string.content_license_cc_by_sa]}'," +
+                "           'menuCoordinateTitle': '${res[R.string.map_view_link_text]}'," +
+                "           'menuReferenceListTitle': '${res[R.string.reference_list_title]}'" +
                 "       }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
