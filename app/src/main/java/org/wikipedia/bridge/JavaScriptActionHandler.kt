@@ -71,7 +71,7 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setFooter(context: Context, model: PageViewModel): String {
+    fun setFooter(model: PageViewModel): String {
         if (model.page == null) {
             return ""
         }
