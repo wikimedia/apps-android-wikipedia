@@ -356,4 +356,9 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     public WebView getWebView() {
         return webview;
     }
+
+    @Override
+    public PageTitle getPageTitle() {
+        return model.getTitle();
+    }
 }
