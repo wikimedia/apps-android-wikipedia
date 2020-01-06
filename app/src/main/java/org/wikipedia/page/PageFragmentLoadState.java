@@ -249,7 +249,7 @@ public class PageFragmentLoadState {
                     PageLead lead = pair.second.body();
                     pageLoadLeadSectionComplete(lead, pair.first);
 
-                    bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
+                    bridge.execute(JavaScriptActionHandler.setFooter(model));
 
                     if ((pair.second.raw().cacheResponse() != null && pair.second.raw().networkResponse() == null)
                             || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.second.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {

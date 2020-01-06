@@ -245,6 +245,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return webView;
     }
 
+    @Override
+    public PageTitle getPageTitle() {
+        return model.getTitle();
+    }
+
     public PageTitle getTitle() {
         return model.getTitle();
     }
@@ -1016,6 +1021,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("read_more_titles_retrieved", (String messageType, JsonObject messagePayload) -> {
             // TODO: do something with this.
             L.v(messagePayload.toString());
+        });
+        bridge.addListener("view_license", (String messageType, JsonObject messagePayload) -> {
+            visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.cc_by_sa_3_url)));
         });
         bridge.addListener("view_in_browser", (String messageType, JsonObject messagePayload) -> {
             if (model.getTitle() != null) {

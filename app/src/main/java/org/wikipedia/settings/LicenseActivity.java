@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.io.IOException;
@@ -19,6 +20,8 @@ public class LicenseActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_license);
+
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
 
         final int libraryNameStart = 24;
         if (getIntent().getData() == null
