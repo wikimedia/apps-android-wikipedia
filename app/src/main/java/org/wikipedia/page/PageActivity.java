@@ -51,6 +51,8 @@ import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.page.references.ReferenceListDialog;
+import org.wikipedia.page.references.References;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
@@ -78,6 +80,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
@@ -91,7 +94,7 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
         LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
-        WiktionaryDialog.Callback {
+        WiktionaryDialog.Callback, ReferenceListDialog.Callback {
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
@@ -614,6 +617,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onCancel() { }
+
+    @Override
+    public Observable<References> getReferences() {
+        return pageFragment.getReferences();
+    }
 
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(this, null, url);

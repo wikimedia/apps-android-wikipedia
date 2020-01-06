@@ -69,6 +69,7 @@ import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.references.ReferenceDialog;
+import org.wikipedia.page.references.ReferenceListDialog;
 import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
@@ -1009,7 +1010,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 // TODO
                 // messagePayload contains an array of URLs called "payload".
             } else if ("referenceList".equals(itemType)) {
-                // TODO: show full list of references.
+                showBottomSheet(ReferenceListDialog.Companion.newInstance());
             }
         });
         bridge.addListener("read_more_titles_retrieved", (String messageType, JsonObject messagePayload) -> {
@@ -1289,7 +1290,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return leadImagesHandler.getCallToActionEditLang();
     }
 
-    private Observable<References> getReferences() {
+    public Observable<References> getReferences() {
         return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText()) : Observable.just(references);
     }
 
