@@ -135,7 +135,7 @@
   <string name="reading_lists_sync_login">Oturum aç</string>
   <string name="create_account_login">Oturum aç</string>
   <string name="menu_login">Oturum aç</string>
-  <string name="login_activity_title">Vikipedi\'ye giriş yap</string>
+  <string name="login_activity_title">Vikipedi\'ye oturum aç</string>
   <string name="login_in_progress_dialog_message">Giriş yapılıyor...</string>
   <string name="login_success_toast">Başarıyla oturum açıldı!</string>
   <string name="reset_password_title">Parolanızı belirleyin</string>
@@ -448,7 +448,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Senkronizasyonu etkinleştirmek için giriş yapın</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Okuma listelerinizin hesabınıza kaydedilmesini sağlamak için giriş yapın.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">İptal</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Giriş yap</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Oturum aç</string>
   <string name="reading_list_turned_sync_off_dialog_title">Okuma listesi senkronizasyonu kapalı</string>
   <string name="reading_list_turned_sync_off_dialog_text">Okuma listesi senkronizasyonu hesabınız için kapalı ve oturum açmış cihazlarınızdaki kaydedilmiş makaleler artık yedeklenmiyor. Ayarlardan okuma listesi senkronizasyonunu açın.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Tamam</string>
