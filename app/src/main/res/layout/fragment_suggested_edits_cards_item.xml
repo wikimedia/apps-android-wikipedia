@@ -91,10 +91,7 @@
                             android:id="@+id/accentSideBar"
                             android:layout_width="3dp"
                             android:layout_height="match_parent"
-                            android:background="@color/accent50"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:background="@color/accent50" />
 
                         <org.wikipedia.views.GoneIfEmptyTextView
                             android:id="@+id/viewArticleSubtitle"
@@ -113,8 +110,6 @@
                             android:paddingBottom="10dp"
                             android:textColor="?attr/material_theme_primary_color"
                             android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/accentSideBar"
                             tools:text="Lorem ipsum" />
                     </LinearLayout>
 

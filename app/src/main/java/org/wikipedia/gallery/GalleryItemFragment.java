@@ -114,7 +114,6 @@ public class GalleryItemFragment extends Fragment {
                 ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
-
         return rootView;
     }
 
@@ -341,7 +340,9 @@ public class GalleryItemFragment extends Fragment {
                 .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
                     @Override
                     public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                        imageView.setDrawBackground(true);
+                        if (mediaInfo != null && !mediaInfo.getMimeType().contains("jpeg")) {
+                            imageView.setDrawBackground(true);
+                        }
                         updateProgressBar(false);
                         requireActivity().invalidateOptionsMenu();
                     }

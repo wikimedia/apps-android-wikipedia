@@ -78,8 +78,8 @@ public class PageItemView<T> extends ConstraintLayout {
         this.callback = callback;
     }
 
-    public void setTitle(@Nullable CharSequence text) {
-        titleView.setText(text);
+    public void setTitle(@Nullable String text) {
+        titleView.setText(StringUtil.fromHtml(text));
     }
 
     public void setTitleMaxLines(int linesCount) {
