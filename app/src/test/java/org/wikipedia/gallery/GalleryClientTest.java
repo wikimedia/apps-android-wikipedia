@@ -75,6 +75,6 @@ public class GalleryClientTest extends MockRetrofitTest {
     }
 
     private Observable<MediaList> getObservable() {
-        return getRestService().getMediaList("foo", "");
+        return getRestService().getMediaList("foo", 0);
     }
 }
