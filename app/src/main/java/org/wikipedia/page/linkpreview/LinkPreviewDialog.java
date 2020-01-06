@@ -221,9 +221,15 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribe(summaryResponse -> {
                     funnel.setPageId(summaryResponse.body().getPageId());
                     pageTitle.setThumbUrl(summaryResponse.body().getThumbnailUrl());
+                    // TODO: Remove this logic once Parsoid starts supporting language variants.
+                    if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
+                        titleText.setText(StringUtil.fromHtml(summaryResponse.body().getDisplayTitle()));
+                    } else {
+                        titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
+                    }
 
                     // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setText(StringUtil.removeNamespace(summaryResponse.body().getApiTitle()));
+                    pageTitle.setText(StringUtil.removeNamespace(summaryResponse.body().getDisplayTitle()));
                     showPreview(new LinkPreviewContents(summaryResponse.body(), pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);

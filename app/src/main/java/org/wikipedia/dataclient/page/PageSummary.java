@@ -157,12 +157,12 @@ public class PageSummary {
 
     @Nullable
     public String getTimestamp() {
-        return timestamp;
+        return StringUtils.defaultString(timestamp);
     }
 
     @Nullable
     public String getWikiBaseItem() {
-        return wikiBaseItem;
+        return StringUtils.defaultString(wikiBaseItem);
     }
 
     @Nullable

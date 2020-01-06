@@ -13,7 +13,6 @@ import java.util.Set;
 public class Protection {
     @Nullable private String edit;
 
-    @Nullable
     public String getFirstAllowedEditorRole() {
         return StringUtils.defaultString(edit);
     }
