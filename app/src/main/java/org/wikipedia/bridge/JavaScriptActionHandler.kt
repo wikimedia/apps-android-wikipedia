@@ -81,7 +81,7 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setFooter(context: Context, model: PageViewModel): String {
+    fun setFooter(model: PageViewModel): String {
         if (model.page == null) {
             return ""
         }
@@ -94,9 +94,9 @@ object JavaScriptActionHandler {
         val showMapLink = model.page!!.pageProperties.geo != null
         val res = L10nUtil.getStringsForArticleLanguage(model.title, intArrayOf(R.string.read_more_section,
                 R.string.page_similar_titles, R.string.language_count_link_text, R.string.about_article_section,
-                R.string.edit_history_link_text, R.string.last_updated_text, R.string.content_license_html,
-                R.string.talk_page_link_text, R.string.page_view_in_browser, R.string.map_view_link_text,
-                R.string.reference_list_title))
+                R.string.edit_history_link_text, R.string.last_updated_text, R.string.content_license_text,
+                R.string.talk_page_link_text, R.string.page_view_in_browser, R.string.content_license_cc_by_sa,
+                R.string.map_view_link_text, R.string.reference_list_title))
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
@@ -121,10 +121,10 @@ object JavaScriptActionHandler {
                 "           'menuHeading': '${res[R.string.about_article_section]}'," +
                 "           'menuLastEditedSubtitle': '${res[R.string.edit_history_link_text]}'," +
                 "           'menuLastEditedTitle': '${String.format(res[R.string.last_updated_text], lastModifiedDate)}'," +
-                "           'licenseString': '${res[R.string.content_license_html]}'," +
+                "           'licenseString': '${res[R.string.content_license_text]}'," +
                 "           'menuTalkPageTitle': '${res[R.string.talk_page_link_text]}'," +
                 "           'viewInBrowserString': '${res[R.string.page_view_in_browser]}'," +
-                "           'licenseSubstitutionString': 'CC BY-SA 3.0'," +
+                "           'licenseSubstitutionString': '${res[R.string.content_license_cc_by_sa]}'," +
                 "           'menuCoordinateTitle': '${res[R.string.map_view_link_text]}'," +
                 "           'menuReferenceListTitle': '${res[R.string.reference_list_title]}'" +
                 "       }," +

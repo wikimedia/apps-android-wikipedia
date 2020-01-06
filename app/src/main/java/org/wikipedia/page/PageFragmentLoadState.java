@@ -230,7 +230,7 @@ public class PageFragmentLoadState {
                                 createPage(pageSummaryResponse.body());
                             }
 
-                            bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
+                            bridge.execute(JavaScriptActionHandler.setFooter(model));
                             if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
                                     || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                                 showPageOfflineMessage(Objects.requireNonNull(pageSummaryResponse.raw().header("date", "")));
