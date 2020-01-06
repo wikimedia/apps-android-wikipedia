@@ -119,7 +119,7 @@ public interface RestService {
 
     @GET("page/media-list/{title}/{revision}")
     @NonNull Observable<MediaList> getMediaList(@NonNull @Path("title") String title,
-                                                @NonNull @Path("revision") String revision);
+                                                @Path("revision") long revision);
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
@@ -139,7 +139,7 @@ public interface RestService {
 
     @GET("page/references/{title}/{revision}")
     @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
-                                                  @NonNull @Path("revision") String revision);
+                                                  @Path("revision") long revision);
 
     // ------- Reading lists -------
 

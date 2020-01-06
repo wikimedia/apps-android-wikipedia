@@ -127,7 +127,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
     private Disposable imageCaptionDisposable;
-    private String revision;
+    private long revision;
     private WikiSite sourceWiki;
 
     private boolean controlsShowing = true;
@@ -154,14 +154,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
                                    @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, null, filename, wiki, "", source)
+        return newIntent(context, null, filename, wiki, -1, source)
                 .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
                 .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
     }
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
-                                   @NonNull String filename, @NonNull WikiSite wiki, @NonNull String revision, int source) {
+                                   @NonNull String filename, @NonNull WikiSite wiki, long revision, int source) {
         Intent intent = new Intent()
                 .setClass(context, GalleryActivity.class)
                 .putExtra(EXTRA_FILENAME, filename)
@@ -206,7 +206,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         }
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
-        revision = getIntent().getStringExtra(EXTRA_REVISION);
+        revision = getIntent().getLongExtra(EXTRA_REVISION, -1);
         sourceWiki = getIntent().getParcelableExtra(EXTRA_WIKI);
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);

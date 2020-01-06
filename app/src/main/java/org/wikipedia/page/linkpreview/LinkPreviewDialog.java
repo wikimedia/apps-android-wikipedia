@@ -84,7 +84,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private HistoryEntry historyEntry;
     private PageTitle pageTitle;
-    private String revision;
+    private long revision;
     @Nullable private Location location;
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();

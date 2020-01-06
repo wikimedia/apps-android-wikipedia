@@ -173,7 +173,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
     private References references;
-    private String revision;
+    private long revision;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
 
@@ -824,7 +824,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
 
         bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            this.revision = revision.replace("\"", "");
+            this.revision = Long.parseLong(revision.replace("\"", ""));
         });
 
         checkAndShowBookmarkOnboarding();
@@ -1216,7 +1216,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         requireActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
     }
 
-    public String getRevision() {
+    public long getRevision() {
         return revision;
     }
 
