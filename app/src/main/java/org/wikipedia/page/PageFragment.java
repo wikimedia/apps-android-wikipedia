@@ -823,9 +823,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setVisibility(View.VISIBLE);
         }
 
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            this.revision = Long.parseLong(revision.replace("\"", ""));
-        });
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
 
         checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
