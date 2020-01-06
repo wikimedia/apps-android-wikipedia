@@ -154,7 +154,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
                                    @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, null, filename, wiki, -1, source)
+        return newIntent(context, null, filename, wiki, 0, source)
                 .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
                 .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
     }
@@ -206,7 +206,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         }
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
-        revision = getIntent().getLongExtra(EXTRA_REVISION, -1);
+        revision = getIntent().getLongExtra(EXTRA_REVISION, 0);
         sourceWiki = getIntent().getParcelableExtra(EXTRA_WIKI);
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);
