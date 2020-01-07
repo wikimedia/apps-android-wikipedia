@@ -28,6 +28,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             app:srcCompat="@drawable/ic_arrow_upward_black_24dp"
+            app:tint="?attr/material_theme_primary_color"
             android:clickable="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@null"/>
