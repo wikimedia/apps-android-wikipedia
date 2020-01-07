@@ -84,6 +84,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private HistoryEntry historyEntry;
     private PageTitle pageTitle;
+    private long revision;
     @Nullable private Location location;
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -221,6 +222,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribe(summary -> {
                     funnel.setPageId(summary.getPageId());
                     pageTitle.setThumbUrl(summary.getThumbnailUrl());
+                    revision = summary.getRevision();
                     titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
 
                     // TODO: remove after the restbase endpoint supports ZH variants
@@ -235,7 +237,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getPrefixedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getPrefixedText(), revision)
                     .flatMap((Function<MediaList, ObservableSource<MwQueryResponse>>) mediaList -> {
                         final int maxImages = 10;
                         List<MediaListItem> items = mediaList.getItems("image", "video");
@@ -340,7 +342,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         @Override
         public void onGalleryItemClicked(String imageName) {
             startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
-                    pageTitle.getWikiSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
+                    pageTitle.getWikiSite(), revision, GalleryFunnel.SOURCE_LINK_PREVIEW),
                     Constants.ACTIVITY_REQUEST_GALLERY);
         }
     };
