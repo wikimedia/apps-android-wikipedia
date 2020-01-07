@@ -130,7 +130,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageInitWebView(@NonNull ObservableWebView v);
         void onPageShowLinkPreview(@NonNull HistoryEntry entry);
-        void onPageLoadMainPageInForegroundTab();
+        void onPageLoadEmptyPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
         void onPageShowThemeChooser();
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
@@ -158,6 +158,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private LeadImagesHandler leadImagesHandler;
     private PageHeaderView pageHeaderView;
     private ObservableWebView webView;
+    private View emptyPageContainer;
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
@@ -293,6 +294,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
         DimenUtil.setViewHeight(pageHeaderView, leadImageHeightForDevice());
+        emptyPageContainer = rootView.findViewById(R.id.page_empty_container);
 
         webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
@@ -395,7 +397,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (!pageFragmentLoadState.backStackEmpty()) {
             pageFragmentLoadState.loadFromBackStack();
         } else {
-            loadMainPageInForegroundTab();
+            loadEmptyPageInForegroundTab();
         }
     }
 
@@ -639,12 +641,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
 
-        // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
-
         errorState = false;
         errorView.setVisibility(View.GONE);
-        tabLayout.enableAllTabs();
 
         model.setTitle(title);
         model.setTitleOriginal(title);
@@ -652,15 +651,38 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         model.setReadingListPage(null);
         model.setForceNetwork(isRefresh);
 
-        updateProgressBar(true, true, 0);
+        if (title.getText().equals(Constants.EMPTY_PAGE_TITLE)) {
+            // show Empty state...
+            tocHandler.setEnabled(false);
+            updateProgressBar(false, true, 0);
 
-        this.pageRefreshed = isRefresh;
-        references = null;
+            webView.setVisibility(View.GONE);
+            leadImagesHandler.hide();
+            tabLayout.setVisibility(View.GONE);
+            emptyPageContainer.setVisibility(View.VISIBLE);
+            setToolbarFadeEnabled(false);
 
-        closePageScrollFunnel();
-        pageFragmentLoadState.load(pushBackStack);
-        scrollTriggerListener.setStagedScrollY(stagedScrollY);
-        updateBookmarkAndMenuOptions();
+
+
+
+
+        } else {
+            webView.setVisibility(View.VISIBLE);
+            tabLayout.setVisibility(View.VISIBLE);
+            emptyPageContainer.setVisibility(View.GONE);
+
+            tabLayout.enableAllTabs();
+
+            updateProgressBar(true, true, 0);
+
+            this.pageRefreshed = isRefresh;
+            references = null;
+
+            closePageScrollFunnel();
+            pageFragmentLoadState.load(pushBackStack);
+            scrollTriggerListener.setStagedScrollY(stagedScrollY);
+            updateBookmarkAndMenuOptions();
+        }
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -1157,10 +1179,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void loadMainPageInForegroundTab() {
+    private void loadEmptyPageInForegroundTab() {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageLoadMainPageInForegroundTab();
+            callback.onPageLoadEmptyPageInForegroundTab();
         }
     }
 

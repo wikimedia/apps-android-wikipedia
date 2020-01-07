@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.SwipeRefreshLayoutWithScroll xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.SwipeRefreshLayoutWithScroll
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,6 +16,35 @@
             android:id="@+id/page_web_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/page_empty_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="168dp"
+                android:layout_height="168dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_search_splash"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/empty_tab_description"
+                style="@style/MaterialMediumSecondaryCaption"
+                android:textColor="?attr/material_theme_secondary_color"/>
+
+        </LinearLayout>
 
         <org.wikipedia.page.leadimages.PageHeaderView
             android:id="@+id/page_header_view"
