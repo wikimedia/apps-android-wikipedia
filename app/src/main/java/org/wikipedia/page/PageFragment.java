@@ -704,7 +704,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.ACTIVITY_REQUEST_EDIT_SECTION
                 && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            pageFragmentLoadState.backFromEditing(data);
             FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully);
             // and reload the page...
             loadPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
