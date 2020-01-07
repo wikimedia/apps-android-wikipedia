@@ -84,6 +84,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private HistoryEntry historyEntry;
     private PageTitle pageTitle;
+    private long revision;
     @Nullable private Location location;
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -221,6 +222,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribe(summaryResponse -> {
                     funnel.setPageId(summaryResponse.body().getPageId());
                     pageTitle.setThumbUrl(summaryResponse.body().getThumbnailUrl());
+                    revision = summaryResponse.body().getRevision();
                     // TODO: Remove this logic once Parsoid starts supporting language variants.
                     if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
                         titleText.setText(StringUtil.fromHtml(summaryResponse.body().getDisplayTitle()));
@@ -240,7 +242,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getPrefixedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getPrefixedText(), revision)
                     .flatMap((Function<MediaList, ObservableSource<MwQueryResponse>>) mediaList -> {
                         final int maxImages = 10;
                         List<MediaListItem> items = mediaList.getItems("image", "video");
@@ -345,7 +347,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         @Override
         public void onGalleryItemClicked(String imageName) {
             startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
-                    pageTitle.getWikiSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
+                    pageTitle.getWikiSite(), revision, GalleryFunnel.SOURCE_LINK_PREVIEW),
                     Constants.ACTIVITY_REQUEST_GALLERY);
         }
     };

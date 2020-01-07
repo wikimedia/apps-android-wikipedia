@@ -176,6 +176,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
     private References references;
+    private long revision;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
     @Nullable private List<Section> sections;
@@ -732,7 +733,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.ACTIVITY_REQUEST_EDIT_SECTION
                 && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            pageFragmentLoadState.backFromEditing(data);
             FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully);
             // and reload the page...
             loadPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
@@ -849,6 +849,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             editHandler.setPage(model.getPage());
             webView.setVisibility(View.VISIBLE);
         }
+
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
 
         checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
@@ -1089,7 +1091,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (app.isOnline()) {
             requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
                     model.getTitleOriginal(), StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href)),
-                    model.getTitle().getWikiSite(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
+                    model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
@@ -1239,6 +1241,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         requireActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
     }
 
+    public long getRevision() {
+        return revision;
+    }
+
     private void trimTabCount() {
         while (app.getTabList().size() > Constants.MAX_TABS) {
             app.getTabList().remove(0);
@@ -1319,7 +1325,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     private Observable<References> getReferences() {
-        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText()) : Observable.just(references);
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision()) : Observable.just(references);
     }
 
     void openImageInGallery(@NonNull String language) {

@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,7 +12,6 @@ import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
@@ -52,11 +50,6 @@ public class PageFragmentLoadState {
 
     @NonNull private Tab currentTab = new Tab();
 
-    @NonNull private final SequenceNumber sequenceNumber = new SequenceNumber();
-
-    private int sectionTargetFromIntent;
-    private String sectionTargetFromTitle;
-
     private ErrorCallback networkErrorCallback;
 
     // copied fields
@@ -92,10 +85,6 @@ public class PageFragmentLoadState {
         }
 
         loading = true;
-
-        // increment our sequence number, so that any async tasks that depend on the sequence
-        // will invalidate themselves upon completion.
-        sequenceNumber.increase();
 
         pageLoadCheckReadingLists();
     }
@@ -163,11 +152,6 @@ public class PageFragmentLoadState {
         return currentTab.getBackStack().isEmpty();
     }
 
-    public void backFromEditing(Intent data) {
-        //Retrieve section ID from intent, and find correct section, so where know where to scroll to
-        sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
-    }
-
     public void onConfigurationChanged() {
         leadImagesHandler.loadLeadImage();
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
@@ -206,9 +190,6 @@ public class PageFragmentLoadState {
             return;
         }
         fragment.updateBookmarkAndMenuOptions();
-        // stage any section-specific link target from the title, since the title may be
-        // replaced (normalized)
-        sectionTargetFromTitle = model.getTitle().getFragment();
 
         networkErrorCallback = errorCallback;
         if (!fragment.isAdded()) {
@@ -296,26 +277,5 @@ public class PageFragmentLoadState {
 
         model.getTitle().setThumbUrl(pageImage.getImageName());
         model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
-    }
-
-    /**
-     * Monotonically increasing sequence number to maintain synchronization when loading page
-     * content asynchronously between the Java and JavaScript layers, as well as between synchronous
-     * methods and asynchronous callbacks on the UI thread.
-     */
-    private static class SequenceNumber {
-        private int sequence;
-
-        void increase() {
-            ++sequence;
-        }
-
-        int get() {
-            return sequence;
-        }
-
-        boolean inSync(int sequence) {
-            return this.sequence == sequence;
-        }
     }
 }

@@ -117,8 +117,9 @@ public interface RestService {
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
-    @GET("page/media-list/{title}")
-    @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
+    @GET("page/media-list/{title}/{revision}")
+    @NonNull Observable<MediaList> getMediaList(@NonNull @Path("title") String title,
+                                                @Path("revision") long revision);
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
@@ -136,8 +137,9 @@ public interface RestService {
     @GET("feed/availability")
     @NonNull Observable<FeedAvailability> getFeedAvailability();
 
-    @GET("page/references/{title}")
-    @NonNull Observable<References> getReferences(@Path("title") String title);
+    @GET("page/references/{title}/{revision}")
+    @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
+                                                  @Path("revision") long revision);
 
     // ------- Reading lists -------
 

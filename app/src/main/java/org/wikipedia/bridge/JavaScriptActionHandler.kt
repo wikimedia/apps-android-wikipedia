@@ -43,6 +43,10 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.getProtection()"
     }
 
+    fun getRevision(): String {
+        return "pcs.c1.Page.getRevision();"
+    }
+
     @JvmStatic
     fun scrollToFooter(context: Context): String {
         return "window.scrollTo(0, document.getElementById('pcs-footer-container-menu').offsetTop - ${DimenUtil.getNavigationBarHeight(context)});"
