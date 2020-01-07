@@ -39,6 +39,12 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun scrollToAnchor(anchorLink: String): String {
+        val anchor = if (anchorLink.contains("#")) anchorLink.substring(anchorLink.indexOf("#") + 1) else anchorLink
+        return "var el = document.getElementById('$anchor'); window.scrollTo(0, el.offsetTop - (screen.height / 2)); el.style.backgroundColor='#ee0'; setTimeout(function(){ el.style.backgroundColor=null; }, 500);"
+    }
+
+    @JvmStatic
     fun setUp(title: PageTitle): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()

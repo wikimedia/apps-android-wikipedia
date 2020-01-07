@@ -618,8 +618,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onCancel() { }
 
-    @Override
-    public Observable<References> getReferences() {
+    @Override @NonNull public LinkHandler getLinkHandler() {
+        return pageFragment.getLinkHandler();
+    }
+
+    @Override @NonNull public Observable<References> getReferences() {
         return pageFragment.getReferences();
     }
 

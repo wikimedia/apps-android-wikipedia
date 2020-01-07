@@ -50,6 +50,7 @@ import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
@@ -920,7 +921,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                //Todo: mobile-html: add bridge communication
+                bridge.execute(JavaScriptActionHandler.scrollToAnchor(anchor));
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -1292,6 +1293,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public Observable<References> getReferences() {
         return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText()) : Observable.just(references);
+    }
+
+    public LinkHandler getLinkHandler() {
+        return linkHandler;
     }
 
     void openImageInGallery(@NonNull String language) {

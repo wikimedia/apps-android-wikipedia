@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- TODO: decide whether to show the ordinal of the reference. (is it useful?) -->
+        <TextView
+            android:id="@+id/reference_id_text"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-medium"
+            android:visibility="gone"
+            tools:text="123"/>
+
+        <ImageView
+            android:id="@+id/reference_back_link"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:srcCompat="@drawable/ic_arrow_upward_black_24dp"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/reference_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:lineSpacingMultiplier="1.4"
         android:textColor="?attr/material_theme_primary_color"
+        android:textIsSelectable="true"
         tools:text="Lorem ipsum" />
 
-</FrameLayout>
+</LinearLayout>
