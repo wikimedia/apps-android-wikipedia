@@ -1254,9 +1254,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 new Date(),
                 model.getCurEntry().getSource(),
                 timeSpentSec));
-        Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
-                .subscribeOn(Schedulers.io())
-                .subscribe(() -> { }, L::e);
+        if (!model.getCurEntry().getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {
+            Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(() -> { }, L::e);
+        }
     }
 
     private LinearLayout.LayoutParams getContentTopOffsetParams(@NonNull Context context) {
