@@ -70,6 +70,7 @@ import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.references.ReferenceDialog;
+import org.wikipedia.page.references.ReferenceListDialog;
 import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
@@ -922,7 +923,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                //Todo: mobile-html: add bridge communication
+                bridge.execute(JavaScriptActionHandler.scrollToAnchor(anchor));
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -1012,7 +1013,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 // TODO
                 // messagePayload contains an array of URLs called "payload".
             } else if ("referenceList".equals(itemType)) {
-                // TODO: show full list of references.
+                showBottomSheet(ReferenceListDialog.Companion.newInstance());
             }
         });
         bridge.addListener("read_more_titles_retrieved", (String messageType, JsonObject messagePayload) -> {
@@ -1296,8 +1297,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return leadImagesHandler.getCallToActionEditLang();
     }
 
-    private Observable<References> getReferences() {
+    public Observable<References> getReferences() {
         return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision()) : Observable.just(references);
+    }
+
+    public LinkHandler getLinkHandler() {
+        return linkHandler;
     }
 
     void openImageInGallery(@NonNull String language) {
