@@ -115,10 +115,6 @@ public class DescriptionEditFragment extends Fragment {
                 return;
             }
             editView.setSaveState(false);
-
-            SuggestedEditsFunnel.get().log();
-            SuggestedEditsFunnel.reset();
-
             if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == PAGE_ACTIVITY) {
                 startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
                         ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
