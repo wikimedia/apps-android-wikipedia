@@ -52,8 +52,7 @@
 
         <Button
             android:id="@+id/view_onboarding_action_positive"
-            style="@style/App.Button.White"
-            android:textColor="@color/accent50"
+            style="@style/App.Button.Blue"
             tools:text="Lorem ipsum" />
     </LinearLayout>
 
