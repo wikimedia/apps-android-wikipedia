@@ -31,6 +31,7 @@ public class PageSummary {
     @Nullable private Thumbnail thumbnail;
     @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @Nullable private String lang;
+    private long revision;
     private int pageid;
 
     @NonNull
@@ -91,6 +92,10 @@ public class PageSummary {
     @NonNull
     public String getLang() {
         return StringUtils.defaultString(lang);
+    }
+
+    public long getRevision() {
+        return revision;
     }
 
     private static class Thumbnail {
