@@ -43,7 +43,7 @@ class ReferenceListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        L10nUtil.setConditionalLayoutDirection(view, callback()!!.linkHandler.getWikiSite().languageCode())
+        L10nUtil.setConditionalLayoutDirection(view, callback()!!.linkHandler.wikiSite.languageCode())
         referencesRecycler.layoutManager = LinearLayoutManager(activity)
         referencesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, false))
         updateList()
@@ -71,7 +71,7 @@ class ReferenceListDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         fun bindItem(reference: References.Reference, position: Int) {
-            referenceIdView.text = (position + 1).toString()
+            referenceIdView.text = ((position + 1).toString() + ".")
             referenceTextView.text = StringUtil.fromHtml(StringUtil.removeStyleTags(reference.content))
             if (reference.backLinks.isEmpty()) {
                 referenceBackLink.visibility = View.GONE
