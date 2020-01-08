@@ -661,11 +661,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             tabLayout.setVisibility(View.GONE);
             emptyPageContainer.setVisibility(View.VISIBLE);
             setToolbarFadeEnabled(false);
-
-
-
-
-
         } else {
             webView.setVisibility(View.VISIBLE);
             tabLayout.setVisibility(View.VISIBLE);

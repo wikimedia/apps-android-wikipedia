@@ -449,7 +449,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void loadEmptyPage(TabPosition position) {
         PageTitle title = new PageTitle(Constants.EMPTY_PAGE_TITLE, app.getWikiSite());
-        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
         loadPage(title, historyEntry, position);
     }
 
