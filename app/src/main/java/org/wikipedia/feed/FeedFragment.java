@@ -28,7 +28,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
@@ -237,8 +236,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             refresh();
         } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
-            SuggestedEditsFunnel.get().log();
-            SuggestedEditsFunnel.reset();
             if (resultCode == RESULT_OK) {
                 boolean isTranslation;
                 if (suggestedEditsCardView != null) {
