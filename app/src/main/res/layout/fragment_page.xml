@@ -17,34 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/page_empty_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/paper_color"
             android:visibility="gone"
             tools:visibility="visible">
-
-            <ImageView
-                android:layout_width="168dp"
-                android:layout_height="168dp"
-                android:layout_gravity="center_horizontal"
-                app:srcCompat="@drawable/ic_search_splash"
-                android:contentDescription="@null"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:text="@string/empty_tab_description"
-                style="@style/MaterialMediumSecondaryCaption"
-                android:textColor="?attr/material_theme_secondary_color"/>
-
-        </LinearLayout>
+        </FrameLayout>
 
         <org.wikipedia.page.leadimages.PageHeaderView
             android:id="@+id/page_header_view"
