@@ -13,6 +13,8 @@ import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ImageUrlUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
@@ -60,8 +62,9 @@ public class PageProperties implements Parcelable {
         geo = pageSummary.getGeo();
         languageCount = 1;
         lastModified = new Date();
-        this.leadImageName = pageSummary.getLeadImageName();
-        this.leadImageUrl = pageSummary.getThumbnailUrl();
+        leadImageName = pageSummary.getLeadImageName();
+        leadImageUrl = pageSummary.getThumbnailUrl() != null
+                ? UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageSummary.getThumbnailUrl(), DimenUtil.calculateLeadImageWidth())) : null;
         String lastModifiedText = pageSummary.getTimestamp();
         if (lastModifiedText != null) {
             try {
