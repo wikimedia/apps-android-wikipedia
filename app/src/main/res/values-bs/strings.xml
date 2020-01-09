@@ -50,17 +50,18 @@
   <string name="content_license_html">Sadržaj je dostupan pod licencom &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; osim gdje je drukčije navedeno</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene koje napravite pripisat će se IP-adresi Vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imat ćete veću privatnost.</string>
-  <string name="preference_title_language" fuzzy="true">Jezik Wikipedije</string>
+  <string name="preference_title_language">Jezici Wikipedije</string>
   <string name="langlinks_filter_hint">Pretraži</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
   <string name="langlinks_no_match">Nije pronađen nijedan jezik</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
+  <string name="langlinks_your_wikipedia_languages">Vaši jezici Wikipedije</string>
   <string name="menu_save_changes">Objavi izmjene</string>
   <string name="edit_saved_successfully">Izmjena je objavljena!</string>
   <string name="dialog_message_edit_failed">Čuvanje izmjene nije uspjelo!</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
   <string name="dialog_message_edit_failed_cancel">Otkaži</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Vaše izmjene još uvijek nisu sačuvane. Jeste li sigurni da želite napustiti ovu stranicu?</string>
+  <string name="dialog_message_leaving_edit">Vaše izmjene još uvijek nisu objavljene. Jeste li sigurni da želite napustiti ovu stranicu?</string>
   <string name="dialog_message_leaving_edit_leave">Napusti</string>
   <string name="dialog_message_leaving_edit_stay">Ostani</string>
   <string name="menu_show_toc">Sadržaj</string>
@@ -69,6 +70,7 @@
   <string name="search_reading_lists_no_results">Ništa nije pronađeno u spiskovima za čitanje</string>
   <string name="search_history_no_results">Ništa nije pronađeno u historiji</string>
   <string name="edit_section_captcha_message">Da bi se onemogućio automatizirani neželjeni sadržaj, upišite riječi koje su prikazane ispod</string>
+  <string name="edit_section_captcha_request_an_account_message">Ne vidite sliku? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Zatražite račun&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ponovo upišite gornje riječi</string>
   <string name="title_captcha">Upišite CAPTCHA-u</string>
   <string name="edit_section_captcha_reload">Dodirnite CAPTCHA-u da biste je ponovo učitali</string>
@@ -159,6 +161,10 @@
   <string name="edit_next">Sljedeće</string>
   <string name="edit_done">Objavi</string>
   <string name="edit_preview">Pregled</string>
+  <string name="edit_undo">Vrati</string>
+  <string name="edit_redo">Ponovi</string>
+  <string name="edit_zoom_in">Približi</string>
+  <string name="edit_zoom_out">Udalji</string>
   <string name="edit_summary_tag_typo">Popravljen tipfeler</string>
   <string name="edit_summary_tag_grammar">Popravljena gramatička greška</string>
   <string name="edit_summary_tag_links">Dodani linkovi</string>
@@ -328,6 +334,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Da uključim sinhronizaciju spiskova za čitanje?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Uključi sinhronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
+  <string name="reading_list_login_option_reminder_dialog_no">Ne, izbriši članke</string>
   <string name="default_reading_list_name">Sačuvano</string>
   <string name="default_reading_list_description">Standardni spisak za Vaše sačuvane članke</string>
   <string name="no_user_lists_title">Organizirajte članke sa spiskovima</string>
@@ -355,6 +362,15 @@
   <string name="notification_channel_name" fuzzy="true">Sinhronizacija</string>
   <string name="notification_syncing_title" fuzzy="true">Preuzimam %1$d članak/-(a)ka…</string>
   <string name="notification_syncing_description" fuzzy="true">Preostalo članaka: %1$d</string>
+  <string name="notifications_activity_title">Obavještenja</string>
+  <string name="notifications_activity_title_archived">Obavještenja (arhivirana)</string>
+  <string name="notifications_search">Pretraži obavještenja</string>
+  <string name="notifications_view_unread">Prikaži nepročitana</string>
+  <string name="notifications_view_archived">Prikaži arhivirana</string>
+  <string name="notifications_prefs">Postavke obavještenja</string>
+  <string name="notifications_archive">Označi kao pročitano i arhiviraj</string>
+  <string name="notifications_poll_enable_negative">Ne sada</string>
+  <string name="notifications_empty_message">Nemate novih obavještenja!</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
   <string name="view_random_card_subtitle">Prelistajte nasumično izabrane članke s Wikipedije.</string>
