@@ -19,8 +19,6 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.gallery.MediaList;
 import org.wikipedia.gallery.MediaListItem;
-import org.wikipedia.html.ImageTagParser;
-import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.references.References;
 import org.wikipedia.pageimages.PageImage;
@@ -52,16 +50,14 @@ public class SavedPageSyncService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).
     private static final int JOB_ID = 1000;
     private static final int ENQUEUE_DELAY_MILLIS = 2000;
-    public static final int LEAD_SECTION_PROGRESS = 25;
-    public static final int MOBILE_HTML_SECTION_PROGRESS = 50;
-    public static final int MEDIA_LIST_PROGRESS = 60;
+    public static final int SUMMARY_PROGRESS = 10;
+    public static final int MOBILE_HTML_SECTION_PROGRESS = 30;
+    public static final int MEDIA_LIST_PROGRESS = 50;
     public static final int REFERENCES_PROGRESS = 70;
 
     private static Runnable ENQUEUE_RUNNABLE = () -> enqueueWork(WikipediaApp.getInstance(),
             SavedPageSyncService.class, JOB_ID, new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
 
-    @NonNull private final PageImageUrlParser pageImageUrlParser
-            = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
     private SavedPageSyncNotification savedPageSyncNotification;
 
     public SavedPageSyncService() {
@@ -142,9 +138,14 @@ public class SavedPageSyncService extends JobIntentService {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         Observable.zip(reqPageSummary(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
                 reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, mediaListRsp, referencesRsp) -> {
+                reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (summaryRsp, mediaListRsp, referencesRsp) -> {
                     reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
                     Set<String> imageUrls = new HashSet<>();
+                    if (summaryRsp.body() != null) {
+                        if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
+                            imageUrls.add(pageTitle.getThumbUrl());
+                        }
+                    }
                     for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                         if (!item.getSrcSets().isEmpty()) {
                             imageUrls.add(item.getImageUrl(DimenUtil.calculateLeadImageWidth()));
@@ -234,7 +235,6 @@ public class SavedPageSyncService extends JobIntentService {
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
 
-        // TODO: remove page lead and maybe load page summary since it needs description for page
         Observable<retrofit2.Response<PageSummary>> summaryCall = reqPageSummary(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<MediaList>> mediaListCall = reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
@@ -242,10 +242,9 @@ public class SavedPageSyncService extends JobIntentService {
         final Exception[] exception = new Exception[1];
 
         Observable.zip(summaryCall, mediaListCall, referencesCall, (summaryRsp, mediaListRsp, referencesRsp) -> {
-            page.title(summaryRsp.body().getDisplayTitle());
             long totalSize = 0;
             totalSize += responseSize(summaryRsp);
-            page.downloadProgress(LEAD_SECTION_PROGRESS);
+            page.downloadProgress(SUMMARY_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
             page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
@@ -258,12 +257,20 @@ public class SavedPageSyncService extends JobIntentService {
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             Set<String> imageUrls = new HashSet<>();
 
+            if (!TextUtils.isEmpty(summaryRsp.body().getThumbnailUrl())) {
+                page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+                        summaryRsp.body().getThumbnailUrl()));
+                persistPageThumbnail(pageTitle, page.thumbUrl());
+                imageUrls.add(page.thumbUrl());
+            }
+
             for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                 if (!item.getSrcSets().isEmpty()) {
                     imageUrls.add(item.getImageUrl(DimenUtil.calculateLeadImageWidth()));
                 }
             }
 
+            page.title(summaryRsp.body().getDisplayTitle());
             page.description(summaryRsp.body().getDescription());
 
             if (Prefs.isImageDownloadEnabled()) {
@@ -274,9 +281,10 @@ public class SavedPageSyncService extends JobIntentService {
             L.i("Saved page " + title + " (" + totalSize + ")");
 
             return totalSize;
-        }).subscribeOn(Schedulers.io())
-                .blockingSubscribe(size -> pageSize[0] = size,
-                        t -> exception[0] = (Exception) t);
+        })
+        .subscribeOn(Schedulers.io())
+        .blockingSubscribe(size -> pageSize[0] = size,
+                t -> exception[0] = (Exception) t);
         if (exception[0] != null) {
             throw exception[0];
         }
