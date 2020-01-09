@@ -307,8 +307,8 @@ public class SavedPageSyncService extends JobIntentService {
 
     @NonNull
     private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
-                                                                                  @NonNull String saveOfflineHeader,
-                                                                                  @NonNull PageTitle pageTitle) {
+                                                                         @NonNull String saveOfflineHeader,
+                                                                         @NonNull PageTitle pageTitle) {
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
     }
 
