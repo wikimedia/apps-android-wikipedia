@@ -43,6 +43,7 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.getProtection()"
     }
 
+    @JvmStatic
     fun getRevision(): String {
         return "pcs.c1.Page.getRevision();"
     }

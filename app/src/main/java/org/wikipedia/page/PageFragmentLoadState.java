@@ -9,8 +9,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
-import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
@@ -203,7 +203,7 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(new PageClient().summary(model.getTitle().getWikiSite(), model.getTitle().getPrefixedText(), null)
+        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummaryResponse(null, model.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pageSummaryResponse -> {
