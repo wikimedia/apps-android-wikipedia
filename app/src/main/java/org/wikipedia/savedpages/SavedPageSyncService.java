@@ -15,8 +15,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.gallery.MediaList;
 import org.wikipedia.gallery.MediaListItem;
@@ -141,18 +140,11 @@ public class SavedPageSyncService extends JobIntentService {
     @SuppressLint("CheckResult")
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        // TODO: remove page lead
-        Observable.zip(reqPageLead(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
+        Observable.zip(reqPageSummary(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
                 reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
                 reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (leadRsp, mediaListRsp, referencesRsp) -> {
                     reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
                     Set<String> imageUrls = new HashSet<>();
-                    if (leadRsp.body() != null) {
-                        imageUrls.addAll(pageImageUrlParser.parse(leadRsp.body()));
-                        if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
-                            imageUrls.add(pageTitle.getThumbUrl());
-                        }
-                    }
                     for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                         if (!item.getSrcSets().isEmpty()) {
                             imageUrls.add(item.getImageUrl(DimenUtil.calculateLeadImageWidth()));
@@ -241,22 +233,18 @@ public class SavedPageSyncService extends JobIntentService {
 
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(pageTitle.getWikiSite())
-                .getSummary(null, pageTitle.getPrefixedText())
-                .flatMap(response -> Observable.just(response.getDisplayTitle()))
-                .onErrorReturnItem(pageTitle.getDisplayText()); // prevent "redirected" or variant issue
 
         // TODO: remove page lead and maybe load page summary since it needs description for page
-        Observable<retrofit2.Response<PageLead>> leadCall = reqPageLead(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+        Observable<retrofit2.Response<PageSummary>> summaryCall = reqPageSummary(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<MediaList>> mediaListCall = reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(pageSummaryDisplayTextObservable, leadCall, mediaListCall, referencesCall, (summaryDisplayText, leadRsp, mediaListRsp, referencesRsp) -> {
-            page.title(summaryDisplayText);
+        Observable.zip(summaryCall, mediaListCall, referencesCall, (summaryRsp, mediaListRsp, referencesRsp) -> {
+            page.title(summaryRsp.body().getDisplayTitle());
             long totalSize = 0;
-            totalSize += responseSize(leadRsp);
+            totalSize += responseSize(summaryRsp);
             page.downloadProgress(LEAD_SECTION_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
             totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
@@ -268,14 +256,7 @@ public class SavedPageSyncService extends JobIntentService {
             totalSize += responseSize(referencesRsp);
             page.downloadProgress(REFERENCES_PROGRESS);
             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-            Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
-
-            if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
-                page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
-                        leadRsp.body().getThumbUrl()));
-                persistPageThumbnail(pageTitle, page.thumbUrl());
-                imageUrls.add(page.thumbUrl());
-            }
+            Set<String> imageUrls = new HashSet<>();
 
             for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                 if (!item.getSrcSets().isEmpty()) {
@@ -283,7 +264,7 @@ public class SavedPageSyncService extends JobIntentService {
                 }
             }
 
-            page.description(leadRsp.body().getDescription());
+            page.description(summaryRsp.body().getDescription());
 
             if (Prefs.isImageDownloadEnabled()) {
                 totalSize += reqSaveImages(page, imageUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
@@ -302,29 +283,25 @@ public class SavedPageSyncService extends JobIntentService {
         return pageSize[0];
     }
 
-    // TODO: will be replaced by metadata and summary endpoints
     @NonNull
-    private Observable<retrofit2.Response<PageLead>> reqPageLead(@NonNull CacheControl cacheControl,
-                                                                          @NonNull String saveOfflineHeader,
-                                                                          @NonNull PageTitle pageTitle) {
-        String title = pageTitle.getPrefixedText();
-        int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        return new PageClient().lead(pageTitle.getWikiSite(), cacheControl, saveOfflineHeader, null, title, thumbnailWidth);
+    private Observable<retrofit2.Response<PageSummary>> reqPageSummary(@NonNull CacheControl cacheControl,
+                                                                       @NonNull String saveOfflineHeader,
+                                                                       @NonNull PageTitle pageTitle) {
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getSummaryResponse(cacheControl.toString(), saveOfflineHeader, null, pageTitle.getPrefixedText());
     }
 
     @NonNull
     private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull CacheControl cacheControl,
                                                                    @NonNull String saveOfflineHeader,
                                                                    @NonNull PageTitle pageTitle) {
-        // TODO: query the image urls and will be able to show the images for offline reading
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
     }
 
     @NonNull
     private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
                                                                                   @NonNull String saveOfflineHeader,
                                                                                   @NonNull PageTitle pageTitle) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferences(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
     }
 
     private long reqMobileHTML(@NonNull CacheControl cacheControl,
