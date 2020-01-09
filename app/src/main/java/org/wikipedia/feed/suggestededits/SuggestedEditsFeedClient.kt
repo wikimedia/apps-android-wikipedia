@@ -70,11 +70,10 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
         disposables.add(MissingDescriptionProvider
-                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))!!
+                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    val pageSummary = response.body()!!
+                .subscribe({ pageSummary ->
                     sourceSummary = SuggestedEditsSummary(
                             pageSummary.apiTitle,
                             langFromCode,

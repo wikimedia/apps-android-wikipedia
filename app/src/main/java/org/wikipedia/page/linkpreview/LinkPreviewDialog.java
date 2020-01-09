@@ -28,7 +28,6 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.gallery.MediaList;
@@ -216,23 +215,23 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     private void loadContent() {
-        disposables.add(new PageClient().summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), historyEntry.getReferrer())
+        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(summaryResponse -> {
-                    funnel.setPageId(summaryResponse.body().getPageId());
-                    pageTitle.setThumbUrl(summaryResponse.body().getThumbnailUrl());
-                    revision = summaryResponse.body().getRevision();
+                .subscribe(summary -> {
+                    funnel.setPageId(summary.getPageId());
+                    pageTitle.setThumbUrl(summary.getThumbnailUrl());
+                    revision = summary.getRevision();
                     // TODO: Remove this logic once Parsoid starts supporting language variants.
                     if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
-                        titleText.setText(StringUtil.fromHtml(summaryResponse.body().getDisplayTitle()));
+                        titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                     } else {
                         titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
                     }
 
                     // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setText(StringUtil.removeNamespace(summaryResponse.body().getApiTitle()));
-                    showPreview(new LinkPreviewContents(summaryResponse.body(), pageTitle.getWikiSite()));
+                    pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
+                    showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);
                     titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
