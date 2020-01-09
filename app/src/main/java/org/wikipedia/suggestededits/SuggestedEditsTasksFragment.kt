@@ -18,6 +18,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -122,11 +123,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         hideCurrentTooltip()
+        SuggestedEditsFunnel.get().pause()
     }
 
     override fun onResume() {
         super.onResume()
         refreshContents()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -159,6 +162,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
+        SuggestedEditsFunnel.get().log()
+        SuggestedEditsFunnel.reset()
     }
 
     private fun fetchUserContributions() {
