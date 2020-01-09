@@ -10,11 +10,13 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 
-class SuggestedEditsCard(wiki: WikiSite,
-                         val action: Action,
-                         val sourceSummary: SuggestedEditsSummary?,
-                         val targetSummary: SuggestedEditsSummary?,
-                         val age: Int) : WikiSiteCard(wiki) {
+class SuggestedEditsCard(
+        wiki: WikiSite,
+        val action: Action,
+        val sourceSummary: SuggestedEditsSummary?,
+        val targetSummary: SuggestedEditsSummary?,
+        val age: Int
+) : WikiSiteCard(wiki) {
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
