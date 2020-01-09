@@ -46,8 +46,8 @@ public final class ShareUtil {
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
         shareIntent.putExtra(Intent.EXTRA_TEXT, text);
         shareIntent.setType("text/plain");
-        Intent chooserIntent = createChooserIntent(shareIntent,
-                context.getString(R.string.share_via), context);
+
+        Intent chooserIntent = Intent.createChooser(shareIntent, context.getString(R.string.share_via));
         if (chooserIntent == null) {
             showUnresolvableIntentMessage(context);
         } else {

@@ -1,11 +1,10 @@
 package org.wikipedia.page;
 
-import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -13,10 +12,7 @@ import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.edit.EditHandler;
-import org.wikipedia.edit.EditSectionActivity;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.tabs.Tab;
@@ -27,20 +23,19 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
 import java.text.ParseException;
+import java.util.Objects;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Response;
-
-import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
 /**
- * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
- * First it loads the lead section (sections=0).
- * Then it loads the remaining sections (sections=1-).
+ * Our  page load strategy, which uses responses from the following to construct the page:
+ * page/summary end-point.
+ * page/media-list end-point.
+ * Data received from the javaScript interface
  * <p/>
  * This class tracks:
  * - the states the page loading goes through,
@@ -56,11 +51,6 @@ public class PageFragmentLoadState {
 
     @NonNull private Tab currentTab = new Tab();
 
-    @NonNull private final SequenceNumber sequenceNumber = new SequenceNumber();
-
-    private int sectionTargetFromIntent;
-    private String sectionTargetFromTitle;
-
     private ErrorCallback networkErrorCallback;
 
     // copied fields
@@ -70,7 +60,6 @@ public class PageFragmentLoadState {
     private ObservableWebView webView;
     private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
-    private EditHandler editHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @SuppressWarnings("checkstyle:parameternumber")
@@ -94,13 +83,13 @@ public class PageFragmentLoadState {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
             currentTab.pushBackStackItem(new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry()));
+
+            if (currentTab.getBackStack().size() > 1 && currentTab.getBackStack().get(0).getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {
+                currentTab.getBackStack().remove(0);
+            }
         }
 
         loading = true;
-
-        // increment our sequence number, so that any async tasks that depend on the sequence
-        // will invalidate themselves upon completion.
-        sequenceNumber.increase();
 
         pageLoadCheckReadingLists();
     }
@@ -168,15 +157,6 @@ public class PageFragmentLoadState {
         return currentTab.getBackStack().isEmpty();
     }
 
-    public void setEditHandler(EditHandler editHandler) {
-        this.editHandler = editHandler;
-    }
-
-    public void backFromEditing(Intent data) {
-        //Retrieve section ID from intent, and find correct section, so where know where to scroll to
-        sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
-    }
-
     public void onConfigurationChanged() {
         leadImagesHandler.loadLeadImage();
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
@@ -215,9 +195,6 @@ public class PageFragmentLoadState {
             return;
         }
         fragment.updateBookmarkAndMenuOptions();
-        // stage any section-specific link target from the title, since the title may be
-        // replaced (normalized)
-        sectionTargetFromTitle = model.getTitle().getFragment();
 
         networkErrorCallback = errorCallback;
         if (!fragment.isAdded()) {
@@ -231,42 +208,27 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        Observable<String> pageSummaryDisplayTextObservable = ServiceFactory.getRest(model.getTitle().getWikiSite())
-                .getSummary(null, model.getTitle().getPrefixedText())
-                .flatMap(response -> Observable.just(response.getDisplayTitle()))
-                .onErrorReturnItem(model.getTitle().getDisplayText()); // prevent "redirected" or variant issue
-
-        Observable<Response<PageLead>> pageLeadObservable = new PageClient().lead(model.getTitle().getWikiSite(),
-                model.getCacheControl(), model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                model.getCurEntry().getReferrer(), model.getTitle().getPrefixedText(), calculateLeadImageWidth());
-
-        disposables.add(Observable
-                .zip(pageSummaryDisplayTextObservable, pageLeadObservable, Pair::new)
+        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummaryResponse(null, model.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(pair -> {
-                    app.getSessionFunnel().leadSectionFetchEnd();
-                    PageLead lead = pair.second.body();
-                    pageLoadLeadSectionComplete(lead, pair.first);
+                .subscribe(pageSummaryResponse -> {
+                            if (pageSummaryResponse.body() != null) {
+                                createPage(pageSummaryResponse.body());
+                            }
 
-                    bridge.execute(JavaScriptActionHandler.setFooter(fragment.requireContext(), model));
-
-                    if ((pair.second.raw().cacheResponse() != null && pair.second.raw().networkResponse() == null)
-                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.second.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                        showPageOfflineMessage(pair.second.raw().header("date", ""));
-                    }
-                }, t -> {
-                    L.e("PageLead error: ", t);
-                    commonSectionFetchOnCatch(t);
-                }));
+                            bridge.execute(JavaScriptActionHandler.setFooter(model));
+                            if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
+                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                                showPageOfflineMessage(Objects.requireNonNull(pageSummaryResponse.raw().header("date", "")));
+                            }
+                        },
+                        throwable -> {
+                            L.e("Page details network response error: ", throwable);
+                            commonSectionFetchOnCatch(throwable);
+                        }));
 
         // And finally, start blasting the HTML into the WebView.
         bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle());
-    }
-
-    private void updateThumbnail(String thumbUrl) {
-        model.getTitle().setThumbUrl(thumbUrl);
-        model.getTitleOriginal().setThumbUrl(thumbUrl);
     }
 
     private void showPageOfflineMessage(@NonNull String dateHeader) {
@@ -284,24 +246,20 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void pageLoadLeadSectionComplete(PageLead pageLead, @NonNull String displayText) {
+    private void createPage(@NonNull PageSummary pageSummary) {
         if (!fragment.isAdded()) {
             return;
         }
 
-        Page page = pageLead.toPage(model.getTitle());
-        bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !page.getPageProperties().canEdit()));
-
+        Page page = pageSummary.toPage(model.getTitle());
         model.setPage(page);
         model.setTitle(page.getTitle());
-
-        editHandler.setPage(model.getPage());
 
         if (page.getTitle().getDescription() == null) {
             app.getSessionFunnel().noDescription();
         }
 
-        model.getTitle().setDisplayText(displayText);
+        model.getTitle().setDisplayText(page.getDisplayTitle());
 
         leadImagesHandler.loadLeadImage();
 
@@ -319,31 +277,10 @@ public class PageFragmentLoadState {
         }
 
         // Save the thumbnail URL to the DB
-        PageImage pageImage = new PageImage(model.getTitle(), pageLead.getThumbUrl());
+        PageImage pageImage = new PageImage(model.getTitle(), pageSummary.getThumbnailUrl());
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
         model.getTitle().setThumbUrl(pageImage.getImageName());
         model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
-    }
-
-    /**
-     * Monotonically increasing sequence number to maintain synchronization when loading page
-     * content asynchronously between the Java and JavaScript layers, as well as between synchronous
-     * methods and asynchronous callbacks on the UI thread.
-     */
-    private static class SequenceNumber {
-        private int sequence;
-
-        void increase() {
-            ++sequence;
-        }
-
-        int get() {
-            return sequence;
-        }
-
-        boolean inSync(int sequence) {
-            return this.sequence == sequence;
-        }
     }
 }

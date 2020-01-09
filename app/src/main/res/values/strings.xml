@@ -73,7 +73,8 @@
     <string name="map_view_link_text">View on a map</string>
     <string name="other_languages_indication_text">Read in another language</string>
     <string name="language_count_link_text">Available in %d other languages</string>
-    <string name="content_license_html"><![CDATA[Content is available under <a href=\"%1$s\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
+    <string name="content_license_text">Content is available under $1 unless otherwise noted</string>
+    <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
     <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 3.0</a> license.]]></string>
     <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 3.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="preference_title_language">Wikipedia languages</string>
@@ -338,6 +339,7 @@
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
     <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
+    <string name="empty_tab_title">New tab</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>

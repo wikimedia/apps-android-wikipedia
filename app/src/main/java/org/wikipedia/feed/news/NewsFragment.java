@@ -97,10 +97,12 @@ public class NewsFragment extends Fragment {
         }
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, true);
-        appBarLayout.addOnOffsetChangedListener((layout, offset) ->
-                DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
-                        (layout.getTotalScrollRange() + offset) > layout.getTotalScrollRange() / 2)
-        );
+        appBarLayout.addOnOffsetChangedListener((layout, offset) -> {
+            DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
+                    (layout.getTotalScrollRange() + offset) > layout.getTotalScrollRange() / 2);
+            ((NewsActivity) requireActivity()).updateNavigationBarColor();
+        });
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_status_bar_color));
