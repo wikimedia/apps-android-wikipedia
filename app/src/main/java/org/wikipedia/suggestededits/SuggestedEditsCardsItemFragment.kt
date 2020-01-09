@@ -205,10 +205,11 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             }
 
             else -> {
-                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
+                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))!!
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ pageSummary ->
+                        .subscribe({ pageSummaryResponse ->
+                            val pageSummary = pageSummaryResponse.body()!!
                             sourceSummary = SuggestedEditsSummary(
                                     pageSummary.apiTitle,
                                     pageSummary.lang,

@@ -34,6 +34,15 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun getSections(): String {
+        return "pcs.c1.Page.getTableOfContents()"
+    }
+
+    @JvmStatic
+    fun getProtection(): String {
+        return "pcs.c1.Page.getProtection()"
+    }
+
     fun getRevision(): String {
         return "pcs.c1.Page.getRevision();"
     }

@@ -1,15 +1,20 @@
 package org.wikipedia.dataclient.page;
 
+import android.location.Location;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 
 /**
@@ -31,8 +36,29 @@ public class PageSummary {
     @Nullable private Thumbnail thumbnail;
     @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @Nullable private String lang;
-    private long revision;
     private int pageid;
+
+    private long revision;
+    @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location coordinates;
+    @Nullable private String timestamp;
+    @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
+
+    public Page toPage(PageTitle title) {
+        return new Page(adjustPageTitle(title),
+                toPageProperties());
+    }
+
+    private PageTitle adjustPageTitle(PageTitle title) {
+        if (titles != null && titles.canonical != null) {
+            title = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
+        }
+        title.setDescription(description);
+        return title;
+    }
+
+    private PageProperties toPageProperties() {
+        return new PageProperties(this);
+    }
 
     @NonNull
     public String getApiTitle() {
@@ -94,12 +120,8 @@ public class PageSummary {
         return StringUtils.defaultString(lang);
     }
 
-    public long getRevision() {
-        return revision;
-    }
-
     private static class Thumbnail {
-        @SuppressWarnings("unused") private String source;
+        private String source;
 
         public String getUrl() {
             return source;
@@ -107,8 +129,8 @@ public class PageSummary {
     }
 
     private static class NamespaceContainer {
-        @SuppressWarnings("unused") private int id;
-        @SuppressWarnings("unused") @Nullable private String text;
+        private int id;
+        @Nullable private String text;
 
         public int id() {
             return id;
@@ -122,5 +144,33 @@ public class PageSummary {
 
     @Override @NonNull public String toString() {
         return getDisplayTitle();
+    }
+
+    public long getRevision() {
+        return revision;
+    }
+
+    @Nullable
+    public Location getGeo() {
+        return coordinates;
+    }
+
+    @Nullable
+    public String getTimestamp() {
+        return StringUtils.defaultString(timestamp);
+    }
+
+    @Nullable
+    public String getWikiBaseItem() {
+        return StringUtils.defaultString(wikiBaseItem);
+    }
+
+    @Nullable
+    public String getLeadImageName() {
+        if (getOriginalImageUrl() == null) {
+            return null;
+        }
+        String[] originalImageSplitArray = getOriginalImageUrl().split("/");
+        return originalImageSplitArray[originalImageSplitArray.length - 1];
     }
 }

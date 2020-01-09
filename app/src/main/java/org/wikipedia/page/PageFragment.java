@@ -54,6 +54,7 @@ import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
@@ -61,6 +62,7 @@ import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
+import org.wikipedia.json.GsonUtil;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.media.AvPlayer;
@@ -94,6 +96,7 @@ import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -178,6 +181,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private long revision;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
+    @Nullable private List<Section> sections;
 
     private WikipediaApp app;
 
@@ -372,7 +376,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
 
         editHandler = new EditHandler(this, bridge);
-        pageFragmentLoadState.setEditHandler(editHandler);
 
         tocHandler = new ToCHandler(this, requireActivity().getWindow().getDecorView().findViewById(R.id.toc_container),
                 requireActivity().getWindow().getDecorView().findViewById(R.id.page_scroller_button), bridge);
@@ -440,13 +443,37 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
-                onPageLoadComplete();
+                updateSections();
+                setPageProtection();
             }
 
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 onPageLoadError(new Throwable());
             }
+        });
+    }
+
+    private void setPageProtection() {
+        bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
+            Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
+            if (model.getPage() != null) {
+                model.getPage().getPageProperties().setProtection(protection);
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+            }
+        });
+    }
+
+    private void updateSections() {
+        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+            if (secArray != null) {
+                sections = Arrays.asList(secArray);
+                if (model.getPage() != null) {
+                    model.getPage().setSections(sections);
+                }
+            }
+            onPageLoadComplete();
         });
     }
 
@@ -816,6 +843,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void onPageLoadComplete() {
+        editHandler.setPage(model.getPage());
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
@@ -1007,9 +1035,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (avCallback == null) {
                 avCallback = new AvCallback();
             }
-            if (!avPlayer.isPlaying()) {
+            if (!avPlayer.isPlaying() && !(messagePayload.get("data-pronunciation-url") == null)) {
                 updateProgressBar(true, true, 0);
-                avPlayer.play(getPage().getTitlePronunciationUrl(), avCallback, avCallback);
+                avPlayer.play(messagePayload.get("data-pronunciation-url").getAsString(), avCallback, avCallback);
             } else {
                 updateProgressBar(false, true, 0);
                 avPlayer.stop();

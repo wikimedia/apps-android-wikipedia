@@ -219,15 +219,20 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         disposables.add(new PageClient().summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), historyEntry.getReferrer())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(summary -> {
-                    funnel.setPageId(summary.getPageId());
-                    pageTitle.setThumbUrl(summary.getThumbnailUrl());
-                    revision = summary.getRevision();
-                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
+                .subscribe(summaryResponse -> {
+                    funnel.setPageId(summaryResponse.body().getPageId());
+                    pageTitle.setThumbUrl(summaryResponse.body().getThumbnailUrl());
+                    revision = summaryResponse.body().getRevision();
+                    // TODO: Remove this logic once Parsoid starts supporting language variants.
+                    if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
+                        titleText.setText(StringUtil.fromHtml(summaryResponse.body().getDisplayTitle()));
+                    } else {
+                        titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
+                    }
 
                     // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
-                    showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
+                    pageTitle.setText(StringUtil.removeNamespace(summaryResponse.body().getApiTitle()));
+                    showPreview(new LinkPreviewContents(summaryResponse.body(), pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);
                     titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
