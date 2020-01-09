@@ -5,6 +5,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.util.Pair;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -87,6 +88,10 @@ public class PageFragmentLoadState {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
             currentTab.pushBackStackItem(new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry()));
+
+            if (currentTab.getBackStack().size() > 1 && currentTab.getBackStack().get(0).getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {
+                currentTab.getBackStack().remove(0);
+            }
         }
 
         loading = true;
