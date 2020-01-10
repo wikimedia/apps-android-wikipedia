@@ -29,6 +29,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -143,12 +144,12 @@ public class SavedPageSyncService extends JobIntentService {
                     Set<String> imageUrls = new HashSet<>();
                     if (summaryRsp.body() != null) {
                         if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
-                            imageUrls.add(pageTitle.getThumbUrl());
+                            imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageTitle.getThumbUrl(), DimenUtil.calculateLeadImageWidth())));
                         }
                     }
                     for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                         if (!item.getSrcSets().isEmpty()) {
-                            imageUrls.add(item.getImageUrl(DimenUtil.calculateLeadImageWidth()));
+                            imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
                         }
                     }
                     return imageUrls;
@@ -261,12 +262,12 @@ public class SavedPageSyncService extends JobIntentService {
                 page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
                         summaryRsp.body().getThumbnailUrl()));
                 persistPageThumbnail(pageTitle, page.thumbUrl());
-                imageUrls.add(page.thumbUrl());
+                imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
             }
 
             for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                 if (!item.getSrcSets().isEmpty()) {
-                    imageUrls.add(item.getImageUrl(DimenUtil.calculateLeadImageWidth()));
+                    imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
                 }
             }
 
