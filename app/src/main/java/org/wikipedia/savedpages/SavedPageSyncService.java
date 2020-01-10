@@ -137,22 +137,27 @@ public class SavedPageSyncService extends JobIntentService {
     @SuppressLint("CheckResult")
     private void deletePageContents(@NonNull ReadingListPage page) {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        Observable.zip(reqPageSummary(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle), (summaryRsp, mediaListRsp, referencesRsp) -> {
-                    reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
-                    Set<String> imageUrls = new HashSet<>();
-                    if (summaryRsp.body() != null) {
-                        if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
-                            imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageTitle.getThumbUrl(), DimenUtil.calculateLeadImageWidth())));
-                        }
-                    }
-                    for (MediaListItem item : mediaListRsp.body().getItems("image")) {
-                        if (!item.getSrcSets().isEmpty()) {
-                            imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
-                        }
-                    }
-                    return imageUrls;
+        reqPageSummary(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle)
+                .flatMap(rsp -> {
+                    long revision = rsp.body() != null ? rsp.body().getRevision() : 0;
+                    return Observable.zip(Observable.just(rsp),
+                            reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle, revision),
+                            reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle, revision),
+                            (summaryRsp, mediaListRsp, referencesRsp) -> {
+                                reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
+                                Set<String> imageUrls = new HashSet<>();
+                                if (summaryRsp.body() != null) {
+                                    if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
+                                        imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageTitle.getThumbUrl(), DimenUtil.calculateLeadImageWidth())));
+                                    }
+                                }
+                                for (MediaListItem item : mediaListRsp.body().getItems("image")) {
+                                    if (!item.getSrcSets().isEmpty()) {
+                                        imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
+                                    }
+                                }
+                                return imageUrls;
+                            });
                 })
                 .subscribeOn(Schedulers.io())
                 .subscribe(imageUrls -> {
@@ -236,59 +241,63 @@ public class SavedPageSyncService extends JobIntentService {
     private long savePageFor(@NonNull ReadingListPage page) throws Exception {
         PageTitle pageTitle = ReadingListPage.toPageTitle(page);
 
-        Observable<retrofit2.Response<PageSummary>> summaryCall = reqPageSummary(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
-        Observable<retrofit2.Response<MediaList>> mediaListCall = reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
-        Observable<retrofit2.Response<References>> referencesCall = reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        Observable.zip(summaryCall, mediaListCall, referencesCall, (summaryRsp, mediaListRsp, referencesRsp) -> {
-            long totalSize = 0;
-            totalSize += responseSize(summaryRsp);
-            page.downloadProgress(SUMMARY_PROGRESS);
-            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-            totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
-            page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
-            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-            totalSize += responseSize(mediaListRsp);
-            page.downloadProgress(MEDIA_LIST_PROGRESS);
-            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-            totalSize += responseSize(referencesRsp);
-            page.downloadProgress(REFERENCES_PROGRESS);
-            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-            Set<String> imageUrls = new HashSet<>();
+        reqPageSummary(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle)
+                .flatMap(rsp -> {
+                long revision = rsp.body() != null ? rsp.body().getRevision() : 0;
+                return Observable.zip(Observable.just(rsp),
+                        reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision),
+                        reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision), (summaryRsp, mediaListRsp, referencesRsp) -> {
+                            long totalSize = 0;
+                            totalSize += responseSize(summaryRsp);
+                            page.downloadProgress(SUMMARY_PROGRESS);
+                            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+                            totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+                            page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
+                            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+                            totalSize += responseSize(mediaListRsp);
+                            page.downloadProgress(MEDIA_LIST_PROGRESS);
+                            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+                            totalSize += responseSize(referencesRsp);
+                            page.downloadProgress(REFERENCES_PROGRESS);
+                            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
+                            Set<String> imageUrls = new HashSet<>();
 
-            if (!TextUtils.isEmpty(summaryRsp.body().getThumbnailUrl())) {
-                page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
-                        summaryRsp.body().getThumbnailUrl()));
-                persistPageThumbnail(pageTitle, page.thumbUrl());
-                imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
-            }
+                            if (!TextUtils.isEmpty(summaryRsp.body().getThumbnailUrl())) {
+                                page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+                                        summaryRsp.body().getThumbnailUrl()));
+                                persistPageThumbnail(pageTitle, page.thumbUrl());
+                                imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
+                            }
 
-            for (MediaListItem item : mediaListRsp.body().getItems("image")) {
-                if (!item.getSrcSets().isEmpty()) {
-                    imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
-                }
-            }
+                            for (MediaListItem item : mediaListRsp.body().getItems("image")) {
+                                if (!item.getSrcSets().isEmpty()) {
+                                    imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
+                                }
+                            }
 
-            page.title(summaryRsp.body().getDisplayTitle());
-            page.description(summaryRsp.body().getDescription());
+                            page.title(summaryRsp.body().getDisplayTitle());
+                            page.description(summaryRsp.body().getDescription());
 
-            if (Prefs.isImageDownloadEnabled()) {
-                totalSize += reqSaveImages(page, imageUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
-            }
+                            if (Prefs.isImageDownloadEnabled()) {
+                                totalSize += reqSaveImages(page, imageUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
+                            }
 
-            String title = pageTitle.getPrefixedText();
-            L.i("Saved page " + title + " (" + totalSize + ")");
+                            String title = pageTitle.getPrefixedText();
+                            L.i("Saved page " + title + " (" + totalSize + ")");
 
-            return totalSize;
-        })
-        .subscribeOn(Schedulers.io())
-        .blockingSubscribe(size -> pageSize[0] = size,
-                t -> exception[0] = (Exception) t);
+                            return totalSize;
+                        });
+                })
+                .subscribeOn(Schedulers.io())
+                .blockingSubscribe(size -> pageSize[0] = size, t -> exception[0] = (Exception) t);
+
         if (exception[0] != null) {
             throw exception[0];
         }
+
         return pageSize[0];
     }
 
@@ -302,15 +311,17 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull
     private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull CacheControl cacheControl,
                                                                    @NonNull String saveOfflineHeader,
-                                                                   @NonNull PageTitle pageTitle) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
+                                                                   @NonNull PageTitle pageTitle,
+                                                                   long revision) {
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText(), revision);
     }
 
     @NonNull
     private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
                                                                          @NonNull String saveOfflineHeader,
-                                                                         @NonNull PageTitle pageTitle) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText());
+                                                                         @NonNull PageTitle pageTitle,
+                                                                         long revision) {
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText(), revision);
     }
 
     private long reqMobileHTML(@NonNull CacheControl cacheControl,
