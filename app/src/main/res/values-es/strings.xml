@@ -723,6 +723,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Completar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Añadir</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
+  <string name="suggested_edits_image_captions">Leyendas de imágenes</string>
   <string name="suggested_edits_pageviews_label_text">Visitas de página</string>
   <string name="suggested_edits_quality_label_text">Calidad de ediciones</string>
   <string name="suggested_edits_quality_perfect_text">Perfecta</string>
