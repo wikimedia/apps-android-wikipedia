@@ -143,12 +143,13 @@ public class SavedPageSyncService extends JobIntentService {
                     return Observable.zip(Observable.just(rsp),
                             reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle, revision),
                             reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle, revision),
-                            (summaryRsp, mediaListRsp, referencesRsp) -> {
-                                reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle);
+                            reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
+                            (summaryRsp, mediaListRsp, referencesRsp, mobileHTMLRsp) -> {
                                 Set<String> imageUrls = new HashSet<>();
                                 if (summaryRsp.body() != null) {
                                     if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
-                                        imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageTitle.getThumbUrl(), DimenUtil.calculateLeadImageWidth())));
+                                        imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil
+                                                .getUrlForPreferredSize(pageTitle.getThumbUrl(), DimenUtil.calculateLeadImageWidth())));
                                     }
                                 }
                                 for (MediaListItem item : mediaListRsp.body().getItems("image")) {
@@ -249,12 +250,13 @@ public class SavedPageSyncService extends JobIntentService {
                 long revision = rsp.body() != null ? rsp.body().getRevision() : 0;
                 return Observable.zip(Observable.just(rsp),
                         reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision),
-                        reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision), (summaryRsp, mediaListRsp, referencesRsp) -> {
+                        reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision),
+                        reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle), (summaryRsp, mediaListRsp, referencesRsp, mobileHTMLRsp) -> {
                             long totalSize = 0;
                             totalSize += responseSize(summaryRsp);
                             page.downloadProgress(SUMMARY_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                            totalSize += reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle);
+                            totalSize += responseSize(mobileHTMLRsp);
                             page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
                             totalSize += responseSize(mediaListRsp);
@@ -263,18 +265,31 @@ public class SavedPageSyncService extends JobIntentService {
                             totalSize += responseSize(referencesRsp);
                             page.downloadProgress(REFERENCES_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                            Set<String> imageUrls = new HashSet<>();
+                            Set<String> fileUrls = new HashSet<>();
 
+                            // download css and javascript assets
+                            if (mobileHTMLRsp.body() != null) {
+                                String body = mobileHTMLRsp.body().string();
+                                List<String> componentsUrls = new PageComponentsUrlParser().parse(body);
+                                for (String url : componentsUrls) {
+                                    if (!TextUtils.isEmpty(url)) {
+                                        fileUrls.add(url);
+                                    }
+                                }
+                            }
+
+                            // download thumbnail and lead image
                             if (!TextUtils.isEmpty(summaryRsp.body().getThumbnailUrl())) {
                                 page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
                                         summaryRsp.body().getThumbnailUrl()));
                                 persistPageThumbnail(pageTitle, page.thumbUrl());
-                                imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
+                                fileUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
                             }
 
+                            // download article images
                             for (MediaListItem item : mediaListRsp.body().getItems("image")) {
                                 if (!item.getSrcSets().isEmpty()) {
-                                    imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
+                                    fileUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
                                 }
                             }
 
@@ -282,7 +297,7 @@ public class SavedPageSyncService extends JobIntentService {
                             page.description(summaryRsp.body().getDescription());
 
                             if (Prefs.isImageDownloadEnabled()) {
-                                totalSize += reqSaveImages(page, imageUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
+                                totalSize += reqSaveFiles(page, fileUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
                             }
 
                             String title = pageTitle.getPrefixedText();
@@ -324,35 +339,23 @@ public class SavedPageSyncService extends JobIntentService {
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(cacheControl.toString(), saveOfflineHeader, pageTitle.getPrefixedText(), revision);
     }
 
-    private long reqMobileHTML(@NonNull CacheControl cacheControl,
-                               @NonNull String saveOfflineHeader,
-                               @NonNull PageTitle pageTitle) throws IOException {
-        long downloadSize = 0;
+    private Observable<okhttp3.Response> reqMobileHTML(@NonNull CacheControl cacheControl,
+                                                              @NonNull String saveOfflineHeader,
+                                                              @NonNull PageTitle pageTitle) {
         Request request = makeUrlRequest(cacheControl, pageTitle.getWikiSite(),
                 pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getPrefixedText())
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, saveOfflineHeader)
                 .build();
 
-        Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
-
-        // Don't delete CSS and JavaScript files since they are shared.
-        if (rsp.body() != null && !saveOfflineHeader.equals(OfflineCacheInterceptor.SAVE_HEADER_DELETE)) {
-            String body = rsp.body().string();
-            List<String> componentsUrls = new PageComponentsUrlParser().parse(body);
-            for (String url : componentsUrls) {
-                if (!TextUtils.isEmpty(url)) {
-                    downloadSize += reqSaveUrl(cacheControl, saveOfflineHeader, pageTitle.getWikiSite(), url);
-                }
-            }
-        }
-
-        downloadSize += responseSize(rsp);
-
-        return downloadSize;
+        return Observable.create(emitter -> {
+            okhttp3.Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
+            emitter.onNext(response);
+            emitter.onComplete();
+        });
     }
 
-    private long reqSaveImages(@NonNull ReadingListPage page, @NonNull Set<String> urls, int progressStart, int progressEnd) throws IOException, InterruptedException {
+    private long reqSaveFiles(@NonNull ReadingListPage page, @NonNull Set<String> urls, int progressStart, int progressEnd) throws IOException, InterruptedException {
         int numOfImages = urls.size();
         long totalSize = 0;
         float percentage = progressStart;
