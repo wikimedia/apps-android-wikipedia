@@ -60,6 +60,7 @@ import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.appshortcuts.AppShortcuts.APP_SHORTCUT_ID;
 
 public abstract class BaseActivity extends AppCompatActivity {
+    
     private static ExclusiveBusConsumer EXCLUSIVE_BUS_METHODS;
     private static Disposable EXCLUSIVE_DISPOSABLE;
 
