@@ -283,7 +283,8 @@ public class SavedPageSyncService extends JobIntentService {
                                 page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
                                         summaryRsp.body().getThumbnailUrl()));
                                 persistPageThumbnail(pageTitle, page.thumbUrl());
-                                fileUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
+                                fileUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil
+                                        .getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
                             }
 
                             // download article images
