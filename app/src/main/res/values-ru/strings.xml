@@ -737,6 +737,7 @@
   <string name="suggested_edits_task_action_text_add">Добавить</string>
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
   <string name="suggested_edits_image_captions">Описания изображений</string>
+  <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d день</item>

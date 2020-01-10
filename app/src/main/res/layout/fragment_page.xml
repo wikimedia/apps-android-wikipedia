@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.SwipeRefreshLayoutWithScroll xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.SwipeRefreshLayoutWithScroll
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,6 +16,15 @@
             android:id="@+id/page_web_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:id="@+id/page_empty_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/paper_color"
+            android:visibility="gone"
+            tools:visibility="visible">
+        </FrameLayout>
 
         <org.wikipedia.page.leadimages.PageHeaderView
             android:id="@+id/page_header_view"

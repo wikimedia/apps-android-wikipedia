@@ -1,8 +1,8 @@
 package org.wikipedia.page;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Page {
     @NonNull private final PageTitle title;
-    @NonNull private final List<Section> sections;
+    @NonNull private List<Section> sections = new ArrayList<>();
     @NonNull private final PageProperties pageProperties;
 
     /** Regular constructor */
@@ -18,6 +18,11 @@ public class Page {
                 @NonNull PageProperties pageProperties) {
         this.title = title;
         this.sections = sections;
+        this.pageProperties = pageProperties;
+    }
+
+    public Page(@NonNull PageTitle title, @NonNull PageProperties pageProperties) {
+        this.title = title;
         this.pageProperties = pageProperties;
     }
 
@@ -29,16 +34,12 @@ public class Page {
         return sections;
     }
 
-    public String getConvertedTitle() {
-        return title.getConvertedText();
+    public void setSections(@NonNull List<Section> sections) {
+        this.sections = sections;
     }
 
     public String getDisplayTitle() {
         return pageProperties.getDisplayTitle();
-    }
-
-    @Nullable public String getTitlePronunciationUrl() {
-        return getPageProperties().getTitlePronunciationUrl();
     }
 
     @NonNull public PageProperties getPageProperties() {

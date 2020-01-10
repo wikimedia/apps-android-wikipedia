@@ -96,7 +96,7 @@ public class ReferenceDialog extends BottomSheetDialog {
             LayoutInflater inflater = LayoutInflater.from(container.getContext());
             View view = inflater.inflate(R.layout.view_reference_pager_item, container, false);
             TextView pagerReferenceText = view.findViewById(R.id.reference_text);
-            pagerReferenceText.setText(StringUtil.fromHtml(references.get(position).getContent()));
+            pagerReferenceText.setText(StringUtil.fromHtml(StringUtil.removeStyleTags(references.get(position).getContent())));
             pagerReferenceText.setMovementMethod(new LinkMovementMethodExt(referenceLinkHandler));
 
             TextView pagerTitleText = view.findViewById(R.id.reference_title_text);

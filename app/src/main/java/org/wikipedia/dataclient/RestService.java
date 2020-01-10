@@ -57,6 +57,15 @@ public interface RestService {
     })
     @GET("page/summary/{title}")
     @NonNull
+    Observable<Response<PageSummary>> getSummaryResponse(@Nullable @Header("Referer") String referrerUrl,
+                                                         @NonNull @Path("title") String title);
+
+    @Headers({
+            "x-analytics: preview=1",
+            ACCEPT_HEADER_SUMMARY
+    })
+    @GET("page/summary/{title}")
+    @NonNull
     Observable<PageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
                                        @NonNull @Path("title") String title);
 
@@ -117,8 +126,9 @@ public interface RestService {
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
-    @GET("page/media-list/{title}")
-    @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
+    @GET("page/media-list/{title}/{revision}")
+    @NonNull Observable<MediaList> getMediaList(@NonNull @Path("title") String title,
+                                                @Path("revision") long revision);
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
@@ -136,8 +146,9 @@ public interface RestService {
     @GET("feed/availability")
     @NonNull Observable<FeedAvailability> getFeedAvailability();
 
-    @GET("page/references/{title}")
-    @NonNull Observable<References> getReferences(@Path("title") String title);
+    @GET("page/references/{title}/{revision}")
+    @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
+                                                  @Path("revision") long revision);
 
     // ------- Reading lists -------
 

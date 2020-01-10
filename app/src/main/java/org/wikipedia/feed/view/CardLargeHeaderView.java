@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -57,8 +58,8 @@ public class CardLargeHeaderView extends ConstraintLayout {
         return this;
     }
 
-    @NonNull public CardLargeHeaderView setTitle(@Nullable CharSequence title) {
-        titleView.setText(title);
+    @NonNull public CardLargeHeaderView setTitle(@Nullable String title) {
+        titleView.setText(StringUtil.fromHtml(title));
         return this;
     }
 

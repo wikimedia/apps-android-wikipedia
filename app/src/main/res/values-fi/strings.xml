@@ -81,7 +81,7 @@
   <string name="reading_list_page_share">Jaa</string>
   <string name="menu_text_select_edit_here">Muokkaa tästä</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
-  <string name="talk_page_link_text">Tarkastele keskustelusivua</string>
+  <string name="talk_page_link_text">Keskustelusivu</string>
   <string name="edit_history_link_text">Näytä muokkaushistoria</string>
   <string name="map_view_link_text">Tarkastele kartalla</string>
   <string name="other_languages_indication_text">Lue toisella kielellä</string>
@@ -162,7 +162,7 @@
   <string name="create_account_generic_error">Käyttäjätunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
   <string name="email_recommendation_dialog_title">Luo käyttäjätunnus ilman sähköpostiosoitetta?</string>
-  <string name="email_recommendation_dialog_message">Vaikkakin sähköpostiosoite on vapaaehtoinen, sen antamista &lt;b&gt;suositellaan erityisesti&lt;/b&gt;, sillä sähköpostiosoite tarvitaan tunnuksen palauttamiseksi mikäli ikinä hukkaat salasanasi.</string>
+  <string name="email_recommendation_dialog_message">Vaikka sähköpostiosoite on vapaaehtoinen, sen antaminen on &lt;b&gt;vahvasti suositeltavaa&lt;/b&gt;, sillä sitä tarvitaan unohtuneen salasanan palauttamiseksi.</string>
   <string name="email_recommendation_message">Suositellaan, sillä sähköpostiosoite tarvitaan tunnuksen palauttamiseksi.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Jatka ilman sähköpostiosoitetta</string>
   <string name="email_recommendation_dialog_create_with_email_action">Lisää sähköpostiosoite</string>
@@ -545,6 +545,7 @@
   <string name="preference_title_notification_revert">Palauttaminen</string>
   <string name="preference_summary_notification_revert">Yksi muokkauksistasi kumottiin</string>
   <string name="preference_title_notification_login_fail">Kirjaudu</string>
+  <string name="preference_summary_notification_login_fail">Oma sisäänkirjautumistoiminta</string>
   <string name="preference_title_notification_mention">Maininnat</string>
   <string name="preference_summary_notification_mention">Joku mainitsi sinut sivulla</string>
   <string name="preference_title_notification_user_talk">Keskustelusivu</string>
@@ -698,11 +699,20 @@
   <string name="suggested_edits_task_action_text_translate">Käännä</string>
   <string name="suggested_edits_image_captions">Kuvatekstit</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
+  <string name="suggested_edits_pageviews_label_text">Sivun näyttökerrat</string>
+  <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
+  <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
+  <string name="suggested_edits_quality_excellent_text">Erinomainen</string>
   <string name="suggested_edits_quality_very_good_text">Oikein hyvä</string>
   <string name="suggested_edits_quality_good_text">Hyvä</string>
   <string name="suggested_edits_quality_okay_text">Ok</string>
+  <string name="suggested_edits_quality_sufficient_text">Riittävä</string>
   <string name="suggested_edits_quality_poor_text">Heikko</string>
   <string name="suggested_edits_quality_bad_text">Huono</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Muokkaus</item>
+    <item quantity="other">Muokkausta</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d päivä</item>
     <item quantity="other">%d päivää</item>

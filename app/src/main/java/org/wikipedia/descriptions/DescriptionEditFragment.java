@@ -29,7 +29,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
-import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonMarshaller;
@@ -231,7 +230,7 @@ public class DescriptionEditFragment extends Fragment {
     private void loadPageSummaryIfNeeded(Bundle savedInstanceState) {
         editView.showProgressBar(true);
         if (invokeSource == PAGE_ACTIVITY && TextUtils.isEmpty(sourceSummary.getExtractHtml())) {
-            disposables.add(new PageClient().summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), null)
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getPrefixedText())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate(() -> setUpEditView(savedInstanceState))
@@ -359,14 +358,14 @@ public class DescriptionEditFragment extends Fragment {
             if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
                 return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
                         pageTitle.getWikiSite().languageCode(), commonsDbName,
-                        pageTitle.getConvertedText(), editView.getDescription(),
+                        pageTitle.getPrefixedText(), editView.getDescription(),
                         action == ADD_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : action == TRANSLATE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
             } else {
                 return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
                         pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
-                        pageTitle.getConvertedText(), editView.getDescription(),
+                        pageTitle.getPrefixedText(), editView.getDescription(),
                         action == ADD_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : action == TRANSLATE_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
