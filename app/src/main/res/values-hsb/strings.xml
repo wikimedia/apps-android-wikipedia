@@ -394,7 +394,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Ně</string>
   <string name="reading_list_article_save_in_progress">Tutón nastawk so tuchwilu sćehnje a budźe offline přistupny, ručež je sćehnjene wotzamknjene.</string>
   <string name="reading_list_already_contains_selection">Wubrana lisćina wobsahuje hižo wšě wubrane strony.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d {{PLURAL:%1$d|nastawk přidaty|nastawkaj přidatej|nastawki přidate|nastawkow přidate}} k %2$s</string>
+  <string name="reading_list_added_articles_list_titled">%1$d nastawkow přidate k %2$s</string>
   <string name="reading_list_delete_confirm">Chceš %s woprawdźe zhašeć?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přizjew so, zo by synchronizowanje zmóžnił(a)</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přizjew so, zo by składowanje twojich čitanskich lisćinow w twojim konće dowolił.</string>
