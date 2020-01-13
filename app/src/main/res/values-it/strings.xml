@@ -483,12 +483,12 @@
   <string name="reading_lists_refresh_sync_option">Aggiorna la sincronizzazione</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Entra / registrati</string>
   <plurals name="reading_list_article_offline_message">
-    <item quantity="one">Questa voce ora è disponibile non in linea.</item>
-    <item quantity="other">Queste voci ora sono disponibili non in linea.</item>
+    <item quantity="one">Questa voce ora è disponibile offline.</item>
+    <item quantity="other">Queste voci ora sono disponibili offline.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
-    <item quantity="one">Questa voce non sarà più disponibile non in linea.</item>
-    <item quantity="other">Queste voci non saranno più disponibili non in linea.</item>
+    <item quantity="one">Questa voce non sarà più disponibile offline.</item>
+    <item quantity="other">Queste voci non saranno più disponibili offline.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Elenchi di lettura sincronizzati correttamente</string>
   <string name="reading_list_menu_last_sync">Ultima sincronizzazione: %s</string>
@@ -733,6 +733,10 @@
     <item quantity="one">Contributo</item>
     <item quantity="other">Contributi</item>
   </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d giorno</item>
+    <item quantity="other">%d giorni</item>
+  </plurals>
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
@@ -750,6 +754,7 @@
   <string name="onboarding_get_started">Inizia</string>
   <string name="onboarding_maybe_later">Forse più tardi</string>
   <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
+  <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Esplora in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
   <string name="onboarding_analytics_title">Invia dati anonimi</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
@@ -820,6 +825,7 @@
   <string name="main_drawer_content_description">Apri il menu di navigazione principale</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
+  <string name="main_tooltip_text">%s, sapevi che tutti possono modificare Wikipedia?</string>
   <string name="main_tooltip_action_button">Inizia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
