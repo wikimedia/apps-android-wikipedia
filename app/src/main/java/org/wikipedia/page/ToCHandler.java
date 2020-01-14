@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ValueCallback;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -27,6 +28,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
@@ -60,6 +62,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
 
     private static final int MAX_LEVELS = 3;
+    private static final int TOP_SECTION_ID = 0;
     private static final int ABOUT_SECTION_ID = -1;
 
     private final SwipeableListView tocList;
@@ -78,13 +81,20 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private boolean showOnboading;
     private int currentItemSelected;
 
-    private Runnable requestSectionsRunnable = new Runnable() {
+    private ValueCallback<String> sectionOffsetsCallback = new ValueCallback<String>() {
         @Override
-        public void run() {
-            if (!fragment.isAdded() || fragment.isLoading()) {
-                return;
+        public void onReceiveValue(String value) {
+            try {
+                JSONArray sections = new JSONObject(value).getJSONArray("sections");
+                for (int i = 0; i < sections.length(); i++) {
+                    adapter.setYOffset(sections.getJSONObject(i).getInt("id"),
+                            sections.getJSONObject(i).getInt("yOffset"));
+                }
+                // artificially add height for bottom About section
+                adapter.setYOffset(ABOUT_SECTION_ID, webView.getContentHeight());
+            } catch (JSONException e) {
+                // ignore
             }
-            bridge.sendMessage("requestSectionData", new JSONObject());
         }
     };
 
@@ -111,20 +121,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         webView.addOnScrollChangeListener(this);
         webView.addOnContentHeightChangedListener(this);
         webView.setOnEdgeSwipeListener(this);
-
-        bridge.addListener("sectionDataResponse", (messageType, messagePayload) -> {
-            try {
-                JSONArray sections = messagePayload.getJSONArray("sections");
-                for (int i = 0; i < sections.length(); i++) {
-                    adapter.setYOffset(sections.getJSONObject(i).getInt("id"),
-                            sections.getJSONObject(i).getInt("yOffset"));
-                }
-                // artificially add height for bottom About section
-                adapter.setYOffset(ABOUT_SECTION_ID, webView.getContentHeight() - (int)(fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
-            } catch (JSONException e) {
-                // ignore
-            }
-        });
 
         scrollerView.setCallback(new ScrollerCallback());
         setScrollerPosition();
@@ -156,32 +152,25 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         }
     }
 
-    void scrollToSection(String sectionAnchor) {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("anchor", sectionAnchor);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
+    void scrollToSection(@NonNull String sectionAnchor) {
+        for (Section section : adapter.sections) {
+            if (section.getAnchor().equals(sectionAnchor)) {
+                scrollToSection(section);
+                break;
+            }
         }
-        bridge.sendMessage("scrollToSection", payload);
     }
 
-    private void scrollToSection(Section section) {
-        if (section != null) {
-            // is it the bottom (about) section?
-            if (section.getId() == ABOUT_SECTION_ID) {
-                JSONObject payload = new JSONObject();
-                try {
-                    final int topPadding = 16;
-                    payload.put("offset", topPadding
-                            + (int) (fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-                bridge.sendMessage("scrollToBottom", payload);
-            } else {
-                scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
-            }
+    private void scrollToSection(@Nullable Section section) {
+        if (section == null) {
+            return;
+        }
+        if (section.getId() == ABOUT_SECTION_ID) {
+            bridge.execute(JavaScriptActionHandler.scrollToFooter(webView.getContext()));
+        } else {
+            final int topScrollExtra = 64;
+            int offset = DimenUtil.roundedDpToPx(adapter.getYOffset(section.getId()) - topScrollExtra);
+            webView.setScrollY(section.getId() == 0 ? 0 : offset);
         }
     }
 
@@ -229,11 +218,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
 
     @Override
     public void onContentHeightChanged(int contentHeight) {
-        if (!fragment.isLoading()) {
-            final int debounceDelay = 500;
-            webView.removeCallbacks(requestSectionsRunnable);
-            webView.postDelayed(requestSectionsRunnable, debounceDelay);
+        if (fragment.isLoading()) {
+            return;
         }
+        bridge.evaluate(JavaScriptActionHandler.getOffsets(), sectionOffsetsCallback);
     }
 
     @Override
@@ -253,6 +241,8 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             sections.clear();
             sectionYOffsets.clear();
             pageTitle = page.getDisplayTitle();
+            sections.add(new Section(TOP_SECTION_ID, 0, pageTitle, pageTitle, ""));
+
             for (Section s : page.getSections()) {
                 if (s.getLevel() < MAX_LEVELS) {
                     sections.add(s);
@@ -260,7 +250,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             }
             // add a fake section at the end to represent the "about this article" contents at the bottom:
             sections.add(new Section(ABOUT_SECTION_ID, 0,
-                    getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), "", ""));
+                    getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), ""));
             highlightedSection = 0;
             notifyDataSetChanged();
         }
@@ -302,7 +292,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             TextView sectionHeading = convertView.findViewById(R.id.page_toc_item_text);
             View sectionBullet = convertView.findViewById(R.id.page_toc_item_bullet);
 
-            sectionHeading.setText(StringUtil.fromHtml(section.isLead() ? pageTitle : section.getHeading()));
+            sectionHeading.setText(StringUtil.fromHtml(section.getHeading()));
             float textSize = TOC_SUBSECTION_TEXT_SIZE;
             if (section.isLead()) {
                 textSize = TOC_LEAD_TEXT_SIZE;

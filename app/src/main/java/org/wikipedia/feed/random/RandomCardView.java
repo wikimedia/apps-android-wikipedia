@@ -57,7 +57,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(pageSummary -> new PageTitle(null, pageSummary.getTitle(), WikipediaApp.getInstance().getWikiSite()))
+                .map(pageSummary -> new PageTitle(null, pageSummary.getApiTitle(), WikipediaApp.getInstance().getWikiSite()))
                 .onErrorResumeNext(throwable -> {
                     return Observable.fromCallable(() -> {
                                 ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();

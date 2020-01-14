@@ -7,22 +7,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
 public class MostReadItemCard extends Card {
-    @NonNull private final RbPageSummary page;
+    @NonNull private final PageSummary page;
     @NonNull private final WikiSite wiki;
 
-    MostReadItemCard(@NonNull RbPageSummary page, @NonNull WikiSite wiki) {
+    MostReadItemCard(@NonNull PageSummary page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }
 
     @NonNull @Override public String title() {
-        return page.getNormalizedTitle();
+        return page.getDisplayTitle();
     }
 
     @Nullable @Override public String subtitle() {
@@ -39,7 +39,7 @@ public class MostReadItemCard extends Card {
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(page.getTitle(), wiki);
+        PageTitle title = new PageTitle(page.getApiTitle(), wiki);
         if (page.getThumbnailUrl() != null) {
             title.setThumbUrl(page.getThumbnailUrl());
         }
