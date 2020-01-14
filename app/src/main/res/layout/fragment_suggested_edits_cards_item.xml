@@ -46,7 +46,7 @@
                 style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:actualImageScaleType="focusCrop"
+                app:actualImageScaleType="fitCenter"
                 app:viewAspectRatio="1.77"
                 app:fadeDuration="0" />
 
