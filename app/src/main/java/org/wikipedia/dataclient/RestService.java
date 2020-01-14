@@ -57,7 +57,9 @@ public interface RestService {
     })
     @GET("page/summary/{title}")
     @NonNull
-    Observable<Response<PageSummary>> getSummaryResponse(@Nullable @Header("Referer") String referrerUrl,
+    Observable<Response<PageSummary>> getSummaryResponse(@Nullable @Header("Cache-Control") String cacheControl,
+                                                         @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                         @Nullable @Header("Referer") String referrerUrl,
                                                          @NonNull @Path("title") String title);
 
     @Headers({
@@ -130,6 +132,12 @@ public interface RestService {
     @NonNull Observable<MediaList> getMediaList(@NonNull @Path("title") String title,
                                                 @Path("revision") long revision);
 
+    @GET("page/media-list/{title}/{revision}")
+    @NonNull Observable<Response<MediaList>> getMediaListResponse(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                  @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                  @Path("title") String title,
+                                                                  @Path("revision") long revision);
+
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
 
@@ -149,6 +157,12 @@ public interface RestService {
     @GET("page/references/{title}/{revision}")
     @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
                                                   @Path("revision") long revision);
+
+    @GET("page/references/{title}/{revision}")
+    @NonNull Observable<Response<References>> getReferencesResponse(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                    @Path("title") String title,
+                                                                    @Path("revision") long revision);
 
     // ------- Reading lists -------
 

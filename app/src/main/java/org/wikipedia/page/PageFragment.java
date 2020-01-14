@@ -280,6 +280,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return editHandler;
     }
 
+    public ToCHandler getTocHandler() {
+        return tocHandler;
+    }
+
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -843,7 +847,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void onPageLoadComplete() {
-        editHandler.setPage(model.getPage());
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
@@ -863,8 +866,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
 
         if (!errorState) {
-            setupToC(model, pageFragmentLoadState.isFirstPage());
-            editHandler.setPage(model.getPage());
             webView.setVisibility(View.VISIBLE);
         }
 
@@ -930,11 +931,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     CommunicationBridge getBridge() {
         return bridge;
-    }
-
-    private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {
-        tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), isFirstPage);
-        tocHandler.setEnabled(true);
     }
 
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
