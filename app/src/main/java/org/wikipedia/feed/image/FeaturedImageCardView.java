@@ -15,6 +15,7 @@ import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import butterknife.BindView;
@@ -39,6 +40,7 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         super(context);
         inflate(getContext(), R.layout.view_card_featured_image, this);
         ButterKnife.bind(this);
+        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     @Override public void setCard(@NonNull FeaturedImageCard card) {
