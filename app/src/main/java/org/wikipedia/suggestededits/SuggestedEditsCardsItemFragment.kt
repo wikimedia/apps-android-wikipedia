@@ -275,11 +275,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummary!!.extractHtml!!)
         if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = GONE
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = VISIBLE
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
@@ -315,9 +313,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
-        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
-
         fun newInstance(): SuggestedEditsCardsItemFragment {
             return SuggestedEditsCardsItemFragment()
         }
