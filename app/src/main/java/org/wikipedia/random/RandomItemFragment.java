@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.StringUtil;
@@ -47,7 +47,7 @@ public class RandomItemFragment extends Fragment {
     private static final float IMAGE_ASPECT_RATIO_PORTRAIT = 1.77f;
     private static final float IMAGE_ASPECT_RATIO_LANDSCAPE = 3.8f;
     private CompositeDisposable disposables = new CompositeDisposable();
-    @Nullable private RbPageSummary summary;
+    @Nullable private PageSummary summary;
     private int pagerPosition = -1;
 
     @NonNull
@@ -153,7 +153,7 @@ public class RandomItemFragment extends Fragment {
 
     @Nullable public PageTitle getTitle() {
         return summary == null ? null
-                : new PageTitle(summary.getTitle(), WikipediaApp.getInstance().getWikiSite());
+                : new PageTitle(summary.getApiTitle(), WikipediaApp.getInstance().getWikiSite());
     }
 
     private RandomFragment parent() {

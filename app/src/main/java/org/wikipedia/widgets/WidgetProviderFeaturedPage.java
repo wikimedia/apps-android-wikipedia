@@ -18,9 +18,9 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.page.PageClientFactory;
+import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -102,8 +102,8 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                         return Observable.just(response.tfa());
                     } else {
                         // TODO: this logic can be removed if the feed API can return the featured article for all languages.
-                        return PageClientFactory.create(mainPageTitle.getWikiSite(), mainPageTitle.namespace())
-                                .lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(), DimenUtil.calculateLeadImageWidth());
+                        return new PageClient().lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(),
+                                        DimenUtil.calculateLeadImageWidth());
                     }
                 })
                 .subscribeOn(Schedulers.io())
@@ -116,8 +116,8 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                     return Observable.just(response);
                 })
                 .subscribe(response -> {
-                    CharSequence widgetText = StringUtil.fromHtml(((RbPageSummary) response).getDisplayTitle());
-                    PageTitle pageTitle = ((RbPageSummary) response).getPageTitle(app.getWikiSite());
+                    CharSequence widgetText = StringUtil.fromHtml(((PageSummary) response).getDisplayTitle());
+                    PageTitle pageTitle = ((PageSummary) response).getPageTitle(app.getWikiSite());
                     cb.onFeaturedArticleReceived(pageTitle, widgetText);
                 }, throwable -> {
                     cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.getDisplayText());

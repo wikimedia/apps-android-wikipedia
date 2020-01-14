@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.UriUtil;
@@ -37,20 +37,16 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     public abstract void onInternalLinkClicked(@NonNull PageTitle title);
 
+    public abstract void onSVGLinkClicked(@NonNull String href);
+
     public abstract WikiSite getWikiSite();
 
     // message from JS bridge:
     @Override
-    public void onMessage(String messageType, JSONObject messagePayload) {
-        try {
-            String href = decodeURL(messagePayload.getString("href"));
-            onUrlClick(href, messagePayload.optString("title"), messagePayload.optString("text"));
-        } catch (IllegalArgumentException e) {
-            // The URL is malformed and URL decoder can't understand it. Just do nothing.
-            L.d("A malformed URL was tapped.");
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+    public void onMessage(String messageType, JsonObject messagePayload) {
+        String href = decodeURL(messagePayload.get("href").getAsString());
+        onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null,
+                messagePayload.has("text") ? messagePayload.get("text").getAsString() : "");
     }
 
     @Override
@@ -58,6 +54,14 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         if (href.startsWith("//")) {
             // for URLs without an explicit scheme, add our default scheme explicitly.
             href = getWikiSite().scheme() + ":" + href;
+        } else if (href.startsWith("./")) {
+            href = href.replace("./", "/wiki/");
+        }
+
+        // special: returned by page-library when clicking Read More items in the footer.
+        int eventLoggingParamIndex = href.indexOf("?event-logging-label");
+        if (eventLoggingParamIndex > 0) {
+            href = href.substring(0, eventLoggingParamIndex);
         }
 
         Uri uri = Uri.parse(href);
@@ -77,6 +81,12 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
                     .build();
         }
 
+        // TODO: remove this after the endpoint supporting language variants
+        String convertedText = UriUtil.getTitleFromUrl(href);
+        if (!convertedText.equals(titleString)) {
+            titleString = convertedText;
+        }
+
         L.d("Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
                 && (uri.getPath().startsWith("/wiki/") || uri.getPath().startsWith("/zh-"))) {
@@ -89,7 +99,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             PageTitle title = TextUtils.isEmpty(titleString)
                     ? site.titleForInternalLink(uri.getPath())
                     : PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            onInternalLinkClicked(title);
+            if (title.isFilePage() && title.getPrefixedText().endsWith(".svg")) {
+                onSVGLinkClicked(href);
+            } else {
+                onInternalLinkClicked(title);
+            }
         } else if (!TextUtils.isEmpty(titleString) && UriUtil.isValidOfflinePageLink(uri)) {
             WikiSite site = new WikiSite(uri);
             PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);

@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public final class GeoUnmarshaller {
-    static final String LATITUDE = "latitude";
-    static final String LONGITUDE = "longitude";
+    static final String LATITUDE = "lat";
+    static final String LONGITUDE = "lon";
 
     @Nullable
     public static Location unmarshal(@Nullable String json) {
