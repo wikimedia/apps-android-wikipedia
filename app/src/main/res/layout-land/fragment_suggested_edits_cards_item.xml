@@ -39,19 +39,20 @@
             android:id="@+id/cardClickArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical">
 
-            <org.wikipedia.views.FaceAndColorDetectImageView
-                style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
-                android:id="@+id/viewArticleImage"
+            <LinearLayout
+                android:id="@+id/viewArticleImagePlaceholder"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:actualImageScaleType="fitCenter"
-                app:viewAspectRatio="3.8"
-                app:fadeDuration="0" />
+                android:layout_height="200dp">
+                <org.wikipedia.views.FaceAndColorDetectImageView
+                    android:id="@+id/viewArticleImage"
+                    style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
+                    app:fadeDuration="0" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/viewArticleContainer"
