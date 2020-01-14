@@ -267,6 +267,9 @@ public class PageFragmentLoadState {
         leadImagesHandler.loadLeadImage();
 
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+        fragment.getEditHandler().setPage(page);
+        fragment.getTocHandler().setupToC(page, page.getTitle().getWikiSite(), isFirstPage());
+        fragment.getTocHandler().setEnabled(true);
         fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
