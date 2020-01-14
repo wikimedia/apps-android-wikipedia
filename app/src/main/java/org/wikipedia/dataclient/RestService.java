@@ -4,16 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageRemaining;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
-import org.wikipedia.dataclient.restbase.page.RbPageLead;
-import org.wikipedia.dataclient.restbase.page.RbPageRemaining;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.aggregated.AggregatedFeedContent;
 import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.gallery.MediaList;
+import org.wikipedia.page.references.References;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
 import org.wikipedia.suggestededits.provider.SuggestedEditItem;
 
@@ -34,7 +35,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RestService {
-    String REST_API_PREFIX = "api/rest_v1/";
+    String REST_API_PREFIX = "/api/rest_v1";
 
     String ACCEPT_HEADER_PREFIX = "accept: application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/";
     String ACCEPT_HEADER_SUMMARY = ACCEPT_HEADER_PREFIX + "Summary/1.2.0\"";
@@ -42,6 +43,8 @@ public interface RestService {
     String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.2\"";
 
     String REST_PAGE_SECTIONS_URL = "page/mobile-sections-remaining/{title}";
+    String PAGE_HTML_ENDPOINT = "/page/mobile-html/";
+    String PAGE_HTML_PREVIEW_ENDPOINT = REST_API_PREFIX + "/transform/wikitext/to/mobile-html/";
 
     /**
      * Gets a page summary for a given title -- for link previews
@@ -54,8 +57,19 @@ public interface RestService {
     })
     @GET("page/summary/{title}")
     @NonNull
-    Observable<RbPageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
-                                         @NonNull @Path("title") String title);
+    Observable<Response<PageSummary>> getSummaryResponse(@Nullable @Header("Cache-Control") String cacheControl,
+                                                         @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                         @Nullable @Header("Referer") String referrerUrl,
+                                                         @NonNull @Path("title") String title);
+
+    @Headers({
+            "x-analytics: preview=1",
+            ACCEPT_HEADER_SUMMARY
+    })
+    @GET("page/summary/{title}")
+    @NonNull
+    Observable<PageSummary> getSummary(@Nullable @Header("Referer") String referrerUrl,
+                                       @NonNull @Path("title") String title);
 
     /**
      * Gets the lead section and initial metadata of a given title.
@@ -68,10 +82,10 @@ public interface RestService {
     })
     @GET("page/mobile-sections-lead/{title}")
     @NonNull
-    Observable<Response<RbPageLead>> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
-                                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                    @Nullable @Header("Referer") String referrerUrl,
-                                                    @NonNull @Path("title") String title);
+    Observable<Response<PageLead>> getLeadSection(@Nullable @Header("Cache-Control") String cacheControl,
+                                                  @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                  @Nullable @Header("Referer") String referrerUrl,
+                                                  @NonNull @Path("title") String title);
 
     /**
      * Gets the remaining sections of a given title.
@@ -80,9 +94,9 @@ public interface RestService {
      */
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
     @GET(REST_PAGE_SECTIONS_URL)
-    @NonNull Observable<Response<RbPageRemaining>> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
-                                                                        @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                                        @NonNull @Path("title") String title);
+    @NonNull Observable<Response<PageRemaining>> getRemainingSections(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                      @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                      @NonNull @Path("title") String title);
     /**
      * TODO: remove this if we find a way to get the request url before the observable object being executed
      * Gets the remaining sections request url of a given title.
@@ -91,7 +105,7 @@ public interface RestService {
      */
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
     @GET(REST_PAGE_SECTIONS_URL)
-    @NonNull Call<RbPageRemaining> getRemainingSectionsUrl(@Nullable @Header("Cache-Control") String cacheControl,
+    @NonNull Call<PageRemaining> getRemainingSectionsUrl(@Nullable @Header("Cache-Control") String cacheControl,
                                                            @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
                                                            @NonNull @Path("title") String title);
 
@@ -108,14 +122,21 @@ public interface RestService {
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET("page/random/summary")
-    @NonNull Observable<RbPageSummary> getRandomSummary();
+    @NonNull Observable<PageSummary> getRandomSummary();
 
     @Headers(ACCEPT_HEADER_SUMMARY)
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
-    @GET("page/media-list/{title}")
-    @NonNull Observable<MediaList> getMediaList(@Path("title") String title);
+    @GET("page/media-list/{title}/{revision}")
+    @NonNull Observable<MediaList> getMediaList(@NonNull @Path("title") String title,
+                                                @Path("revision") long revision);
+
+    @GET("page/media-list/{title}/{revision}")
+    @NonNull Observable<Response<MediaList>> getMediaListResponse(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                  @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                  @Path("title") String title,
+                                                                  @Path("revision") long revision);
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
@@ -133,6 +154,15 @@ public interface RestService {
     @GET("feed/availability")
     @NonNull Observable<FeedAvailability> getFeedAvailability();
 
+    @GET("page/references/{title}/{revision}")
+    @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
+                                                  @Path("revision") long revision);
+
+    @GET("page/references/{title}/{revision}")
+    @NonNull Observable<Response<References>> getReferencesResponse(@Nullable @Header("Cache-Control") String cacheControl,
+                                                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
+                                                                    @Path("title") String title,
+                                                                    @Path("revision") long revision);
 
     // ------- Reading lists -------
 

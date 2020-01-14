@@ -90,10 +90,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             val target = pair.first
 
                             sourceSummary = SuggestedEditsSummary(
-                                    source.title,
+                                    source.apiTitle,
                                     source.lang,
                                     source.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
-                                    source.normalizedTitle,
                                     source.displayTitle,
                                     source.description,
                                     source.thumbnailUrl,
@@ -102,10 +101,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             )
 
                             targetSummary = SuggestedEditsSummary(
-                                    target.title,
+                                    target.apiTitle,
                                     target.lang,
                                     target.getPageTitle(WikiSite.forLanguageCode(parent().langToCode)),
-                                    target.normalizedTitle,
                                     target.displayTitle,
                                     target.description,
                                     target.thumbnailUrl,
@@ -141,7 +139,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                                 imageInfo.thumbUrl,
                                                 WikiSite.forLanguageCode(parent().langFromCode)
                                         ),
-                                        StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
                                         imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
@@ -182,7 +179,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                                 imageInfo.thumbUrl,
                                                 WikiSite.forLanguageCode(parent().langFromCode)
                                         ),
-                                        StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
                                         fileCaption,
                                         imageInfo.thumbUrl,
@@ -214,10 +210,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
                             sourceSummary = SuggestedEditsSummary(
-                                    pageSummary.title,
+                                    pageSummary.apiTitle,
                                     pageSummary.lang,
                                     pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
-                                    pageSummary.normalizedTitle,
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,

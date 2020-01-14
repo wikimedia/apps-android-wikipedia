@@ -75,10 +75,9 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pageSummary ->
                     sourceSummary = SuggestedEditsSummary(
-                            pageSummary.title,
+                            pageSummary.apiTitle,
                             langFromCode,
                             pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
-                            pageSummary.normalizedTitle,
                             pageSummary.displayTitle,
                             pageSummary.description,
                             pageSummary.thumbnailUrl,
@@ -107,10 +106,9 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     val target = pair.first
 
                     sourceSummary = SuggestedEditsSummary(
-                            source.title,
+                            source.apiTitle,
                             langFromCode,
                             source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
-                            source.normalizedTitle,
                             source.displayTitle,
                             source.description,
                             source.thumbnailUrl,
@@ -119,10 +117,9 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     )
 
                     targetSummary = SuggestedEditsSummary(
-                            target.title,
+                            target.apiTitle,
                             langToCode,
                             target.getPageTitle(WikiSite.forLanguageCode(langToCode)),
-                            target.normalizedTitle,
                             target.displayTitle,
                             target.description,
                             target.thumbnailUrl,
@@ -166,7 +163,6 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                         imageInfo.thumbUrl,
                                         WikiSite.forLanguageCode(langFromCode)
                                 ),
-                                StringUtil.removeUnderscores(title),
                                 StringUtil.removeHTMLTags(title),
                                 imageInfo.metadata!!.imageDescription(),
                                 imageInfo.thumbUrl,
@@ -213,7 +209,6 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                         imageInfo.thumbUrl,
                                         WikiSite.forLanguageCode(langFromCode)
                                 ),
-                                StringUtil.removeUnderscores(title),
                                 StringUtil.removeHTMLTags(title),
                                 fileCaption,
                                 imageInfo.thumbUrl,
