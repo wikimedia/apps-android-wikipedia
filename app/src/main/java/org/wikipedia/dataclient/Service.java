@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 
 import org.wikipedia.captcha.Captcha;
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
+import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
@@ -88,6 +89,9 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo")
     @NonNull Observable<MwQueryResponse> getSiteInfo();
+
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
+    @NonNull Observable<MwParseResponse> parseTextForMainPage(@NonNull @Query("page") String mainPageTitle);
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=0&grnlimit=50&prop=pageprops|description")

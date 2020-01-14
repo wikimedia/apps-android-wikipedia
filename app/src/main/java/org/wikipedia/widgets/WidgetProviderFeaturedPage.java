@@ -18,15 +18,13 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -102,16 +100,14 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                         return Observable.just(response.tfa());
                     } else {
                         // TODO: this logic can be removed if the feed API can return the featured article for all languages.
-                        return new PageClient().lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(),
-                                        DimenUtil.calculateLeadImageWidth());
+                        return ServiceFactory.get(mainPageTitle.getWikiSite()).parseTextForMainPage(mainPageTitle.getPrefixedText());
                     }
                 })
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
-                    if (response instanceof retrofit2.Response) {
-                        PageLead lead = (PageLead) ((retrofit2.Response) response).body();
+                    if (response instanceof MwParseResponse) {
                         L.d("Downloaded page " + mainPageTitle.getDisplayText());
-                        return ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getSummary(null, findFeaturedArticleTitle(lead.getLeadSectionContent()));
+                        return ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getSummary(null, findFeaturedArticleTitle(((MwParseResponse) response).getText()));
                     }
                     return Observable.just(response);
                 })
