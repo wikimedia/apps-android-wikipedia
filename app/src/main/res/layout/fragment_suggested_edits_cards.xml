@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:paddingTop="8dp"
+            android:paddingTop="10dp"
             android:paddingBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
@@ -94,19 +94,19 @@
                 android:contentDescription="@null"
                 android:focusable="true"
                 android:padding="12dp"
+                android:scaleX="-1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/addContributionButton"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                 app:tint="?attr/colorAccent" />
 
             <FrameLayout
                 android:id="@+id/addContributionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:background="@drawable/button_shape_gray"
+                android:background="@drawable/button_shape_add_reading_list"
                 android:backgroundTint="?attr/colorAccent"
-                android:elevation="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -153,11 +153,10 @@
                 android:contentDescription="@string/view_next_random_article"
                 android:focusable="true"
                 android:padding="12dp"
-                android:scaleX="-1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/addContributionButton"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_arrow_back_themed_24dp"
+                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                 app:tint="?attr/colorAccent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

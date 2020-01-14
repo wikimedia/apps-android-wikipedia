@@ -4,8 +4,7 @@
     android:id="@+id/suggestedEditsItemRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="4dp"
-    android:paddingBottom="20dp">
+    android:paddingTop="4dp">
 
     <ProgressBar
         android:id="@+id/cardItemProgressBar"
