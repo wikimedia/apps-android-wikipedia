@@ -25,6 +25,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ImageZoomHelper
 
 class SuggestedEditsCardsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
@@ -266,6 +267,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         }
 
         viewImageSummaryContainer.visibility = GONE
+        ImageZoomHelper.setViewZoomable(viewArticleImage)
 
         viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummary!!.extractHtml!!)
         if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
