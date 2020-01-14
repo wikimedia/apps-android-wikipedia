@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.LayoutRes;
@@ -40,6 +41,7 @@ import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
@@ -60,6 +62,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
     @BindView(R.id.drawer_icon_dot) View drawerIconDot;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
+    private ImageZoomHelper imageZoomHelper;
 
     private boolean controlNavTabInFragment;
 
@@ -73,6 +76,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
         AppShortcuts.setShortcuts(this);
+        imageZoomHelper = new ImageZoomHelper(this);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
@@ -241,6 +245,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             return;
         }
         super.onBackPressed();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event);
     }
 
     public void closeMainDrawer() {
