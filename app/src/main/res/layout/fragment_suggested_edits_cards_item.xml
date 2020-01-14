@@ -55,7 +55,6 @@
                 android:id="@+id/viewArticleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="231dp"
                 android:orientation="vertical"
                 android:paddingTop="11dp">
 
@@ -109,8 +108,7 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/viewArticleExtract"
@@ -159,12 +157,8 @@
                             app:title="@string/suggested_edits_image_caption_summary_title_license" />
 
                     </LinearLayout>
-
                 </FrameLayout>
-
             </LinearLayout>
-
         </LinearLayout>
-
     </ScrollView>
 </FrameLayout>
