@@ -42,7 +42,6 @@ import org.wikipedia.views.SwipeableListView;
 
 import java.util.ArrayList;
 
-import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -62,7 +61,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
 
     private static final int MAX_LEVELS = 3;
-    private static final int TOP_SECTION_ID = 0;
     private static final int ABOUT_SECTION_ID = -1;
 
     private final SwipeableListView tocList;
@@ -234,23 +232,16 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections = new ArrayList<>();
         private final SparseIntArray sectionYOffsets = new SparseIntArray();
-        private String pageTitle;
         private int highlightedSection;
 
         void setPage(@NonNull Page page) {
             sections.clear();
             sectionYOffsets.clear();
-            pageTitle = page.getDisplayTitle();
-            sections.add(new Section(TOP_SECTION_ID, 0, pageTitle, pageTitle, ""));
-
             for (Section s : page.getSections()) {
                 if (s.getLevel() < MAX_LEVELS) {
                     sections.add(s);
                 }
             }
-            // add a fake section at the end to represent the "about this article" contents at the bottom:
-            sections.add(new Section(ABOUT_SECTION_ID, 0,
-                    getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), ""));
             highlightedSection = 0;
             notifyDataSetChanged();
         }

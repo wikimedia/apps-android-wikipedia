@@ -120,6 +120,7 @@ import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
@@ -181,7 +182,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private long revision;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
-    @Nullable private List<Section> sections;
 
     private WikipediaApp app;
 
@@ -443,7 +443,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
-                updateSections();
+                onPageLoadComplete();
                 setPageProtection();
             }
 
@@ -461,19 +461,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 model.getPage().getPageProperties().setProtection(protection);
                 bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
             }
-        });
-    }
-
-    private void updateSections() {
-        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
-            if (secArray != null) {
-                sections = Arrays.asList(secArray);
-                if (model.getPage() != null) {
-                    model.getPage().setSections(sections);
-                }
-            }
-            onPageLoadComplete();
         });
     }
 
@@ -862,9 +849,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
 
         if (!errorState) {
-            tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
-            tocHandler.setEnabled(true);
-            editHandler.setPage(model.getPage());
+            onPageUpdateSection();
             webView.setVisibility(View.VISIBLE);
         }
 
@@ -872,6 +857,28 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
+    }
+
+    public void onPageUpdateSection() {
+        if (model.getPage() != null) {
+            bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+                Section[] sectionArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+                if (sectionArray != null) {
+                    List<Section> sections = new ArrayList<>();
+
+                    // Adding the article's title, all sections and then the "about this article" text into section list.
+                    sections.add(new Section(0, 0, getPageTitle().getDisplayText(), getPageTitle().getDisplayText(), ""));
+                    sections.addAll(Arrays.asList(sectionArray));
+                    sections.add(new Section(-1, 0, getStringForArticleLanguage(getPageTitle(), R.string.about_article_section),
+                            getStringForArticleLanguage(getPageTitle(), R.string.about_article_section), ""));
+
+                    model.getPage().setSections(sections);
+                    tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+                    tocHandler.setEnabled(true);
+                    editHandler.setPage(model.getPage());
+                }
+            });
+        }
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {

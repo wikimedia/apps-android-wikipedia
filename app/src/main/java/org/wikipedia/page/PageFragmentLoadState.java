@@ -44,15 +44,14 @@ import okhttp3.CacheControl;
  * - and many handlers.
  */
 public class PageFragmentLoadState {
-    private interface ErrorCallback {
-        void call(@NonNull Throwable error);
+    private interface LoadStateCallback {
+        void error(@NonNull Throwable error);
+        void success();
     }
 
     private boolean loading;
 
     @NonNull private Tab currentTab = new Tab();
-
-    private ErrorCallback networkErrorCallback;
 
     // copied fields
     private PageViewModel model;
@@ -172,13 +171,8 @@ public class PageFragmentLoadState {
         if (!fragment.isAdded()) {
             return;
         }
-        ErrorCallback callback = networkErrorCallback;
-        networkErrorCallback = null;
         loading = false;
         fragment.requireActivity().invalidateOptionsMenu();
-        if (callback != null) {
-            callback.call(caught);
-        }
     }
 
     private void pageLoadCheckReadingLists() {
@@ -186,18 +180,27 @@ public class PageFragmentLoadState {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(model.getTitle()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError)))
+                .doAfterTerminate(() -> pageLoadFromNetwork(new LoadStateCallback() {
+                    @Override
+                    public void error(@NonNull Throwable error) {
+                        fragment.onPageLoadError(error);
+                    }
+
+                    @Override
+                    public void success() {
+                        fragment.onPageUpdateSection();
+                    }
+                }))
                 .subscribe(page -> model.setReadingListPage(page),
                         throwable -> model.setReadingListPage(null)));
     }
 
-    private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
+    private void pageLoadFromNetwork(final LoadStateCallback loadStateCallback) {
         if (model.getTitle() == null) {
             return;
         }
         fragment.updateBookmarkAndMenuOptions();
 
-        networkErrorCallback = errorCallback;
         if (!fragment.isAdded()) {
             return;
         }
@@ -214,7 +217,6 @@ public class PageFragmentLoadState {
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, null, model.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle()))
                 .subscribe(pageSummaryResponse -> {
                             if (pageSummaryResponse.body() != null) {
                                 createPage(pageSummaryResponse.body());
@@ -225,11 +227,16 @@ public class PageFragmentLoadState {
                                     || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                                 showPageOfflineMessage(Objects.requireNonNull(pageSummaryResponse.raw().header("date", "")));
                             }
+                            loadStateCallback.success();
                         },
                         throwable -> {
                             L.e("Page details network response error: ", throwable);
                             commonSectionFetchOnCatch(throwable);
+                            loadStateCallback.error(throwable);
                         }));
+
+        // And finally, start blasting the HTML into the WebView.
+        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle());
     }
 
     private void showPageOfflineMessage(@NonNull String dateHeader) {
