@@ -50,7 +50,7 @@
                     style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerInside"
+                    app:actualImageScaleType="fitCenter"
                     app:fadeDuration="0" />
             </LinearLayout>
 
