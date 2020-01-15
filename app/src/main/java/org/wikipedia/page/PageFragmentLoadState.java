@@ -214,6 +214,7 @@ public class PageFragmentLoadState {
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, null, model.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate(() -> bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle()))
                 .subscribe(pageSummaryResponse -> {
                             if (pageSummaryResponse.body() != null) {
                                 createPage(pageSummaryResponse.body());
@@ -229,9 +230,6 @@ public class PageFragmentLoadState {
                             L.e("Page details network response error: ", throwable);
                             commonSectionFetchOnCatch(throwable);
                         }));
-
-        // And finally, start blasting the HTML into the WebView.
-        bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle());
     }
 
     private void showPageOfflineMessage(@NonNull String dateHeader) {
@@ -267,9 +265,6 @@ public class PageFragmentLoadState {
         leadImagesHandler.loadLeadImage();
 
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-        fragment.getEditHandler().setPage(page);
-        fragment.getTocHandler().setupToC(page, page.getTitle().getWikiSite(), isFirstPage());
-        fragment.getTocHandler().setEnabled(true);
         fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)

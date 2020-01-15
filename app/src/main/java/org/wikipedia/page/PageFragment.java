@@ -280,10 +280,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return editHandler;
     }
 
-    public ToCHandler getTocHandler() {
-        return tocHandler;
-    }
-
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -866,6 +862,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
 
         if (!errorState) {
+            tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+            tocHandler.setEnabled(true);
+            editHandler.setPage(model.getPage());
             webView.setVisibility(View.VISIBLE);
         }
 
@@ -1084,7 +1083,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 startDescriptionEditActivity(text);
             }
         } else {
-            getEditHandler().showUneditableDialog();
+            editHandler.showUneditableDialog();
         }
     }
 
