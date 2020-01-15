@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.test.TestFileUtil;
 
@@ -31,7 +31,7 @@ public class NewsLinkCardTest {
     @Test public void testTitleNormalization() {
         List<NewsItemCard> newsItemCards = NewsListCard.toItemCards(content, TEST);
         for (NewsItemCard newsItemCard : newsItemCards) {
-            for (RbPageSummary link : newsItemCard.links()) {
+            for (PageSummary link : newsItemCard.links()) {
                 assertThat(new NewsLinkCard(link, TEST).title(), not(containsString("_")));
             }
         }
