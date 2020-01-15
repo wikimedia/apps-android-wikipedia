@@ -33,6 +33,7 @@ public class PageSummary {
     @Nullable private String extract;
     @Nullable @SerializedName("extract_html") private String extractHtml;
     @Nullable private String description;
+    @Nullable @SerializedName("description_source") private String descriptionSource;
     @Nullable private Thumbnail thumbnail;
     @Nullable @SerializedName("originalimage") private Thumbnail originalImage;
     @Nullable private String lang;
@@ -44,8 +45,7 @@ public class PageSummary {
     @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
     public Page toPage(PageTitle title) {
-        return new Page(adjustPageTitle(title),
-                toPageProperties());
+        return new Page(adjustPageTitle(title), new PageProperties(this));
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
@@ -54,10 +54,6 @@ public class PageSummary {
         }
         title.setDescription(description);
         return title;
-    }
-
-    private PageProperties toPageProperties() {
-        return new PageProperties(this);
     }
 
     @NonNull
@@ -99,6 +95,11 @@ public class PageSummary {
     @Nullable
     public String getDescription() {
         return description;
+    }
+
+    @NonNull
+    public String getDescriptionSource() {
+        return StringUtils.defaultString(descriptionSource);
     }
 
     @Nullable
