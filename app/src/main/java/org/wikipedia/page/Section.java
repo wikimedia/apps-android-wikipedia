@@ -7,6 +7,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.json.GsonUtil;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
@@ -15,10 +18,14 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 public class Section {
 
     private int id;
-    private int toclevel = 1;
-    private String line;
+    private int level = 1;
     private String anchor;
     private String text;
+    private String title;
+
+    public static List<Section> fromJson(String json) {
+        return Arrays.asList(GsonUtil.getDefaultGson().fromJson(json, Section[].class));
+    }
 
     // TODO: can we get rid of this? It's not efficient to
     public static Section fromJson(JSONObject json) {
@@ -31,8 +38,7 @@ public class Section {
         try {
             JSONObject data = new JSONObject();
             data.put("id", id);
-            data.put("toclevel", toclevel);
-            data.put("line", line);
+            data.put("level", level);
             data.put("anchor", anchor);
             data.put("text", text);
             return data;
@@ -43,13 +49,13 @@ public class Section {
 
     /** Default constructor used by Gson deserialization. Good for setting default values. */
     public Section() {
-        toclevel = 1;
+        level = 1;
     }
 
     public Section(int id, int level, String heading, String anchor, String content) {
         this.id = id;
-        this.toclevel = level;
-        this.line = heading;
+        this.level = level;
+        this.title = heading;
         this.anchor = anchor;
         this.text = content;
     }
@@ -81,8 +87,7 @@ public class Section {
     public String toString() {
         return "Section{"
                 + "id=" + id
-                + ", toclevel=" + toclevel
-                + ", line='" + line + '\''
+                + ", level=" + level
                 + ", anchor='" + anchor + '\''
                 + ", text='" + text + '\''
                 + '}';
@@ -97,11 +102,11 @@ public class Section {
     }
 
     public int getLevel() {
-        return toclevel;
+        return level;
     }
 
     @NonNull public String getHeading() {
-        return defaultString(line);
+        return defaultString(title);
     }
 
     @NonNull public String getAnchor() {

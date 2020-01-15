@@ -8,7 +8,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/view_page_header_image"

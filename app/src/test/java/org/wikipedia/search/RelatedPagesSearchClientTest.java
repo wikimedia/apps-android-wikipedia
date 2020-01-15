@@ -3,8 +3,8 @@ package org.wikipedia.search;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     public void testRequestSuccessWithNoLimit() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
 
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
+        TestObserver<List<PageSummary>> observer = new TestObserver<>();
         getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
@@ -35,7 +35,7 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     public void testRequestSuccessWithLimit() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
 
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
+        TestObserver<List<PageSummary>> observer = new TestObserver<>();
         getRestService().getRelatedPages("foo")
                 .map(response -> response.getPages(3))
                 .subscribe(observer);
@@ -50,7 +50,7 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
 
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
+        TestObserver<List<PageSummary>> observer = new TestObserver<>();
         getObservable().subscribe(observer);
 
         observer.assertError(Exception.class);
@@ -59,7 +59,7 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseFailure() {
         enqueue404();
 
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
+        TestObserver<List<PageSummary>> observer = new TestObserver<>();
         getRestService().getRelatedPages("foo")
                 .map(RbRelatedPages::getPages)
                 .subscribe(observer);
@@ -69,13 +69,13 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseMalformed() {
         enqueueMalformed();
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
+        TestObserver<List<PageSummary>> observer = new TestObserver<>();
         getObservable().subscribe(observer);
 
         observer.assertError(MalformedJsonException.class);
     }
 
-    private Observable<List<RbPageSummary>> getObservable() {
+    private Observable<List<PageSummary>> getObservable() {
         return getRestService().getRelatedPages("foo").map(RbRelatedPages::getPages);
     }
 }

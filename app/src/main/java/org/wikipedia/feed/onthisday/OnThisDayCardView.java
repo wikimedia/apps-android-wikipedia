@@ -23,7 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
@@ -106,12 +106,12 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     static class RecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
-        private List<RbPageSummary> pages;
+        private List<PageSummary> pages;
         private WikiSite wiki;
         private final boolean isSingleCard;
         private OnThisDayPagesViewHolder.ItemCallBack itemCallback;
 
-        RecyclerAdapter(@NonNull List<RbPageSummary> pages, @NonNull WikiSite wiki, boolean isSingleCard) {
+        RecyclerAdapter(@NonNull List<PageSummary> pages, @NonNull WikiSite wiki, boolean isSingleCard) {
             this.pages = pages;
             this.wiki = wiki;
             this.isSingleCard = isSingleCard;

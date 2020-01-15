@@ -9,7 +9,6 @@ data class SuggestedEditsSummary(
         var title: String,
         var lang: String,
         var pageTitle: PageTitle,
-        var normalizedTitle: String?,
         var displayTitle: String?,
         var description: String?,
         var thumbnailUrl: String?,

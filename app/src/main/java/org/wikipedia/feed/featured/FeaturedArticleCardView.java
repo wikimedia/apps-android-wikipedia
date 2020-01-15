@@ -99,7 +99,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void articleTitle(@NonNull String articleTitle) {
-        articleTitleView.setText(articleTitle);
+        articleTitleView.setText(StringUtil.fromHtml(articleTitle));
     }
 
     private void articleSubtitle(@Nullable String articleSubtitle) {

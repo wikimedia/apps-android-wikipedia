@@ -1,4 +1,4 @@
-package org.wikipedia.page.bottomcontent;
+package org.wikipedia.feed.becauseyouread;
 
 import android.content.ContentProviderClient;
 import android.content.Context;
@@ -21,10 +21,6 @@ import java.util.concurrent.Callable;
  */
 public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
     private int age;
-
-    MainPageReadMoreTopicTask() {
-        this(0);
-    }
 
     public MainPageReadMoreTopicTask(int age) {
         this.age = age;
