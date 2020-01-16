@@ -11,7 +11,6 @@ import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
-import org.wikipedia.feed.mainpage.MainPageCardView;
 import org.wikipedia.feed.mostread.MostReadCardView;
 import org.wikipedia.feed.news.NewsListCardView;
 import org.wikipedia.feed.offline.OfflineCardView;
@@ -50,11 +49,9 @@ public enum CardType implements EnumCode {
             return new RandomCardView(ctx);
         }
     },
-    MAIN_PAGE(6, FeedContentType.MAIN_PAGE) {
-        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new MainPageCardView(ctx);
-        }
-    },
+    //
+    // "6" used to be MAIN_PAGE.
+    //
     NEWS_LIST(7, FeedContentType.NEWS) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new NewsListCardView(ctx);

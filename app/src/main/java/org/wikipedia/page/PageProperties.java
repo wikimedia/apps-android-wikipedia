@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -62,7 +63,7 @@ public class PageProperties implements Parcelable {
         geo = pageSummary.getGeo();
         languageCount = 1;
         lastModified = new Date();
-        leadImageName = pageSummary.getLeadImageName();
+        leadImageName = UriUtil.decodeURL(StringUtils.defaultString(pageSummary.getLeadImageName()));
         leadImageUrl = pageSummary.getThumbnailUrl() != null
                 ? UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageSummary.getThumbnailUrl(), DimenUtil.calculateLeadImageWidth())) : null;
         String lastModifiedText = pageSummary.getTimestamp();
