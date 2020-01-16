@@ -85,8 +85,9 @@
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
   <string name="language_count_link_text">共 %d 個其它可用語言版本</string>
-  <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 條款授權</string>
-  <string name="edit_save_action_license_logged_in">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
+  <string name="content_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
   <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
@@ -99,7 +100,7 @@
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
-  <string name="dialog_message_leaving_edit">修改尚未發佈，確定要離開此頁面嗎？</string>
+  <string name="dialog_message_leaving_edit">修改尚未發布，確定要離開此頁面嗎？</string>
   <string name="dialog_message_leaving_edit_leave">離開</string>
   <string name="dialog_message_leaving_edit_stay">留在這裡</string>
   <string name="menu_show_toc">目錄</string>
@@ -227,7 +228,7 @@
   <string name="user_anon_blocked_from_editing">您的 IP 位址已被封鎖，無法編輯。</string>
   <string name="edit_how_page_improved">您如何改善此頁面？</string>
   <string name="edit_next">下一步</string>
-  <string name="edit_done">發佈</string>
+  <string name="edit_done">發布</string>
   <string name="edit_preview">預覽</string>
   <string name="edit_undo">還原</string>
   <string name="edit_redo">重做</string>
@@ -244,7 +245,7 @@
   <string name="find_previous">尋找上一筆</string>
   <string name="find_first_occurence">這是首次出現</string>
   <string name="find_last_occurence">這是最後出現</string>
-  <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。確定要發佈嗎？</string>
+  <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。確定要發布嗎？</string>
   <string name="abusefilter_title_disallow">不能發佈此編輯。請返回並修正。</string>
   <string name="abusefilter_text_warn">自動過濾器認為您的編輯缺乏建設性。 可能由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 空白的文章內容或含有垃圾訊息&lt;br /&gt;· 含有無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
   <string name="abusefilter_text_disallow">自動過濾器已識別此編輯為潛在非建設性或潛在性破壞。&lt;br/&gt;&lt;br/&gt;維基百科是一本僅擁有中立與值得注意內容的百科全書。</string>
@@ -344,10 +345,12 @@
   <string name="view_wiki_error_message_offline">無法連接網路</string>
   <string name="view_wiki_error_message_timeout">無法連接到維基百科。請檢查您的網路連線，或稍後再試</string>
   <string name="reference_title">參考資料 %s</string>
+  <string name="reference_list_title">參考資料</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">符合系統主題</string>
+  <string name="empty_tab_title">新分頁</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
@@ -614,7 +617,7 @@
   <string name="description_edit_add_caption_hint">圖片說明</string>
   <string name="description_edit_translate_caption_label_per_language">圖片說明（%s）</string>
   <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
-  <string name="description_edit_save">發佈</string>
+  <string name="description_edit_save">發布</string>
   <string name="description_edit_read">閱讀</string>
   <string name="description_edit_add_description">新增條目描述</string>
   <string name="description_edit_translate_description">翻譯條目描述</string>
@@ -630,11 +633,11 @@
   <string name="description_edit_anon_limit">感謝您保持著對於編輯條目描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="description_edit_helper_text_lowercase_warning">若用英語通常以小寫字母作開頭</string>
-  <string name="description_edit_success_saved">已發佈條目描述！</string>
+  <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
-  <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發佈！（%s）</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
   <string name="description_edit_success_saved_image_caption_snackbar">圖片說明已發佈！</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發佈！（%s）</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發布！（%s）</string>
   <string name="description_edit_success_encouragement">謝謝您！您剛剛已令維基百科變得更完善，所有人都會受惠</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道嗎？</string>
@@ -822,7 +825,7 @@
   <string name="wikitext_bulleted_list">符號清單</string>
   <string name="wikitext_numbered_list">編號清單</string>
   <string name="wikitext_template">模板</string>
-  <string name="wikitext_reference">參考文獻</string>
+  <string name="wikitext_reference">參考資料</string>
   <string name="wikitext_preview_link">預覽連結</string>
   <string name="main_drawer_open">開啟</string>
   <string name="main_drawer_close">關閉</string>

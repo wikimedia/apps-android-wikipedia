@@ -69,7 +69,7 @@
   <string name="map_view_link_text">Sken ɣef tkarḍa</string>
   <string name="other_languages_indication_text">Γer deg tutlayt-nniḍen</string>
   <string name="language_count_link_text">Yella di %d n tutlayin nniḍen</string>
-  <string name="content_license_html">Agbur yella daw n &lt;a href=\"%1$s\"&gt;turagt CC BY-SA 3.0&lt;/a&gt; alama yettwammel akken-nniḍen</string>
+  <string name="content_license_text" fuzzy="true">Agbur yella daw n &lt;a href=\"%1$s\"&gt;turagt CC BY-SA 3.0&lt;/a&gt; alama yettwammel akken-nniḍen</string>
   <string name="edit_save_action_license_logged_in">S usuffeɣ, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ i lebda ittekkiyen-ik ddaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">S usuffeɣ, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ i lebda ittekkiyen-ik ddaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Akk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
   <string name="preference_title_language">Tutlayt n wikipedia</string>
