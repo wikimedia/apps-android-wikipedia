@@ -447,7 +447,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                onPageLoadError(new Throwable());
+                onPageLoadError(new RuntimeException(description));
             }
         });
     }
