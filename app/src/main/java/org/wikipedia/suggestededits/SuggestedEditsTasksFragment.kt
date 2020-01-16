@@ -78,7 +78,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
-        tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, false))
+        tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, false,
+                resources.getDimension(R.dimen.activity_horizontal_margin).toInt()))
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()

@@ -18,16 +18,22 @@ public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
     @NonNull private final Drawable drawable;
     private final boolean drawStart;
     private final boolean drawEnd;
+    private final int dividerHorizontalPadding;
 
     public DrawableItemDecoration(@NonNull Context context, @AttrRes int id) {
         this(context, id, true, true);
     }
 
     public DrawableItemDecoration(@NonNull Context context, @AttrRes int id, boolean drawStart, boolean drawEnd) {
+        this(context, id, drawStart, drawEnd, -1);
+    }
+
+    public DrawableItemDecoration(@NonNull Context context, @AttrRes int id, boolean drawStart, boolean drawEnd, int dividerHorizontalPadding) {
         this.drawable = AppCompatResources.getDrawable(context,
                 ResourceUtil.getThemedAttributeId(context, id));
         this.drawStart = drawStart;
         this.drawEnd = drawEnd;
+        this.dividerHorizontalPadding = dividerHorizontalPadding;
     }
 
     @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
@@ -58,8 +64,8 @@ public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
         RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
 
         Rect bounds = new Rect();
-        bounds.right = parent.getWidth() - parent.getPaddingRight();
-        bounds.left = parent.getPaddingLeft();
+        bounds.right = parent.getWidth() - ((dividerHorizontalPadding != -1) ? dividerHorizontalPadding : parent.getPaddingRight());
+        bounds.left = ((dividerHorizontalPadding != -1) ? dividerHorizontalPadding : parent.getPaddingLeft());
         int height = drawable.getIntrinsicHeight();
         bounds.top = top
                 ? layoutManager.getDecoratedTop(child)

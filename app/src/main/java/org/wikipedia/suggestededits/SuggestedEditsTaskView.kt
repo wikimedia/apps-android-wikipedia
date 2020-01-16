@@ -12,6 +12,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.ResourceUtil
 
+
 internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     init {
@@ -19,6 +20,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         isClickable = true
         isFocusable = true
+        setPadding(resources.getDimension(R.dimen.activity_horizontal_margin).toInt(), 0, resources.getDimension(R.dimen.activity_horizontal_margin).toInt(), 0)
         setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
     }
 
