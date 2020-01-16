@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="16dp"
+            android:textColor="?android:attr/textColorTertiary"
             android:gravity="center"/>
 
         <LinearLayout
@@ -57,6 +58,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tagsHintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"

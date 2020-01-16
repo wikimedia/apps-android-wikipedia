@@ -79,6 +79,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment() {
         for (label in page.imageLabels) {
             val chip = Chip(requireContext())
             chip.text = label.label
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
+            chip.setTypeface(tagsHintText.typeface)
             tagsChipGroup.addView(chip)
             if (tagsChipGroup.childCount >= maxTags) {
                 break
