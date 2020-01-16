@@ -13,7 +13,6 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtil;
 
 public class FeaturedArticleCard extends WikiSiteCard {
@@ -68,12 +67,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @NonNull
     public HistoryEntry historyEntry(int source) {
-        PageTitle title = new PageTitle(articleTitle(), wikiSite());
-        if (image() != null) {
-            title.setThumbUrl(image().toString());
-        }
-        title.setDescription(articleSubtitle());
-        return new HistoryEntry(title, source);
+        return new HistoryEntry(page.getPageTitle(wikiSite()), source);
     }
 
     @Override
