@@ -34,4 +34,7 @@ abstract class SuggestedEditsItemFragment : Fragment() {
     fun parent(): SuggestedEditsCardsFragment {
         return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsCardsFragment
     }
+
+    open fun publish() {
+    }
 }

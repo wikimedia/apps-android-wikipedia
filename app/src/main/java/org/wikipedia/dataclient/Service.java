@@ -272,4 +272,12 @@ public interface Service {
                                              @Nullable @Field("summary") String summary,
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("assert") String user);
+
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=reviewimagelabels")
+    @FormUrlEncoded
+    Observable<MwPostResponse> postReviewImageLabels(@NonNull @Field("filename") String fileName,
+                                                     @NonNull @Field("token") String token,
+                                                     @NonNull @Field("batch") String batchLabels);
+
 }

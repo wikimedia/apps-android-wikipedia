@@ -15,17 +15,27 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
+import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import java.lang.StringBuilder
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener {
+    var publishing: Boolean = false
+    private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
+    private var page: MwQueryPage? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -46,8 +56,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         tagsContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground) and 0xffffff))
         imageCaption.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground) and 0xffffff))
 
+        publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground) and 0xffffff))
+        publishOverlayContainer.visibility = GONE
+
         getNextItem()
-        updateContents(null)
+        updateContents()
     }
 
     private fun getNextItem() {
@@ -55,7 +68,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
-                    updateContents(page)
+                    this.page = page
+                    updateContents()
                 }, { this.setErrorState(it) })!!)
     }
 
@@ -67,7 +81,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         contentContainer.visibility = GONE
     }
 
-    private fun updateContents(page: MwQueryPage?) {
+    private fun updateContents() {
         cardItemErrorView.visibility = GONE
         contentContainer.visibility = if (page != null) VISIBLE else GONE
         cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
@@ -77,11 +91,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         ImageZoomHelper.setViewZoomable(imageView)
 
-        imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(page.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+        imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
 
         tagsChipGroup.removeAllViews()
-        val maxTags = 5
-        for (label in page.imageLabels) {
+        val maxTags = 10
+        for (label in page!!.imageLabels) {
             val chip = Chip(requireContext())
             chip.text = label.label
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
@@ -90,6 +104,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.isCheckable = true
             chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
             chip.setOnCheckedChangeListener(this)
+            chip.tag = label
 
             tagsChipGroup.addView(chip)
             if (tagsChipGroup.childCount >= maxTags) {
@@ -97,7 +112,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
         }
 
-        disposables.add(MediaHelper.getImageCaptions(page.title())
+        disposables.add(MediaHelper.getImageCaptions(page!!.title())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { captions ->
@@ -105,8 +120,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         imageCaption.text = captions[parent().langFromCode]
                         imageCaption.visibility = VISIBLE
                     } else {
-                        if (page.imageInfo() != null && page.imageInfo()!!.metadata != null) {
-                            imageCaption.text = StringUtil.fromHtml(page.imageInfo()!!.metadata!!.imageDescription())
+                        if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
+                            imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription())
                             imageCaption.visibility = VISIBLE
                         } else {
                             imageCaption.visibility = GONE
@@ -130,5 +145,67 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
         }
+    }
+
+    override fun publish() {
+        if (publishing) {
+            return
+        }
+        publishing = true
+        publishOverlayContainer.visibility = VISIBLE
+
+        val batchBuilder = StringBuilder()
+        batchBuilder.append("[")
+        for (i in 0 until tagsChipGroup.childCount) {
+            if (i > 0) {
+                batchBuilder.append(",")
+            }
+            val chip = tagsChipGroup.getChildAt(i) as Chip
+            val label = chip.tag as MwQueryPage.ImageLabel
+            batchBuilder.append("{\"label\":\"")
+            batchBuilder.append(label.wikidataId)
+            batchBuilder.append("\",\"review\":\"")
+            batchBuilder.append(if (chip.isChecked) "accept" else "reject")
+            batchBuilder.append("\"}")
+        }
+        batchBuilder.append("]")
+
+        csrfClient.request(false, object : CsrfTokenClient.Callback {
+            override fun success(token: String) {
+                disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doAfterTerminate {
+                            publishing = false
+                            publishOverlayContainer.visibility = GONE
+                        }
+                        .subscribe({ response ->
+                            // TODO: check anything else in the response?
+                            onSuccess()
+                        }, { caught ->
+                            onError(caught)
+                        }))
+            }
+
+            override fun failure(caught: Throwable) {
+                onError(caught)
+            }
+
+            override fun twoFactorPrompt() {
+                onError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
+            }
+        })
+    }
+
+    private fun onSuccess() {
+
+        // TODO: animation
+
+        parent().nextPage()
+    }
+
+    private fun onError(caught: Throwable) {
+        // TODO: expand this a bit.
+        FeedbackUtil.showError(requireActivity(), caught)
     }
 }

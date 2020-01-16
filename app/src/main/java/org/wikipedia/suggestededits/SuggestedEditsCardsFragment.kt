@@ -1,6 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.drawable.Animatable
@@ -55,6 +54,16 @@ class SuggestedEditsCardsFragment : Fragment() {
                 f?.targetSummary?.pageTitle?.description = f?.addedContribution
                 f?.targetSummary?.pageTitle
             }
+        }
+
+    private val topBaseChild: SuggestedEditsItemFragment?
+        get() {
+            fragmentManager!!.fragments.forEach {
+                if (it is SuggestedEditsItemFragment && it.pagerPosition == cardsViewPager.currentItem) {
+                    return it
+                }
+            }
+            return null
         }
 
     private val topChild: SuggestedEditsCardsItemFragment?
@@ -178,14 +187,16 @@ class SuggestedEditsCardsFragment : Fragment() {
         updateActionButton()
     }
 
-    private fun nextPage() {
+    fun nextPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
         updateActionButton()
     }
 
     fun onSelectPage() {
-        if (topTitle != null) {
+        if (action == ADD_IMAGE_TAGS && topBaseChild != null) {
+            topBaseChild!!.publish()
+        } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild!!.sourceSummary, topChild!!.targetSummary,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
