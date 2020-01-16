@@ -109,7 +109,7 @@ public class PageSummary {
 
     @NonNull
     public PageTitle getPageTitle(@NonNull WikiSite wiki) {
-        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription());
+        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription(), getDisplayTitle());
     }
 
     public int getPageId() {

@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.util.StringUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,7 +51,7 @@ public class ReadingListItemActionsView extends LinearLayout {
 
     public void setState(@NonNull String pageTitle, @NonNull String removeFromListText, boolean offline, boolean hasActionMode) {
         offlineSwitchView.setChecked(offline);
-        titleView.setText(pageTitle);
+        titleView.setText(StringUtil.fromHtml(pageTitle));
         removeTextView.setText(removeFromListText);
         selectItemContainer.setVisibility(hasActionMode ? View.GONE : View.VISIBLE);
     }
