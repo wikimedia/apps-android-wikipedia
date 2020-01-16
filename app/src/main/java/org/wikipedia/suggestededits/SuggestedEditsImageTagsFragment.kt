@@ -9,7 +9,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.CompoundButton
-import androidx.core.content.ContextCompat
 import com.google.android.material.chip.Chip
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -17,10 +16,12 @@ import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
@@ -43,6 +44,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         val transparency = 0xcc000000
         tagsContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground) and 0xffffff))
+        imageCaption.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground) and 0xffffff))
 
         getNextItem()
         updateContents(null)
@@ -94,6 +96,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 break
             }
         }
+
+        disposables.add(MediaHelper.getImageCaptions(page.title())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { captions ->
+                    if (captions.containsKey(parent().langFromCode)) {
+                        imageCaption.text = captions[parent().langFromCode]
+                        imageCaption.visibility = VISIBLE
+                    } else {
+                        if (page.imageInfo() != null && page.imageInfo()!!.metadata != null) {
+                            imageCaption.text = StringUtil.fromHtml(page.imageInfo()!!.metadata!!.imageDescription())
+                            imageCaption.visibility = VISIBLE
+                        } else {
+                            imageCaption.visibility = GONE
+                        }
+                    }
+                })
     }
 
     companion object {

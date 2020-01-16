@@ -45,9 +45,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="6sp"
+            android:maxLines="3"
+            android:ellipsize="end"
             android:textColor="?android:attr/textColorTertiary"
-            android:gravity="center"/>
+            android:textColorLink="?android:attr/textColorTertiary"/>
 
         <LinearLayout
             android:id="@+id/tagsContainer"
