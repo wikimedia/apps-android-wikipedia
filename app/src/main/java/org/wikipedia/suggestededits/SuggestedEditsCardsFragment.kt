@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.drawable.Animatable
@@ -285,15 +286,17 @@ class SuggestedEditsCardsFragment : Fragment() {
         }
     }
 
-    private class ViewPagerAdapter internal constructor(activity: AppCompatActivity): FragmentStatePagerAdapter(activity.supportFragmentManager,
-            BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-
+    private inner class ViewPagerAdapter constructor(activity: AppCompatActivity):
+            FragmentStatePagerAdapter(activity.supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getCount(): Int {
             return Integer.MAX_VALUE
         }
 
         override fun getItem(position: Int): Fragment {
-            val f = SuggestedEditsCardsItemFragment.newInstance()
+            val f = if (action == ADD_IMAGE_TAGS)
+                SuggestedEditsImageTagsFragment.newInstance()
+            else
+                SuggestedEditsCardsItemFragment.newInstance()
             f.pagerPosition = position
             return f
         }

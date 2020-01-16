@@ -110,7 +110,7 @@ public interface Service {
                                                             @Nullable @Query("cmcontinue") String continueStr);
 
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels();
+    @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
 
 
     // ------- CSRF, Login, and Create Account -------

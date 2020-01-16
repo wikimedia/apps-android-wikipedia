@@ -413,6 +413,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
+            } else if (task == addImageTagsTask) {
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
             }
         }
     }

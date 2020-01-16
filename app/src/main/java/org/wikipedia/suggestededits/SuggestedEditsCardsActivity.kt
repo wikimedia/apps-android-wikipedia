@@ -64,6 +64,9 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
             TRANSLATE_CAPTION -> {
                 R.string.suggested_edits_translate_image_captions
             }
+            ADD_IMAGE_TAGS -> {
+                R.string.suggested_edits_tag_images
+            }
             else -> R.string.suggested_edits_add_descriptions
         }
     }
