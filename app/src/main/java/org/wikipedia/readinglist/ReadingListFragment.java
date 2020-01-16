@@ -31,7 +31,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -568,7 +567,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             this.page = page;
             getView().setItem(page);
             getView().setTitle(page.title());
-            getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setDescription(page.description());
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
