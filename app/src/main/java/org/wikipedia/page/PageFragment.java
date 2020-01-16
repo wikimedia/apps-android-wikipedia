@@ -487,7 +487,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
             Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
             if (secArray != null) {
-                sections = Arrays.asList(secArray);
+                sections = new ArrayList<>(Arrays.asList(secArray));
+                sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
                 if (model.getPage() != null) {
                     model.getPage().setSections(sections);
                 }
