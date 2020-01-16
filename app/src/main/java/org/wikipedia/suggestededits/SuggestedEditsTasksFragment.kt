@@ -37,6 +37,7 @@ import org.wikipedia.views.DrawableItemDecoration
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
+    private lateinit var addImageTagsTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -375,6 +376,19 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setUpTasks() {
         displayedTasks.clear()
+
+        addImageTagsTask = SuggestedEditsTask()
+        addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
+        addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
+        addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
+        addImageTagsTask.translatable = false
+        addImageTagsTask.new = true
+
+        // TODO: remove condition when ready
+        if (ReleaseUtil.isPreBetaRelease()) {
+            displayedTasks.add(addImageTagsTask)
+        }
+
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
