@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.CompoundButton
+import androidx.core.content.ContextCompat
 import com.google.android.material.chip.Chip
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -21,7 +24,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment() {
+class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -81,7 +84,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment() {
             chip.text = label.label
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
-            chip.setTypeface(tagsHintText.typeface)
+            chip.typeface = tagsHintText.typeface
+            chip.isCheckable = true
+            chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
+            chip.setOnCheckedChangeListener(this)
+
             tagsChipGroup.addView(chip)
             if (tagsChipGroup.childCount >= maxTags) {
                 break
@@ -92,6 +99,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment() {
     companion object {
         fun newInstance(): SuggestedEditsItemFragment {
             return SuggestedEditsImageTagsFragment()
+        }
+    }
+
+    override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
+        val chip = button as Chip
+        if (chip.isChecked) {
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+            chip.setTextColor(Color.WHITE)
+        } else {
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
         }
     }
 }
