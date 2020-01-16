@@ -17,6 +17,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
@@ -36,6 +37,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment() {
             cardItemProgressBar.visibility = VISIBLE
             getNextItem()
         }
+
+        val transparency = 0xcc000000
+        tagsContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground) and 0xffffff))
 
         getNextItem()
         updateContents(null)
@@ -71,10 +75,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment() {
         imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(page.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
 
         tagsChipGroup.removeAllViews()
+        val maxTags = 5
         for (label in page.imageLabels) {
             val chip = Chip(requireContext())
-            chip.setText(label.label)
+            chip.text = label.label
             tagsChipGroup.addView(chip)
+            if (tagsChipGroup.childCount >= maxTags) {
+                break
+            }
         }
     }
 

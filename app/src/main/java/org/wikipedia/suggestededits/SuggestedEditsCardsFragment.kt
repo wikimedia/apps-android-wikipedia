@@ -122,9 +122,14 @@ class SuggestedEditsCardsFragment : Fragment() {
         val isAddedContributionEmpty = topChild?.addedContribution.isNullOrEmpty()
         if (!isAddedContributionEmpty) topChild?.showAddedContributionView(topChild?.addedContribution)
         addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-        if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
+        if (action == ADD_IMAGE_TAGS) {
+            addContributionText?.text = getString(R.string.description_edit_save)
+            addContributionImage.visibility = GONE
+        } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
             addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
+            addContributionImage.visibility = VISIBLE
         } else if (addContributionText != null) {
+            addContributionImage.visibility = VISIBLE
             if (action == ADD_CAPTION) {
                 addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
             } else {
