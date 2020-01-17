@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.util.log.L;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -71,6 +72,23 @@ public class MediaListItem implements Serializable {
         return imageUrl;
     }
 
+    @NonNull
+    public String getImageUrl(float deviceScale) {
+        String imageUrl = getSrcSets().get(0).getSrc();
+        float lastScale = 1.0f;
+        for (ImageSrcSet srcSet : getSrcSets()) {
+            float scale = srcSet.getScale();
+            if (deviceScale >= scale && lastScale < scale) {
+                lastScale = scale;
+                imageUrl = srcSet.getSrc();
+            }
+        }
+
+        L.d("getImageUrl scale " + lastScale);
+        L.d("getImageUrl url " + imageUrl);
+        return imageUrl;
+    }
+
     public class ImageSrcSet implements Serializable {
         @Nullable private String src;
         @Nullable private String scale;
@@ -78,6 +96,10 @@ public class MediaListItem implements Serializable {
         @NonNull
         public String getSrc() {
             return StringUtils.defaultString(src);
+        }
+
+        public float getScale() {
+            return scale == null ? 0 : Float.parseFloat(scale.replace("x", ""));
         }
     }
 }

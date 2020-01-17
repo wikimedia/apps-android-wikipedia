@@ -8,8 +8,14 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.page.PageLeadProperties;
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ImageUrlUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
@@ -27,34 +33,61 @@ public class PageProperties implements Parcelable {
     private final long revisionId;
     private final Date lastModified;
     private final String displayTitleText;
-    private final String editProtectionStatus;
+    private String editProtectionStatus;
     private final int languageCount;
     private final boolean isMainPage;
     private final boolean isDisambiguationPage;
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
-    @Nullable private final String leadImageUrl;
-    @Nullable private final String leadImageName;
-    @Nullable private final String titlePronunciationUrl;
+    @Nullable private String leadImageUrl;
+    @Nullable private String leadImageName;
     @Nullable private final Location geo;
     @Nullable private final String wikiBaseItem;
     @Nullable private final String descriptionSource;
+    @Nullable private Protection protection;
 
     /**
      * True if the user who first requested this page can edit this page
      * FIXME: This is not a true page property, since it depends on current user.
      */
-    private final boolean canEdit;
+    private boolean canEdit;
 
     /**
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
+    public PageProperties(@NonNull PageSummary pageSummary) {
+        pageId = pageSummary.getPageId();
+        namespace = pageSummary.getNamespace();
+        revisionId = pageSummary.getRevision();
+        displayTitleText = defaultString(pageSummary.getDisplayTitle());
+        geo = pageSummary.getGeo();
+        languageCount = 1;
+        lastModified = new Date();
+        leadImageName = UriUtil.decodeURL(StringUtils.defaultString(pageSummary.getLeadImageName()));
+        leadImageUrl = pageSummary.getThumbnailUrl() != null
+                ? UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageSummary.getThumbnailUrl(), DimenUtil.calculateLeadImageWidth())) : null;
+        String lastModifiedText = pageSummary.getTimestamp();
+        if (lastModifiedText != null) {
+            try {
+                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
+            } catch (ParseException e) {
+                L.d("Failed to parse date: " + lastModifiedText);
+            }
+        }
+        // assume formatversion=2 is used so we get real booleans from the API
+
+        isMainPage = pageSummary.getType().equals(PageSummary.TYPE_MAIN_PAGE);
+        isDisambiguationPage = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
+        wikiBaseItem = pageSummary.getWikiBaseItem();
+        descriptionSource = pageSummary.getDescriptionSource();
+    }
+
+
     public PageProperties(PageLeadProperties core) {
         pageId = core.getId();
         namespace = core.getNamespace();
         revisionId = core.getRevision();
         displayTitleText = defaultString(core.getDisplayTitle());
-        titlePronunciationUrl = core.getTitlePronunciationUrl();
         geo = core.getGeo();
         editProtectionStatus = core.getFirstAllowedEditorRole();
         languageCount = core.getLanguageCount();
@@ -80,7 +113,6 @@ public class PageProperties implements Parcelable {
         wikiBaseItem = core.getWikiBaseItem();
         descriptionSource = core.getDescriptionSource();
     }
-
     /**
      * Constructor to be used when building a Page from a compilation. Initializes the title and
      * namespace fields, and explicitly disables editing. All other fields initialized to defaults.
@@ -91,7 +123,6 @@ public class PageProperties implements Parcelable {
         namespace = title.namespace();
         revisionId = 0;
         displayTitleText = title.getDisplayText();
-        titlePronunciationUrl = null;
         geo = null;
         editProtectionStatus = "";
         languageCount = 1;
@@ -123,11 +154,6 @@ public class PageProperties implements Parcelable {
 
     public String getDisplayTitle() {
         return displayTitleText;
-    }
-
-    @Nullable
-    public String getTitlePronunciationUrl() {
-        return titlePronunciationUrl;
     }
 
     @Nullable
@@ -184,6 +210,16 @@ public class PageProperties implements Parcelable {
         return 0;
     }
 
+    public void setProtection(@Nullable Protection protection) {
+        this.protection = protection;
+        this.editProtectionStatus = protection != null ? protection.getFirstAllowedEditorRole() : null;
+        this.canEdit = (TextUtils.isEmpty(editProtectionStatus) || isLoggedInUserAllowedToEdit());
+    }
+
+    private boolean isLoggedInUserAllowedToEdit() {
+        return protection != null && AccountUtil.isMemberOf(protection.getEditRoles());
+    }
+
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeInt(pageId);
@@ -191,7 +227,6 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(revisionId);
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
-        parcel.writeString(titlePronunciationUrl);
         parcel.writeString(GeoMarshaller.marshal(geo));
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(languageCount);
@@ -210,7 +245,6 @@ public class PageProperties implements Parcelable {
         revisionId = in.readLong();
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
-        titlePronunciationUrl = in.readString();
         geo = GeoUnmarshaller.unmarshal(in.readString());
         editProtectionStatus = in.readString();
         languageCount = in.readInt();
@@ -252,7 +286,6 @@ public class PageProperties implements Parcelable {
                 && revisionId == that.revisionId
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
-                && TextUtils.equals(titlePronunciationUrl, that.titlePronunciationUrl)
                 && (geo == that.geo || geo != null && geo.equals(that.geo))
                 && languageCount == that.languageCount
                 && canEdit == that.canEdit
@@ -268,7 +301,6 @@ public class PageProperties implements Parcelable {
     public int hashCode() {
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
-        result = 31 * result + (titlePronunciationUrl != null ? titlePronunciationUrl.hashCode() : 0);
         result = 31 * result + (geo != null ? geo.hashCode() : 0);
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
         result = 31 * result + languageCount;

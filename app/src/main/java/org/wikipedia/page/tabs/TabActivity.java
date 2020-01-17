@@ -167,6 +167,8 @@ public class TabActivity extends BaseActivity {
 
                 PageTitle title = app.getTabList().get(tabIndex).getBackStackPositionTitle();
                 titleText.setText(StringUtil.fromHtml(title.getDisplayText()));
+                titleText.setVisibility(title.getDisplayText().equals(Constants.EMPTY_PAGE_TITLE) ? View.GONE : View.VISIBLE);
+
                 if (TextUtils.isEmpty(title.getDescription())) {
                     descriptionText.setVisibility(View.GONE);
                 } else {
@@ -196,7 +198,12 @@ public class TabActivity extends BaseActivity {
             if (app.getTabList().get(tabIndex).getBackStack().isEmpty()) {
                 continue;
             }
-            Tab tab = new Tab(StringUtil.fromHtml(app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText()));
+
+            String title = app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText();
+            if (title.equals(Constants.EMPTY_PAGE_TITLE)) {
+                title = getString(R.string.empty_tab_title);
+            }
+            Tab tab = new Tab(StringUtil.fromHtml(title));
             tab.setIcon(R.drawable.ic_image_black_24dp);
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));

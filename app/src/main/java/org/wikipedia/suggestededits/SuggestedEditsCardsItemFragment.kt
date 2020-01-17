@@ -25,6 +25,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ImageZoomHelper
 
 class SuggestedEditsCardsItemFragment : Fragment() {
     private val disposables = CompositeDisposable()
@@ -58,7 +59,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        cardClickArea.setOnClickListener {
+        viewArticleContainer.setOnClickListener {
             if (sourceSummary != null) {
                 parent().onSelectPage()
             }
@@ -90,10 +91,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             val target = pair.first
 
                             sourceSummary = SuggestedEditsSummary(
-                                    source.title,
+                                    source.apiTitle,
                                     source.lang,
                                     source.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
-                                    source.normalizedTitle,
                                     source.displayTitle,
                                     source.description,
                                     source.thumbnailUrl,
@@ -102,10 +102,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                             )
 
                             targetSummary = SuggestedEditsSummary(
-                                    target.title,
+                                    target.apiTitle,
                                     target.lang,
                                     target.getPageTitle(WikiSite.forLanguageCode(parent().langToCode)),
-                                    target.normalizedTitle,
                                     target.displayTitle,
                                     target.description,
                                     target.thumbnailUrl,
@@ -141,7 +140,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                                 imageInfo.thumbUrl,
                                                 WikiSite.forLanguageCode(parent().langFromCode)
                                         ),
-                                        StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
                                         imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
@@ -182,7 +180,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                                                 imageInfo.thumbUrl,
                                                 WikiSite.forLanguageCode(parent().langFromCode)
                                         ),
-                                        StringUtil.removeUnderscores(title),
                                         StringUtil.removeHTMLTags(title),
                                         fileCaption,
                                         imageInfo.thumbUrl,
@@ -214,10 +211,9 @@ class SuggestedEditsCardsItemFragment : Fragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
                             sourceSummary = SuggestedEditsSummary(
-                                    pageSummary.title,
+                                    pageSummary.apiTitle,
                                     pageSummary.lang,
                                     pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
-                                    pageSummary.normalizedTitle,
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,
@@ -255,6 +251,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             return
         }
 
+        ImageZoomHelper.setViewZoomable(viewArticleImage)
+
         if (parent().action == ADD_DESCRIPTION || parent().action == TRANSLATE_DESCRIPTION) {
             updateDescriptionContents()
         } else {
@@ -274,12 +272,10 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
         viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummary!!.extractHtml!!)
         if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
-            viewArticleImage.visibility = GONE
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+            viewArticleImagePlaceholder.visibility = GONE
         } else {
-            viewArticleImage.visibility = VISIBLE
+            viewArticleImagePlaceholder.visibility = VISIBLE
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
@@ -315,9 +311,6 @@ class SuggestedEditsCardsItemFragment : Fragment() {
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
-        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
-
         fun newInstance(): SuggestedEditsCardsItemFragment {
             return SuggestedEditsCardsItemFragment()
         }
