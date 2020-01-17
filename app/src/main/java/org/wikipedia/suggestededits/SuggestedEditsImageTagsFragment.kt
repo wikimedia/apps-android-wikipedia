@@ -12,7 +12,6 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
-import androidx.core.view.MarginLayoutParamsCompat
 import com.google.android.material.chip.Chip
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -27,6 +26,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.login.LoginClient.LoginFailedException
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -68,6 +68,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishProgressCheck.imageTintList = colorStateList
         publishProgressText.setTextColor(colorStateList)
 
+        tagsLicenseText.text = StringUtil.fromHtml(getString(R.string.suggested_edits_cc0_notice,
+                getString(R.string.terms_of_use_url), getString(R.string.cc_0_url)))
+        tagsLicenseText.movementMethod = LinkMovementMethodExt.getInstance()
+
         getNextItem()
         updateContents()
     }
@@ -98,6 +102,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
+        tagsLicenseText.visibility = GONE
+        tagsHintText.visibility = VISIBLE
         ImageZoomHelper.setViewZoomable(imageView)
 
         imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
@@ -155,6 +161,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
+        if (tagsLicenseText.visibility != VISIBLE) {
+            tagsLicenseText.visibility = VISIBLE
+            tagsHintText.visibility = GONE
+        }
         val chip = button as Chip
         if (chip.isChecked) {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))

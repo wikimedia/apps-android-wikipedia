@@ -56,7 +56,8 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:textColor="?android:attr/textColorTertiary"
-            android:textColorLink="?android:attr/textColorTertiary"/>
+            android:textColorLink="?android:attr/textColorTertiary"
+            tools:text="Lorem ipsum"/>
 
         <LinearLayout
             android:id="@+id/tagsContainer"
@@ -78,6 +79,19 @@
                 android:text="@string/suggested_edits_image_tags_choose"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/colorAccent"/>
+
+            <TextView
+                android:id="@+id/tagsLicenseText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="?android:attr/textColorTertiary"
+                android:textColorLink="?android:attr/textColorTertiary"
+                android:textSize="12sp"
+                android:lineSpacingExtra="4sp"
+                android:visibility="gone"
+                tools:text="Lorem ipsum"
+                tools:visibility="visible"/>
 
             <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/tagsChipGroup"
