@@ -7,7 +7,7 @@
 
     <item android:id="@android:id/progress">
         <rotate android:fromDegrees="270" android:pivotX="50%" android:pivotY="50%" android:toDegrees="270">
-            <shape android:innerRadiusRatio="6" android:shape="ring" android:thicknessRatio="32.0" android:useLevel="true">
+            <shape android:innerRadiusRatio="6" android:shape="ring" android:thicknessRatio="28.0" android:useLevel="true">
                 <solid android:color="@color/accent20"/>
             </shape>
         </rotate>

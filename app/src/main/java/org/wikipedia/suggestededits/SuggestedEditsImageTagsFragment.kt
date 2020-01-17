@@ -161,15 +161,16 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     override fun publish() {
-        if (publishing) {
+        if (publishing || publishSuccess) {
             return
         }
 
         var acceptedCount = 0
+        var rejectedCount = 0
         val batchBuilder = StringBuilder()
         batchBuilder.append("[")
         for (i in 0 until tagsChipGroup.childCount) {
-            if (i > 0) {
+            if (acceptedCount > 0 || rejectedCount > 0) {
                 batchBuilder.append(",")
             }
             val chip = tagsChipGroup.getChildAt(i) as Chip
@@ -181,6 +182,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             batchBuilder.append("\"}")
             if (chip.isChecked) {
                 acceptedCount++
+            } else {
+                rejectedCount++
             }
         }
         batchBuilder.append("]")
@@ -255,6 +258,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             if (isAdded) {
                 publishOverlayContainer.visibility = GONE
                 parent().nextPage()
+                setPublishedState()
             }
         }, duration * 2)
     }
@@ -263,5 +267,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         // TODO: expand this a bit.
         publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
+    }
+
+    private fun setPublishedState() {
+        for (i in 0 until tagsChipGroup.childCount) {
+            val chip = tagsChipGroup.getChildAt(i) as Chip
+            if (chip.isChecked) {
+                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.green_highlight_color))
+                chip.setTextColor(Color.WHITE)
+            } else {
+                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+                chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
+            }
+        }
     }
 }
