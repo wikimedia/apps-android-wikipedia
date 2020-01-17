@@ -205,7 +205,15 @@ object MissingDescriptionProvider {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImagesWithUnreviewedLabels(lang)
                         .map { response ->
                             for (page in response.query()!!.pages()!!) {
-                                if (page.imageLabels.size > 0) {
+                                // make sure there's at least one unreviewed tag
+                                var hasUnreviewed = false
+                                for (label in page.imageLabels) {
+                                    if (label.state == "unreviewed") {
+                                        hasUnreviewed = true
+                                        break
+                                    }
+                                }
+                                if (hasUnreviewed) {
                                     imagesWithMissingTagsCache.push(page)
                                 }
                             }

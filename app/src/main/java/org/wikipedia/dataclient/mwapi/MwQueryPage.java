@@ -236,11 +236,15 @@ public class MwQueryPage extends BaseModel {
         @Nullable private String state;
         @Nullable private String label;
 
-        public String getWikidataId() {
+        @NonNull public String getWikidataId() {
             return StringUtils.defaultString(wikidataId);
         }
 
-        public String getLabel() {
+        @NonNull public String getState() {
+            return StringUtils.defaultString(state);
+        }
+
+        @NonNull public String getLabel() {
             return StringUtils.defaultString(label);
         }
     }

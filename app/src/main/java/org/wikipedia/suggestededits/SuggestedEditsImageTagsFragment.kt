@@ -1,7 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -108,6 +106,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         tagsChipGroup.removeAllViews()
         val maxTags = 10
         for (label in page!!.imageLabels) {
+            if (label.state != "unreviewed") {
+                continue
+            }
             val chip = Chip(requireContext())
             chip.text = label.label
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
@@ -163,6 +164,34 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (publishing) {
             return
         }
+
+        var acceptedCount = 0
+        val batchBuilder = StringBuilder()
+        batchBuilder.append("[")
+        for (i in 0 until tagsChipGroup.childCount) {
+            if (i > 0) {
+                batchBuilder.append(",")
+            }
+            val chip = tagsChipGroup.getChildAt(i) as Chip
+            val label = chip.tag as MwQueryPage.ImageLabel
+            batchBuilder.append("{\"label\":\"")
+            batchBuilder.append(label.wikidataId)
+            batchBuilder.append("\",\"review\":\"")
+            batchBuilder.append(if (chip.isChecked) "accept" else "reject")
+            batchBuilder.append("\"}")
+            if (chip.isChecked) {
+                acceptedCount++
+            }
+        }
+        batchBuilder.append("]")
+
+        if (acceptedCount == 0) {
+            // TODO: do something?
+            return
+        }
+
+        // -- point of no return --
+
         publishing = true
         publishSuccess = false
 
@@ -181,22 +210,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 onSuccess()
             }
         }, duration)
-
-        val batchBuilder = StringBuilder()
-        batchBuilder.append("[")
-        for (i in 0 until tagsChipGroup.childCount) {
-            if (i > 0) {
-                batchBuilder.append(",")
-            }
-            val chip = tagsChipGroup.getChildAt(i) as Chip
-            val label = chip.tag as MwQueryPage.ImageLabel
-            batchBuilder.append("{\"label\":\"")
-            batchBuilder.append(label.wikidataId)
-            batchBuilder.append("\",\"review\":\"")
-            batchBuilder.append(if (chip.isChecked) "accept" else "reject")
-            batchBuilder.append("\"}")
-        }
-        batchBuilder.append("]")
 
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
