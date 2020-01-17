@@ -12,6 +12,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
+import androidx.core.view.MarginLayoutParamsCompat
 import com.google.android.material.chip.Chip
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -27,11 +28,8 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
@@ -119,6 +117,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
             chip.setOnCheckedChangeListener(this)
             chip.tag = label
+
+            // add some padding to the Chip, since our container view doesn't support item spacing yet.
+            val params = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val margin = DimenUtil.roundedDpToPx(8f)
+            params.setMargins(margin, margin, margin, margin)
+            chip.layoutParams = params
 
             tagsChipGroup.addView(chip)
             if (tagsChipGroup.childCount >= maxTags) {

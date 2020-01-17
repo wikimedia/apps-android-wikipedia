@@ -63,7 +63,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:padding="16dp"
+            android:paddingTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:orientation="vertical">
@@ -77,13 +79,13 @@
                 android:fontFamily="sans-serif-medium"
                 android:textColor="?attr/colorAccent"/>
 
-            <com.google.android.material.chip.ChipGroup
+            <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/tagsChipGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:singleSelection="false"
-                app:chipSpacing="16dp"/>
+                android:layout_marginTop="8dp"
+                app:flexWrap="wrap"
+                app:justifyContent="center"/>
 
         </LinearLayout>
 
