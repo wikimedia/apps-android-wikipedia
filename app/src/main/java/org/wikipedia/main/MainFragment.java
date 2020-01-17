@@ -33,7 +33,6 @@ import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
-import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
@@ -187,8 +186,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                HistoryEntry entry = new HistoryEntry(MainPageClient.getMainPageTitle(), HistoryEntry.SOURCE_MAIN_PAGE);
-                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+                startActivity(PageActivity.newIntentForNewTab(requireContext()));
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
             }
