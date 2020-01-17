@@ -68,7 +68,7 @@
   <string name="map_view_link_text">Poglej na karti</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d jezikih</string>
-  <string name="content_license_html">Vsebina je dostopna pod licenco &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, razen če je drugače navedeno</string>
+  <string name="content_license_text" fuzzy="true">Vsebina je dostopna pod licenco &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, razen če je drugače navedeno</string>
   <string name="preference_title_language">Jeziki Wikipedije</string>
   <string name="langlinks_filter_hint">Iskanje</string>
   <string name="langlinks_empty">Ta stran ni na voljo v drugih jezikih.</string>
