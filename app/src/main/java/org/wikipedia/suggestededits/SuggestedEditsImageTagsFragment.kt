@@ -53,6 +53,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
             cardItemProgressBar.visibility = VISIBLE
+            cardItemErrorView.visibility = GONE
             getNextItem()
         }
 
