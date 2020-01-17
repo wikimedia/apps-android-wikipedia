@@ -1,5 +1,9 @@
 package org.wikipedia.suggestededits
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -8,6 +12,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
 import com.google.android.material.chip.Chip
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +20,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -30,10 +36,10 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
-import java.lang.StringBuilder
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener {
     var publishing: Boolean = false
+    var publishSuccess: Boolean = false
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
     private var page: MwQueryPage? = null
 
@@ -58,6 +64,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), android.R.attr.colorBackground) and 0xffffff))
         publishOverlayContainer.visibility = GONE
+
+        val colorStateList = ColorStateList(arrayOf(intArrayOf()),
+                intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+        publishProgressBar.progressTintList = colorStateList
+        publishProgressCheck.imageTintList = colorStateList
+        publishProgressText.setTextColor(colorStateList)
 
         getNextItem()
         updateContents()
@@ -121,7 +133,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         imageCaption.visibility = VISIBLE
                     } else {
                         if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
-                            imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription())
+                            imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
                             imageCaption.visibility = VISIBLE
                         } else {
                             imageCaption.visibility = GONE
@@ -152,7 +164,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
         publishing = true
+        publishSuccess = false
+
+        publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
+        publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
+
+        // kick off the circular animation
+        val duration = 2000L
+        val animator = ObjectAnimator.ofInt(publishProgressBar, "progress", 0, 100)
+        animator.duration = duration
+        animator.interpolator = AccelerateDecelerateInterpolator()
+        animator.start()
+        publishProgressBar.postDelayed({
+            if (isAdded && !publishing && publishSuccess) {
+                onSuccess()
+            }
+        }, duration)
 
         val batchBuilder = StringBuilder()
         batchBuilder.append("[")
@@ -177,11 +205,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         .observeOn(AndroidSchedulers.mainThread())
                         .doAfterTerminate {
                             publishing = false
-                            publishOverlayContainer.visibility = GONE
                         }
                         .subscribe({ response ->
                             // TODO: check anything else in the response?
-                            onSuccess()
+                            publishSuccess = true
+                            if (!animator.isRunning) {
+                                // if the animator is still running, let it finish and invoke success() on its own
+                                onSuccess()
+                            }
                         }, { caught ->
                             onError(caught)
                         }))
@@ -198,14 +229,26 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
+        publishProgressText.setText(R.string.suggested_edits_image_tags_published)
 
-        // TODO: animation
+        val duration = 500L
+        publishProgressCheck.alpha = 0f
+        publishProgressCheck.visibility = VISIBLE
+        publishProgressCheck.animate()
+                .alpha(1f)
+                .duration = duration
 
-        parent().nextPage()
+        publishProgressBar.postDelayed({
+            if (isAdded) {
+                publishOverlayContainer.visibility = GONE
+                parent().nextPage()
+            }
+        }, duration * 2)
     }
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
+        publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }
 }

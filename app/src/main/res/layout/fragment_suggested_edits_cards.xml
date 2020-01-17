@@ -105,7 +105,7 @@
         <FrameLayout
             android:id="@+id/addContributionButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="44dp"
             android:background="@drawable/button_shape_add_reading_list"
             android:backgroundTint="?attr/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"

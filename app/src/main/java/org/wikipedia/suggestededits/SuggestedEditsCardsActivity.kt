@@ -15,6 +15,7 @@ import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newIns
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
+import java.lang.Exception
 
 class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
 
@@ -50,7 +51,10 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
+        try {
+            return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
+        } catch (e: Exception) { }
+        return false
     }
 
     private fun getActionBarTitleRes(action: Action): Int {
