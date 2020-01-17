@@ -109,7 +109,7 @@ object JavaScriptActionHandler {
         val showMapLink = model.page!!.pageProperties.geo != null
         val res = L10nUtil.getStringsForArticleLanguage(model.title, intArrayOf(R.string.read_more_section,
                 R.string.page_similar_titles, R.string.language_count_link_text, R.string.about_article_section,
-                R.string.edit_history_link_text, R.string.last_updated_text, R.string.content_license_text,
+                R.string.edit_history_link_text, R.string.last_updated_text, R.string.content_license_text_new,
                 R.string.talk_page_link_text, R.string.page_view_in_browser, R.string.content_license_cc_by_sa,
                 R.string.map_view_link_text, R.string.reference_list_title))
 
@@ -136,7 +136,7 @@ object JavaScriptActionHandler {
                 "           'menuHeading': '${res[R.string.about_article_section]}'," +
                 "           'menuLastEditedSubtitle': '${res[R.string.edit_history_link_text]}'," +
                 "           'menuLastEditedTitle': '${String.format(res[R.string.last_updated_text], lastModifiedDate)}'," +
-                "           'licenseString': '${res[R.string.content_license_text]}'," +
+                "           'licenseString': '${res[R.string.content_license_text_new]}'," +
                 "           'menuTalkPageTitle': '${res[R.string.talk_page_link_text]}'," +
                 "           'viewInBrowserString': '${res[R.string.page_view_in_browser]}'," +
                 "           'licenseSubstitutionString': '${res[R.string.content_license_cc_by_sa]}'," +
