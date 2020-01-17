@@ -66,7 +66,7 @@
   <string name="map_view_link_text">Féach ar léarscáil</string>
   <string name="other_languages_indication_text">Léigh i dteanga eile</string>
   <string name="language_count_link_text">Ar fáil i %d teanga eile</string>
-  <string name="content_license_html">Tá an t-inneachar ar fáil faoi &lt;a href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/A&gt; mura luaitear a mhalairt</string>
+  <string name="content_license_text" fuzzy="true">Tá an t-inneachar ar fáil faoi &lt;a href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/A&gt; mura luaitear a mhalairt</string>
   <string name="edit_save_action_license_logged_in">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ach an t-ábhar a fhoilsiú, glacann tú leis na &lt;a href=\"%1$s\"&gt;Coinníollacha Úsáide&lt;/a&gt; agus le do chuid dréachtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Luafar do chuid athruithe le seoladh IP do ghléas. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
   <string name="preference_title_language">Teangacha Vicipéide</string>
