@@ -196,8 +196,8 @@ public class DescriptionEditView extends LinearLayout {
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageSummaryLabel.setText(getLabelText(sourceSummary.getLang()));
-        pageSummaryText.setText(StringUtil.strip(StringUtils.capitalize(StringUtil.removeHTMLTags(isTranslationEdit || action == ADD_CAPTION
-                ? sourceSummary.getDescription() : sourceSummary.getExtractHtml()))));
+        pageSummaryText.setText(StringUtil.strip(StringUtil.removeHTMLTags(isTranslationEdit || action == ADD_CAPTION
+                ? sourceSummary.getDescription() : sourceSummary.getExtractHtml())));
         if (pageSummaryText.getText().toString().isEmpty() || (action == ADD_CAPTION)
                 && !TextUtils.isEmpty(sourceSummary.getPageTitle().getDescription())) {
             pageSummaryContainer.setVisibility(GONE);

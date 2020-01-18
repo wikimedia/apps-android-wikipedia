@@ -5,7 +5,6 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -44,8 +43,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @Nullable
     String articleSubtitle() {
-        return page.getDescription() != null
-                ? StringUtils.capitalize(page.getDescription()) : null;
+        return page.getDescription();
     }
 
     @Override
