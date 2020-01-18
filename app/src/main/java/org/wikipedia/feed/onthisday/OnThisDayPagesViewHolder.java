@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -55,7 +54,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
 
     public void setFields(@NonNull PageSummary page) {
         selectedPage = page;
-        pageItemDescTextView.setText(StringUtils.capitalize(page.getDescription()));
+        pageItemDescTextView.setText(page.getDescription());
         pageItemDescTextView.setVisibility(TextUtils.isEmpty(page.getDescription()) ? View.GONE : View.VISIBLE);
         pageItemTitleTextView.setMaxLines(TextUtils.isEmpty(page.getDescription()) ? 2 : 1);
         pageItemTitleTextView.setText(StringUtil.fromHtml(page.getDisplayTitle()));
