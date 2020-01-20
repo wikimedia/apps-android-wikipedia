@@ -101,7 +101,8 @@
   <string name="map_view_link_text">在地图上查看</string>
   <string name="other_languages_indication_text">其他语言</string>
   <string name="language_count_link_text">在其他%d种语言中可用</string>
-  <string name="content_license_text" fuzzy="true">除非另有声明，内容采用&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议发表。</string>
+  <string name="content_license_text_new">除非另有说明，内容基于$1授权。</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="preference_title_language">添加维基百科语言</string>
@@ -358,10 +359,14 @@
   <string name="view_link_preview_error_button_dismiss">关闭</string>
   <string name="error_page_does_not_exist">该页面不存在</string>
   <string name="view_wiki_error_message_offline">无法连接至互联网</string>
+  <string name="view_wiki_error_message_timeout">无法连接到维基百科。请检查您的网络连接，或稍后再试</string>
   <string name="reference_title">参考文献%s</string>
+  <string name="reference_list_title">参考文献</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">图片变暗（在黑暗主题中）</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载可供离线使用的条目保存数据使用，而不总是加载条目最新版本</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">匹配系统主题</string>
+  <string name="empty_tab_title">新建标签页</string>
   <string name="crash_report_activity_title">应用程序错误</string>
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用程序发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重新开始</string>
@@ -719,8 +724,23 @@
   <string name="suggested_edits_task_action_text_translate">翻译</string>
   <string name="suggested_edits_image_captions">图片说明</string>
   <string name="suggested_edits_add_descriptions_task_detail">标题描述可对条目作出总结，以帮助读者快速了解主题。</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">您所使用的IP地址被禁止编辑维基百科。访问以下链接了解更多关于封禁的信息。</string>
+  <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。访问以下链接以便了解更多关于封禁的信息。</string>
+  <string name="suggested_edits_editing_tips_link_text">编辑提示与技巧</string>
+  <string name="suggested_edits_edit_streak_label_text">连续编辑纪录</string>
   <string name="suggested_edits_pageviews_label_text">页面访问量</string>
+  <string name="suggested_edits_quality_label_text">编辑质量</string>
+  <string name="suggested_edits_quality_perfect_text">完美</string>
+  <string name="suggested_edits_quality_excellent_text">优秀</string>
+  <string name="suggested_edits_quality_very_good_text">非常好</string>
+  <string name="suggested_edits_quality_good_text">良好</string>
+  <string name="suggested_edits_quality_okay_text">不错</string>
+  <string name="suggested_edits_quality_sufficient_text">尚可</string>
+  <string name="suggested_edits_quality_poor_text">较差</string>
+  <string name="suggested_edits_quality_bad_text">糟糕</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">贡献</item>
+    <item quantity="other">贡献</item>
+  </plurals>
   <string name="suggested_edits_last_edited_never">从不</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
