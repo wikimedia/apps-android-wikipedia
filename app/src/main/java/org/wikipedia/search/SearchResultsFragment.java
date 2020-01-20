@@ -496,7 +496,7 @@ public class SearchResultsFragment extends Fragment {
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
                 redirectText.setVisibility(View.GONE);
                 redirectArrow.setVisibility(View.GONE);
-                descriptionText.setText(StringUtils.capitalize(result.getPageTitle().getDescription()));
+                descriptionText.setText(result.getPageTitle().getDescription());
             } else {
                 redirectText.setVisibility(View.VISIBLE);
                 redirectArrow.setVisibility(View.VISIBLE);

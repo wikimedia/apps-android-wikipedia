@@ -265,7 +265,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
+            viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description
         }
 
         viewImageSummaryContainer.visibility = GONE
@@ -289,7 +289,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             else -> getString(R.string.suggested_edits_no_description)
         }
 
-        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText.capitalize()))
+        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
             viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
