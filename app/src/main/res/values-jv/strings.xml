@@ -66,7 +66,7 @@
   <string name="map_view_link_text">Deleng ing gambar bumi</string>
   <string name="other_languages_indication_text">Waca ing basa liyané</string>
   <string name="language_count_link_text">Cumawis ing %d basa liyané</string>
-  <string name="content_license_text" fuzzy="true">Isi cumawis kanthi pangayoman &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, kajaba ana katerangan liyané.</string>
+  <string name="content_license_text_new">Isi cumawis kanthi pangayoman &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, kajaba ana katerangan liyané.</string>
   <string name="edit_save_action_license_logged_in">Kanthi mbabar, kowé minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Panganggo&lt;/a&gt;, lan nguculaké pasumbangmu mawa lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Kanthi nyimpen, panjenengan minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Guna&lt;/a&gt;, lan lila nguculaké sumbangané sampéyan mawa lisènsi &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Besutan bakal kagayutaké nyang alamat IP pirantiné panjenengan. Manawa panjenengan &lt;a href=\"https://#login\"&gt;mlebu log&lt;/a&gt;, panjenengan bakal éntuk privasi luwih.</string>
   <string name="preference_title_language">Basa Wikipédia</string>
