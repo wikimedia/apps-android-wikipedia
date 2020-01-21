@@ -121,9 +121,9 @@
             android:layout_gravity="center"
             style="?android:attr/progressBarStyleHorizontal"
             android:indeterminate="false"
-            android:max="100"
-            android:progress="60"
-            android:secondaryProgress="100"
+            android:max="1000"
+            android:progress="600"
+            android:secondaryProgress="1000"
             android:progressDrawable="@drawable/circular_progress" />
 
         <ImageView

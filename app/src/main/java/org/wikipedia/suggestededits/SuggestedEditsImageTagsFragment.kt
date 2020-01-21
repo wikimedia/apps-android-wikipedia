@@ -219,7 +219,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         // kick off the circular animation
         val duration = 2000L
-        val animator = ObjectAnimator.ofInt(publishProgressBar, "progress", 0, 100)
+        val animator = ObjectAnimator.ofInt(publishProgressBar, "progress", 0, 1000)
         animator.duration = duration
         animator.interpolator = AccelerateDecelerateInterpolator()
         animator.start()
