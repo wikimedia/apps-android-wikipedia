@@ -97,5 +97,21 @@ public final class FileUtil {
         return context.getString(R.string.size_mb, bytesToMB(bytes));
     }
 
+    public static void writeToFileInDirectory(String data, String directory, String filename) {
+        File file = new File(directory, filename);
+
+        FileOutputStream outputStream = null;
+        try {
+            file.createNewFile();
+            outputStream = new FileOutputStream(file, true);
+            outputStream.write(data.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private FileUtil() { }
 }
