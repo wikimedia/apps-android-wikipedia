@@ -850,5 +850,14 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
+    public static boolean shouldShowImageTagsOnboarding() {
+        return getBoolean(R.string.preference_key_image_tags_onboarding_shown, true);
+    }
+
+    public static void setShowImageTagsOnboarding(boolean showOnboarding) {
+        setBoolean(R.string.preference_key_image_tags_onboarding_shown, showOnboarding);
+    }
+
+
     private Prefs() { }
 }

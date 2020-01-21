@@ -739,6 +739,9 @@
     <string name="suggested_edits_image_tags">Image tags</string>
     <string name="suggested_edits_image_tags_publishing">Publishing</string>
     <string name="suggested_edits_image_tags_published">Published</string>
+    <string name="suggested_edits_image_tags_onboarding_title">Tag images to make them easier for others to find</string>
+    <string name="suggested_edits_image_tags_onboarding_text">By confirming suggested tags, you can help make images easier to search for.\n\nTags are computer suggested but need to be validated by humans to ensure accuracy.</string>
+    <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
     <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier for others to find. Tags are suggested automatically, but need to be verified by you.</string>
     <string name="suggested_edits_image_tags_choose">Choose matching tags</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
