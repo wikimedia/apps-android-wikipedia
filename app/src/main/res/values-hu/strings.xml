@@ -81,7 +81,7 @@
   <string name="map_view_link_text">Megtekintés térképen</string>
   <string name="other_languages_indication_text">Olvasás más nyelven</string>
   <string name="language_count_link_text">Elérhető %d másik nyelven</string>
-  <string name="content_license_text" fuzzy="true">A tartalom a &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt érhető el, ha nincs másképp feltüntetve</string>
+  <string name="content_license_text_new">A tartalom a &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt érhető el, ha nincs másképp feltüntetve</string>
   <string name="edit_save_action_license_logged_in">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="edit_save_action_license_anon">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
   <string name="preference_title_language">Wikipédia-nyelvek</string>

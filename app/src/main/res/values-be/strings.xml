@@ -46,7 +46,7 @@
   <string name="menu_text_select_edit_here">Правіць тут</string>
   <string name="last_updated_text">Апошняе абнаўленне %s</string>
   <string name="talk_page_link_text" fuzzy="true">Размовы</string>
-  <string name="content_license_text" fuzzy="true">Змесціва даступна ў адпаведнасці з &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, калі не пазначана іншае</string>
+  <string name="content_license_text_new">Змесціва даступна ў адпаведнасці з &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, калі не пазначана іншае</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Захоўваючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Ўмовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на няадзыўныя публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Захоўваючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на няадзыўную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаныя ў IP-адрасу вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуйцеся&lt;/a&gt;, то зможаце атрымаць больш высокі ўзровень прыватнасці.</string>
   <string name="preference_title_language" fuzzy="true">Мова Вікіпедыі</string>

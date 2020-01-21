@@ -89,7 +89,8 @@
   <string name="map_view_link_text">지도에서 보기</string>
   <string name="other_languages_indication_text">다른 언어로 읽기</string>
   <string name="language_count_link_text">%d개의 다른 언어로 읽을 수 있음</string>
-  <string name="content_license_text" fuzzy="true">별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 이용할 수 있습니다</string>
+  <string name="content_license_text_new">별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 이용할 수 있습니다</string>
+  <string name="content_license_cc_by_sa">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
   <string name="edit_save_action_license_logged_in">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
   <string name="edit_save_action_license_anon">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
@@ -346,10 +347,12 @@
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
   <string name="view_wiki_error_message_timeout">위키백과에 연결할 수 없습니다. 네트워크 연결을 확인하고 나중에 다시 시도하십시오</string>
   <string name="reference_title">각주 %s</string>
+  <string name="reference_list_title">각주</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">영상 어둡게 하기(어두운 테마에서)</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용 절약</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">시스템 테마에 동기화</string>
+  <string name="empty_tab_title">새 탭</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>

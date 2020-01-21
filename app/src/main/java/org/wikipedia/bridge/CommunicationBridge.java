@@ -41,6 +41,7 @@ public class CommunicationBridge {
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
+    private final Map<String, ValueCallback<String>> pendingEvals = new HashMap<>();
 
     public interface JSEventListener {
         void onMessage(String messageType, JsonObject messagePayload);
@@ -64,14 +65,13 @@ public class CommunicationBridge {
 
     public void onPageFinished() {
         isDOMReady = true;
-        for (String jsString : pendingJSMessages) {
-            communicationBridgeListener.getWebView().loadUrl(jsString);
-        }
+        flushMessages();
     }
 
     public void resetHtml(@NonNull String wikiUrl, @NonNull PageTitle pageTitle) {
         isDOMReady = false;
         pendingJSMessages.clear();
+        pendingEvals.clear();
         communicationBridgeListener.getWebView().loadUrl(wikiUrl
                 + RestService.REST_API_PREFIX
                 + RestService.PAGE_HTML_ENDPOINT
@@ -79,6 +79,8 @@ public class CommunicationBridge {
     }
 
     public void cleanup() {
+        pendingJSMessages.clear();
+        pendingEvals.clear();
         eventListeners.clear();
         if (incomingMessageHandler != null) {
             incomingMessageHandler.removeCallbacksAndMessages(null);
@@ -98,15 +100,27 @@ public class CommunicationBridge {
 
     public void execute(@NonNull String js) {
         String jsString = "javascript:" + js;
-        if (!isDOMReady) {
-            pendingJSMessages.add(jsString);
-        } else {
-            communicationBridgeListener.getWebView().loadUrl(jsString);
-        }
+        pendingJSMessages.add(jsString);
+        flushMessages();
     }
 
     public void evaluate(@NonNull String js, ValueCallback<String> callback) {
-        communicationBridgeListener.getWebView().evaluateJavascript(js, callback);
+        pendingEvals.put(js, callback);
+        flushMessages();
+    }
+
+    private void flushMessages() {
+        if (!isDOMReady) {
+            return;
+        }
+        for (String jsString : pendingJSMessages) {
+            communicationBridgeListener.getWebView().loadUrl(jsString);
+        }
+        pendingJSMessages.clear();
+        for (String key : pendingEvals.keySet()) {
+            communicationBridgeListener.getWebView().evaluateJavascript(key, pendingEvals.get(key));
+        }
+        pendingEvals.clear();
     }
 
     private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;
