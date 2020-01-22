@@ -2,14 +2,20 @@ package org.wikipedia.dataclient.okhttp;
 
 import androidx.annotation.NonNull;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.FileUtil;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import okhttp3.CacheDelegate;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import okhttp3.internal.cache.CacheRequest;
 import okhttp3.internal.cache.CacheStrategy;
 import okhttp3.internal.http.ExchangeCodec;
@@ -24,13 +30,19 @@ import okio.Source;
 import okio.Timeout;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static okhttp3.Protocol.HTTP_1_1;
 import static okhttp3.internal.Util.discard;
+import static org.wikipedia.ActivityLifecycleHandler.CONVERTED_FILES_DIRECTORY_NAME;
+import static org.wikipedia.ActivityLifecycleHandler.LEAD_SECTION_ENDPOINT;
+import static org.wikipedia.ActivityLifecycleHandler.REMAINING_SECTIONS_ENDPOINT;
 
 public class OfflineCacheInterceptor implements Interceptor {
     public static final String SAVE_HEADER = "X-Offline-Save";
     public static final String SAVE_HEADER_SAVE = "save";
     public static final String SAVE_HEADER_DELETE = "delete";
     public static final String SAVE_HEADER_NONE = "none";
+    private static final MediaType MEDIA_JSON = MediaType.parse("application/json");
+    private static final int STATUS_CODE_SUCCESS = 200;
 
     @NonNull private final CacheDelegate cacheDelegate;
 
@@ -48,6 +60,21 @@ public class OfflineCacheInterceptor implements Interceptor {
         if ((isCacheable(request) || SAVE_HEADER_DELETE.equals(request.header(SAVE_HEADER)))
                 && cacheDelegate.isCached(request.url().toString())) {
             cacheCandidate = cacheDelegate.internalCache().get(request);
+        }
+
+        if (cacheCandidate == null && (request.url().toString().contains(LEAD_SECTION_ENDPOINT) || request.url().toString().contains(REMAINING_SECTIONS_ENDPOINT))) {
+            int indexOfTitleDelimiter = request.url().toString().lastIndexOf('/');
+            File file = new File(WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME + "/" + request.url().toString().substring(indexOfTitleDelimiter + 1));
+            if (file.exists()) {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                String contentJSON = FileUtil.readFile(fileInputStream);
+                cacheCandidate = new Response.Builder()
+                        .code(STATUS_CODE_SUCCESS)
+                        .request(request)
+                        .protocol(HTTP_1_1)
+                        .body(ResponseBody.create(MEDIA_JSON, contentJSON))
+                        .build();
+            }
         }
 
         if (cacheCandidate != null) {

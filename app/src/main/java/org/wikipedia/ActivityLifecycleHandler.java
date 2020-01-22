@@ -6,6 +6,7 @@ import android.app.Application;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -34,6 +35,8 @@ import static org.wikipedia.dataclient.RestService.REST_API_PREFIX;
 public class ActivityLifecycleHandler implements Application.ActivityLifecycleCallbacks {
     private boolean haveMainActivity;
     private boolean anyActivityResumed;
+    public static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
+    public static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
     public static final String CONVERTED_FILES_DIRECTORY_NAME = "converted-files";
 
     boolean haveMainActivity() {
@@ -69,12 +72,15 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
                     break;
             }
         }
-        runOneTimeSavedPagesConversion(activity);
+        if (!Prefs.isOfflinePcsToMobileHtmlConversionComplete()) {
+            runOneTimeSavedPagesConversion(activity);
+        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     private void runOneTimeSavedPagesConversion(Activity activity) {
         List<SavedReadingListPage> savedReadingListPages = new ArrayList<>();
+        List<String> filesNamesToBeDeleted = new ArrayList<>();
         WebView dummyWebviewForConversion = new WebView(activity);
         dummyWebviewForConversion.getSettings().setJavaScriptEnabled(true);
         dummyWebviewForConversion.getSettings().setAllowUniversalAccessFromFileURLs(true);
@@ -87,24 +93,28 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
             dummyWebviewForConversion.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onPageFinished(WebView view, String url) {
-                    File f = new File(WikipediaApp.getInstance().getFilesDir(), CONVERTED_FILES_DIRECTORY_NAME);
-                    if (!f.exists()) {
-                        f.mkdirs();
+                    File file = new File(WikipediaApp.getInstance().getFilesDir(), CONVERTED_FILES_DIRECTORY_NAME);
+                    if (!file.exists()) {
+                        file.mkdirs();
                     }
 
                     List<ReadingList> allReadingLists = ReadingListDbHelper.instance().getAllLists();
                     for (ReadingList readingList : allReadingLists) {
                         for (ReadingListPage page : readingList.pages()) {
-                            String leadSectionUrl = page.wiki().url() + REST_API_PREFIX + "/page/mobile-sections-lead/" + StringUtil.fromHtml(page.apiTitle());
-                            String remainingSectionsUrl = page.wiki().url() + REST_API_PREFIX + "/page/mobile-sections-remaining/" + StringUtil.fromHtml(page.apiTitle());
+                            String leadSectionUrl = page.wiki().url() + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
+                            String remainingSectionsUrl = page.wiki().url() + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
                             savedReadingListPages.add(new SavedReadingListPage(StringUtil.fromHtml(page.apiTitle()).toString(), leadSectionUrl, remainingSectionsUrl));
                         }
                     }
-                    checkAndUpdateSavedPageJSONS(savedReadingListPages);
+                    extractJSONsToConvert(savedReadingListPages, filesNamesToBeDeleted);
+
                     for (SavedReadingListPage savedReadingListPage : savedReadingListPages) {
+                        Log.e("####", "PAGE" + savedReadingListPage.title);
+
                         dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + ")",
                                 value -> FileUtil.writeToFileInDirectory(StringEscapeUtils.unescapeJava(value), WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, savedReadingListPage.title));
                     }
+                    crossCheckAndComplete(savedReadingListPages, filesNamesToBeDeleted);
                 }
             });
         } catch (IOException e) {
@@ -113,27 +123,67 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
 
     }
 
-    private void checkAndUpdateSavedPageJSONS(List<SavedReadingListPage> savedReadingListPages) {
-        File directory = new File(WikipediaApp.getInstance().getCacheDir(), "okhttp-cache");
-        if(directory.exists()) {
-            File[] files = directory.listFiles();
-            if(files!=null) {
+    private void crossCheckAndComplete(List<SavedReadingListPage> savedReadingListPages, List<String> filesNamesToBeDeleted) {
+        List<String> fileNames = new ArrayList<>();
+        boolean conversionComplete = true;
+        File convertedCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), CONVERTED_FILES_DIRECTORY_NAME);
+        if (convertedCacheDirectory.exists()) {
+            File[] files = convertedCacheDirectory.listFiles();
+            if (files != null) {
                 for (File file : files) {
-                    BufferedReader brTest = null;
+                    fileNames.add(file.getName());
+                }
+            }
+        }
+        for (SavedReadingListPage savedReadingListPage : savedReadingListPages) {
+            if (!fileNames.contains(savedReadingListPage.title)) {
+                conversionComplete = false;
+            }
+        }
+        if (conversionComplete) {
+            Log.e("####", "CONVERSION COMPLETE");
+        }
+        Prefs.setOfflinePcsToMobileHtmlConversionComplete(conversionComplete);
+        deleteOldCacheFilesForSavedPages(conversionComplete, filesNamesToBeDeleted);
+    }
+
+    private void deleteOldCacheFilesForSavedPages(boolean conversionComplete, List<String> filesNamesToBeDeleted) {
+        if (!conversionComplete) {
+            return;
+        }
+        for (String filename : filesNamesToBeDeleted) {
+            FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir() + "/okhttp-cache", filename));
+        }
+        Log.e("####", "DELETIONS COMPLETE" + filesNamesToBeDeleted);
+
+    }
+
+    private void extractJSONsToConvert(List<SavedReadingListPage> savedReadingListPages, List<String> filesToBeDeleted) {
+        File offlineCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), "okhttp-cache");
+        if (offlineCacheDirectory.exists()) {
+            File[] files = offlineCacheDirectory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    BufferedReader bufferedReader = null;
                     try {
-                        brTest = new BufferedReader(new FileReader(file));
-                        String firstLine = brTest.readLine();
+                        bufferedReader = new BufferedReader(new FileReader(file));
+                        String firstLine = bufferedReader.readLine();
                         for (SavedReadingListPage page : savedReadingListPages) {
                             String resultFileName = file.getName().substring(0, file.getName().length() - 1) + '1';
-                            if (firstLine.trim().equals(page.leadSectionUrl)) {
-                                File resultFile = new File(directory, resultFileName);
+                            File resultFile = new File(offlineCacheDirectory, resultFileName);
+
+                            if (firstLine.trim().contains(page.leadSectionUrl)) {
                                 String leadJSON = FileUtil.readFile(new FileInputStream(resultFile));
                                 page.setLeadSectionJSON(leadJSON);
+                                filesToBeDeleted.add(file.getName());
+                                filesToBeDeleted.add(resultFileName);
                             }
-                            if (firstLine.trim().equals(page.remainingSectionsUrl)) {
-                                File resultFile = new File(directory, resultFileName);
+
+                            if (firstLine.trim().contains(page.remainingSectionsUrl)) {
                                 String remainingSectionsJSON = FileUtil.readFile(new FileInputStream(resultFile));
                                 page.setRemainingSectionsJSON(remainingSectionsJSON);
+                                filesToBeDeleted.add(file.getName());
+                                filesToBeDeleted.add(resultFileName);
                             }
                         }
                     } catch (IOException e) {
