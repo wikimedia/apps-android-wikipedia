@@ -69,7 +69,7 @@
   <string name="map_view_link_text">بینین لەسەر نەخشە</string>
   <string name="other_languages_indication_text">خوێندنەوە بە زمانێکی تر</string>
   <string name="language_count_link_text">بە %d زمانی دیکە بەردەستە</string>
-  <string name="content_license_text" fuzzy="true">نێوەڕۆک بەردەستە لەژێر &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; مەگەر پێچەوانەی گوترابێت</string>
+  <string name="content_license_text_new">نێوەڕۆک بەردەستە لەژێر &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; مەگەر پێچەوانەی گوترابێت</string>
   <string name="edit_save_action_license_logged_in">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">بە پاشەکەوتکردن، تۆ &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt;، پەسەند دەکەیت، ھەروەھا پەسەندی دەکەیت کە دەستکارییەکان و بەشدارییەکانت بڵاوبکرێنەوە لەژێر بەڵگەنامەی &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. دەستکارییەکان دەدرێنە پاڵ ناونیشانی ئای-پی دیڤایسەکەت. ئەگەر &lt;a href=\"https://#login\"&gt;بچیتە ژوورەوە&lt;/a&gt;، دەستکارییەکانت دەدرێنە پاڵ ھەژمارەکەت.</string>
   <string name="preference_title_language">زمانەکانی ویکیپیدیا</string>

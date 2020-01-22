@@ -67,7 +67,7 @@
   <string name="map_view_link_text">Vidar an mapo</string>
   <string name="other_languages_indication_text">Lektar en altra linguo.</string>
   <string name="language_count_link_text">Disponebla per %d altra lingui</string>
-  <string name="content_license_text" fuzzy="true">La kontenajo esas disponebla sub &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ecepte se altre indikesas</string>
+  <string name="content_license_text_new">La kontenajo esas disponebla sub &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ecepte se altre indikesas</string>
   <string name="edit_save_action_license_logged_in">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Nur la IP-adreso de vua komputero aparos, ne vua nomo. Se vu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, vu havos plusa privateso.</string>
   <string name="preference_title_language">Lingui de la Wikipedio</string>
