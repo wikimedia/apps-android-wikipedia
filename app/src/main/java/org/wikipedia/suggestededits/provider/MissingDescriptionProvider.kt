@@ -5,6 +5,7 @@ import io.reactivex.functions.BiFunction
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
@@ -24,6 +25,8 @@ object MissingDescriptionProvider {
     private val imagesWithTranslatableCaptionCache : Stack<Pair<String, String>> = Stack()
     private var imagesWithTranslatableCaptionCacheFromLang : String = ""
     private var imagesWithTranslatableCaptionCacheToLang : String = ""
+
+    private val imagesWithMissingTagsCache : Stack<MwQueryPage> = Stack()
 
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
@@ -178,6 +181,45 @@ object MissingDescriptionProvider {
                             }
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()
+                            }
+                            if (item == null) {
+                                throw ListEmptyException()
+                            }
+                            item
+                        }
+                        .retry { t: Throwable -> t is ListEmptyException }
+            }
+        }.doFinally { mutex.release() }
+    }
+
+    fun getNextImageWithMissingTags(lang: String): Observable<MwQueryPage> {
+        return Observable.fromCallable { mutex.acquire() }.flatMap {
+            var cachedItem: MwQueryPage? = null
+            if (!imagesWithMissingTagsCache.empty()) {
+                cachedItem = imagesWithMissingTagsCache.pop()
+            }
+
+            if (cachedItem != null) {
+                Observable.just(cachedItem)
+            } else {
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImagesWithUnreviewedLabels(lang)
+                        .map { response ->
+                            for (page in response.query()!!.pages()!!) {
+                                // make sure there's at least one unreviewed tag
+                                var hasUnreviewed = false
+                                for (label in page.imageLabels) {
+                                    if (label.state == "unreviewed") {
+                                        hasUnreviewed = true
+                                        break
+                                    }
+                                }
+                                if (hasUnreviewed) {
+                                    imagesWithMissingTagsCache.push(page)
+                                }
+                            }
+                            var item: MwQueryPage? = null
+                            if (!imagesWithMissingTagsCache.empty()) {
+                                item = imagesWithMissingTagsCache.pop()
                             }
                             if (item == null) {
                                 throw ListEmptyException()

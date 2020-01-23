@@ -173,6 +173,7 @@ dependencies {
     implementation "androidx.palette:palette:1.0.0"
     implementation "androidx.preference:preference:1.1.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.google.android:flexbox:2.0.1'
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.4') {
         exclude group: 'org.jetbrains'

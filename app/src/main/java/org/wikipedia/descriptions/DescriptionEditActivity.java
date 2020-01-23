@@ -41,7 +41,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
         ADD_DESCRIPTION,
         TRANSLATE_DESCRIPTION,
         ADD_CAPTION,
-        TRANSLATE_CAPTION
+        TRANSLATE_CAPTION,
+        ADD_IMAGE_TAGS
     }
 
     private static final String EXTRA_TITLE = "title";
