@@ -47,8 +47,7 @@
   <string name="map_view_link_text">Prikaži na karti</string>
   <string name="other_languages_indication_text">Pročitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na %d dr. jezika</string>
-  <string name="content_license_text_new" fuzzy="true">Sadržaj je dostupan pod licencom &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; osim gdje je drukčije navedeno</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene koje napravite pripisat će se IP-adresi Vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
   <string name="langlinks_filter_hint">Pretraži</string>

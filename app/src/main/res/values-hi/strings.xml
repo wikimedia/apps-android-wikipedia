@@ -68,8 +68,7 @@
   <string name="map_view_link_text">नक्शे पर देखें</string>
   <string name="other_languages_indication_text">किसी अन्य भाषा में पढ़ें</string>
   <string name="language_count_link_text">%d अन्य भाषाओं में उपलब्ध</string>
-  <string name="content_license_text_new" fuzzy="true">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हैं।</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हैं।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदानों को अपरिवर्तनीय रूप से लाइसेंस &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हैं। इस सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हैं तो आपके पास अधिक प्राइवेसी होगी।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="langlinks_filter_hint">खोज</string>

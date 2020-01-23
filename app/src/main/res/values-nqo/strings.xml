@@ -66,8 +66,7 @@
   <string name="map_view_link_text">ߊ߬ ߦߋ߫ ߔߊ߬ߔߘߊ ߞߊ߲߬</string>
   <string name="other_languages_indication_text">ߊ߬ ߞߊ߬ߙߊ߲߬ ߞߊ߲߫ ߜߘߍ߫ ߘߐ߫</string>
   <string name="language_count_link_text">ߊ߬ ߦߋ߫ %d ߞߊ߲߫ ߜߘߍ ߟߎ߬ ߘߐ߫</string>
-  <string name="content_license_text_new" fuzzy="true">ߞߣߐߘߐ ߣߌ߲߬ ߦߋ߫  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ߟߊߓߌ߬ߟߊ ߟߋ߬ ߘߐ߫߸ ߝߴߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬</string>
-  <string name="edit_save_action_license_logged_in">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߡߊ߬.</string>
+    <string name="edit_save_action_license_logged_in">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߡߊ߬.</string>
   <string name="edit_save_action_license_anon">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ ߡߊ߬&lt;/a&gt;߸ ߊ߬ ߣߴߌ ߓߘߴߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߟߊߓߌ߬ߟߊ߬ ߣߡߌߛߊ߫ ߓߊߟߌߦߊ߫ ߓߟߏ ߡߊ߬&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; ߟߊ߫ ߓߌ߬ߟߊ ߣߴߊ߬ ߕߌ߰ߦߊ ߟߊ߫. ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߌߣߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߞߍߟߊ߲ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߟߊ߫. ߣߴߌ ߞߊ߬  &lt;a href=\"https://#login\"&gt;ߜߊ߲߬ߞߎ߲߬ߠߌ߲&lt;/a&gt; ߞߍ߫߸ ߌ ߘߌ߫ ߜߎ߲߬ߘߎ߬ ߛߌߦߊߡߊ߲߫ ߛߐ߬ߘߐ߲߬.</string>
   <string name="preference_title_language">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬</string>
   <string name="langlinks_filter_hint">ߢߌߣߌ߲ߠߌ߲</string>

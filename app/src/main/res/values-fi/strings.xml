@@ -86,8 +86,6 @@
   <string name="map_view_link_text">Tarkastele kartalla</string>
   <string name="other_languages_indication_text">Lue toisella kielellä</string>
   <string name="language_count_link_text">Saatavilla %d muulla kielellä</string>
-  <string name="content_license_html">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
-  <string name="content_license_text_new" fuzzy="true">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kielet</string>

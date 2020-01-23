@@ -39,8 +39,7 @@
   <string name="menu_text_select_share">Divider</string>
   <string name="menu_text_select_edit_here">Modificar hic</string>
   <string name="last_updated_text">Ultime actualisation %s</string>
-  <string name="content_license_html">Content is available under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; unless otherwise noted</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
   <string name="preference_title_language" fuzzy="true">Lingua de Wikipedia</string>
   <string name="langlinks_filter_hint">Cercar</string>
