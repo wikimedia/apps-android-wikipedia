@@ -35,6 +35,7 @@ public class ReferenceDialog extends BottomSheetDialog {
     @BindView(R.id.reference_pager) WrapContentViewPager referencesViewPager;
     @BindView(R.id.page_indicator_view) PageIndicatorView pageIndicatorView;
     @BindView(R.id.indicator_divider) View pageIndicatorDivider;
+    @BindView(R.id.reference_title_text) TextView titleTextView;
     private LinkHandler referenceLinkHandler;
 
     public ReferenceDialog(@NonNull Context context, int selectedIndex, List<References.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
@@ -54,6 +55,7 @@ public class ReferenceDialog extends BottomSheetDialog {
             BottomSheetBehavior behavior = BottomSheetBehavior.from((View) rootView.getParent());
             behavior.setPeekHeight(DimenUtil.getDisplayHeightPx() / 2);
         }
+        titleTextView.setText(getContext().getString(R.string.reference_title, ""));
 
         referencesViewPager.setOffscreenPageLimit(2);
         referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
@@ -69,9 +71,9 @@ public class ReferenceDialog extends BottomSheetDialog {
             String[] strings = linkText.split(" ");
             String alphaReference = StringUtil.getBase26String(Integer.valueOf(strings[strings.length - 1].replace("]", "")));
             alphaReference = isLowercase ? alphaReference.toLowerCase() : alphaReference;
-            return getContext().getString(R.string.add_square_brackets_to_string, alphaReference);
+            linkText = alphaReference;
         }
-        return linkText;
+        return linkText.replace("[", "").replace("]", "") + ".";
     }
 
     @Override
@@ -96,11 +98,11 @@ public class ReferenceDialog extends BottomSheetDialog {
             LayoutInflater inflater = LayoutInflater.from(container.getContext());
             View view = inflater.inflate(R.layout.view_reference_pager_item, container, false);
             TextView pagerReferenceText = view.findViewById(R.id.reference_text);
-            pagerReferenceText.setText(StringUtil.fromHtml(StringUtil.removeStyleTags(references.get(position).getContent())));
+            pagerReferenceText.setText(StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(references.get(position).getContent()))));
             pagerReferenceText.setMovementMethod(new LinkMovementMethodExt(referenceLinkHandler));
 
-            TextView pagerTitleText = view.findViewById(R.id.reference_title_text);
-            pagerTitleText.setText(getContext().getString(R.string.reference_title, processLinkTextWithAlphaReferences(references.get(position).getText())));
+            TextView pagerIdText = view.findViewById(R.id.reference_id);
+            pagerIdText.setText(processLinkTextWithAlphaReferences(references.get(position).getText()));
             container.addView(view);
 
             return view;
