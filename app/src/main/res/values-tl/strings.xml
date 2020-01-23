@@ -43,8 +43,7 @@
   <string name="edit_history_link_text">Tingnan ang kasaysayan ng pagbabago</string>
   <string name="map_view_link_text">Tingnan sa mapa</string>
   <string name="other_languages_indication_text">Basahin sa ibang wika</string>
-  <string name="content_license_text_new">Naroon ang nilalaman sa ilalim ng &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; maliban na lang kung itinala</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya. Ang mga binago ay mapapasa-lagay sa direksyong IP ng iyong aparato. Kapag ikaw ay  &lt;a href=\"https://#login\"&gt;naglagda (login)&lt;/a&gt;, magkakarron ka ng higit na sarilinan (privacy).</string>
   <string name="preference_title_language">Mga wika ng Wikipedia</string>
   <string name="langlinks_filter_hint">Hanapin</string>

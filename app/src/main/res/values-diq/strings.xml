@@ -70,8 +70,7 @@
   <string name="map_view_link_text">Xerita sero bıvênên</string>
   <string name="other_languages_indication_text">Zıwanê binan de bıwanê</string>
   <string name="language_count_link_text">%d zıwananê binan de esto</string>
-  <string name="content_license_text_new">Eger dimlaşt nêvaciyeno, zerrek bınê &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de ravêreno.</string>
-  <string name="preference_title_language">Zıwanê Wikipedia</string>
+    <string name="preference_title_language">Zıwanê Wikipedia</string>
   <string name="langlinks_filter_hint">Cı geyre</string>
   <string name="langlinks_empty">Na wesiqa zıwanan de binan de çıniya</string>
   <string name="langlinks_no_match">Zıwan nêvineya</string>
