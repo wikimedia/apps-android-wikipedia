@@ -737,6 +737,7 @@
     <string name="suggested_edits_image_tags">Image tags</string>
     <string name="suggested_edits_image_tags_publishing">Publishing</string>
     <string name="suggested_edits_image_tags_published">Published</string>
+    <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
     <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier for others to find. Tags are suggested automatically, but need to be verified by you.</string>
     <string name="suggested_edits_image_tags_choose">Choose matching tags</string>
     <string name="suggested_edits_image_tags_select_title">You haven\'t selected any tags for this image</string>
