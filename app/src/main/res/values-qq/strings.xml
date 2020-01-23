@@ -658,6 +658,7 @@
   <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>
   <string name="suggested_edits_translate_image_captions">Title of screen where the user chooses images that are missing captions to be translated.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
+  <string name="suggested_edits_image_tags_snackbar">One-time message shown to users to encourage them to start tagging images.</string>
   <string name="suggested_edits_image_tags_publishing">Status when the selected image tags are being published.</string>
   <string name="suggested_edits_image_tags_published">Status when the selected image tags have been published.</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
