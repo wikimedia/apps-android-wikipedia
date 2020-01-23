@@ -69,7 +69,7 @@
   <string name="map_view_link_text">Ver nun mapa</string>
   <string name="other_languages_indication_text">Lleer n\'otra llingua</string>
   <string name="language_count_link_text">Disponible\'n %d idiomes más</string>
-  <string name="content_license_text_new">El conteníu ta disponible baxo &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si nun se diz otra cosa</string>
+  <string name="content_license_text_new" fuzzy="true">El conteníu ta disponible baxo &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si nun se diz otra cosa</string>
   <string name="edit_save_action_license_logged_in">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les ediciones atribuiránse a la dirección IP del to preséu. Si &lt;a href=\"https://#login\"&gt;anicies sesión&lt;/a&gt;, tendrás más intimidá.</string>
   <string name="preference_title_language">Llingües de Wikipedia</string>

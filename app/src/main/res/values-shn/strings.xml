@@ -66,7 +66,7 @@
   <string name="map_view_link_text">တူၺ်းၼိူဝ် ႁၢင်ႈတမ်း</string>
   <string name="other_languages_indication_text">လူႇၼင်ႇ ၽႃႇသႃႇၵႂၢမ်းတၢင်ႇၶိူဝ်း</string>
   <string name="language_count_link_text">ၸႂ့်လႆႈ ၽႃႇသႃႇတၢင်ႇၸိူဝ်း တႃႇ %d မဵဝ်း</string>
-  <string name="content_license_text_new">လွင်ႈတၢင်းမၼ်း တူၺ်းလႆႈ ၵႃႈတီႈ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ပေႃးဝႃႈ ဢမ်ႇလႆႈမၢႆဝႆႉ။</string>
+  <string name="content_license_text_new" fuzzy="true">လွင်ႈတၢင်းမၼ်း တူၺ်းလႆႈ ၵႃႈတီႈ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ပေႃးဝႃႈ ဢမ်ႇလႆႈမၢႆဝႆႉ။</string>
   <string name="edit_save_action_license_logged_in">ပေႃးဝႃႈပိုၼ်ႇဢွၵ်ႇၼႆ ပွင်ႇဝႃႈၸဝ်ႈၵဝ်ႇၽွမ်ႉၸႂ်တင်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, တႃႇတေပိုၼ်ဢွၵ်ႇ လွင်ႈႁူမ်ႈသၢင်ႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇလႅၵ်ႈဢမ်ႇလၢႆႈ ၸွမ်းၼင်ႇ ဝႂ်ၶႂၢင်း &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">ၸွမ်းၼင်ႇ လွင်ႈပိုၼ်ဢွၵ်ႇသေ၊ ၸဝ်ႈၵဝ်ႇလႆႈၽွမ်ႉၸႂ်ဝႆႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, လႄႈ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ၽႄ လွင်ႈၶဝ်ႈႁူမ်ႈသၢင်ႈ ၸဝ်ႈၵဝ်ႇ ၸွမ်းၼင်ႇ ဝႂ်လူတ်းပွႆႇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ၼႆႉယူႇ။ လွင်ႈမႄးထတ်းၸိူဝ်းၼႆႉ မၼ်းတေမၢႆတွင်းဝႆႉ ႁဵင်းလိၵ်ႈ ဢၢႆႇၽီႇ ၶွင်ၶိူင်ႈၸၢၵ်ႈၸဝ်ႈၵဝ်ႇဢေႃႈ။ သင်ၸိူဝ်ႉဝႃႈ ၸဝ်ႈၵဝ်ႇ ၶဝ်ႈ &lt;a href=\"https://#login\"&gt;လွၵ်ႉဢိၼ်ႇ&lt;/a&gt;ဝႆႉၼႆတႄႉ ၸဝ်ႈၵဝ်ႇ တေတိူဝ်းမီး လွင်ႈႁူမ်ႇလူမ်ႈလီဢေႃႈ။</string>
   <string name="preference_title_language">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>

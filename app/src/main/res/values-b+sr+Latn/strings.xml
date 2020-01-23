@@ -66,7 +66,7 @@
   <string name="map_view_link_text">Prikaži na mapi</string>
   <string name="other_languages_indication_text">Pročitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
-  <string name="content_license_text_new">Sadržaj je dostupan pod licencom &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, osim ako je drugačije navedeno</string>
+  <string name="content_license_text_new" fuzzy="true">Sadržaj je dostupan pod licencom &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, osim ako je drugačije navedeno</string>
   <string name="edit_save_action_license_logged_in">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmene će biti pripisane IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imaćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Vikipedije</string>
