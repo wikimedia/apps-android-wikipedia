@@ -33,7 +33,6 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewAnimations;
-import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
@@ -138,7 +137,6 @@ public class LangLinksActivity extends BaseActivity {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
-            ViewUtil.finishActionModeWhenTappingOnView(langLinksList, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 

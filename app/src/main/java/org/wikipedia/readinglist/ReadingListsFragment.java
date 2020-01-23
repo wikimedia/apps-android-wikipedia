@@ -58,7 +58,6 @@ import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -652,8 +651,6 @@ public class ReadingListsFragment extends Fragment implements
             actionMode = mode;
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false);
-            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
-            ViewUtil.finishActionModeWhenTappingOnView(emptyContainer, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
