@@ -12,6 +12,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.chip.Chip
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -76,7 +77,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         updateContents()
     }
 
+    override fun onStart() {
+        super.onStart()
+        parent().updateActionButton()
+    }
+
     private fun getNextItem() {
+        if (page != null) {
+            return
+        }
         disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(parent().langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -152,6 +161,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         }
                     }
                 })
+
+        parent().updateActionButton()
     }
 
     companion object {
@@ -173,13 +184,36 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
         }
+        parent().updateActionButton()
     }
 
     override fun publish() {
-        if (publishing || publishSuccess) {
+        if (publishing || publishSuccess || tagsChipGroup.childCount == 0) {
             return
         }
+        var acceptedCount = 0
+        for (i in 0 until tagsChipGroup.childCount) {
+            val chip = tagsChipGroup.getChildAt(i) as Chip
+            if (chip.isChecked) {
+                acceptedCount++
+            }
+        }
+        if (acceptedCount == 0) {
+            AlertDialog.Builder(requireContext())
+                    .setTitle(R.string.suggested_edits_image_tags_select_title)
+                    .setMessage(R.string.suggested_edits_image_tags_select_text)
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(R.string.description_edit_save) { _, _ ->
+                        doPublish()
+                    }
+                    .show()
+            return
+        } else {
+            doPublish()
+        }
+    }
 
+    private fun doPublish() {
         var acceptedCount = 0
         var rejectedCount = 0
         val batchBuilder = StringBuilder()
@@ -202,11 +236,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
         }
         batchBuilder.append("]")
-
-        if (acceptedCount == 0) {
-            // TODO: do something?
-            return
-        }
 
         // -- point of no return --
 
@@ -237,7 +266,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         .doAfterTerminate {
                             publishing = false
                         }
-                        .subscribe({ response ->
+                        .subscribe({
                             // TODO: check anything else in the response?
                             publishSuccess = true
                             if (!animator.isRunning) {
@@ -295,5 +324,21 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
             }
         }
+    }
+
+    override fun publishEnabled(): Boolean {
+        return !publishSuccess
+    }
+
+    override fun publishOutlined(): Boolean {
+        var atLeastOneChecked = false
+        for (i in 0 until tagsChipGroup.childCount) {
+            val chip = tagsChipGroup.getChildAt(i) as Chip
+            if (chip.isChecked) {
+                atLeastOneChecked = true
+                break
+            }
+        }
+        return !atLeastOneChecked
     }
 }
