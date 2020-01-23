@@ -35,6 +35,9 @@ abstract class SuggestedEditsItemFragment : Fragment() {
         return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsCardsFragment
     }
 
-    open fun publish() {
-    }
+    open fun publishEnabled(): Boolean { return true }
+
+    open fun publishOutlined(): Boolean { return false }
+
+    open fun publish() { }
 }

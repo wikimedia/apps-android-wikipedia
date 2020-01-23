@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,6 +31,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
 class SuggestedEditsCardsFragment : Fragment() {
@@ -127,10 +129,22 @@ class SuggestedEditsCardsFragment : Fragment() {
         backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
-    private fun updateActionButton() {
-        val isAddedContributionEmpty = topChild?.addedContribution.isNullOrEmpty()
-        if (!isAddedContributionEmpty) topChild?.showAddedContributionView(topChild?.addedContribution)
-        addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
+    fun updateActionButton() {
+        val child = topBaseChild
+        var isAddedContributionEmpty = true
+        if (child != null) {
+            if (child is SuggestedEditsCardsItemFragment) {
+                isAddedContributionEmpty = child.addedContribution.isEmpty()
+                if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
+            }
+            addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
+
+            addContributionButton.setBackgroundResource(if (child.publishOutlined()) R.drawable.button_shape_border_light else R.drawable.button_shape_add_reading_list)
+            addContributionText?.setTextColor(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)
+            addContributionButton.isEnabled = child.publishEnabled()
+            addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
+        }
+
         if (action == ADD_IMAGE_TAGS) {
             if (addContributionText == null) {
                 addContributionImage.visibility = VISIBLE
@@ -206,7 +220,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
-  
+
     private fun requestLanguagesAndBuildSpinner() {
         disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
                 .subscribeOn(Schedulers.io())
