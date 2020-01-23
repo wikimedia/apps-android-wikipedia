@@ -61,8 +61,7 @@
   <string name="edit_history_link_text" fuzzy="true">Խմբագրել պատմությունը</string>
   <string name="map_view_link_text">Դիտել քարտեզի վրա</string>
   <string name="language_count_link_text">Հասանելի է %d այլ լեզուներով</string>
-  <string name="content_license_html">Բովանդակությունը հասանելի է &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո, եթե այլ բան նշված չէ</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները անվերադարձ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; արտոնագրի ներքո հրապարակելուն։</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները անվերադարձ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; արտոնագրի ներքո հրապարակելուն։</string>
   <string name="preference_title_language" fuzzy="true">Վիքիպեդիայի լեզուն</string>
   <string name="langlinks_filter_hint">Որոնել</string>
   <string name="langlinks_empty">Այս էջը այլ լեզվով հասանելի չէ։</string>
