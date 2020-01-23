@@ -241,4 +241,12 @@ public class ObservableWebView extends WebView {
         }
         WikipediaApp.getInstance().getBus().post(INVALIDATE_EVENT);
     }
+
+    public float getTouchStartX() {
+        return touchStartX;
+    }
+
+    public float getTouchStartY() {
+        return touchStartY;
+    }
 }

@@ -3,7 +3,7 @@ package org.wikipedia.random;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.test.MockRetrofitTest;
 
 import io.reactivex.Observable;
@@ -15,7 +15,7 @@ public class RandomSummaryClientTest extends MockRetrofitTest {
     public void testRequestEligible() throws Throwable {
         enqueueFromFile("rb_page_summary_valid.json");
 
-        TestObserver<RbPageSummary> observer = new TestObserver<>();
+        TestObserver<PageSummary> observer = new TestObserver<>();
         getObservable().subscribe(observer);
 
         observer.assertComplete().assertNoErrors()
@@ -27,7 +27,7 @@ public class RandomSummaryClientTest extends MockRetrofitTest {
     @Test public void testRequestMalformed() {
         enqueueMalformed();
 
-        TestObserver<RbPageSummary> observer = new TestObserver<>();
+        TestObserver<PageSummary> observer = new TestObserver<>();
         getObservable().subscribe(observer);
         observer.assertError(MalformedJsonException.class);
     }
@@ -35,12 +35,12 @@ public class RandomSummaryClientTest extends MockRetrofitTest {
     @Test public void testRequestFailure() {
         enqueue404();
 
-        TestObserver<RbPageSummary> observer = new TestObserver<>();
+        TestObserver<PageSummary> observer = new TestObserver<>();
         getObservable().subscribe(observer);
         observer.assertError(Exception.class);
     }
 
-    private Observable<RbPageSummary> getObservable() {
+    private Observable<PageSummary> getObservable() {
         return getRestService().getRandomSummary();
     }
 }

@@ -1,5 +1,6 @@
 package org.wikipedia.edit.preview;
 
+import android.annotation.SuppressLint;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -9,19 +10,18 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
@@ -31,10 +31,9 @@ import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewModel;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.log.L;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
@@ -42,15 +41,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
-public class EditPreviewFragment extends Fragment {
+public class EditPreviewFragment extends Fragment implements CommunicationBridgeListener {
     private ObservableWebView webview;
     private ScrollView previewContainer;
     private EditSectionActivity parentActivity;
@@ -69,15 +66,29 @@ public class EditPreviewFragment extends Fragment {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
+    @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
         editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
-        bridge = new CommunicationBridge(webview, requireActivity());
+        bridge = new CommunicationBridge(this);
+        webview.getSettings().setJavaScriptEnabled(true);
         webview.setWebViewClient(new OkHttpWebViewClient() {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
+            }
+
+            @Override public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                parentActivity.showProgressBar(false);
+                parentActivity.supportInvalidateOptionsMenu();
+                //Save the html received from the the wikitext to mobile-html transform, to use in the savedInstanceState
+                view.evaluateJavascript(
+                        "(function() { return (document.documentElement.outerHTML); })();",
+                        html -> {
+                            previewHTML = html;
+                        });
             }
         });
 
@@ -93,7 +104,6 @@ public class EditPreviewFragment extends Fragment {
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url(), getThemedColor(requireActivity(), R.attr.paper_color));
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
@@ -172,9 +182,14 @@ public class EditPreviewFragment extends Fragment {
             boolean isActive = savedInstanceState.getBoolean("isActive");
             previewContainer.setVisibility(isActive ? View.VISIBLE : View.GONE);
             if (isActive) {
-                displayPreview(previewHTML);
+                displayPreviewHtml(previewHTML);
             }
         }
+    }
+
+    private void displayPreviewHtml(String previewHTML) {
+        webview.loadData(previewHTML, "text/html", "UTF-8");
+        setUpWebView();
     }
 
     public void setCustomSummary(String summary) {
@@ -184,12 +199,29 @@ public class EditPreviewFragment extends Fragment {
 
     private boolean isWebViewSetup = false;
 
-    private void displayPreview(final String html) {
+    /**
+     * Fetches preview html from the modified wikitext text, and shows (fades in) the Preview fragment,
+     * which includes edit summary tags. When the fade-in completes, the state of the
+     * actionbar button(s) is updated, and the preview is shown.
+     * @param title The PageTitle associated with the text being modified.
+     * @param wikiText The text of the section to be shown in the Preview.
+     */
+    public void showPreview(final PageTitle title, final String wikiText) {
+        hideSoftKeyboard(requireActivity());
+        parentActivity.showProgressBar(true);
+        String url = model.getTitle().getWikiSite().uri() + PAGE_HTML_PREVIEW_ENDPOINT + title.getPrefixedText();
+        String postData;
+        postData = "wikitext=" + UriUtil.encodeURL(wikiText);
+        webview.postUrl(url, postData.getBytes());
+
+        setUpWebView();
+    }
+
+    private void setUpWebView() {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
-            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault(), bridge);
 
-            bridge.addListener("linkClicked", new LinkHandler(requireActivity()) {
+            bridge.addListener("link_clicked", new LinkHandler(requireActivity()) {
                 @Override
                 public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
                     // TODO: also need to handle references, issues, disambig, ... in preview eventually
@@ -204,6 +236,10 @@ public class EditPreviewFragment extends Fragment {
                 @Override
                 public void onExternalLinkClicked(@NonNull final Uri uri) {
                     showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
+                }
+
+                @Override public void onSVGLinkClicked(@NonNull String href) {
+                    // ignore
                 }
 
                 /**
@@ -230,55 +266,19 @@ public class EditPreviewFragment extends Fragment {
                     return parentActivity.getPageTitle().getWikiSite();
                 }
             });
-            bridge.addListener("imageClicked", (messageType, messagePayload) -> {
+            bridge.addListener("image_clicked", (messageType, messagePayload) -> {
                 // TODO: do something when an image is clicked in Preview.
             });
             bridge.addListener("mediaClicked", (messageType, messagePayload) -> {
                 // TODO: do something when a video is clicked in Preview.
             });
-            bridge.addListener("referenceClicked", (messageType, messagePayload) -> {
+            bridge.addListener("reference_clicked", (messageType, messagePayload) -> {
                 // TODO: do something when a reference is clicked in Preview.
             });
         }
 
         ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
         ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
-
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("html", html);
-            payload.put("siteBaseUrl", parentActivity.getPageTitle().getWikiSite().url());
-            payload.put("theme", WikipediaApp.getInstance().getCurrentTheme().getMarshallingId());
-            payload.put("dimImages", Prefs.shouldDimDarkModeImages());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("displayPreviewHTML", payload);
-    }
-
-    /**
-     * Fetches a preview of the modified text, and shows (fades in) the Preview fragment,
-     * which includes edit summary tags. When the fade-in completes, the state of the
-     * actionbar button(s) is updated, and the preview is shown.
-     * @param title The PageTitle associated with the text being modified.
-     * @param wikiText The text of the section to be shown in the Preview.
-     */
-    public void showPreview(final PageTitle title, final String wikiText) {
-        hideSoftKeyboard(requireActivity());
-        parentActivity.showProgressBar(true);
-
-        disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> parentActivity.showProgressBar(false))
-                .subscribe(response -> {
-                    displayPreview(response.result());
-                    previewHTML = response.result();
-                    parentActivity.supportInvalidateOptionsMenu();
-                }, throwable -> {
-                    parentActivity.showError(throwable);
-                    L.e(throwable);
-                }));
     }
 
     /**
@@ -350,5 +350,15 @@ public class EditPreviewFragment extends Fragment {
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
         }
+    }
+
+    @Override
+    public WebView getWebView() {
+        return webview;
+    }
+
+    @Override
+    public PageTitle getPageTitle() {
+        return model.getTitle();
     }
 }

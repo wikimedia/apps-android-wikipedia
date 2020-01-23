@@ -31,11 +31,11 @@
 
     <TextView
         android:id="@+id/taskTitle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/taskIconCircle"
         app:layout_constraintTop_toTopOf="@+id/taskIconCircle"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/taskTitleNewLabel"
         android:layout_marginStart="16dp"
         android:textSize="@dimen/suggested_edits_message_textview_text_size"
         android:textColor="?attr/material_theme_primary_color"
@@ -46,13 +46,25 @@
         tools:text="Lorem ipsum"/>
 
     <TextView
+        android:id="@+id/taskTitleNewLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/taskTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
+        android:layout_marginStart="4dp"
+        android:textSize="@dimen/suggested_edits_message_textview_text_size"
+        android:textColor="@color/green50"
+        android:textStyle="bold"
+        android:text="@string/suggested_edits_task_new"/>
+
+    <TextView
         android:id="@+id/taskDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="@+id/taskTitle"
         app:layout_constraintTop_toBottomOf="@+id/taskTitle"
-        app:layout_constraintEnd_toEndOf="@+id/taskTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="@dimen/suggested_edits_message_textview_text_size"
         android:lineSpacingExtra="6sp"
         android:textColor="?attr/material_theme_secondary_color"

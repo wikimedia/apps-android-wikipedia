@@ -5,7 +5,8 @@ import io.reactivex.functions.BiFunction
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.restbase.page.RbPageSummary
+import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
@@ -25,9 +26,11 @@ object MissingDescriptionProvider {
     private var imagesWithTranslatableCaptionCacheFromLang : String = ""
     private var imagesWithTranslatableCaptionCacheToLang : String = ""
 
+    private val imagesWithMissingTagsCache : Stack<MwQueryPage> = Stack()
+
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
-    fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<RbPageSummary> {
+    fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<PageSummary> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedTitle = ""
             if (articlesWithMissingDescriptionCacheLang != wiki.languageCode()) {
@@ -46,7 +49,7 @@ object MissingDescriptionProvider {
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
                             for (page in pages) {
-                                articlesWithMissingDescriptionCache.push(page.title)
+                                articlesWithMissingDescriptionCache.push(page.title())
                             }
                             if (!articlesWithMissingDescriptionCache.empty()) {
                                 title = articlesWithMissingDescriptionCache.pop()
@@ -62,7 +65,7 @@ object MissingDescriptionProvider {
                 .doFinally { mutex.release() }
     }
 
-    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<RbPageSummary, RbPageSummary>> {
+    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<PageSummary, PageSummary>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             val targetWiki = WikiSite.forLanguageCode(targetLang)
             var cachedPair: Pair<PageTitle, PageTitle>? = null
@@ -109,10 +112,10 @@ object MissingDescriptionProvider {
                 .doFinally { mutex.release() }
     }
 
-    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<RbPageSummary, RbPageSummary>> {
+    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
         return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
                 ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText),
-                BiFunction<RbPageSummary, RbPageSummary, Pair<RbPageSummary, RbPageSummary>> { source, target -> Pair(source, target) })
+                BiFunction<PageSummary, PageSummary, Pair<PageSummary, PageSummary>> { source, target -> Pair(source, target) })
     }
 
     fun getNextImageWithMissingCaption(lang: String): Observable<String> {
@@ -133,7 +136,7 @@ object MissingDescriptionProvider {
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
                             for (page in pages) {
-                                imagesWithMissingCaptionsCache.push(page.title)
+                                imagesWithMissingCaptionsCache.push(page.title())
                             }
                             var item: String? = null
                             if (!imagesWithMissingCaptionsCache.empty()) {
@@ -174,10 +177,49 @@ object MissingDescriptionProvider {
                                 if (!page.captions.containsKey(sourceLang) || page.captions.containsKey(targetLang)) {
                                     continue
                                 }
-                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang]!!, page.title))
+                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang]!!, page.title()))
                             }
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()
+                            }
+                            if (item == null) {
+                                throw ListEmptyException()
+                            }
+                            item
+                        }
+                        .retry { t: Throwable -> t is ListEmptyException }
+            }
+        }.doFinally { mutex.release() }
+    }
+
+    fun getNextImageWithMissingTags(lang: String): Observable<MwQueryPage> {
+        return Observable.fromCallable { mutex.acquire() }.flatMap {
+            var cachedItem: MwQueryPage? = null
+            if (!imagesWithMissingTagsCache.empty()) {
+                cachedItem = imagesWithMissingTagsCache.pop()
+            }
+
+            if (cachedItem != null) {
+                Observable.just(cachedItem)
+            } else {
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImagesWithUnreviewedLabels(lang)
+                        .map { response ->
+                            for (page in response.query()!!.pages()!!) {
+                                // make sure there's at least one unreviewed tag
+                                var hasUnreviewed = false
+                                for (label in page.imageLabels) {
+                                    if (label.state == "unreviewed") {
+                                        hasUnreviewed = true
+                                        break
+                                    }
+                                }
+                                if (hasUnreviewed) {
+                                    imagesWithMissingTagsCache.push(page)
+                                }
+                            }
+                            var item: MwQueryPage? = null
+                            if (!imagesWithMissingTagsCache.empty()) {
+                                item = imagesWithMissingTagsCache.pop()
                             }
                             if (item == null) {
                                 throw ListEmptyException()

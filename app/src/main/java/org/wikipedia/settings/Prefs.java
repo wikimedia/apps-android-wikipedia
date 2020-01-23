@@ -1,6 +1,5 @@
 package org.wikipedia.settings;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -244,34 +243,6 @@ public final class Prefs {
 
     public static int announcementsVersionCode() {
         return getInt(R.string.preference_key_announcement_version_code, 0);
-    }
-
-    public static boolean useRestBaseSetManually() {
-        return getBoolean(R.string.preference_key_use_restbase_manual, false);
-    }
-
-    public static boolean useRestBase() {
-        return getBoolean(R.string.preference_key_use_restbase, true);
-    }
-
-    public static void setUseRestBase(boolean enabled) {
-        setBoolean(R.string.preference_key_use_restbase, enabled);
-    }
-
-    public static int getRbTicket(int defaultValue) {
-        return getInt(R.string.preference_key_restbase_ticket, defaultValue);
-    }
-
-    public static void setRbTicket(int rbTicket) {
-        setInt(R.string.preference_key_restbase_ticket, rbTicket);
-    }
-
-    @IntRange(from = RbSwitch.FAILED) public static int getRequestSuccessCounter(int defaultValue) {
-        return getInt(R.string.preference_key_request_successes, defaultValue);
-    }
-
-    public static void setRequestSuccessCounter(@IntRange(from = RbSwitch.FAILED) int successes) {
-        setInt(R.string.preference_key_request_successes, successes);
     }
 
     public static Level getRetrofitLogLevel() {
@@ -792,6 +763,14 @@ public final class Prefs {
 
     public static void setShouldShowSuggestedEditsSurvey(boolean showSurvey) {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
+    }
+
+    public static boolean shouldShowImageTagsTooltip() {
+        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
+    }
+
+    public static void setShouldShowImageTagsTooltip(boolean enabled) {
+        setBoolean(R.string.preference_key_show_image_tags_tooltip, enabled);
     }
 
     public static boolean shouldShowSuggestedEditsTooltip() {

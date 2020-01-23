@@ -12,7 +12,6 @@ import org.wikipedia.feed.accessibility.AccessibilityCardClient;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
-import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
@@ -52,13 +51,9 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new AggregatedFeedContentClient.TrendingArticles(aggregatedClient) : null;
         }
     },
-    MAIN_PAGE(4, R.string.view_main_page_card_title, R.string.feed_item_type_main_page, false) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age == 0 ? new MainPageClient() : null;
-        }
-    },
+    //
+    // "4" used to be MAIN_PAGE.
+    //
     RANDOM(5, R.string.view_random_card_title, R.string.feed_item_type_randomizer, false) {
         @Nullable
         @Override

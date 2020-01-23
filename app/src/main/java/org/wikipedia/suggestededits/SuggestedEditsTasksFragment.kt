@@ -18,6 +18,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -36,6 +37,7 @@ import org.wikipedia.views.DrawableItemDecoration
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
+    private lateinit var addImageTagsTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -122,11 +124,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         hideCurrentTooltip()
+        SuggestedEditsFunnel.get().pause()
     }
 
     override fun onResume() {
         super.onResume()
         refreshContents()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -159,6 +163,8 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
+        SuggestedEditsFunnel.get().log()
+        SuggestedEditsFunnel.reset()
     }
 
     private fun fetchUserContributions() {
@@ -370,6 +376,19 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setUpTasks() {
         displayedTasks.clear()
+
+        addImageTagsTask = SuggestedEditsTask()
+        addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
+        addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
+        addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
+        addImageTagsTask.translatable = false
+        addImageTagsTask.new = true
+
+        // TODO: remove condition when ready
+        if (ReleaseUtil.isPreBetaRelease()) {
+            displayedTasks.add(addImageTagsTask)
+        }
+
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
@@ -394,6 +413,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
+            } else if (task == addImageTagsTask) {
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
             }
         }
     }

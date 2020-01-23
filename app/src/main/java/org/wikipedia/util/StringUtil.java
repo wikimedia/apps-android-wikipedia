@@ -130,6 +130,14 @@ public final class StringUtil {
         return fromHtml(text).toString();
     }
 
+    public static String removeStyleTags(@NonNull String text) {
+        return text.replaceAll("<style.*?</style>", "");
+    }
+
+    public static String removeCiteMarkup(@NonNull String text) {
+        return text.replaceAll("<cite.*?>", "").replaceAll("</cite>", "");
+    }
+
     public static String sanitizeText(@NonNull String selectedText) {
         return selectedText.replaceAll("\\[\\d+\\]", "") // [1]
                 // https://en.wikipedia.org/wiki/Phonetic_symbols_in_Unicode

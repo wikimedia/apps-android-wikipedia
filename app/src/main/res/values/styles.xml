@@ -342,6 +342,9 @@
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.SuggestedEdits">
+        <item name="placeholderImage">?attr/material_theme_border_color</item>
+        <item name="failureImage">?attr/material_theme_border_color</item>
+        <item name="backgroundImage">@android:color/transparent</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.SuggestedEdits.Review">

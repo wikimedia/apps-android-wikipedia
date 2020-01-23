@@ -96,4 +96,14 @@ public class StringUtilTest {
         assertThat(StringUtil.sanitizeText(" [1]  test"), is("test"));
         assertThat(StringUtil.sanitizeText(" [1]  (;test )"), is("(test )"));
     }
+
+    @Test
+    public void testRemoveStyleTags() {
+        assertThat(StringUtil.removeStyleTags("Lorem <style data=\"123\">test</style> <i>ipsum</i>"), is("Lorem  <i>ipsum</i>"));
+    }
+
+    @Test
+    public void testRemoveCiteMarkup() {
+        assertThat(StringUtil.removeCiteMarkup("Lorem <cite data=\"123\">test</cite> <i>ipsum</i>"), is("Lorem test <i>ipsum</i>"));
+    }
 }

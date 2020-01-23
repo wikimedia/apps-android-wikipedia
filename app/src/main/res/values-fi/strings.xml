@@ -86,7 +86,6 @@
   <string name="map_view_link_text">Tarkastele kartalla</string>
   <string name="other_languages_indication_text">Lue toisella kielellä</string>
   <string name="language_count_link_text">Saatavilla %d muulla kielellä</string>
-  <string name="content_license_html">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kielet</string>
@@ -153,7 +152,7 @@
   <string name="create_account_already_have">Onko sinulla jo käyttäjätunnus?</string>
   <string name="create_account_activity_title">Luo uusi käyttäjätunnus</string>
   <string name="dialog_create_account_checking_progress">Vahvistetaan</string>
-  <string name="create_account_email_hint">Sähköposti (valinnainen)</string>
+  <string name="create_account_email_hint">Sähköpostiosoite (valinnainen)</string>
   <string name="create_account_password_repeat_hint">Salasana uudelleen</string>
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
@@ -421,7 +420,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta listasta</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ei enää ole käytettävissä offline-tilassa kaikille lukulistoille:</string>
-  <string name="reading_lists_sync_reminder_title">Ota lukulistan synkronointi käyttöön?</string>
+  <string name="reading_lists_sync_reminder_title">Otetaanko lukulistan synkronointi käyttöön?</string>
   <string name="reading_lists_sync_reminder_text">Lukulistoihisi tallennetut artikkelit voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu sisään Wikipedia-tunnuksellesi ja salli listojesi tallentaminen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lue lisää&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
@@ -441,7 +440,7 @@
   <string name="reading_list_turned_sync_off_dialog_text">Lukulistojen synkronointi on pois päältä tunnuksellesi, ja tallennettuja artikkeleita sisäänkirjautuneissa laitteissasi ei enää varmuuskopioida. Kytke lukulistojen synkronointi päälle asetuksista.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Asetukset</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Ota lukulistan synkronointi käyttöön?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Otetaanko lukulistan synkronointi käyttöön?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikkelit, jotka on tallennettu lukulistoihin, voidaan nyt synkronoida Wikipedia-tunnuksellesi. &lt;a href=\"#faq\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Älä näytä tätä uudelleen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
@@ -461,7 +460,7 @@
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
   <string name="split_reading_list_message">On olemassa %d artikkelin raja lukulistaa kohden. Nykyiset tämän rajan ylittävät listat on jaettu moniin listoihin.</string>
   <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
-  <string name="reading_lists_limit_message">Ei voida luoda toista listaa. Olet saavuttanut 100 lukulistan rajan per tunnus.</string>
+  <string name="reading_lists_limit_message">Uuden listan luominen epäonnistui. Sinulla voi olla enintään 100 lukulistaa.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronoi lukulistat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu Wikipedia-tunnuksellesi ja salli listojesi tallentua.</string>
   <string name="reading_lists_menu_create_list">Luo uusi lista</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
@@ -545,6 +544,7 @@
   <string name="preference_title_notification_revert">Palauttaminen</string>
   <string name="preference_summary_notification_revert">Yksi muokkauksistasi kumottiin</string>
   <string name="preference_title_notification_login_fail">Kirjaudu</string>
+  <string name="preference_summary_notification_login_fail">Oma sisäänkirjautumistoiminta</string>
   <string name="preference_title_notification_mention">Maininnat</string>
   <string name="preference_summary_notification_mention">Joku mainitsi sinut sivulla</string>
   <string name="preference_title_notification_user_talk">Keskustelusivu</string>
@@ -698,11 +698,20 @@
   <string name="suggested_edits_task_action_text_translate">Käännä</string>
   <string name="suggested_edits_image_captions">Kuvatekstit</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
+  <string name="suggested_edits_pageviews_label_text">Sivun näyttökerrat</string>
+  <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
+  <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
+  <string name="suggested_edits_quality_excellent_text">Erinomainen</string>
   <string name="suggested_edits_quality_very_good_text">Oikein hyvä</string>
   <string name="suggested_edits_quality_good_text">Hyvä</string>
   <string name="suggested_edits_quality_okay_text">Ok</string>
+  <string name="suggested_edits_quality_sufficient_text">Riittävä</string>
   <string name="suggested_edits_quality_poor_text">Heikko</string>
   <string name="suggested_edits_quality_bad_text">Huono</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Muokkaus</item>
+    <item quantity="other">Muokkausta</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d päivä</item>
     <item quantity="other">%d päivää</item>

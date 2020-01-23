@@ -69,7 +69,7 @@
   <string name="map_view_link_text">Погл. на карта</string>
   <string name="other_languages_indication_text">Прочитај на друг јазик</string>
   <string name="language_count_link_text">Достапно на %d други јазици</string>
-  <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="preference_title_language">Јазици на Википедија</string>
@@ -98,8 +98,8 @@
   <string name="edit_section_captcha_reload">Допрете за да ја превчитате сликичката</string>
   <string name="nav_item_login">Најава на Википедија</string>
   <string name="login_username_hint">Корисничко име</string>
-  <string name="login_password_hint">Лозинка</string>
-  <string name="account_creation_password_hint">Лозинка</string>
+  <string name="login_password_hint">Јавка</string>
+  <string name="account_creation_password_hint">Јавка</string>
   <string name="login_2fa_hint">Код за двочинителска заверка</string>
   <string name="login_2fa_other_workflow_error_msg">Се бара двочинителска заверка! Навратете се на главната активност и најавете се со вашата 2FA-шифра, па обидете се повторно.</string>
   <string name="onboarding_card_login">Најава</string>
@@ -110,9 +110,9 @@
   <string name="login_activity_title">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
   <string name="login_success_toast">Најавата успеа!</string>
-  <string name="reset_password_title">Ставете лозинка</string>
-  <string name="reset_password_description">Се најавивте со привремена лозинка. За да ја довршите најавата, тука задајте нова.</string>
-  <string name="reset_password_hint">Нова лозинка</string>
+  <string name="reset_password_title">Ставете јавка</string>
+  <string name="reset_password_description">Се најавивте со привремена јавка. За да ја довршите најавата, тука задајте нова.</string>
+  <string name="reset_password_hint">Нова јавка</string>
   <string name="reset_password_button">Зачувај и најави ме</string>
   <string name="preference_title_logout">Одјава</string>
   <string name="toast_logout_complete">Одјавени сте</string>
@@ -132,20 +132,20 @@
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="login_dont_have_account">Немате сметка?</string>
   <string name="login_join_wikipedia">Придружете ни се на Википедија</string>
-  <string name="login_forgot_password">Ја заборавивте лозинката?</string>
+  <string name="login_forgot_password">Ја заборавивте јавката?</string>
   <string name="create_account_already_have">Веќе имате сметка?</string>
   <string name="create_account_activity_title">Направи кориничка сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
-  <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
-  <string name="create_account_passwords_mismatch_error">Лозинките не се совпаѓаат</string>
+  <string name="create_account_password_repeat_hint">Повторете ја јавката</string>
+  <string name="create_account_passwords_mismatch_error">Јавките не се совпаѓаат</string>
   <string name="create_account_email_error">Неважечка е-пошта</string>
   <string name="create_account_username_error">Неважечки знаци или корисничко име</string>
-  <string name="create_account_password_error">Лозинката е неважечка</string>
+  <string name="create_account_password_error">Јавката е неважечка</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_next">Следно</string>
   <string name="email_recommendation_dialog_title">Да ја создадам сметката без е-пошта?</string>
-  <string name="email_recommendation_dialog_message">Иако е-поштата не е задолжителна, истата &lt;b&gt;изречно се препорачува&lt;/b&gt; бидејќи ќе ви треба за поваток на сметката ако ја заборавите лозинката.</string>
+  <string name="email_recommendation_dialog_message">Иако е-поштата не е задолжителна, истата &lt;b&gt;изречно се препорачува&lt;/b&gt; бидејќи ќе ви треба за поваток на сметката ако ја заборавите јавката.</string>
   <string name="email_recommendation_message">Се препорачува, бидејќи е-поштата е потребна за повраток на сметката.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Продолжи без е-пошта</string>
   <string name="email_recommendation_dialog_create_with_email_action">Додај е-пошта</string>
@@ -328,10 +328,13 @@
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
   <string name="view_wiki_error_message_timeout">Не можам да се поврзам со Википедија. Проверете си ја мрежната врска или обидете се подоцна</string>
   <string name="reference_title">Навод %s</string>
+  <string name="reference_list_title">Наводи</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Според системскиот изглед</string>
+  <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
+  <string name="empty_tab_title">Ново јазиче</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
@@ -450,7 +453,7 @@
   <string name="reading_lists_menu_create_list">Создај нов список</string>
   <string name="reading_lists_menu_sort_by">Подреди по</string>
   <string name="reading_lists_refresh_sync_option">Превчитај усогласување</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / регистрација</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / зачленување</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
     <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>

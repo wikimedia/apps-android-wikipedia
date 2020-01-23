@@ -13,7 +13,6 @@ import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
@@ -134,7 +133,7 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @VisibleForTesting void setSubtitle(@Nullable CharSequence text) {
-        subtitleView.setText(text != null ? StringUtils.capitalize(text.toString()) : null);
+        subtitleView.setText(text);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

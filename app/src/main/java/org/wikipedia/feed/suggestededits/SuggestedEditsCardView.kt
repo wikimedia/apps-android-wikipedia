@@ -68,7 +68,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun showTranslateDescriptionUI() {
-        sourceDescription = card!!.sourceSummary!!.description!!.capitalize()
+        sourceDescription = card!!.sourceSummary!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
         viewArticleSubtitle.text = sourceDescription
         showAddDescriptionUI()
@@ -84,7 +84,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun showTranslateImageCaptionUI() {
-        sourceDescription = card!!.sourceSummary!!.description!!.capitalize()
+        sourceDescription = card!!.sourceSummary!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
         viewArticleSubtitle.text = sourceDescription
         showAddImageCaptionUI()

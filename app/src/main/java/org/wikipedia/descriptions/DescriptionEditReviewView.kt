@@ -45,7 +45,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
     private fun setDescriptionReviewView(summary: SuggestedEditsSummary, description: String) {
         galleryContainer.visibility = GONE
         articleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
-        articleSubtitle!!.text = description.capitalize()
+        articleSubtitle!!.text = description
         articleExtract!!.text = StringUtil.fromHtml(summary.extractHtml)
 
         if (summary.thumbnailUrl.isNullOrBlank()) {

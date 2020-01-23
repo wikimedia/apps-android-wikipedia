@@ -1,33 +1,31 @@
 package org.wikipedia.bridge;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.webkit.ConsoleMessage;
 import android.webkit.JavascriptInterface;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.Service;
-import org.wikipedia.util.FileUtil;
+import com.google.gson.JsonObject;
+
+import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.dataclient.RestService;
+import org.wikipedia.json.GsonUtil;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 /**
  * Two-way communications bridge between JS in a WebView and Java.
@@ -38,56 +36,51 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
  *
  */
 public class CommunicationBridge {
-    private final WebView webView;
-
     private final Map<String, List<JSEventListener>> eventListeners;
-
-    private final BridgeMarshaller marshaller;
+    private final CommunicationBridgeListener communicationBridgeListener;
 
     private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
+    private final Map<String, ValueCallback<String>> pendingEvals = new HashMap<>();
 
     public interface JSEventListener {
-        void onMessage(String messageType, JSONObject messagePayload);
+        void onMessage(String messageType, JsonObject messagePayload);
+    }
+
+    public interface CommunicationBridgeListener {
+        WebView getWebView();
+        PageTitle getPageTitle();
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
-    public CommunicationBridge(final WebView webView, Context activityContext) {
-        this.webView = webView;
-        this.marshaller = new BridgeMarshaller();
-
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
-        webView.setWebChromeClient(new CommunicatingChrome());
-        webView.addJavascriptInterface(marshaller, "marshaller");
+    public CommunicationBridge(CommunicationBridgeListener communicationBridgeListener) {
+        this.communicationBridgeListener = communicationBridgeListener;
+        this.communicationBridgeListener.getWebView().getSettings().setJavaScriptEnabled(true);
+        this.communicationBridgeListener.getWebView().getSettings().setAllowUniversalAccessFromFileURLs(true);
+        this.communicationBridgeListener.getWebView().getSettings().setMediaPlaybackRequiresUserGesture(false);
+        this.communicationBridgeListener.getWebView().setWebChromeClient(new CommunicatingChrome());
+        this.communicationBridgeListener.getWebView().addJavascriptInterface(new PcsClientJavascriptInterface(), "pcsClient");
         eventListeners = new HashMap<>();
-        this.addListener("DOMLoaded", (messageType, messagePayload) -> {
-            isDOMReady = true;
-            for (String jsString : pendingJSMessages) {
-                CommunicationBridge.this.webView.loadUrl(jsString);
-            }
-        });
-
-        resetHtml("index.html", Service.WIKIPEDIA_URL, getThemedColor(activityContext, R.attr.paper_color));
     }
 
-    public void resetHtml(@NonNull String assetFileName, @NonNull String wikiUrl, @ColorInt int backgroundColor) {
-        String html = "";
-        try {
-            html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open(assetFileName))
-                    .replace("$wikiurl", wikiUrl)
-                    .replace("$themeClass", WikipediaApp.getInstance().getCurrentTheme().getPageLibClass())
-                    .replace("$themeBackground", Integer.toHexString(backgroundColor).substring(2));
+    public void onPageFinished() {
+        isDOMReady = true;
+        flushMessages();
+    }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void resetHtml(@NonNull String wikiUrl, @NonNull PageTitle pageTitle) {
         isDOMReady = false;
-        webView.loadDataWithBaseURL(wikiUrl, html, "text/html", "utf-8", "");
+        pendingJSMessages.clear();
+        pendingEvals.clear();
+        communicationBridgeListener.getWebView().loadUrl(wikiUrl
+                + RestService.REST_API_PREFIX
+                + RestService.PAGE_HTML_ENDPOINT
+                + UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
     public void cleanup() {
+        pendingJSMessages.clear();
+        pendingEvals.clear();
         eventListeners.clear();
         if (incomingMessageHandler != null) {
             incomingMessageHandler.removeCallbacksAndMessages(null);
@@ -105,29 +98,43 @@ public class CommunicationBridge {
         }
     }
 
-    public void sendMessage(String messageName, JSONObject messageData) {
-        String messagePointer =  marshaller.putPayload(messageData.toString());
+    public void execute(@NonNull String js) {
+        String jsString = "javascript:" + js;
+        pendingJSMessages.add(jsString);
+        flushMessages();
+    }
 
-        String jsString = "javascript:handleMessage( \"" + messageName + "\", \"" + messagePointer + "\" );";
+    public void evaluate(@NonNull String js, ValueCallback<String> callback) {
+        pendingEvals.put(js, callback);
+        flushMessages();
+    }
+
+    private void flushMessages() {
         if (!isDOMReady) {
-            pendingJSMessages.add(jsString);
-        } else {
-            webView.loadUrl(jsString);
+            return;
         }
+        for (String jsString : pendingJSMessages) {
+            communicationBridgeListener.getWebView().loadUrl(jsString);
+        }
+        pendingJSMessages.clear();
+        for (String key : pendingEvals.keySet()) {
+            communicationBridgeListener.getWebView().evaluateJavascript(key, pendingEvals.get(key));
+        }
+        pendingEvals.clear();
     }
 
     private static final int MESSAGE_HANDLE_MESSAGE_FROM_JS = 1;
     private Handler incomingMessageHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
         @Override
-        public boolean handleMessage(Message msg) {
-            JSONObject messagePack = (JSONObject) msg.obj;
-            String type = messagePack.optString("type");
-            if (!eventListeners.containsKey(type)) {
-                throw new RuntimeException("No such message type registered: " + type);
+        public boolean handleMessage(@NonNull Message msg) {
+            BridgeMessage message = (BridgeMessage) msg.obj;
+            if (!eventListeners.containsKey(message.getAction())) {
+                L.e("No such message type registered: " + message.getAction());
+                return false;
             }
-            List<JSEventListener> listeners = eventListeners.get(type);
+            List<JSEventListener> listeners = eventListeners.get(message.getAction());
             for (JSEventListener listener : listeners) {
-                listener.onMessage(type, messagePack.optJSONObject("payload"));
+                listener.onMessage(message.getAction(), message.getData());
             }
             return false;
         }
@@ -141,29 +148,7 @@ public class CommunicationBridge {
         }
     }
 
-    private class BridgeMarshaller {
-        private Map<String, String> queueItems = new HashMap<>();
-        private int counter = 0;
-
-        /**
-         * Called from the JS via the JSBridge to get actual payload from a messagePointer.
-         *
-         * Warning: This is going to be called on an indeterminable background thread, not main thread.
-         *
-         * @param pointer Key returned from #putPayload
-         */
-        @JavascriptInterface
-        public synchronized String getPayload(String pointer) {
-            return queueItems.remove(pointer);
-        }
-
-        public synchronized String putPayload(String payload) {
-            String key = "pointerKey_" + counter;
-            counter++;
-            queueItems.put(key, payload);
-            return key;
-        }
-
+    private class PcsClientJavascriptInterface {
         /**
          * Called from Javascript to send a message packet to the Java layer. The message must be
          * formatted in JSON, and URL-encoded.
@@ -172,15 +157,30 @@ public class CommunicationBridge {
          */
         @JavascriptInterface
         public synchronized void onReceiveMessage(String message) {
-            try {
-                if (incomingMessageHandler != null) {
-                    JSONObject messagePack = new JSONObject(message);
-                    Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS, messagePack);
-                    incomingMessageHandler.sendMessage(msg);
-                }
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
+            if (incomingMessageHandler != null) {
+                Message msg = Message.obtain(incomingMessageHandler, MESSAGE_HANDLE_MESSAGE_FROM_JS,
+                        GsonUtil.getDefaultGson().fromJson(message, BridgeMessage.class));
+                incomingMessageHandler.sendMessage(msg);
             }
+        }
+
+        @JavascriptInterface
+        public synchronized String getSetupSettings() {
+            return JavaScriptActionHandler.setUp(communicationBridgeListener.getPageTitle());
+        }
+    }
+
+    @SuppressWarnings("unused")
+    private class BridgeMessage {
+        @Nullable private String action;
+        @Nullable private JsonObject data;
+
+        @NonNull public String getAction() {
+            return StringUtils.defaultString(action);
+        }
+
+        @Nullable public JsonObject getData() {
+            return data;
         }
     }
 }
