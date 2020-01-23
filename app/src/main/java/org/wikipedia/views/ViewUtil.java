@@ -28,14 +28,14 @@ import java.util.Locale;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
-    private static RequestOptions roundedCornersOptions = new RequestOptions().transform(new RoundedCorners(DimenUtil.roundedDpToPx(2)));
+    private static RequestOptions ROUNDED_CORNERS_OPTIONS = new RequestOptions().transform(new RoundedCorners(DimenUtil.roundedDpToPx(2)));
 
     public static void loadImageUrlInto(@NonNull ImageView drawee, @Nullable String url, boolean roundedCorners) {
         Glide.with(drawee)
                 .load(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
                 // TODO: the rounded-corners transform is applied *before* the "centerCrop" transform specified in XML.
                 // we should move the centerCrop transform out of XML and into here.
-                .apply(roundedCornersOptions)
+                .apply(ROUNDED_CORNERS_OPTIONS)
                 .into(drawee);
     }
 

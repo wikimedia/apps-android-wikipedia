@@ -39,8 +39,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHeight_percent="0.6"
             android:layout_marginTop="64dp"
-            app:actualImageScaleType="fitCenter"
-            app:fadeDuration="0" />
+            android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/imageCaption"

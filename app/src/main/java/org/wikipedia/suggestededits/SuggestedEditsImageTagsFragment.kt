@@ -48,7 +48,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setConditionalLayoutDirection(contentContainer, parent().langFromCode)
-        imageView.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
             cardItemProgressBar.visibility = VISIBLE
