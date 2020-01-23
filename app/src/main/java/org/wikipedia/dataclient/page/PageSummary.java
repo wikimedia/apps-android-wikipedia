@@ -44,8 +44,8 @@ public class PageSummary {
     @Nullable private String timestamp;
     @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
-    public Page toPage(PageTitle title) {
-        return new Page(adjustPageTitle(title), new PageProperties(this));
+    public Page toPage(PageTitle title, int langCount) {
+        return new Page(adjustPageTitle(title), new PageProperties(this, langCount));
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {

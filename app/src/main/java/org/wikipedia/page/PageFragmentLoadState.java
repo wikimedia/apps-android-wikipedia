@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.util.Pair;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -209,27 +210,28 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite())
-                .getSummaryResponse(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
-                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, null, model.getTitle().getPrefixedText())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(pageSummaryResponse -> {
-                            if (pageSummaryResponse.body() != null) {
-                                createPageModel(pageSummaryResponse.body());
-                            } else {
-                                throw new RuntimeException("Summary response was invalid.");
-                            }
-                            if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
-                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                                showPageOfflineMessage(Objects.requireNonNull(pageSummaryResponse.raw().header("date", "")));
-                            }
-                            fragment.onPageMetadataLoaded();
-                        },
-                        throwable -> {
-                            L.e("Page details network response error: ", throwable);
-                            commonSectionFetchOnCatch(throwable);
-                        }));
+        disposables.add(
+                Observable.zip(ServiceFactory.getRest(model.getTitle().getWikiSite()).getSummaryResponse(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
+                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, null, model.getTitle().getPrefixedText()),
+                        ServiceFactory.get(model.getTitle().getWikiSite()).getLangLinks(model.getTitle().getPrefixedText()), Pair::new)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(pair -> {
+                                    if (pair.first.body() != null) {
+                                        createPageModel(pair.first.body(), pair.second.query().langLinks().size());
+                                    } else {
+                                        throw new RuntimeException("Summary response was invalid.");
+                                    }
+                                    if ((pair.first.raw().cacheResponse() != null && pair.first.raw().networkResponse() == null)
+                                            || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pair.first.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                                        showPageOfflineMessage(Objects.requireNonNull(pair.first.raw().header("date", "")));
+                                    }
+                                    fragment.onPageMetadataLoaded();
+                                },
+                                throwable -> {
+                                    L.e("Page details network response error: ", throwable);
+                                    commonSectionFetchOnCatch(throwable);
+                                }));
 
         // And finally, start blasting the HTML into the WebView.
         bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle());
@@ -250,12 +252,12 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPageModel(@NonNull PageSummary pageSummary) {
+    private void createPageModel(@NonNull PageSummary pageSummary, int langCount) {
         if (!fragment.isAdded()) {
             return;
         }
 
-        Page page = pageSummary.toPage(model.getTitle());
+        Page page = pageSummary.toPage(model.getTitle(), langCount);
         model.setPage(page);
         model.setTitle(page.getTitle());
 
