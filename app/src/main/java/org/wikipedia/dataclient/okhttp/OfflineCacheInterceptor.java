@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.okhttp;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FileUtil;
 
@@ -33,8 +34,6 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static okhttp3.Protocol.HTTP_1_1;
 import static okhttp3.internal.Util.discard;
 import static org.wikipedia.ActivityLifecycleHandler.CONVERTED_FILES_DIRECTORY_NAME;
-import static org.wikipedia.ActivityLifecycleHandler.LEAD_SECTION_ENDPOINT;
-import static org.wikipedia.ActivityLifecycleHandler.REMAINING_SECTIONS_ENDPOINT;
 
 public class OfflineCacheInterceptor implements Interceptor {
     public static final String SAVE_HEADER = "X-Offline-Save";
@@ -62,7 +61,7 @@ public class OfflineCacheInterceptor implements Interceptor {
             cacheCandidate = cacheDelegate.internalCache().get(request);
         }
 
-        if (cacheCandidate == null && (request.url().toString().contains(LEAD_SECTION_ENDPOINT) || request.url().toString().contains(REMAINING_SECTIONS_ENDPOINT))) {
+        if (cacheCandidate == null  && request.url().toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
             int indexOfTitleDelimiter = request.url().toString().lastIndexOf('/');
             File file = new File(WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME + "/" + request.url().toString().substring(indexOfTitleDelimiter + 1));
             if (file.exists()) {

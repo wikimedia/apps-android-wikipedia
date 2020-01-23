@@ -6,7 +6,6 @@ import android.app.Application;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -29,8 +28,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.wikipedia.dataclient.RestService.REST_API_PREFIX;
+import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_NAME;
 
 public class ActivityLifecycleHandler implements Application.ActivityLifecycleCallbacks {
     private boolean haveMainActivity;
@@ -72,9 +73,6 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
                     break;
             }
         }
-        if (!Prefs.isOfflinePcsToMobileHtmlConversionComplete()) {
-            runOneTimeSavedPagesConversion(activity);
-        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -99,6 +97,7 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
                     }
 
                     List<ReadingList> allReadingLists = ReadingListDbHelper.instance().getAllLists();
+                    AtomicInteger fileCount = new AtomicInteger();
                     for (ReadingList readingList : allReadingLists) {
                         for (ReadingListPage page : readingList.pages()) {
                             String leadSectionUrl = page.wiki().url() + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
@@ -109,18 +108,19 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
                     extractJSONsToConvert(savedReadingListPages, filesNamesToBeDeleted);
 
                     for (SavedReadingListPage savedReadingListPage : savedReadingListPages) {
-                        Log.e("####", "PAGE" + savedReadingListPage.title);
-
                         dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + ")",
-                                value -> FileUtil.writeToFileInDirectory(StringEscapeUtils.unescapeJava(value), WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, savedReadingListPage.title));
+                                value -> {
+                                    FileUtil.writeToFileInDirectory(StringEscapeUtils.unescapeJava(value), WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, savedReadingListPage.title);
+                                    if (fileCount.incrementAndGet() == savedReadingListPages.size()) {
+                                        crossCheckAndComplete(savedReadingListPages, filesNamesToBeDeleted);
+                                    }
+                                });
                     }
-                    crossCheckAndComplete(savedReadingListPages, filesNamesToBeDeleted);
                 }
             });
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void crossCheckAndComplete(List<SavedReadingListPage> savedReadingListPages, List<String> filesNamesToBeDeleted) {
@@ -140,9 +140,6 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
                 conversionComplete = false;
             }
         }
-        if (conversionComplete) {
-            Log.e("####", "CONVERSION COMPLETE");
-        }
         Prefs.setOfflinePcsToMobileHtmlConversionComplete(conversionComplete);
         deleteOldCacheFilesForSavedPages(conversionComplete, filesNamesToBeDeleted);
     }
@@ -152,14 +149,12 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
             return;
         }
         for (String filename : filesNamesToBeDeleted) {
-            FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir() + "/okhttp-cache", filename));
+            FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir() + "/" + CACHE_DIR_NAME, filename));
         }
-        Log.e("####", "DELETIONS COMPLETE" + filesNamesToBeDeleted);
-
     }
 
     private void extractJSONsToConvert(List<SavedReadingListPage> savedReadingListPages, List<String> filesToBeDeleted) {
-        File offlineCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), "okhttp-cache");
+        File offlineCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
         if (offlineCacheDirectory.exists()) {
             File[] files = offlineCacheDirectory.listFiles();
             if (files != null) {
@@ -230,6 +225,9 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     @Override
     public void onActivityResumed(@NonNull Activity activity) {
         anyActivityResumed = true;
+        if (!Prefs.isOfflinePcsToMobileHtmlConversionComplete()) {
+            runOneTimeSavedPagesConversion(activity);
+        }
     }
 
     @Override
