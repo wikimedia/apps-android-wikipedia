@@ -675,6 +675,7 @@
     <string name="suggested_edits_translate_descriptions">Translate article descriptions</string>
     <string name="suggested_edits_add_image_captions">Add image captions</string>
     <string name="suggested_edits_translate_image_captions">Translate image captions</string>
+    <string name="suggested_edits_tag_images">Tag images</string>
     <string name="suggested_edits_review_description">Review article description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
     <string name="suggested_edits_edit_description_button">Edit description</string>
@@ -732,7 +733,14 @@
     <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
     <string name="suggested_edits_task_action_text_add">Add</string>
     <string name="suggested_edits_task_action_text_translate">Translate</string>
-    <string name="suggested_edits_image_captions">Image Captions</string>
+    <string name="suggested_edits_image_captions">Image captions</string>
+    <string name="suggested_edits_image_tags">Image tags</string>
+    <string name="suggested_edits_image_tags_publishing">Publishing</string>
+    <string name="suggested_edits_image_tags_published">Published</string>
+    <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier for others to find. Tags are suggested automatically, but need to be verified by you.</string>
+    <string name="suggested_edits_image_tags_choose">Choose matching tags</string>
+    <string name="suggested_edits_image_tags_select_title">You haven\'t selected any tags for this image</string>
+    <string name="suggested_edits_image_tags_select_text">Only tags that you choose will be added to images. Tags that are not selected will be marked as rejected. Are you sure you want to mark all tags as rejected?</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
     <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context.</string>
@@ -767,6 +775,8 @@
     </plurals>
     <string name="suggested_edits_last_edited">Last edited</string>
     <string name="suggested_edits_last_edited_never">Never</string>
+    <string name="suggested_edits_task_new">new</string>
+    <string name="suggested_edits_cc0_notice"><![CDATA[By publishing, you agree to the <a href="%1$s">terms of use</a> and to irrevocably release this contribution under the <a href="%2$s">CC0 license</a>.]]></string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
