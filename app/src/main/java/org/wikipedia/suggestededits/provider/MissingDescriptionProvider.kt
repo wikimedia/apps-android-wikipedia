@@ -44,7 +44,7 @@ object MissingDescriptionProvider {
             if (cachedTitle.isNotEmpty()) {
                 Observable.just(cachedTitle)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithoutDescriptions(wiki.languageCode())
+                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode()))
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
@@ -81,7 +81,7 @@ object MissingDescriptionProvider {
             if (cachedPair != null) {
                 Observable.just(cachedPair)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(sourceWiki.languageCode(), targetLang)
+                ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode()), WikiSite.normalizeLanguageCode(targetLang))
                         .map { pages ->
                             var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
@@ -132,7 +132,7 @@ object MissingDescriptionProvider {
             if (cachedTitle != null) {
                 Observable.just(cachedTitle)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithoutCaptions(lang)
+                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
                             for (page in pages) {
@@ -167,7 +167,7 @@ object MissingDescriptionProvider {
             if (cachedPair != null) {
                 Observable.just(cachedPair)
             } else {
-                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithTranslatableCaptions(sourceLang, targetLang)
+                ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithTranslatableCaptions(WikiSite.normalizeLanguageCode(sourceLang), WikiSite.normalizeLanguageCode(targetLang))
                         .map { pages ->
                             imagesWithTranslatableCaptionCacheFromLang = sourceLang
                             imagesWithTranslatableCaptionCacheToLang = targetLang
@@ -202,7 +202,7 @@ object MissingDescriptionProvider {
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImagesWithUnreviewedLabels(lang)
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImagesWithUnreviewedLabels(WikiSite.normalizeLanguageCode(lang))
                         .map { response ->
                             for (page in response.query()!!.pages()!!) {
                                 // make sure there's at least one unreviewed tag
