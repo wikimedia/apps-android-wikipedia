@@ -286,6 +286,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        coordinator.reset();
         app.getRefWatcher().watch(this);
     }
 
