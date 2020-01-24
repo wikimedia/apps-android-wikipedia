@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -122,6 +123,14 @@ class SuggestedEditsCardsFragment : Fragment() {
         updateBackButton(0)
         addContributionButton.setOnClickListener { onSelectPage() }
         updateActionButton()
+        maybeShowOnboarding()
+    }
+
+    private fun maybeShowOnboarding() {
+        if (action == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
+            Prefs.setShowImageTagsOnboarding(false)
+            startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
+        }
     }
 
     private fun updateBackButton(pagerPosition: Int) {
