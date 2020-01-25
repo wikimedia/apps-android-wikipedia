@@ -33,7 +33,7 @@ import okio.Timeout;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static okhttp3.Protocol.HTTP_1_1;
 import static okhttp3.internal.Util.discard;
-import static org.wikipedia.ActivityLifecycleHandler.CONVERTED_FILES_DIRECTORY_NAME;
+import static org.wikipedia.util.SavedPagesConversionUtil.CONVERTED_FILES_DIRECTORY_NAME;
 
 public class OfflineCacheInterceptor implements Interceptor {
     public static final String SAVE_HEADER = "X-Offline-Save";
@@ -71,6 +71,7 @@ public class OfflineCacheInterceptor implements Interceptor {
                         .code(STATUS_CODE_SUCCESS)
                         .request(request)
                         .protocol(HTTP_1_1)
+                        .message("")
                         .body(ResponseBody.create(MEDIA_JSON, contentJSON))
                         .build();
             }
