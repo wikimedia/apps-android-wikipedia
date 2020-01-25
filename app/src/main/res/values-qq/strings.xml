@@ -90,8 +90,6 @@
   <string name="map_view_link_text">Link text for viewing the current article on a map (assuming the article has geo coordinates).</string>
   <string name="other_languages_indication_text">Text indicating that the article is available for the user to read in an another language as well.</string>
   <string name="language_count_link_text">Link text that says how many languages the current article is available in.  The %d symbol is replaced with the number of languages.</string>
-  <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page. Please preserve the %1$s parameter, since this will be replaced with the actual URL.</string>
-  <string name="content_license_text_new">HTML specifying license of the Wiki and link to appropriate CC page. Please preserve the %1$s parameter, since this will be replaced with the actual URL.</string>
   <string name="content_license_cc_by_sa">Text of the license CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>
@@ -351,11 +349,12 @@
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
   <string name="view_wiki_error_message_timeout">Error message shown when a network operation takes too long and times out.</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
-  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.</string>
+  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.\n{{Identical|References}}</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
+  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.</string>
   <string name="empty_tab_title">Label shown on a blank tab with no content.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
@@ -577,7 +576,6 @@
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
   <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
-  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -659,6 +657,14 @@
   <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be translated.</string>
   <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>
   <string name="suggested_edits_translate_image_captions">Title of screen where the user chooses images that are missing captions to be translated.</string>
+  <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
+  <string name="suggested_edits_image_tags_snackbar">One-time message shown to users to encourage them to start tagging images.</string>
+  <string name="suggested_edits_image_tags_publishing">Status when the selected image tags are being published.</string>
+  <string name="suggested_edits_image_tags_published">Status when the selected image tags have been published.</string>
+  <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Title shown on the onboarding screen for adding tags to images.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Body text of the onboarding screen for adding tags to images.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Footnote shown on the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_review_description">Title of the review article description page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding article description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="suggested_edits_edit_description_button">A button text for editing article description.</string>
@@ -717,6 +723,11 @@
   <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>
   <string name="suggested_edits_task_action_text_translate">Button label for suggested edits task translate action</string>
   <string name="suggested_edits_image_captions">Suggested Edits image captions task title</string>
+  <string name="suggested_edits_image_tags">Suggested Edits image tags task title</string>
+  <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
+  <string name="suggested_edits_image_tags_select_title">Title for a dialog box informing the user that they have not selected any tags for the current image.</string>
+  <string name="suggested_edits_image_tags_select_text">Text for a dialog box asking the user whether they are sure about rejecting all of the suggested tags for the current image.</string>
+  <string name="suggested_edits_cc0_notice">Disclaimer that specifies the Terms of Use and CC license that applies to publishing these types of edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_encouragement_message">Message text shown to users to encourage them to continue and increase editing.%s represents the user\'s name.</string>
   <string name="suggested_edits_onboarding_message">Message text shown to users who havent yet used the suggested edits features, to encourage them to start editing.%s represents the user\'s name</string>
   <string name="suggested_edits_image_captions_task_detail">Image captions detail text explaining the task of adding image captions.</string>
@@ -751,6 +762,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.</string>
+  <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase).</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>

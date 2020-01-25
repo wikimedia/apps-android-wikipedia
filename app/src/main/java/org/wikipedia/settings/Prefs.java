@@ -765,6 +765,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
     }
 
+    public static boolean shouldShowImageTagsTooltip() {
+        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
+    }
+
+    public static void setShouldShowImageTagsTooltip(boolean enabled) {
+        setBoolean(R.string.preference_key_show_image_tags_tooltip, enabled);
+    }
+
     public static boolean shouldShowSuggestedEditsTooltip() {
         return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true);
     }
@@ -857,5 +865,14 @@ public final class Prefs {
     public static void setOfflinePcsToMobileHtmlConversionComplete(boolean conversionComplete) {
         setBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, conversionComplete);
     }
+
+    public static boolean shouldShowImageTagsOnboarding() {
+        return getBoolean(R.string.preference_key_image_tags_onboarding_shown, true);
+    }
+
+    public static void setShowImageTagsOnboarding(boolean showOnboarding) {
+        setBoolean(R.string.preference_key_image_tags_onboarding_shown, showOnboarding);
+    }
+
     private Prefs() { }
 }

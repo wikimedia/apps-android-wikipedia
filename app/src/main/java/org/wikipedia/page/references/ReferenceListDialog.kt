@@ -72,7 +72,7 @@ class ReferenceListDialog : ExtendedBottomSheetDialogFragment() {
 
         fun bindItem(reference: References.Reference, position: Int) {
             referenceIdView.text = ((position + 1).toString() + ".")
-            referenceTextView.text = StringUtil.fromHtml(StringUtil.removeStyleTags(reference.content))
+            referenceTextView.text = StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(reference.content)))
             if (reference.backLinks.isEmpty()) {
                 referenceBackLink.visibility = View.GONE
             } else {
@@ -96,6 +96,8 @@ class ReferenceListDialog : ExtendedBottomSheetDialogFragment() {
 
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ReferenceListItemHolder {
             val view = layoutInflater.inflate(R.layout.item_reference, null)
+            val params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            view.layoutParams = params
             return ReferenceListItemHolder(view)
         }
 
