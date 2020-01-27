@@ -80,6 +80,8 @@
   <string name="map_view_link_text">Zobraziť na mape</string>
   <string name="other_languages_indication_text">Čítať v inom jazyku</string>
   <string name="language_count_link_text">Dostupný v %d ďalších jazykoch</string>
+  <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="content_license_text_new">Pokiaľ nie je uvedené inak, obsah je dostupný v rámci licencie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uverejnením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
@@ -344,6 +346,7 @@
   <string name="preference_title_prefer_offline_content">Preferovať offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetriť využitie dát tým, že aplikácia načíta články, ktoré sú k dispozícii offline a nebude načítavať najnovšiu verziu článku.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prispôsobiť vzhľadu systému</string>
+  <string name="page_footer_license_text">Obsah je dostupný pod $1, pokiaľ nie je uvedené inak</string>
   <string name="empty_tab_title">Nová karta</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>

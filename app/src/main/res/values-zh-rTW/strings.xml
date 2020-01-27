@@ -85,6 +85,8 @@
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
   <string name="language_count_link_text">共 %d 個其它可用語言版本</string>
+  <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 條款授權</string>
+  <string name="content_license_text_new">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 條款授權</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
   <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>

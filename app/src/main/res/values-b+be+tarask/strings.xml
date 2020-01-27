@@ -65,7 +65,8 @@
   <string name="map_view_link_text">Паказаць на мапе</string>
   <string name="other_languages_indication_text">Чытаць іншай мовай</string>
   <string name="language_count_link_text">Даступна %d іншымі мовамі</string>
-    <string name="edit_save_action_license_logged_in">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="content_license_text_new">Зьмест даступны згодна ўмоваў ліцэнзіі &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, калі не пазначанае іншае</string>
+  <string name="edit_save_action_license_logged_in">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сыстэму&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
   <string name="preference_title_language">Мовы Вікіпэдыі</string>
   <string name="langlinks_filter_hint">Пошук</string>

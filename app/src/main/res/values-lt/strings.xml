@@ -74,7 +74,8 @@
   <string name="map_view_link_text">Žiūrėti žemėlapyje</string>
   <string name="other_languages_indication_text">Skaityti kita kalba</string>
   <string name="language_count_link_text">Prieinama %d kitų kalbų</string>
-    <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_text_new" fuzzy="true">Turinys prieinamas pagal $1, jei nenurodyta kitaip</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Paskelbdami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
   <string name="preference_title_language">Vikipedijos kalbos</string>
   <string name="langlinks_filter_hint">Ieškoti</string>

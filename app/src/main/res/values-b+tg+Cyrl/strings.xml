@@ -58,7 +58,8 @@
   <string name="reading_list_page_share">Паҳнкунӣ</string>
   <string name="menu_text_select_edit_here">Вироиши инҷо</string>
   <string name="last_updated_text">Охирин рӯзи барӯзшавӣ %s</string>
-    <string name="edit_save_action_license_logged_in" fuzzy="true">Бо захира намудан, Шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
+  <string name="content_license_text_new">Муҳтаво таҳти &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; дар дастрас аст, магар ин ки ғайри он баён гардад.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Бо захира намудан, Шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Бо захиракуни, шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти иҷозатномаи &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; розӣ ҳастед. Вироишот ба нишонаи IP ин дастгоҳ сабт мешавад. Агар шумо &lt;a href=\"https://#login\"&gt;вуруд шавад&lt;/a&gt;, шумо бештар ҳарми шахсиятро пайдо мекунед.</string>
   <string name="preference_title_language" fuzzy="true">Забони Википедия</string>
   <string name="langlinks_filter_hint">Ҷустуҷӯ</string>
@@ -146,6 +147,7 @@
   <string name="close_all_tabs_confirm_no">На</string>
   <string name="button_continue_to_article">Мутолиаи мақола</string>
   <string name="nav_item_donate">Дастгирии Википедия</string>
+  <string name="page_footer_license_text">Муҳтаво таҳти $1 дар дастрас аст, магар ин ки ғайри он баён гардад.</string>
   <string name="article_header_edit_hint">Вироиш...</string>
   <string name="article_header_edit_description">Иловаи тавзеҳоти мақола</string>
   <string name="color_theme_select">Мавзӯъ</string>

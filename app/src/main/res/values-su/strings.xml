@@ -65,7 +65,8 @@
   <string name="map_view_link_text">Tempo dina péta</string>
   <string name="other_languages_indication_text">Baca dina basa séjén</string>
   <string name="language_count_link_text">Nyangkaruk dina %d$1 basa séjén</string>
-    <string name="edit_save_action_license_logged_in">Ku medalkeunna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="content_license_text_new" fuzzy="true">Eusi ditangtayungan ku &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; iwal mun disebutkeun séjén</string>
+  <string name="edit_save_action_license_logged_in">Ku medalkeunna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Ku nyimpenna, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan ditumbukeun ka alamat IP pakakas. Mun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal meunang privasi leuwih.</string>
   <string name="preference_title_language">Basa-basa Wikipédia</string>
   <string name="langlinks_filter_hint">Paluruh</string>
