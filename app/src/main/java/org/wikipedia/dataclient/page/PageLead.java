@@ -109,11 +109,6 @@ public class PageLead implements PageLeadProperties {
     }
 
     @Override
-    public int getLanguageCount() {
-        return languagecount;
-    }
-
-    @Override
     @Nullable
     public String getDisplayTitle() {
         return displaytitle;
