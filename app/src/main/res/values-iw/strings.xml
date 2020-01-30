@@ -81,8 +81,6 @@
   <string name="map_view_link_text">הצגה על מפה</string>
   <string name="other_languages_indication_text">קריאה בשפה אחרת</string>
   <string name="language_count_link_text">זמין בעוד %d שפות</string>
-  <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
-  <string name="content_license_text_new">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
@@ -650,6 +648,7 @@
   <string name="suggested_edits_translate_descriptions">תרגום תיאורי ערכים</string>
   <string name="suggested_edits_add_image_captions">הוספת כיתובי תמונות</string>
   <string name="suggested_edits_translate_image_captions">תרגום כיתובי תמונות</string>
+  <string name="suggested_edits_tag_images">לתייג תמונות</string>
   <string name="suggested_edits_review_description">סקירת תיאור ערך</string>
   <string name="suggested_edits_add_description_button">להוסיף תיאור</string>
   <string name="suggested_edits_edit_description_button">עריכת תיאור</string>
@@ -707,7 +706,18 @@
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="suggested_edits_task_action_text_add">הוספה</string>
   <string name="suggested_edits_task_action_text_translate">תרגום</string>
-  <string name="suggested_edits_image_captions">כיתוב התמונה</string>
+  <string name="suggested_edits_image_captions">כיתובי תמונה</string>
+  <string name="suggested_edits_image_tags">תגי תמונה</string>
+  <string name="suggested_edits_image_tags_publishing">מתפרסם</string>
+  <string name="suggested_edits_image_tags_published">פורסם</string>
+  <string name="suggested_edits_image_tags_onboarding_title">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
+  <string name="suggested_edits_image_tags_onboarding_text">אישור התגים המוצעים הופך את התמונות לקלות יותר לחיפוש.\n\nהתגים מוחלים באמצעות מחשב, אבל צריכים להיות מאומתים על־ידי בני־אדם כדי לוודא את דיוקם.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
+  <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
+  <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. התגים נוספים אוטומטית, אבל אתם צריכים לאמת אותם.</string>
+  <string name="suggested_edits_image_tags_choose">בחרו תגים תואמים</string>
+  <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
+  <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
   <string name="suggested_edits_image_captions_task_detail">כותרות התמונות מתארות תמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
@@ -743,6 +753,8 @@
   </plurals>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
+  <string name="suggested_edits_task_new">חדשה</string>
+  <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי רישיון &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;..</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>

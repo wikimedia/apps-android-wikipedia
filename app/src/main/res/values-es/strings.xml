@@ -108,8 +108,6 @@
   <string name="map_view_link_text">Ver en un mapa</string>
   <string name="other_languages_indication_text">Leer en otro idioma</string>
   <string name="language_count_link_text">Disponible en %d idiomas más</string>
-  <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
-  <string name="content_license_text_new">El contenido está disponible bajo la licencia &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idiomas de Wikipedia</string>

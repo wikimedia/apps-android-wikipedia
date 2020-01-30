@@ -95,8 +95,6 @@
   <string name="map_view_link_text">Ver no mapa</string>
   <string name="other_languages_indication_text">Ler em outro idioma</string>
   <string name="language_count_link_text">Disponível em %d outros idiomas</string>
-  <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
-  <string name="content_license_text_new">O conteúdo está disponível sob &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
@@ -664,6 +662,7 @@
   <string name="suggested_edits_translate_descriptions">Traduzir descrições de artigos</string>
   <string name="suggested_edits_add_image_captions">Adicionar legendas a imagens</string>
   <string name="suggested_edits_translate_image_captions">Traduzir legendas de imagem</string>
+  <string name="suggested_edits_tag_images">Marcações de imagens</string>
   <string name="suggested_edits_review_description">Revisar a descrição do artigo</string>
   <string name="suggested_edits_add_description_button">Adicionar descrição</string>
   <string name="suggested_edits_edit_description_button">Editar descrição</string>
@@ -722,6 +721,17 @@
   <string name="suggested_edits_task_action_text_add">Adicionar</string>
   <string name="suggested_edits_task_action_text_translate">Traduzir</string>
   <string name="suggested_edits_image_captions">Legendas da imagem</string>
+  <string name="suggested_edits_image_tags">Marcação de imagens</string>
+  <string name="suggested_edits_image_tags_publishing">Publicando</string>
+  <string name="suggested_edits_image_tags_published">Publicados</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Marque imagens para facilitar a localização de outras pessoas</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Ao confirmar as marcações sugeridas, você pode ajudar a facilitar a pesquisa de imagens.\n\nAs marcações são sugeridas por computador, mas precisam ser validadas por humanos para garantir a precisão.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
+  <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
+  <string name="suggested_edits_image_tags_task_detail">Marque as imagens para facilitar a localização de outras pessoas. As marcações são sugeridas automaticamente, mas precisam ser verificadas por você.</string>
+  <string name="suggested_edits_image_tags_choose">Escolha as marcações correspondentes</string>
+  <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
+  <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, você sabia que todos podem editar a Wikipédia? Abaixo, você encontrará maneiras divertidas de ajudar a melhorar a Wikipedia. Edição feliz!</string>
   <string name="suggested_edits_image_captions_task_detail">As legendas das imagens descrevem uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
@@ -756,6 +766,8 @@
   </plurals>
   <string name="suggested_edits_last_edited">Última edição</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
+  <string name="suggested_edits_task_new">novo</string>
+  <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>

@@ -76,7 +76,6 @@
   <string name="map_view_link_text">Auf einer Karte ansehen</string>
   <string name="other_languages_indication_text">In einer anderen Sprache lesen</string>
   <string name="language_count_link_text">In %d weiteren Sprachen verfügbar</string>
-  <string name="content_license_text_new" fuzzy="true">Der Inhalt ist verfügbar unter $1, sofern nicht anders angegeben.</string>
   <string name="edit_save_action_license_logged_in">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lizenz zu.</string>
   <string name="edit_save_action_license_anon">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
   <string name="preference_title_language">Wikipedia-Sprachen</string>
@@ -661,7 +660,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Quelle/Fotograf</string>
   <string name="suggested_edits_article_cta_image_caption">Bildunterschrift hinzufügen</string>
   <string name="suggested_edits_task_action_text_translate">Übersetzen</string>
-  <string name="suggested_edits_image_captions">Bildunterschriften</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Bildunterschriften</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>

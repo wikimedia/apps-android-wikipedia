@@ -72,8 +72,6 @@
   <string name="map_view_link_text">Каартаҕа көр</string>
   <string name="other_languages_indication_text">Атын тылынан ааҕыы</string>
   <string name="language_count_link_text">Атын %d тылынан ааҕыахха сөп</string>
-  <string name="content_license_html">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
-  <string name="content_license_text_new">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Маны бэчээттэтэххинэ &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ бу лиссиэнсийэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; кэлин төннөрүллүбэтин кытта эмиэ сөбүлэһэҕин.</string>
   <string name="edit_save_action_license_anon">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, ордук үчүгэй көмүскэллээх буолуоҥ.</string>
@@ -682,7 +680,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Ыйытыыларга хоруйдааһын</string>
   <string name="suggested_edits_task_action_text_add">Эбэргэ</string>
   <string name="suggested_edits_task_action_text_translate">Тылбаастаа</string>
-  <string name="suggested_edits_image_captions">Ойуу туһунан</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Ойуу туһунан</string>
   <string name="suggested_edits_quality_good_text">Үчүгэй</string>
   <string name="suggested_edits_quality_okay_text">Сөп</string>
   <string name="suggested_edits_quality_poor_text">Мөлтөх</string>

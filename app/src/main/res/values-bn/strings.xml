@@ -80,7 +80,6 @@
   <string name="map_view_link_text">একটি মানচিত্রে দেখুন</string>
   <string name="other_languages_indication_text">আরেকটি ভাষায় পড়ুন</string>
   <string name="language_count_link_text">অন্য %dটি ভাষায় উপলব্ধ</string>
-  <string name="content_license_text_new" fuzzy="true">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
   <string name="edit_save_action_license_anon">প্রকাশ ক্রার দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের আইপি ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
   <string name="preference_title_language">উইকিপিডিয়ার ভাষা</string>

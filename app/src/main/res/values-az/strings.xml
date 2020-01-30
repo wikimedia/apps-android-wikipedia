@@ -66,7 +66,6 @@
   <string name="map_view_link_text">Xəritədə göstər</string>
   <string name="other_languages_indication_text">Başqa dillərdə oxuyun</string>
   <string name="language_count_link_text">%d digər dillərdə mövcuddur</string>
-  <string name="content_license_text_new" fuzzy="true">Məzmun başqa cür qeyd edilmədiyi halda &lt;a href=\"%1$s\"&gt; CC BY-SA 3.0 &lt;/a&gt; altında mövcuddur</string>
   <string name="edit_save_action_license_logged_in">Yayımlarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız</string>
   <string name="edit_save_action_license_anon">Yayımlayarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız.Redaktələr cihazınızın IP ünvanına aid edilir. &lt;a href=\"https://#login\"&gt; Əgər daxil olmuşsunuzsa &lt;/a&gt;, daha çox gizlilik olacaq.</string>
   <string name="preference_title_language">Vikipediya dilləri</string>

@@ -85,8 +85,6 @@
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
   <string name="language_count_link_text">共 %d 個其它可用語言版本</string>
-  <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 條款授權</string>
-  <string name="content_license_text_new">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 條款授權</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
   <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
@@ -654,6 +652,7 @@
   <string name="suggested_edits_translate_descriptions">翻譯條目描述</string>
   <string name="suggested_edits_add_image_captions">新增語言說明</string>
   <string name="suggested_edits_translate_image_captions">翻譯圖片說明</string>
+  <string name="suggested_edits_tag_images">標記圖片</string>
   <string name="suggested_edits_review_description">檢閱條目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>
   <string name="suggested_edits_edit_description_button">編輯描述</string>
@@ -712,6 +711,17 @@
   <string name="suggested_edits_task_action_text_add">新增</string>
   <string name="suggested_edits_task_action_text_translate">翻譯</string>
   <string name="suggested_edits_image_captions">圖片說明</string>
+  <string name="suggested_edits_image_tags">圖片標籤</string>
+  <string name="suggested_edits_image_tags_publishing">發布中</string>
+  <string name="suggested_edits_image_tags_published">已發布</string>
+  <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到</string>
+  <string name="suggested_edits_image_tags_onboarding_text">透過確認建議標籤，您可以協助讓圖片能更容易被搜尋到。\n\n標籤是由電腦做出的建議，需要經過人工驗證來確保準確度。</string>
+  <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
+  <string name="suggested_edits_image_tags_snackbar">添加圖片標記來讓它們能更容易被其他人找到</string>
+  <string name="suggested_edits_image_tags_task_detail">標記圖片來讓它們能更容易被其他人找到。標記會自動被建議出，但需要由您驗證。</string>
+  <string name="suggested_edits_image_tags_choose">挑選符合的標記</string>
+  <string name="suggested_edits_image_tags_select_title">您尚未對此圖片選擇任何標記</string>
+  <string name="suggested_edits_image_tags_select_text">僅添加您挑選的標籤到圖片上。未被選擇到的標籤將會被標記為拒絕，您確定要將所有標籤標記為拒絕？</string>
   <string name="suggested_edits_encouragement_message">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：您知道維基百科是每個人都可編輯的嗎？您可以在下方找到協助改善維基百科的有趣方式，來快樂地編輯吧！</string>
   <string name="suggested_edits_image_captions_task_detail">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
@@ -746,6 +756,8 @@
   </plurals>
   <string name="suggested_edits_last_edited">上一次編輯</string>
   <string name="suggested_edits_last_edited_never">從不</string>
+  <string name="suggested_edits_task_new">新</string>
+  <string name="suggested_edits_cc0_notice">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;同時依據 &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; 授權不做出撤回您所釋出的貢獻。</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

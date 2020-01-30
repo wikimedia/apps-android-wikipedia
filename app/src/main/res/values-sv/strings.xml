@@ -80,8 +80,6 @@
   <string name="map_view_link_text">Visa på en karta</string>
   <string name="other_languages_indication_text">Läs på ett annat språk</string>
   <string name="language_count_link_text">Tillgänglig på %d andra språk</string>
-  <string name="content_license_html">Innehållet är tillgängligt under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
-  <string name="content_license_text_new">Innehållet är tillgängligt under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Genom att publicera godkänner du &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Genom att publicera samtycker till &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
@@ -563,7 +561,7 @@
   <string name="view_featured_image_card_download">Ladda ned</string>
   <string name="menu_feed_card_dismiss">Dölj detta kort</string>
   <string name="menu_feed_card_dismissed">Kortet doldes.</string>
-  <string name="menu_feed_card_edit_card_languages">Redigera språk för korten</string>
+  <string name="menu_feed_card_edit_card_languages">Redigera språk för kortet</string>
   <string name="menu_feed_overflow_label">Fler alternativ</string>
   <string name="feed_featured_image_share_subject">Utmärkt bild från Wikimedia Commons</string>
   <string name="feed">Utforska</string>
@@ -649,6 +647,7 @@
   <string name="suggested_edits_translate_descriptions">Översätt beskrivningar</string>
   <string name="suggested_edits_add_image_captions">Lägg till bildtexter</string>
   <string name="suggested_edits_translate_image_captions">Översätt bildtexter</string>
+  <string name="suggested_edits_tag_images">Tagga bilder</string>
   <string name="suggested_edits_review_description">Granska beskrivning</string>
   <string name="suggested_edits_add_description_button">Lägg till beskrivning</string>
   <string name="suggested_edits_edit_description_button">Redigera beskrivning</string>
@@ -707,6 +706,17 @@
   <string name="suggested_edits_task_action_text_add">Lägg till</string>
   <string name="suggested_edits_task_action_text_translate">Översätt</string>
   <string name="suggested_edits_image_captions">Bildtexter</string>
+  <string name="suggested_edits_image_tags">Bildtaggar</string>
+  <string name="suggested_edits_image_tags_publishing">Publicerar</string>
+  <string name="suggested_edits_image_tags_published">Publicerades</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Tagga bilder för att göra det lättare för andra att hitta dem</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
+  <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
+  <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men måste bekräftas av dig.</string>
+  <string name="suggested_edits_image_tags_choose">Välj lämpliga taggar</string>
+  <string name="suggested_edits_image_tags_select_title">Du har inte valt några taggar för denna bild</string>
+  <string name="suggested_edits_image_tags_select_text">Endast taggar som du väljer kommer att läggas till i bilderna. Taggar som inte väljs kommer att markeras som avvisade. Är du säker på att du vill markera alla taggar som avvisade?</string>
   <string name="suggested_edits_encouragement_message">%s, tack för dina redigeringar. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>
   <string name="suggested_edits_image_captions_task_detail">Bildtexter beskriver en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
@@ -741,6 +751,8 @@
   </plurals>
   <string name="suggested_edits_last_edited">Redigerades senast</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
+  <string name="suggested_edits_task_new">ny</string>
+  <string name="suggested_edits_cc0_notice">Genom att publisera samtycker du till &lt;a href=\"%1$s\"&gt;användningsvillkoren&lt;/a&gt; och att oåterkalleligen släppa detta bidrag under licensen &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>

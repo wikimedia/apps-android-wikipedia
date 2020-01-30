@@ -49,7 +49,6 @@
   <string name="map_view_link_text">Bekyk op ’n kaart</string>
   <string name="other_languages_indication_text">Lees in ’n ander taal</string>
   <string name="language_count_link_text">Beskikbaar in nog %d tale</string>
-  <string name="content_license_text_new" fuzzy="true">Inhoud is beskikbaar onder die &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensie tensy anders vermeld</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie. Wysigings sal aan u toestel se IP-adres toegeskryf word. Indien u &lt;a href=\"https://#login\"&gt;aanmeld&lt;/a&gt;, sal u meer privaatheid geniet.</string>
   <string name="preference_title_language">Wikipedia-tale</string>

@@ -83,8 +83,6 @@
   <string name="map_view_link_text">Mostra al mapa</string>
   <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
-  <string name="content_license_html">El contingut és disponible sota &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
-  <string name="content_license_text_new">El contingut és disponible sota &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
@@ -708,7 +706,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Inicia l\'enquesta</string>
   <string name="suggested_edits_task_action_text_add">Afegeix</string>
   <string name="suggested_edits_task_action_text_translate">Tradueix</string>
-  <string name="suggested_edits_image_captions">Llegendes d\'imatges</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Llegendes d\'imatges</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>
