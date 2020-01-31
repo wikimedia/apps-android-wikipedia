@@ -696,7 +696,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Vastaa kyselyyn</string>
   <string name="suggested_edits_task_action_text_add">Lisää</string>
   <string name="suggested_edits_task_action_text_translate">Käännä</string>
-  <string name="suggested_edits_image_captions">Kuvatekstit</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Kuvatekstit</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_pageviews_label_text">Sivun näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>

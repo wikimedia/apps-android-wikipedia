@@ -706,7 +706,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Inicia l\'enquesta</string>
   <string name="suggested_edits_task_action_text_add">Afegeix</string>
   <string name="suggested_edits_task_action_text_translate">Tradueix</string>
-  <string name="suggested_edits_image_captions">Llegendes d\'imatges</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Llegendes d\'imatges</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>

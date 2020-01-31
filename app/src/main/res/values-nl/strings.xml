@@ -727,6 +727,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Laatste bewerking:</string>
   <string name="suggested_edits_last_edited_never">Nooit</string>
+  <string name="suggested_edits_task_new">nieuw</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>

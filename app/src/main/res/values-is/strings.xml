@@ -68,7 +68,7 @@
   <string name="map_view_link_text">Skoða á korti</string>
   <string name="other_languages_indication_text">Lesa á öðru tungumáli</string>
   <string name="language_count_link_text">Aðgengilegt á %d öðrum tungumálum</string>
-    <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir ævinlega út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
+  <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir ævinlega út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
   <string name="edit_save_action_license_anon">Með því að birta þetta samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
   <string name="preference_title_language">Tungumál Wikipediu</string>
   <string name="langlinks_filter_hint">Leita</string>
@@ -679,7 +679,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Taktu þátt í könnun</string>
   <string name="suggested_edits_task_action_text_add">Bæta við</string>
   <string name="suggested_edits_task_action_text_translate">Þýða</string>
-  <string name="suggested_edits_image_captions">Myndatextar</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Myndatextar</string>
   <string name="suggested_edits_quality_perfect_text">Fullkomið</string>
   <string name="suggested_edits_quality_excellent_text">Frábært</string>
   <string name="suggested_edits_quality_very_good_text">Mjög gott</string>

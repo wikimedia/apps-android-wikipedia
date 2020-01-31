@@ -73,7 +73,7 @@
   <string name="map_view_link_text">Преглед върху карта</string>
   <string name="other_languages_indication_text">Прочитане на друг език</string>
   <string name="language_count_link_text">Налична на %d други езика</string>
-    <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
+  <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
   <string name="edit_save_action_license_anon">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
   <string name="preference_title_language">Езици на Уикипедия</string>
   <string name="langlinks_filter_hint">Търсене</string>
@@ -675,7 +675,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
   <string name="suggested_edits_task_action_text_translate">Превод</string>
-  <string name="suggested_edits_image_captions">Описания на изображения</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Описания на изображения</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
   <string name="suggested_edits_image_captions_task_detail">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението.</string>
