@@ -44,6 +44,7 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
+import org.wikipedia.watchlist.WatchlistActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -319,6 +320,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                 ((FeedFragment) getFragment().getCurrentFragment()).showConfigureActivity(-1);
             }
             closeMainDrawer();
+        }
+
+        @Override public void watchlistClick() {
+            if (AccountUtil.isLoggedIn()) {
+                startActivity(WatchlistActivity.Companion.newIntent(MainActivity.this));
+                closeMainDrawer();
+            }
         }
 
         @Override public void aboutClick() {

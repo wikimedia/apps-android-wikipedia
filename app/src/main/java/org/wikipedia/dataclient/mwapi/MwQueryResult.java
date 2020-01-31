@@ -297,13 +297,17 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         @Nullable private String parsedcomment;
         private boolean anon;
         private boolean bot;
-        @SerializedName("new") private int isNew;
+        @SerializedName("new") private boolean isNew;
         private boolean minor;
         private int oldlen;
         private int newlen;
 
         @NonNull public String getTitle() {
             return StringUtils.defaultString(title);
+        }
+
+        @NonNull public String getParsedComment() {
+            return StringUtils.defaultString(parsedcomment);
         }
     }
 }

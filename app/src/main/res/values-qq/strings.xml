@@ -365,6 +365,7 @@
   <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.\n{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
+  <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="color_theme_select">Label that describes color theme selection\n{{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme\n{{Identical|Light}}</string>
   <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>

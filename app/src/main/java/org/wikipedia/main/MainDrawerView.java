@@ -29,6 +29,7 @@ public class MainDrawerView extends ScrollView {
         void notificationsClick();
         void settingsClick();
         void configureFeedClick();
+        void watchlistClick();
         void aboutClick();
     }
 
@@ -37,6 +38,7 @@ public class MainDrawerView extends ScrollView {
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
     @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
+    @BindView(R.id.main_drawer_watchlist_container) ViewGroup watchlistContainer;
     @Nullable Callback callback;
 
     public MainDrawerView(Context context) {
@@ -67,6 +69,7 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.VISIBLE);
             accountWikiGlobe.setVisibility(View.GONE);
             notificationsContainer.setVisibility(View.VISIBLE);
+            watchlistContainer.setVisibility(View.VISIBLE);
         } else {
             accountNameView.setVisibility(GONE);
             loginLogoutButton.setText(getContext().getString(R.string.main_drawer_login));
@@ -74,6 +77,7 @@ public class MainDrawerView extends ScrollView {
             accountAvatar.setVisibility(View.GONE);
             accountWikiGlobe.setVisibility(View.VISIBLE);
             notificationsContainer.setVisibility(View.GONE);
+            watchlistContainer.setVisibility(View.GONE);
         }
     }
 
@@ -92,6 +96,12 @@ public class MainDrawerView extends ScrollView {
     @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
         if (callback != null) {
             callback.notificationsClick();
+        }
+    }
+
+    @OnClick(R.id.main_drawer_watchlist_container) void onWatchlistClick() {
+        if (callback != null) {
+            callback.watchlistClick();
         }
     }
 
