@@ -37,6 +37,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @SerializedName("usercontribs") @Nullable private List<UserContributions> userContributions;
+    @Nullable private List<WatchlistItem> watchlist;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -148,6 +149,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @NonNull public List<UserContributions> userContributions() {
         return userContributions != null ? userContributions : Collections.emptyList();
+    }
+
+    @NonNull public List<WatchlistItem> getWatchlist() {
+        return watchlist != null ? watchlist : Collections.emptyList();
     }
 
     @Override
@@ -277,6 +282,28 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
         @Nullable public Notification.SeenTime getSeenTime() {
             return seenTime;
+        }
+    }
+
+    public static class WatchlistItem {
+        private int pageid;
+        private long revid;
+        @SerializedName("old_revid") private long oldRevid;
+        private int ns;
+        @Nullable private String title;
+        @Nullable private String user;
+        @Nullable private String timestamp;
+        @Nullable private String comment;
+        @Nullable private String parsedcomment;
+        private boolean anon;
+        private boolean bot;
+        @SerializedName("new") private int isNew;
+        private boolean minor;
+        private int oldlen;
+        private int newlen;
+
+        @NonNull public String getTitle() {
+            return StringUtils.defaultString(title);
         }
     }
 }

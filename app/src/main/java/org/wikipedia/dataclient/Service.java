@@ -112,6 +112,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
 
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
+    @NonNull Observable<MwQueryResponse> getWatchlist();
+
 
     // ------- CSRF, Login, and Create Account -------
 
