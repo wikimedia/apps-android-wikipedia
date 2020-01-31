@@ -239,6 +239,8 @@
 
         <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
 
+        <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

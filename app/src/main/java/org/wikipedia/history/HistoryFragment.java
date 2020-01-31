@@ -47,7 +47,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
-import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -536,8 +535,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
-            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
-            ViewUtil.finishActionModeWhenTappingOnView(historyList, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
