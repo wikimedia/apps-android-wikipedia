@@ -68,7 +68,7 @@
   <string name="map_view_link_text">ဗဵု ပ္ဍဲ ဗီုတိ</string>
   <string name="other_languages_indication_text">ဗှ် နကဵု အရေဝ်ဘာသာတၞဟ်</string>
   <string name="language_count_link_text">ဟွံမွဲဏီ ပ္ဍဲ %d ဘာသာတၞဟ်</string>
-    <string name="edit_save_action_license_logged_in">နကဵု တြးပတိတ်ဒၟံၚ် မၞးတုပ်စိုတ် ကု &lt;a href=\"%1$s\"&gt; Terms of Use &lt;/a&gt;, တုဲပၠန် ဗလးပတိုန် လိက်မၞး နကဵု အခေါင်လာင်ဇြေန်&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လာၚ်ဇြေန်.</string>
+  <string name="edit_save_action_license_logged_in">နကဵု တြးပတိတ်ဒၟံၚ် မၞးတုပ်စိုတ် ကု &lt;a href=\"%1$s\"&gt; Terms of Use &lt;/a&gt;, တုဲပၠန် ဗလးပတိုန် လိက်မၞး နကဵု အခေါင်လာင်ဇြေန်&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လာၚ်ဇြေန်.</string>
   <string name="edit_save_action_license_anon">နကဵုမဂိုင်သိပ်ဂှ် မၞးတုပ်စိုတ် ကု &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, တုဲပၠန် ဗလးပတိုန် လိက်မၞး နကဵု အခေါင်လာင်ဇြေန်&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; ၊၊ အရာမပလေဝ်ဒါန်လဝ်ဂှ် စုတ်ပ္ဍဲ မုက်လိက် IP address မၞးရောင်၊၊ ယဝ်ရ မၞး &lt;a href=\"https://#login\"&gt;လုပ်လံက်အေန်&lt;/a&gt;, မၞးကလိဂွံ အခေါင်ပိုင်ပြဳပူဂဵုဂၠိုင်ရ၊၊</string>
   <string name="preference_title_language">အရေဝ်ဘာသာ ပ္ဍဲ ဝဳကဳပဳဒဳယာ ဂမၠိုင်</string>
   <string name="langlinks_filter_hint">ဂၠာဲ</string>

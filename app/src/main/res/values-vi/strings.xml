@@ -56,7 +56,7 @@
   <string name="map_view_link_text">Xem trên bản đồ</string>
   <string name="other_languages_indication_text">Đọc trong ngôn ngữ khác</string>
   <string name="language_count_link_text">Có sẵn trong %d ngôn ngữ khác</string>
-    <string name="edit_save_action_license_logged_in" fuzzy="true">Bằng việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Bằng việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Bằng việc lưu trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
   <string name="preference_title_language">Ngôn ngữ của Wikipedia</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>

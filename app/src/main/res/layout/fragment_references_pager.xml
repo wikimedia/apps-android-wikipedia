@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,41 @@
         android:orientation="vertical"
         android:focusableInTouchMode="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="3dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                app:srcCompat="@drawable/ic_oojs_reference"
+                app:tint="?attr/material_theme_de_emphasised_color"
+                android:contentDescription="@null"/>
+
+            <org.wikipedia.views.AppTextView
+                android:id="@+id/reference_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="16sp"
+                tools:text="Reference" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:background="?attr/material_theme_border_color" />
+
         <org.wikipedia.views.WrapContentViewPager
             android:id="@+id/reference_pager"
             android:layout_width="match_parent"
@@ -19,14 +55,16 @@
             android:id="@+id/indicator_divider"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:background="?attr/material_theme_border_color" />
 
         <com.rd.PageIndicatorView
             android:id="@+id/page_indicator_view"
             android:layout_width="wrap_content"
-            android:layout_height="56dp"
+            android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="24dp"
+            android:paddingTop="20dp"
             app:piv_radius="4dp"
             app:piv_rtl_mode="auto"
             app:piv_selectedColor="?attr/material_theme_primary_color"

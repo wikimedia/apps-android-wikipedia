@@ -101,7 +101,7 @@
   <string name="map_view_link_text">在地图上查看</string>
   <string name="other_languages_indication_text">其他语言</string>
   <string name="language_count_link_text">在其他%d种语言中可用</string>
-    <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="preference_title_language">添加维基百科语言</string>
@@ -722,7 +722,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
   <string name="suggested_edits_task_action_text_translate">翻译</string>
-  <string name="suggested_edits_image_captions">图片说明</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">图片说明</string>
   <string name="suggested_edits_add_descriptions_task_detail">标题描述可对条目作出总结，以帮助读者快速了解主题。</string>
   <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。访问以下链接以便了解更多关于封禁的信息。</string>
   <string name="suggested_edits_editing_tips_link_text">编辑提示与技巧</string>

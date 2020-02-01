@@ -344,6 +344,7 @@
   <string name="preference_title_prefer_offline_content">Preferovať offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetriť využitie dát tým, že aplikácia načíta články, ktoré sú k dispozícii offline a nebude načítavať najnovšiu verziu článku.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prispôsobiť vzhľadu systému</string>
+  <string name="page_footer_license_text">Obsah je dostupný pod $1, pokiaľ nie je uvedené inak</string>
   <string name="empty_tab_title">Nová karta</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
@@ -701,7 +702,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Vyplniť anketu</string>
   <string name="suggested_edits_task_action_text_add">Pridať</string>
   <string name="suggested_edits_task_action_text_translate">Preložiť</string>
-  <string name="suggested_edits_image_captions">Titulky obrázkov</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Titulky obrázkov</string>
   <string name="suggested_edits_encouragement_message">%s, ďakujeme za vaše úpravy. Nižšie nájdete ďalšie spôsoby, ako prispievať na Wikipédiu.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
   <string name="suggested_edits_image_captions_task_detail">Titulky obrázkov popisujú obrázok, aby čitateľom pomohli pochopiť jeho význam a kontext.</string>

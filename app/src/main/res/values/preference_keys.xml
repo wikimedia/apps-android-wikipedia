@@ -111,4 +111,5 @@
     <string name="preference_key_suggested_edits_override_counts">suggestedEditsOverrideCounts</string>
     <string name="preference_key_suggested_edits_override_edits">suggestedEditsOverrideEdits</string>
     <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
+    <string name="preference_key_image_tags_onboarding_shown">imageTagsOnboardingShown</string>
 </resources>

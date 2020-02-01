@@ -665,6 +665,7 @@
   <string name="suggested_edits_translate_descriptions">Madde açıklamasını çevir</string>
   <string name="suggested_edits_add_image_captions">Resim yazısı ekle</string>
   <string name="suggested_edits_translate_image_captions">Resim başlıklarını çevir</string>
+  <string name="suggested_edits_tag_images">Etiket resimleri</string>
   <string name="suggested_edits_review_description">Madde açıklamasını incele</string>
   <string name="suggested_edits_add_description_button">Açıklama ekle</string>
   <string name="suggested_edits_edit_description_button">Tanımı düzenle</string>
@@ -722,7 +723,18 @@
   <string name="suggested_edits_snackbar_survey_action_text">Anketi Doldur</string>
   <string name="suggested_edits_task_action_text_add">Ekle</string>
   <string name="suggested_edits_task_action_text_translate">Çevir</string>
-  <string name="suggested_edits_image_captions">Resim Başlıkları</string>
+  <string name="suggested_edits_image_captions">Resim başlıkları</string>
+  <string name="suggested_edits_image_tags">Resim etiketleri</string>
+  <string name="suggested_edits_image_tags_publishing">Yayımlanıyor</string>
+  <string name="suggested_edits_image_tags_published">Yayınlandı</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri başkalarının bulmasını kolaylaştırmak için etiketleyin</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Önerilen etiketleri onaylayarak, görüntülerin aranmasını kolaylaştırabilirsiniz.\n\nEtiketler bilgisayar tarafından önerilir, ancak doğruluk için insanlar tarafından onaylanması gerekir.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
+  <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
+  <string name="suggested_edits_image_tags_task_detail">Başkalarının bulmasını kolaylaştırmak için görüntüleri etiketleyin. Etiketler otomatik olarak önerilir, ancak sizin tarafınızdan doğrulanması gerekir.</string>
+  <string name="suggested_edits_image_tags_choose">Eşleşen etiketleri seçin</string>
+  <string name="suggested_edits_image_tags_select_title">Bu resim için herhangi bir etiket seçmediniz</string>
+  <string name="suggested_edits_image_tags_select_text">Yalnızca seçtiğiniz etiketler görüntülere eklenir. Seçilmeyen etiketler reddedildi olarak işaretlenir. Tüm etiketleri reddedildi olarak işaretlemek istediğinizden emin misiniz?</string>
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
   <string name="suggested_edits_image_captions_task_detail">Resim yazıları, okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tarif eder.</string>
@@ -757,6 +769,8 @@
   </plurals>
   <string name="suggested_edits_last_edited">Son düzenleme</string>
   <string name="suggested_edits_last_edited_never">Asla</string>
+  <string name="suggested_edits_task_new">yeni</string>
+  <string name="suggested_edits_cc0_notice">Yayınlayarak, &lt;a href=\"%1$s\"&gt;kullanım şartlarını&lt;/a&gt; ve bu katkıyı &lt;a href=\"%2$s\"&gt;CC0 lisansı&lt;/a&gt; altında geri dönülmez bir şekilde serbest bırakmayı kabul edersiniz.</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>

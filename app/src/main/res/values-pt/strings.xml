@@ -707,7 +707,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Participar no inquérito</string>
   <string name="suggested_edits_task_action_text_add">Adicionar</string>
   <string name="suggested_edits_task_action_text_translate">Traduzir</string>
-  <string name="suggested_edits_image_captions">Legendas de imagens</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Legendas de imagens</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, sabia que qualquer pessoa pode editar a Wikipédia? Encontra abaixo algumas formas divertidas de ajudar a melhorar a Wikipédia. Divirta-se a editar!</string>
   <string name="suggested_edits_image_captions_task_detail">As legendas de imagens descrevem uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
