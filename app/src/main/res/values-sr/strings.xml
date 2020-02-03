@@ -193,7 +193,7 @@
   <string name="settings_item_preferences">Подешавања</string>
   <string name="settings_activity_title">Подешавања</string>
   <string name="about_description">О апликацији Википедија</string>
-  <string name="privacy_policy_description">Политика приватности</string>
+  <string name="privacy_policy_description">Смернице за приватност</string>
   <string name="terms_of_use_description">Услови коришћења</string>
   <string name="about_wikipedia_url">https://sr.m.wikipedia.org/wiki/Википедија:О_нама</string>
   <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>

@@ -4,6 +4,7 @@
 * Biggs ZA
 * Envlh
 * Fwolff
+* Joris Darlington Quarshie
 * Macofe
 * Puvircho
 -->
@@ -247,6 +248,7 @@
   <string name="error_page_does_not_exist">Hierdie blad bestaan nie</string>
   <string name="view_wiki_error_message_offline">Kan nie aan die internet koppel nie</string>
   <string name="reference_title">Verwysing %s</string>
+  <string name="page_footer_license_text">Inhoud is beskikbaar onder $ 1, tensy anders vermeld</string>
   <string name="crash_report_activity_title">Toepassingfout</string>
   <string name="crash_report_relaunch">Begin voor</string>
   <string name="crash_report_quit">Sluit Af</string>
@@ -328,6 +330,21 @@
   <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titelbeskrywings</string>
   <string name="description_edit_tutorial_keep_it_short">Hou dit kort</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin redigeer</string>
+  <string name="suggested_edits_tag_images">Merk prente</string>
+  <string name="suggested_edits_image_captions">Beeldopskrifte</string>
+  <string name="suggested_edits_image_tags">Prentetikette</string>
+  <string name="suggested_edits_image_tags_publishing">Publishing</string>
+  <string name="suggested_edits_image_tags_published">Gepubliseer</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Merk prente om dit makliker te maak vir ander om dit te vind</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Deur voorgestelde merkers te bevestig, kan u help om prente makliker te soek.\n\nMerkers word op rekenaar voorgestel, maar moet deur mense bekragtig word om akkuraatheid te verseker.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Slegs merkers wat u kies, sal by prente gevoeg word.</string>
+  <string name="suggested_edits_image_tags_snackbar">Voeg prentetikette by om dit makliker te maak vir ander om dit te vind.</string>
+  <string name="suggested_edits_image_tags_task_detail">Merk prente om dit makliker te maak vir ander om dit te vind. Merkers word outomaties voorgestel, maar dit moet deur u bevestig word.</string>
+  <string name="suggested_edits_image_tags_choose">Kies bypassende etikette</string>
+  <string name="suggested_edits_image_tags_select_title">U het geen merkers vir hierdie prent gekies nie</string>
+  <string name="suggested_edits_image_tags_select_text">Slegs merkers wat u kies, sal by prente gevoeg word. Merkers wat nie gekies is nie, sal as verwerp gemerk word. Is u seker dat u alle merkers as verwerp wil merk?</string>
+  <string name="suggested_edits_task_new">nuwe</string>
+  <string name="suggested_edits_cc0_notice">Deur te publiseer, stem u in tot die &lt;a href=\"%1$s\"&gt; gebruiksvoorwaardes &lt;/a&gt; en om hierdie bydrae onherroeplik vry te stel onder die &lt;a href=\"%2$s\"&gt; CC0-lisensie &lt;/a&gt; .</string>
   <string name="description_edit_revert_subtitle">Dankie dat u bydra tot Wikipedia!</string>
   <string name="size_gb">%.2f GG</string>
   <string name="size_mb">%.2f MG</string>

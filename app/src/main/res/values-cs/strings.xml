@@ -712,7 +712,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
   <string name="suggested_edits_task_action_text_add">Přidat</string>
   <string name="suggested_edits_task_action_text_translate">Přeložit</string>
-  <string name="suggested_edits_image_captions" fuzzy="true">Titulky obrázků</string>
+  <string name="suggested_edits_image_captions">Titulky obrázků</string>
   <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
   <string name="suggested_edits_image_captions_task_detail">Titulky obrázků popisují obrázek, který čtenářům pomůže pochopit jeho význam a kontext.</string>
