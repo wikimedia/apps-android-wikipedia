@@ -86,10 +86,10 @@ class WatchlistFragment : Fragment() {
 
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
         val items = ArrayList<Any>()
-        val curDate = Date(0)
+        val curDate = Date(Date().time + TimeUnit.DAYS.toMillis(1))
 
         for (item in watchlistItems) {
-            if (item.date.time - curDate.time > TimeUnit.DAYS.toMillis(1)) {
+            if (curDate.time - item.date.time > TimeUnit.DAYS.toMillis(1)) {
                 items.add(item.date)
                 curDate.time = item.date.time
             }
