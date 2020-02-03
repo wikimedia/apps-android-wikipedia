@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Aefgh39622
 * Afaz
+* Buntschann
 * Dbrant
 * GAMEZONE628
 * Hzy980512
@@ -91,7 +92,7 @@
   <string name="map_view_link_text">地図で見る</string>
   <string name="other_languages_indication_text">別の言語で閲覧</string>
   <string name="language_count_link_text">他に%dの言語で利用可能</string>
-  <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
+  <string name="content_license_cc_by_sa">CC 表示-継承 3.0</string>
   <string name="edit_save_action_license_logged_in">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンスの下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
@@ -350,10 +351,12 @@
   <string name="view_wiki_error_message_offline">インターネットに接続できません</string>
   <string name="view_wiki_error_message_timeout">ウィキペディアに接続できません。ネットワーク接続を確認するか、後ほどもう一度お試しください。</string>
   <string name="reference_title">%s 参照</string>
+  <string name="reference_list_title">注釈</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
+  <string name="empty_tab_title">新しいタブ</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -711,13 +714,21 @@
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="suggested_edits_task_action_text_add">追加</string>
   <string name="suggested_edits_task_action_text_translate">翻訳</string>
-  <string name="suggested_edits_image_captions">画像の説明</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">画像の説明</string>
   <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアに貢献できるいろんなやり方を以下でご紹介します。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアは誰でも編集できることをご存知ですか？　ウィキペディアをより良くする楽しみ方を以下でご紹介します。良い編集を！</string>
   <string name="suggested_edits_image_captions_task_detail">画像の説明では、読者が意味と文脈を理解する手助けとなるよう、画像について説明しています。</string>
   <string name="suggested_edits_add_descriptions_task_detail">記事の説明は、読者が一目でその主題を理解するのに役立つように要約してあります。</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;提案した編集は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎます。\n\n 以下のリンクでどういう意味か理解しましょう。</string>
   <string name="suggested_edits_pageviews_label_text">ページビュー</string>
+  <string name="suggested_edits_quality_perfect_text">完璧</string>
+  <string name="suggested_edits_quality_excellent_text">すばらしい</string>
+  <string name="suggested_edits_quality_very_good_text">とてもよい</string>
+  <string name="suggested_edits_quality_good_text">よい</string>
+  <string name="suggested_edits_quality_okay_text">まあまあ</string>
+  <string name="suggested_edits_quality_sufficient_text">最低限</string>
+  <string name="suggested_edits_quality_poor_text">よくない</string>
+  <string name="suggested_edits_quality_bad_text">悪い</string>
   <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>

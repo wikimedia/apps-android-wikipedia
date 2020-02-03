@@ -84,7 +84,7 @@
   <string name="map_view_link_text">Zobrazit na mapě</string>
   <string name="other_languages_indication_text">Přečíst v jiném jazyce</string>
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
-  <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyky Wikipedie</string>
@@ -343,10 +343,13 @@
   <string name="view_wiki_error_message_offline">Nejste připojeni k internetu.</string>
   <string name="view_wiki_error_message_timeout">Nelze se připojit k Wikipedii. Zkontrolujte vaše připojení k internetu, nebo to zkuste znovu později</string>
   <string name="reference_title">Reference %s</string>
+  <string name="reference_list_title">Reference</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ztmavení obrázků (v Tmavém a Černém motivu)</string>
   <string name="preference_title_prefer_offline_content">Preferovat offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetří využití dat tím, že aplikace načte články pro offline čtení, místo načtení aktuální verze článku.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Přizpůsobit vzhledu systému</string>
+  <string name="page_footer_license_text">Obsah je dostupný pod $1, pokud není uvedeno jinak</string>
+  <string name="empty_tab_title">Nová záložka</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
   <string name="crash_report_relaunch">Otevřít znovu</string>

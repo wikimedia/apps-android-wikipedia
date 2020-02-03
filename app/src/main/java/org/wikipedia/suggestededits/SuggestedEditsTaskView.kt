@@ -35,6 +35,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         taskTitle.text = task.title
         taskDescription.text = task.description
         taskIcon.setImageResource(task.imageDrawable)
+        taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
 
         this.setOnClickListener {
             if (!task.disabled) {
@@ -51,6 +52,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
                 callback?.onViewClick(task, true)
             }
         }
+        translateContainer.visibility = if (task.translatable) View.VISIBLE else GONE
     }
 
     interface Callback {

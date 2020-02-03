@@ -216,14 +216,15 @@ public class PageFragmentLoadState {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pageSummaryResponse -> {
                             if (pageSummaryResponse.body() != null) {
-                                createPage(pageSummaryResponse.body());
+                                createPageModel(pageSummaryResponse.body());
+                            } else {
+                                throw new RuntimeException("Summary response was invalid.");
                             }
-
-                            bridge.execute(JavaScriptActionHandler.setFooter(model));
                             if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
                                     || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                                 showPageOfflineMessage(Objects.requireNonNull(pageSummaryResponse.raw().header("date", "")));
                             }
+                            fragment.onPageMetadataLoaded();
                         },
                         throwable -> {
                             L.e("Page details network response error: ", throwable);
@@ -249,7 +250,7 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPage(@NonNull PageSummary pageSummary) {
+    private void createPageModel(@NonNull PageSummary pageSummary) {
         if (!fragment.isAdded()) {
             return;
         }
@@ -267,9 +268,6 @@ public class PageFragmentLoadState {
         leadImagesHandler.loadLeadImage();
 
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-        fragment.getEditHandler().setPage(page);
-        fragment.getTocHandler().setupToC(page, page.getTitle().getWikiSite(), isFirstPage());
-        fragment.getTocHandler().setEnabled(true);
         fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)

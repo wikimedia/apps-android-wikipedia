@@ -83,7 +83,7 @@
   <string name="map_view_link_text">Mostra al mapa</string>
   <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
-  <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Llengües de la Viquipèdia</string>
@@ -341,10 +341,13 @@
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
   <string name="view_wiki_error_message_timeout">No es pot connectar a la Viquipèdia. Comproveu la connexió a la xarxa o torneu-ho a provar més endavant</string>
   <string name="reference_title">Referència %s</string>
+  <string name="reference_list_title">Referències</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuació d\'imatges (en el tema fosc)</string>
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
   <string name="preference_summary_prefer_offline_content">Estalvia ús de dades carregant articles que són disponibles fora de línia en comptes de carregar la darrera versió de l\'article</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Coincideix amb el tema del sistema</string>
+  <string name="page_footer_license_text">El contingut està disponible sota $1 si no s\'indica el contrari</string>
+  <string name="empty_tab_title">Pestanya nova</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
@@ -646,6 +649,7 @@
   <string name="suggested_edits_translate_descriptions">Tradueix descripcions d\'article</string>
   <string name="suggested_edits_add_image_captions">Afegeix llegendes a les imatges</string>
   <string name="suggested_edits_translate_image_captions">Tradueix les llegendes de les imatges</string>
+  <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
   <string name="suggested_edits_review_description">Revisa la descripció d\'article</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
   <string name="suggested_edits_edit_description_button">Modifica la descripció</string>
@@ -704,6 +708,12 @@
   <string name="suggested_edits_task_action_text_add">Afegeix</string>
   <string name="suggested_edits_task_action_text_translate">Tradueix</string>
   <string name="suggested_edits_image_captions">Llegendes d\'imatges</string>
+  <string name="suggested_edits_image_tags">Etiquetes d\'imatge</string>
+  <string name="suggested_edits_image_tags_publishing">Publicació</string>
+  <string name="suggested_edits_image_tags_published">Publicat</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etiqueta les imatges per facilitar que altres les trobin</string>
+  <string name="suggested_edits_image_tags_choose">Trieu les etiquetes que coincideixen</string>
+  <string name="suggested_edits_image_tags_select_title">No heu seleccionat cap etiqueta per a aquesta imatge</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>
@@ -737,6 +747,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Darrera modificació</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
+  <string name="suggested_edits_task_new">nou</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>

@@ -280,10 +280,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return editHandler;
     }
 
-    public ToCHandler getTocHandler() {
-        return tocHandler;
-    }
-
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -447,18 +443,60 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
-                updateSections();
-                setPageProtection();
             }
 
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                onPageLoadError(new Throwable());
+                onPageLoadError(new RuntimeException(description));
             }
         });
     }
 
-    private void setPageProtection() {
+    public void onPageMetadataLoaded() {
+        editHandler.setPage(model.getPage());
+        refreshView.setEnabled(true);
+        refreshView.setRefreshing(false);
+        requireActivity().invalidateOptionsMenu();
+        initPageScrollFunnel();
+
+        if (model.getReadingListPage() != null) {
+            final ReadingListPage page = model.getReadingListPage();
+            final PageTitle title = model.getTitle();
+            disposables.add(Completable.fromAction(() -> {
+                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
+                        || !TextUtils.equals(page.description(), title.getDescription())) {
+                    page.thumbUrl(title.getThumbUrl());
+                    page.description(title.getDescription());
+                    ReadingListDbHelper.instance().updatePage(page);
+                }
+            }).subscribeOn(Schedulers.io()).subscribe());
+        }
+
+        if (!errorState) {
+            editHandler.setPage(model.getPage());
+            webView.setVisibility(View.VISIBLE);
+        }
+
+        // TODO: As seen below, we are making four (4) separate requests over the Bridge.
+        // Does this impact performance? Can we reduce this?
+
+        bridge.execute(JavaScriptActionHandler.setFooter(model));
+
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
+
+        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+            if (secArray != null) {
+                sections = new ArrayList<>(Arrays.asList(secArray));
+                sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
+                if (model.getPage() != null) {
+                    model.getPage().setSections(sections);
+                }
+            }
+            tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+            tocHandler.setEnabled(true);
+        });
+
         bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
             Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
             if (model.getPage() != null) {
@@ -466,19 +504,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
             }
         });
-    }
 
-    private void updateSections() {
-        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
-            if (secArray != null) {
-                sections = Arrays.asList(secArray);
-                if (model.getPage() != null) {
-                    model.getPage().setSections(sections);
-                }
-            }
-            onPageLoadComplete();
-        });
+        checkAndShowBookmarkOnboarding();
+        maybeShowAnnouncement();
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
@@ -846,35 +874,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         tocHandler.scrollToSection(sectionAnchor);
     }
 
-    public void onPageLoadComplete() {
-        refreshView.setEnabled(true);
-        refreshView.setRefreshing(false);
-        requireActivity().invalidateOptionsMenu();
-        initPageScrollFunnel();
-
-        if (model.getReadingListPage() != null) {
-            final ReadingListPage page = model.getReadingListPage();
-            final PageTitle title = model.getTitle();
-            disposables.add(Completable.fromAction(() -> {
-                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
-                        || !TextUtils.equals(page.description(), title.getDescription())) {
-                    page.thumbUrl(title.getThumbUrl());
-                    page.description(title.getDescription());
-                    ReadingListDbHelper.instance().updatePage(page);
-                }
-            }).subscribeOn(Schedulers.io()).subscribe());
-        }
-
-        if (!errorState) {
-            webView.setVisibility(View.VISIBLE);
-        }
-
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
-
-        checkAndShowBookmarkOnboarding();
-        maybeShowAnnouncement();
-    }
-
     public void onPageLoadError(@NonNull Throwable caught) {
         if (!isAdded()) {
             return;
@@ -979,9 +978,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 return model.getTitle().getWikiSite();
             }
         };
-        bridge.addListener("link_clicked", linkHandler);
+        bridge.addListener("link", linkHandler);
 
-        bridge.addListener("reference_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
                 L.d("Detached from activity, so stopping reference click.");
                 return;
@@ -1011,7 +1010,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         }
                     }, L::d));
         });
-        bridge.addListener("image_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
             if (href.startsWith("./File:")) {
                 startGalleryActivity(href);
@@ -1019,11 +1018,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
             }
         });
-        bridge.addListener("media_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
             startGalleryActivity(href);
         });
-        bridge.addListener("pronunciation_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
                 avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
                 avPlayer.init();
@@ -1039,7 +1038,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 avPlayer.stop();
             }
         });
-        bridge.addListener("footer_item_selected", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("footer_item", (String messageType, JsonObject messagePayload) -> {
             String itemType = messagePayload.get("itemType").getAsString();
             if ("talkPage".equals(itemType) && model.getTitle() != null) {
                 PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());

@@ -84,7 +84,6 @@
   <string name="map_view_link_text">Lihat di peta</string>
   <string name="other_languages_indication_text">Baca dalam bahasa lain</string>
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
-  <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menerbitkan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dengan menerbitkan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki lebih privasi.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
@@ -686,7 +685,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Tampilkan</string>
   <string name="suggested_edits_task_action_text_add">Tambahkan</string>
   <string name="suggested_edits_task_action_text_translate">Terjemahkan</string>
-  <string name="suggested_edits_image_captions">Takarir gambar</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Takarir gambar</string>
   <string name="suggested_edits_pageviews_label_text">Kunjungan halaman</string>
   <string name="suggested_edits_quality_label_text">Kualitas suntingan</string>
   <string name="suggested_edits_quality_perfect_text">Sempurna</string>

@@ -7,9 +7,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
@@ -25,19 +23,13 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsCardsItemFragment : Fragment() {
-    private val disposables = CompositeDisposable()
+class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     var sourceSummary: SuggestedEditsSummary? = null
     var targetSummary: SuggestedEditsSummary? = null
     var addedContribution: String = ""
         internal set
-    var pagerPosition = -1
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        retainInstance = true
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -58,25 +50,12 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             getArticleWithMissingDescription()
         }
 
-        cardClickArea.setOnClickListener {
+        viewArticleContainer.setOnClickListener {
             if (sourceSummary != null) {
                 parent().onSelectPage()
             }
         }
         showAddedContributionView(addedContribution)
-        if (savedInstanceState != null) {
-            pagerPosition = savedInstanceState.getInt("pagerPosition", -1)
-        }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt("pagerPosition", pagerPosition)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        disposables.clear()
     }
 
     private fun getArticleWithMissingDescription() {
@@ -250,6 +229,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             return
         }
 
+        ImageZoomHelper.setViewZoomable(viewArticleImage)
+
         if (parent().action == ADD_DESCRIPTION || parent().action == TRANSLATE_DESCRIPTION) {
             updateDescriptionContents()
         } else {
@@ -262,19 +243,17 @@ class SuggestedEditsCardsItemFragment : Fragment() {
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = (if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description)?.capitalize()
+            viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description
         }
 
         viewImageSummaryContainer.visibility = GONE
 
         viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummary!!.extractHtml!!)
         if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
-            viewArticleImage.visibility = GONE
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+            viewArticleImagePlaceholder.visibility = GONE
         } else {
-            viewArticleImage.visibility = VISIBLE
+            viewArticleImagePlaceholder.visibility = VISIBLE
             viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
@@ -288,7 +267,7 @@ class SuggestedEditsCardsItemFragment : Fragment() {
             else -> getString(R.string.suggested_edits_no_description)
         }
 
-        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText.capitalize()))
+        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
             viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
@@ -305,15 +284,8 @@ class SuggestedEditsCardsItemFragment : Fragment() {
         viewArticleExtract.visibility = GONE
     }
 
-    private fun parent(): SuggestedEditsCardsFragment {
-        return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsCardsFragment
-    }
-
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
-        const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 12
-
-        fun newInstance(): SuggestedEditsCardsItemFragment {
+        fun newInstance(): SuggestedEditsItemFragment {
             return SuggestedEditsCardsItemFragment()
         }
     }

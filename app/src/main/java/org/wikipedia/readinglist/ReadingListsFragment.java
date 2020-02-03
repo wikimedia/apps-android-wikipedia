@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -59,7 +58,6 @@ import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -429,7 +427,7 @@ public class ReadingListsFragment extends Fragment implements
             getView().setTitle(page.title());
             getView().setTitleMaxLines(2);
             getView().setTitleEllipsis();
-            getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setDescription(page.description());
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
             getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
@@ -653,8 +651,6 @@ public class ReadingListsFragment extends Fragment implements
             actionMode = mode;
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false);
-            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
-            ViewUtil.finishActionModeWhenTappingOnView(emptyContainer, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 

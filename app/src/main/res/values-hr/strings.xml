@@ -75,7 +75,6 @@
   <string name="map_view_link_text">Pogledaj na karti</string>
   <string name="other_languages_indication_text">Čitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
-  <string name="content_license_html">Sadržaj je dostupan pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (osim ako nije drugačije navedeno)</string>
   <string name="edit_save_action_license_logged_in">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Uređivanja bit će pripisana IP adresi Vašeg uređaja. Ako ćete se &lt;a href=\"https://#login\"&gt;prijaviti&lt;/a&gt;, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
@@ -320,10 +319,13 @@
   <string name="error_page_does_not_exist">Ova stranica ne postoji</string>
   <string name="view_wiki_error_message_offline">Nije moguće spojiti se s Internetom</string>
   <string name="reference_title">Izvor %s</string>
+  <string name="reference_list_title">Izvori</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjivanje slika (u tamnoj temi)</string>
   <string name="preference_title_prefer_offline_content">Preferiraj izvanmrežni sadržaj</string>
   <string name="preference_summary_prefer_offline_content">Uštedite mobilne podatke tako da se učitava dostupan izvanmrežni sadržaj umjesto učitavanja najnovije inačice članka</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prilagodi temi sustava</string>
+  <string name="page_footer_license_text">Sadržaj je dostupan pod $1 (osim ako nije drugačije navedeno)</string>
+  <string name="empty_tab_title">Nova kartica</string>
   <string name="crash_report_activity_title">Pogreška aplikacije</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.\n\nŽalite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
@@ -505,7 +507,7 @@
   <string name="feed_item_type_on_this_day">Povijesni događaji na današnji dan</string>
   <string name="feed_item_type_featured_article">Dnevni izabrani članci na Wikipediji</string>
   <string name="feed_item_type_trending">Dnevni najčitaniji članci</string>
-  <string name="feed_item_type_featured_image">Dnevne izabrane slike s Wikimedijinog Zajedničkog poslužitelja</string>
+  <string name="feed_item_type_featured_image">Dnevne izabrane slike s Wikimedijinoga Zajedničkog poslužitelja</string>
   <string name="feed_item_type_main_page">Glavna stranica Wikipedije s dnevnim izabranim sadržajem</string>
   <string name="feed_item_type_randomizer">Generiranje slučajnih članaka za čitanje</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
@@ -540,10 +542,10 @@
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>
   <string name="description_edit_tutorial_title_descriptions">Opisi članaka</string>
-  <string name="description_edit_tutorial_keep_it_short">Neka bude kratko</string>
+  <string name="description_edit_tutorial_keep_it_short">Molimo Vas za sažetost u opisu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno jedan redak, od dvije do dvanaest riječi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Počnite uređivati</string>
-  <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrijebiti ovu značajku.</string>
+  <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrijebiti ovu mogućnost.</string>
   <string name="suggested_edits_add_descriptions">Dodaj opise članaka</string>
   <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
   <string name="suggested_edits_add_image_captions">Dodaj opise slika</string>
@@ -572,7 +574,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">jedan doprinos</item>
-    <item quantity="other">%d doprinosa</item>
+    <item quantity="other">%d doprinos</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
@@ -592,6 +594,8 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis slike (%s)</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
+  <string name="suggested_edits_image_tags_published">Objavljeno</string>
+  <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvaliteta uređivanja</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
@@ -604,10 +608,11 @@
   <string name="suggested_edits_quality_bad_text">Loše</string>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dan</item>
-    <item quantity="other">%d dana</item>
+    <item quantity="other">%d day</item>
   </plurals>
   <string name="suggested_edits_last_edited">Zadnje uređivanje</string>
   <string name="suggested_edits_last_edited_never">Nikad</string>
+  <string name="suggested_edits_task_new">novo</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>
   <string name="size_gb">%.2f GB</string>

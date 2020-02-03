@@ -46,7 +46,7 @@
   <string name="page_tabs_back">Indietro</string>
   <string name="nav_item_forward">Avanti</string>
   <string name="search_hint">Cerca su Wikipedia</string>
-  <string name="search_hint_voice_search">Ricerca input vocale</string>
+  <string name="search_hint_voice_search">Ricerca vocale</string>
   <string name="search_hint_search_history">Cerca nella cronologia</string>
   <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
@@ -100,7 +100,7 @@
   <string name="map_view_link_text">Visualizza sulla mappa</string>
   <string name="other_languages_indication_text">Leggi in un\'altra lingua</string>
   <string name="language_count_link_text">Disponibile in altre %d lingue</string>
-  <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
   <string name="preference_title_language">Lingue di Wikipedia</string>
@@ -359,10 +359,13 @@
   <string name="view_wiki_error_message_offline">Non è possibile connettersi ad Internet</string>
   <string name="view_wiki_error_message_timeout">Impossibile connettersi a Wikipedia. Controlla la connessione di rete o riprova più tardi</string>
   <string name="reference_title">Riferimento %s</string>
+  <string name="reference_list_title">Note</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Oscuramento dell\'immagine (in tema Scuro)</string>
   <string name="preference_title_prefer_offline_content">Preferisci contenuti offline</string>
   <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili offline anziché caricare sempre l\'ultima versione di una voce</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
+  <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
+  <string name="empty_tab_title">Nuova scheda</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
@@ -522,6 +525,10 @@
     <item quantity="one">Sincronizzazione dell\'elenco di lettura</item>
     <item quantity="other">Sincronizzazione degli elenchi di lettura</item>
   </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d elenco rimanente</item>
+    <item quantity="other">%1$d elenchi rimanenti</item>
+  </plurals>
   <string name="notification_echo_channel_description">Notifiche di Wikipedia</string>
   <string name="notifications_activity_title">Notifiche</string>
   <string name="notifications_activity_title_archived">Notifiche (archiviate)</string>
@@ -530,6 +537,10 @@
   <string name="notifications_view_archived">Vedi archiviate</string>
   <string name="notifications_prefs">Preferenze sulle notifiche</string>
   <string name="notifications_archive">Segna come letta e archivia</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Notifica archiviata</item>
+    <item quantity="other">%d notifiche archiviate</item>
+  </plurals>
   <string name="notifications_poll_enable_title">Attiva le notifiche</string>
   <string name="notifications_poll_enable_positive">Attiva</string>
   <string name="notifications_poll_enable_negative">Non ora</string>
@@ -604,6 +615,7 @@
   <string name="feed_configure_onboarding_action">Personalizza</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annulla</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizza il tuo feed Esplora&lt;/strong&gt; &lt;br/&gt;&lt;br/&gt;Ora puoi scegliere cosa mostrare nel tuo feed e dare priorità ai tuoi tipi di contenuti preferiti.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annulla</string>
   <string name="feed_accessibility_card_text">Hai raggiunto la fine del feed.</string>
@@ -716,6 +728,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate delle voci a cui hai contribuito negli ultimi 30 giorni con modifiche suggerite.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">In base a quante volte uno dei tuoi contributi è stato ripristinato (annullato da un altro editore). Modifiche ripristinate: %d.</string>
+  <string name="suggested_edits_ip_blocked_message">Sembra che il tuo indirizzo IP (o intervallo di indirizzi IP) sia attualmente bloccato dalla modifica di Wikipedia. Trovi altre informazioni su cosa significa visitando il collegamento qui sotto.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
@@ -757,6 +770,7 @@
   <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Esplora in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
   <string name="onboarding_analytics_title">Invia dati anonimi</string>
+  <string name="onboarding_analytics_offline_text">Contribuisci a migliorare l\'applicazione facendoci sapere come la usi. I dati raccolti sono anonimi. &lt;a href=\"#privacy\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
   <string name="onboarding_create_account_sync">Sincronizza i tuoi elenchi di lettura</string>
   <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>

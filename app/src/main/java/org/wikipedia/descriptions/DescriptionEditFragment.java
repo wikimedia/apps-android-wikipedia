@@ -273,7 +273,7 @@ public class DescriptionEditFragment extends Fragment {
                 cancelCalls();
 
                 if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
-                    csrfClient = new CsrfTokenClient(wikiCommons, wikiCommons);
+                    csrfClient = new CsrfTokenClient(wikiCommons);
                 } else {
                     csrfClient = new CsrfTokenClient(wikiData, pageTitle.getWikiSite());
                 }
