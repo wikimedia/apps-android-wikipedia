@@ -14,9 +14,12 @@ import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
+import org.wikipedia.util.DateUtil;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -304,6 +307,14 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
         @NonNull public String getTitle() {
             return StringUtils.defaultString(title);
+        }
+
+        @NonNull public Date getDate() {
+            try {
+                return DateUtil.iso8601DateParse(timestamp);
+            } catch (ParseException e) {
+                return new Date();
+            }
         }
 
         @NonNull public String getParsedComment() {
