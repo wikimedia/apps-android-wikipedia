@@ -594,6 +594,8 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis slike (%s)</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
+  <string name="suggested_edits_image_tags_published">Objavljeno</string>
+  <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvaliteta uređivanja</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
@@ -610,6 +612,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Zadnje uređivanje</string>
   <string name="suggested_edits_last_edited_never">Nikad</string>
+  <string name="suggested_edits_task_new">novo</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>
   <string name="size_gb">%.2f GB</string>

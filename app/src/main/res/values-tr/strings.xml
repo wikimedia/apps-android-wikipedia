@@ -561,7 +561,7 @@
   <string name="preference_summary_notification_thanks">Birisi sizin bir düzenlemeniz için teşekkür etti</string>
   <string name="preference_title_notification_revert">Eski haline döndür</string>
   <string name="preference_summary_notification_revert">Katkılarınızdan biri geri alındı</string>
-  <string name="preference_title_notification_login_fail">Giriş</string>
+  <string name="preference_title_notification_login_fail">Oturum aç</string>
   <string name="preference_summary_notification_login_fail">Giriş aktiviteleriniz</string>
   <string name="preference_title_notification_mention">Bahsetme</string>
   <string name="preference_summary_notification_mention">Bir sayfada sizden bahseden biri var</string>
