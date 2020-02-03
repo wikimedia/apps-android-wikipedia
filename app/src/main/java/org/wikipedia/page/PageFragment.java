@@ -978,9 +978,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 return model.getTitle().getWikiSite();
             }
         };
-        bridge.addListener("link_clicked", linkHandler);
+        bridge.addListener("link", linkHandler);
 
-        bridge.addListener("reference_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
                 L.d("Detached from activity, so stopping reference click.");
                 return;
@@ -1010,7 +1010,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         }
                     }, L::d));
         });
-        bridge.addListener("image_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
             if (href.startsWith("./File:")) {
                 startGalleryActivity(href);
@@ -1018,11 +1018,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
             }
         });
-        bridge.addListener("media_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
             startGalleryActivity(href);
         });
-        bridge.addListener("pronunciation_clicked", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
                 avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
                 avPlayer.init();
@@ -1038,7 +1038,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 avPlayer.stop();
             }
         });
-        bridge.addListener("footer_item_selected", (String messageType, JsonObject messagePayload) -> {
+        bridge.addListener("footer_item", (String messageType, JsonObject messagePayload) -> {
             String itemType = messagePayload.get("itemType").getAsString();
             if ("talkPage".equals(itemType) && model.getTitle() != null) {
                 PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
