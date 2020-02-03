@@ -100,16 +100,13 @@ object JavaScriptActionHandler {
         if (model.page == null) {
             return ""
         }
-        val languageCount = L10nUtil.getUpdatedLanguageCountIfNeeded(model.page!!.title.wikiSite.languageCode(),
-                model.page!!.pageProperties.languageCount)
-        val showLanguagesLink = languageCount > 0
         val showEditHistoryLink = !(model.page!!.isMainPage || model.page!!.isFilePage)
         val lastModifiedDate = formatDateRelative(model.page!!.pageProperties.lastModified)
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
         val res = L10nUtil.getStringsForArticleLanguage(model.title, intArrayOf(R.string.read_more_section,
-                R.string.page_similar_titles, R.string.language_count_link_text, R.string.about_article_section,
-                R.string.edit_history_link_text, R.string.last_updated_text, R.string.content_license_text,
+                R.string.page_similar_titles, R.string.about_article_section,
+                R.string.edit_history_link_text, R.string.last_updated_text, R.string.page_footer_license_text,
                 R.string.talk_page_link_text, R.string.page_view_in_browser, R.string.content_license_cc_by_sa,
                 R.string.map_view_link_text, R.string.reference_list_title))
 
@@ -122,7 +119,6 @@ object JavaScriptActionHandler {
                 "   title: '${model.title!!.prefixedText}'," +
                 "   menu: {" +
                 "       items: [" +
-                                (if (showLanguagesLink) "pcs.c1.Footer.MenuItemType.languages, " else "") +
                                 (if (showEditHistoryLink) "pcs.c1.Footer.MenuItemType.lastEdited, " else "") +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
@@ -132,11 +128,10 @@ object JavaScriptActionHandler {
                 "   l10n: {" +
                 "           'readMoreHeading': '${res[R.string.read_more_section]}'," +
                 "           'menuDisambiguationTitle': '${res[R.string.page_similar_titles]}'," +
-                "           'menuLanguagesTitle': '${String.format(res[R.string.language_count_link_text], languageCount)}'," +
                 "           'menuHeading': '${res[R.string.about_article_section]}'," +
                 "           'menuLastEditedSubtitle': '${res[R.string.edit_history_link_text]}'," +
                 "           'menuLastEditedTitle': '${String.format(res[R.string.last_updated_text], lastModifiedDate)}'," +
-                "           'licenseString': '${res[R.string.content_license_text]}'," +
+                "           'licenseString': '${res[R.string.page_footer_license_text]}'," +
                 "           'menuTalkPageTitle': '${res[R.string.talk_page_link_text]}'," +
                 "           'viewInBrowserString': '${res[R.string.page_view_in_browser]}'," +
                 "           'licenseSubstitutionString': '${res[R.string.content_license_cc_by_sa]}'," +

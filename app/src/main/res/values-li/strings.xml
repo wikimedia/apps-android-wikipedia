@@ -46,8 +46,7 @@
   <string name="map_view_link_text">Betrach op \'n kaart</string>
   <string name="other_languages_indication_text">Laes in \'n anger spraok</string>
   <string name="language_count_link_text">Besjikbaar in %d anger spraoke</string>
-  <string name="content_license_html">Inhawd is besjikbaar ónger de &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie behauve wen anges is aangegaove</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewirkinge waere toegesjreve aan \'t IP-adres van die toestèl. Es se dich &lt;a href=\"https://#login\"&gt;aanmeljs&lt;/a&gt;, höbs se mieër privaatrechte.</string>
   <string name="preference_title_language" fuzzy="true">Wikipedia-spraok</string>
   <string name="langlinks_filter_hint">Zeuk</string>

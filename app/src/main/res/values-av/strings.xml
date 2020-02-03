@@ -13,8 +13,7 @@
   <string name="menu_page_share" fuzzy="true">Рехсезе</string>
   <string name="menu_page_find_in_page">Гьумералда батизе</string>
   <string name="last_updated_text">Ахирисеб цӀигьаби:%s</string>
-  <string name="content_license_html">Жаниб бугеб жо &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ихтияралда лъун бегьизе гьабуна (цоги жо хъван батӀичони)</string>
-  <string name="preference_title_language">Википедиялъул мацӀал</string>
+    <string name="preference_title_language">Википедиялъул мацӀал</string>
     <string name="langlinks_filter_hint">ЦIехезе</string>
   <string name="langlinks_empty">Гьаб гьумер цоги мацӀалда гьечӀо</string>
   <string name="langlinks_activity_title">Цоги мацӀазда</string>

@@ -69,7 +69,7 @@
   <string name="map_view_link_text">Погл. на карта</string>
   <string name="other_languages_indication_text">Прочитај на друг јазик</string>
   <string name="language_count_link_text">Достапно на %d други јазици</string>
-  <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="preference_title_language">Јазици на Википедија</string>
@@ -328,10 +328,13 @@
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
   <string name="view_wiki_error_message_timeout">Не можам да се поврзам со Википедија. Проверете си ја мрежната врска или обидете се подоцна</string>
   <string name="reference_title">Навод %s</string>
+  <string name="reference_list_title">Наводи</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Според системскиот изглед</string>
+  <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
+  <string name="empty_tab_title">Ново јазиче</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
@@ -450,7 +453,7 @@
   <string name="reading_lists_menu_create_list">Создај нов список</string>
   <string name="reading_lists_menu_sort_by">Подреди по</string>
   <string name="reading_lists_refresh_sync_option">Превчитај усогласување</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / регистрација</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / зачленување</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
     <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>
@@ -633,6 +636,7 @@
   <string name="suggested_edits_translate_descriptions">Преведи описи на статиите</string>
   <string name="suggested_edits_add_image_captions">Додај описи на слики</string>
   <string name="suggested_edits_translate_image_captions">Преведи описи на слики</string>
+  <string name="suggested_edits_tag_images">Означување на слики</string>
   <string name="suggested_edits_review_description">Преглед на описот на статијата</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
   <string name="suggested_edits_edit_description_button">Уреди опис</string>
@@ -691,6 +695,17 @@
   <string name="suggested_edits_task_action_text_add">Додај</string>
   <string name="suggested_edits_task_action_text_translate">Преведи</string>
   <string name="suggested_edits_image_captions">Описи на слики</string>
+  <string name="suggested_edits_image_tags">Ознаки на слики</string>
+  <string name="suggested_edits_image_tags_publishing">Објавувам</string>
+  <string name="suggested_edits_image_tags_published">Објавено</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Означете ги сликите за да можете полесно да ги најдете</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување.\n\nОзнаките ги предлага сметачот, но им треба човечка проверка за да бидат исправни.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
+  <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
+  <string name="suggested_edits_image_tags_task_detail">Означете ги сликите за да можат полесно да се пронаоѓаат. Ознаките се предлагаат автоматски, но ќе треба вие да ги потврдите или одбиете.</string>
+  <string name="suggested_edits_image_tags_choose">Изберете соодветни ознаки</string>
+  <string name="suggested_edits_image_tags_select_title">Немате избрано ниедна ознака за сликава</string>
+  <string name="suggested_edits_image_tags_select_text">Во сликите ќе се додаваат само ознаки кои сте ги избрале вие. Неизбраните ознаки ќе се сметаат за одбиени. Дали сигурно сакате да ги означите сите како одбиени?</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво %s&lt;/b&gt;. Дали сте знаеле дека секој може да ја уредува Википедија? Подолу ќе најдете интересни начини да помогнете во нејзиното подобрување. Пријатно уредување!</string>
   <string name="suggested_edits_image_captions_task_detail">Описите му кажуваат на читателот за што се работи и даваат контекст на сликата.</string>
@@ -725,6 +740,8 @@
   </plurals>
   <string name="suggested_edits_last_edited">Последно уредување</string>
   <string name="suggested_edits_last_edited_never">Никогаш</string>
+  <string name="suggested_edits_task_new">ново</string>
+  <string name="suggested_edits_cc0_notice">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо го објавувате овој придонес под лиценцата &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

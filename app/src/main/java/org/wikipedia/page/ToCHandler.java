@@ -62,7 +62,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
 
     private static final int MAX_LEVELS = 3;
-    private static final int TOP_SECTION_ID = 0;
     private static final int ABOUT_SECTION_ID = -1;
 
     private final SwipeableListView tocList;
@@ -241,7 +240,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             sections.clear();
             sectionYOffsets.clear();
             pageTitle = page.getDisplayTitle();
-            sections.add(new Section(TOP_SECTION_ID, 0, pageTitle, pageTitle, ""));
 
             for (Section s : page.getSections()) {
                 if (s.getLevel() < MAX_LEVELS) {

@@ -144,6 +144,10 @@ public class MwQueryPage extends BaseModel {
         return pageViewsMap != null ? pageViewsMap : Collections.emptyMap();
     }
 
+    @NonNull public List<ImageLabel> getImageLabels() {
+        return imageLabels != null ? imageLabels : Collections.emptyList();
+    }
+
     public static class Revision {
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
@@ -228,8 +232,20 @@ public class MwQueryPage extends BaseModel {
     }
 
     public static class ImageLabel {
-        @SerializedName("wikidata_id") @Nullable String wikidataId;
-        @Nullable String state;
-        @Nullable String label;
+        @SerializedName("wikidata_id") @Nullable private String wikidataId;
+        @Nullable private String state;
+        @Nullable private String label;
+
+        @NonNull public String getWikidataId() {
+            return StringUtils.defaultString(wikidataId);
+        }
+
+        @NonNull public String getState() {
+            return StringUtils.defaultString(state);
+        }
+
+        @NonNull public String getLabel() {
+            return StringUtils.defaultString(label);
+        }
     }
 }

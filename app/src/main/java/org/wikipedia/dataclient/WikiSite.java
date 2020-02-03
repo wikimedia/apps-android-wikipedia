@@ -288,6 +288,13 @@ public class WikiSite implements Parcelable {
             case AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE:
             case AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE:
                 return AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
+            default:
+                return normalizeLanguageCode(languageCode);
+        }
+    }
+
+    @NonNull public static String normalizeLanguageCode(@NonNull String languageCode) {
+        switch (languageCode) {
             case AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE:
                 return AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE; // T114042
             case AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE:

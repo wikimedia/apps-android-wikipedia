@@ -44,8 +44,7 @@
   <string name="menu_text_select_edit_here">Бында төҙәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="talk_page_link_text" fuzzy="true">Әңгәмә</string>
-  <string name="content_license_html">Эстәлек &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Үҙгәрештәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\"&gt; &lt;/a&gt; менән килешәһегеҙ, шулай уҡ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһы буйынса баҫманы кире таптырып алмаҫҡа ризалашаһығыҙ. Төҙәтмәләр һеҙҙең ҡоролманың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
   <string name="preference_title_language" fuzzy="true">Википедия теле</string>
   <string name="langlinks_filter_hint">Эҙләү</string>

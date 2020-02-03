@@ -95,7 +95,6 @@
   <string name="map_view_link_text">Zobacz na mapie</string>
   <string name="other_languages_indication_text">Przeczytaj w innym języku</string>
   <string name="language_count_link_text">Dostępne w %d innych językach</string>
-  <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
   <string name="preference_title_language">Języki Wikipedii</string>
@@ -354,10 +353,13 @@
   <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
   <string name="view_wiki_error_message_timeout">Nie można połączyć się z Wikipedią. Sprawdź swoje połączenie lub spróbuj ponownie później</string>
   <string name="reference_title">Przypis %s</string>
+  <string name="reference_list_title">Przypisy</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
   <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Dopasuj do motywu systemowego</string>
+  <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
+  <string name="empty_tab_title">Nowa karta</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
@@ -721,6 +723,8 @@
   <string name="suggested_edits_add_descriptions_task_detail">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
+  <string name="suggested_edits_last_edited">Ostatnia edycja</string>
+  <string name="suggested_edits_last_edited_never">Nigdy</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>
@@ -809,6 +813,7 @@
   <string name="main_drawer_content_description">Otwórz główną szufladę nawigacji</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
+  <string name="main_tooltip_text">%s, czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

@@ -24,8 +24,6 @@ public interface PageLeadProperties {
     @Nullable
     String getLastModified();
 
-    int getLanguageCount();
-
     @Nullable
     String getDisplayTitle();
 

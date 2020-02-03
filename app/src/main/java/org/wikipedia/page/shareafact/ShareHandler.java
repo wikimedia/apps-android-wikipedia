@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
@@ -113,7 +112,7 @@ public class ShareHandler {
                     final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.requireContext(),
                             fragment.getLeadImageBitmap(),
                             title.getDisplayText(),
-                            fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
+                            fragment.getPage().isMainPage() ? "" : title.getDescription(),
                             selectedText,
                             imageLicense);
                     fragment.showBottomSheet(new PreviewDialog(fragment.getContext(),

@@ -280,10 +280,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return editHandler;
     }
 
-    public ToCHandler getTocHandler() {
-        return tocHandler;
-    }
-
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -447,18 +443,60 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
-                updateSections();
-                setPageProtection();
             }
 
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                onPageLoadError(new Throwable());
+                onPageLoadError(new RuntimeException(description));
             }
         });
     }
 
-    private void setPageProtection() {
+    public void onPageMetadataLoaded() {
+        editHandler.setPage(model.getPage());
+        refreshView.setEnabled(true);
+        refreshView.setRefreshing(false);
+        requireActivity().invalidateOptionsMenu();
+        initPageScrollFunnel();
+
+        if (model.getReadingListPage() != null) {
+            final ReadingListPage page = model.getReadingListPage();
+            final PageTitle title = model.getTitle();
+            disposables.add(Completable.fromAction(() -> {
+                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
+                        || !TextUtils.equals(page.description(), title.getDescription())) {
+                    page.thumbUrl(title.getThumbUrl());
+                    page.description(title.getDescription());
+                    ReadingListDbHelper.instance().updatePage(page);
+                }
+            }).subscribeOn(Schedulers.io()).subscribe());
+        }
+
+        if (!errorState) {
+            editHandler.setPage(model.getPage());
+            webView.setVisibility(View.VISIBLE);
+        }
+
+        // TODO: As seen below, we are making four (4) separate requests over the Bridge.
+        // Does this impact performance? Can we reduce this?
+
+        bridge.execute(JavaScriptActionHandler.setFooter(model));
+
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
+
+        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+            if (secArray != null) {
+                sections = new ArrayList<>(Arrays.asList(secArray));
+                sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
+                if (model.getPage() != null) {
+                    model.getPage().setSections(sections);
+                }
+            }
+            tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+            tocHandler.setEnabled(true);
+        });
+
         bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
             Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
             if (model.getPage() != null) {
@@ -466,19 +504,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
             }
         });
-    }
 
-    private void updateSections() {
-        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
-            if (secArray != null) {
-                sections = Arrays.asList(secArray);
-                if (model.getPage() != null) {
-                    model.getPage().setSections(sections);
-                }
-            }
-            onPageLoadComplete();
-        });
+        checkAndShowBookmarkOnboarding();
+        maybeShowAnnouncement();
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
@@ -844,35 +872,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
         tocHandler.scrollToSection(sectionAnchor);
-    }
-
-    public void onPageLoadComplete() {
-        refreshView.setEnabled(true);
-        refreshView.setRefreshing(false);
-        requireActivity().invalidateOptionsMenu();
-        initPageScrollFunnel();
-
-        if (model.getReadingListPage() != null) {
-            final ReadingListPage page = model.getReadingListPage();
-            final PageTitle title = model.getTitle();
-            disposables.add(Completable.fromAction(() -> {
-                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
-                        || !TextUtils.equals(page.description(), title.getDescription())) {
-                    page.thumbUrl(title.getThumbUrl());
-                    page.description(title.getDescription());
-                    ReadingListDbHelper.instance().updatePage(page);
-                }
-            }).subscribeOn(Schedulers.io()).subscribe());
-        }
-
-        if (!errorState) {
-            webView.setVisibility(View.VISIBLE);
-        }
-
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
-
-        checkAndShowBookmarkOnboarding();
-        maybeShowAnnouncement();
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {

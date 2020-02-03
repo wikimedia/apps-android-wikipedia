@@ -34,7 +34,6 @@ public class PageProperties implements Parcelable {
     private final Date lastModified;
     private final String displayTitleText;
     private String editProtectionStatus;
-    private final int languageCount;
     private final boolean isMainPage;
     private final boolean isDisambiguationPage;
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
@@ -61,7 +60,6 @@ public class PageProperties implements Parcelable {
         revisionId = pageSummary.getRevision();
         displayTitleText = defaultString(pageSummary.getDisplayTitle());
         geo = pageSummary.getGeo();
-        languageCount = 1;
         lastModified = new Date();
         leadImageName = UriUtil.decodeURL(StringUtils.defaultString(pageSummary.getLeadImageName()));
         leadImageUrl = pageSummary.getThumbnailUrl() != null
@@ -90,7 +88,6 @@ public class PageProperties implements Parcelable {
         displayTitleText = defaultString(core.getDisplayTitle());
         geo = core.getGeo();
         editProtectionStatus = core.getFirstAllowedEditorRole();
-        languageCount = core.getLanguageCount();
 
         // todo: don't hardcode this here
         leadImageUrl = core.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
@@ -125,7 +122,6 @@ public class PageProperties implements Parcelable {
         displayTitleText = title.getDisplayText();
         geo = null;
         editProtectionStatus = "";
-        languageCount = 1;
         leadImageUrl = null;
         leadImageName = "";
         lastModified = new Date();
@@ -163,10 +159,6 @@ public class PageProperties implements Parcelable {
 
     public String getEditProtectionStatus() {
         return editProtectionStatus;
-    }
-
-    public int getLanguageCount() {
-        return languageCount;
     }
 
     public boolean canEdit() {
@@ -229,7 +221,6 @@ public class PageProperties implements Parcelable {
         parcel.writeString(displayTitleText);
         parcel.writeString(GeoMarshaller.marshal(geo));
         parcel.writeString(editProtectionStatus);
-        parcel.writeInt(languageCount);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
         parcel.writeInt(isDisambiguationPage ? 1 : 0);
@@ -247,7 +238,6 @@ public class PageProperties implements Parcelable {
         displayTitleText = in.readString();
         geo = GeoUnmarshaller.unmarshal(in.readString());
         editProtectionStatus = in.readString();
-        languageCount = in.readInt();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
         isDisambiguationPage = in.readInt() == 1;
@@ -287,7 +277,6 @@ public class PageProperties implements Parcelable {
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
                 && (geo == that.geo || geo != null && geo.equals(that.geo))
-                && languageCount == that.languageCount
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
                 && isDisambiguationPage == that.isDisambiguationPage
@@ -303,7 +292,6 @@ public class PageProperties implements Parcelable {
         result = 31 * result + displayTitleText.hashCode();
         result = 31 * result + (geo != null ? geo.hashCode() : 0);
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
-        result = 31 * result + languageCount;
         result = 31 * result + (isMainPage ? 1 : 0);
         result = 31 * result + (isDisambiguationPage ? 1 : 0);
         result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
