@@ -139,10 +139,10 @@
   <string name="create_account_already_have">Урут бэлиэтэммитиҥ дуо?</string>
   <string name="create_account_activity_title">Бэлиэтэнии</string>
   <string name="dialog_create_account_checking_progress">Тургутуу</string>
-  <string name="create_account_email_hint">Электрон почта (булгуччута суох)</string>
+  <string name="create_account_email_hint">Э-почта (булгуччута суох)</string>
   <string name="create_account_password_repeat_hint">Аһарыгы хатылаа</string>
   <string name="create_account_passwords_mismatch_error">Аһарыктарыҥ сөп түбэспэтилэр</string>
-  <string name="create_account_email_error">Электрон почтаҥ алҕастаах</string>
+  <string name="create_account_email_error">Э-почтаҥ алҕастаах</string>
   <string name="create_account_username_error">Бэлиэ-аакка туһаныллыбат бэлиэлэр туран хаалбыттар</string>
   <string name="create_account_password_error">Табыллыбат аhaрык</string>
   <string name="create_account_generic_error">Бэлиэтэнэр сатаммат</string>
@@ -150,7 +150,7 @@
   <string name="email_recommendation_dialog_title">Электрон аадырыһа суох бэлиэтэнэҕин дуо?</string>
   <string name="email_recommendation_dialog_message">Электрон аадырыскын ыйарыҥ булгуччута суох, ол эрээри &lt;b&gt;ыйарга сүбэлиибит&lt;/b&gt;, аһарыккын умуннаххына туһалыа.</string>
   <string name="email_recommendation_message">Бэлиэ-аакка киириини сөргүтэргэ туттуллар буолан сүбэлиибит.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Эл. почтата суох салҕаа</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Э-почтата суох салҕаа</string>
   <string name="email_recommendation_dialog_create_with_email_action">Эл. аадырыһы киллэрии</string>
   <string name="create_account_button">Бэлиэтэнии</string>
   <string name="create_account_name_unavailable">Маннык аат \"%s\" сатаммат. Бука диэн, атын аатта тал.</string>
@@ -329,9 +329,11 @@
   <string name="view_wiki_error_message_offline">Интэриниэккэ холбонор сатаммата</string>
   <string name="view_wiki_error_message_timeout">Бикипиэдьийэеэ холбонор сатаммата. Ситимҥин тургутан көр эбэтэр хойутуу киирэ сылдьаар</string>
   <string name="reference_title">Быһаарыы %s</string>
+  <string name="reference_list_title">Быһаарыылар</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Ойууну хараҥардыы (Хараҥа тиэмэҕэ)</string>
   <string name="preference_title_prefer_offline_content">Ситимэ суоҕу талар буол</string>
   <string name="preference_summary_prefer_offline_content">Ыстатыйа тиһэх барылын буолбакка, урут хачайдаммыты көрөдөрөн трафигы кэмчилиир</string>
+  <string name="page_footer_license_text">Маны туһанары $1 лиссиэнсийэ көҥүллүүр (атын ыйыллыбытах буоллаҕына).</string>
   <string name="empty_tab_title">Саҥа кыбытык</string>
   <string name="crash_report_activity_title">Дьибилгэт алҕаһа</string>
   <string name="crash_report_relaunch_or_quit">Бикипиэдьийэ дьибилгэтэ моһуогурда онон сабылынна.\n\nХос ыытаҕын дуу, отой тахсаҕын дуу?</string>
