@@ -70,7 +70,7 @@
   <string name="map_view_link_text">Xerita sero bıvênên</string>
   <string name="other_languages_indication_text">Zıwanê binan de bıwanê</string>
   <string name="language_count_link_text">%d zıwananê binan de esto</string>
-    <string name="preference_title_language">Zıwanê Wikipedia</string>
+  <string name="preference_title_language">Zıwanê Wikipedia</string>
   <string name="langlinks_filter_hint">Cı geyre</string>
   <string name="langlinks_empty">Na wesiqa zıwanan de binan de çıniya</string>
   <string name="langlinks_no_match">Zıwan nêvineya</string>
@@ -98,6 +98,7 @@
   <string name="login_activity_title">Wikipediya kewe</string>
   <string name="login_in_progress_dialog_message">Ronıştışo abêno...</string>
   <string name="login_success_toast">Hesab abıya!</string>
+  <string name="reset_password_hint">Parolaya newiye</string>
   <string name="preference_title_logout">Bıveciye</string>
   <string name="toast_logout_complete">Ronıştış racneya</string>
   <string name="logout_dialog_cancel_button_text">Bıtexelne</string>
@@ -135,6 +136,7 @@
   <string name="preferences_heading_experimental">Cerrebın</string>
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
   <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
+  <string name="history_search_list_hint">Tarixê cıgeyrayışi</string>
   <string name="settings_item_preferences">Eyari</string>
   <string name="settings_activity_title">Eyari</string>
   <string name="about_description">Heqdê dezgehda Wikipedia</string>
@@ -201,6 +203,7 @@
   <string name="multi_select_items_selected">%d weçineyê</string>
   <string name="error_message_generic">Yew xeta biye</string>
   <string name="view_link_preview_error_button_dismiss">Red ke</string>
+  <string name="reference_list_title">Çımeyi</string>
   <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
   <string name="article_header_edit_hint">Bıvurne...</string>
@@ -228,6 +231,8 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Cı kewe</string>
   <string name="reading_list_turned_sync_off_dialog_ok">TEMAM</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Eyari</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nê, teşekur</string>
+  <string name="default_reading_list_name">Qeyd bi</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">TEMAM</string>
   <string name="reading_list_delete_dialog_ok_button_text">TEMAM</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Bıtexelne</string>
@@ -237,6 +242,11 @@
   <string name="reading_list_split_dialog_ok_button_text">TEMAM</string>
   <string name="notification_syncing_pause_button">Bıvındarne</string>
   <string name="notification_syncing_cancel_button">Bıtexelne</string>
+  <string name="preference_title_notification_system">Sistem</string>
+  <string name="preference_title_notification_thanks">Teşekur</string>
+  <string name="preference_title_notification_revert">Wegeyrayış</string>
+  <string name="preference_title_notification_login_fail">Cıkewtış</string>
+  <string name="preference_title_notification_user_talk">Pela werênayışi</string>
   <string name="view_featured_image_card_download">Biya war</string>
   <string name="menu_feed_card_dismiss">Na qert bınımn</string>
   <string name="menu_feed_card_dismissed">Qert nımneyê</string>
@@ -255,6 +265,7 @@
   <string name="view_featured_article_footer_save_button_label">Qeyd ke</string>
   <string name="view_static_card_save_button_label">Qeyd ke</string>
   <string name="view_featured_article_footer_saved_button_label">Qeyd bi</string>
+  <string name="feed_configure_menu_select_all">Pêro bımocne</string>
   <string name="customize_lang_selection_dialog_ok_button_text">TEMAM</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="feed_lang_selection_dialog_ok_button_text">TEMAM</string>
@@ -275,7 +286,16 @@
   <string name="suggested_edits_menu_info">Melumat</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Arezekerdış cı ke</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Senetkar</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Nuştekar</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Çıme</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lisans</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Tarix</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Senetkar</string>
+  <string name="suggested_edits_image_preview_dialog_date">Tarix</string>
+  <string name="suggested_edits_image_preview_dialog_source">Çıme/Fotrafkar</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Bıvêne</string>
   <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="suggested_edits_task_action_text_add">Cı ke</string>
   <string name="suggested_edits_task_action_text_translate">Açarne</string>

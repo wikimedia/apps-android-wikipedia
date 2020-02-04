@@ -108,7 +108,8 @@
   <string name="map_view_link_text">Ver en un mapa</string>
   <string name="other_languages_indication_text">Leer en otro idioma</string>
   <string name="language_count_link_text">Disponible en %d idiomas más</string>
-    <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idiomas de Wikipedia</string>
   <string name="langlinks_filter_hint">Buscar</string>
@@ -654,9 +655,12 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/es</string>
   <string name="description_edit_anon_limit">¡Gracias por tu continuo interés en la edición de descripciones de artículos! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al cambiar la descripción del artículo, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_helper_text_lowercase_warning">usualmente comienza con una letra minúscula</string>
   <string name="description_edit_success_saved">Descripción de artículo publicada</string>
   <string name="description_edit_success_saved_snackbar">Se publicó la descripción del artículo.</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">¡Descripción de artículo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">¡Leyenda de imagen publicada! (%s)</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
@@ -671,6 +675,7 @@
   <string name="suggested_edits_translate_descriptions">Traducir descripciones de artículos</string>
   <string name="suggested_edits_add_image_captions">Añadir leyendas de imagen</string>
   <string name="suggested_edits_translate_image_captions">Traducir leyendas de imágenes</string>
+  <string name="suggested_edits_tag_images">Etiqueta de imágenes</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>
   <string name="suggested_edits_edit_description_button">Editar descripción</string>
@@ -693,7 +698,7 @@
   <string name="suggested_edits_task_multilingual_title">Más tareas para editores plurilingües</string>
   <string name="suggested_edits_task_multilingual_description">Las tareas de traducción estarán disponibles si lees y escribes en más de un idioma de Wikipedia.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Deshabilitado hasta que hayas edito %d leyendas imágenes</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Deshabilitado hasta que hayas editado %d descripciones de titulo</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado hasta que haya editado %d descripciones de artículos (verificado)</string>
   <string name="suggested_edits_task_multilingual_negative">No para mí</string>
   <string name="suggested_edits_task_multilingual_positive">Añadir idiomas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
@@ -727,6 +732,10 @@
   <string name="suggested_edits_task_action_text_add">Añadir</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
   <string name="suggested_edits_image_captions">Leyendas de imágenes</string>
+  <string name="suggested_edits_image_tags">Etiquetas de imagen</string>
+  <string name="suggested_edits_image_tags_publishing">Publicando</string>
+  <string name="suggested_edits_image_tags_published">Publicado</string>
+  <string name="suggested_edits_edit_streak_label_text">Editar racha</string>
   <string name="suggested_edits_pageviews_label_text">Visitas de página</string>
   <string name="suggested_edits_quality_label_text">Calidad de ediciones</string>
   <string name="suggested_edits_quality_perfect_text">Perfecta</string>
@@ -745,7 +754,9 @@
     <item quantity="one">%d día</item>
     <item quantity="other">%d días</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
+  <string name="suggested_edits_task_new">nuevo</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -820,6 +831,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Aceptar</string>
   <string name="reverted_edit_dialog_ok_button_text">Aceptar</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
+  <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
   <string name="wikitext_bold">Negrita</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enlace</string>

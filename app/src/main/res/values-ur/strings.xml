@@ -61,7 +61,7 @@
   <string name="map_view_link_text">نقشے پر دیکھیں</string>
   <string name="other_languages_indication_text">دوسری زبان میں پڑھیں</string>
   <string name="language_count_link_text">%d دیگر زبانوں میں دستیاب ہے</string>
-    <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
+  <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
   <string name="edit_save_action_license_anon">شائع کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;  اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
   <string name="preference_title_language">ویکیپیڈیا کی زبانیں</string>
   <string name="langlinks_filter_hint">تلاش</string>
