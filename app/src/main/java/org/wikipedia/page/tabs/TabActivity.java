@@ -28,8 +28,10 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -50,6 +52,7 @@ import de.mrapp.android.tabswitcher.TabSwitcherDecorator;
 import de.mrapp.android.tabswitcher.TabSwitcherListener;
 import de.mrapp.android.util.logging.LogLevel;
 
+import static org.wikipedia.Constants.InvokeSource.TABS_ACTIVITY;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class TabActivity extends BaseActivity {
@@ -69,6 +72,7 @@ public class TabActivity extends BaseActivity {
     private TabFunnel funnel = new TabFunnel();
     private boolean cancelled = true;
     private long tabUpdatedTimeMillis;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     @Nullable private static Bitmap FIRST_TAB_BITMAP;
 
@@ -262,6 +266,9 @@ public class TabActivity extends BaseActivity {
                 alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                 alert.create().show();
                 return true;
+            case R.id.menu_save_all_tabs:
+                saveTabsToList();
+                return true;
             case R.id.menu_explore:
                 goToMainTab(NavTab.EXPLORE);
                 return true;
@@ -275,6 +282,16 @@ public class TabActivity extends BaseActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void saveTabsToList() {
+        List<org.wikipedia.page.tabs.Tab> tabsList = app.getTabList();
+        List<PageTitle> titlesList = new ArrayList<>();
+        for (org.wikipedia.page.tabs.Tab tab : tabsList) {
+            titlesList.add(tab.getBackStackPositionTitle());
+        }
+        bottomSheetPresenter.show(getSupportFragmentManager(),
+                AddToReadingListDialog.newInstance(titlesList, TABS_ACTIVITY));
     }
 
     private boolean topTabLeadImageEnabled() {

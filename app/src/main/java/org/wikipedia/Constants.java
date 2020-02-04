@@ -88,7 +88,8 @@ public final class Constants {
         VOICE("voice"),
         ON_THIS_DAY_CARD_BODY("onThisDayCard"),
         ON_THIS_DAY_CARD_FOOTER("onThisDayCardFooter"),
-        LEAD_IMAGE("leadImage");
+        LEAD_IMAGE("leadImage"),
+        TABS_ACTIVITY("tabsActivity");
 
         private String name;
 
