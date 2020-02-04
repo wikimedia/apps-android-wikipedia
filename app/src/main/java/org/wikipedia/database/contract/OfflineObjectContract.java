@@ -14,12 +14,13 @@ public interface OfflineObjectContract {
 
     interface Col {
         IdColumn ID = new IdColumn(TABLE);
-        StrColumn URL = new StrColumn(TABLE, "url", "string");
+        StrColumn URL = new StrColumn(TABLE, "url", "string not null");
         StrColumn LANG = new StrColumn(TABLE, "lang", "string");
-        StrColumn PATH = new StrColumn(TABLE, "path", "string");
+        StrColumn PATH = new StrColumn(TABLE, "path", "string not null");
+        StrColumn USEDBY = new StrColumn(TABLE, "usedby", "string");
         IntColumn STATUS = new IntColumn(TABLE, "status", "integer not null");
 
         String[] SELECTION = DbUtil.qualifiedNames(URL);
-        String[] ALL = DbUtil.qualifiedNames(ID, URL, LANG, PATH, STATUS);
+        String[] ALL = DbUtil.qualifiedNames(ID, URL, LANG, PATH, USEDBY, STATUS);
     }
 }

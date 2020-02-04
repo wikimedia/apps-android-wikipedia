@@ -2,9 +2,11 @@ package org.wikipedia.offline;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.OfflineObjectContract;
@@ -14,35 +16,37 @@ import java.util.List;
 
 public class OfflineObjectTable extends DatabaseTable<OfflineObject> {
     private static final int DB_VER_INTRODUCED = 20;
+    public static final OfflineObjectTable DATABASE_TABLE = new OfflineObjectTable();
 
-    public OfflineObjectTable() {
+    private OfflineObjectTable() {
         super(OfflineObjectContract.TABLE, OfflineObjectContract.URI);
     }
 
     @Override public OfflineObject fromCursor(@NonNull Cursor cursor) {
-        ReadingList list = new ReadingList(ReadingListContract.Col.TITLE.val(cursor),
-                ReadingListContract.Col.DESCRIPTION.val(cursor));
-        list.id(ReadingListContract.Col.ID.val(cursor));
-        list.atime(ReadingListContract.Col.ATIME.val(cursor));
-        list.mtime(ReadingListContract.Col.MTIME.val(cursor));
-        list.sizeBytes(ReadingListContract.Col.SIZEBYTES.val(cursor));
-        list.dirty(ReadingListContract.Col.DIRTY.val(cursor) != 0);
-        list.remoteId(ReadingListContract.Col.REMOTEID.val(cursor));
-        return list;
+        OfflineObject obj = new OfflineObject(OfflineObjectContract.Col.URL.val(cursor),
+                OfflineObjectContract.Col.LANG.val(cursor),
+                OfflineObjectContract.Col.PATH.val(cursor),
+                OfflineObjectContract.Col.STATUS.val(cursor));
+        String usedByStr = OfflineObjectContract.Col.USEDBY.val(cursor);
+        if (!TextUtils.isEmpty(usedByStr)) {
+            String[] usedBy = usedByStr.split(",");
+            for (String s : usedBy) {
+                obj.getUsedBy().add(Integer.parseInt(s));
+            }
+        }
+        return obj;
     }
 
     @NonNull @Override public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case DB_VER_INTRODUCED:
                 List<Column<?>> cols = new ArrayList<>();
-                cols.add(ReadingListContract.Col.ID);
-                cols.add(ReadingListContract.Col.TITLE);
-                cols.add(ReadingListContract.Col.MTIME);
-                cols.add(ReadingListContract.Col.ATIME);
-                cols.add(ReadingListContract.Col.DESCRIPTION);
-                cols.add(ReadingListContract.Col.SIZEBYTES);
-                cols.add(ReadingListContract.Col.DIRTY);
-                cols.add(ReadingListContract.Col.REMOTEID);
+                cols.add(OfflineObjectContract.Col.ID);
+                cols.add(OfflineObjectContract.Col.URL);
+                cols.add(OfflineObjectContract.Col.LANG);
+                cols.add(OfflineObjectContract.Col.PATH);
+                cols.add(OfflineObjectContract.Col.USEDBY);
+                cols.add(OfflineObjectContract.Col.STATUS);
                 return cols.toArray(new Column<?>[cols.size()]);
             default:
                 return super.getColumnsAdded(version);
@@ -51,23 +55,21 @@ public class OfflineObjectTable extends DatabaseTable<OfflineObject> {
 
     @Override protected ContentValues toContentValues(@NonNull OfflineObject row) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ReadingListContract.Col.TITLE.getName(), row.dbTitle());
-        contentValues.put(ReadingListContract.Col.MTIME.getName(), row.mtime());
-        contentValues.put(ReadingListContract.Col.ATIME.getName(), row.atime());
-        contentValues.put(ReadingListContract.Col.DESCRIPTION.getName(), row.description());
-        contentValues.put(ReadingListContract.Col.SIZEBYTES.getName(), row.sizeBytes());
-        contentValues.put(ReadingListContract.Col.DIRTY.getName(), row.dirty() ? 1 : 0);
-        contentValues.put(ReadingListContract.Col.REMOTEID.getName(), row.remoteId());
+        contentValues.put(OfflineObjectContract.Col.URL.getName(), row.getUrl());
+        contentValues.put(OfflineObjectContract.Col.LANG.getName(), row.getLang());
+        contentValues.put(OfflineObjectContract.Col.PATH.getName(), row.getPath());
+        contentValues.put(OfflineObjectContract.Col.STATUS.getName(), row.getStatus());
+        contentValues.put(OfflineObjectContract.Col.USEDBY.getName(), StringUtils.join(row.getUsedBy(), ','));
         return contentValues;
     }
 
     @Override protected String getPrimaryKeySelection(@NonNull OfflineObject row,
                                                       @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(row, ReadingListContract.Col.SELECTION);
+        return super.getPrimaryKeySelection(row, OfflineObjectContract.Col.SELECTION);
     }
 
     @Override protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull OfflineObject row) {
-        return new String[] {row.dbTitle()};
+        return new String[] {row.getUrl()};
     }
 
     @Override protected int getDBVersionIntroducedAt() {
