@@ -131,7 +131,7 @@ public class OfflineCacheInterceptor implements Interceptor {
         return response;
     }
 
-    private static boolean shouldSave(@NonNull Request request) {
+    public static boolean shouldSave(@NonNull Request request) {
         return "GET".equals(request.method()) && SAVE_HEADER_SAVE.equals(request.header(SAVE_HEADER));
     }
 
