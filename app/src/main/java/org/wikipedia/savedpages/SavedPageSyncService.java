@@ -222,17 +222,12 @@ public class SavedPageSyncService extends JobIntentService {
                         reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision),
                         reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision),
                         reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle), (summaryRsp, mediaListRsp, referencesRsp, mobileHTMLRsp) -> {
-                            long totalSize = 0;
-                            totalSize += responseSize(summaryRsp);
                             page.downloadProgress(SUMMARY_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                            totalSize += responseSize(mobileHTMLRsp);
                             page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                            totalSize += responseSize(mediaListRsp);
                             page.downloadProgress(MEDIA_LIST_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                            totalSize += responseSize(referencesRsp);
                             page.downloadProgress(REFERENCES_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
                             Set<String> fileUrls = new HashSet<>();
@@ -248,32 +243,32 @@ public class SavedPageSyncService extends JobIntentService {
                                 }
                             }
 
-                            // download thumbnail and lead image
-                            if (!TextUtils.isEmpty(summaryRsp.body().getThumbnailUrl())) {
-                                page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
-                                        summaryRsp.body().getThumbnailUrl()));
-                                persistPageThumbnail(pageTitle, page.thumbUrl());
-                                fileUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil
-                                        .getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
-                            }
+                            if (Prefs.isImageDownloadEnabled()) {
+                                // download thumbnail and lead image
+                                if (!TextUtils.isEmpty(summaryRsp.body().getThumbnailUrl())) {
+                                    page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+                                            summaryRsp.body().getThumbnailUrl()));
+                                    persistPageThumbnail(pageTitle, page.thumbUrl());
+                                    fileUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil
+                                            .getUrlForPreferredSize(page.thumbUrl(), DimenUtil.calculateLeadImageWidth())));
+                                }
 
-                            // download article images
-                            for (MediaListItem item : mediaListRsp.body().getItems("image")) {
-                                if (!item.getSrcSets().isEmpty()) {
-                                    fileUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
+                                // download article images
+                                for (MediaListItem item : mediaListRsp.body().getItems("image")) {
+                                    if (!item.getSrcSets().isEmpty()) {
+                                        fileUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
+                                    }
                                 }
                             }
 
                             page.title(summaryRsp.body().getDisplayTitle());
                             page.description(summaryRsp.body().getDescription());
 
-                            if (Prefs.isImageDownloadEnabled()) {
-                                totalSize += reqSaveFiles(page, pageTitle, fileUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
-                            }
+                            reqSaveFiles(page, pageTitle, fileUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
 
-                            String title = pageTitle.getPrefixedText();
-                            L.i("Saved page " + title + " (" + totalSize + ")");
+                            long totalSize = OfflineObjectDbHelper.instance().getTotalBytesForPageId(page.id());
 
+                            L.i("Saved page " + pageTitle.getPrefixedText() + " (" + totalSize + ")");
                             return totalSize;
                         });
                 })
@@ -331,10 +326,9 @@ public class SavedPageSyncService extends JobIntentService {
         });
     }
 
-    private long reqSaveFiles(@NonNull ReadingListPage page, @NonNull PageTitle pageTitle, @NonNull Set<String> urls,
+    private void reqSaveFiles(@NonNull ReadingListPage page, @NonNull PageTitle pageTitle, @NonNull Set<String> urls,
                               int progressStart, int progressEnd) throws IOException, InterruptedException {
         int numOfImages = urls.size();
-        long totalSize = 0;
         float percentage = progressStart;
         float updateRate = (progressEnd - percentage) / numOfImages;
         for (String url : urls) {
@@ -342,7 +336,7 @@ public class SavedPageSyncService extends JobIntentService {
                 throw new InterruptedException("Sync paused or cancelled.");
             }
             try {
-                totalSize += reqSaveUrl(pageTitle, page.wiki(), url, CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE);
+                reqSaveUrl(pageTitle, page.wiki(), url, CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE);
                 percentage += updateRate;
                 page.downloadProgress((int) percentage);
                 WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
@@ -355,11 +349,9 @@ public class SavedPageSyncService extends JobIntentService {
         }
         page.downloadProgress(progressEnd);
         WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-
-        return totalSize;
     }
 
-    private long reqSaveUrl(@NonNull PageTitle pageTitle,
+    private void reqSaveUrl(@NonNull PageTitle pageTitle,
                             @NonNull WikiSite wiki,
                             @NonNull String url,
                             @NonNull CacheControl cacheControl,
@@ -374,23 +366,20 @@ public class SavedPageSyncService extends JobIntentService {
 
         // Read the entirety of the response, so that it's written to cache by the interceptor.
         rsp.body().source().readAll(new Sink() {
-            @Override public void write(Buffer buffer, long l) throws IOException {
+            @Override public void write(Buffer buffer, long l) {
             }
 
-            @Override public void flush() throws IOException {
+            @Override public void flush() {
             }
 
             @Override public Timeout timeout() {
                 return new Timeout();
             }
 
-            @Override public void close() throws IOException {
+            @Override public void close() {
             }
         });
         rsp.body().close();
-
-        // Size must be checked after the body has been written.
-        return responseSize(rsp);
     }
 
     @NonNull private Request.Builder makeUrlRequest(@NonNull CacheControl cacheControl, @NonNull WikiSite wiki, @NonNull String url) {
@@ -411,15 +400,5 @@ public class SavedPageSyncService extends JobIntentService {
         //- HTTP 404 status (for nonexistent media)
         return !(t instanceof IllegalArgumentException
                 || ThrowableUtil.is404(t));
-    }
-
-    private long responseSize(@NonNull Response rsp) {
-        // TODO!
-        return 0; //OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.request());
-    }
-
-    private long responseSize(@NonNull retrofit2.Response rsp) {
-        // TODO!
-        return 0; //OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.raw().request());
     }
 }

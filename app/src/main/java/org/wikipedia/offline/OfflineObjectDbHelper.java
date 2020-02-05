@@ -150,10 +150,37 @@ public class OfflineObjectDbHelper {
         }
     }
 
+    public long getTotalBytesForPageId(long id) {
+        SQLiteDatabase db = getReadableDatabase();
+        List<OfflineObject> objects = new ArrayList<>();
+        try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
+                OfflineObjectContract.Col.USEDBY.getName() + " LIKE '%|" + id + "|%'",
+                null, null, null, null)) {
+            while (cursor.moveToNext()) {
+                OfflineObject obj = OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
+                if (!obj.getUsedBy().contains(id)) {
+                    continue;
+                }
+                objects.add(obj);
+            }
+        }
+
+        long totalBytes = 0;
+        try {
+            for (OfflineObject obj : objects) {
+                final File contentsFile = new File(obj.getPath() + ".1");
+                totalBytes += contentsFile.length();
+            }
+        } catch (Exception e) {
+            L.w(e);
+        }
+        return totalBytes;
+    }
+
     public static void deleteFilesForObject(@NonNull OfflineObject obj) {
         try {
-            final File metadataFile = new File(obj.getPath() + ".0");
-            final File contentsFile = new File(obj.getPath() + ".1");
+            File metadataFile = new File(obj.getPath() + ".0");
+            File contentsFile = new File(obj.getPath() + ".1");
             metadataFile.delete();
             contentsFile.delete();
         } catch (Exception e) {
