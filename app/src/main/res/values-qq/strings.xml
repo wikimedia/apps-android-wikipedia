@@ -542,6 +542,7 @@
   <string name="notifications_view_archived_button_text">Button label for navigating to the list of archived notifications.</string>
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
+  <string name="notification_many_unread">Message telling the user that they have multiple unread notifications. The %d symbol is replaced with the number of notifications.</string>
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
   <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>
