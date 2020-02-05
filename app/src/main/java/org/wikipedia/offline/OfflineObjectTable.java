@@ -31,7 +31,7 @@ public class OfflineObjectTable extends DatabaseTable<OfflineObject> {
         if (!TextUtils.isEmpty(usedByStr)) {
             String[] usedBy = usedByStr.split(",");
             for (String s : usedBy) {
-                obj.getUsedBy().add(Integer.parseInt(s));
+                obj.getUsedBy().add(Long.parseLong(s));
             }
         }
         return obj;

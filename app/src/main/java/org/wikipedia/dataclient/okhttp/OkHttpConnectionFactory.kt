@@ -27,7 +27,7 @@ object OkHttpConnectionFactory {
                 .addNetworkInterceptor(CacheControlInterceptor())
                 .addInterceptor(CommonHeaderRequestInterceptor())
                 .addInterceptor(DefaultMaxStaleRequestInterceptor())
-                .addInterceptor(OfflineCacheInterceptor(SAVE_CACHE))
+                .addInterceptor(OfflineCacheInterceptor())
                 .addInterceptor(TestStubInterceptor())
                 .build()
     }
