@@ -118,7 +118,9 @@ public interface RestService {
 
     @GET("page/references/{title}/{revision}")
     @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
-                                                  @Path("revision") long revision);
+                                                  @Path("revision") long revision,
+                                                  @Nullable @Header(OfflineCacheInterceptor.LANG_HEADER) String langHeader,
+                                                  @Nullable @Header(OfflineCacheInterceptor.TITLE_HEADER) String titleHeader);
 
     @GET("page/references/{title}/{revision}")
     @NonNull Observable<Response<References>> getReferencesResponse(@Path("title") String title,

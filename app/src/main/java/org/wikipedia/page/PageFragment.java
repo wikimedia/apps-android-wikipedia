@@ -1365,7 +1365,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public Observable<References> getReferences() {
-        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision()) : Observable.just(references);
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision(),
+                getTitle().getWikiSite().languageCode(), getTitle().getPrefixedText())
+                : Observable.just(references);
     }
 
     public LinkHandler getLinkHandler() {

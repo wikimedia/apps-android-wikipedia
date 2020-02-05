@@ -2,6 +2,7 @@ package org.wikipedia.offline;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,17 +26,20 @@ public class OfflineObjectDbHelper {
         return INSTANCE;
     }
 
-    @Nullable public OfflineObject findObject(@NonNull String url, @NonNull String lang) {
+    @Nullable public OfflineObject findObject(@NonNull String url, @Nullable String lang) {
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
-                OfflineObjectContract.Col.URL.getName() + " = ? AND "
-                        + OfflineObjectContract.Col.LANG.getName() + " = ?",
-                new String[]{url, lang,},
+                TextUtils.isEmpty(lang) ? OfflineObjectContract.Col.URL.getName() + " = ?"
+                        : OfflineObjectContract.Col.URL.getName() + " = ? AND " + OfflineObjectContract.Col.LANG.getName() + " = ?",
+                TextUtils.isEmpty(lang) ? new String[]{url} : new String[]{url, lang},
                 null, null, null)) {
             if (cursor.moveToFirst()) {
                 return OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
             }
         }
+        // Couldn't find an exact match, so...
+        // If we're trying to load an image from Commons, try to look for any other resolution.
+        // TODO ^^
         return null;
     }
 

@@ -14,7 +14,7 @@ import org.wikipedia.database.contract.OfflineObjectContract;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OfflineObjectTable extends DatabaseTable<OfflineObject> {
+public final class OfflineObjectTable extends DatabaseTable<OfflineObject> {
     private static final int DB_VER_INTRODUCED = 20;
     public static final OfflineObjectTable DATABASE_TABLE = new OfflineObjectTable();
 

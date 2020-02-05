@@ -41,39 +41,46 @@ public class OfflineCacheInterceptor implements Interceptor {
     public Response intercept(@NonNull Chain chain) throws IOException {
         Request request = chain.request();
         Response response;
-        IOException networkException = null;
+        IOException networkException;
 
         String lang = request.header(LANG_HEADER);
         String title = request.header(TITLE_HEADER);
 
-        if (WikipediaApp.getInstance().isOnline()) {
-            // attempt to read from the network.
-            try {
-                response = chain.proceed(request);
-                // is this response worthy of caching offline?
-                if (response.isSuccessful() && response.networkResponse() != null && isCacheable(request)
-                        && !TextUtils.isEmpty(lang) && !TextUtils.isEmpty(title)) {
+        // attempt to read from the network.
+        try {
+            response = chain.proceed(request);
+            // is this response worthy of caching offline?
+            if (response.isSuccessful() && response.networkResponse() != null && shouldSave(request)
+                    && !TextUtils.isEmpty(lang) && !TextUtils.isEmpty(title)) {
 
-                    // Cache (or re-cache) the response, overwriting any previous version.
-                    return getCacheWritingResponse(request, response, lang, title);
+                // Cache (or re-cache) the response, overwriting any previous version.
+                return getCacheWritingResponse(request, response, lang, title);
 
-                }
-                return response;
-            } catch (IOException t) {
-                networkException = t;
             }
+            return response;
+        } catch (IOException t) {
+            networkException = t;
         }
 
         // If we're here, then the network call failed.
         // Time to see if we can load this content from offline storage.
 
-        if (!isCacheable(request) || TextUtils.isEmpty(lang) || TextUtils.isEmpty(title)) {
-            throw networkException != null ? networkException : new IOException("Invalid headers when requesting offline object.");
+        String url = request.url().toString();
+
+        // If we don't have the correct headers to retrieve this item, then bail.
+        if (TextUtils.isEmpty(lang)) {
+            // ...unless we're looking for an image from Commons, in which case we'll try to match it by URL only.
+            if (url.contains("/commons/")) {
+                lang = "";
+            } else {
+                throw networkException;
+            }
         }
 
-        OfflineObject obj = OfflineObjectDbHelper.instance().findObject(request.url().toString(), lang);
+        OfflineObject obj = OfflineObjectDbHelper.instance().findObject(url, lang);
         if (obj == null) {
-            throw networkException != null ? networkException : new IOException("Offline object not present in database.");
+            L.w("Offline object not present in database.");
+            throw networkException;
         }
 
         File metadataFile = new File(obj.getPath() + ".0");
@@ -119,7 +126,7 @@ public class OfflineCacheInterceptor implements Interceptor {
         return response;
     }
 
-    private static boolean isCacheable(@NonNull Request request) {
+    private static boolean shouldSave(@NonNull Request request) {
         return "GET".equals(request.method()) && SAVE_HEADER_SAVE.equals(request.header(SAVE_HEADER));
     }
 
@@ -132,16 +139,16 @@ public class OfflineCacheInterceptor implements Interceptor {
     private Response getCacheWritingResponse(@NonNull Request request, @NonNull Response response,
                                              @NonNull String lang, @NonNull String title) {
         String contentType = response.header("Content-Type", "*/*");
-        long contentLength = Long.parseLong(response.header("Content-Length", "0"));
+        long contentLength = Long.parseLong(response.header("Content-Length", "-1"));
 
         String cachePath = WikipediaApp.getInstance().getFilesDir().getAbsolutePath()
                 + File.separator + OfflineObjectDbHelper.OFFLINE_PATH;
         new File(cachePath).mkdirs();
 
-        final String filePath = cachePath + File.separator + getObjectFileName(request.url().toString(), lang, contentType);
+        String filePath = cachePath + File.separator + getObjectFileName(request.url().toString(), lang, contentType);
 
-        final File metadataFile = new File(filePath + ".0");
-        final File contentsFile = new File(filePath + ".1");
+        File metadataFile = new File(filePath + ".0");
+        File contentsFile = new File(filePath + ".1");
 
         try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(metadataFile))) {
             writer.write(request.url().toString() + "\n");
@@ -165,91 +172,118 @@ public class OfflineCacheInterceptor implements Interceptor {
             L.e(e);
             return response;
         }
-        final BufferedSource source = response.body().source();
-        final BufferedSink cacheFileSink = sink;
 
-        Source cacheWritingSource = new Source() {
-            boolean cacheRequestClosed;
-            boolean failed;
-
-            @Override
-            public long read(@NonNull Buffer sink, long byteCount) throws IOException {
-                long bytesRead;
-                try {
-                    bytesRead = source.read(sink, byteCount);
-                } catch (IOException e) {
-                    failed = true;
-                    if (!cacheRequestClosed) {
-                        cacheRequestClosed = true;
-                        // Failed to write a complete cache response.
-                    }
-                    throw e;
-                }
-
-                if (bytesRead == -1) {
-                    if (!cacheRequestClosed) {
-                        cacheRequestClosed = true;
-                        // The cache response is complete!
-                        cacheFileSink.close();
-
-                        // update the record in the database!
-                        OfflineObjectDbHelper.instance().addObject(request.url().toString(), lang, filePath, title);
-                    }
-                    return -1;
-                }
-
-                sink.copyTo(cacheFileSink.buffer(), sink.size() - bytesRead, bytesRead);
-                cacheFileSink.emitCompleteSegments();
-                return bytesRead;
-            }
-
-            @Override public Timeout timeout() {
-                failed = true;
-                return source.timeout();
-            }
-
-            @Override public void close() throws IOException {
-                if (!cacheRequestClosed) {
-                    // discard(this, ExchangeCodec.DISCARD_STREAM_TIMEOUT_MILLIS, MILLISECONDS)
-                    cacheRequestClosed = true;
-                }
-                source.close();
-                if (failed) {
-                    try {
-                        metadataFile.delete();
-                        contentsFile.delete();
-                    } catch (Exception e) {
-                        // ignore
-                    }
-                }
-            }
-        };
+        OfflineObject obj = new OfflineObject(request.url().toString(), lang, filePath, 0);
+        Source cacheWritingSource = new CacheWritingSource(response.body().source(), sink, obj, title);
 
         return response.newBuilder()
-                .body(new ResponseBody() {
-                    @Override
-                    public MediaType contentType() {
-                        return contentType != null ? MediaType.parse(contentType) : null;
-                    }
-
-                    @Override
-                    public long contentLength() {
-                        return contentLength;
-                    }
-
-                    @Override
-                    public BufferedSource source() {
-                        return Okio.buffer(cacheWritingSource);
-                    }
-                })
+                .body(new CacheWritingResponseBody(cacheWritingSource, contentType, contentLength))
                 .build();
+    }
+
+    private void deleteFiles(@NonNull OfflineObject obj) {
+        try {
+            final File metadataFile = new File(obj.getPath() + ".0");
+            final File contentsFile = new File(obj.getPath() + ".1");
+            metadataFile.delete();
+            contentsFile.delete();
+        } catch (Exception e) {
+            // ignore
+        }
+    }
+
+    private class CacheWritingSource implements Source {
+        private boolean cacheRequestClosed;
+        private boolean failed;
+        private BufferedSource source;
+        private BufferedSink cacheSink;
+        private OfflineObject obj;
+        private String title;
+
+        CacheWritingSource(BufferedSource source, BufferedSink sink, OfflineObject obj, String title) {
+            this.source = source;
+            this.cacheSink = sink;
+            this.obj = obj;
+            this.title = title;
+        }
+
+        @Override
+        public long read(@NonNull Buffer sink, long byteCount) throws IOException {
+            long bytesRead;
+            try {
+                bytesRead = source.read(sink, byteCount);
+            } catch (IOException e) {
+                failed = true;
+                if (!cacheRequestClosed) {
+                    cacheRequestClosed = true;
+                    // Failed to write a complete cache response.
+                }
+                throw e;
+            }
+
+            if (bytesRead == -1) {
+                if (!cacheRequestClosed) {
+                    cacheRequestClosed = true;
+                    // The cache response is complete!
+                    cacheSink.close();
+
+                    // update the record in the database!
+                    OfflineObjectDbHelper.instance().addObject(obj.getUrl(), obj.getLang(), obj.getPath(), title);
+                }
+                return -1;
+            }
+
+            sink.copyTo(cacheSink.getBuffer(), sink.size() - bytesRead, bytesRead);
+            cacheSink.emitCompleteSegments();
+            return bytesRead;
+        }
+
+        @Override public Timeout timeout() {
+            failed = true;
+            return source.timeout();
+        }
+
+        @Override public void close() throws IOException {
+            if (!cacheRequestClosed) {
+                // discard(this, ExchangeCodec.DISCARD_STREAM_TIMEOUT_MILLIS, MILLISECONDS)
+                cacheRequestClosed = true;
+            }
+            source.close();
+            if (failed) {
+                deleteFiles(obj);
+            }
+        }
+    }
+
+    private class CacheWritingResponseBody extends ResponseBody {
+        private Source source;
+        private String contentType;
+        private long contentLength;
+
+        CacheWritingResponseBody(Source source, String contentType, long contentLength) {
+            this.source = source;
+            this.contentType = contentType;
+            this.contentLength = contentLength;
+        }
+
+        @Override public MediaType contentType() {
+            return contentType != null ? MediaType.parse(contentType) : null;
+        }
+
+        @Override public long contentLength() {
+            return contentLength;
+        }
+
+        @Override public BufferedSource source() {
+            return Okio.buffer(source);
+        }
     }
 
     private class CachedResponseBody extends ResponseBody {
         private File file;
         private String contentType;
 
-        public CachedResponseBody(File file, String contentType) {
+        CachedResponseBody(File file, String contentType) {
             this.file = file;
             this.contentType = contentType;
         }

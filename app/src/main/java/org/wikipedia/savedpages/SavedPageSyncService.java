@@ -44,6 +44,9 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
 import okhttp3.Request;
 import okhttp3.Response;
+import okio.Buffer;
+import okio.Sink;
+import okio.Timeout;
 
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
@@ -407,8 +410,21 @@ public class SavedPageSyncService extends JobIntentService {
 
         Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
-        // Note: raw non-Retrofit usage of OkHttp Requests requires that the Response body is read
-        // for the cache to be written.
+        // Read the entirety of the response, so that it's written to cache by the interceptor.
+        rsp.body().source().readAll(new Sink() {
+            @Override public void write(Buffer buffer, long l) throws IOException {
+            }
+
+            @Override public void flush() throws IOException {
+            }
+
+            @Override public Timeout timeout() {
+                return new Timeout();
+            }
+
+            @Override public void close() throws IOException {
+            }
+        });
         rsp.body().close();
 
         // Size must be checked after the body has been written.
