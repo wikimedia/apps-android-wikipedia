@@ -3,7 +3,6 @@ package org.wikipedia.savedpages;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,7 +18,6 @@ import java.util.List;
 
 class PageComponentsUrlParser {
 
-    @VisibleForTesting
     @NonNull
     public List<String> parse(@NonNull String html, @NonNull WikiSite site) {
         List<String> urls = new ArrayList<>();

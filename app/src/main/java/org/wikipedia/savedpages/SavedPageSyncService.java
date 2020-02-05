@@ -215,13 +215,13 @@ public class SavedPageSyncService extends JobIntentService {
         final Long[] pageSize = new Long[1];
         final Exception[] exception = new Exception[1];
 
-        reqPageSummary(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle)
+        reqPageSummary(pageTitle)
                 .flatMap(rsp -> {
                 long revision = rsp.body() != null ? rsp.body().getRevision() : 0;
                 return Observable.zip(Observable.just(rsp),
-                        reqMediaList(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision),
-                        reqPageReferences(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle, revision),
-                        reqMobileHTML(CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle), (summaryRsp, mediaListRsp, referencesRsp, mobileHTMLRsp) -> {
+                        reqMediaList(pageTitle, revision),
+                        reqPageReferences(pageTitle, revision),
+                        reqMobileHTML(pageTitle), (summaryRsp, mediaListRsp, referencesRsp, mobileHTMLRsp) -> {
                             page.downloadProgress(SUMMARY_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
                             page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
@@ -283,38 +283,28 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     @NonNull
-    private Observable<retrofit2.Response<PageSummary>> reqPageSummary(@NonNull CacheControl cacheControl,
-                                                                       @NonNull String saveOfflineHeader,
-                                                                       @NonNull PageTitle pageTitle) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getSummaryResponse(pageTitle.getPrefixedText(), null, cacheControl.toString(),
-                saveOfflineHeader, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
+    private Observable<retrofit2.Response<PageSummary>> reqPageSummary(@NonNull PageTitle pageTitle) {
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getSummaryResponse(pageTitle.getPrefixedText(), null, CacheControl.FORCE_NETWORK.toString(),
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
     }
 
     @NonNull
-    private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull CacheControl cacheControl,
-                                                                   @NonNull String saveOfflineHeader,
-                                                                   @NonNull PageTitle pageTitle,
-                                                                   long revision) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(pageTitle.getPrefixedText(), revision, cacheControl.toString(),
-                saveOfflineHeader, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
+    private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull PageTitle pageTitle, long revision) {
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(pageTitle.getPrefixedText(), revision, CacheControl.FORCE_NETWORK.toString(),
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
     }
 
     @NonNull
-    private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull CacheControl cacheControl,
-                                                                         @NonNull String saveOfflineHeader,
-                                                                         @NonNull PageTitle pageTitle,
-                                                                         long revision) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(pageTitle.getPrefixedText(), revision, cacheControl.toString(),
-                saveOfflineHeader, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
+    private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull PageTitle pageTitle, long revision) {
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(pageTitle.getPrefixedText(), revision, CacheControl.FORCE_NETWORK.toString(),
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
     }
 
-    private Observable<okhttp3.Response> reqMobileHTML(@NonNull CacheControl cacheControl,
-                                                              @NonNull String saveOfflineHeader,
-                                                              @NonNull PageTitle pageTitle) {
-        Request request = makeUrlRequest(cacheControl, pageTitle.getWikiSite(),
+    private Observable<okhttp3.Response> reqMobileHTML(@NonNull PageTitle pageTitle) {
+        Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, pageTitle.getWikiSite(),
                 pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getPrefixedText())
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
-                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, saveOfflineHeader)
+                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())
                 .addHeader(OfflineCacheInterceptor.TITLE_HEADER, pageTitle.getPrefixedText())
                 .build();
@@ -336,7 +326,7 @@ public class SavedPageSyncService extends JobIntentService {
                 throw new InterruptedException("Sync paused or cancelled.");
             }
             try {
-                reqSaveUrl(pageTitle, page.wiki(), url, CacheControl.FORCE_NETWORK, OfflineCacheInterceptor.SAVE_HEADER_SAVE);
+                reqSaveUrl(pageTitle, page.wiki(), url);
                 percentage += updateRate;
                 page.downloadProgress((int) percentage);
                 WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
@@ -351,13 +341,9 @@ public class SavedPageSyncService extends JobIntentService {
         WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
     }
 
-    private void reqSaveUrl(@NonNull PageTitle pageTitle,
-                            @NonNull WikiSite wiki,
-                            @NonNull String url,
-                            @NonNull CacheControl cacheControl,
-                            @NonNull String saveOfflineHeader) throws IOException {
-        Request request = makeUrlRequest(cacheControl, wiki, url)
-                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, saveOfflineHeader)
+    private void reqSaveUrl(@NonNull PageTitle pageTitle, @NonNull WikiSite wiki, @NonNull String url) throws IOException {
+        Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, wiki, url)
+                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())
                 .addHeader(OfflineCacheInterceptor.TITLE_HEADER, pageTitle.getPrefixedText())
                 .build();
@@ -366,18 +352,12 @@ public class SavedPageSyncService extends JobIntentService {
 
         // Read the entirety of the response, so that it's written to cache by the interceptor.
         rsp.body().source().readAll(new Sink() {
-            @Override public void write(Buffer buffer, long l) {
-            }
-
-            @Override public void flush() {
-            }
-
+            @Override public void write(Buffer buffer, long l) { }
+            @Override public void flush() { }
             @Override public Timeout timeout() {
                 return new Timeout();
             }
-
-            @Override public void close() {
-            }
+            @Override public void close() { }
         });
         rsp.body().close();
     }
