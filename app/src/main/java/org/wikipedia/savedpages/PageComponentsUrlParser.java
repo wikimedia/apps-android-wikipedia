@@ -1,5 +1,7 @@
 package org.wikipedia.savedpages;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
@@ -7,7 +9,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.html.ParseException;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -17,7 +21,7 @@ class PageComponentsUrlParser {
 
     @VisibleForTesting
     @NonNull
-    public List<String> parse(@NonNull String html) {
+    public List<String> parse(@NonNull String html, @NonNull WikiSite site) {
         List<String> urls = new ArrayList<>();
 
         try {
@@ -26,14 +30,18 @@ class PageComponentsUrlParser {
             Elements css = document.select("link[rel=stylesheet]");
             for (Element element : css) {
                 String url = element.attr("href");
-                urls.add(url);
+                if (!TextUtils.isEmpty(url)) {
+                    urls.add(UriUtil.resolveProtocolRelativeUrl(site, url));
+                }
             }
 
             // parsing javascript files
             Elements javascript = document.select("script");
             for (Element element : javascript) {
                 String url = element.attr("src");
-                urls.add(url);
+                if (!TextUtils.isEmpty(url)) {
+                    urls.add(UriUtil.resolveProtocolRelativeUrl(site, url));
+                }
             }
         } catch (ParseException e) {
             L.d("Parsing exception" + e);

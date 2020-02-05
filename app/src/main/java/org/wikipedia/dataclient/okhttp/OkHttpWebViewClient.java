@@ -102,6 +102,8 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         if (getModel().shouldSaveOffline()) {
             builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE);
         }
+        builder.header(OfflineCacheInterceptor.LANG_HEADER, getModel().getTitle().getWikiSite().languageCode());
+        builder.header(OfflineCacheInterceptor.TITLE_HEADER, getModel().getTitle().getPrefixedText());
         if (getModel().getCurEntry() != null && !TextUtils.isEmpty(getModel().getCurEntry().getReferrer())) {
             builder.header("Referer", getModel().getCurEntry().getReferrer());
         }

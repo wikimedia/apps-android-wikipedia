@@ -275,7 +275,7 @@ public class SavedPageSyncService extends JobIntentService {
                             // download css and javascript assets
                             if (mobileHTMLRsp.body() != null) {
                                 String body = mobileHTMLRsp.body().string();
-                                List<String> componentsUrls = new PageComponentsUrlParser().parse(body);
+                                List<String> componentsUrls = new PageComponentsUrlParser().parse(body, pageTitle.getWikiSite());
                                 for (String url : componentsUrls) {
                                     if (!TextUtils.isEmpty(url)) {
                                         fileUrls.add(url);
@@ -436,10 +436,12 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     private long responseSize(@NonNull Response rsp) {
-        return OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.request());
+        // TODO!
+        return 0; //OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.request());
     }
 
     private long responseSize(@NonNull retrofit2.Response rsp) {
-        return OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.raw().request());
+        // TODO!
+        return 0; //OkHttpConnectionFactory.SAVE_CACHE.getSizeOnDisk(rsp.raw().request());
     }
 }
