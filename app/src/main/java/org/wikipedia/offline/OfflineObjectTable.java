@@ -29,9 +29,11 @@ public final class OfflineObjectTable extends DatabaseTable<OfflineObject> {
                 OfflineObjectContract.Col.STATUS.val(cursor));
         String usedByStr = OfflineObjectContract.Col.USEDBY.val(cursor);
         if (!TextUtils.isEmpty(usedByStr)) {
-            String[] usedBy = usedByStr.split(",");
+            String[] usedBy = usedByStr.split("\\|");
             for (String s : usedBy) {
-                obj.getUsedBy().add(Long.parseLong(s));
+                if (!TextUtils.isEmpty(s)) {
+                    obj.getUsedBy().add(Long.parseLong(s));
+                }
             }
         }
         return obj;
@@ -59,7 +61,7 @@ public final class OfflineObjectTable extends DatabaseTable<OfflineObject> {
         contentValues.put(OfflineObjectContract.Col.LANG.getName(), row.getLang());
         contentValues.put(OfflineObjectContract.Col.PATH.getName(), row.getPath());
         contentValues.put(OfflineObjectContract.Col.STATUS.getName(), row.getStatus());
-        contentValues.put(OfflineObjectContract.Col.USEDBY.getName(), StringUtils.join(row.getUsedBy(), ','));
+        contentValues.put(OfflineObjectContract.Col.USEDBY.getName(), '|' + StringUtils.join(row.getUsedBy(), '|') + '|');
         return contentValues;
     }
 

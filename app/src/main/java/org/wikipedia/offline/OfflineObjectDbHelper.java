@@ -15,6 +15,10 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.log.L;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 public class OfflineObjectDbHelper {
     public static final String OFFLINE_PATH = "offline_files";
     private static OfflineObjectDbHelper INSTANCE;
@@ -90,11 +94,10 @@ public class OfflineObjectDbHelper {
                 if (!path.equals(obj.getPath())) {
                     L.w("Existing offline object path is inconsistent.");
                 }
-                int result = db.update(OfflineObjectContract.TABLE, OfflineObjectTable.DATABASE_TABLE.toContentValues(obj),
+                if (db.update(OfflineObjectContract.TABLE, OfflineObjectTable.DATABASE_TABLE.toContentValues(obj),
                         OfflineObjectContract.Col.URL.getName() + " = ? AND "
                                 + OfflineObjectContract.Col.LANG.getName() + " = ?",
-                        new String[]{url, lang});
-                if (result != 1) {
+                        new String[]{url, lang}) != 1) {
                     L.w("Failed to update db entry for object: " + url);
                 }
             }
@@ -104,7 +107,59 @@ public class OfflineObjectDbHelper {
         }
     }
 
+    public void deleteObjectsForPageId(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            List<OfflineObject> objects = new ArrayList<>();
+            try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
+                    OfflineObjectContract.Col.USEDBY.getName() + " LIKE '%|" + id + "|%'",
+                    null, null, null, null)) {
+                while (cursor.moveToNext()) {
+                    OfflineObject obj = OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
+                    if (!obj.getUsedBy().contains(id)) {
+                        continue;
+                    }
+                    obj.getUsedBy().remove(id);
+                    objects.add(obj);
+                }
+            }
 
+            for (OfflineObject obj : objects) {
+                if (obj.getUsedBy().isEmpty()) {
+                    // the object is now an orphan, so remove it!
+                    if (db.delete(OfflineObjectContract.TABLE,
+                            OfflineObjectContract.Col.URL.getName() + " = ? AND "
+                                    + OfflineObjectContract.Col.LANG.getName() + " = ?",
+                            new String[]{obj.getUrl(), obj.getLang()}) != 1) {
+                        L.w("Failed to delete item from database.");
+                    }
+                    deleteFilesForObject(obj);
+                } else {
+                    if (db.update(OfflineObjectContract.TABLE, OfflineObjectTable.DATABASE_TABLE.toContentValues(obj),
+                            OfflineObjectContract.Col.URL.getName() + " = ? AND "
+                                    + OfflineObjectContract.Col.LANG.getName() + " = ?",
+                            new String[]{obj.getUrl(), obj.getLang()}) != 1) {
+                        L.w("Failed to update item in database.");
+                    }
+                }
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public static void deleteFilesForObject(@NonNull OfflineObject obj) {
+        try {
+            final File metadataFile = new File(obj.getPath() + ".0");
+            final File contentsFile = new File(obj.getPath() + ".1");
+            metadataFile.delete();
+            contentsFile.delete();
+        } catch (Exception e) {
+            // ignore
+        }
+    }
 
     private SQLiteDatabase getReadableDatabase() {
         return WikipediaApp.getInstance().getDatabase().getReadableDatabase();

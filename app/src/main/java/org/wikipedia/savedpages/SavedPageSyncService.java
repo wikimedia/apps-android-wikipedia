@@ -19,6 +19,7 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.gallery.MediaList;
 import org.wikipedia.gallery.MediaListItem;
+import org.wikipedia.offline.OfflineObjectDbHelper;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.references.References;
 import org.wikipedia.pageimages.PageImage;
@@ -39,6 +40,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.CacheControl;
@@ -139,48 +141,8 @@ public class SavedPageSyncService extends JobIntentService {
 
     @SuppressLint("CheckResult")
     private void deletePageContents(@NonNull ReadingListPage page) {
-
-        // TODO: delete filesystem objects based on page id!
-
-        /*
-        PageTitle pageTitle = ReadingListPage.toPageTitle(page);
-        reqPageSummary(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle)
-                .flatMap(rsp -> {
-                    long revision = rsp.body() != null ? rsp.body().getRevision() : 0;
-                    return Observable.zip(Observable.just(rsp),
-                            reqMediaList(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle, revision),
-                            reqPageReferences(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle, revision),
-                            reqMobileHTML(CacheControl.FORCE_CACHE, OfflineCacheInterceptor.SAVE_HEADER_DELETE, pageTitle),
-                            (summaryRsp, mediaListRsp, referencesRsp, mobileHTMLRsp) -> {
-                                Set<String> imageUrls = new HashSet<>();
-                                if (summaryRsp.body() != null) {
-                                    if (!TextUtils.isEmpty(pageTitle.getThumbUrl())) {
-                                        imageUrls.add(UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil
-                                                .getUrlForPreferredSize(pageTitle.getThumbUrl(), DimenUtil.calculateLeadImageWidth())));
-                                    }
-                                }
-                                for (MediaListItem item : mediaListRsp.body().getItems("image")) {
-                                    if (!item.getSrcSets().isEmpty()) {
-                                        imageUrls.add(item.getImageUrl(DimenUtil.getDensityScalar()));
-                                    }
-                                }
-                                return imageUrls;
-                            });
-                })
-                .subscribeOn(Schedulers.io())
-                .subscribe(imageUrls -> {
-                    for (String url : imageUrls) {
-                        Request request = makeUrlRequest(CacheControl.FORCE_CACHE, pageTitle.getWikiSite(), url)
-                                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_DELETE)
-                                .build();
-                        try {
-                            OkHttpConnectionFactory.getClient().newCall(request).execute();
-                        } catch (Exception e) {
-                            // ignore exceptions while deleting cached items.
-                        }
-                    }
-                }, L::d);
-         */
+        Completable.fromAction(() -> OfflineObjectDbHelper.instance().deleteObjectsForPageId(page.id())).subscribeOn(Schedulers.io())
+                .subscribe(() -> { }, L::e);
     }
 
     private int savePages(List<ReadingListPage> queue) {

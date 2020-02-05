@@ -121,6 +121,9 @@ public class OfflineCacheInterceptor implements Interceptor {
             L.e(e);
         }
 
+        // since we're returning this response manually, let's tell the network library not to cache it.
+        builder.header("Cache-Control", "no-cache");
+
         builder.body(new CachedResponseBody(contentsFile, contentType));
         response = builder.build();
         return response;
@@ -181,17 +184,6 @@ public class OfflineCacheInterceptor implements Interceptor {
                 .build();
     }
 
-    private void deleteFiles(@NonNull OfflineObject obj) {
-        try {
-            final File metadataFile = new File(obj.getPath() + ".0");
-            final File contentsFile = new File(obj.getPath() + ".1");
-            metadataFile.delete();
-            contentsFile.delete();
-        } catch (Exception e) {
-            // ignore
-        }
-    }
-
     private class CacheWritingSource implements Source {
         private boolean cacheRequestClosed;
         private boolean failed;
@@ -227,8 +219,10 @@ public class OfflineCacheInterceptor implements Interceptor {
                     // The cache response is complete!
                     cacheSink.close();
 
-                    // update the record in the database!
-                    OfflineObjectDbHelper.instance().addObject(obj.getUrl(), obj.getLang(), obj.getPath(), title);
+                    if (!failed) {
+                        // update the record in the database!
+                        OfflineObjectDbHelper.instance().addObject(obj.getUrl(), obj.getLang(), obj.getPath(), title);
+                    }
                 }
                 return -1;
             }
@@ -250,7 +244,7 @@ public class OfflineCacheInterceptor implements Interceptor {
             }
             source.close();
             if (failed) {
-                deleteFiles(obj);
+                OfflineObjectDbHelper.deleteFilesForObject(obj);
             }
         }
     }
