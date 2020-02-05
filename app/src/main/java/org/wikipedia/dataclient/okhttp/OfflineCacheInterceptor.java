@@ -123,6 +123,8 @@ public class OfflineCacheInterceptor implements Interceptor {
 
         // since we're returning this response manually, let's tell the network library not to cache it.
         builder.header("Cache-Control", "no-cache");
+        // and tack on the Save header, so that the recipient knows that this response came from offline cache.
+        builder.header(SAVE_HEADER, SAVE_HEADER_SAVE);
 
         builder.body(new CachedResponseBody(contentsFile, contentType));
         response = builder.build();
