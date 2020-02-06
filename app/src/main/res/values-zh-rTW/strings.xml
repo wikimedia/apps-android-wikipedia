@@ -494,6 +494,7 @@
   <string name="notification_syncing_resume_button">繼續</string>
   <string name="notification_syncing_cancel_button">取消</string>
   <string name="notification_syncing_reading_list_channel_description">同步閱讀清單進度</string>
+  <string name="notification_many_unread">您有 %d 個尚未讀取的通知</string>
   <plurals name="notification_channel_name">
     <item quantity="one">下載條目中</item>
     <item quantity="other">下載條目中</item>
