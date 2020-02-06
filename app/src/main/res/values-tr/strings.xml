@@ -507,6 +507,7 @@
   <string name="notification_syncing_resume_button">Devam et</string>
   <string name="notification_syncing_cancel_button">İptal</string>
   <string name="notification_syncing_reading_list_channel_description">Okuma listesi eşitlemesi sürüyor</string>
+  <string name="notification_many_unread">%d okunmamış bildiriminiz var</string>
   <plurals name="notification_channel_name">
     <item quantity="one">madde indiriliyor</item>
     <item quantity="other">madde indiriliyor</item>
