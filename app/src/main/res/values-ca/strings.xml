@@ -718,7 +718,6 @@
   <string name="suggested_edits_image_tags_task_detail">Etiqueta les imatges per a facilitar que altres les trobin. Les etiquetes se suggereixen automàticament, però cal que les verifiqueu.</string>
   <string name="suggested_edits_image_tags_choose">Trieu les etiquetes que coincideixen</string>
   <string name="suggested_edits_image_tags_select_title">No heu seleccionat cap etiqueta per a aquesta imatge</string>
-  <string name="suggested_edits_image_tags_select_text">S\'afegiran a les imatges només les etiquetes que trieu. Les etiquetes no seleccionades es marcaran com a rebutjades. Esteu {{GENDER|segur|segura}} que voleu marcar totes les etiquetes com a rebutjades?</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>
