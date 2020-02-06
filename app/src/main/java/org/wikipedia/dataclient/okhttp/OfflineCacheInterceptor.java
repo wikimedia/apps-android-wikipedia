@@ -41,6 +41,7 @@ public class OfflineCacheInterceptor implements Interceptor {
     public static final String SAVE_HEADER_DELETE = "delete";
     public static final String SAVE_HEADER_NONE = "none";
     private static final MediaType MEDIA_JSON = MediaType.parse("application/json");
+    private static final MediaType TEXT_HTML = MediaType.parse("text/html");
     private static final int STATUS_CODE_SUCCESS = 200;
 
     @NonNull private final CacheDelegate cacheDelegate;
@@ -72,7 +73,7 @@ public class OfflineCacheInterceptor implements Interceptor {
                         .request(request)
                         .protocol(HTTP_1_1)
                         .message("")
-                        .body(ResponseBody.create(MEDIA_JSON, contentJSON))
+                        .body(ResponseBody.create(TEXT_HTML, contentJSON))
                         .build();
             }
         }
