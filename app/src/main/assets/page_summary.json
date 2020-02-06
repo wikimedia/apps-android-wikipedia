@@ -1,0 +1,39 @@
+{
+    "type": "",
+    "title": "@@CANONICAL@@",
+    "displaytitle": "@@DISPLAYTITLE@@",
+    "namespace": {
+    "id": "@@NS_ID@@",
+    "text": ""
+},
+    "wikibase_item": "@@WIKIBASE_ITEM@@",
+    "titles": {
+    "canonical": "@@CANONICAL@@",
+    "normalized": "",
+    "display": "@@DISPLAYTITLE@@"
+},
+    "pageid": "@@PAGE_ID@@",
+    "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Independence_National_Historical_Park_INDE0004_b.jpg/241px-Independence_National_Historical_Park_INDE0004_b.jpg",
+    "width": 241,
+    "height": 320
+},
+    "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Independence_National_Historical_Park_INDE0004_b.jpg",
+    "width": 846,
+    "height": 1125
+},
+    "lang": "",
+    "dir": "",
+    "revision": "@@REVISION@@",
+    "tid": "",
+    "timestamp": "@@TIMESTAMP@@",
+    "description": "@@DESCRIPTION@@",
+    "description_source": "@@DESCRIPTION_SOURCE@@",
+    "coordinates": {
+    "lat": "@@LAT@@",
+    "lon": "@@LON@@"
+},
+    "extract": "",
+    "extract_html":""
+}

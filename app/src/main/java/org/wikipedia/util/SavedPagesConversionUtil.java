@@ -27,6 +27,7 @@ public final class SavedPagesConversionUtil {
     public static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
     public static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
     public static final String CONVERTED_FILES_DIRECTORY_NAME = "converted-files";
+    public static final String PAGE_SUMMARY_DIRECTORY_NAME = "/page-summary";
 
     @SuppressLint("SetJavaScriptEnabled")
     public static void runOneTimeSavedPagesConversion() {
@@ -59,10 +60,15 @@ public final class SavedPagesConversionUtil {
                         }
                     }
                     extractJSONsToConvert(savedReadingListPages, filesNamesToBeDeleted);
+                    file = new File(WikipediaApp.getInstance().getFilesDir(), CONVERTED_FILES_DIRECTORY_NAME + PAGE_SUMMARY_DIRECTORY_NAME);
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
 
                     for (SavedReadingListPage savedReadingListPage : savedReadingListPages) {
                         dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + ")",
                                 value -> {
+                                    PageSummaryConstructionHelperUtil.constructAndStorePageSummaryFrom(savedReadingListPage.getLeadSectionJSON(), savedReadingListPage.title);
                                     FileUtil.writeToFileInDirectory(StringEscapeUtils.unescapeJava(value), WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, savedReadingListPage.title);
                                     if (fileCount.incrementAndGet() == savedReadingListPages.size()) {
                                         crossCheckAndComplete(savedReadingListPages, filesNamesToBeDeleted);

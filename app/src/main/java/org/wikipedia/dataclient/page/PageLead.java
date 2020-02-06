@@ -19,6 +19,7 @@ import org.wikipedia.util.UriUtil;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 
@@ -40,7 +41,7 @@ public class PageLead implements PageLeadProperties {
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable @SerializedName("description_source") private String descriptionSource;
     @SuppressWarnings("unused") @Nullable private Image image;
-    @SuppressWarnings("unused") @Nullable private Protection protection;
+    @SuppressWarnings("unused") @Nullable private LeadProtection protection;
     @SuppressWarnings("unused") @Nullable private List<Section> sections;
 
     public Page toPage(PageTitle title) {
@@ -218,6 +219,23 @@ public class PageLead implements PageLeadProperties {
             return urls != null ? urls.get(width) : null;
         }
     }
+
+    /** Protection settings for a page */
+    public class LeadProtection {
+        @SuppressWarnings("MismatchedReadAndWriteOfArray") @NonNull private Set<String> edit = Collections.emptySet();
+
+        // TODO should send them all, but callers need to be updated, too, (future patch)
+        @Nullable
+        public String getFirstAllowedEditorRole() {
+            return edit.isEmpty() ? null : edit.iterator().next();
+        }
+
+        @NonNull
+        public Set<String> getEditRoles() {
+            return Collections.unmodifiableSet(edit);
+        }
+    }
+
 
     /**
      * For the lead image URLs
