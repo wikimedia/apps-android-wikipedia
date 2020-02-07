@@ -34,12 +34,14 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static okhttp3.Protocol.HTTP_1_1;
 import static okhttp3.internal.Util.discard;
 import static org.wikipedia.util.SavedPagesConversionUtil.CONVERTED_FILES_DIRECTORY_NAME;
+import static org.wikipedia.util.SavedPagesConversionUtil.PAGE_SUMMARY_DIRECTORY_NAME;
 
 public class OfflineCacheInterceptor implements Interceptor {
     public static final String SAVE_HEADER = "X-Offline-Save";
     public static final String SAVE_HEADER_SAVE = "save";
     public static final String SAVE_HEADER_DELETE = "delete";
-    public static final String SAVE_HEADER_NONE = "none";
+    static final String SAVE_HEADER_NONE = "none";
+    private static final String PAGE_SUMMARY = "page/summary";
     private static final MediaType MEDIA_JSON = MediaType.parse("application/json");
     private static final MediaType TEXT_HTML = MediaType.parse("text/html");
     private static final int STATUS_CODE_SUCCESS = 200;
@@ -62,7 +64,23 @@ public class OfflineCacheInterceptor implements Interceptor {
             cacheCandidate = cacheDelegate.internalCache().get(request);
         }
 
-        if (cacheCandidate == null  && request.url().toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
+        if (cacheCandidate == null && request.url().toString().contains(PAGE_SUMMARY)) {
+            int indexOfTitleDelimiter = request.url().toString().lastIndexOf('/');
+            File file = new File(WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME + PAGE_SUMMARY_DIRECTORY_NAME + "/" + request.url().toString().substring(indexOfTitleDelimiter + 1));
+            if (file.exists()) {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                String contentJSON = FileUtil.readFile(fileInputStream);
+                cacheCandidate = new Response.Builder()
+                        .code(STATUS_CODE_SUCCESS)
+                        .request(request)
+                        .protocol(HTTP_1_1)
+                        .message("")
+                        .body(ResponseBody.create(MEDIA_JSON, contentJSON))
+                        .build();
+            }
+        }
+
+        if (cacheCandidate == null && request.url().toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
             int indexOfTitleDelimiter = request.url().toString().lastIndexOf('/');
             File file = new File(WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME + "/" + request.url().toString().substring(indexOfTitleDelimiter + 1));
             if (file.exists()) {
