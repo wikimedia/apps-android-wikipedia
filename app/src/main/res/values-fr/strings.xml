@@ -511,6 +511,7 @@
   <string name="notification_syncing_resume_button">Reprise</string>
   <string name="notification_syncing_cancel_button">Annulation</string>
   <string name="notification_syncing_reading_list_channel_description">Synchronisation des listes de lecture en cours</string>
+  <string name="notification_many_unread">Vous avez %d notifications non lues</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Téléchargement d’un article</item>
     <item quantity="other">Téléchargement des articles</item>
