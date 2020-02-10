@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.log.L;
 
 public class UpgradeService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).
@@ -25,6 +26,11 @@ public class UpgradeService extends JobIntentService {
     }
 
     @Override protected void onHandleWork(@NonNull Intent intent) {
+        // TODO
+        //if (upgrade complete) {
+        //    return;
+        //}
+        L.d("Starting offline content upgrade...");
 
     }
 
