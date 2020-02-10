@@ -299,6 +299,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         publishProgressBar.postDelayed({
             if (isAdded) {
+                
+                for (i in 0 until tagsChipGroup.childCount) {
+                    val chip = tagsChipGroup.getChildAt(i) as Chip
+                    chip.isEnabled = false
+                }
+                updateLicenseTextShown()
+
                 publishOverlayContainer.visibility = GONE
                 parent().nextPage()
                 setPublishedState()
@@ -326,7 +333,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun updateLicenseTextShown() {
-        if (atLeastOneTagChecked()) {
+        if (publishSuccess) {
+            tagsLicenseText.visibility = GONE
+            tagsHintText.visibility = GONE
+        } else if (atLeastOneTagChecked()) {
             tagsLicenseText.visibility = VISIBLE
             tagsHintText.visibility = GONE
         } else {
