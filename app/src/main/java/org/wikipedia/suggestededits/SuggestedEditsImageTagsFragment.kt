@@ -162,6 +162,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     }
                 })
 
+        updateLicenseTextShown()
         parent().updateActionButton()
     }
 
@@ -172,10 +173,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
-        if (tagsLicenseText.visibility != VISIBLE) {
-            tagsLicenseText.visibility = VISIBLE
-            tagsHintText.visibility = GONE
-        }
         val chip = button as Chip
         if (chip.isChecked) {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
@@ -184,6 +181,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
         }
+
+        updateLicenseTextShown()
         parent().updateActionButton()
     }
 
@@ -304,7 +303,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 parent().nextPage()
                 setPublishedState()
             }
-        }, duration * 2)
+        }, duration * 3)
     }
 
     private fun onError(caught: Throwable) {
@@ -326,11 +325,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
     }
 
-    override fun publishEnabled(): Boolean {
-        return !publishSuccess
+    private fun updateLicenseTextShown() {
+        if (atLeastOneTagChecked()) {
+            tagsLicenseText.visibility = VISIBLE
+            tagsHintText.visibility = GONE
+        } else {
+            tagsLicenseText.visibility = GONE
+            tagsHintText.visibility = VISIBLE
+        }
     }
 
-    override fun publishOutlined(): Boolean {
+    private fun atLeastOneTagChecked(): Boolean {
         var atLeastOneChecked = false
         for (i in 0 until tagsChipGroup.childCount) {
             val chip = tagsChipGroup.getChildAt(i) as Chip
@@ -339,6 +344,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 break
             }
         }
-        return !atLeastOneChecked
+        return atLeastOneChecked
+    }
+
+    override fun publishEnabled(): Boolean {
+        return !publishSuccess
+    }
+
+    override fun publishOutlined(): Boolean {
+        if (tagsChipGroup == null) {
+            return false
+        }
+        return !atLeastOneTagChecked()
     }
 }
