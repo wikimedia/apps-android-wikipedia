@@ -490,6 +490,7 @@
   <string name="notification_syncing_resume_button">המשך</string>
   <string name="notification_syncing_cancel_button">ביטול</string>
   <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
+  <string name="notification_many_unread">יש לך %d התראות שלא נקראו</string>
   <plurals name="notification_channel_name">
     <item quantity="one">מתבצעת הורדה של ערך</item>
     <item quantity="other">מתבצעת הורדה של ערכים</item>

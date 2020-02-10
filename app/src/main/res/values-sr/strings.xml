@@ -484,6 +484,7 @@
   <string name="notification_syncing_resume_button">Настави</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
   <string name="notification_syncing_reading_list_channel_description">Ток синхронизације листа за читање</string>
+  <string name="notification_many_unread">Имате непрочитаних обавештења (%d)</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Преузимам чланак</item>
     <item quantity="other">Преузимам чланке</item>
@@ -642,6 +643,7 @@
   <string name="suggested_edits_translate_descriptions">Преведи описе чланака</string>
   <string name="suggested_edits_add_image_captions">Додај натписе слика</string>
   <string name="suggested_edits_translate_image_captions">Преведи натписе слика</string>
+  <string name="suggested_edits_tag_images">Означавање слика</string>
   <string name="suggested_edits_review_description">Преглед описа чланка</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
   <string name="suggested_edits_edit_description_button">Уреди опис</string>
@@ -700,6 +702,9 @@
   <string name="suggested_edits_task_action_text_add">Додај</string>
   <string name="suggested_edits_task_action_text_translate">Преведи</string>
   <string name="suggested_edits_image_captions">Натписи слика</string>
+  <string name="suggested_edits_image_tags">Ознаке слике</string>
+  <string name="suggested_edits_image_tags_publishing">Објављивање</string>
+  <string name="suggested_edits_image_tags_published">Објављено</string>
   <string name="suggested_edits_editing_tips_link_text">Савети и трикови за уређивање</string>
   <string name="suggested_edits_help_page_link_text">Страница помоћи за предложене измене</string>
   <string name="suggested_edits_pageviews_label_text">Прикази страница</string>
@@ -722,6 +727,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Последњи пут уређено</string>
   <string name="suggested_edits_last_edited_never">Никад</string>
+  <string name="suggested_edits_task_new">ново</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;.</string>
