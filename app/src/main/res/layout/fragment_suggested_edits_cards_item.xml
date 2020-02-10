@@ -134,6 +134,12 @@
                         android:paddingEnd="16dp">
 
                         <org.wikipedia.views.ImageDetailHorizontalView
+                            android:id="@+id/viewImageFileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:title="@string/suggested_edits_image_caption_summary_title_file" />
+
+                        <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageArtist"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
