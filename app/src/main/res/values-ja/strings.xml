@@ -13,6 +13,7 @@
 * Omotecho
 * Otokoume
 * Penn Station
+* Rootflag
 * Runequest77
 * S2KTS
 * Shirayuki
@@ -730,6 +731,7 @@
   <string name="suggested_edits_quality_poor_text">よくない</string>
   <string name="suggested_edits_quality_bad_text">悪い</string>
   <string name="suggested_edits_last_edited">最終編集:</string>
+  <string name="suggested_edits_task_new">新規</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
