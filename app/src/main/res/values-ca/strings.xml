@@ -491,6 +491,7 @@
   <string name="notification_syncing_resume_button">Reprèn</string>
   <string name="notification_syncing_cancel_button">Cancel·la</string>
   <string name="notification_syncing_reading_list_channel_description">Progrés de sincronització de llistes de lectura</string>
+  <string name="notification_many_unread">Teniu %d notificacions per llegir</string>
   <plurals name="notification_channel_name">
     <item quantity="one">S\'està baixant l\'article</item>
     <item quantity="other">S\'estan baixant els articles</item>
@@ -712,8 +713,13 @@
   <string name="suggested_edits_image_tags_publishing">Publicació</string>
   <string name="suggested_edits_image_tags_published">Publicat</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiqueta les imatges per facilitar que altres les trobin</string>
+  <string name="suggested_edits_image_tags_onboarding_text">En confirmar les etiquetes suggerides, podeu ajudar a facilitar la cerca de les imatges.\n\nLes etiquetes són suggerides, però cal que humans les validin per a assegurar-ne la precisió.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">S\'afegiran a les imatges només les etiquetes que trieu.</string>
+  <string name="suggested_edits_image_tags_snackbar">Afegeix etiquetes d\'imatge per a facilitar que altres les trobin.</string>
+  <string name="suggested_edits_image_tags_task_detail">Etiqueta les imatges per a facilitar que altres les trobin. Les etiquetes se suggereixen automàticament, però cal que les verifiqueu.</string>
   <string name="suggested_edits_image_tags_choose">Trieu les etiquetes que coincideixen</string>
   <string name="suggested_edits_image_tags_select_title">No heu seleccionat cap etiqueta per a aquesta imatge</string>
+  <string name="suggested_edits_image_tags_select_text">S\'afegiran a les imatges només les etiquetes que trieu. Les etiquetes no seleccionades es marcaran com a rebutjades. Esteu segur que voleu marcar totes les etiquetes com a rebutjades?</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>
@@ -748,6 +754,7 @@
   <string name="suggested_edits_last_edited">Darrera modificació</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nou</string>
+  <string name="suggested_edits_cc0_notice">En publicar-ho, esteu d\'acord amb les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; tot alliberant la contribució de forma irrevocable sota la &lt;a href=\"%2$s\"&gt;llicència CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
