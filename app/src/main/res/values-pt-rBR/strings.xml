@@ -504,6 +504,7 @@
   <string name="notification_syncing_resume_button">Retomar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
   <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
+  <string name="notification_many_unread">Você tem %d notificações não lidas</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Download de artigo</item>
     <item quantity="other">Download de artigos</item>
