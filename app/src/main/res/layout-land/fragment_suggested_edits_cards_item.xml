@@ -82,11 +82,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <View
                         android:id="@+id/accentSideBar"
-                        android:layout_width="3dp"
+                        android:layout_width="4dp"
                         android:layout_height="match_parent"
                         android:background="@color/accent50" />
 
