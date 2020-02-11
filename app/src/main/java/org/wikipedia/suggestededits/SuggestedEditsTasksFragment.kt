@@ -27,6 +27,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -315,6 +316,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setFinalUIState() {
         clearContents()
 
+        addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
+        tasksRecyclerView.adapter!!.notifyDataSetChanged()
+
         if (SuggestedEditsUserStats.totalEdits == 0) {
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
@@ -382,7 +386,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.translatable = false
-        addImageTagsTask.new = true
 
         // TODO: remove condition when ready
         if (ReleaseUtil.isPreBetaRelease()) {
