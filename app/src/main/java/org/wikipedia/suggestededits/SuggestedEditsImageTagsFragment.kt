@@ -137,7 +137,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             // add some padding to the Chip, since our container view doesn't support item spacing yet.
             val params = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             val margin = DimenUtil.roundedDpToPx(8f)
-            params.setMargins(margin, margin, margin, margin)
+            params.setMargins(margin, 0, margin, 0)
             chip.layoutParams = params
 
             tagsChipGroup.addView(chip)
