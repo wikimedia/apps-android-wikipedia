@@ -3,19 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:paddingBottom="16dp">
     <ImageView
         android:id="@+id/pulsingCircleOuter"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:src="@drawable/shape_circle"
-        android:tint="?attr/multi_select_background_color"
+        android:tint="?attr/color_group_52"
+        android:alpha="0.15"
         android:contentDescription="@null"
         android:layout_gravity="center" />
     <ImageView
         android:id="@+id/pulsingCircleInner"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:src="@drawable/shape_circle"
         android:tint="?attr/color_group_52"
         android:alpha="0.5"
