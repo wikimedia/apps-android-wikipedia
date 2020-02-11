@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -289,6 +290,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onSuccess() {
         publishProgressText.setText(R.string.suggested_edits_image_tags_published)
+
+        Prefs.setSuggestedEditsImageTagsNew(false)
 
         val duration = 500L
         publishProgressCheck.alpha = 0f
