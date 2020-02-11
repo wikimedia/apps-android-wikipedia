@@ -96,8 +96,12 @@ public final class FeedbackUtil {
     }
 
     public static void showAndroidAppEditingFAQ(Context context) {
+        showAndroidAppEditingFAQ(context, R.string.android_app_edit_help_url);
+    }
+
+    public static void showAndroidAppEditingFAQ(Context context, @StringRes int urlStr) {
         SuggestedEditsFunnel.get().helpOpened();
-        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url)));
+        visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)));
     }
 
     public static void setToolbarButtonLongPressToast(View... views) {
