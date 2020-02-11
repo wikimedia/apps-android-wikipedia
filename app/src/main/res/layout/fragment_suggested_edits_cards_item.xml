@@ -69,7 +69,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:textColor="?attr/primary_text_color"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     tools:text="Lorem ipsum" />
 
                 <LinearLayout
@@ -78,11 +78,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <View
                         android:id="@+id/accentSideBar"
-                        android:layout_width="3dp"
+                        android:layout_width="4dp"
                         android:layout_height="match_parent"
                         android:background="@color/accent50" />
 
@@ -131,6 +132,12 @@
                         android:orientation="vertical"
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp">
+
+                        <org.wikipedia.views.ImageDetailHorizontalView
+                            android:id="@+id/viewImageFileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:title="@string/suggested_edits_image_caption_summary_title_file" />
 
                         <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageArtist"

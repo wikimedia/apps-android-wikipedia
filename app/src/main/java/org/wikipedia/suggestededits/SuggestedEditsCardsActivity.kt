@@ -26,8 +26,8 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action))
         imageZoomHelper = ImageZoomHelper(this)
-        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.suggestions_background_color))
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.suggestions_background_color))
+        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
