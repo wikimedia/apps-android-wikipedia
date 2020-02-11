@@ -686,6 +686,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Hint message to users about why the translation tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
   <string name="suggested_edits_task_multilingual_negative">Negative action button text for editing tasks.</string>
   <string name="suggested_edits_task_multilingual_positive">Positive action button text for editing tasks.</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Label for the file name field shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>

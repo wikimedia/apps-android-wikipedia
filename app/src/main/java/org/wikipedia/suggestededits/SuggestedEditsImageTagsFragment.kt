@@ -58,10 +58,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
 
         val transparency = 0xcc000000
-        tagsContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.suggestions_background_color) and 0xffffff))
-        imageCaption.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.suggestions_background_color) and 0xffffff))
+        tagsContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
+        imageCaption.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
 
-        publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.suggestions_background_color) and 0xffffff))
+        publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         publishOverlayContainer.visibility = GONE
 
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
