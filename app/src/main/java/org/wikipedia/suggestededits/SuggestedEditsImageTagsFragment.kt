@@ -1,10 +1,14 @@
 package org.wikipedia.suggestededits
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -294,6 +298,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         Prefs.setSuggestedEditsImageTagsNew(false)
 
+        playSuccessVibration()
+
         val duration = 500L
         publishProgressCheck.alpha = 0f
         publishProgressCheck.visibility = VISIBLE
@@ -326,6 +332,16 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
                 chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
             }
+        }
+    }
+
+    private fun playSuccessVibration() {
+        val v = requireActivity().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        val pattern = longArrayOf(0, 100, 100, 100)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            v.vibrate(VibrationEffect.createWaveform(pattern, -1))
+        } else {
+            v.vibrate(pattern, -1)
         }
     }
 
