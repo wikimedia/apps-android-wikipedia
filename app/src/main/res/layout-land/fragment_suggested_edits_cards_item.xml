@@ -82,11 +82,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
                     <View
                         android:id="@+id/accentSideBar"
-                        android:layout_width="3dp"
+                        android:layout_width="4dp"
                         android:layout_height="match_parent"
                         android:background="@color/accent50" />
 
@@ -132,6 +133,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
+                        <org.wikipedia.views.ImageDetailHorizontalView
+                            android:id="@+id/viewImageFileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:title="@string/suggested_edits_image_caption_summary_title_file" />
 
                         <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageArtist"
