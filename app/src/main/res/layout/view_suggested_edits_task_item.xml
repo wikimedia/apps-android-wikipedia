@@ -35,7 +35,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/taskIconCircle"
         app:layout_constraintTop_toTopOf="@+id/taskIconCircle"
-        app:layout_constraintEnd_toStartOf="@+id/taskTitleNewLabel"
         android:layout_marginStart="16dp"
         android:textSize="@dimen/suggested_edits_message_textview_text_size"
         android:textColor="?attr/material_theme_primary_color"
