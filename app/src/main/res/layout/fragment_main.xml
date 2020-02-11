@@ -25,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
+        android:background="?attr/nav_tab_background_color"
         android:elevation="6dp">
 
         <org.wikipedia.navtab.NavTabLayout
