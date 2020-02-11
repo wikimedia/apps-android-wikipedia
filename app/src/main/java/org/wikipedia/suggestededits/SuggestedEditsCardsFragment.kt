@@ -2,17 +2,17 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Animatable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
@@ -126,6 +126,30 @@ class SuggestedEditsCardsFragment : Fragment() {
         maybeShowOnboarding()
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_suggested_edits, menu)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_help -> {
+                if (action == ADD_IMAGE_TAGS) {
+                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_tags_help_url)
+                } else {
+                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun maybeShowOnboarding() {
         if (action == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
             Prefs.setShowImageTagsOnboarding(false)
@@ -147,6 +171,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                 if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
             }
             addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
+            ImageViewCompat.setImageTintList(addContributionImage, ColorStateList.valueOf(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE))
 
             addContributionButton.setBackgroundResource(if (child.publishOutlined()) R.drawable.button_shape_border_light else R.drawable.button_shape_add_reading_list)
             addContributionText?.setTextColor(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)

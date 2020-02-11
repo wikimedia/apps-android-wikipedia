@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -16,6 +17,7 @@ class SuggestedEditsImageTagsOnboardingActivity : BaseActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setContentView(R.layout.activity_suggested_edits_tags_onboarding)
         onboarding_done_button.setOnClickListener {
+            setResult(Activity.RESULT_OK)
             finish()
         }
     }

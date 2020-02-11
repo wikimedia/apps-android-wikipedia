@@ -62,10 +62,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
 
         val transparency = 0xcc000000
-        tagsContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.suggestions_background_color) and 0xffffff))
-        imageCaption.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.suggestions_background_color) and 0xffffff))
+        tagsContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
+        imageCaption.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
 
-        publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.suggestions_background_color) and 0xffffff))
+        publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         publishOverlayContainer.visibility = GONE
 
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
@@ -141,7 +141,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             // add some padding to the Chip, since our container view doesn't support item spacing yet.
             val params = ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             val margin = DimenUtil.roundedDpToPx(8f)
-            params.setMargins(margin, margin, margin, margin)
+            params.setMargins(margin, 0, margin, 0)
             chip.layoutParams = params
 
             tagsChipGroup.addView(chip)
@@ -167,6 +167,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     }
                 })
 
+        updateLicenseTextShown()
         parent().updateActionButton()
     }
 
@@ -177,10 +178,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
-        if (tagsLicenseText.visibility != VISIBLE) {
-            tagsLicenseText.visibility = VISIBLE
-            tagsHintText.visibility = GONE
-        }
         val chip = button as Chip
         if (chip.isChecked) {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
@@ -189,6 +186,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
         }
+
+        updateLicenseTextShown()
         parent().updateActionButton()
     }
 
@@ -309,11 +308,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         publishProgressBar.postDelayed({
             if (isAdded) {
+                
+                for (i in 0 until tagsChipGroup.childCount) {
+                    val chip = tagsChipGroup.getChildAt(i) as Chip
+                    chip.isEnabled = false
+                }
+                updateLicenseTextShown()
+
                 publishOverlayContainer.visibility = GONE
                 parent().nextPage()
                 setPublishedState()
             }
-        }, duration * 2)
+        }, duration * 3)
     }
 
     private fun onError(caught: Throwable) {
@@ -345,11 +351,20 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
     }
 
-    override fun publishEnabled(): Boolean {
-        return !publishSuccess
+    private fun updateLicenseTextShown() {
+        if (publishSuccess) {
+            tagsLicenseText.visibility = GONE
+            tagsHintText.visibility = GONE
+        } else if (atLeastOneTagChecked()) {
+            tagsLicenseText.visibility = VISIBLE
+            tagsHintText.visibility = GONE
+        } else {
+            tagsLicenseText.visibility = GONE
+            tagsHintText.visibility = VISIBLE
+        }
     }
 
-    override fun publishOutlined(): Boolean {
+    private fun atLeastOneTagChecked(): Boolean {
         var atLeastOneChecked = false
         for (i in 0 until tagsChipGroup.childCount) {
             val chip = tagsChipGroup.getChildAt(i) as Chip
@@ -358,6 +373,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 break
             }
         }
-        return !atLeastOneChecked
+        return atLeastOneChecked
+    }
+
+    override fun publishEnabled(): Boolean {
+        return !publishSuccess
+    }
+
+    override fun publishOutlined(): Boolean {
+        if (tagsChipGroup == null) {
+            return false
+        }
+        return !atLeastOneTagChecked()
     }
 }
