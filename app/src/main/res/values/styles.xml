@@ -26,6 +26,7 @@
         <item name="android:alertDialogTheme">@style/LongPressAlertDialogStyle</item>
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
+        <item name="textInputStyle">@style/TextInputLayoutStyle</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -425,6 +426,14 @@
     <style name="ReadingListTitleTextAppearance">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">?android:attr/windowBackground</item>
+        <item name="android:textColorHint">?attr/material_theme_de_emphasised_color</item>
+        <item name="hintTextColor">?attr/colorAccent</item>
+        <item name="helperTextTextColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="counterTextColor">?attr/material_theme_de_emphasised_color</item>
     </style>
 
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
