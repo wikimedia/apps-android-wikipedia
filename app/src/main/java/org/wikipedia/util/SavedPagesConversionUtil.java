@@ -44,9 +44,10 @@ public final class SavedPagesConversionUtil {
         for (ReadingList readingList : allReadingLists) {
             for (ReadingListPage page : readingList.pages()) {
                 if (page.offline()) {
-                    String leadSectionUrl = page.wiki().url() + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
-                    String remainingSectionsUrl = page.wiki().url() + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
-                    PAGES_TO_CONVERT.add(new SavedReadingListPage(StringUtil.fromHtml(page.apiTitle()).toString(), leadSectionUrl, remainingSectionsUrl));
+                    String baseUrl = page.wiki().url();
+                    String leadSectionUrl = baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
+                    String remainingSectionsUrl = baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
+                    PAGES_TO_CONVERT.add(new SavedReadingListPage(StringUtil.fromHtml(page.apiTitle()).toString(), baseUrl, leadSectionUrl, remainingSectionsUrl));
                 }
             }
         }
@@ -109,10 +110,11 @@ public final class SavedPagesConversionUtil {
     }
 
     private static AtomicInteger FILE_COUNT = new AtomicInteger();
+    private static String REST_API_PREFIX_FOR_CONVERSION = REST_API_PREFIX + "/";
 
     private static void convertToMobileHtml(WebView dummyWebviewForConversion) {
-
-        dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + PAGES_TO_CONVERT.get(FILE_COUNT.get()).getLeadSectionJSON() + "," + PAGES_TO_CONVERT.get(FILE_COUNT.get()).getRemainingSectionsJSON() + ")",
+        SavedReadingListPage savedReadingListPage = PAGES_TO_CONVERT.get(FILE_COUNT.get());
+        dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + "," + "\"" + savedReadingListPage.getBaseUrl() + "\"" + "," + "\"" + REST_API_PREFIX_FOR_CONVERSION + "\"" + ")",
                 value -> {
                     storeConvertedFile(value, PAGES_TO_CONVERT.get(FILE_COUNT.get()).title);
                     if (FILE_COUNT.incrementAndGet() == PAGES_TO_CONVERT.size()) {
@@ -167,22 +169,15 @@ public final class SavedPagesConversionUtil {
 
     private static class SavedReadingListPage {
         String title;
-
-        String getLeadSectionUrl() {
-            return leadSectionUrl;
-        }
-
-        String getRemainingSectionsUrl() {
-            return remainingSectionsUrl;
-        }
-
+        String baseUrl;
         String leadSectionUrl;
         String remainingSectionsUrl;
         String leadSectionJSON;
         String remainingSectionsJSON;
 
-        SavedReadingListPage(String title, String leadSectionUrl, String remainingSectionsUrl) {
+        SavedReadingListPage(String title, String baseUrl, String leadSectionUrl, String remainingSectionsUrl) {
             this.title = title;
+            this.baseUrl = baseUrl;
             this.leadSectionUrl = leadSectionUrl;
             this.remainingSectionsUrl = remainingSectionsUrl;
         }
@@ -201,6 +196,18 @@ public final class SavedPagesConversionUtil {
 
         void setRemainingSectionsJSON(String remainingSectionsJSON) {
             this.remainingSectionsJSON = remainingSectionsJSON;
+        }
+
+        String getLeadSectionUrl() {
+            return leadSectionUrl;
+        }
+
+        String getRemainingSectionsUrl() {
+            return remainingSectionsUrl;
+        }
+
+        String getBaseUrl() {
+            return baseUrl;
         }
     }
 
