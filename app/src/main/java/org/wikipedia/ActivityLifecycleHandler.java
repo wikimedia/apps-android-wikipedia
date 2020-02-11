@@ -12,8 +12,6 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
 
-import static org.wikipedia.util.SavedPagesConversionUtil.runOneTimeSavedPagesConversion;
-
 public class ActivityLifecycleHandler implements Application.ActivityLifecycleCallbacks {
     private boolean haveMainActivity;
     private boolean anyActivityResumed;
@@ -60,9 +58,6 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     @Override
     public void onActivityResumed(@NonNull Activity activity) {
         anyActivityResumed = true;
-        if (!Prefs.isOfflinePcsToMobileHtmlConversionComplete()) {
-            runOneTimeSavedPagesConversion();
-        }
     }
 
     @Override
