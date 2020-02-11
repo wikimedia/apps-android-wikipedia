@@ -58,14 +58,27 @@ public final class SavedPagesConversionUtil {
 
         Completable.fromAction(() -> recordJSONFileNames(PAGES_TO_CONVERT)).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(() -> setUpWebViewForConversion(), L::e);
+                .subscribe(SavedPagesConversionUtil::setUpWebViewForConversion, L::e);
 
     }
 
     private static void recordJSONFileNames(List<SavedReadingListPage> savedReadingListPages) {
+        File offlineCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
+        String leadJSON;
+        String remainingSectionsJSON;
+
         for (SavedReadingListPage savedReadingListPage : savedReadingListPages) {
-            savedReadingListPage.setLeadSectionJSON(ByteString.encodeUtf8(savedReadingListPage.getLeadSectionUrl()).md5().hex() + ".1");
-            savedReadingListPage.setRemainingSectionsJSON(ByteString.encodeUtf8(savedReadingListPage.getRemainingSectionsUrl()).md5().hex() + ".1");
+            File leadJSONFile = new File(offlineCacheDirectory, ByteString.encodeUtf8(savedReadingListPage.getLeadSectionUrl()).md5().hex() + ".1");
+            File remJSONFile = new File(offlineCacheDirectory, ByteString.encodeUtf8(savedReadingListPage.getRemainingSectionsUrl()).md5().hex() + ".1");
+            try {
+                leadJSON = FileUtil.readFile(new FileInputStream(leadJSONFile));
+                remainingSectionsJSON = FileUtil.readFile(new FileInputStream(remJSONFile));
+                savedReadingListPage.setLeadSectionJSON(leadJSON);
+                savedReadingListPage.setRemainingSectionsJSON(remainingSectionsJSON);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
@@ -95,37 +108,24 @@ public final class SavedPagesConversionUtil {
         }
     }
 
+    private static AtomicInteger FILE_COUNT = new AtomicInteger();
+
     private static void convertToMobileHtml(WebView dummyWebviewForConversion) {
-        AtomicInteger fileCount = new AtomicInteger();
 
-        for (SavedReadingListPage savedReadingListPage : PAGES_TO_CONVERT) {
-            File offlineCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
-
-            File leadJSONFile = new File(offlineCacheDirectory, savedReadingListPage.getLeadSectionJSON());
-            File remJSONFile = new File(offlineCacheDirectory, savedReadingListPage.getRemainingSectionsJSON());
-
-            String leadJSON = null;
-            String remainingSectionsJSON = null;
-            try {
-                leadJSON = FileUtil.readFile(new FileInputStream(leadJSONFile));
-                remainingSectionsJSON = FileUtil.readFile(new FileInputStream(remJSONFile));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + leadJSON + "," + remainingSectionsJSON + ")",
-                    value -> {
-                        storeConvertedFile(value, savedReadingListPage.title);
-                        if (fileCount.incrementAndGet() == PAGES_TO_CONVERT.size()) {
-                            crossCheckAndComplete();
-                        }
-                    });
-        }
+        dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + PAGES_TO_CONVERT.get(FILE_COUNT.get()).getLeadSectionJSON() + "," + PAGES_TO_CONVERT.get(FILE_COUNT.get()).getRemainingSectionsJSON() + ")",
+                value -> {
+                    storeConvertedFile(value, PAGES_TO_CONVERT.get(FILE_COUNT.get()).title);
+                    if (FILE_COUNT.incrementAndGet() == PAGES_TO_CONVERT.size()) {
+                        crossCheckAndComplete();
+                    } else {
+                        convertToMobileHtml(dummyWebviewForConversion);
+                    }
+                });
     }
 
     @SuppressLint("CheckResult")
     private static void storeConvertedFile(String convertedString, String fileName) {
-        Completable.fromAction(() -> FileUtil.writeToFileInDirectory(StringEscapeUtils.unescapeJava(convertedString), WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, fileName))
+        Completable.fromAction(() -> FileUtil.writeToFileInDirectory(StringEscapeUtils.unescapeJava(convertedString.substring(1, convertedString.length() - 1)), WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, fileName))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(() -> {
