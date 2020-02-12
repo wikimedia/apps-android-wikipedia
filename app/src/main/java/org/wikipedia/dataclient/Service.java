@@ -84,10 +84,18 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getMediaInfo(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname")
+    /**
+     * When requesting site info, provide an explicit cache time of one day (86400s), since this
+     * information is highly unlikely to change very frequently.
+     */
+    @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=86400&smaxage=86400")
     @NonNull Observable<SiteMatrix> getSiteMatrix();
 
-    @GET(MW_API_PREFIX + "action=query&meta=siteinfo")
+    /**
+     * When requesting site info, provide an explicit cache time of one day (86400s), since this
+     * information is highly unlikely to change very frequently.
+     */
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=86400&smaxage=86400")
     @NonNull Observable<MwQueryResponse> getSiteInfo();
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
