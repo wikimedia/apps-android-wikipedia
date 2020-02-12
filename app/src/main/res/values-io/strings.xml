@@ -67,7 +67,7 @@
   <string name="map_view_link_text">Vidar an mapo</string>
   <string name="other_languages_indication_text">Lektar en altra linguo.</string>
   <string name="language_count_link_text">Disponebla per %d altra lingui</string>
-    <string name="edit_save_action_license_logged_in">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Nur la IP-adreso de vua komputero aparos, ne vua nomo. Se vu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, vu havos plusa privateso.</string>
   <string name="preference_title_language">Lingui de la Wikipedio</string>
   <string name="langlinks_filter_hint">Serchar</string>
@@ -353,6 +353,11 @@
   <string name="suggested_edits_article_cta_snackbar_action">Videz</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Adjuntez expliko</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Adjuntez expliko (%s)</string>
+  <string name="suggested_edits_image_captions">Deskripto-texti por imaji</string>
+  <string name="suggested_edits_image_tags">Deskripto dil imaji</string>
+  <string name="suggested_edits_image_tags_published">Publikigita</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Pozez etiketi en l\'imaji, pro ke altri povos trovar li facile</string>
+  <string name="suggested_edits_task_new">nova</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
   <string name="this_year">Cayare</string>

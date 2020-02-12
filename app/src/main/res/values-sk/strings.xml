@@ -344,6 +344,7 @@
   <string name="preference_title_prefer_offline_content">Preferovať offline obsah</string>
   <string name="preference_summary_prefer_offline_content">Ušetriť využitie dát tým, že aplikácia načíta články, ktoré sú k dispozícii offline a nebude načítavať najnovšiu verziu článku.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prispôsobiť vzhľadu systému</string>
+  <string name="page_footer_license_text">Obsah je dostupný pod $1, pokiaľ nie je uvedené inak</string>
   <string name="empty_tab_title">Nová karta</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
@@ -488,6 +489,7 @@
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
   <string name="notification_syncing_reading_list_channel_description">Pokrok v synchronizácii zoznamov na prečítanie</string>
+  <string name="notification_many_unread">Máte %d neprečítaných upozornení</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Preberanie článku</item>
     <item quantity="other">Preberanie článkov</item>
@@ -644,6 +646,7 @@
   <string name="suggested_edits_translate_descriptions">Preložiť popis článku</string>
   <string name="suggested_edits_add_image_captions">Pridať titulok článku</string>
   <string name="suggested_edits_translate_image_captions">Preložiť titulok článku</string>
+  <string name="suggested_edits_tag_images">Označiť obrázky</string>
   <string name="suggested_edits_review_description">Náhľad popisu článku</string>
   <string name="suggested_edits_add_description_button">Pridať popis</string>
   <string name="suggested_edits_edit_description_button">Upraviť popis</string>
@@ -702,6 +705,17 @@
   <string name="suggested_edits_task_action_text_add">Pridať</string>
   <string name="suggested_edits_task_action_text_translate">Preložiť</string>
   <string name="suggested_edits_image_captions">Titulky obrázkov</string>
+  <string name="suggested_edits_image_tags">Značky obrázkov</string>
+  <string name="suggested_edits_image_tags_publishing">Publikuje sa</string>
+  <string name="suggested_edits_image_tags_published">Publikované</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Označte obrázky, aby ich mohli ostatní ľahšie nájsť</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Potvrdením navhrovaných značiek môžete pomôcť, aby boli obrázky ľahšie nájditeľné.\n\nZnačky sú navrhované počítačom, no musia byť overené človekom na zabezpečenie presnosti.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Iba značky, ktoré vyberiete, budú pridané k obrázkom.</string>
+  <string name="suggested_edits_image_tags_snackbar">Pridajte značky obrázkom, aby ich mohli ostatní ľahšie nájsť</string>
+  <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby ich mohli ostatní ľahšie nájsť. Značky sú navrhované automaticky, no musia byť overené vami.</string>
+  <string name="suggested_edits_image_tags_choose">Vyberte zhodujúce sa značky</string>
+  <string name="suggested_edits_image_tags_select_title">Pre tento obrázok ste nevybrali žiadne značky</string>
+  <string name="suggested_edits_image_tags_select_text">Len značky, ktoré vyberiete, budú pridané k obrázkom. Značky, ktoré nie sú vybrané, budú označené ako odmietnuté. Ste si istí, že chcete označiť všetky značky ako odmietnuté?</string>
   <string name="suggested_edits_encouragement_message">%s, ďakujeme za vaše úpravy. Nižšie nájdete ďalšie spôsoby, ako prispievať na Wikipédiu.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
   <string name="suggested_edits_image_captions_task_detail">Titulky obrázkov popisujú obrázok, aby čitateľom pomohli pochopiť jeho význam a kontext.</string>
@@ -737,6 +751,8 @@
   </plurals>
   <string name="suggested_edits_last_edited">Posledná úprava</string>
   <string name="suggested_edits_last_edited_never">Nikdy</string>
+  <string name="suggested_edits_task_new">nové</string>
+  <string name="suggested_edits_cc0_notice">Publikovaním súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto so zverejnením tohto príspevku pod &lt;a href=\"%2$s\"&gt;licenciou CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>

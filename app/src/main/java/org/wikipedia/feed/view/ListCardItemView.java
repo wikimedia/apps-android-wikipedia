@@ -21,6 +21,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
@@ -72,7 +73,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     @NonNull public ListCardItemView setHistoryEntry(@NonNull HistoryEntry entry) {
         this.entry = entry;
-        setTitle(entry.getTitle().getDisplayText());
+        setTitle(StringUtil.fromHtml(entry.getTitle().getDisplayText()));
         setSubtitle(entry.getTitle().getDescription());
         setImage(entry.getTitle().getThumbUrl());
         PageAvailableOfflineHandler.INSTANCE.check(entry.getTitle(), available -> setViewsGreyedOut(!available));

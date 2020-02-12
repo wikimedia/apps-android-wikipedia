@@ -89,7 +89,7 @@
   <string name="map_view_link_text">지도에서 보기</string>
   <string name="other_languages_indication_text">다른 언어로 읽기</string>
   <string name="language_count_link_text">%d개의 다른 언어로 읽을 수 있음</string>
-    <string name="content_license_cc_by_sa">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
+  <string name="content_license_cc_by_sa">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
   <string name="edit_save_action_license_logged_in">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
   <string name="edit_save_action_license_anon">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
@@ -557,7 +557,7 @@
   <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_main_page_card_subtitle">%s의 대문</string>
   <string name="view_main_page_card_action">대문 문서 보기</string>
-  <string name="view_featured_image_card_title">오늘의 그림</string>
+  <string name="view_featured_image_card_title">오늘의 이미지</string>
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
   <string name="menu_feed_card_dismissed">카드 숨겨짐.</string>
@@ -704,7 +704,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">설문 조사 참가</string>
   <string name="suggested_edits_task_action_text_add">추가</string>
   <string name="suggested_edits_task_action_text_translate">번역</string>
-  <string name="suggested_edits_image_captions">이미지 캡션</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">이미지 캡션</string>
   <string name="suggested_edits_encouragement_message">%s님, 편집에 감사드립니다. 위키백과에 기여할 수 있는 더 많은 방법이 아래에 있습니다.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%s님, 안녕하세요.&lt;/b&gt; 누구든지 위키백과를 편집할 수 있다는 사실을 알고 계셨나요? 위키백과의 발전에 도움을 주는 재밌는 방법이 아래에 있습니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_contributions_stat_tooltip">편집 제안을 통한 전체 기여 수입니다.</string>

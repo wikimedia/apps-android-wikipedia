@@ -33,7 +33,6 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewAnimations;
-import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
@@ -138,7 +137,6 @@ public class LangLinksActivity extends BaseActivity {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
-            ViewUtil.finishActionModeWhenTappingOnView(langLinksList, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -244,11 +242,11 @@ public class LangLinksActivity extends BaseActivity {
             PageTitle link = it.next();
             String languageCode = link.getWikiSite().languageCode();
 
-            if ("be-x-old".equals(languageCode)) {
+            if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE.equals(languageCode)) {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
                 it.remove();
-                it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode("be-tarask")));
+                it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode(AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE)));
             } else if (AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE.equals(languageCode)) {
                 // Replace Chinese with Simplified and Traditional dialects.
                 haveChineseEntry = true;

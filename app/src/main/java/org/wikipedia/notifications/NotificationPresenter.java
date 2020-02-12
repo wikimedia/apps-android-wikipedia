@@ -77,6 +77,13 @@ public final class NotificationPresenter {
         showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, iconResId, iconColor, activityIntent);
     }
 
+    public static void showMultipleUnread(@NonNull Context context, int unreadCount) {
+        NotificationCompat.Builder builder = getDefaultBuilder(context);
+        showNotification(context, builder, 0, context.getString(R.string.app_name),
+                context.getString(R.string.notification_many_unread), context.getString(R.string.notification_many_unread, unreadCount),
+                R.drawable.ic_notifications_black_24dp, R.color.accent50, NotificationActivity.newIntent(context));
+    }
+
     public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

@@ -239,6 +239,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
     private fun updateDescriptionContents() {
         viewArticleTitle.text = StringUtil.fromHtml(sourceSummary!!.displayTitle)
+        viewArticleTitle.visibility = VISIBLE
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
@@ -257,7 +258,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     }
 
     private fun updateCaptionContents() {
-        viewArticleTitle.text = StringUtil.removeNamespace(sourceSummary!!.displayTitle!!)
+        viewArticleTitle.visibility = GONE
         viewArticleSubtitleContainer.visibility = VISIBLE
 
         val descriptionText = when {
@@ -267,17 +268,18 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         }
 
         viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
+        viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummary!!.displayTitle!!))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
-            viewImageArtist!!.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
-            viewImageArtist!!.setDetailText(sourceSummary!!.user)
+            viewImageArtist.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
+            viewImageArtist.setDetailText(sourceSummary!!.user)
         } else {
-            viewImageArtist!!.titleText.text = StringUtil.removeHTMLTags(sourceSummary!!.metadata!!.artist())
+            viewImageArtist.titleText.text = StringUtil.removeHTMLTags(sourceSummary!!.metadata!!.artist())
         }
 
-        viewImageDate!!.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!))
-        viewImageSource!!.setDetailText(sourceSummary!!.metadata!!.credit())
-        viewImageLicense!!.setDetailText(sourceSummary!!.metadata!!.licenseShortName())
+        viewImageDate.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!))
+        viewImageSource.setDetailText(sourceSummary!!.metadata!!.credit())
+        viewImageLicense.setDetailText(sourceSummary!!.metadata!!.licenseShortName())
 
         viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
         viewArticleExtract.visibility = GONE

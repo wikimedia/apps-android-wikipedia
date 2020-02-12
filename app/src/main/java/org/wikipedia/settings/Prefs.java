@@ -858,5 +858,21 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
+    public static boolean shouldShowImageTagsOnboarding() {
+        return getBoolean(R.string.preference_key_image_tags_onboarding_shown, true);
+    }
+
+    public static void setShowImageTagsOnboarding(boolean showOnboarding) {
+        setBoolean(R.string.preference_key_image_tags_onboarding_shown, showOnboarding);
+    }
+
+    public static boolean isSuggestedEditsImageTagsNew() {
+        return getBoolean(R.string.preference_key_suggested_edits_image_tags_new, true);
+    }
+
+    public static void setSuggestedEditsImageTagsNew(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
+    }
+
     private Prefs() { }
 }

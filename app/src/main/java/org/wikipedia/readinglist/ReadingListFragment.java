@@ -61,7 +61,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -830,7 +829,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
             setStatusBarActionMode(true);
-            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 

@@ -66,6 +66,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
         Uri uri = Uri.parse(href);
 
+        if (!TextUtils.isEmpty(uri.getFragment()) && uri.getFragment().contains("cite")) {
+            onPageLinkClicked(uri.getFragment(), linkText);
+            return;
+        }
+
         boolean knownScheme = false;
         for (String scheme : KNOWN_SCHEMES) {
             if (href.startsWith(scheme + ":")) {

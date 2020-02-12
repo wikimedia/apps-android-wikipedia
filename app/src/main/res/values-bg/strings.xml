@@ -73,7 +73,8 @@
   <string name="map_view_link_text">Преглед върху карта</string>
   <string name="other_languages_indication_text">Прочитане на друг език</string>
   <string name="language_count_link_text">Налична на %d други езика</string>
-    <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
   <string name="edit_save_action_license_anon">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
   <string name="preference_title_language">Езици на Уикипедия</string>
   <string name="langlinks_filter_hint">Търсене</string>
@@ -327,9 +328,12 @@
   <string name="view_wiki_error_message_offline">Няма връзка с интернет</string>
   <string name="view_wiki_error_message_timeout">Не е възможно свързването с Уикипедия. Проверете Вашата мрежова връзка или опитайте по-късно</string>
   <string name="reference_title">Източник %s</string>
+  <string name="reference_list_title">Източници</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
   <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
+  <string name="page_footer_license_text">Съдържанието е достъпно под $1, освен ако не е посочено друго</string>
+  <string name="empty_tab_title">Нов раздел</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
   <string name="crash_report_relaunch">Започване отначало</string>
@@ -473,6 +477,7 @@
   <string name="notification_syncing_resume_button">Продължаване</string>
   <string name="notification_syncing_cancel_button">Отказ</string>
   <string name="notification_syncing_reading_list_channel_description">Напредък по синхронизирането на Списъците за четене</string>
+  <string name="notification_many_unread">Имате %d непрочетени известия</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Изтегляне на статия</item>
     <item quantity="other">Изтегляне на статии</item>
@@ -675,7 +680,7 @@
   <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
   <string name="suggested_edits_task_action_text_translate">Превод</string>
-  <string name="suggested_edits_image_captions">Описания на изображения</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Описания на изображения</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
   <string name="suggested_edits_image_captions_task_detail">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението.</string>
@@ -700,6 +705,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Последна редакция</string>
   <string name="suggested_edits_last_edited_never">Никога</string>
+  <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
