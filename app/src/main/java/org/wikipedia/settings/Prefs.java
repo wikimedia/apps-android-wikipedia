@@ -874,5 +874,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_image_tags_onboarding_shown, showOnboarding);
     }
 
+    public static boolean isSuggestedEditsImageTagsNew() {
+        return getBoolean(R.string.preference_key_suggested_edits_image_tags_new, true);
+    }
+
+    public static void setSuggestedEditsImageTagsNew(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
+    }
+
     private Prefs() { }
 }
