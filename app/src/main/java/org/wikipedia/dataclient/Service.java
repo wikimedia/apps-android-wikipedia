@@ -39,6 +39,9 @@ public interface Service {
 
     int PREFERRED_THUMB_SIZE = 320;
 
+    // Maximum cache time for site-specific data, and other things not likely to change very often.
+    int SITE_INFO_MAXAGE = 86400;
+
 
     // ------- Search -------
 
@@ -84,18 +87,10 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getMediaInfo(@NonNull @Query("titles") String titles);
 
-    /**
-     * When requesting site info, provide an explicit cache time of one day (86400s), since this
-     * information is highly unlikely to change very frequently.
-     */
-    @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=86400&smaxage=86400")
+    @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     @NonNull Observable<SiteMatrix> getSiteMatrix();
 
-    /**
-     * When requesting site info, provide an explicit cache time of one day (86400s), since this
-     * information is highly unlikely to change very frequently.
-     */
-    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=86400&smaxage=86400")
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     @NonNull Observable<MwQueryResponse> getSiteInfo();
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
