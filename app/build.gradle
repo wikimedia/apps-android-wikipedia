@@ -158,7 +158,6 @@ dependencies {
     String espressoVersion = '3.1.1'
     String frescoVersion = '2.1.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
-    String leakCanaryVersion = '1.6.2'
     String kotlinCoroutinesVersion = '1.2.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -200,15 +199,7 @@ dependencies {
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
-    android.productFlavors.each { flavor ->
-        String dep
-        if('dev' == flavor.name) {
-            dep = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-        } else {
-            dep = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
-        }
-        "${flavor.name}Implementation" dep
-    }
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
     testImplementation 'junit:junit:4.12'
     testImplementation mockitoCore
