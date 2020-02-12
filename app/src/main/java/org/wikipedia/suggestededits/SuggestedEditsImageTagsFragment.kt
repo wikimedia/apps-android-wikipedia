@@ -134,7 +134,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
             chip.typeface = tagsHintText.typeface
             chip.isCheckable = true
-            chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
+            chip.isCheckedIconVisible = false
             chip.setOnCheckedChangeListener(this)
             chip.tag = label
 
