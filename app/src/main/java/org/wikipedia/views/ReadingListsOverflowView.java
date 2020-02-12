@@ -42,7 +42,10 @@ public class ReadingListsOverflowView extends FrameLayout {
         init();
     }
 
-    public void show(@NonNull View anchorView, @Nullable Callback callback) {
+    public void show(@Nullable View anchorView, @Nullable Callback callback) {
+        if (anchorView == null) {
+            return;
+        }
         this.callback = callback;
         popupWindowHost = new PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true);
