@@ -7,6 +7,7 @@
 * Festina90
 * Goefie
 * Jeroen N
+* Klaas van Buiten
 * KlaasZ4usV
 * Mainframe98
 * Mar(c)
@@ -499,6 +500,7 @@
   <string name="notification_syncing_resume_button">Hervatten</string>
   <string name="notification_syncing_cancel_button">Annuleren</string>
   <string name="notification_syncing_reading_list_channel_description">Voortgang synchronisatie leeslijsten</string>
+  <string name="notification_many_unread">U hebt %d ongelezen berichten</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Artikel downloaden</item>
     <item quantity="other">Artikelen downloaden</item>

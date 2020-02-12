@@ -2,6 +2,7 @@ package org.wikipedia.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -16,10 +17,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public final class FileUtil {
-    public static final int JPEG_QUALITY = 85;
+    private static final int JPEG_QUALITY = 85;
     private static final int KILOBYTE = 1000;
 
-    public static File writeToFile(ByteArrayOutputStream bytes, File destinationFile) throws IOException {
+    static File writeToFile(ByteArrayOutputStream bytes, File destinationFile) throws IOException {
         FileOutputStream fo = new FileOutputStream(destinationFile);
         try {
             fo.write(bytes.toByteArray());
@@ -30,7 +31,7 @@ public final class FileUtil {
         return destinationFile;
     }
 
-    public static ByteArrayOutputStream compressBmpToJpg(Bitmap bitmap) {
+    static ByteArrayOutputStream compressBmpToJpg(Bitmap bitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, JPEG_QUALITY, bytes);
         return bytes;
@@ -81,11 +82,11 @@ public final class FileUtil {
     }
 
 
-    public static float bytesToGB(long bytes) {
+    private static float bytesToGB(long bytes) {
         return (float) bytes / KILOBYTE / KILOBYTE / KILOBYTE;
     }
 
-    public static float bytesToMB(long bytes) {
+    private static float bytesToMB(long bytes) {
         return (float) bytes / KILOBYTE / KILOBYTE;
     }
 
@@ -97,7 +98,7 @@ public final class FileUtil {
         return context.getString(R.string.size_mb, bytesToMB(bytes));
     }
 
-    public static void writeToFileInDirectory(String data, String directory, String filename) {
+    static void writeToFileInDirectory(String data, String directory, String filename) {
         File file = new File(directory, filename);
 
         FileOutputStream outputStream = null;
@@ -109,6 +110,15 @@ public final class FileUtil {
             outputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (outputStream != null) {
+                    outputStream.flush();
+                    outputStream.close();
+                }
+            } catch (IOException e) {
+                Log.e("Exception", "File write failed: " + e.toString());
+            }
         }
     }
 

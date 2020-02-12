@@ -50,7 +50,9 @@ public class StringUtilTest {
 
     @Test
     public void testMd5string() {
-        assertThat(StringUtil.md5string("test"), is("98f6bcd4621d373cade4e832627b4f6"));
+        assertThat(StringUtil.md5string("test"), is("098f6bcd4621d373cade4e832627b4f6"));
+        assertThat(StringUtil.md5string("https://en.wikipedia.org/api/rest_v1/page/mobile-html/Earth"),
+                is("0f28e0cfe175f17806979dff54cc7ea6"));
     }
 
     @Test

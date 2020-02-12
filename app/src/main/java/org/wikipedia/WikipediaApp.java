@@ -72,6 +72,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
+import static org.wikipedia.util.SavedPagesConversionUtil.runOneTimeSavedPagesConversion;
 
 public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
@@ -206,6 +207,10 @@ public class WikipediaApp extends Application {
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
+
+        if (!Prefs.isOfflinePcsToMobileHtmlConversionComplete()) {
+            runOneTimeSavedPagesConversion();
+        }
     }
 
     public int getVersionCode() {
