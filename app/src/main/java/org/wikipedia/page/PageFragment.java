@@ -443,6 +443,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
+                if (!app.isOnline()) {
+                    bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
+                    bridge.execute(JavaScriptActionHandler.setTheme());
+                }
             }
 
             @Override
@@ -482,7 +486,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         bridge.execute(JavaScriptActionHandler.setFooter(model));
 
-       // bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+            if (!(revision.equals("null"))) {
+                this.revision = Long.parseLong(revision.replace("\"", ""));
+            }
+        });
 
         bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
             Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);

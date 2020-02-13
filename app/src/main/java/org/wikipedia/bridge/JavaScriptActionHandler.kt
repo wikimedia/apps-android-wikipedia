@@ -18,6 +18,18 @@ import org.wikipedia.util.L10nUtil.formatDateRelative
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
+    val app: WikipediaApp = WikipediaApp.getInstance()
+
+    @JvmStatic
+    fun setTheme(): String {
+        return String.format("pcs.c1.Page.setTheme(pcs.c1.Themes.${app.currentTheme.funnelName})")
+    }
+
+    @JvmStatic
+    fun setDimImages(): String {
+        return String.format("pcs.c1.Page.setDimImages(${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())})")
+    }
+
     @JvmStatic
     fun setTopMargin(top: Int): String {
         return String.format("pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
@@ -65,7 +77,6 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun setUp(title: PageTitle): String {
-        val app: WikipediaApp = WikipediaApp.getInstance()
         val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
