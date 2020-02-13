@@ -533,6 +533,7 @@
   <string name="suggested_edits_task_add_description_title">Artikel-Beschreiwungen derbäisetzen</string>
   <string name="suggested_edits_task_multilingual_negative">Net fir mech</string>
   <string name="suggested_edits_task_multilingual_positive">Sproochen derbäisetzen</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Fichier</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Kënschtler</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Quell</string>

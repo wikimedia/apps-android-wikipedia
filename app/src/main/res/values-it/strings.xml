@@ -688,6 +688,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai modificato %d descrizioni di voci (verificate)</string>
   <string name="suggested_edits_task_multilingual_negative">Non per me</string>
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
+  <string name="suggested_edits_image_caption_summary_title_file">File</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autore</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>

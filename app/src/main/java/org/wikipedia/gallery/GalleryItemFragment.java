@@ -20,7 +20,6 @@ import androidx.fragment.app.Fragment;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -68,7 +67,6 @@ public class GalleryItemFragment extends Fragment {
 
     private MediaController mediaController;
 
-    @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @Nullable private PageTitle pageTitle;
     @Nullable private MediaListItem mediaListItem;
 
@@ -138,12 +136,6 @@ public class GalleryItemFragment extends Fragment {
 
     private void updateProgressBar(boolean visible) {
         progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        app.getRefWatcher().watch(this);
     }
 
     @Override
