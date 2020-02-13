@@ -544,7 +544,7 @@
   <string name="preference_title_notification_thanks">תודה</string>
   <string name="preference_summary_notification_thanks">מישהו מודה לך על עריכה</string>
   <string name="preference_title_notification_revert">שחזור</string>
-  <string name="preference_summary_notification_revert">אחת מהתרומות שלך שוחזרה</string>
+  <string name="preference_summary_notification_revert">אחת מהתרומות שלך בוטלה</string>
   <string name="preference_title_notification_login_fail">כניסה</string>
   <string name="preference_summary_notification_login_fail">כניסותיך למערכת</string>
   <string name="preference_title_notification_mention">אזכור</string>
@@ -676,6 +676,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">נעול עד לעריכת %d תיאורי ערכים (לאחר אימות)</string>
   <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
   <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>
+  <string name="suggested_edits_image_caption_summary_title_file">קובץ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">יוצר</string>
   <string name="suggested_edits_image_caption_summary_title_author">מחבר</string>
   <string name="suggested_edits_image_caption_summary_title_source">מקור</string>
@@ -712,11 +713,11 @@
   <string name="suggested_edits_image_tags_publishing">מתפרסם</string>
   <string name="suggested_edits_image_tags_published">פורסם</string>
   <string name="suggested_edits_image_tags_onboarding_title">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
-  <string name="suggested_edits_image_tags_onboarding_text">אישור התגים המוצעים הופך את התמונות לקלות יותר לחיפוש.\n\nהתגים מוחלים באמצעות מחשב, אבל צריכים להיות מאומתים על־ידי בני־אדם כדי לוודא את דיוקם.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">אישור התגים המוצעים הופך את התמונות לקלות יותר לחיפוש.\n\nהתגים מחוללים באמצעות מחשב, אבל צריכים להיות מאומתים על־ידי בני־אדם כדי לוודא את דיוקם.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
   <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
-  <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. התגים נוספים אוטומטית, אבל אתם צריכים לאמת אותם.</string>
-  <string name="suggested_edits_image_tags_choose">בחרו תגים תואמים</string>
+  <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. מחשב מציע אותם, אבל צריך לוודא שהם נכונים.</string>
+  <string name="suggested_edits_image_tags_choose">נא לבחור תגים תואמים</string>
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
@@ -726,9 +727,9 @@
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">על סמל מספר הטעמים שהתרומות שלך שוחזרו (בוטלו על־ידי עורך אחר). תרומות ששוחזרו: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך שוחזרו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך שוחזרו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
@@ -755,9 +756,9 @@
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="suggested_edits_task_new">חדשה</string>
-  <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי רישיון &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;..</string>
+  <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי &lt;a href=\"%2$s\"&gt;רישיון CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
-  <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים הייתה חשד. סיבות אפשריות לכך שהעריכה שלך שוחזרה:</string>
+  <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">העריכה שלך נראתה כמו ניסוי או השחתה.</string>
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>

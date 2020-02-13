@@ -633,7 +633,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Potvrdite li predložene oznake, pomoći ćete ostalim osobama u traženju slika.\n\nOznake predlaže računalo, ali radi preciznosti trebaju ih potvrditi ljudi.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
   <string name="suggested_edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
-  <string name="suggested_edits_image_tags_task_detail">Slikama dodajte oznake kako bi ih ostali lakše mogli naći. Oznake se predlažu automatski, no Vi ih trebate potvrditi.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Slikama dodajte oznake kako bi ih ostali lakše mogli naći. Oznake se predlažu automatski, no Vi ih trebate potvrditi.</string>
   <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
   <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>

@@ -721,7 +721,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Dengan mengonfirmasi tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nTag adalah komputer yang disarankan tetapi perlu divalidasi oleh manusia untuk memastikan akurasi.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar.</string>
   <string name="suggested_edits_image_tags_snackbar">Tambahkan tag gambar untuk membuatnya lebih mudah ditemukan orang lain.</string>
-  <string name="suggested_edits_image_tags_task_detail">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis, tetapi perlu diverifikasi oleh Anda.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis, tetapi perlu diverifikasi oleh Anda.</string>
   <string name="suggested_edits_image_tags_choose">Pilih tag yang cocok</string>
   <string name="suggested_edits_image_tags_select_title">Anda belum memilih tag apa pun untuk gambar ini</string>
   <string name="suggested_edits_image_tags_select_text">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar. Tag yang tidak dipilih akan ditandai sebagai ditolak. Yakin ingin menandai semua tag sebagai ditolak?</string>

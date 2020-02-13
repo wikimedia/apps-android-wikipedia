@@ -493,6 +493,7 @@
   <string name="notification_syncing_resume_button">Obnovit</string>
   <string name="notification_syncing_cancel_button">Zrušit</string>
   <string name="notification_syncing_reading_list_channel_description">Synchronizace seznamů k přečtení</string>
+  <string name="notification_many_unread">Máte %d nepřečtených upozornění</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Stahování článku</item>
     <item quantity="other">Stahování článků</item>
