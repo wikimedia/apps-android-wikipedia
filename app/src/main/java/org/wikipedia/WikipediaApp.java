@@ -19,8 +19,6 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.crashes.Crashes;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
@@ -67,6 +65,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
+import leakcanary.AppWatcher;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
@@ -87,7 +86,6 @@ public class WikipediaApp extends Application {
     private String userAgent;
     private WikiSite wiki;
     private AppCenterCrashesListener crashListener;
-    private RefWatcher refWatcher;
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
@@ -104,10 +102,6 @@ public class WikipediaApp extends Application {
 
     public SessionFunnel getSessionFunnel() {
         return sessionFunnel;
-    }
-
-    public RefWatcher getRefWatcher() {
-        return refWatcher;
     }
 
     public RxBus getBus() {
@@ -161,7 +155,15 @@ public class WikipediaApp extends Application {
 
         initExceptionHandling();
 
-        refWatcher = Prefs.isMemoryLeakTestEnabled() ? LeakCanary.install(this) : RefWatcher.DISABLED;
+        if (Prefs.isMemoryLeakTestEnabled()) {
+            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig())
+                    .enabled(true)
+                    .watchActivities(true)
+                    .watchFragments(true)
+                    .build());
+        } else {
+            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig()).enabled(false).build());
+        }
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
