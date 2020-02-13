@@ -63,8 +63,13 @@ public final class StringUtil {
             byte[] messageDigest = digest.digest();
 
             final int maxByteVal = 0xFF;
+            String bstr;
             for (byte b : messageDigest) {
-                hexStr.append(Integer.toHexString(maxByteVal & b));
+                bstr = Integer.toHexString(maxByteVal & b);
+                if (bstr.length() == 1) {
+                    hexStr.append("0");
+                }
+                hexStr.append(bstr);
             }
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);

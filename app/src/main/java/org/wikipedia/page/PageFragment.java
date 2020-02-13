@@ -339,12 +339,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        app.getRefWatcher().watch(this);
-    }
-
-    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
@@ -964,7 +958,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                if (anchor.contains("cite")) {
+                if (anchor.startsWith("cite")) {
                     // It's a link to another reference within the page.
                     disposables.add(getReferences()
                             .subscribeOn(Schedulers.io())

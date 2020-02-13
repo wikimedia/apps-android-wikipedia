@@ -11,7 +11,6 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.PopupWindowCompat;
 
@@ -42,7 +41,10 @@ public class ReadingListsOverflowView extends FrameLayout {
         init();
     }
 
-    public void show(@NonNull View anchorView, @Nullable Callback callback) {
+    public void show(@Nullable View anchorView, @Nullable Callback callback) {
+        if (anchorView == null) {
+            return;
+        }
         this.callback = callback;
         popupWindowHost = new PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true);
