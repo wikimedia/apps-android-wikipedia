@@ -743,7 +743,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Al confirmar las etiquetas sugeridas contribuyes a que sea más fácil encontrar las imágenes.\n\nLas etiquetas son generadas automáticamente pero es necesario que sean validadas por humanos para garantizar su exactitud.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo las etiquetas que elijas se añadirán a las imágenes.</string>
   <string name="suggested_edits_image_tags_snackbar">Etiqueta las imágenes para facilitar su búsqueda.</string>
-  <string name="suggested_edits_image_tags_task_detail">Etiqueta imágenes para que el resto las encuentre más fácilmente. Las etiquetas se sugieren automáticamente, pero necesitan tu verificación.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta imágenes para que el resto las encuentre más fácilmente. Las etiquetas se sugieren automáticamente, pero necesitan tu verificación.</string>
   <string name="suggested_edits_image_tags_choose">Elige las etiquetas correspondientes a la imagen.</string>
   <string name="suggested_edits_image_tags_select_title">No has seleccionado ninguna etiqueta para esta imagen.</string>
   <string name="suggested_edits_image_tags_select_text">Solo las etiquetas que elijas se añadirán a las imágenes. Las etiquetas no seleccionadas se marcarán como rechazadas. ¿Estás seguro de que quieres marcar todas las etiquetas como rechazadas?</string>
