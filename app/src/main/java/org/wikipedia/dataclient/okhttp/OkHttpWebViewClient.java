@@ -39,6 +39,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
+    private static final String PCS_CSS = "/data/css/mobile/pcs";
+    private static final String BASE_CSS = "/data/css/mobile/base";
+    private static final String PCS_JS = "/data/javascript/mobile/pcs";
 
     @NonNull public abstract PageViewModel getModel();
 
@@ -71,7 +74,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         } catch (Exception e) {
             // The following responses are when we have failed to fetch the required css or javascript for our page (probably due to
             // being offline), so replacing them with our pre-packaged fallback.
-            if (request.getUrl().toString().contains("/css/mobile/pcs")) {
+            if (request.getUrl().toString().contains(PCS_CSS)) {
                 final int statusCode = 200;
                 try {
                     return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
@@ -79,7 +82,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 } catch (IOException ex) {
                     // ignore silently
                 }
-            } else if (request.getUrl().toString().contains("/data/css/mobile/base")) {
+            } else if (request.getUrl().toString().contains(BASE_CSS)) {
                 final int statusCode = 200;
                 try {
                     return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
@@ -87,7 +90,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 } catch (IOException ex) {
                     // ignore silently
                 }
-            } else if (request.getUrl().toString().contains("/data/javascript/mobile/pcs")) {
+            } else if (request.getUrl().toString().contains(PCS_JS)) {
                 final int statusCode = 200;
                 try {
                     return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
