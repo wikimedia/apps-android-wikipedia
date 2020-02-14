@@ -504,6 +504,7 @@
   <string name="notification_syncing_resume_button">Retomar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
   <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
+  <string name="notification_many_unread">Você tem %d notificações não lidas</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Download de artigo</item>
     <item quantity="other">Download de artigos</item>
@@ -728,7 +729,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Ao confirmar as marcações sugeridas, você pode ajudar a facilitar a pesquisa de imagens.\n\nAs marcações são sugeridas por computador, mas precisam ser validadas por humanos para garantir a precisão.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marque as imagens para facilitar a localização de outras pessoas. As marcações são sugeridas automaticamente, mas precisam ser verificadas por você.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Marque as imagens para facilitar a localização de outras pessoas. As marcações são sugeridas automaticamente, mas precisam ser verificadas por você.</string>
   <string name="suggested_edits_image_tags_choose">Escolha as marcações correspondentes</string>
   <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>
