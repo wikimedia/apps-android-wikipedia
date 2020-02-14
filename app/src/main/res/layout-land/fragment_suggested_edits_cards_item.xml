@@ -49,8 +49,7 @@
                     android:id="@+id/viewArticleImage"
                     style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop" />
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
             <LinearLayout

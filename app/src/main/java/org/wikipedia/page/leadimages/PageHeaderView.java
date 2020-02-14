@@ -2,7 +2,6 @@ package org.wikipedia.page.leadimages;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.PointF;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
@@ -137,27 +135,6 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
         gradientViewTop.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
         gradientViewBottom.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
-
-        image.setOnImageLoadListener(new ImageLoadListener());
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice()));
-    }
-
-    private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
-        @Override
-        public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
-            if (isAttachedToWindow() && faceLocation != null) {
-                image.post(() -> {
-                    if (isAttachedToWindow()) {
-                        // TODO
-                        //image.getHierarchy().setActualImageFocusPoint(faceLocation);
-                        //updateScroll();
-                    }
-                });
-            }
-        }
-
-        @Override
-        public void onImageFailed() {
-        }
     }
 }

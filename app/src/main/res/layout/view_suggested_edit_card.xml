@@ -26,8 +26,7 @@
             android:id="@+id/viewArticleImage"
             style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
             android:layout_width="match_parent"
-            android:layout_height="201dp"
-            android:scaleType="centerCrop" />
+            android:layout_height="201dp" />
 
         <LinearLayout
             android:id="@+id/viewArticleContainer"

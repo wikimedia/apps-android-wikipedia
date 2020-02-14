@@ -85,14 +85,6 @@ public class CardLargeHeaderView extends ConstraintLayout {
                     return;
                 }
                 animateBackgroundColor(CardLargeHeaderView.this, mainColor);
-                if (faceLocation != null) {
-                    post(() -> {
-                        if (isAttachedToWindow()) {
-                            // TODO
-                            //imageView.getHierarchy().setActualImageFocusPoint(faceLocation);
-                        }
-                    });
-                }
             });
         }
 
