@@ -15,6 +15,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.push.WikipediaAppPushServiceClient;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -190,6 +191,30 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     loadPreferences();
                     return true;
                 });
+
+        findPreference(context.getString(R.string.preference_key_enable_push_notifications)).setOnPreferenceChangeListener(
+                (pref, val) -> {
+                    WikipediaAppPushServiceClient pushServiceClient = WikipediaAppPushServiceClient.getInstance(context);
+                    boolean pushNotificationsEnabled = Boolean.TRUE.equals(val);
+                    if (pushNotificationsEnabled) {
+                        pushServiceClient.updateSubscriptionState();
+                    } else {
+                        findPreference(context.getString(R.string.preference_key_push_service_subscriber_id)).setSummary(null);
+                        pushServiceClient.deleteSubscription();
+                    }
+                    return true;
+                });
+        findPreference(context.getString(R.string.preference_key_push_service_base_url)).setOnPreferenceChangeListener(
+                (pref, val) -> {
+                    // Clear the subscription ID so that it's not erroneously sent to the wrong server.
+                    // If the original server URL is restored, the old subscription ID will be recovered
+                    // at subscription time.
+                    Prefs.setPushServiceSubscriberId(null);
+                    findPreference(context.getString(R.string.preference_key_push_service_subscriber_id)).setSummary(null);
+                    return true;
+                });
+        findPreference(context.getString(R.string.preference_key_current_firebase_token)).setSummary(Prefs.getCurrentFirebaseToken());
+        findPreference(context.getString(R.string.preference_key_push_service_subscriber_id)).setSummary(Prefs.getPushServiceSubscriberId());
     }
 
     private void setUpMediaWikiSettings() {

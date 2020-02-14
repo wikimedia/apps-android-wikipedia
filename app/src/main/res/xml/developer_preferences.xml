@@ -2,6 +2,29 @@
 <androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory android:title="@string/preferences_developer_push_notifications_heading">
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_enable_push_notifications"
+            android:title="@string/preferences_developer_enable_push_notifications" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_push_service_base_url"
+            android:title="@string/preferences_developer_push_service_base_url" />
+
+        <!-- Entries below are intentionally read-only -->
+
+        <Preference
+            android:key="@string/preference_key_current_firebase_token"
+            android:title="@string/preferences_developer_current_firebase_token" />
+
+        <Preference
+            android:key="@string/preference_key_push_service_subscriber_id"
+            android:title="@string/preferences_developer_push_service_subscriber_id" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/preferences_developer_feature_testing_heading">
 
     </PreferenceCategory>

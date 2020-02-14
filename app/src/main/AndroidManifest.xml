@@ -341,6 +341,14 @@
             android:name=".savedpages.SavedPageSyncService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
+        <service
+            android:name=".firebase.WikipediaAppFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
 
     </application>

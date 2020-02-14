@@ -113,4 +113,8 @@
     <string name="preference_key_suggested_edits_override_edits">suggestedEditsOverrideEdits</string>
     <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
     <string name="preference_key_image_tags_onboarding_shown">imageTagsOnboardingShown</string>
+    <string name="preference_key_enable_push_notifications">enablePushNotifications</string>
+    <string name="preference_key_push_service_base_url">pushServiceBaseUrl</string>
+    <string name="preference_key_push_service_subscriber_id">pushServiceSubscriberId</string>
+    <string name="preference_key_current_firebase_token">currentFirebaseToken</string>
 </resources>

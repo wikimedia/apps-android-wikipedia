@@ -24,6 +24,7 @@ public final class ServiceFactory {
     private static final int SERVICE_CACHE_SIZE = 8;
     private static LruCache<Long, Service> SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
     private static LruCache<Long, RestService> REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
+    private static PushService PUSH_SERVICE;
 
     public static Service get(@NonNull WikiSite wiki) {
         long hashCode = wiki.hashCode();
@@ -53,9 +54,29 @@ public final class ServiceFactory {
         return s;
     }
 
+    public static PushService getPush() {
+        if (PUSH_SERVICE != null) {
+            return PUSH_SERVICE;
+        }
+
+        Retrofit r = createRetrofit(Prefs.getPushServiceBaseUrl());
+        PushService s = r.create(PushService.class);
+        PUSH_SERVICE = s;
+        return s;
+    }
+
     public static <T> T get(@NonNull WikiSite wiki, @Nullable String baseUrl, Class<T> service) {
         Retrofit r = createRetrofit(wiki, TextUtils.isEmpty(baseUrl) ? wiki.url() + "/" : baseUrl);
         return r.create(service);
+    }
+
+    private static Retrofit createRetrofit(@NonNull String baseUrl) {
+        return new Retrofit.Builder()
+                .client(OkHttpConnectionFactory.getClient().newBuilder().build())
+                .baseUrl(baseUrl)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
+                .build();
     }
 
     private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {

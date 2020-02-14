@@ -36,6 +36,13 @@
     <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
     <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
     <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
+
+    <string name="preferences_developer_push_notifications_heading">Push notifications</string>
+    <string name="preferences_developer_enable_push_notifications">Enable push notifications</string>
+    <string name="preferences_developer_push_service_base_url">Push service base URL</string>
+    <string name="preferences_developer_current_firebase_token">Firebase token</string>
+    <string name="preferences_developer_push_service_subscriber_id">Push service subscriber ID</string>
+
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
 </resources>

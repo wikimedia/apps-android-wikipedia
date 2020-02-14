@@ -874,5 +874,29 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
     }
 
+    public static String getPushServiceBaseUrl() {
+        return getString(R.string.preference_key_push_service_base_url, null);
+    }
+
+    public static boolean getPushNotificationsEnabled() {
+        return getBoolean(R.string.preference_key_enable_push_notifications, false);
+    }
+
+    public static String getCurrentFirebaseToken() {
+        return getString(R.string.preference_key_current_firebase_token, null);
+    }
+
+    public static void setCurrentFirebaseToken(@NonNull String s) {
+        setString(R.string.preference_key_current_firebase_token, s);
+    }
+
+    public static String getPushServiceSubscriberId() {
+        return getString(R.string.preference_key_push_service_subscriber_id, null);
+    }
+
+    public static void setPushServiceSubscriberId(@Nullable String s) {
+        setString(R.string.preference_key_push_service_subscriber_id, s);
+    }
+
     private Prefs() { }
 }

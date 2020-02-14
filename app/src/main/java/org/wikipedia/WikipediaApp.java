@@ -43,6 +43,7 @@ import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.push.WikipediaAppPushServiceClient;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
@@ -208,6 +209,10 @@ public class WikipediaApp extends Application {
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
+
+        if (Prefs.getPushNotificationsEnabled()) {
+            WikipediaAppPushServiceClient.getInstance(this).updateSubscriptionState();
+        }
     }
 
     public int getVersionCode() {
