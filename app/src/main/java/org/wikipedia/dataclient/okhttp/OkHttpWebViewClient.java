@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +69,33 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                             getInputStream(rsp));
             }
         } catch (Exception e) {
+            // The following responses are when we have failed to fetch the required css or javascript for our page (probably due to
+            // being offline), so replacing them with our pre-packaged fallback.
+            if (request.getUrl().toString().contains("/css/mobile/pcs")) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("pcs.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (request.getUrl().toString().contains("/data/css/mobile/base")) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("base.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (request.getUrl().toString().contains("/data/javascript/mobile/pcs")) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("javascript_file.js"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            }
             // TODO: we can send actual error message by handling the exception message.
             response = new WebResourceResponse(null, null, 404, "Unknown error", null, null);
             L.e(e);
