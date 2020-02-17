@@ -442,12 +442,14 @@
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
   <string name="suggested_edits_tasks_activity_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
+  <string name="suggested_edits_image_caption_summary_title_file">फाइल</string>
   <string name="suggested_edits_image_caption_summary_title_license">इजाजतपत्र</string>
   <string name="suggested_edits_feed_card_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_feed_card_add_description_button">लेख वर्णन थप्नुहोस्</string>
   <string name="suggested_edits_tasks_onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="suggested_edits_article_cta_image_caption">तस्विर शीर्षक थप्नुहोस्</string>
   <string name="suggested_edits_feed_card_add_image_caption">तस्विर शीर्षक थप्नुहोस्</string>
+  <string name="suggested_edits_image_captions">तस्वीर व्याख्याहरू</string>
   <string name="suggested_edits_task_new">नयाँ</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="description_edit_login_cancel_button_text">रद्द गर्नुहोस्</string>

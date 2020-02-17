@@ -360,7 +360,7 @@
   <string name="view_wiki_error_message_timeout">Impossibile connettersi a Wikipedia. Controlla la connessione di rete o riprova più tardi</string>
   <string name="reference_title">Riferimento %s</string>
   <string name="reference_list_title">Note</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Oscuramento dell\'immagine (in tema Scuro)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Oscuramento dell\'immagine (in tema Scuro e Nero)</string>
   <string name="preference_title_prefer_offline_content">Preferisci contenuti offline</string>
   <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili offline anziché caricare sempre l\'ultima versione di una voce</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
@@ -509,6 +509,7 @@
   <string name="notification_syncing_resume_button">Riprendi</string>
   <string name="notification_syncing_cancel_button">Annulla</string>
   <string name="notification_syncing_reading_list_channel_description">Sincronizzazione dei progressi degli elenchi di lettura</string>
+  <string name="notification_many_unread">Hai %d notifiche non lette</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Scaricamento voce</item>
     <item quantity="other">Scaricamento voci</item>
@@ -662,6 +663,7 @@
   <string name="suggested_edits_translate_descriptions">Traduci descrizioni della voce</string>
   <string name="suggested_edits_add_image_captions">Aggiungi didascalie immagini</string>
   <string name="suggested_edits_translate_image_captions">Traduci didascalie immagini</string>
+  <string name="suggested_edits_tag_images">Etichetta delle immagini</string>
   <string name="suggested_edits_review_description">Revisiona descrizione della voce</string>
   <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
   <string name="suggested_edits_edit_description_button">Modifica descrizione</string>
@@ -721,6 +723,15 @@
   <string name="suggested_edits_task_action_text_add">Aggiungi</string>
   <string name="suggested_edits_task_action_text_translate">Traduci</string>
   <string name="suggested_edits_image_captions">Didascalie delle immagini</string>
+  <string name="suggested_edits_image_tags">Etichette dell\'immagine</string>
+  <string name="suggested_edits_image_tags_publishing">Pubblicazione</string>
+  <string name="suggested_edits_image_tags_published">Pubblicato</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etichetta le immagini per facilitarne la ricerca da parte di altri utenti</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Confermando le etichette suggerite, puoi semplificare la ricerca delle immagini.\n\nLe etichette sono suggerite dal computer, ma devono essere convalidate dagli umani per garantire l\'accuratezza.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Solo le etichette scelte verranno aggiunte alle immagini.</string>
+  <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
+  <string name="suggested_edits_image_tags_choose">Scegli le etichette corrispondenti</string>
+  <string name="suggested_edits_image_tags_select_title">Non hai selezionato nessuna etichetta per questa immagine</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>
   <string name="suggested_edits_image_captions_task_detail">Le didascalie delle immagini descrivono un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
@@ -753,6 +764,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
+  <string name="suggested_edits_task_new">nuovo</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>
