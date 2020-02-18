@@ -185,7 +185,6 @@ dependencies {
     implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
 
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.romandanylyk:pageindicatorview:1.0.2'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"

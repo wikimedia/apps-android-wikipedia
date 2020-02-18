@@ -102,7 +102,7 @@ public class InitialOnboardingFragment extends OnboardingFragment implements Onb
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            return new ItemFragment(position, OnboardingPage.of(position).getLayout());
+            return ItemFragment.newInstance(position);
         }
 
         @Override
@@ -112,21 +112,23 @@ public class InitialOnboardingFragment extends OnboardingFragment implements Onb
     }
 
     public static class ItemFragment extends Fragment {
-        private int position;
-        private int layoutId;
-
-        ItemFragment(int position, int layoutId) {
-            this.position = position;
-            this.layoutId = layoutId;
+        public static ItemFragment newInstance(int position) {
+            ItemFragment instance = new ItemFragment();
+            Bundle args = new Bundle();
+            args.putInt("position", position);
+            instance.setArguments(args);
+            return instance;
         }
 
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             super.onCreateView(inflater, container, savedInstanceState);
-            OnboardingPageView view = (OnboardingPageView) inflater.inflate(layoutId, container, false);
+            int position = getArguments().getInt("position", 0);
+            OnboardingPageView view = (OnboardingPageView) inflater.inflate(OnboardingPage.of(position).getLayout(), container, false);
             if (OnboardingPage.PAGE_USAGE_DATA.code() == position) {
                 view.setSwitchChecked(Prefs.isEventLoggingEnabled());
             }
+            view.setTag(position);
             view.setCallback(getCallback());
             return view;
         }

@@ -40,20 +40,23 @@ public class DescriptionEditTutorialFragment extends OnboardingFragment {
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            return new ItemFragment(DescriptionEditTutorialPage.of(position).getLayout());
+            return ItemFragment.newInstance(position);
         }
     }
 
     public static class ItemFragment extends Fragment {
-        private int layoutId;
-
-        ItemFragment(int layoutId) {
-            this.layoutId = layoutId;
+        public static ItemFragment newInstance(int position) {
+            ItemFragment instance = new ItemFragment();
+            Bundle args = new Bundle();
+            args.putInt("position", position);
+            instance.setArguments(args);
+            return instance;
         }
 
         @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             super.onCreateView(inflater, container, savedInstanceState);
-            OnboardingPageView view = (OnboardingPageView) inflater.inflate(layoutId, container, false);
+            int position = getArguments().getInt("position", 0);
+            OnboardingPageView view = (OnboardingPageView) inflater.inflate(DescriptionEditTutorialPage.of(position).getLayout(), container, false);
             view.setCallback(new OnboardingPageView.DefaultCallback());
             return view;
         }

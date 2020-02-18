@@ -41,7 +41,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                />
+                app:tabIndicator="@null"
+                app:tabPaddingStart="8dp"
+                app:tabPaddingEnd="8dp"
+                app:tabBackground="@drawable/shape_tab_dot"
+                app:tabGravity="center" />
 
             <FrameLayout
                 android:layout_width="wrap_content"

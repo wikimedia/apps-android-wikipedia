@@ -49,7 +49,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/reference_pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
         <View
             android:id="@+id/indicator_divider"
@@ -59,17 +59,16 @@
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:background="?attr/material_theme_border_color" />
 
-        <com.rd.PageIndicatorView
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/page_indicator_view"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_gravity="center_horizontal"
-            android:paddingTop="20dp"
-            app:piv_radius="4dp"
-            app:piv_rtl_mode="auto"
-            app:piv_selectedColor="?attr/material_theme_primary_color"
-            app:piv_unselectedColor="?attr/material_theme_border_color"
-            app:piv_viewPager="@id/reference_pager" />
+            android:layout_gravity="center"
+            app:tabIndicator="@null"
+            app:tabPaddingStart="8dp"
+            app:tabPaddingEnd="8dp"
+            app:tabBackground="@drawable/shape_tab_dot"
+            app:tabGravity="center" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

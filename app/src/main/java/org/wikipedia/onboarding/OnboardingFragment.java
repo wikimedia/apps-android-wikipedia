@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
@@ -25,7 +28,7 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
     @BindView(R.id.fragment_pager) ViewPager2 viewPager;
     @BindView(R.id.fragment_onboarding_skip_button) Button skipButton;
     @BindView(R.id.fragment_onboarding_forward_button) View forwardButton;
-    @BindView(R.id.view_onboarding_page_indicator) View pageIndicatorView;
+    @BindView(R.id.view_onboarding_page_indicator) TabLayout pageIndicatorView;
     @BindView(R.id.fragment_onboarding_done_button) Button doneButton;
     private Unbinder unbinder;
     private FragmentStateAdapter adapter;
@@ -46,6 +49,9 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         adapter = getAdapter();
         viewPager.setAdapter(adapter);
         viewPager.registerOnPageChangeCallback(pageChangeCallback);
+
+        new TabLayoutMediator(pageIndicatorView, viewPager, (tab, position) -> { }).attach();
+
         doneButton.setText(getDoneButtonText());
         updateButtonState();
         updatePageIndicatorContentDescription();
