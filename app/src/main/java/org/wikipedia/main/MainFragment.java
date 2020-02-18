@@ -69,7 +69,6 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnPageChange;
 import butterknife.Unbinder;
 import io.reactivex.Completable;
 import io.reactivex.disposables.CompositeDisposable;
