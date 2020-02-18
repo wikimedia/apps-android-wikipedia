@@ -221,7 +221,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         if (!isWebViewSetup) {
             isWebViewSetup = true;
 
-            bridge.addListener("link_clicked", new LinkHandler(requireActivity()) {
+            bridge.addListener("link", new LinkHandler(requireActivity()) {
                 @Override
                 public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
                     // TODO: also need to handle references, issues, disambig, ... in preview eventually
@@ -266,13 +266,13 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
                     return parentActivity.getPageTitle().getWikiSite();
                 }
             });
-            bridge.addListener("image_clicked", (messageType, messagePayload) -> {
+            bridge.addListener("image", (messageType, messagePayload) -> {
                 // TODO: do something when an image is clicked in Preview.
             });
-            bridge.addListener("mediaClicked", (messageType, messagePayload) -> {
+            bridge.addListener("media", (messageType, messagePayload) -> {
                 // TODO: do something when a video is clicked in Preview.
             });
-            bridge.addListener("reference_clicked", (messageType, messagePayload) -> {
+            bridge.addListener("reference", (messageType, messagePayload) -> {
                 // TODO: do something when a reference is clicked in Preview.
             });
         }

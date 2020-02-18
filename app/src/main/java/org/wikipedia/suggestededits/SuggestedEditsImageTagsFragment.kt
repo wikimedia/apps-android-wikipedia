@@ -11,8 +11,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
@@ -130,11 +129,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
             val chip = Chip(requireContext())
             chip.text = label.label
+            chip.textAlignment = TEXT_ALIGNMENT_CENTER
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
             chip.typeface = tagsHintText.typeface
             chip.isCheckable = true
-            chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
+            chip.isCheckedIconVisible = false
             chip.setOnCheckedChangeListener(this)
             chip.tag = label
 
