@@ -10,7 +10,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.SparseArray;
+import android.util.LruCache;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -26,9 +26,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -63,6 +63,7 @@ import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -119,7 +120,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_license_icon_by) ImageView byIcon;
     @BindView(R.id.gallery_license_icon_sa) ImageView saIcon;
     @BindView(R.id.gallery_credit_text) TextView creditText;
-    @BindView(R.id.gallery_item_pager) ViewPager galleryPager;
+    @BindView(R.id.gallery_item_pager) ViewPager2 galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
     @BindView(R.id.gallery_caption_edit_button) View captionEditButton;
     @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
@@ -211,7 +212,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         galleryAdapter = new GalleryItemAdapter(GalleryActivity.this);
         galleryPager.setAdapter(galleryAdapter);
-        galleryPager.addOnPageChangeListener(pageChangeListener);
+        galleryPager.registerOnPageChangeCallback(pageChangeListener);
+        galleryPager.setOffscreenPageLimit(2);
 
         funnel = new GalleryFunnel(app, getIntent().getParcelableExtra(EXTRA_WIKI),
                 getIntent().getIntExtra(EXTRA_SOURCE, 0));
@@ -245,7 +247,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override public void onDestroy() {
         disposables.clear();
         disposeImageCaptionDisposable();
-        galleryPager.removeOnPageChangeListener(pageChangeListener);
+        galleryPager.unregisterOnPageChangeCallback(pageChangeListener);
         pageChangeListener = null;
 
         if (unbinder != null) {
@@ -387,7 +389,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
     }
 
-    private class GalleryPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
+    private class GalleryPageChangeListener extends ViewPager2.OnPageChangeCallback {
         private int currentPosition = -1;
         @Override
         public void onPageSelected(int position) {
@@ -402,12 +404,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 }
             }
             currentPosition = position;
-        }
-        @Override
-        public void onPageScrollStateChanged(int state) {
-            if (state == ViewPager.SCROLL_STATE_IDLE) {
-                galleryAdapter.purgeFragments();
-            }
         }
     }
 
@@ -564,7 +560,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     private void applyGalleryList(@NonNull List<MediaListItem> list) {
         // remove the page transformer while we operate on the pager...
-        galleryPager.setPageTransformer(false, null);
+        galleryPager.setPageTransformer(null);
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
         int initialImagePos = -1;
@@ -593,21 +589,16 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (initialImagePos != -1) {
             // if we have a target image to jump to, then do it!
             galleryPager.setCurrentItem(initialImagePos, false);
-        } else if (initialImageIndex >= 0
-                && initialImageIndex < galleryAdapter.getCount()) {
+        } else if (initialImageIndex >= 0 && initialImageIndex < galleryAdapter.getItemCount()) {
             // if we have a target image index to jump to, then do it!
             galleryPager.setCurrentItem(initialImageIndex, false);
         }
-        galleryPager.setPageTransformer(false, new GalleryPagerTransformer());
+        galleryPager.setPageTransformer(new GalleryPagerTransformer());
     }
 
     @Nullable
     private GalleryItemFragment getCurrentItem() {
-        if (galleryAdapter.getItem(galleryPager.getCurrentItem()) == null) {
-            return null;
-        }
-
-        return ((GalleryItemFragment) galleryAdapter.getItem(galleryPager.getCurrentItem()));
+        return (GalleryItemFragment) galleryAdapter.getFragmentAt(galleryPager.getCurrentItem());
     }
 
     /**
@@ -637,8 +628,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             infoContainer.setVisibility(View.GONE);
             return;
         }
-
-        galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
@@ -718,13 +707,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * Each media item will be represented by a GalleryItemFragment, which will be instantiated
      * lazily, and then cached for future use.
      */
-    private class GalleryItemAdapter extends FragmentPagerAdapter {
+    private class GalleryItemAdapter extends FragmentStateAdapter {
         private List<MediaListItem> list = new ArrayList<>();
-        private SparseArray<GalleryItemFragment> fragmentArray;
+        private LruCache<Integer, WeakReference<GalleryItemFragment>> fragmentCache;
 
         GalleryItemAdapter(AppCompatActivity activity) {
-            super(activity.getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-            fragmentArray = new SparseArray<>();
+            super(activity);
+            final int cacheSize = 16;
+            fragmentCache = new LruCache<>(cacheSize);
         }
 
         public void setList(@NonNull List<MediaListItem> list) {
@@ -733,51 +723,22 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             notifyDataSetChanged();
         }
 
-        void notifyFragments(int currentPosition) {
-            for (int i = 0; i < getCount(); i++) {
-                if (fragmentArray.get(i) != null) {
-                    fragmentArray.get(i).onUpdatePosition(i, currentPosition);
-                }
-            }
-        }
-
-        /**
-         * Remove any active fragments to the left+1 and right+1 of the current
-         * fragment, to reduce memory usage.
-         */
-        void purgeFragments() {
-            int position = galleryPager.getCurrentItem();
-            FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-            for (int i = 0; i < getCount(); i++) {
-                if (Math.abs(position - i) < 2) {
-                    continue;
-                }
-                if (fragmentArray.get(i) != null) {
-                    trans.remove(fragmentArray.get(i));
-                    fragmentArray.remove(i);
-                    fragmentArray.put(i, null);
-                }
-            }
-            trans.commitAllowingStateLoss();
-        }
-
         @Override
-        public int getCount() {
+        public int getItemCount() {
             return list.size();
         }
 
         @Override
-        @Nullable // don't remove this, it needs to be @Nullable.
-        public Fragment getItem(int position) {
-            if (list.size() <= position || position < 0) {
-                return null;
-            }
-            // instantiate a new fragment if it doesn't exist
-            if (fragmentArray.get(position) == null) {
-                fragmentArray.put(position, GalleryItemFragment
-                        .newInstance(pageTitle, list.get(position)));
-            }
-            return fragmentArray.get(position);
+        @NonNull
+        public Fragment createFragment(int position) {
+            GalleryItemFragment f = GalleryItemFragment.newInstance(pageTitle, list.get(position));
+            fragmentCache.put(position, new WeakReference<>(f));
+            return f;
+        }
+
+        @Nullable
+        public Fragment getFragmentAt(int position) {
+            return fragmentCache.get(position) != null ? fragmentCache.get(position).get() : null;
         }
     }
 
