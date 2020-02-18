@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -18,7 +20,6 @@ import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.views.WrapContentViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
  * A dialog that displays the currently clicked reference.
  */
 public class ReferenceDialog extends BottomSheetDialog {
-    @BindView(R.id.reference_pager) WrapContentViewPager referencesViewPager;
+    @BindView(R.id.reference_pager) ViewPager referencesViewPager;
     @BindView(R.id.page_indicator_view) PageIndicatorView pageIndicatorView;
     @BindView(R.id.indicator_divider) View pageIndicatorDivider;
     @BindView(R.id.reference_title_text) TextView titleTextView;
@@ -50,8 +51,6 @@ public class ReferenceDialog extends BottomSheetDialog {
             ((ViewGroup) pageIndicatorView.getParent()).removeView(pageIndicatorView);
             pageIndicatorDivider.setVisibility(View.GONE);
         } else {
-            final int pageIndicatorHeight = 56;
-            referencesViewPager.setMaxHeight(DimenUtil.getDisplayHeightPx() / 2 - DimenUtil.roundedDpToPx(pageIndicatorHeight));
             BottomSheetBehavior behavior = BottomSheetBehavior.from((View) rootView.getParent());
             behavior.setPeekHeight(DimenUtil.getDisplayHeightPx() / 2);
         }

@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -85,7 +85,7 @@ import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         HistoryFragment.Callback, LinkPreviewDialog.Callback {
-    @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
+    @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
     @BindView(R.id.fragment_main_nav_tab_container) FrameLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
@@ -94,6 +94,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     private Snackbar suggestedEditsNavTabSnackbar;
+    private PageChangeCallback pageChangeCallback = new PageChangeCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
     private boolean navTabAutoSelect;
 
@@ -121,8 +122,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         unbinder = ButterKnife.bind(this, view);
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
-        viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setUserInputEnabled(false);
+        viewPager.setAdapter(new NavTabFragmentPagerAdapter(this));
+        viewPager.registerOnPageChangeCallback(pageChangeCallback);
+
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
@@ -157,6 +160,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onDestroyView() {
+        viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
         unbinder = null;
         disposables.dispose();
@@ -407,14 +411,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
-        Callback callback = callback();
-        if (callback != null) {
-            NavTab tab = NavTab.of(position);
-            callback.onTabChanged(tab);
-        }
-    }
-
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(requireContext(), null, url);
         FeedbackUtil.showMessage(this, R.string.address_copied);
@@ -485,8 +481,20 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
+    @Nullable
     public Fragment getCurrentFragment() {
-        return ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        return ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getFragmentAt(viewPager.getCurrentItem());
+    }
+
+    private class PageChangeCallback extends ViewPager2.OnPageChangeCallback {
+        @Override
+        public void onPageSelected(int position) {
+            Callback callback = callback();
+            if (callback != null) {
+                NavTab tab = NavTab.of(position);
+                callback.onTabChanged(tab);
+            }
+        }
     }
 
     private class MediaDownloadReceiverCallback implements MediaDownloadReceiver.Callback {

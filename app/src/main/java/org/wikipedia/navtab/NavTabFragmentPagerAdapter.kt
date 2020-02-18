@@ -1,24 +1,24 @@
 package org.wikipedia.navtab
 
-import android.view.ViewGroup
+import android.util.SparseArray
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import java.lang.ref.WeakReference
 
-class NavTabFragmentPagerAdapter(mgr: FragmentManager) : FragmentPagerAdapter(mgr, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-    var currentFragment: Fragment? = null
-        private set
+class NavTabFragmentPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+    private var fragmentMap = SparseArray<WeakReference<Fragment>>()
 
-    override fun getItem(pos: Int): Fragment {
-        return NavTab.of(pos).newInstance()
+    override fun createFragment(position: Int): Fragment {
+        val fragment = NavTab.of(position).newInstance()
+        fragmentMap.put(position, WeakReference(fragment))
+        return fragment
     }
 
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return NavTab.size()
     }
 
-    override fun setPrimaryItem(container: ViewGroup, position: Int, `object`: Any) {
-        currentFragment = `object` as Fragment
-        super.setPrimaryItem(container, position, `object`)
+    fun getFragmentAt(position: Int): Fragment? {
+        return fragmentMap[position]?.get()
     }
 }

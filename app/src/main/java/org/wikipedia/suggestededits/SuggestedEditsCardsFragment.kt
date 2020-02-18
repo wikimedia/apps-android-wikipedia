@@ -6,16 +6,16 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Animatable
 import android.os.Bundle
+import android.util.LruCache
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -34,6 +34,7 @@ import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
+import java.lang.ref.WeakReference
 
 class SuggestedEditsCardsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
@@ -49,7 +50,7 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     private val topTitle: PageTitle?
         get() {
-            val f = topChild
+            val f = topChild()
             return if (action == ADD_DESCRIPTION || action == ADD_CAPTION) {
                 f?.sourceSummary?.pageTitle?.description = f?.addedContribution
                 f?.sourceSummary?.pageTitle
@@ -59,25 +60,13 @@ class SuggestedEditsCardsFragment : Fragment() {
             }
         }
 
-    private val topBaseChild: SuggestedEditsItemFragment?
-        get() {
-            fragmentManager!!.fragments.forEach {
-                if (it is SuggestedEditsItemFragment && it.pagerPosition == cardsViewPager.currentItem) {
-                    return it
-                }
-            }
-            return null
+    private fun topBaseChild(): SuggestedEditsItemFragment? {
+            return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
         }
 
-    private val topChild: SuggestedEditsCardsItemFragment?
-        get() {
-            fragmentManager!!.fragments.forEach {
-                if (it is SuggestedEditsCardsItemFragment && it.pagerPosition == cardsViewPager.currentItem) {
-                    return it
-                }
-            }
-            return null
-        }
+    private fun topChild(): SuggestedEditsCardsItemFragment? {
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,7 +86,7 @@ class SuggestedEditsCardsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setInitialUiState()
         cardsViewPager.offscreenPageLimit = 2
-        cardsViewPager.addOnPageChangeListener(viewPagerListener)
+        cardsViewPager.registerOnPageChangeCallback(viewPagerListener)//   addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
 
         if (wikiLanguageDropdownContainer.visibility == VISIBLE) {
@@ -163,7 +152,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     fun updateActionButton() {
-        val child = topBaseChild
+        val child = topBaseChild()
         var isAddedContributionEmpty = true
         if (child != null) {
             if (child is SuggestedEditsCardsItemFragment) {
@@ -177,6 +166,8 @@ class SuggestedEditsCardsFragment : Fragment() {
             addContributionText?.setTextColor(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)
             addContributionButton.isEnabled = child.publishEnabled()
             addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
+        } else if (action == ADD_IMAGE_TAGS) {
+            addContributionButton.setBackgroundResource(R.drawable.button_shape_border_light)
         }
 
         if (action == ADD_IMAGE_TAGS) {
@@ -202,7 +193,7 @@ class SuggestedEditsCardsFragment : Fragment() {
 
     override fun onDestroyView() {
         disposables.clear()
-        cardsViewPager.removeOnPageChangeListener(viewPagerListener)
+        cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
         super.onDestroyView()
     }
 
@@ -219,12 +210,12 @@ class SuggestedEditsCardsFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            topChild?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
+            topChild()?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
             FeedbackUtil.showMessage(this,
                     when (action) {
                         ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
-                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild!!.targetSummary!!.lang))
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -247,10 +238,10 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     fun onSelectPage() {
-        if (action == ADD_IMAGE_TAGS && topBaseChild != null) {
-            topBaseChild!!.publish()
+        if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
+            topBaseChild()!!.publish()
         } else if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild!!.sourceSummary, topChild!!.targetSummary,
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
@@ -291,7 +282,7 @@ class SuggestedEditsCardsFragment : Fragment() {
             val postDelay: Long = 250
             cardsViewPager.postDelayed({
                 if (isAdded) {
-                    cardsViewPager.adapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
+                    cardsViewPager.adapter = ViewPagerAdapter(this)
                     resettingViewPager = false
                 }
             }, postDelay)
@@ -355,31 +346,34 @@ class SuggestedEditsCardsFragment : Fragment() {
         }
     }
 
-    private inner class ViewPagerAdapter constructor(activity: AppCompatActivity):
-            FragmentStatePagerAdapter(activity.supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-        override fun getCount(): Int {
+    private inner class ViewPagerAdapter constructor(fragment: Fragment): FragmentStateAdapter(fragment) {
+        private var fragmentCache = LruCache<Int, WeakReference<Fragment>>(16)
+
+        override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
 
-        override fun getItem(position: Int): Fragment {
+        override fun createFragment(position: Int): Fragment {
             val f = if (action == ADD_IMAGE_TAGS)
                 SuggestedEditsImageTagsFragment.newInstance()
             else
                 SuggestedEditsCardsItemFragment.newInstance()
-            f.pagerPosition = position
+            fragmentCache.put(position, WeakReference(f))
             return f
+        }
+
+        fun getFragmentAt(position: Int): Fragment? {
+            return fragmentCache.get(position)?.get()
         }
     }
 
-    private inner class ViewPagerListener : ViewPager.OnPageChangeListener {
+    private inner class ViewPagerListener : ViewPager2.OnPageChangeCallback() {
         private var prevPosition: Int = 0
         private var nextPageSelectedAutomatic: Boolean = false
 
         internal fun setNextPageSelectedAutomatic() {
             nextPageSelectedAutomatic = true
         }
-
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
@@ -389,8 +383,6 @@ class SuggestedEditsCardsFragment : Fragment() {
             nextPageSelectedAutomatic = false
             prevPosition = position
         }
-
-        override fun onPageScrollStateChanged(state: Int) {}
     }
 
     companion object {

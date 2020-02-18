@@ -48,19 +48,10 @@ public class RandomItemFragment extends Fragment {
     private static final float IMAGE_ASPECT_RATIO_LANDSCAPE = 3.8f;
     private CompositeDisposable disposables = new CompositeDisposable();
     @Nullable private PageSummary summary;
-    private int pagerPosition = -1;
 
     @NonNull
     public static RandomItemFragment newInstance() {
         return new RandomItemFragment();
-    }
-
-    void setPagerPosition(int position) {
-        pagerPosition = position;
-    }
-
-    int getPagerPosition() {
-        return pagerPosition;
     }
 
     boolean isLoadComplete() {
