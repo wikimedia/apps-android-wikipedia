@@ -213,6 +213,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
   <string name="about_translators_heading">번역자</string>
@@ -351,6 +352,7 @@
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용 절약</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">시스템 테마에 동기화</string>
+  <string name="page_footer_license_text">별도로 명시하지 않은 경우, 내용은 $1에 따라 사용할 수 있습니다</string>
   <string name="empty_tab_title">새 탭</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
@@ -495,6 +497,7 @@
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>
   <string name="notification_syncing_reading_list_channel_description">읽기 목록 동기화 진행</string>
+  <string name="notification_many_unread">읽지 않은 알림 %d건이 있습니다</string>
   <plurals name="notification_channel_name">
     <item quantity="other">문서 다운로드 중</item>
   </plurals>
@@ -647,6 +650,7 @@
   <string name="suggested_edits_translate_descriptions">문서 설명 번역하기</string>
   <string name="suggested_edits_add_image_captions">이미지 설명 추가</string>
   <string name="suggested_edits_translate_image_captions">이미지 설명 번역하기</string>
+  <string name="suggested_edits_tag_images">이미지 태그하기</string>
   <string name="suggested_edits_review_description">문서 설명 검토</string>
   <string name="suggested_edits_add_description_button">설명 추가</string>
   <string name="suggested_edits_edit_description_button">설명 편집</string>
@@ -673,6 +677,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d건의 문서 설명을 편집하기 전까지는 잠겨있습니다 (검증됨)</string>
   <string name="suggested_edits_task_multilingual_negative">제게는 해당되지 않습니다</string>
   <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
+  <string name="suggested_edits_image_caption_summary_title_file">파일</string>
   <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
   <string name="suggested_edits_image_caption_summary_title_author">만든이</string>
   <string name="suggested_edits_image_caption_summary_title_source">출처</string>
@@ -704,7 +709,13 @@
   <string name="suggested_edits_snackbar_survey_action_text">설문 조사 참가</string>
   <string name="suggested_edits_task_action_text_add">추가</string>
   <string name="suggested_edits_task_action_text_translate">번역</string>
-  <string name="suggested_edits_image_captions" fuzzy="true">이미지 캡션</string>
+  <string name="suggested_edits_image_captions">이미지 캡션</string>
+  <string name="suggested_edits_image_tags">이미지 태그</string>
+  <string name="suggested_edits_image_tags_publishing">게시 중</string>
+  <string name="suggested_edits_image_tags_published">게시됨</string>
+  <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
+  <string name="suggested_edits_image_tags_choose">일치하는 태그 선택</string>
+  <string name="suggested_edits_image_tags_select_title">이 이미지의 태그를 선택하지 않았습니다</string>
   <string name="suggested_edits_encouragement_message">%s님, 편집에 감사드립니다. 위키백과에 기여할 수 있는 더 많은 방법이 아래에 있습니다.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%s님, 안녕하세요.&lt;/b&gt; 누구든지 위키백과를 편집할 수 있다는 사실을 알고 계셨나요? 위키백과의 발전에 도움을 주는 재밌는 방법이 아래에 있습니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_contributions_stat_tooltip">편집 제안을 통한 전체 기여 수입니다.</string>
@@ -713,6 +724,7 @@
   <string name="suggested_edits_ip_blocked_message">현재 사용 중인 IP(또는 IP의 주소)가 위키피디아를 편집하는 것으로부터 차단 되어있습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
   <string name="suggested_edits_editing_tips_link_text">편집 팁 및 트릭</string>
   <string name="suggested_edits_help_page_link_text">편집 제안 도움말 문서</string>
+  <string name="suggested_edits_pageviews_label_text">조회 수</string>
   <string name="suggested_edits_quality_label_text">편집 품질</string>
   <string name="suggested_edits_quality_perfect_text">완벽함</string>
   <string name="suggested_edits_quality_excellent_text">우수함</string>

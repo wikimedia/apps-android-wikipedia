@@ -60,6 +60,7 @@
   <string name="edit_history_link_text">Skatīt labojumu vēsturi</string>
   <string name="map_view_link_text">Skatīt uz kartes</string>
   <string name="other_languages_indication_text">Lasīt citā valodā</string>
+  <string name="language_count_link_text">Pieejams %d citās valodās</string>
   <string name="preference_title_language">Vikipēdijas valodas</string>
   <string name="langlinks_filter_hint">Meklēt</string>
   <string name="langlinks_empty">Šī lapa nav pieejama citās valodās</string>
@@ -186,6 +187,7 @@
   <string name="error_unknown">Nezināma kļūda.</string>
   <string name="format_error_server_message">Ziņojums: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
+  <string name="text_copied">Teksts iekopēts starpliktuvē.</string>
   <string name="button_continue_to_article">Lasīt rakstu</string>
   <string name="button_continue_to_disambiguation">Skatīt līdzīgas lapas</string>
   <string name="button_add_to_reading_list">Pievienot lasīšanas sarakstam</string>
