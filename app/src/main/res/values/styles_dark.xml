@@ -46,7 +46,6 @@
         <item name="main_toolbar_icon_color">@android:color/white</item>
         <item name="page_status_bar_color">@color/base18</item>
         <item name="page_expanded_status_bar_color">@color/base18</item>
-        <item name="page_toolbar_color">@color/base18</item>
         <item name="page_toolbar_icon_color">@color/base100</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base18</item>
