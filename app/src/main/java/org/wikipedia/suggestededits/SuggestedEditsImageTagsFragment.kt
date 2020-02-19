@@ -17,6 +17,8 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.chip.Chip
+import io.reactivex.Observable
+import io.reactivex.ObservableSource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
@@ -27,6 +29,7 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.login.LoginClient.LoginFailedException
@@ -37,6 +40,8 @@ import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener {
     var publishing: Boolean = false
@@ -218,12 +223,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun doPublish() {
-        var acceptedCount = 0
+        val acceptedLabels = ArrayList<String>()
         var rejectedCount = 0
         val batchBuilder = StringBuilder()
         batchBuilder.append("[")
         for (i in 0 until tagsChipGroup.childCount) {
-            if (acceptedCount > 0 || rejectedCount > 0) {
+            if (acceptedLabels.size > 0 || rejectedCount > 0) {
                 batchBuilder.append(",")
             }
             val chip = tagsChipGroup.getChildAt(i) as Chip
@@ -234,7 +239,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             batchBuilder.append(if (chip.isChecked) "accept" else "reject")
             batchBuilder.append("\"}")
             if (chip.isChecked) {
-                acceptedCount++
+                acceptedLabels.add(label.wikidataId)
             } else {
                 rejectedCount++
             }
@@ -262,15 +267,41 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
         }, duration)
 
+        val commonsSite = WikiSite(Service.COMMONS_URL)
+
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
-                disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
+
+                val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
+                for (label in acceptedLabels) {
+                    val claimTemplate = "{\"mainsnak\":" +
+                            "{\"snaktype\":\"value\",\"property\":\"P180\"," +
+                            "\"datavalue\":{\"value\":" +
+                            "{\"entity-type\":\"item\",\"id\":\"${label}\"}," +
+                            "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
+                            "\"type\":\"statement\"," +
+                            "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
+                            "\"rank\":\"normal\"}"
+
+                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, null, null))
+                }
+
+                disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
+                        .flatMap { response ->
+                            if (claimObservables.size > 0) {
+                                Observable.zip(claimObservables) { responses ->
+                                    responses[0]
+                                }
+                            } else {
+                                Observable.just(response)
+                            }
+                        }
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doAfterTerminate {
                             publishing = false
                         }
-                        .subscribe({
+                        .subscribe({ response ->
                             // TODO: check anything else in the response?
                             publishSuccess = true
                             if (!animator.isRunning) {
