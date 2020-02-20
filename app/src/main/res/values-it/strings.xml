@@ -360,7 +360,7 @@
   <string name="view_wiki_error_message_timeout">Impossibile connettersi a Wikipedia. Controlla la connessione di rete o riprova più tardi</string>
   <string name="reference_title">Riferimento %s</string>
   <string name="reference_list_title">Note</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Oscuramento dell\'immagine (in tema Scuro e Nero)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (in tema Scuro)</string>
   <string name="preference_title_prefer_offline_content">Preferisci contenuti offline</string>
   <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili offline anziché caricare sempre l\'ultima versione di una voce</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
@@ -643,6 +643,7 @@
   <string name="description_edit_help_wikidata_guide">Guida di Wikidata per la scrittura di descrizioni</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_anon_limit">Grazie per il tuo costante interesse nel modificare le descrizioni della voce! Per apportare ulteriori modifiche, accedi alla tua utenza Wikipedia.</string>
+  <string name="description_edit_license_notice">Modificando la descrizione della voce, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">generalmente inizia con una lettera minuscola</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
@@ -663,7 +664,7 @@
   <string name="suggested_edits_translate_descriptions">Traduci descrizioni della voce</string>
   <string name="suggested_edits_add_image_captions">Aggiungi didascalie immagini</string>
   <string name="suggested_edits_translate_image_captions">Traduci didascalie immagini</string>
-  <string name="suggested_edits_tag_images">Etichetta delle immagini</string>
+  <string name="suggested_edits_tag_images">Etichetta le immagini</string>
   <string name="suggested_edits_review_description">Revisiona descrizione della voce</string>
   <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
   <string name="suggested_edits_edit_description_button">Modifica descrizione</string>
@@ -730,8 +731,9 @@
   <string name="suggested_edits_image_tags_onboarding_text">Confermando le etichette suggerite, puoi semplificare la ricerca delle immagini.\n\nLe etichette sono suggerite dal computer, ma devono essere convalidate dagli umani per garantire l\'accuratezza.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo le etichette scelte verranno aggiunte alle immagini.</string>
   <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
+  <string name="suggested_edits_image_tags_task_detail">Etichetta le immagini per facilitarne la ricerca da parte di altri utenti. Sono suggerite dal computer, ma devono essere convalidate.</string>
   <string name="suggested_edits_image_tags_choose">Scegli le etichette corrispondenti</string>
-  <string name="suggested_edits_image_tags_select_title">Non hai selezionato nessuna etichetta per questa immagine</string>
+  <string name="suggested_edits_image_tags_select_title">Non hai selezionato alcuna etichetta per questa immagine</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>
   <string name="suggested_edits_image_captions_task_detail">Le didascalie delle immagini descrivono un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
@@ -740,6 +742,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate delle voci a cui hai contribuito negli ultimi 30 giorni con modifiche suggerite.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">In base a quante volte uno dei tuoi contributi è stato ripristinato (annullato da un altro editore). Modifiche ripristinate: %d.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;Le modifiche suggerite sono disabilitate.&lt;/b&gt; Siamo spiacenti %s, troppi dei tuoi contributi recenti sono stati ripristinati.\n\nScopri cosa significa con il collegamento qui sotto.</string>
   <string name="suggested_edits_ip_blocked_message">Sembra che il tuo indirizzo IP (o intervallo di indirizzi IP) sia attualmente bloccato dalla modifica di Wikipedia. Trovi altre informazioni su cosa significa visitando il collegamento qui sotto.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
