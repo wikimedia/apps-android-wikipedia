@@ -154,7 +154,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         }
         boolean locallyKnownModified = false;
         List<Notification> knownNotifications = new ArrayList<>();
-        int unreadCount = 0;
+        List<Notification> notificationsToDisplay = new ArrayList<>();
 
         for (final Notification n : notifications) {
             knownNotifications.add(n);
@@ -165,14 +165,14 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             if (locallyKnownNotifications.size() > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
                 locallyKnownNotifications.remove(0);
             }
-            unreadCount++;
+            notificationsToDisplay.add(n);
             locallyKnownModified = true;
         }
 
-        if (unreadCount > 2) {
-            NotificationPresenter.showMultipleUnread(context, unreadCount);
+        if (notificationsToDisplay.size() > 2) {
+            NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size());
         } else {
-            for (final Notification n : notifications) {
+            for (final Notification n : notificationsToDisplay) {
                 // TODO: remove these conditions when the time is right.
                 if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
                         || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
