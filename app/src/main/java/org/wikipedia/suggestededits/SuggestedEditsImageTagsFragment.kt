@@ -139,7 +139,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
             chip.typeface = tagsHintText.typeface
             chip.isCheckable = true
-            chip.isCheckedIconVisible = false
+            chip.setChipIconResource(R.drawable.ic_chip_add_24px)
+            chip.chipIconSize = DimenUtil.dpToPx(24f)
+            chip.iconEndPadding = 0f
+            chip.textStartPadding = DimenUtil.dpToPx(2f)
+            chip.chipIconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
             chip.setOnCheckedChangeListener(this)
             chip.tag = label
 
@@ -187,9 +192,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (chip.isChecked) {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
             chip.setTextColor(Color.WHITE)
+            chip.isChipIconVisible = false
         } else {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
+            chip.isChipIconVisible = true
         }
 
         updateLicenseTextShown()

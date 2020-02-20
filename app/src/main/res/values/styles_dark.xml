@@ -84,6 +84,10 @@
         <item name="color_group_52">@color/accent75</item>
         <item name="color_group_53">@color/accent30</item>
         <item name="color_group_54">@color/base14</item>
+        <item name="color_group_55">@color/accent20</item>
+        <item name="color_group_56">@color/accent50</item>
+        <item name="color_group_57">@color/green30</item>
+        <item name="color_group_58">@color/green50</item>
 
     </style>
 

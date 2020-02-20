@@ -49,6 +49,10 @@
     <attr name="color_group_52" format="color"/>
     <attr name="color_group_53" format="color"/>
     <attr name="color_group_54" format="color"/>
+    <attr name="color_group_55" format="color"/>
+    <attr name="color_group_56" format="color"/>
+    <attr name="color_group_57" format="color"/>
+    <attr name="color_group_58" format="color"/>
     <attr name="action_mode_green_background" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
