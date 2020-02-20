@@ -53,6 +53,7 @@
     <attr name="color_group_56" format="color"/>
     <attr name="color_group_57" format="color"/>
     <attr name="color_group_58" format="color"/>
+    <attr name="color_group_59" format="color"/>
     <attr name="action_mode_green_background" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
