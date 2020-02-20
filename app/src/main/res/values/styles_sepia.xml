@@ -17,7 +17,6 @@
         <item name="main_status_bar_color">@color/papyrus</item>
         <item name="page_status_bar_color">@color/papyrus</item>
         <item name="page_expanded_status_bar_color">@color/papyrus</item>
-        <item name="page_toolbar_color">@color/papyrus</item>
 
         <item name="section_title_color">@color/masi</item>
         <item name="secondary_text_color">@color/masi</item>
