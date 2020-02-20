@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -16,6 +17,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
+import org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
@@ -27,6 +29,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -148,6 +151,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             tasksRecyclerView.adapter!!.notifyDataSetChanged()
+        } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
+            Prefs.setShowImageTagsOnboarding(false)
+            startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
         }
     }
 
@@ -316,6 +322,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setFinalUIState() {
         clearContents()
 
+        addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
+        tasksRecyclerView.adapter!!.notifyDataSetChanged()
+
         if (SuggestedEditsUserStats.totalEdits == 0) {
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
@@ -383,7 +392,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.translatable = false
-        addImageTagsTask.new = true
 
         // TODO: remove condition when ready
         if (ReleaseUtil.isPreBetaRelease()) {
@@ -415,7 +423,11 @@ class SuggestedEditsTasksFragment : Fragment() {
             } else if (task == addImageCaptionsTask) {
                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                if (Prefs.shouldShowImageTagsOnboarding()) {
+                    startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
+                } else {
+                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                }
             }
         }
     }

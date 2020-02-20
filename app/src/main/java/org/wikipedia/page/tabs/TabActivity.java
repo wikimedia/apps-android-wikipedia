@@ -139,6 +139,7 @@ public class TabActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
+        tabSwitcher.setPreserveState(false);
         tabSwitcher.setDecorator(new TabSwitcherDecorator() {
             @NonNull
             @Override

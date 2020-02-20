@@ -339,12 +339,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        app.getRefWatcher().watch(this);
-    }
-
-    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
@@ -513,6 +507,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (!isResumed()) {
             return;
         }
+
         // If it's a Special page, launch it in an external browser, since mobileview
         // doesn't support the Special namespace.
         // TODO: remove when Special pages are properly returned by the server
@@ -963,7 +958,24 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                bridge.execute(JavaScriptActionHandler.scrollToAnchor(anchor));
+                if (anchor.startsWith("cite")) {
+                    // It's a link to another reference within the page.
+                    disposables.add(getReferences()
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(references -> {
+                                PageFragment.this.references = references;
+                                List<References.Reference> adjacentReferencesList = new ArrayList<>();
+                                References.Reference ref = references.getReferencesMap().get(anchor);
+                                if (ref != null) {
+                                    ref.setText(linkText);
+                                    adjacentReferencesList.add(ref);
+                                    showBottomSheet(new ReferenceDialog(requireActivity(), 0, adjacentReferencesList, linkHandler));
+                                }
+                            }, L::d));
+                } else {
+                    bridge.execute(JavaScriptActionHandler.scrollToAnchor(anchor));
+                }
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {

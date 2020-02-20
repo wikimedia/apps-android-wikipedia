@@ -224,6 +224,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_translators_heading">Çevirmenler</string>
@@ -507,6 +508,7 @@
   <string name="notification_syncing_resume_button">Devam et</string>
   <string name="notification_syncing_cancel_button">İptal</string>
   <string name="notification_syncing_reading_list_channel_description">Okuma listesi eşitlemesi sürüyor</string>
+  <string name="notification_many_unread">%d okunmamış bildiriminiz var</string>
   <plurals name="notification_channel_name">
     <item quantity="one">madde indiriliyor</item>
     <item quantity="other">madde indiriliyor</item>
@@ -692,6 +694,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d makale açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Dosya</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Sanatçı</string>
   <string name="suggested_edits_image_caption_summary_title_author">Yazar</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kaynak</string>
@@ -731,7 +734,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Önerilen etiketleri onaylayarak, görüntülerin aranmasını kolaylaştırabilirsiniz.\n\nEtiketler bilgisayar tarafından önerilir, ancak doğruluk için insanlar tarafından onaylanması gerekir.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
   <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
-  <string name="suggested_edits_image_tags_task_detail">Başkalarının bulmasını kolaylaştırmak için görüntüleri etiketleyin. Etiketler otomatik olarak önerilir, ancak sizin tarafınızdan doğrulanması gerekir.</string>
+  <string name="suggested_edits_image_tags_task_detail">Başkalarının bulmasını kolaylaştırmak için görüntüleri etiketleyin. Bunlar bilgisayar tarafından önerilir, ancak doğrulanması gerekir.</string>
   <string name="suggested_edits_image_tags_choose">Eşleşen etiketleri seçin</string>
   <string name="suggested_edits_image_tags_select_title">Bu resim için herhangi bir etiket seçmediniz</string>
   <string name="suggested_edits_image_tags_select_text">Yalnızca seçtiğiniz etiketler görüntülere eklenir. Seçilmeyen etiketler reddedildi olarak işaretlenir. Tüm etiketleri reddedildi olarak işaretlemek istediğinizden emin misiniz?</string>

@@ -211,6 +211,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#Image_tags</string>
   <string name="about_libraries_heading">使用的函式庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_translators_heading">翻譯人員</string>
@@ -494,6 +495,7 @@
   <string name="notification_syncing_resume_button">繼續</string>
   <string name="notification_syncing_cancel_button">取消</string>
   <string name="notification_syncing_reading_list_channel_description">同步閱讀清單進度</string>
+  <string name="notification_many_unread">您有 %d 個尚未讀取的通知</string>
   <plurals name="notification_channel_name">
     <item quantity="one">下載條目中</item>
     <item quantity="other">下載條目中</item>
@@ -679,6 +681,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">直到您編輯 %d 個條目描述才會解開（需經驗證）</string>
   <string name="suggested_edits_task_multilingual_negative">不適合我</string>
   <string name="suggested_edits_task_multilingual_positive">新增語言</string>
+  <string name="suggested_edits_image_caption_summary_title_file">檔案</string>
   <string name="suggested_edits_image_caption_summary_title_artist">藝術家</string>
   <string name="suggested_edits_image_caption_summary_title_author">作者</string>
   <string name="suggested_edits_image_caption_summary_title_source">來源</string>
@@ -718,7 +721,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">透過確認建議標籤，您可以協助讓圖片能更容易被搜尋到。\n\n標籤是由電腦做出的建議，需要經過人工驗證來確保準確度。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
   <string name="suggested_edits_image_tags_snackbar">添加圖片標記來讓它們能更容易被其他人找到</string>
-  <string name="suggested_edits_image_tags_task_detail">標記圖片來讓它們能更容易被其他人找到。標記會自動被建議出，但需要由您驗證。</string>
+  <string name="suggested_edits_image_tags_task_detail">標記圖片來讓它們能更容易被其他人找到。它們會被電腦給自動建議，但需要做出驗證。</string>
   <string name="suggested_edits_image_tags_choose">挑選符合的標記</string>
   <string name="suggested_edits_image_tags_select_title">您尚未對此圖片選擇任何標記</string>
   <string name="suggested_edits_image_tags_select_text">僅添加您挑選的標籤到圖片上。未被選擇到的標籤將會被標記為拒絕，您確定要將所有標籤標記為拒絕？</string>

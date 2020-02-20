@@ -221,6 +221,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_translators_heading">Tradutores</string>
@@ -504,6 +505,7 @@
   <string name="notification_syncing_resume_button">Retomar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>
   <string name="notification_syncing_reading_list_channel_description">Progresso da sincronização das listas de leitura</string>
+  <string name="notification_many_unread">Você tem %d notificações não lidas</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Download de artigo</item>
     <item quantity="other">Download de artigos</item>
@@ -689,6 +691,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado até você editar %d descrições de artigos (verificadas)</string>
   <string name="suggested_edits_task_multilingual_negative">Não para mim</string>
   <string name="suggested_edits_task_multilingual_positive">Adicionar idiomas</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Arquivo</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
@@ -728,7 +731,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Ao confirmar as marcações sugeridas, você pode ajudar a facilitar a pesquisa de imagens.\n\nAs marcações são sugeridas por computador, mas precisam ser validadas por humanos para garantir a precisão.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marque as imagens para facilitar a localização de outras pessoas. As marcações são sugeridas automaticamente, mas precisam ser verificadas por você.</string>
+  <string name="suggested_edits_image_tags_task_detail">Marque as imagens para facilitar a localização de outras pessoas. Eles são sugeridos por computador, mas precisam ser validados.</string>
   <string name="suggested_edits_image_tags_choose">Escolha as marcações correspondentes</string>
   <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>

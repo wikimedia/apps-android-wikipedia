@@ -32,6 +32,7 @@
 * Ochilov
 * Okras
 * Ole Yves
+* Pacha Tchernof
 * Patrick Star
 * Ping08
 * Pplex.vhs
@@ -704,6 +705,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Этот функционал будет открыт тогда, когда вы отредактируете %d описаний статей и они будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Файл</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Источник</string>

@@ -228,6 +228,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_translators_heading">Traducteurs</string>
@@ -511,6 +512,7 @@
   <string name="notification_syncing_resume_button">Reprise</string>
   <string name="notification_syncing_cancel_button">Annulation</string>
   <string name="notification_syncing_reading_list_channel_description">Synchronisation des listes de lecture en cours</string>
+  <string name="notification_many_unread">Vous avez %d notifications non lues</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Téléchargement d’un article</item>
     <item quantity="other">Téléchargement des articles</item>
@@ -696,6 +698,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Verrouillé tant que vous n’aurez pas modifié %d descriptions d’articles (vérifiées)</string>
   <string name="suggested_edits_task_multilingual_negative">Pas pour moi</string>
   <string name="suggested_edits_task_multilingual_positive">Ajouter des langues</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Fichier</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiste</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source</string>
@@ -735,7 +738,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">En confirmant les balises suggérées, vous pouvez aider à faciliter la recherche des images.\n\nLes balises sont suggérées par la machine mais doivent être validées par des humains, pour garantir leur pertinence.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
   <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marquer les images pour les rendre plus faciles à trouver par les autres. Les balises sont suggérées automatiquement, mais vous devez les vérifier.</string>
+  <string name="suggested_edits_image_tags_task_detail">Marquer les images pour les rendre plus faciles à trouver par les autres. Les balises sont suggérées par la machine, mais elles doivent être validées.</string>
   <string name="suggested_edits_image_tags_choose">Choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_select_title">Vous n’avez pas sélectionné de balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisirez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>

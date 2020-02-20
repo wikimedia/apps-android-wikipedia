@@ -1,7 +1,10 @@
 package org.wikipedia.analytics;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -144,7 +147,8 @@ public class EditFunnel extends Funnel {
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn());
-        preprocessData(eventData, "pageNS", title.getNamespace());
+        preprocessData(eventData, "pageNS", !TextUtils.isEmpty(title.getNamespace())
+                ? StringUtils.capitalize(title.getNamespace().toLowerCase()) : title.getNamespace());
         return super.preprocessData(eventData);
     }
 }
