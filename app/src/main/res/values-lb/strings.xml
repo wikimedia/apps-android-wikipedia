@@ -4,6 +4,7 @@
 * Envlh
 * Les Meloures
 * Robby
+* Soued031
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -86,7 +87,7 @@
   <string name="search_reading_list_no_results">Keng Resultater a(n) \"%s\" fonnt</string>
   <string name="search_reading_lists_no_results">Keng Resultater an de Lieslëschte fonnt</string>
   <string name="search_history_no_results">Keng Resultater an de Versioune fonnt</string>
-  <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schütze gitt w.e.g. d\'Wierder déi hei drënner stinn an</string>
+  <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schütze gitt wgl. d\'Wierder déi hei drënner stinn an</string>
   <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_captcha_reload">CAPTCHA antippe fir nei ze lueden</string>
@@ -155,7 +156,7 @@
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Erlaabt der App automatesch Rapporten iwwer Crashe un HockeyApp / engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
-  <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se w.e.g. ewech a probéiert nach eng Kéier.</string>
+  <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se wgl. ewech a probéiert nach eng Kéier.</string>
   <string name="history_search_list_hint">Am Historique sichen</string>
   <string name="error_can_not_process_link">Dëse Link konnt net gewise ginn</string>
   <string name="page_protected_autoconfirmed">Dës Säit ass hallef gespaart.</string>
@@ -206,7 +207,7 @@
   <string name="find_first_occurence">Dëst ass déi éischte Kéier</string>
   <string name="find_last_occurence">Dëst ass déi leschte Kéier</string>
   <string name="abusefilter_title_warn">Dëst gesäit no enger net-konstruktiver Ännerung aus. Sidd Dir sécher datt Dir se verëffentleche wëllt?</string>
-  <string name="abusefilter_title_disallow">Dir däerft dës Ännerung net verëffentlechen. Gitt w.e.g. zréck an ännert se.</string>
+  <string name="abusefilter_title_disallow">Dir däerft dës Ännerung net verëffentlechen. Gitt wgl. zréck an ännert se.</string>
   <string name="abusefilter_text_warn">En automatesche Filter huet dës Ännerung als méiglecherweis net konstruktiv identifizéiert. Et ka sinn dat eent oder méi vun dësen Elementer dra virkommen:&lt;br /&gt;&lt;br /&gt;· Alles ass a grousse Buschtawe geschriwwen&lt;br /&gt; Artikelen eidelmaachen oder Spam drasetzen &lt;br /&gt; Irrelevant extern Linken oder Biller&lt;br /&gt; Zeeche widderhuelen</string>
   <string name="abusefilter_text_disallow">En automatesche Filter huet dës Ännerung als potenziell net konstruktiv oder als potenzielle Vandalismus identifizéiert.&lt;br /&gt;&lt;br /&gt;Wikipedia ass eng Enzyklopedie a just neutralen, relevanten Inhalt gehéiert heihin.</string>
   <string name="text_size_select">Schrëftgréisst</string>
@@ -508,7 +509,7 @@
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikipedia-Guide fir d\'Schreiwe vu Beschreiwungen</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
-  <string name="description_edit_anon_limit" fuzzy="true">Merci fir Ären Interessi fir Beschreiwungen z\'änneren! Fir méi Ännerungen ze maache loggt Iech w.e.g. mat Ärem Wikipedia-Benotzerkont an.</string>
+  <string name="description_edit_anon_limit">Merci fir Ären Interessi fir Beschreiwungen z\'änneren! Fir méi Ännerungen ze maache loggt Iech wgl. mat Ärem Wikipedia-Benotzerkont an.</string>
   <string name="description_edit_success_saved" fuzzy="true">Beschreiwung verëffentlecht!</string>
   <string name="description_edit_success_saved_snackbar" fuzzy="true">Beschreiwung verëffentlecht!</string>
   <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
