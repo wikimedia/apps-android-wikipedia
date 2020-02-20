@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -126,6 +127,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
 
+        val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         tagsChipGroup.removeAllViews()
         val maxTags = 10
         for (label in page!!.imageLabels) {
@@ -136,10 +138,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.text = label.label
             chip.textAlignment = TEXT_ALIGNMENT_CENTER
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
-            chip.typeface = tagsHintText.typeface
+            chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
+            chip.typeface = typeface
             chip.isCheckable = true
-            chip.isCheckedIconVisible = false
+            chip.setChipIconResource(R.drawable.ic_chip_add_24px)
+            chip.chipIconSize = DimenUtil.dpToPx(24f)
+            chip.iconEndPadding = 0f
+            chip.textStartPadding = DimenUtil.dpToPx(2f)
+            chip.chipIconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
             chip.setOnCheckedChangeListener(this)
             chip.tag = label
 
@@ -185,11 +194,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
         val chip = button as Chip
         if (chip.isChecked) {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-            chip.setTextColor(Color.WHITE)
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_55))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_56))
+            chip.isChipIconVisible = false
         } else {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.isChipIconVisible = true
         }
 
         updateLicenseTextShown()
@@ -363,11 +374,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         for (i in 0 until tagsChipGroup.childCount) {
             val chip = tagsChipGroup.getChildAt(i) as Chip
             if (chip.isChecked) {
-                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.green_highlight_color))
-                chip.setTextColor(Color.WHITE)
+                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
+                chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
             } else {
                 chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-                chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
+                chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             }
         }
     }
