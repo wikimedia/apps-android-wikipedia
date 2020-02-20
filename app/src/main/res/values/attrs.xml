@@ -6,7 +6,6 @@
     <attr name="main_toolbar_icon_color" format="reference"/>
     <attr name="page_status_bar_color" format="reference"/>
     <attr name="page_expanded_status_bar_color" format="reference"/>
-    <attr name="page_toolbar_color" format="reference"/>
     <attr name="page_toolbar_icon_color" format="reference"/>
     <attr name="themed_icon_color" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />

@@ -36,8 +36,7 @@
                 android:id="@+id/gallery_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black26"
-                android:theme="@style/ToolbarTheme" />
+                android:background="@color/black26" />
 
             <View
                 android:id="@+id/gallery_toolbar_gradient"
