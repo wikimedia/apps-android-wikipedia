@@ -55,8 +55,8 @@
             android:lineSpacingExtra="6sp"
             android:maxLines="3"
             android:ellipsize="end"
-            android:textColor="?android:attr/textColorTertiary"
-            android:textColorLink="?android:attr/textColorTertiary"
+            android:textColor="?attr/color_group_59"
+            android:textColorLink="?attr/color_group_59"
             tools:text="Lorem ipsum"/>
 
         <LinearLayout
@@ -77,8 +77,8 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="@string/suggested_edits_image_tags_choose"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/colorAccent"/>
+                android:textStyle="italic"
+                android:textColor="?attr/color_group_59"/>
 
             <TextView
                 android:id="@+id/tagsLicenseText"
