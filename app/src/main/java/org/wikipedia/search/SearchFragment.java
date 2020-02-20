@@ -186,11 +186,15 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         if (!TextUtils.isEmpty(query)) {
             showPanel(PANEL_SEARCH_RESULTS);
         }
+        return view;
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
         setUpLanguageScroll(0);
         startSearch(query, false);
         searchView.setCloseButtonVisibility(query);
-        return view;
     }
 
     @Override

@@ -6,19 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/page_fragment"
         android:name="org.wikipedia.page.PageFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout="@layout/fragment_page"
         tools:layout="@layout/fragment_page" />
 
     <FrameLayout
         android:id="@+id/page_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/page_toolbar_color"
+        android:background="?attr/main_toolbar_color"
         android:elevation="4dp">
 
         <androidx.appcompat.widget.Toolbar

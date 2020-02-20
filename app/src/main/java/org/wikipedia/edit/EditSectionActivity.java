@@ -171,8 +171,6 @@ public class EditSectionActivity extends BaseActivity {
 
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
         editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
-
-        updateEditLicenseText();
         editSummaryFragment.setTitle(title);
 
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(title);
@@ -219,6 +217,12 @@ public class EditSectionActivity extends BaseActivity {
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
         sectionText.requestFocus();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateEditLicenseText();
     }
 
     @Override
@@ -656,7 +660,7 @@ public class EditSectionActivity extends BaseActivity {
         ViewAnimations.crossFade(progressBar, sectionContainer);
         scrollToHighlight(textToHighlight);
 
-        if (pageProps != null && pageProps.getEditProtectionStatus() != null) {
+        if (pageProps != null && !TextUtils.isEmpty(pageProps.getEditProtectionStatus())) {
             String message;
             switch (pageProps.getEditProtectionStatus()) {
                 case "sysop":
