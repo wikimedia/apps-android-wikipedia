@@ -126,6 +126,7 @@
   <string name="logged_out_in_background_cancel">ھەڵوەشاندنەوە</string>
   <string name="history_empty_title">ھیچ وتارێکی تازەکراوە لێرە نییە</string>
   <string name="history_empty_message">ڕێڕەوی ئەوەی لێرە خوێندووتەتەوە.</string>
+  <string name="history_offline_articles_toast">ھەندێک وتارەکان لە مێژوو لەوانەیە نەتوانیت بیبینیت ئەو کاتەی کە دەرھێڵ بیت.</string>
   <string name="search_empty_message">گەڕان و خوێندنەوەی ئەم زانستنامە ئازادە بە زمانەکەی خۆت</string>
   <string name="search_empty_message_multilingual_upgrade">گەڕان لە ویکیپیدیا بە زمانی زیاتر</string>
   <string name="delete_selected_items">سڕینەوەی بڕگە ھەڵبژێردراوەکان</string>
@@ -146,10 +147,12 @@
   <string name="create_account_generic_error">ناتوانرێت هەژمار دروست بکرێت</string>
   <string name="create_account_next">دواتر</string>
   <string name="email_recommendation_dialog_title">دروستکردنی ھەژمار بەبێ ناونیشانی ئیمەیل</string>
+  <string name="email_recommendation_message">پەسەندکرا لەوکاتەی ئیمەیلت پێویستە بۆ گەڕانەوەی ھەژمارەکەت.</string>
   <string name="email_recommendation_dialog_create_without_email_action">بەردەوامبە بەبێ ئیمەیل</string>
   <string name="email_recommendation_dialog_create_with_email_action">ناونیشانێکی ئیمەیل دیاری بکە</string>
   <string name="create_account_button">دروستکردنی ھەژمار</string>
   <string name="create_account_name_unavailable">ناوی بەکارھێنەرەکە \"%s\" بەردەست نییە. تکایە ناوێکی جیاواز ھەڵبژێرە.</string>
+  <string name="create_account_ip_block_message">ببورە، ناونیشانی IPکەت ئێستا بەربەستکرا لە دروستکردنی ھەژماری نوێ.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/یارمەتی:من بەربەستکراوم</string>
   <string name="create_account_ip_block_details">وردەکارییەکان</string>
   <string name="preferences_general_heading">گشتی</string>
@@ -157,13 +160,14 @@
   <string name="send_feedback">ناردنی فیدباکی ئاپ</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
   <string name="preferences_heading_data_usage">بەکارھێنانی داتا</string>
+  <string name="preferences_heading_experimental">تاقیکاری</string>
   <string name="preference_title_download_reading_list_articles">داگرتنی پێرستی خوێندنەوەی وتارەکان</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">ڕێگە بە ویکیپیدیا بدە بۆ خەزێنەکردنی پێڕستی خوێندنەوەکەت لەکاتی ھاتنە ژوورەوەت</string>
   <string name="preferences_privacy_settings_heading">تایبەتێتی</string>
   <string name="preference_title_eventlogging_opt_in">ناردنی ڕاپۆرتەکانی بەکارھێنان</string>
   <string name="preference_summary_eventlogging_opt_in">ڕێگە بە بە ویکیمیدیا بدە بۆ کۆکردنەوەی زانیاری لەبارەی چۆنیەتی بەکارھێنانی ئاپەکە لەلایەن تۆوە، بە مەبەستی باشترکردنی ئاپەکە</string>
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ڕێگە بە ئاپەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ لایەنێژی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی ئاپەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
+  <string name="preference_summary_auto_upload_crash_reports">ڕێگە بە نەرمەواڵەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ کەسی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی نەرمەواڵەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
   <string name="history_search_list_hint">گەڕان لە مێژوو</string>
   <string name="error_can_not_process_link">ناتوانرێت ئەم بەسترە نیشان بدرێت</string>
@@ -181,8 +185,11 @@
   <string name="about_wikipedia_url">https://ckb.m.wikipedia.org/wiki/ویکیپیدیا:لەبارەی</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/ویکیپیدیا:ھەژمارێک داوابکە</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتێبخانە بەکارھاتووەکان</string>
   <string name="about_contributors_heading">بەشداربووان</string>
   <string name="about_translators_heading">وەرگێڕەکان</string>
@@ -211,6 +218,7 @@
   <string name="edit_summary_tag_other">ھیتر</string>
   <string name="edit_summary_tag_other_hint">ڕێگەی تر کە پەڕەکەت پێشخستوە</string>
   <string name="edit_conflict_title">کێشەی دەستکاری</string>
+  <string name="edit_conflict_message">پەڕەکە پێشتر لەلایەن بەکارھێنەرێکی جیاواز گۆڕدراوە، و دژیەکە لەگەڵ دەستکارییەکەت. تکایە دەستکارییەکانت لەبەربگرەوە، بگەڕێوە و پەڕەکە نوێ بکەرەوە، پاشان دووبارە ھەوڵبدەرەوە.</string>
   <string name="find_next">دوای ئەمە بدۆزەوە</string>
   <string name="find_previous">پێشوو بدۆزەرەوە</string>
   <string name="find_first_occurence">ئەمە یەکەم ڕوودانە</string>
@@ -241,6 +249,7 @@
   <string name="preference_title_show_images">وێنەکان نیشان بدە</string>
   <string name="preference_summary_show_images">ڕێگەدان و ڕێگەنەدانی کردنەوەی وێنەکان لە پەڕەکان. ئەم ڕێکخستنە ناچالاک بکە ئەگەر ئینتەرنێتەکەت ھێواشە، یان ئەگەر پلانی داتاکەت سنووردارە.</string>
   <string name="preference_title_download_only_over_wifi">دابەزاندن تەنھا بە وای-فای</string>
+  <string name="dialog_title_download_only_over_wifi">دابەزاندن بەبەکارھێنانی داتای موبایل دووپاتبکەوە؟</string>
   <string name="dialog_title_download_only_over_wifi_allow">ڕێگەدان</string>
   <string name="read_more_section">زیاتر بخوێنەوە</string>
   <string name="about_article_section">دەربارەی ئەم وتارە</string>
@@ -284,6 +293,7 @@
   <string name="text_copied">دەق لەبەرگیرایەوە بۆ تەختەی لەبەرگیراوەکان.</string>
   <string name="button_continue_to_article">خوێندنەوەی وتار</string>
   <string name="button_continue_to_disambiguation">پیشاندانی پەڕە پەیوەندیدارەکان</string>
+  <string name="link_preview_disambiguation_description">ئەم ناونیشانە زیاتر لە پەڕەیەکەوە پەیوەستە:</string>
   <string name="button_add_to_reading_list">زیادکردن بۆ پێڕستی خوێندنەوە</string>
   <string name="page_offline_notice_cannot_load_while_offline">ناتوانرێت وتارەکە بار بکرێت لەوکاتەی دەرھێڵیت.</string>
   <string name="page_offline_notice_add_to_reading_list">ئاماژە: وتارەکە زیاد بکە پێڕستی خوێندنەوەت، دواتر دادەگیرێت کە بە ئینتەرنێتەوە ئاپەکەت بەکارھێنا.</string>
@@ -306,6 +316,8 @@
   <string name="view_wiki_error_message_offline">ئینتەرنێت نییە</string>
   <string name="reference_title">سەرچاوە %s</string>
   <string name="reference_list_title">سەرچاوەکان</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">ڕووکاری سیستم بگونجێنە</string>
+  <string name="page_footer_license_text">ناوەڕۆک بەردەستە لەژێر $1 مەگەر بە پێچەوانەوە وترابێت</string>
   <string name="empty_tab_title">تابی نوێ</string>
   <string name="crash_report_activity_title">ھەڵەی نەرمەواڵە</string>
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
@@ -322,7 +334,8 @@
   <string name="color_theme_black">ڕەش</string>
   <string name="color_theme_sepia">قاوەیی تێر</string>
   <string name="color_theme_test_title">نموونەی دەق</string>
-  <string name="preference_title_app_theme">ڕووکاری نەرمەواڵا</string>
+  <string name="color_theme_test_text">سلایدەکە ڕابکێشە تا قەبارەی نووسینەکە بگۆڕدرێت کە بەکاردێت کاتێک وتارێک دەخوێنیتەوە. قەبارەی نووسین دابنێ بەدرێژایی نەرمەواڵەکە، سیستمی قەبارەی نووسینەکەت بگۆڕە.</string>
+  <string name="preference_title_app_theme">ڕووکاری نەرمەواڵە</string>
   <string name="preference_summary_color_theme">گۆڕین بۆ بەکارھێنانی ڕووکەشی تاریک</string>
   <string name="text_size_increase">قەبارەی نووسین زیاد بکە</string>
   <string name="text_size_decrease">قەبارەی نووسین کەم بکە</string>
@@ -339,6 +352,7 @@
   <string name="format_reading_list_statistical_detail_singular">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی دەرھێڵ. %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d لە %2$d وتاری دەرھێڵ بەردەستە، %3$.2f MB</string>
   <string name="reading_list_sort">ڕیزکردن</string>
+  <string name="reading_list_sort_ellipsis">ڕیزکردن بە...</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>
   <string name="reading_list_sort_by_name_desc">ڕیزکردن بەپێی ناو (پێچەوانە)</string>
   <string name="reading_list_sort_by_recent">ڕیزکردنی زانیاری زیادکراو (نوێترین)</string>
@@ -349,7 +363,9 @@
   <string name="reading_list_menu_rename">دەستکاری ناو/وەسف</string>
   <string name="reading_list_action_menu_remove_from_offline">سڕینەوەی لە دەرھێڵ</string>
   <string name="reading_list_action_menu_save_for_offline">پاشەکەوت بۆ دەرھێڵ</string>
-  <string name="reading_list_action_menu_save_all_for_offline">پاشەکەوتکردنی ھەمووی بۆ دەرھێڵ</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">سڕینەوەی گشتی لە دەرھێڵ</string>
+  <string name="reading_list_action_menu_save_all_for_offline">پاشەکەوتکردنی گشتی بۆ دەرھێڵ</string>
+  <string name="reading_list_action_menu_add_to_another_list">زیادی بکە بۆ پێڕستێکی تر</string>
   <string name="reading_list_name_sample">پێڕستی خوێندنەوەی من</string>
   <string name="reading_list_name_hint">ناوی ئەم پێڕستە</string>
   <string name="reading_list_description_hint">وەسف (ئارەزوومەندانە)</string>
