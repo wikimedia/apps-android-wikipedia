@@ -17,7 +17,6 @@
         <item name="main_status_bar_color">@color/papyrus</item>
         <item name="page_status_bar_color">@color/papyrus</item>
         <item name="page_expanded_status_bar_color">@color/papyrus</item>
-        <item name="page_toolbar_color">@color/papyrus</item>
 
         <item name="section_title_color">@color/masi</item>
         <item name="secondary_text_color">@color/masi</item>
@@ -28,6 +27,7 @@
         <item name="tab_placeholder_text_color">@color/amate</item>
         <item name="color_group_53">@color/amate</item>
         <item name="color_group_54">@color/amate</item>
+        <item name="color_group_59">@color/masi</item>
 
         <item name="chart_shade5">@color/kraft</item>
         <item name="green_highlight_color">@color/green50</item>

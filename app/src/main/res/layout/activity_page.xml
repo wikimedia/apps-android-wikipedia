@@ -18,7 +18,7 @@
         android:id="@+id/page_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/page_toolbar_color"
+        android:background="?attr/main_toolbar_color"
         android:elevation="4dp">
 
         <androidx.appcompat.widget.Toolbar
