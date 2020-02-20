@@ -26,6 +26,7 @@ import okio.ByteString;
 
 import static org.wikipedia.dataclient.RestService.REST_API_PREFIX;
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_NAME;
+import static org.wikipedia.util.StringUtil.hasSpecialCharacters;
 
 public final class SavedPagesConversionUtil {
     private static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
@@ -45,8 +46,9 @@ public final class SavedPagesConversionUtil {
             for (ReadingListPage page : readingList.pages()) {
                 if (page.offline()) {
                     String baseUrl = page.wiki().url();
-                    String leadSectionUrl = baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
-                    String remainingSectionsUrl = baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + StringUtil.fromHtml(page.apiTitle());
+                    String title = hasSpecialCharacters(page.apiTitle()) ? UriUtil.encodeURL(page.apiTitle()) : page.apiTitle();
+                    String leadSectionUrl = baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + title;
+                    String remainingSectionsUrl = baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + title;
                     PAGES_TO_CONVERT.add(new SavedReadingListPage(StringUtil.fromHtml(page.apiTitle()).toString(), baseUrl, leadSectionUrl, remainingSectionsUrl));
                 }
             }
