@@ -68,7 +68,7 @@
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
-  <string name="menu_text_select_copy">\nKopiera</string>
+  <string name="menu_text_select_copy">Kopiera</string>
   <string name="menu_text_select_define">\nDefinera</string>
   <string name="menu_text_select_share">\nDela</string>
   <string name="share">\nDela</string>
