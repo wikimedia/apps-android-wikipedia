@@ -6,12 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/page_fragment"
         android:name="org.wikipedia.page.PageFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout="@layout/fragment_page"
         tools:layout="@layout/fragment_page" />
 
     <FrameLayout
