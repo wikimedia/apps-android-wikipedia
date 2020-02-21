@@ -104,7 +104,7 @@ public final class FileUtil {
         FileOutputStream outputStream = null;
         try {
             file.createNewFile();
-            outputStream = new FileOutputStream(file, true);
+            outputStream = new FileOutputStream(file);
             outputStream.write(data.getBytes());
             outputStream.flush();
             outputStream.close();

@@ -115,9 +115,9 @@ public final class SavedPagesConversionUtil {
 
     private static void convertToMobileHtml(WebView dummyWebviewForConversion) {
         SavedReadingListPage savedReadingListPage = PAGES_TO_CONVERT.get(FILE_COUNT.get());
-        String restPrefix = "//en.wikimedia.org/api/rest_v1/";
+        String restPrefix = savedReadingListPage.baseUrl + "/api/rest_v1/";
 
-        dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + "," + "\"" + "en.wikipedia.org" + "\"" + "," + "\"" + restPrefix + "\"" + ")",
+        dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + "," + "\"" + StringUtil.removeNamespace(savedReadingListPage.getBaseUrl()).replace("//", "") + "\"" + "," + "\"" + restPrefix + "\"" + ")",
                 value -> {
                     storeConvertedFile(value, PAGES_TO_CONVERT.get(FILE_COUNT.get()).title);
                     if (FILE_COUNT.incrementAndGet() == PAGES_TO_CONVERT.size()) {
