@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.gallery.ImageInfo;
-import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.Namespace;
 
@@ -34,7 +33,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private String description;
     @SerializedName("descriptionsource") @Nullable private String descriptionSource;
     @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
-    @SerializedName("videoinfo") @Nullable private List<VideoInfo> videoInfo;
+    @SerializedName("videoinfo") @Nullable private List<ImageInfo> videoInfo;
     @Nullable private String redirectFrom;
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
@@ -101,11 +100,7 @@ public class MwQueryPage extends BaseModel {
     }
 
     @Nullable public ImageInfo imageInfo() {
-        return imageInfo != null ? imageInfo.get(0) : null;
-    }
-
-    @Nullable public VideoInfo videoInfo() {
-        return videoInfo != null ? videoInfo.get(0) : null;
+        return imageInfo != null ? imageInfo.get(0) : videoInfo != null ? videoInfo.get(0) : null;
     }
 
     @Nullable public String redirectFrom() {

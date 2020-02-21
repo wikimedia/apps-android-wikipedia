@@ -251,7 +251,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                                 titleList.add(item.getTitle());
                             }
                         }
-                        return titleList.isEmpty() ? Observable.empty() : ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(StringUtils.join(titleList, '|'));
+                        return titleList.isEmpty() ? Observable.empty() : ServiceFactory.get(pageTitle.getWikiSite()).getImageInfo(StringUtils.join(titleList, '|'), pageTitle.getWikiSite().languageCode());
                     })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
