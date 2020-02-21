@@ -11,6 +11,6 @@ import java.util.List;
  */
 public class VideoInfo extends ImageInfo {
     @SuppressWarnings("unused") @Nullable private List<String> codecs;
-    @SuppressWarnings("unused,NullableProblems") @Nullable private String name;
-    @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("short_name") private String shortName;
+    @SuppressWarnings("unused") @Nullable private String name;
+    @SuppressWarnings("unused") @Nullable @SerializedName("short_name") private String shortName;
 }
