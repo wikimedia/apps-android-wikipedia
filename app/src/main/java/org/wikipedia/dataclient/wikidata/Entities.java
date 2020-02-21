@@ -1,4 +1,4 @@
-package org.wikipedia.wikidata;
+package org.wikipedia.dataclient.wikidata;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +40,7 @@ public class Entities extends MwResponse implements PostProcessingTypeAdapter.Po
         @Nullable private Map<String, Label> descriptions;
         @Nullable private Map<String, SiteLink> sitelinks;
         @Nullable private String missing;
+        private long lastrevid;
 
         @NonNull public String id() {
             return StringUtils.defaultString(id);
@@ -57,8 +58,12 @@ public class Entities extends MwResponse implements PostProcessingTypeAdapter.Po
             return sitelinks != null ? sitelinks : Collections.emptyMap();
         }
 
-        boolean isMissing() {
+        public boolean isMissing() {
             return "-1".equals(id) && missing != null;
+        }
+
+        public long getLastRevId() {
+            return lastrevid;
         }
     }
 

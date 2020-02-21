@@ -11,11 +11,12 @@ import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
+import org.wikipedia.dataclient.wikidata.Entities;
+import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.edit.Edit;
 import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.search.PrefixSearchResponse;
-import org.wikipedia.wikidata.Entities;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
@@ -253,16 +254,16 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
-    Observable<MwPostResponse> postSetClaim(@NonNull @Field("claim") String claim,
-                                            @NonNull @Field("token") String token,
-                                            @Nullable @Field("summary") String summary,
-                                            @Nullable @Field("tags") String tags);
+    Observable<EntityPostResponse> postSetClaim(@NonNull @Field("claim") String claim,
+                                                @NonNull @Field("token") String token,
+                                                @Nullable @Field("summary") String summary,
+                                                @Nullable @Field("tags") String tags);
 
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
     @SuppressWarnings("checkstyle:parameternumber")
-    Observable<MwPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
+    Observable<EntityPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
                                                    @NonNull @Field("uselang") String useLang,
                                                    @NonNull @Field("site") String site,
                                                    @NonNull @Field("title") String title,
@@ -275,7 +276,7 @@ public interface Service {
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
     @FormUrlEncoded
     @SuppressWarnings("checkstyle:parameternumber")
-    Observable<MwPostResponse> postLabelEdit(@NonNull @Field("language") String language,
+    Observable<EntityPostResponse> postLabelEdit(@NonNull @Field("language") String language,
                                              @NonNull @Field("uselang") String useLang,
                                              @NonNull @Field("site") String site,
                                              @NonNull @Field("title") String title,
