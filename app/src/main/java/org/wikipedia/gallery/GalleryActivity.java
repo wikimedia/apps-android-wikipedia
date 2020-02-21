@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.LruCache;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -27,7 +26,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import org.apache.commons.lang3.StringUtils;
@@ -59,11 +57,11 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -707,14 +705,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * Each media item will be represented by a GalleryItemFragment, which will be instantiated
      * lazily, and then cached for future use.
      */
-    private class GalleryItemAdapter extends FragmentStateAdapter {
+    private class GalleryItemAdapter extends PositionAwareFragmentStateAdapter {
         private List<MediaListItem> list = new ArrayList<>();
-        private LruCache<Integer, WeakReference<GalleryItemFragment>> fragmentCache;
 
         GalleryItemAdapter(AppCompatActivity activity) {
             super(activity);
-            final int cacheSize = 16;
-            fragmentCache = new LruCache<>(cacheSize);
         }
 
         public void setList(@NonNull List<MediaListItem> list) {
@@ -731,14 +726,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         @Override
         @NonNull
         public Fragment createFragment(int position) {
-            GalleryItemFragment f = GalleryItemFragment.newInstance(pageTitle, list.get(position));
-            fragmentCache.put(position, new WeakReference<>(f));
-            return f;
-        }
-
-        @Nullable
-        public Fragment getFragmentAt(int position) {
-            return fragmentCache.get(position) != null ? fragmentCache.get(position).get() : null;
+            return GalleryItemFragment.newInstance(pageTitle, list.get(position));
         }
     }
 
