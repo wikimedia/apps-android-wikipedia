@@ -476,13 +476,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         bridge.execute(JavaScriptActionHandler.setFooter(model));
 
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            try {
-                this.revision = Long.parseLong(revision.replace("\"", ""));
-            } catch (NumberFormatException ignore) {
-                //
-            }
-        });
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
 
         bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
             Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
