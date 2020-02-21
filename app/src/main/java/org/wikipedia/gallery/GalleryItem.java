@@ -28,7 +28,7 @@ public class GalleryItem implements Serializable {
     @SuppressWarnings("NullableProblems") @NonNull private Titles titles;
     @Nullable private ImageInfo thumbnail;
     @Nullable private ImageInfo original;
-    @Nullable private List<VideoInfo> sources;
+    @Nullable private List<ImageInfo> sources;
     @Nullable @SerializedName("file_page") private String filePage;
     @Nullable private ArtistInfo artist;
     private double duration;
@@ -104,12 +104,12 @@ public class GalleryItem implements Serializable {
     }
 
     @Nullable
-    public List<VideoInfo> getSources() {
+    public List<ImageInfo> getSources() {
         return sources;
     }
 
     @Nullable
-    public VideoInfo getOriginalVideoSource() {
+    public ImageInfo getOriginalVideoSource() {
         // The getSources has different levels of source,
         // should have an option that allows user to chose which quality to play
         return sources == null || sources.size() == 0

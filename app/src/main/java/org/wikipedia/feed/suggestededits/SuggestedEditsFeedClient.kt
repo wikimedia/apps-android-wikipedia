@@ -143,7 +143,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(title)
+                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageInfo(title, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -189,7 +189,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
                     fileCaption = pair.first
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageExtMetadata(pair.second)
+                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageInfo(pair.second, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }

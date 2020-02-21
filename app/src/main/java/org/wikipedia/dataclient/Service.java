@@ -82,11 +82,13 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description")
     @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getImageInfo(@NonNull @Query("titles") String titles,
+                                                      @NonNull @Query("iiextmetadatalanguage") String lang);
 
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> getMediaInfo(@NonNull @Query("titles") String titles);
+    @NonNull Observable<MwQueryResponse> getVideoInfo(@NonNull @Query("titles") String titles,
+                                                      @NonNull @Query("viextmetadatalanguage") String lang);
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     @NonNull Observable<SiteMatrix> getSiteMatrix();
