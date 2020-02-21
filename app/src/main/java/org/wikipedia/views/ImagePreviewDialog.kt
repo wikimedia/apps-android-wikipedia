@@ -81,7 +81,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     private fun loadImageInfoIfNeeded() {
         if (suggestedEditsSummary.metadata == null) {
-            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageExtMetadata(suggestedEditsSummary.title)
+            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { setImageDetails() }
