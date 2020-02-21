@@ -130,7 +130,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         tagsChipGroup.removeAllViews()
-        val maxTags = 10
+        val maxTags = 5
         for (label in page!!.imageLabels) {
             if (label.state != "unreviewed") {
                 continue
@@ -386,7 +386,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun playSuccessVibration() {
         val v = requireActivity().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        val pattern = longArrayOf(0, 100, 100, 100)
+        val pattern = longArrayOf(0, 100)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             v.vibrate(VibrationEffect.createWaveform(pattern, -1))
         } else {
