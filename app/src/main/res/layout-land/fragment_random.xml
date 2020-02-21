@@ -8,7 +8,7 @@
     android:transitionName="@string/transition_random_activity"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPagerWithVelocity
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/random_item_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

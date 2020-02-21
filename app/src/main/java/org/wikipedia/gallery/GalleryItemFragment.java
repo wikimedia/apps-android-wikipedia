@@ -157,6 +157,17 @@ public class GalleryItemFragment extends Fragment {
         super.onDestroyView();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mediaController != null) {
+            if (videoView.isPlaying()) {
+                videoView.pause();
+            }
+            mediaController.hide();
+        }
+    }
+
     private void updateProgressBar(boolean visible) {
         progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
@@ -192,34 +203,6 @@ public class GalleryItemFragment extends Fragment {
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Notifies this fragment that the current position of its containing ViewPager has changed.
-     *
-     * @param fragmentPosition This fragment's position in the ViewPager.
-     * @param pagerPosition    The pager's current position that is displayed to the user.
-     */
-    void onUpdatePosition(int fragmentPosition, int pagerPosition) {
-        if (!isAdded()) {
-            return;
-        }
-        if (fragmentPosition != pagerPosition) {
-            // update stuff if our position is not "current" within the ViewPager...
-            if (mediaController != null) {
-                if (videoView.isPlaying()) {
-                    videoView.pause();
-                }
-                mediaController.hide();
-            }
-        } else {
-            // update stuff if our position is "current"
-            if (mediaController != null) {
-                if (!videoView.isPlaying()) {
-                    videoView.start();
-                }
-            }
-        }
     }
 
     private void handleImageSaveRequest() {
