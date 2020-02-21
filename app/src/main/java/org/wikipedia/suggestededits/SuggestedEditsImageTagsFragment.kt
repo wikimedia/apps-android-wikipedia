@@ -33,6 +33,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
+import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
@@ -283,7 +284,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
-                val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
+                val claimObservables = ArrayList<ObservableSource<EntityPostResponse>>()
                 for (label in acceptedLabels) {
                     val claimTemplate = "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
