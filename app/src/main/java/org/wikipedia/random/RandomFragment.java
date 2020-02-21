@@ -3,7 +3,6 @@ package org.wikipedia.random;
 import android.content.DialogInterface;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
-import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,8 +31,7 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
-
-import java.lang.ref.WeakReference;
+import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -205,13 +202,9 @@ public class RandomFragment extends Fragment {
         return null;
     }
 
-    private class RandomItemAdapter extends FragmentStateAdapter {
-        private LruCache<Integer, WeakReference<Fragment>> fragmentCache;
-
+    private class RandomItemAdapter extends PositionAwareFragmentStateAdapter {
         RandomItemAdapter(Fragment fragment) {
             super(fragment);
-            final int cacheSize = 16;
-            fragmentCache = new LruCache<>(cacheSize);
         }
 
         @Override
@@ -222,14 +215,7 @@ public class RandomFragment extends Fragment {
         @Override
         @NonNull
         public Fragment createFragment(int position) {
-            RandomItemFragment f = RandomItemFragment.newInstance();
-            fragmentCache.put(position, new WeakReference<>(f));
-            return f;
-        }
-
-        @Nullable
-        Fragment getFragmentAt(int position) {
-            return fragmentCache.get(position) != null ? fragmentCache.get(position).get() : null;
+            return RandomItemFragment.newInstance();
         }
     }
 

@@ -6,7 +6,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Animatable
 import android.os.Bundle
-import android.util.LruCache
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -14,7 +13,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -34,7 +32,7 @@ import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import java.lang.ref.WeakReference
+import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class SuggestedEditsCardsFragment : Fragment() {
     private val viewPagerListener = ViewPagerListener()
@@ -346,24 +344,16 @@ class SuggestedEditsCardsFragment : Fragment() {
         }
     }
 
-    private inner class ViewPagerAdapter constructor(fragment: Fragment): FragmentStateAdapter(fragment) {
-        private var fragmentCache = LruCache<Int, WeakReference<Fragment>>(16)
-
+    private inner class ViewPagerAdapter constructor(fragment: Fragment): PositionAwareFragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
 
         override fun createFragment(position: Int): Fragment {
-            val f = if (action == ADD_IMAGE_TAGS)
+            return if (action == ADD_IMAGE_TAGS)
                 SuggestedEditsImageTagsFragment.newInstance()
             else
                 SuggestedEditsCardsItemFragment.newInstance()
-            fragmentCache.put(position, WeakReference(f))
-            return f
-        }
-
-        fun getFragmentAt(position: Int): Fragment? {
-            return fragmentCache.get(position)?.get()
         }
     }
 
