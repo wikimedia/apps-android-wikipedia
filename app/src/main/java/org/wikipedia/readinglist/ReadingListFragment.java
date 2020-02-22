@@ -62,6 +62,7 @@ import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -82,6 +83,7 @@ import static org.wikipedia.Constants.InvokeSource.READING_LIST_ACTIVITY;
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
 import static org.wikipedia.readinglist.ReadingListsFragment.ARTICLE_ITEM_IMAGE_DIMENSION;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.SavedPagesConversionUtil.CONVERTED_FILES_DIRECTORY_NAME;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
@@ -754,6 +756,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 PageTitle title = ReadingListPage.toPageTitle(page);
                 HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
 
+                File file = new File(WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME + "/" + title.getPrefixedText());
+                if (!WikipediaApp.getInstance().isOnline() && !file.exists() && !Prefs.isOfflinePcsToMobileHtmlConversionComplete()) {
+                    FeedbackUtil.showMessage(ReadingListFragment.this, getString(R.string.reading_list_page_conversion_not_complete_message));
+                    return;
+                }
                 page.touch();
                 Completable.fromAction(() -> {
                     ReadingListDbHelper.instance().updateLists(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), false);
