@@ -1,10 +1,10 @@
 package org.wikipedia.util;
 
 import android.annotation.SuppressLint;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import org.apache.commons.lang3.StringEscapeUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -32,7 +32,9 @@ public final class SavedPagesConversionUtil {
     private static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
     private static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
     public static final String CONVERTED_FILES_DIRECTORY_NAME = "converted-files";
+
     private static List<SavedReadingListPage> PAGES_TO_CONVERT = new ArrayList<>();
+    private static AtomicInteger FILE_COUNT = new AtomicInteger();
 
     @SuppressLint({"SetJavaScriptEnabled", "CheckResult"})
     public static void runOneTimeSavedPagesConversion() {
@@ -90,6 +92,7 @@ public final class SavedPagesConversionUtil {
         WebView dummyWebviewForConversion = new WebView(WikipediaApp.getInstance().getApplicationContext());
         dummyWebviewForConversion.getSettings().setJavaScriptEnabled(true);
         dummyWebviewForConversion.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        dummyWebviewForConversion.addJavascriptInterface(new ConversionJavascriptInterface(dummyWebviewForConversion), "conversionClient");
 
         try {
             String html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open("pcs-html-converter/index.html"));
@@ -111,26 +114,33 @@ public final class SavedPagesConversionUtil {
         }
     }
 
-    private static AtomicInteger FILE_COUNT = new AtomicInteger();
+    private static class ConversionJavascriptInterface {
+        private WebView webView;
+        ConversionJavascriptInterface(WebView webView) {
+            this.webView = webView;
+        }
+        @JavascriptInterface
+        public synchronized void onReceiveHtml(String html) {
+            storeConvertedFile(html, PAGES_TO_CONVERT.get(FILE_COUNT.get()).title);
+            if (FILE_COUNT.incrementAndGet() == PAGES_TO_CONVERT.size()) {
+                crossCheckAndComplete();
+            } else {
+                convertToMobileHtml(webView);
+            }
+        }
+    }
 
     private static void convertToMobileHtml(WebView dummyWebviewForConversion) {
         SavedReadingListPage savedReadingListPage = PAGES_TO_CONVERT.get(FILE_COUNT.get());
         String restPrefix = savedReadingListPage.baseUrl + "/api/rest_v1/";
 
         dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + "," + "\"" + StringUtil.removeNamespace(savedReadingListPage.getBaseUrl()).replace("//", "") + "\"" + "," + "\"" + restPrefix + "\"" + ")",
-                value -> {
-                    storeConvertedFile(value, PAGES_TO_CONVERT.get(FILE_COUNT.get()).title);
-                    if (FILE_COUNT.incrementAndGet() == PAGES_TO_CONVERT.size()) {
-                        crossCheckAndComplete();
-                    } else {
-                        convertToMobileHtml(dummyWebviewForConversion);
-                    }
-                });
+                value -> { });
     }
 
     @SuppressLint("CheckResult")
     private static void storeConvertedFile(String convertedString, String fileName) {
-        Completable.fromAction(() -> FileUtil.writeToFileInDirectory(StringEscapeUtils.unescapeJava(convertedString.substring(1, convertedString.length() - 1)), WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, fileName))
+        Completable.fromAction(() -> FileUtil.writeToFileInDirectory(convertedString, WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, fileName))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(() -> {
