@@ -435,6 +435,7 @@
   <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
+  <string name="description_edit_success_encouragement">तपाईले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
