@@ -1,6 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -14,7 +13,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.chip.Chip
@@ -76,6 +74,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
                 intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
         publishProgressBar.progressTintList = colorStateList
+        publishProgressBarComplete.progressTintList = colorStateList
         publishProgressCheck.imageTintList = colorStateList
         publishProgressText.setTextColor(colorStateList)
 
@@ -265,18 +264,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
-
-        // kick off the circular animation
-        val duration = 2000L
-        val animator = ObjectAnimator.ofInt(publishProgressBar, "progress", 0, 1000)
-        animator.duration = duration
-        animator.interpolator = AccelerateDecelerateInterpolator()
-        animator.start()
-        publishProgressBar.postDelayed({
-            if (isAdded && !publishing && publishSuccess) {
-                onSuccess()
-            }
-        }, duration)
+        publishProgressBarComplete.visibility = GONE
+        publishProgressBar.visibility = VISIBLE
 
         val commonsSite = WikiSite(Service.COMMONS_URL)
 
@@ -315,10 +304,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         .subscribe({ response ->
                             // TODO: check anything else in the response?
                             publishSuccess = true
-                            if (!animator.isRunning) {
-                                // if the animator is still running, let it finish and invoke success() on its own
-                                onSuccess()
-                            }
+                            onSuccess()
                         }, { caught ->
                             onError(caught)
                         }))
@@ -339,13 +325,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         Prefs.setSuggestedEditsImageTagsNew(false)
 
-        playSuccessVibration()
-
         val duration = 500L
+        publishProgressBar.alpha = 1f
+        publishProgressBar.animate()
+                .alpha(0f)
+                .duration = duration / 2
+
+        publishProgressBarComplete.alpha = 0f
+        publishProgressBarComplete.visibility = VISIBLE
+        publishProgressBarComplete.animate()
+                .alpha(1f)
+                .duration = duration / 2
+
         publishProgressCheck.alpha = 0f
         publishProgressCheck.visibility = VISIBLE
         publishProgressCheck.animate()
                 .alpha(1f)
+                .withEndAction { playSuccessVibration() }
                 .duration = duration
 
         publishProgressBar.postDelayed({
