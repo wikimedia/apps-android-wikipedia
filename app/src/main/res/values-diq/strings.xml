@@ -22,6 +22,7 @@
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
   <string name="search_hint_search_my_lists_and_articles">Meqaleyan û listanê mı cı geyre</string>
   <string name="nav_item_history">Tarix</string>
+  <string name="nav_item_suggested_edits">Vurnayışê wesıbnayey</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
   <string name="page_error_retry">Anciya bıcerrebne</string>
   <string name="card_offline_error_retry">Anciya bıcerrebne</string>
@@ -70,6 +71,7 @@
   <string name="map_view_link_text">Xerita sero bıvênên</string>
   <string name="other_languages_indication_text">Zıwanê binan de bıwanê</string>
   <string name="language_count_link_text">%d zıwananê binan de esto</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="preference_title_language">Zıwanê Wikipedia</string>
   <string name="langlinks_filter_hint">Cı geyre</string>
   <string name="langlinks_empty">Na wesiqa zıwanan de binan de çıniya</string>
@@ -98,7 +100,9 @@
   <string name="login_activity_title">Wikipediya kewe</string>
   <string name="login_in_progress_dialog_message">Ronıştışo abêno...</string>
   <string name="login_success_toast">Hesab abıya!</string>
+  <string name="reset_password_title">Parolay ho eyar kerê</string>
   <string name="reset_password_hint">Parolaya newiye</string>
+  <string name="reset_password_button">Bışevekne u cıkewe</string>
   <string name="preference_title_logout">Bıveciye</string>
   <string name="toast_logout_complete">Ronıştış racneya</string>
   <string name="logout_dialog_cancel_button_text">Bıtexelne</string>
@@ -126,14 +130,20 @@
   <string name="create_account_generic_error">Hesab nêvıraziya yo</string>
   <string name="create_account_next">Bahdoyên</string>
   <string name="email_recommendation_dialog_title">Bê adresa e-posteyi wa hesab vıraziyo?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Bêeposta dewam kerê</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Yew eposta cı kerê</string>
   <string name="create_account_button">Hesab vıraze</string>
+  <string name="create_account_ip_block_help_url">https://diq.wikipedia.org/wiki/Help:Ez_bloqe_biya</string>
   <string name="create_account_ip_block_details">Detayi</string>
   <string name="preferences_general_heading">Bıngeh</string>
   <string name="wikipedia_app_faq">Wikipedia App PZP</string>
   <string name="send_feedback">Verpersê tetbiqi bırışe</string>
   <string name="create_account_account_created_toast">Hesab vıraziya!</string>
   <string name="preferences_heading_syncing">Senkronize beno</string>
+  <string name="preferences_heading_data_usage">Karnayışê data</string>
   <string name="preferences_heading_experimental">Cerrebın</string>
+  <string name="preference_title_sync_reading_lists_from_account">Senkronizey lista wendışi</string>
+  <string name="preference_title_download_reading_list_articles">Meqaleyanê lista wendışi ronê</string>
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
   <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
   <string name="history_search_list_hint">Tarixê cıgeyrayışi</string>
@@ -168,6 +178,7 @@
   <string name="edit_summary_tag_grammar">Gramero sabit</string>
   <string name="edit_summary_tag_links">Gıreyê cıbiyayeyi</string>
   <string name="edit_summary_tag_other">Sewbi</string>
+  <string name="edit_conflict_title">Pêamyayışê vurnayışi</string>
   <string name="find_next">Peyêni bıvin</string>
   <string name="find_previous">Verêni bıvêne</string>
   <string name="text_size_select">çapa fonti</string>
@@ -191,6 +202,7 @@
   <string name="read_more_section">Tayêna bıwane</string>
   <string name="gallery_menu_share">Vıla ke</string>
   <string name="snippet_share_intro">\"%1$s\" dı @Wikipedia: %2$s</string>
+  <string name="gallery_fair_use_license">Karnayışo adilın</string>
   <string name="menu_new_tab">Taba newi</string>
   <string name="close_all_tabs_confirm_yes">Eya</string>
   <string name="close_all_tabs_confirm_no">Nê</string>
