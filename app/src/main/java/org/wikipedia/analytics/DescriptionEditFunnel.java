@@ -60,9 +60,10 @@ public class DescriptionEditFunnel extends EditFunnel {
         );
     }
 
-    public void logSaved() {
+    public void logSaved(long revID) {
         log(
                 "action", "saved",
+                "revID", revID,
                 "wikidataDescriptionEdit", type.toLogString()
         );
     }

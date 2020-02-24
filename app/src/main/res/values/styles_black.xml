@@ -13,7 +13,6 @@
         <item name="main_toolbar_icon_color">@android:color/white</item>
         <item name="page_status_bar_color">@color/base14</item>
         <item name="page_expanded_status_bar_color">@color/base14</item>
-        <item name="page_toolbar_color">@color/base14</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base14</item>
         <item name="randomizer_dice_icon_color">@color/accent50</item>

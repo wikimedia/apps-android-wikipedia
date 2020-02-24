@@ -1,9 +1,9 @@
 package org.wikipedia.suggestededits
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,7 +13,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.chip.Chip
@@ -29,9 +28,9 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
+import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
@@ -75,6 +74,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
                 intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
         publishProgressBar.progressTintList = colorStateList
+        publishProgressBarComplete.progressTintList = colorStateList
         publishProgressCheck.imageTintList = colorStateList
         publishProgressText.setTextColor(colorStateList)
 
@@ -126,8 +126,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
 
+        val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         tagsChipGroup.removeAllViews()
-        val maxTags = 10
+        val maxTags = 5
         for (label in page!!.imageLabels) {
             if (label.state != "unreviewed") {
                 continue
@@ -136,10 +137,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             chip.text = label.label
             chip.textAlignment = TEXT_ALIGNMENT_CENTER
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
-            chip.typeface = tagsHintText.typeface
+            chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
+            chip.typeface = typeface
             chip.isCheckable = true
-            chip.isCheckedIconVisible = false
+            chip.setChipIconResource(R.drawable.ic_chip_add_24px)
+            chip.chipIconSize = DimenUtil.dpToPx(24f)
+            chip.iconEndPadding = 0f
+            chip.textStartPadding = DimenUtil.dpToPx(2f)
+            chip.chipIconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
             chip.setOnCheckedChangeListener(this)
             chip.tag = label
 
@@ -185,11 +193,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
         val chip = button as Chip
         if (chip.isChecked) {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-            chip.setTextColor(Color.WHITE)
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_55))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_56))
+            chip.isChipIconVisible = false
         } else {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.isChipIconVisible = true
         }
 
         updateLicenseTextShown()
@@ -254,25 +264,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
-
-        // kick off the circular animation
-        val duration = 2000L
-        val animator = ObjectAnimator.ofInt(publishProgressBar, "progress", 0, 1000)
-        animator.duration = duration
-        animator.interpolator = AccelerateDecelerateInterpolator()
-        animator.start()
-        publishProgressBar.postDelayed({
-            if (isAdded && !publishing && publishSuccess) {
-                onSuccess()
-            }
-        }, duration)
+        publishProgressBarComplete.visibility = GONE
+        publishProgressBar.visibility = VISIBLE
 
         val commonsSite = WikiSite(Service.COMMONS_URL)
 
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
-                val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
+                val claimObservables = ArrayList<ObservableSource<EntityPostResponse>>()
                 for (label in acceptedLabels) {
                     val claimTemplate = "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
@@ -304,10 +304,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         .subscribe({ response ->
                             // TODO: check anything else in the response?
                             publishSuccess = true
-                            if (!animator.isRunning) {
-                                // if the animator is still running, let it finish and invoke success() on its own
-                                onSuccess()
-                            }
+                            onSuccess()
                         }, { caught ->
                             onError(caught)
                         }))
@@ -328,13 +325,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         Prefs.setSuggestedEditsImageTagsNew(false)
 
-        playSuccessVibration()
-
         val duration = 500L
+        publishProgressBar.alpha = 1f
+        publishProgressBar.animate()
+                .alpha(0f)
+                .duration = duration / 2
+
+        publishProgressBarComplete.alpha = 0f
+        publishProgressBarComplete.visibility = VISIBLE
+        publishProgressBarComplete.animate()
+                .alpha(1f)
+                .duration = duration / 2
+
         publishProgressCheck.alpha = 0f
         publishProgressCheck.visibility = VISIBLE
         publishProgressCheck.animate()
                 .alpha(1f)
+                .withEndAction { playSuccessVibration() }
                 .duration = duration
 
         publishProgressBar.postDelayed({
@@ -363,18 +370,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         for (i in 0 until tagsChipGroup.childCount) {
             val chip = tagsChipGroup.getChildAt(i) as Chip
             if (chip.isChecked) {
-                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.green_highlight_color))
-                chip.setTextColor(Color.WHITE)
+                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
+                chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
             } else {
                 chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-                chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.chip_text_color))
+                chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             }
         }
     }
 
     private fun playSuccessVibration() {
         val v = requireActivity().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        val pattern = longArrayOf(0, 100, 100, 100)
+        val pattern = longArrayOf(0, 100)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             v.vibrate(VibrationEffect.createWaveform(pattern, -1))
         } else {

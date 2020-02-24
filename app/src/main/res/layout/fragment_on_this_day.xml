@@ -105,7 +105,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:gravity="center_vertical"
-                android:theme="@style/ToolbarTheme"
                 app:layout_collapseMode="pin">
 
                 <LinearLayout

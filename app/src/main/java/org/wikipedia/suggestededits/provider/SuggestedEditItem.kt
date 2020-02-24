@@ -1,8 +1,8 @@
 package org.wikipedia.suggestededits.provider
 
 import com.google.gson.annotations.SerializedName
+import org.wikipedia.dataclient.wikidata.Entities
 import org.wikipedia.gallery.GalleryItem
-import org.wikipedia.wikidata.Entities
 
 class SuggestedEditItem {
     private val pageid: Int = 0
