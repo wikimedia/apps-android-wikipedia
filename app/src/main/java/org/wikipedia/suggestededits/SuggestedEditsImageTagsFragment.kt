@@ -82,6 +82,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 getString(R.string.terms_of_use_url), getString(R.string.cc_0_url)))
         tagsLicenseText.movementMethod = LinkMovementMethodExt.getInstance()
 
+        imageView.setOnClickListener {
+            if (Prefs.shouldShowImageZoomTooltip()) {
+                Prefs.setShouldShowImageZoomTooltip(false)
+                FeedbackUtil.showMessage(requireActivity(), R.string.suggested_edits_image_zoom_tooltip)
+            }
+        }
+
         getNextItem()
         updateContents()
     }
