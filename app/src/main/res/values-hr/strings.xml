@@ -653,6 +653,10 @@
   <string name="suggested_edits_quality_sufficient_text">Dovoljno</string>
   <string name="suggested_edits_quality_poor_text">Slabo</string>
   <string name="suggested_edits_quality_bad_text">Loše</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Doprinos</item>
+    <item quantity="other">Doprinosi</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dan</item>
     <item quantity="other">%d day</item>
