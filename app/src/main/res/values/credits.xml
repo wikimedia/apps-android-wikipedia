@@ -37,17 +37,9 @@
         <!-- https://raw.githubusercontent.com/square/otto/master/LICENSE.txt -->
         (<a href="content:///android_asset/licenses/Otto">license</a>),
 
-        <a href="https://github.com/romandanylyk/PageIndicatorView">PageIndicatorView</a>
-        <!-- https://github.com/romandanylyk/PageIndicatorView#license -->
-        (<a href="content:///android_asset/licenses/PageIndicatorView">license</a>),
-
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
         (<a href="content:///android_asset/licenses/Retrofit">license</a>),
-
-        <a href="https://github.com/duolingo/rtl-viewpager/">RtlViewPager</a>
-        <!-- https://github.com/duolingo/rtl-viewpager/blob/master/LICENSE -->
-        (<a href="content:///android_asset/licenses/RtlViewPager">license</a>),
 
         <a href="https://github.com/KeepSafe/TapTargetView">TapTargetView</a>
         <!-- https://github.com/KeepSafe/TapTargetView/blob/master/LICENSE -->

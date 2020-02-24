@@ -9,6 +9,7 @@
 * पर्वत सुबेदी
 * राम प्रसाद जोशी
 * सरोज कुमार ढकाल
+* हिमाल सुबेदी
 -->
 <resources>
   <string name="app_name_prod">विकिपिडिया</string>
@@ -222,7 +223,7 @@
   <string name="find_last_occurence">यो अन्तिम घटना हो</string>
   <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
-  <string name="text_size_select">अक्षरको आकार</string>
+  <string name="text_size_select">लिपि आकार</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
@@ -442,12 +443,16 @@
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
   <string name="suggested_edits_tasks_activity_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
+  <string name="suggested_edits_image_caption_summary_title_file">फाइल</string>
   <string name="suggested_edits_image_caption_summary_title_license">इजाजतपत्र</string>
   <string name="suggested_edits_feed_card_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_feed_card_add_description_button">लेख वर्णन थप्नुहोस्</string>
   <string name="suggested_edits_tasks_onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="suggested_edits_article_cta_image_caption">तस्विर शीर्षक थप्नुहोस्</string>
   <string name="suggested_edits_feed_card_add_image_caption">तस्विर शीर्षक थप्नुहोस्</string>
+  <string name="suggested_edits_image_captions">तस्वीर व्याख्याहरू</string>
+  <string name="suggested_edits_image_tags_publishing">प्रकाशन गर्दै...</string>
+  <string name="suggested_edits_image_tags_published">प्रकाशित</string>
   <string name="suggested_edits_task_new">नयाँ</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="description_edit_login_cancel_button_text">रद्द गर्नुहोस्</string>

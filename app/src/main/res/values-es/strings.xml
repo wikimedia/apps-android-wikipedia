@@ -704,6 +704,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado hasta que haya editado %d descripciones de artículos (verificado)</string>
   <string name="suggested_edits_task_multilingual_negative">No para mí</string>
   <string name="suggested_edits_task_multilingual_positive">Añadir idiomas</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Archivo</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fuente</string>
@@ -743,7 +744,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Al confirmar las etiquetas sugeridas contribuyes a que sea más fácil encontrar las imágenes.\n\nLas etiquetas son generadas automáticamente pero es necesario que sean validadas por humanos para garantizar su exactitud.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo las etiquetas que elijas se añadirán a las imágenes.</string>
   <string name="suggested_edits_image_tags_snackbar">Etiqueta las imágenes para facilitar su búsqueda.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta imágenes para que el resto las encuentre más fácilmente. Las etiquetas se sugieren automáticamente, pero necesitan tu verificación.</string>
+  <string name="suggested_edits_image_tags_task_detail">Etiqueta imágenes para que el resto las encuentre más fácilmente. Son sugeridas por computadora, pero deben ser validados.</string>
   <string name="suggested_edits_image_tags_choose">Elige las etiquetas correspondientes a la imagen.</string>
   <string name="suggested_edits_image_tags_select_title">No has seleccionado ninguna etiqueta para esta imagen.</string>
   <string name="suggested_edits_image_tags_select_text">Solo las etiquetas que elijas se añadirán a las imágenes. Las etiquetas no seleccionadas se marcarán como rechazadas. ¿Estás seguro de que quieres marcar todas las etiquetas como rechazadas?</string>
@@ -753,11 +754,13 @@
   <string name="suggested_edits_add_descriptions_task_detail">Las descripciones de los artículos resumen el mismo para ayudar a los lectores a entender el tema de un vistazo.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El número total de tus contribuciones con Ediciones sugeridas.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos días seguidos has contribuido a Ediciones sugeridas. Si hace tiempo que no contribuyes, mostrará la fecha de tu última contribución.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Total de páginas vistas de elementos a los que contribuiste en los últimos 30 días con ediciones sugeridas.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basado en la cantidad de veces que una de tus contribuciones ha sido revertida (anulado por otro editor). Ediciones revertidas: %d.</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;Las Ediciones sugeridas están bloqueadas hasta %1$s.&lt;/b&gt; Lo sentimos, %2$s: algunas de tus contribuciones recientes se han revertido.\n\nAprende cómo mejorar tus habilidades de edición en la Wikipedia consultando el enlace inferior.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Las Ediciones sugeridas están deshabilitadas.&lt;/b&gt; Lo sentimos, %s: muchas de tus contribuciones recientes se han revertido.\n\nConsulta más información en el siguiente enlace.</string>
   <string name="suggested_edits_ip_blocked_message">Parece que tu dirección IP (o rango de direcciones IP) está actualmente bloqueada para la edición de la Wikipedia. Consulta más información siguiendo el enlace de más abajo.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y consejos de edición</string>
+  <string name="suggested_edits_help_page_link_text">Página de ayuda de ediciones sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar racha</string>
   <string name="suggested_edits_pageviews_label_text">Visitas de página</string>
   <string name="suggested_edits_quality_label_text">Calidad de ediciones</string>

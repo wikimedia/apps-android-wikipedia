@@ -579,6 +579,7 @@
   <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
   <string name="suggested_edits_add_image_captions">Dodaj opise slika</string>
   <string name="suggested_edits_translate_image_captions">Prevedi opise slika</string>
+  <string name="suggested_edits_tag_images">Označavanje slika</string>
   <string name="suggested_edits_review_description">Pregledaj opis članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Uredi opis</string>
@@ -598,6 +599,7 @@
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zaključano dok ne uredite %d natpisa slika</string>
   <string name="suggested_edits_task_multilingual_negative">Nije za mene</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj jezike</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Datoteka</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umjetnik</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
@@ -628,12 +630,14 @@
   <string name="suggested_edits_snackbar_survey_action_text">Ispuni anketu</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
+  <string name="suggested_edits_image_tags">Oznake za slike</string>
+  <string name="suggested_edits_image_tags_publishing">Objavljivanje</string>
   <string name="suggested_edits_image_tags_published">Objavljeno</string>
   <string name="suggested_edits_image_tags_onboarding_title">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Potvrdite li predložene oznake, pomoći ćete ostalim osobama u traženju slika.\n\nOznake predlaže računalo, ali radi preciznosti trebaju ih potvrditi ljudi.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
   <string name="suggested_edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Slikama dodajte oznake kako bi ih ostali lakše mogli naći. Oznake se predlažu automatski, no Vi ih trebate potvrditi.</string>
+  <string name="suggested_edits_image_tags_task_detail">Slikama dodajte oznake kako bi ih ostali lakše mogli naći. Oznake predlaže računalo, no treba ih potvrditi.</string>
   <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
   <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>

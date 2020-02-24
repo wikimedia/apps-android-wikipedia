@@ -16,7 +16,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -55,7 +54,6 @@ public class LeadImagesHandler {
     private static final int MIN_SCREEN_HEIGHT_DP = 480;
 
     @NonNull private final PageFragment parentFragment;
-    @NonNull private final CommunicationBridge bridge;
 
     @NonNull private final PageHeaderView pageHeaderView;
 
@@ -67,14 +65,12 @@ public class LeadImagesHandler {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
-                             @NonNull CommunicationBridge bridge,
                              @NonNull ObservableWebView webView,
                              @NonNull PageHeaderView pageHeaderView) {
         this.parentFragment = parentFragment;
         this.pageHeaderView = pageHeaderView;
         this.pageHeaderView.setWebView(webView);
 
-        this.bridge = bridge;
         webView.addOnScrollChangeListener(pageHeaderView);
 
         initDisplayDimensions();
@@ -137,7 +133,7 @@ public class LeadImagesHandler {
         }
         String imageTitle = "File:" + getPage().getPageProperties().getLeadImageName();
         disposables.add(Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
-                ServiceFactory.get(getTitle().getWikiSite()).getImageExtMetadata(imageTitle), Pair::new)
+                ServiceFactory.get(getTitle().getWikiSite()).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
