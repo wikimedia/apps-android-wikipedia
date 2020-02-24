@@ -170,10 +170,16 @@ class SuggestedEditsCardsFragment : Fragment() {
 
         if (action == ADD_IMAGE_TAGS) {
             if (addContributionText == null) {
+                // implying landscape mode, where addContributionText doesn't exist.
                 addContributionImage.visibility = VISIBLE
                 addContributionImage.setImageResource(R.drawable.ic_check_black_24dp)
             } else {
                 addContributionText?.text = getString(R.string.description_edit_save)
+                if (child != null) {
+                    addContributionText?.setTextColor(if (child?.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)
+                } else {
+                    addContributionText?.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+                }
                 addContributionImage.visibility = GONE
             }
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
