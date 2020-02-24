@@ -266,7 +266,7 @@ public final class StringUtil {
         if (s == null || s.trim().isEmpty()) {
             return false;
         }
-        Pattern p = Pattern.compile("[^A-Za-z0-9()_]");
+        Pattern p = Pattern.compile("[^A-Za-z0-9()_,]");
         Matcher m = p.matcher(s);
         return m.find();
     }

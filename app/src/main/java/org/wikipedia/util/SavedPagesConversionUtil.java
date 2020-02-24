@@ -1,6 +1,7 @@
 package org.wikipedia.util;
 
 import android.annotation.SuppressLint;
+import android.os.Handler;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -116,16 +117,22 @@ public final class SavedPagesConversionUtil {
 
     private static class ConversionJavascriptInterface {
         private WebView webView;
+
         ConversionJavascriptInterface(WebView webView) {
             this.webView = webView;
         }
+
         @JavascriptInterface
         public synchronized void onReceiveHtml(String html) {
             storeConvertedFile(html, PAGES_TO_CONVERT.get(FILE_COUNT.get()).title);
             if (FILE_COUNT.incrementAndGet() == PAGES_TO_CONVERT.size()) {
                 crossCheckAndComplete();
             } else {
-                convertToMobileHtml(webView);
+                Handler mainHandler = new Handler(WikipediaApp.getInstance().getMainLooper());
+                Runnable myRunnable = () -> {
+                    convertToMobileHtml(webView);
+                };
+                mainHandler.post(myRunnable);
             }
         }
     }
@@ -135,7 +142,8 @@ public final class SavedPagesConversionUtil {
         String restPrefix = savedReadingListPage.baseUrl + "/api/rest_v1/";
 
         dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + "," + "\"" + StringUtil.removeNamespace(savedReadingListPage.getBaseUrl()).replace("//", "") + "\"" + "," + "\"" + restPrefix + "\"" + ")",
-                value -> { });
+                value -> {
+                });
     }
 
     @SuppressLint("CheckResult")
