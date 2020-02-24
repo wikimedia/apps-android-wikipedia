@@ -314,7 +314,7 @@
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">上传者未知</string>
   <string name="gallery_not_available_offline_snackbar">不能离线浏览相册</string>
-  <string name="gallery_not_available_offline_snackbar_dismiss">解除</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">关闭</string>
   <string name="menu_new_tab">新建标签页</string>
   <string name="menu_close_all_tabs">关闭所有标签</string>
   <string name="close_all_tabs_confirm">您确定您要关闭所有标签么？</string>

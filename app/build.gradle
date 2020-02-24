@@ -173,19 +173,18 @@ dependencies {
     implementation "androidx.palette:palette:1.0.0"
     implementation "androidx.preference:preference:1.1.0"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android:flexbox:2.0.1'
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
         exclude group: 'org.jetbrains'
     }
 
-    implementation 'com.duolingo.open:rtl-viewpager:1.0.3'
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"
     implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
 
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.romandanylyk:pageindicatorview:1.0.2'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
