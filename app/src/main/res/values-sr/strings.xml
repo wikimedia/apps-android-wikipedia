@@ -164,7 +164,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Детаљи</string>
   <string name="preferences_general_heading">Опште</string>
-  <string name="wikipedia_app_faq">ЧПП о апликацији Википедија</string>
+  <string name="wikipedia_app_faq">Честа питања о апликацији Википедија</string>
   <string name="send_feedback">Пошаљи повратне информације</string>
   <string name="create_account_account_created_toast">Налог је отворен.</string>
   <string name="preferences_heading_syncing">Синхронизација</string>

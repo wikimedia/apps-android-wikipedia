@@ -3,6 +3,7 @@
 * 1233qwer1234qwer4
 * Abijeet Patro
 * Chronist
+* Dbrant
 * Envlh
 * Hikemaniac
 * Hwboehm
@@ -714,7 +715,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Durch Bestätigen von vorgeschlagenen Tags können Sie die Suche nach Bildern vereinfachen.\n\nTags werden vom Computer vorgeschlagen, müssen jedoch von Menschen validiert werden, um die Genauigkeit sicherzustellen.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Nur die von Ihnen ausgewählten Tags werden zu den Bildern hinzugefügt.</string>
   <string name="suggested_edits_image_tags_snackbar">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen</string>
-  <string name="suggested_edits_image_tags_task_detail">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen. Tags werden vom Computer vorgeschlagen, müssen jedoch von Menschen validiert werden, um die Genauigkeit sicherzustellen.</string>
+  <string name="suggested_edits_image_tags_task_detail">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen. Um die Genauigkeit sicherzustellen, müssen Menschen die vom Computer vorgeschlagenen Tags validieren.</string>
   <string name="suggested_edits_image_tags_choose">Wählen Sie übereinstimmende Tags aus</string>
   <string name="suggested_edits_image_tags_select_title">Sie haben keine Tags für dieses Bild ausgewählt</string>
   <string name="suggested_edits_image_tags_select_text">Nur die von Ihnen ausgewählten Tags werden zu Bildern hinzugefügt. Nicht ausgewählte Tags werden als abgelehnt markiert. Möchten Sie wirklich alle Tags als abgelehnt markieren?</string>
