@@ -41,8 +41,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
-        suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
-        action = arguments!!.getSerializable(ARG_ACTION) as Action
+        suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, requireArguments().getString(ARG_SUMMARY))
+        action = requireArguments().getSerializable(ARG_ACTION) as Action
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         enableFullWidthDialog()
         return rootView
@@ -50,7 +50,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(view!!.parent as View).peekHeight = DimenUtil
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil
                 .roundedDpToPx(DimenUtil.getDimension(R.dimen.imagePreviewSheetPeekHeight))
     }
 
@@ -133,7 +133,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             view.titleTextView.text = titleString
             view.detailTextView.text = StringUtil.strip(StringUtil.fromHtml(detail))
             if (!externalLink.isNullOrEmpty()) {
-                view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
+                view.detailTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
                 view.detailTextView.setTextIsSelectable(false)
                 view.externalLinkView.visibility = VISIBLE
                 view.detailsContainer.setOnClickListener {
