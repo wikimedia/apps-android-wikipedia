@@ -96,7 +96,7 @@ public final class SavedPagesConversionUtil {
         dummyWebviewForConversion.addJavascriptInterface(new ConversionJavascriptInterface(dummyWebviewForConversion), "conversionClient");
 
         try {
-            String html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open("pcs-html-converter/index.html"));
+            String html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open("offline_convert/index.html"));
 
             dummyWebviewForConversion.loadDataWithBaseURL("", html, "text/html", "utf-8", "");
 
