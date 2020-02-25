@@ -135,8 +135,6 @@
                     android:id="@+id/tasksRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
                     android:background="?attr/paper_color" />
 
                 <!-- TODO: remove. -->

@@ -14,6 +14,7 @@
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="actionBarTheme">@style/ToolbarTheme</item>
         <item name="actionBarStyle">@style/ToolbarStyle</item>
+        <item name="popupTheme">@style/ToolbarPopupTheme</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
 
         <item name="searchViewStyle">@style/SearchViewStyle</item>
@@ -55,7 +56,7 @@
 
     <style name="AppTheme.ActionBar.SuggestedEdits">
         <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/SuggestedEditsStyle</item>
+        <item name="actionBarStyle">@style/SuggestedEditsToolbarStyle</item>
     </style>
 
     <style name="AppTheme.ActionBar.Page">
@@ -100,8 +101,6 @@
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
-        <item name="colorControlActivated">@color/base30</item>
-        <item name="colorControlHighlight">@color/base30</item>
     </style>
 
     <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
@@ -124,18 +123,17 @@
         <item name="titleTextStyle">@style/ToolBarTitleText</item>
     </style>
 
-    <style name="PageToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">?attr/page_toolbar_color</item>
-        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
-        <item name="elevation">4dp</item>
+    <style name="PageToolbarStyle" parent="ToolbarStyle">
         <item name="titleTextStyle">@style/PageToolbarTitleText</item>
     </style>
 
-    <style name="SuggestedEditsStyle" parent="@style/Widget.AppCompat.ActionBar">
+    <style name="SuggestedEditsToolbarStyle" parent="PageToolbarStyle">
         <item name="background">?attr/paper_color</item>
-        <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
-        <item name="titleTextStyle">@style/PageToolbarTitleText</item>
+    </style>
+
+    <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
+        <item name="android:backgroundTint">?android:colorBackground</item>
     </style>
 
     <style name="BottomNavigationTextAppearanceInactive">
@@ -166,8 +164,8 @@
     </style>
 
     <style name="PageActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
-        <item name="background">?attr/page_toolbar_color</item>
-        <item name="backgroundSplit">?attr/page_toolbar_color</item>
+        <item name="background">?attr/main_toolbar_color</item>
+        <item name="backgroundSplit">?attr/main_toolbar_color</item>
         <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/PageActionModeSubtitleStyle</item>
         <item name="android:elevation">4dp</item>

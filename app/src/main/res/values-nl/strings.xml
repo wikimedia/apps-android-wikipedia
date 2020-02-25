@@ -682,6 +682,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
   <string name="suggested_edits_task_multilingual_negative">Niet voor mij</string>
   <string name="suggested_edits_task_multilingual_positive">Talen toevoegen</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Bestand</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiest</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Bron</string>
@@ -712,6 +713,8 @@
   <string name="suggested_edits_task_action_text_add">Toevoegen</string>
   <string name="suggested_edits_task_action_text_translate">Vertalen</string>
   <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
   <string name="suggested_edits_quality_excellent_text">Uitstekend</string>
   <string name="suggested_edits_quality_very_good_text">Erg goed</string>

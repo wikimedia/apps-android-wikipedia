@@ -685,6 +685,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">تم الإغلاق حتى قمت بتحرير أوصاف %d مقالات (تم التحقق)</string>
   <string name="suggested_edits_task_multilingual_negative">ليس لي</string>
   <string name="suggested_edits_task_multilingual_positive">أضف لغات</string>
+  <string name="suggested_edits_image_caption_summary_title_file">الملف</string>
   <string name="suggested_edits_image_caption_summary_title_artist">الفنان</string>
   <string name="suggested_edits_image_caption_summary_title_author">المؤلف</string>
   <string name="suggested_edits_image_caption_summary_title_source">المصدر</string>

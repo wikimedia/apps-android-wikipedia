@@ -259,7 +259,7 @@
   <string name="error_unknown">Gặp lỗi lạ.</string>
   <string name="format_error_server_message">Thông báo: \"%s\"</string>
   <string name="address_copied">Đã chép địa chỉ vào bảng tạm.</string>
-  <string name="text_copied">Đã chép vào clipboard.</string>
+  <string name="text_copied">Đã chép văn bản vào khay nhớ tạm.</string>
   <string name="button_continue_to_article">Đọc bài</string>
   <string name="button_add_to_reading_list">Thêm vào danh sách đọc</string>
   <string name="page_offline_notice_cannot_load_while_offline">Không thể tải bài viết khi ngoại tuyến</string>

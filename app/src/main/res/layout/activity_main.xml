@@ -24,7 +24,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/main_toolbar_color"
             android:elevation="4dp"
-            android:theme="@style/ToolbarTheme"
             android:layout_marginStart="-12dp"
             app:titleTextColor="?attr/main_toolbar_title_color"
             app:titleMarginStart="28dp">

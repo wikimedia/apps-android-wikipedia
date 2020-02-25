@@ -18,8 +18,10 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -39,6 +41,14 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
+
+        viewArticleImage.setOnClickListener {
+            if (Prefs.shouldShowImageZoomTooltip()) {
+                Prefs.setShouldShowImageZoomTooltip(false)
+                FeedbackUtil.showMessage(requireActivity(), R.string.suggested_edits_image_zoom_tooltip)
+            }
+        }
+
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
             cardItemProgressBar.visibility = VISIBLE
@@ -97,7 +107,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { title ->
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(title)
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageInfo(title, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -137,7 +147,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
                             fileCaption = pair.first
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageExtMetadata(pair.second)
+                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageInfo(pair.second, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }

@@ -82,7 +82,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
-        tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, false))
+        tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false,
+                horizontalPadding = resources.getDimension(R.dimen.activity_horizontal_margin).toInt()))
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
@@ -143,7 +144,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
-        ResourceUtil.setMenuItemTint(context!!, menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
